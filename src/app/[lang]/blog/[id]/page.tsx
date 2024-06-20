@@ -29,7 +29,11 @@ export default async function SingleBlogPage({ params: { lang, id } }: { params:
 
   return (
     <main>
-      <PageContent content={prepareDataForClient[languageField]} global={prepareDataForClient.introBlog} />
+      <PageContent
+        content={prepareDataForClient[languageField]}
+        global={prepareDataForClient.introBlog}
+        gallery={prepareDataForClient.photoGallery.fotogalerija}
+      />
     </main>
   );
 }
