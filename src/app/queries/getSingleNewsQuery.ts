@@ -1,7 +1,7 @@
-export const getSingleBlogQuery = (id: string) => {
+export const getSingleNewsQuery = (id: string) => {
   return `query NewQuery {
-  blog(id: "${id}") {
-    introBlog {
+  novosti(id: "${id}") {
+    introNews {
       datum
       kategorija {
         edges {
@@ -142,39 +142,41 @@ export const getSingleBlogQuery = (id: string) => {
         }
       }
     }
-    fileAttachments {
-      dokumenti {
-        tal {
-          node {
-            mediaItemUrl
-            mediaType
-          }
-        }
-        hr {
-          node {
-            mediaItemUrl
-            mediaType
-          }
-        }
-        ger {
-          node {
-            mediaItemUrl
-            mediaType
-          }
-        }
-        eng {
-          node {
-            mediaItemUrl
-            mediaType
-          }
+    docsUploadEng {
+      eng {
+        node {
+          mediaItemUrl
+          mediaType
         }
       }
-      imeDokumenta {
-        eng
-        ger
-        hr
-        ita
+      nazivDokumentaEng
+    }
+    docsUploadGer {
+      ger {
+        node {
+          mediaItemUrl
+          mediaType
+        }
       }
+      nazivDokumentaGer
+    }
+    docsUploadHr {
+      hr {
+        node {
+          mediaItemUrl
+          mediaType
+        }
+      }
+      nazivDokumentaHr
+    }
+    docsUploadIta {
+      ita {
+        node {
+          mediaItemUrl
+          mediaType
+        }
+      }
+      nazivDokumentaIta
     }
     tagsHr {
       tagText

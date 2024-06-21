@@ -1,30 +1,31 @@
 'use client';
 
-import dayjs from 'dayjs';
 import Image from 'next/image';
 import React from 'react';
 import { blogLanguageFields } from '../pathsUtils/blogLanguageFields';
-import { useRouter } from 'next/navigation';
+import { UserLanguage } from '../enums/LangEnum';
 import slugify from 'slugify';
 import { slugifyOptions } from '../pathsUtils/slugifyOptions';
-import { UserLanguage } from '../enums/LangEnum';
+import dayjs from 'dayjs';
+import { useRouter } from 'next/navigation';
 
-interface BlogSection {
+interface NewsSectionInterface {
   pageContent: any;
   lang: any;
 }
 
-const BlogSection = ({ pageContent, lang }: BlogSection) => {
+const NewsSection = ({ pageContent, lang }: NewsSectionInterface) => {
+  console.log('KONTENT', pageContent);
   const router = useRouter();
 
   return (
     <section>
-      <h2 className='w-full text-center text-7xl font-semibold pt-8'>Blogovi</h2>
+      <h2 className='w-full text-center text-7xl font-semibold pt-8'>Novosti</h2>
 
       <div className='max-w-[1225px] mx-auto my-0 flex flex-wrap gap-4'>
         {pageContent.map((blogContent: any) => {
           const contentShorthand = blogContent.node;
-          const contentCardShorthand = contentShorthand.introBlog;
+          const contentCardShorthand = contentShorthand.introNews;
           const languageField = blogLanguageFields[lang];
 
           const las = `naslovSadrzaj${
@@ -42,7 +43,7 @@ const BlogSection = ({ pageContent, lang }: BlogSection) => {
               className=' grid grid-cols-1 p-4 items-start'
               onClick={() =>
                 router.push(
-                  `/${lang}/blog/${
+                  `/${lang}/news/${
                     slugify(`${contentShorthand[languageField]?.[las]}`, slugifyOptions) + `-${contentShorthand.id}`
                   }`
                 )
@@ -66,4 +67,4 @@ const BlogSection = ({ pageContent, lang }: BlogSection) => {
   );
 };
 
-export default BlogSection;
+export default NewsSection;

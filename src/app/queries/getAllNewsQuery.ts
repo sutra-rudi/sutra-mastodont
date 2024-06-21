@@ -1,5 +1,5 @@
-export const getAllBlogsQuery = `query NewQuery {
-  allBlog {
+export const getAllNewsQuery = `query NewQuery {
+  allNovosti {
     edges {
       node {
         id
@@ -108,7 +108,7 @@ export const getAllBlogsQuery = `query NewQuery {
           seoTagoviIta
           seoTekstIta
         }
-        introBlog {
+        introNews {
           datum
           istaknutoNaNaslovnici
           kategorija {
@@ -131,44 +131,46 @@ export const getAllBlogsQuery = `query NewQuery {
             }
           }
         }
-        fileAttachments {
-          dokumenti {
-            eng {
-              node {
-                mediaItemUrl
-                mediaType
-              }
-            }
-            ger {
-              node {
-                mediaItemUrl
-                mediaType
-              }
-            }
-            hr {
-              node {
-                mediaItemUrl
-                mediaType
-              }
-            }
-            tal {
-              node {
-                mediaItemUrl
-                mediaType
-              }
-            }
-          }
-          imeDokumenta {
-            eng
-            ger
-            hr
-            ita
-          }
-        }
         sadrzajHrFields {
           kratkiUvodniTekstSadrzajHr
           naslovSadrzajHr
           sadrzajSadrzajHr
+        }
+        docsUploadEng {
+          eng {
+            node {
+              mediaItemUrl
+              mediaType
+            }
+          }
+          nazivDokumentaEng
+        }
+        docsUploadGer {
+          ger {
+            node {
+              mediaItemUrl
+              mediaType
+            }
+          }
+          nazivDokumentaGer
+        }
+        docsUploadHr {
+          hr {
+            node {
+              mediaItemUrl
+              mediaType
+            }
+          }
+          nazivDokumentaHr
+        }
+        docsUploadIta {
+          ita {
+            node {
+              mediaItemUrl
+              mediaType
+            }
+          }
+          nazivDokumentaIta
         }
       }
     }
