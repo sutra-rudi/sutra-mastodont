@@ -131,44 +131,46 @@ export const getAllBlogsQuery = `query NewQuery {
             }
           }
         }
-        fileAttachments {
-          dokumenti {
-            eng {
-              node {
-                mediaItemUrl
-                mediaType
-              }
-            }
-            ger {
-              node {
-                mediaItemUrl
-                mediaType
-              }
-            }
-            hr {
-              node {
-                mediaItemUrl
-                mediaType
-              }
-            }
-            tal {
-              node {
-                mediaItemUrl
-                mediaType
-              }
-            }
-          }
-          imeDokumenta {
-            eng
-            ger
-            hr
-            ita
-          }
-        }
         sadrzajHrFields {
           kratkiUvodniTekstSadrzajHr
           naslovSadrzajHr
           sadrzajSadrzajHr
+        }
+        docsUploadHr {
+          hr {
+            node {
+              mediaType
+              mediaItemUrl
+            }
+          }
+          nazivDokumentaHr
+        }
+        docsUploadEng {
+          eng {
+            node {
+              mediaType
+              mediaItemUrl
+            }
+          }
+          nazivDokumentaEng
+        }
+        docsUploadGer {
+          ger {
+            node {
+              mediaType
+              mediaItemUrl
+            }
+          }
+          nazivDokumentaGer
+        }
+        docsUploadIta {
+          ita {
+            node {
+              mediaType
+              mediaItemUrl
+            }
+          }
+          nazivDokumentaIta
         }
       }
     }

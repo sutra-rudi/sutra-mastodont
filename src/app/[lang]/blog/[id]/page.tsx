@@ -27,13 +27,19 @@ export default async function SingleBlogPage({ params: { lang, id } }: { params:
 
   const languageField = blogLanguageFields[lang];
 
-  const documentsField = {
-    file: prepareDataForClient.fileAttachments.dokumenti[lang],
-    fileName: prepareDataForClient.fileAttachments.imeDokumenta[lang],
-  };
-
   const l = `${lang[0].toUpperCase() + lang.slice(1).toLowerCase()}`;
   const constructField = `tags` + l;
+
+  console.log('DATA', prepareDataForClient);
+
+  const constructDocumentString = () => {
+    return `docsUpload${l}`;
+  };
+
+  const documentsField = {
+    file: prepareDataForClient[constructDocumentString()][lang],
+    fileName: prepareDataForClient[constructDocumentString()][`nazivDokumenta${l}`],
+  };
 
   const tagsField = prepareDataForClient[constructField].tagText;
 

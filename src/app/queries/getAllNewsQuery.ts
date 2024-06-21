@@ -115,6 +115,10 @@ export const getAllNewsQuery = `query NewQuery {
             edges {
               node {
                 id
+                ... on Category {
+                  id
+                  name
+                }
               }
             }
           }

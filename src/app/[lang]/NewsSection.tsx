@@ -15,7 +15,6 @@ interface NewsSectionInterface {
 }
 
 const NewsSection = ({ pageContent, lang }: NewsSectionInterface) => {
-  console.log('KONTENT', pageContent);
   const router = useRouter();
 
   return (

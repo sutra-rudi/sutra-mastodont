@@ -7,6 +7,10 @@ export const getSingleBlogQuery = (id: string) => {
         edges {
           node {
             id
+              ... on Category {
+                  id
+                  name
+                }
           }
         }
       }
@@ -142,39 +146,41 @@ export const getSingleBlogQuery = (id: string) => {
         }
       }
     }
-    fileAttachments {
-      dokumenti {
-        tal {
-          node {
-            mediaItemUrl
-            mediaType
-          }
-        }
-        hr {
-          node {
-            mediaItemUrl
-            mediaType
-          }
-        }
-        ger {
-          node {
-            mediaItemUrl
-            mediaType
-          }
-        }
-        eng {
-          node {
-            mediaItemUrl
-            mediaType
-          }
+    docsUploadHr {
+      hr {
+        node {
+          mediaType
+          mediaItemUrl
         }
       }
-      imeDokumenta {
-        eng
-        ger
-        hr
-        ita
+      nazivDokumentaHr
+    }
+    docsUploadEng {
+      eng {
+        node {
+          mediaType
+          mediaItemUrl
+        }
       }
+      nazivDokumentaEng
+    }
+    docsUploadGer {
+      ger {
+        node {
+          mediaType
+          mediaItemUrl
+        }
+      }
+      nazivDokumentaGer
+    }
+    docsUploadIta {
+      ita {
+        node {
+          mediaType
+          mediaItemUrl
+        }
+      }
+      nazivDokumentaIta
     }
     tagsHr {
       tagText

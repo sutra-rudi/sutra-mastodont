@@ -7,6 +7,10 @@ export const getSingleNewsQuery = (id: string) => {
         edges {
           node {
             id
+             ... on Category {
+                  id
+                  name
+                }
           }
         }
       }

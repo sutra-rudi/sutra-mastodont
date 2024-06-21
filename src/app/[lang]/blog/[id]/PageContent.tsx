@@ -13,15 +13,12 @@ interface BlogPageContent {
   tags: any;
 }
 const PageContent = ({ content, global, gallery, files, tags }: BlogPageContent) => {
-  // console.log('SADRZAJ TAGOVI', tags);
   const prepareContent: any[] = Object.values(content);
   const prepareGallery = Object.values(gallery);
-
+  console.log('FAJLOVI', global);
   const prepareTags = tags.split(',').map((singleTag: string) => {
     return `#${singleTag.trim()}`;
   });
-
-  console.log('prepare', prepareTags);
 
   const downloadFile = (url: string, fileName: string) => {
     fetch(url, {
@@ -54,7 +51,7 @@ const PageContent = ({ content, global, gallery, files, tags }: BlogPageContent)
       </div>
 
       <h4 className='text-4xl font-bold'>{dayjs(global.datum).format('DD.MM.YYYY')}</h4>
-      <h4>Kategorija: {global.kategorija[0]}</h4>
+      <h4>Kategorija: {global.kategorija.edges[0].node.name}</h4>
       <h2 className='text-6xl font-bold'>{prepareContent[1]}</h2>
       <div className='mt-4 grid grid-cols-1 gap-2'>{parse(prepareContent[2])}</div>
 
