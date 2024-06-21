@@ -20,7 +20,7 @@ export const getSingleBlogQuery = (id: string) => {
     sadrzajHrFields {
       kratkiUvodniTekstSadrzajHr
       naslovSadrzajHr
-      sadrzaj
+      sadrzajSadrzajHr
     }
     sadrzajGerFields {
       kratkiUvodniTekstSadrzajGer
@@ -135,6 +135,52 @@ export const getSingleBlogQuery = (id: string) => {
           }
         }
       }
+    }
+    fileAttachments {
+      dokumenti {
+        tal {
+          node {
+            mediaItemUrl
+            mediaType
+          }
+        }
+        hr {
+          node {
+            mediaItemUrl
+            mediaType
+          }
+        }
+        ger {
+          node {
+            mediaItemUrl
+            mediaType
+          }
+        }
+        eng {
+          node {
+            mediaItemUrl
+            mediaType
+          }
+        }
+      }
+      imeDokumenta {
+        eng
+        ger
+        hr
+        ita
+      }
+    }
+    tagsHr {
+      tagText
+    }
+    tagsEng {
+      tagText
+    }
+    tagsIta {
+      tagText
+    }
+    tagsGer {
+      tagText
     }
   }
 }`;

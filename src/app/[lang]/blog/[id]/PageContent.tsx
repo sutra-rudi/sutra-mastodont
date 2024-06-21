@@ -4,16 +4,43 @@ import dayjs from 'dayjs';
 import Image from 'next/image';
 import React from 'react';
 import parse from 'html-react-parser';
+
 interface BlogPageContent {
   content: any;
   global: any;
   gallery: any;
+  files: any;
+  tags: any;
 }
-const PageContent = ({ content, global, gallery }: BlogPageContent) => {
+const PageContent = ({ content, global, gallery, files, tags }: BlogPageContent) => {
+  // console.log('SADRZAJ TAGOVI', tags);
   const prepareContent: any[] = Object.values(content);
   const prepareGallery = Object.values(gallery);
 
-  //   console.log('GALERIJA', Object.values(gallery));
+  const prepareTags = tags.split(',').map((singleTag: string) => {
+    return `#${singleTag.trim()}`;
+  });
+
+  console.log('prepare', prepareTags);
+
+  const downloadFile = (url: string, fileName: string) => {
+    fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/octet-stream',
+      },
+    })
+      .then((response) => response.blob())
+      .then((blob) => {
+        const link = document.createElement('a');
+        link.href = window.URL.createObjectURL(blob);
+        link.download = fileName;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      })
+      .catch((error) => console.error('Error while downloading file:', error));
+  };
 
   return (
     <article className='mx-auto my-0 max-w-[1024px] py-8'>
@@ -43,6 +70,19 @@ const PageContent = ({ content, global, gallery }: BlogPageContent) => {
               />
             </div>
           );
+        })}
+      </div>
+
+      <div className=''>
+        <h4>Dokumenti</h4>
+        <button onClick={() => downloadFile(files.file.node.mediaItemUrl, files.fileName)}>
+          Preuzmi {files.fileName}
+        </button>
+      </div>
+
+      <div className='flex gap-1'>
+        {prepareTags.map((singTag: string) => {
+          return <span key={singTag}>{singTag}</span>;
         })}
       </div>
     </article>

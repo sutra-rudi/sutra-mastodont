@@ -27,12 +27,24 @@ export default async function SingleBlogPage({ params: { lang, id } }: { params:
 
   const languageField = blogLanguageFields[lang];
 
+  const documentsField = {
+    file: prepareDataForClient.fileAttachments.dokumenti[lang],
+    fileName: prepareDataForClient.fileAttachments.imeDokumenta[lang],
+  };
+
+  const l = `${lang[0].toUpperCase() + lang.slice(1).toLowerCase()}`;
+  const constructField = `tags` + l;
+
+  const tagsField = prepareDataForClient[constructField].tagText;
+
   return (
     <main>
       <PageContent
         content={prepareDataForClient[languageField]}
         global={prepareDataForClient.introBlog}
         gallery={prepareDataForClient.photoGallery.fotogalerija}
+        files={documentsField}
+        tags={tagsField}
       />
     </main>
   );

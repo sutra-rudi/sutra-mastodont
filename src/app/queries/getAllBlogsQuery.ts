@@ -162,7 +162,7 @@ export const getAllBlogsQuery = `query NewQuery {
         sadrzajHrFields {
           kratkiUvodniTekstSadrzajHr
           naslovSadrzajHr
-          sadrzaj
+          sadrzajSadrzajHr
         }
       }
     }
