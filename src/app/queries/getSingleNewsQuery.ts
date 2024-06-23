@@ -90,7 +90,7 @@ export const getSingleNewsQuery = (id: string) => {
             srcSet
           }
         }
-        galSlika2 {
+        galSlika02 {
           node {
             sourceUrl
             srcSet

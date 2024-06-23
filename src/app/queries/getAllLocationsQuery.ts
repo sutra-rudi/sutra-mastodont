@@ -12,7 +12,13 @@ export const getAllLocationsQuery = `query NewQuery {
           kontaktTelefonLokacije
         }
         naslovnaSlika {
-          glavnaSlika {
+          glavnaSlikaNaslovnaSlika {
+            node {
+              sourceUrl
+              srcSet
+            }
+          }
+          sekundarnaGlavnaSlikaThumbnailHover {
             node {
               sourceUrl
               srcSet
@@ -27,7 +33,7 @@ export const getAllLocationsQuery = `query NewQuery {
                 srcSet
               }
             }
-            galSlika2 {
+            galSlika02 {
               node {
                 sourceUrl
                 srcSet

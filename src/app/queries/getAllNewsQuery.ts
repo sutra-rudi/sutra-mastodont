@@ -12,7 +12,7 @@ export const getAllNewsQuery = `query NewQuery {
                 srcSet
               }
             }
-            galSlika2 {
+            galSlika02 {
               node {
                 altText
                 sourceUrl

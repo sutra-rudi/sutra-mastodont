@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import parse from 'html-react-parser';
 import Image from 'next/image';
@@ -10,6 +12,8 @@ interface LocationsSectionInterface {
 const LocationsSection = ({ pageContent, lang }: LocationsSectionInterface) => {
   const contentShorthand = pageContent.data.lokacije.edges;
 
+  console.log('KONTENT', pageContent);
+
   return (
     <section>
       <h2 className='w-full text-center text-7xl font-semibold pt-8'>Lokacije</h2>
@@ -17,6 +21,10 @@ const LocationsSection = ({ pageContent, lang }: LocationsSectionInterface) => {
       <div className='max-w-[1225px] mx-auto my-8 '>
         {contentShorthand.map((cont: any) => {
           const contShorthand = cont.node.radnaVremenaLokacijaOsnovneInformacije;
+
+          const imageSourceNaslovnaSlika = cont.node.naslovnaSlika.glavnaSlikaNaslovnaSlika
+            ? cont.node.naslovnaSlika.glavnaSlikaNaslovnaSlika
+            : 'https://placehold.co/400.png';
 
           return (
             <div className='flex justify-center place-items-center gap-8' key={cont.id}>
@@ -48,7 +56,7 @@ const LocationsSection = ({ pageContent, lang }: LocationsSectionInterface) => {
 
               <div className='relative w-[250px] h-[200px]'>
                 <Image
-                  src={cont.node.naslovnaSlika.glavnaSlika.node.sourceUrl}
+                  src={imageSourceNaslovnaSlika}
                   alt='company logo'
                   fill
                   className='object-contain object-center block'
