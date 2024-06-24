@@ -10,6 +10,7 @@ const BrojcaniciSection = ({ pageContent, lang }: BrojcaniciSectionInterface) =>
   const l = `${lang[0].toUpperCase() + lang.slice(1).toLowerCase()}`;
 
   const constructKey = `tekstBox${l}`;
+
   return (
     <section>
       <h2 className='w-full text-center text-7xl font-semibold pt-8'>Brojcanici</h2>
