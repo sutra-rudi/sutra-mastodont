@@ -22,7 +22,7 @@ const BlogSection = ({ pageContent, lang }: BlogSection) => {
       <h2 className='w-full text-center text-7xl font-semibold pt-8'>Blogovi</h2>
 
       <div className='max-w-[1225px] mx-auto my-0 flex flex-wrap gap-4'>
-        {pageContent.map((blogContent: any) => {
+        {pageContent.map((blogContent: any, index: number) => {
           const contentShorthand = blogContent.node;
           const contentCardShorthand = contentShorthand.introBlog;
           const languageField = blogLanguageFields[lang];
@@ -38,7 +38,7 @@ const BlogSection = ({ pageContent, lang }: BlogSection) => {
             : 'https://placehold.co/400.png';
           return (
             <article
-              key={contentShorthand.id}
+              key={index}
               className=' grid grid-cols-1 p-4 items-start'
               onClick={() =>
                 router.push(

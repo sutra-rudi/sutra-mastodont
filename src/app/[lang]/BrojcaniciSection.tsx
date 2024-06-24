@@ -15,7 +15,7 @@ const BrojcaniciSection = ({ pageContent, lang }: BrojcaniciSectionInterface) =>
     <section>
       <h2 className='w-full text-center text-7xl font-semibold pt-8'>Brojcanici</h2>
 
-      <div className='max-w-[1225px] mx-auto my-0'>
+      <div className='max-w-[1225px] mx-auto my-8'>
         <div className='flex items-center gap-4 justify-center'>
           {pageContent.map((brojcanik: any) => {
             const shortHand = brojcanik.node;

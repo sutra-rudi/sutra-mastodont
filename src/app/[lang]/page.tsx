@@ -7,6 +7,10 @@ import LocationsSection from './LocationsSection';
 import { getAllLocationsQuery } from '../queries/getAllLocationsQuery';
 import BrojcaniciSection from './BrojcaniciSection';
 import { getAllBrojcaniciQuery } from '../queries/getAllBrojcaniciQuery';
+import SingleFaqSection from './SingleFaqSection';
+import { getAllFaqSinglesQuery } from '../queries/getAllFaqSingles';
+import { getAllFaqOnePagerQuery } from '../queries/getAllFaqOnePagerQuery';
+import OnePageFaqSection from './OnePageFaqSection';
 
 export default async function Landing({ params: { lang } }: { params: { lang: string } }) {
   const getAllblogs = await fetch(`${process.env.CMS_BASE_URL}`, {
@@ -61,10 +65,38 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
   const parseDataBrojcanici = await getAllBrojcanici.json();
 
+  const getAllFaqSingle = await fetch(`${process.env.CMS_BASE_URL}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      query: getAllFaqSinglesQuery(lang),
+    }),
+    cache: 'no-cache',
+  });
+
+  const parseDataFaqSingle = await getAllFaqSingle.json();
+
+  const getAllFaqOnePager = await fetch(`${process.env.CMS_BASE_URL}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      query: getAllFaqOnePagerQuery(lang),
+    }),
+    cache: 'no-cache',
+  });
+
+  const parseDataFaqOnePager = await getAllFaqOnePager.json();
+
   ///
   const dataArrayShorthand = parseData.data.allBlog.edges;
   const newsDataArrayShorthand = parseDataNews.data.allNovosti.edges;
   const brojcaniciDataArrayShorthand = parseDataBrojcanici.data.allBrojcanici.edges;
+  const faqSingleDataArrayShorthand = parseDataFaqSingle.data.allFAQPojedinacno.edges;
+  const faqOnePagerDataArrayShorthand = parseDataFaqOnePager.data.allfaqOnePager.edges;
 
   return (
     <Suspense>
@@ -73,6 +105,8 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
         <NewsSection pageContent={newsDataArrayShorthand} lang={lang} />
         <LocationsSection pageContent={parseDataLocations} lang={lang} />
         <BrojcaniciSection pageContent={brojcaniciDataArrayShorthand} lang={lang} />
+        <SingleFaqSection pageContent={faqSingleDataArrayShorthand} lang={lang} />
+        <OnePageFaqSection pageContent={faqOnePagerDataArrayShorthand} lang={lang} />
       </main>
     </Suspense>
   );
