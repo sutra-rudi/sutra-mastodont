@@ -16,39 +16,37 @@ export default async function SingleBlogPage({ params: { lang, id } }: { params:
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      query: getSingleBlogQuery(slugId),
+      query: getSingleBlogQuery(slugId, lang),
     }),
     cache: 'no-cache',
   });
 
   const parseData = await getSingleBlog.json();
 
-  const prepareDataForClient = parseData.data.blog;
+  const prepareDataForClient = parseData.data;
 
   const languageField = blogLanguageFields[lang];
 
   const l = `${lang[0].toUpperCase() + lang.slice(1).toLowerCase()}`;
-  const constructField = `tags` + l;
-
-  console.log('DATA', prepareDataForClient);
+  const constructFieldTags = `tags` + l;
 
   const constructDocumentString = () => {
     return `docsUpload${l}`;
   };
 
   const documentsField = {
-    file: prepareDataForClient[constructDocumentString()][lang],
-    fileName: prepareDataForClient[constructDocumentString()][`nazivDokumenta${l}`],
+    file: prepareDataForClient.blog[constructDocumentString()][lang],
+    fileName: prepareDataForClient.blog[constructDocumentString()][`nazivDokumenta${l}`],
   };
 
-  const tagsField = prepareDataForClient[constructField].tagText;
+  const tagsField = prepareDataForClient.blog[constructFieldTags][`tagText${l}`];
 
   return (
     <main>
       <PageContent
-        content={prepareDataForClient[languageField]}
-        global={prepareDataForClient.introBlog}
-        gallery={prepareDataForClient.photoGallery.fotogalerija}
+        content={prepareDataForClient.blog[languageField]}
+        global={prepareDataForClient.blog.introBlog}
+        gallery={prepareDataForClient.blog.photoGallery.fotogalerija}
         files={documentsField}
         tags={tagsField}
       />

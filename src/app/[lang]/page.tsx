@@ -15,7 +15,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      query: getAllBlogsQuery,
+      query: getAllBlogsQuery(lang),
     }),
     cache: 'no-cache',
   });
@@ -28,7 +28,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      query: getAllNewsQuery,
+      query: getAllNewsQuery(lang),
     }),
     cache: 'no-cache',
   });
@@ -59,12 +59,12 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
     cache: 'no-cache',
   });
 
-  const parseDataBrojcanici = await getAllBrojcanici.json();
+  // const parseDataBrojcanici = await getAllBrojcanici.json();
 
   ///
   const dataArrayShorthand = parseData.data.allBlog.edges;
   const newsDataArrayShorthand = parseDataNews.data.allNovosti.edges;
-  const brojcaniciDataArrayShorthand = parseDataBrojcanici.data.allBrojcanici.edges;
+  // const brojcaniciDataArrayShorthand = parseDataBrojcanici.data.allBrojcanici.edges;
 
   return (
     <Suspense>
@@ -72,7 +72,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
         <BlogSection pageContent={dataArrayShorthand} lang={lang} />
         <NewsSection pageContent={newsDataArrayShorthand} lang={lang} />
         <LocationsSection pageContent={parseDataLocations} lang={lang} />
-        <BrojcaniciSection pageContent={brojcaniciDataArrayShorthand} lang={lang} />
+        {/* <BrojcaniciSection pageContent={brojcaniciDataArrayShorthand} lang={lang} /> */}
       </main>
     </Suspense>
   );

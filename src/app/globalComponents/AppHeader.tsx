@@ -35,7 +35,7 @@ const AppHeader = () => {
 
     constructNewPath = pathName;
 
-    console.log('path', constructNewPath);
+    // console.log('path', constructNewPath);
   };
 
   return (

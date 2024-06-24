@@ -1,182 +1,198 @@
-export const getAllNewsQuery = `query NewQuery {
-  allNovosti {
-    edges {
-      node {
-        id
-        photoGallery {
-          fotogalerija {
-            galSlika01 {
-              node {
-                altText
-                sourceUrl
-                srcSet
-              }
-            }
-            galSlika02 {
-              node {
-                altText
-                sourceUrl
-                srcSet
-              }
-            }
-            galSlika03 {
-              node {
-                altText
-                sourceUrl
-                srcSet
-              }
-            }
-            galSlika04 {
-              node {
-                altText
-                sourceUrl
-                srcSet
-              }
-            }
-            galSlika05 {
-              node {
-                altText
-                sourceUrl
-                srcSet
-              }
-            }
-            galSlika06 {
-              node {
-                altText
-                sourceUrl
-                srcSet
-              }
-            }
-            galSlika07 {
-              node {
-                altText
-                sourceUrl
-                srcSet
-              }
-            }
-            galSlika08 {
-              node {
-                altText
-                sourceUrl
-                srcSet
-              }
-            }
-            galSlika09 {
-              node {
-                altText
-                sourceUrl
-                srcSet
-              }
-            }
-            galSlika10 {
-              node {
-                altText
-                sourceUrl
-                srcSet
-              }
-            }
+export const getAllNewsQuery = (lang: string) => {
+  const languageFieldsMap: Record<string, string> = {
+    hr: `
+      sadrzajHrFields {
+        kratkiUvodniTekstSadrzajHr
+        naslovSadrzajHr
+        sadrzajSadrzajHr
+      }
+      seoHr {
+        seoTagoviHr
+        seoTekstHr
+      }
+      docsUploadHr {
+        hr {
+          node {
+            mediaItemUrl
+            mediaType
           }
         }
-        sadrzajEngFields {
-          kratkiUvodniTekstSadrzajEng
-          naslovSadrzajSadrzajEng
-          sadrzajSadrzajEng
+        nazivDokumentaHr
+      }
+    `,
+    eng: `
+      sadrzajEngFields {
+        kratkiUvodniTekstSadrzajEng
+        naslovSadrzajSadrzajEng
+        sadrzajSadrzajEng
+      }
+      seoEng {
+        seoTagoviEng
+        seoTekstEng
+      }
+      docsUploadEng {
+        eng {
+          node {
+            mediaItemUrl
+            mediaType
+          }
         }
-        sadrzajGerFields {
-          kratkiUvodniTekstSadrzajGer
-          naslovSadrzajGer
-          sadrzajSadrzajGer
+        nazivDokumentaEng
+      }
+    `,
+    ger: `
+      sadrzajGerFields {
+        kratkiUvodniTekstSadrzajGer
+        naslovSadrzajGer
+        sadrzajSadrzajGer
+      }
+      seoGer {
+        seoTagoviGer
+        seoTekstGer
+      }
+      docsUploadGer {
+        ger {
+          node {
+            mediaItemUrl
+            mediaType
+          }
         }
-        sadrzajItaFields {
-          kratkiUvodniTekstSadrzajIta
-          naslovSadrzajIta
-          sadrzajSadrzajIta
+        nazivDokumentaGer
+      }
+    `,
+    ita: `
+      sadrzajItaFields {
+        kratkiUvodniTekstSadrzajIta
+        naslovSadrzajIta
+        sadrzajSadrzajIta
+      }
+      seoIta {
+        seoTagoviIta
+        seoTekstIta
+      }
+      docsUploadIta {
+        ita {
+          node {
+            mediaItemUrl
+            mediaType
+          }
         }
-        seoEng {
-          seoTagoviEng
-          seoTekstEng
-        }
-        seoGer {
-          seoTagoviGer
-          seoTekstGer
-        }
-        seoHr {
-          seoTagoviHr
-          seoTekstHr
-        }
-        seoIta {
-          seoTagoviIta
-          seoTekstIta
-        }
-        introNews {
-          datum
-          istaknutoNaNaslovnici
-          kategorija {
-            edges {
-              node {
-                id
-                ... on Category {
-                  id
-                  name
+        nazivDokumentaIta
+      }
+    `,
+  };
+
+  return `
+    query NewQuery {
+      allNovosti {
+        edges {
+          node {
+            id
+            photoGallery {
+              fotogalerija {
+                galSlika01 {
+                  node {
+                    altText
+                    sourceUrl
+                    srcSet
+                  }
+                }
+                galSlika02 {
+                  node {
+                    altText
+                    sourceUrl
+                    srcSet
+                  }
+                }
+                galSlika03 {
+                  node {
+                    altText
+                    sourceUrl
+                    srcSet
+                  }
+                }
+                galSlika04 {
+                  node {
+                    altText
+                    sourceUrl
+                    srcSet
+                  }
+                }
+                galSlika05 {
+                  node {
+                    altText
+                    sourceUrl
+                    srcSet
+                  }
+                }
+                galSlika06 {
+                  node {
+                    altText
+                    sourceUrl
+                    srcSet
+                  }
+                }
+                galSlika07 {
+                  node {
+                    altText
+                    sourceUrl
+                    srcSet
+                  }
+                }
+                galSlika08 {
+                  node {
+                    altText
+                    sourceUrl
+                    srcSet
+                  }
+                }
+                galSlika09 {
+                  node {
+                    altText
+                    sourceUrl
+                    srcSet
+                  }
+                }
+                galSlika10 {
+                  node {
+                    altText
+                    sourceUrl
+                    srcSet
+                  }
+                }
+              }
+            }
+            ${languageFieldsMap[lang] || ''}
+            introNews {
+              datum
+              istaknutoNaNaslovnici
+              kategorija {
+                edges {
+                  node {
+                    id
+                    ... on Category {
+                      id
+                      name
+                    }
+                  }
+                }
+              }
+              naslovnaSlika {
+                node {
+                  sourceUrl
+                  srcSet
+                }
+              }
+              thumbnail {
+                node {
+                  srcSet
+                  sourceUrl
                 }
               }
             }
           }
-          naslovnaSlika {
-            node {
-              sourceUrl
-              srcSet
-            }
-          }
-          thumbnail {
-            node {
-              srcSet
-              sourceUrl
-            }
-          }
-        }
-        sadrzajHrFields {
-          kratkiUvodniTekstSadrzajHr
-          naslovSadrzajHr
-          sadrzajSadrzajHr
-        }
-        docsUploadEng {
-          eng {
-            node {
-              mediaItemUrl
-              mediaType
-            }
-          }
-          nazivDokumentaEng
-        }
-        docsUploadGer {
-          ger {
-            node {
-              mediaItemUrl
-              mediaType
-            }
-          }
-          nazivDokumentaGer
-        }
-        docsUploadHr {
-          hr {
-            node {
-              mediaItemUrl
-              mediaType
-            }
-          }
-          nazivDokumentaHr
-        }
-        docsUploadIta {
-          ita {
-            node {
-              mediaItemUrl
-              mediaType
-            }
-          }
-          nazivDokumentaIta
         }
       }
     }
-  }
-}`;
+  `;
+};

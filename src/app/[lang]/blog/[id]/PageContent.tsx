@@ -14,11 +14,14 @@ interface BlogPageContent {
 }
 const PageContent = ({ content, global, gallery, files, tags }: BlogPageContent) => {
   const prepareContent: any[] = Object.values(content);
+
   const prepareGallery = Object.values(gallery);
-  console.log('FAJLOVI', global);
-  const prepareTags = tags.split(',').map((singleTag: string) => {
-    return `#${singleTag.trim()}`;
-  });
+
+  const prepareTags =
+    tags &&
+    tags.split(',').map((singleTag: string) => {
+      return `#${singleTag.trim()}`;
+    });
 
   const downloadFile = (url: string, fileName: string) => {
     fetch(url, {
@@ -78,9 +81,10 @@ const PageContent = ({ content, global, gallery, files, tags }: BlogPageContent)
       </div>
 
       <div className='flex gap-1'>
-        {prepareTags.map((singTag: string) => {
-          return <span key={singTag}>{singTag}</span>;
-        })}
+        {prepareTags &&
+          prepareTags.map((singTag: string) => {
+            return <span key={singTag}>{singTag}</span>;
+          })}
       </div>
     </article>
   );

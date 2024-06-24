@@ -12,8 +12,6 @@ interface LocationsSectionInterface {
 const LocationsSection = ({ pageContent, lang }: LocationsSectionInterface) => {
   const contentShorthand = pageContent.data.lokacije.edges;
 
-  console.log('KONTENT', pageContent);
-
   return (
     <section>
       <h2 className='w-full text-center text-7xl font-semibold pt-8'>Lokacije</h2>
@@ -27,7 +25,7 @@ const LocationsSection = ({ pageContent, lang }: LocationsSectionInterface) => {
             : 'https://placehold.co/400.png';
 
           return (
-            <div className='flex justify-center place-items-center gap-8' key={cont.id}>
+            <div className='flex justify-center place-items-center gap-8' key={cont.node.id}>
               <div className='grid'>
                 <div className='flex '>
                   <h3>Adresa</h3>
