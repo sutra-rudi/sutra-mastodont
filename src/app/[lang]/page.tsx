@@ -11,6 +11,8 @@ import SingleFaqSection from './SingleFaqSection';
 import { getAllFaqSinglesQuery } from '../queries/getAllFaqSingles';
 import { getAllFaqOnePagerQuery } from '../queries/getAllFaqOnePagerQuery';
 import OnePageFaqSection from './OnePageFaqSection';
+import { getAllUslugeQuery } from '../queries/getAllUslugeQuery';
+import UslugeSection from './UslugeSection';
 
 export default async function Landing({ params: { lang } }: { params: { lang: string } }) {
   const getAllblogs = await fetch(`${process.env.CMS_BASE_URL}`, {
@@ -24,7 +26,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
     cache: 'no-cache',
   });
 
-  const parseData = await getAllblogs.json();
+  const parseDataBlog = await getAllblogs.json();
 
   const getAllNews = await fetch(`${process.env.CMS_BASE_URL}`, {
     method: 'POST',
@@ -91,22 +93,37 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
   const parseDataFaqOnePager = await getAllFaqOnePager.json();
 
+  const getAllUsluge = await fetch(`${process.env.CMS_BASE_URL}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      query: getAllUslugeQuery(lang),
+    }),
+    cache: 'no-cache',
+  });
+
+  const parseDataUsluge = await getAllUsluge.json();
+
   ///
-  const dataArrayShorthand = parseData.data.allBlog.edges;
+  const blogDataArrayShorthand = parseDataBlog.data.allBlog.edges;
   const newsDataArrayShorthand = parseDataNews.data.allNovosti.edges;
   const brojcaniciDataArrayShorthand = parseDataBrojcanici.data.allBrojcanici.edges;
   const faqSingleDataArrayShorthand = parseDataFaqSingle.data.allFAQPojedinacno.edges;
   const faqOnePagerDataArrayShorthand = parseDataFaqOnePager.data.allfaqOnePager.edges;
+  const uslugeDataArrayShorthand = parseDataUsluge.data.allUsluge.edges;
 
   return (
     <Suspense>
       <main>
-        <BlogSection pageContent={dataArrayShorthand} lang={lang} />
+        <BlogSection pageContent={blogDataArrayShorthand} lang={lang} />
         <NewsSection pageContent={newsDataArrayShorthand} lang={lang} />
         <LocationsSection pageContent={parseDataLocations} lang={lang} />
         <BrojcaniciSection pageContent={brojcaniciDataArrayShorthand} lang={lang} />
         <SingleFaqSection pageContent={faqSingleDataArrayShorthand} lang={lang} />
         <OnePageFaqSection pageContent={faqOnePagerDataArrayShorthand} lang={lang} />
+        <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />
       </main>
     </Suspense>
   );

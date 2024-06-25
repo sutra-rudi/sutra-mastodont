@@ -1,10 +1,11 @@
+'use client';
+
 import React from 'react';
 interface SingleFaqSectionInterface {
   pageContent: any;
   lang: any;
 }
 const SingleFaqSection = ({ pageContent, lang }: SingleFaqSectionInterface) => {
-  //   console.log('PAGE CONTENT', pageContent);
   const l = `${lang[0].toUpperCase() + lang.slice(1).toLowerCase()}`;
   return (
     <section>

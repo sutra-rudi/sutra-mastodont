@@ -7,7 +7,7 @@ export const getAllFaqSinglesQuery = (lang: string) => {
       }
     `,
     eng: `
-      faqPojedinacnoDodavanjeEn {
+      faqPojedinacnoDodavanjeEng {
         odgovorFaqEng
         pitanjeFaqEng
       }
