@@ -3,15 +3,16 @@
 import React from 'react';
 import { getSuffixFromLang } from '../langUtils/getSuffixFromLang';
 import Image from 'next/image';
-
+import { useRouter } from 'next/navigation';
+import slugify from 'slugify';
+import { slugifyOptions } from '../pathsUtils/slugifyOptions';
 interface UslugeSectionInterface {
   pageContent: any;
   lang: any;
 }
 
 const UslugeSection = ({ pageContent, lang }: UslugeSectionInterface) => {
-  console.log('PAGI CONTENT USLUGE', pageContent);
-
+  const router = useRouter();
   return (
     <section>
       <h2 className='w-full text-center text-7xl font-semibold pt-8'>Usluge</h2>
@@ -23,7 +24,7 @@ const UslugeSection = ({ pageContent, lang }: UslugeSectionInterface) => {
           const atributesShorthandObj =
             contentShorthand[`atributi${getSuffixFromLang(lang)}`]?.[`atributi${getSuffixFromLang(lang)}`];
 
-          const thumbImageShorthandObj = contentShorthand.modulBazeTekstovaUvod.slikaDva.node;
+          const thumbImageShorthandObj = contentShorthand.modulBazeTekstovaUvod.slika1.node;
 
           const titleShorthandObj =
             contentShorthand[`modulBazeTekstova2Kolumne${getSuffixFromLang(lang)}`]?.[
@@ -31,7 +32,17 @@ const UslugeSection = ({ pageContent, lang }: UslugeSectionInterface) => {
             ].naslovIPodnaslovDvaPolja;
 
           return (
-            <article key={contentShorthand.id} className='outline outline-1 outline-blue-300'>
+            <article
+              onClick={() =>
+                router.push(
+                  `/${lang}/services-offers/${
+                    slugify(`${titleShorthandObj.naslovBazaTekstova}`, slugifyOptions) + `-${contentShorthand.id}`
+                  }`
+                )
+              }
+              key={contentShorthand.id}
+              className='outline outline-1 outline-blue-300'
+            >
               <div className='relative w-full h-32'>
                 <Image
                   src={thumbImageShorthandObj.sourceUrl}
