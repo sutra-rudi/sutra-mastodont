@@ -2,8 +2,6 @@ export const getAllONamaQuery = (lang: string) => {
   const languageFieldsMap: Record<string, string> = {
     hr: `
       oNamaSadrzajHr {
-        pasus2TekstHr
-        pasus3TekstHr
         pasus1GrupaTekstovaHr {
           oNamaNadnaslovPodnaslov1
           oNamaNaslov1Pasus
@@ -29,8 +27,8 @@ export const getAllONamaQuery = (lang: string) => {
         }
       }
       seoHr {
-        seoTekstHr
         seoTagoviHr
+        seoTekstHr
         ogImageHr {
           node {
             sourceUrl
@@ -41,8 +39,6 @@ export const getAllONamaQuery = (lang: string) => {
     `,
     eng: `
       oNamaSadrzajEng {
-        pasus2TekstEng
-        pasus3TekstEng
         pasus1GrupaTekstovaEng {
           oNamaNadnaslovPodnaslov1
           oNamaNaslov1Pasus
@@ -80,8 +76,6 @@ export const getAllONamaQuery = (lang: string) => {
     `,
     ger: `
       oNamaSadrzajGer {
-        pasus2TekstGer
-        pasus3TekstGer
         pasus1GrupaTekstovaGer {
           oNamaNadnaslovPodnaslov1
           oNamaNaslov1Pasus
@@ -119,30 +113,28 @@ export const getAllONamaQuery = (lang: string) => {
     `,
     ita: `
       oNamaSadrzajIta {
-        pasus2TekstIta
-        pasus3TekstIta
-        tekstoviPodstraniceONamaIta {
-          oNamaHeroSekcijaTekstIspodNaslova
-          oNamaNaslovHeroSekcija
-        }
-        skraceneVerzijeTekstaTekstaONamaIta {
-          oNamaOpisTvrtkeUJednojReceniciMax200Znakova
-          oNamaSkraceniTekstZaNaslovnicuIliFooter
-        }
-        pasus3GrupaTekstovaIta {
-          oNamaNadnaslovPodnaslov3
-          oNamaSadrzaj3
-          oNamaSnaslov2
+        pasus1GrupaTekstovaIta {
+          oNamaNadnaslovPodnaslov1
+          oNamaNaslov1PasusIta
+          sadrzaj1
         }
         pasus2GrupaTekstovaIta {
           oNamaNadnaslovPodnaslov2
           oNamaNaslov2Pasus
           oNamaSadrzaj2
         }
-        pasus1GrupaTekstovaIta {
-          oNamaNadnaslovPodnaslov1
-          oNamaNaslov1PasusIta
-          sadrzaj1
+        pasus3GrupaTekstovaIta {
+          oNamaNadnaslovPodnaslov3
+          oNamaSadrzaj3
+          oNamaSnaslov2
+        }
+        skraceneVerzijeTekstaTekstaONamaIta {
+          oNamaOpisTvrtkeUJednojReceniciMax200Znakova
+          oNamaSkraceniTekstZaNaslovnicuIliFooter
+        }
+        tekstoviPodstraniceONamaIta {
+          oNamaHeroSekcijaTekstIspodNaslova
+          oNamaNaslovHeroSekcija
         }
       }
       seoIta {
@@ -158,80 +150,54 @@ export const getAllONamaQuery = (lang: string) => {
     `,
   };
 
+  const globalFields = `
+    naslovnaSlika {
+      glavnaSlikaNaslovnaSlika {
+        node {
+          sourceUrl
+          srcSet
+        }
+      }
+      sekundarnaGlavnaSlikaThumbnailHover {
+        node {
+          sourceUrl
+          srcSet
+        }
+      }
+    }
+    photoGallery {
+      fotogalerija {
+        ${generatePhotoGalleryFields()}
+      }
+    }
+  `;
+
   return `
     query NewQuery {
       allONama {
         edges {
           node {
             id
+            ${globalFields}
             ${languageFieldsMap[lang] || ''}
-            photoGallery {
-              fotogalerija {
-                galSlika01 {
-                  node {
-                    srcSet
-                    sourceUrl
-                  }
-                }
-                galSlika02 {
-                  node {
-                    srcSet
-                    sourceUrl
-                  }
-                }
-                galSlika03 {
-                  node {
-                    srcSet
-                    sourceUrl
-                  }
-                }
-                galSlika04 {
-                  node {
-                    srcSet
-                    sourceUrl
-                  }
-                }
-                galSlika05 {
-                  node {
-                    srcSet
-                    sourceUrl
-                  }
-                }
-                galSlika06 {
-                  node {
-                    srcSet
-                    sourceUrl
-                  }
-                }
-                galSlika07 {
-                  node {
-                    srcSet
-                    sourceUrl
-                  }
-                }
-                galSlika08 {
-                  node {
-                    srcSet
-                    sourceUrl
-                  }
-                }
-                galSlika09 {
-                  node {
-                    srcSet
-                    sourceUrl
-                  }
-                }
-                galSlika10 {
-                  node {
-                    srcSet
-                    sourceUrl
-                  }
-                }
-              }
-            }
           }
         }
       }
     }
   `;
 };
+
+function generatePhotoGalleryFields() {
+  let fields = '';
+  for (let i = 1; i <= 10; i++) {
+    fields += `
+      galSlika${String(i).padStart(2, '0')} {
+        node {
+          sourceUrl
+          srcSet
+        }
+      }
+    `;
+  }
+  return fields;
+}
