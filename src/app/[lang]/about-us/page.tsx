@@ -1,4 +1,6 @@
 import { getAllONamaQuery } from '@/app/queries/getAllONamaQuery';
+import PageContent from './PageContent';
+import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 
 export default async function AboutUsPage({ params: { lang } }: { params: { lang: string } }) {
   const getAboutUs = await fetch(`${process.env.CMS_BASE_URL}`, {
@@ -14,9 +16,31 @@ export default async function AboutUsPage({ params: { lang } }: { params: { lang
 
   const parseData = await getAboutUs.json();
 
-  console.log('PARSE', parseData);
+  const prepareDataForClient = parseData.data.allONama.edges[0].node;
 
-  console.log('CIAO');
+  const l = getSuffixFromLang(lang);
 
-  return <main>CIAO ABOUT</main>;
+  const pageContent = {
+    title: prepareDataForClient[`oNamaSadrzaj${l}`]?.[`tekstoviPodstraniceONama${l}`],
+    textualContent: {
+      ...prepareDataForClient[`oNamaSadrzaj${l}`]?.[`pasus1GrupaTekstova${l}`],
+      ...prepareDataForClient[`oNamaSadrzaj${l}`]?.[`pasus2GrupaTekstova${l}`],
+      ...prepareDataForClient[`oNamaSadrzaj${l}`]?.[`pasus3GrupaTekstova${l}`],
+    },
+    photoGallery: Object.values(prepareDataForClient.photoGallery.fotogalerija),
+    heroImage: prepareDataForClient.naslovnaSlika,
+  };
+
+  console.log('pageContent', prepareDataForClient);
+
+  return (
+    <main>
+      <PageContent
+        content={pageContent.textualContent}
+        title={pageContent.title}
+        gallery={pageContent.photoGallery}
+        hero={pageContent.heroImage}
+      />
+    </main>
+  );
 }

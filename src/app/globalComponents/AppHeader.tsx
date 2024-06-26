@@ -28,6 +28,10 @@ const AppHeader = () => {
       url: `/${currentLang}/news`,
       title: 'News',
     },
+    {
+      url: `/${currentLang}/about-us`,
+      title: 'About',
+    },
   ];
 
   const handleLangSwitch = (pathName: string) => {
