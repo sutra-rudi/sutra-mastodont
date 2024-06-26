@@ -13,6 +13,9 @@ interface ServicesOffersInterface {
 }
 
 const PageContent = ({ textContent, introImages, gallery, tags, attributes }: ServicesOffersInterface) => {
+  // console.log('ATT', Object.values(attributes));
+
+  const prepAttr = Object.values(attributes);
   return (
     <article className='mx-auto my-0 max-w-[1024px] py-8'>
       <div className=''>
@@ -42,11 +45,15 @@ const PageContent = ({ textContent, introImages, gallery, tags, attributes }: Se
       <div className=''>
         <h3>Attributes</h3>
 
-        <div className=''>
-          <p>Name: {attributes.nazivAtributa ?? 'No name'}</p>
-          <p>Value1: {attributes.vrijednostAtributa1 ?? 'No value'}</p>
-          <p>Value2: {attributes.vrijednostAtributa2 ?? 'No value'}</p>
-          <p>Value3: {attributes.vrijednostAtributa3 ?? 'No value'}</p>
+        <div className='grid grid-cols-1 items-start gap-1'>
+          {prepAttr.map((attr: any, index: number) => {
+            return (
+              <div key={index} className='flex items-center gap-2'>
+                <p>{`${attr.nazivAttributa ?? 'No name'}:`}</p>
+                <p>{`${attr.vrijednostAtributa ?? 'No value'}`}</p>
+              </div>
+            );
+          })}
         </div>
       </div>
 

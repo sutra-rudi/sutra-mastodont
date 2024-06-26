@@ -44,7 +44,7 @@ export default async function SingleServiceOfferPage({
   const prepareTags = prepareDataForClient[`tags${getSuffixFromLang(lang)}`]?.[`tagText${getSuffixFromLang(lang)}`];
 
   const prepareAttributes =
-    prepareDataForClient[`atributi${getSuffixFromLang(lang)}`]?.[`atributi${getSuffixFromLang(lang)}`];
+    prepareDataForClient[`skupinaAtributa${getSuffixFromLang(lang)}`]?.[`atributiSkupina${getSuffixFromLang(lang)}`];
 
   return (
     <main>

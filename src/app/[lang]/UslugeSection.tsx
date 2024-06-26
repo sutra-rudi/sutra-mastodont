@@ -13,6 +13,8 @@ interface UslugeSectionInterface {
 
 const UslugeSection = ({ pageContent, lang }: UslugeSectionInterface) => {
   const router = useRouter();
+
+  console.log('PAGI CONTENT', pageContent);
   return (
     <section>
       <h2 className='w-full text-center text-7xl font-semibold pt-8'>Usluge</h2>
@@ -20,9 +22,6 @@ const UslugeSection = ({ pageContent, lang }: UslugeSectionInterface) => {
       <div className='max-w-[1225px] mx-auto my-8 flex flex-wrap gap-4 place-items-center justify-center'>
         {pageContent.map((content: any) => {
           const contentShorthand = content.node;
-
-          const atributesShorthandObj =
-            contentShorthand[`atributi${getSuffixFromLang(lang)}`]?.[`atributi${getSuffixFromLang(lang)}`];
 
           const thumbImageShorthandObj = contentShorthand.modulBazeTekstovaUvod.slika1.node;
 
@@ -58,12 +57,12 @@ const UslugeSection = ({ pageContent, lang }: UslugeSectionInterface) => {
                 </p>
               </div>
 
-              <div className='grid grid-cols-1 items-start gap-1 py-2 px-4 '>
+              {/* <div className='grid grid-cols-1 items-start gap-1 py-2 px-4 '>
                 <p>Naziv atributa: {atributesShorthandObj.nazivAtributa ?? 'Nema unosa'}</p>
                 <p>atribut 1: {atributesShorthandObj.vrijednostAtributa1 ?? 'Nema unosa'}</p>
                 <p>atribut 2: {atributesShorthandObj.vrijednostAtributa2 ?? 'Nema unosa'}</p>
                 <p>atribut 3: {atributesShorthandObj.vrijednostAtributa3 ?? 'Nema unosa'}</p>
-              </div>
+              </div> */}
             </article>
           );
         })}

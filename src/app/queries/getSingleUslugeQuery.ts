@@ -1,13 +1,16 @@
 export const getSingleServicesOfferQuery = (id: string, lang: string) => {
   const languageFieldsMap: Record<string, string> = {
     hr: `
-      atributiHr {
-        atributiHr {
-          nazivAtributa
-          vrijednostAtributa1
-          vrijednostAtributa2
-          vrijednostAtributa3
+      skupinaAtributaHr {
+        atributiSkupinaHr {
+          ${generatePoljeAtributaFields()}
         }
+      }
+      statusAtivacijePoJezicima {
+        aktivatorHr
+      }
+      tagsHr {
+        tagTextHr
       }
       seoHr {
         seoTagoviHr
@@ -19,11 +22,12 @@ export const getSingleServicesOfferQuery = (id: string, lang: string) => {
           }
         }
       }
-      tagsHr {
-        tagTextHr
-      }
       modulBazeTekstova2KolumneHr {
         naslovNadnaslov2KolumneTekstaHr {
+          kolumneTeksta2 {
+            tekstBazaTekstova
+            tekstBazaTekstova2kolumna
+          }
           naslovIPodnaslovDvaPolja {
             nadnaslovPodnaslovBazaTekstova
             naslovBazaTekstova
@@ -32,17 +36,18 @@ export const getSingleServicesOfferQuery = (id: string, lang: string) => {
       }
     `,
     eng: `
-      atributiEng {
-        atributiEng {
-          nazivAtributa
-          vrijednostAtributa1
-          vrijednostAtributa2
-          vrijednostAtributa3
+      skupinaAtributaEng {
+        atributiSkupinaEng {
+          ${generatePoljeAtributaFields()}
         }
       }
+      statusAtivacijePoJezicima {
+        aktivatorEng
+      }
+      tagsEng {
+        tagTextEng
+      }
       seoEng {
-        seoTagoviEng
-        seoTekstEng
         ogImageEng {
           node {
             sourceUrl
@@ -50,11 +55,12 @@ export const getSingleServicesOfferQuery = (id: string, lang: string) => {
           }
         }
       }
-      tagsEng {
-        tagTextEng
-      }
       modulBazeTekstova2KolumneEng {
         naslovNadnaslov2KolumneTekstaEng {
+          kolumneTeksta2 {
+            tekstBazaTekstova
+            tekstBazaTekstova2kolumna
+          }
           naslovIPodnaslovDvaPolja {
             nadnaslovPodnaslovBazaTekstova
             naslovBazaTekstova
@@ -63,13 +69,16 @@ export const getSingleServicesOfferQuery = (id: string, lang: string) => {
       }
     `,
     ger: `
-      atributiGer {
-        atributiGer {
-          nazivAtributa
-          vrijednostAtributa1
-          vrijednostAtributa2
-          vrijednostAtributa3
+      skupinaAtributaGer {
+        atributiSkupinaGer {
+          ${generatePoljeAtributaFields()}
         }
+      }
+      statusAtivacijePoJezicima {
+        aktivatorGer
+      }
+      tagsGer {
+        tagTextGer
       }
       seoGer {
         seoTagoviGer
@@ -81,11 +90,12 @@ export const getSingleServicesOfferQuery = (id: string, lang: string) => {
           }
         }
       }
-      tagsGer {
-        tagTextGer
-      }
       modulBazeTekstova2KolumneGer {
         naslovNadnaslov2KolumneTekstaGer {
+          kolumneTeksta2 {
+            tekstBazaTekstova
+            tekstBazaTekstova2kolumna
+          }
           naslovIPodnaslovDvaPolja {
             nadnaslovPodnaslovBazaTekstova
             naslovBazaTekstova
@@ -94,13 +104,16 @@ export const getSingleServicesOfferQuery = (id: string, lang: string) => {
       }
     `,
     ita: `
-      atributiIta {
-        atributiIta {
-          nazivAtributa
-          vrijednostAtributa1
-          vrijednostAtributa2
-          vrijednostAtributa3
+      skupinaAtributaIta {
+        atributiSkupinaIta {
+          ${generatePoljeAtributaFields()}
         }
+      }
+      statusAtivacijePoJezicima {
+        aktivatorIta
+      }
+      tagsIta {
+        tagTextIta
       }
       seoIta {
         seoTagoviIta
@@ -112,11 +125,12 @@ export const getSingleServicesOfferQuery = (id: string, lang: string) => {
           }
         }
       }
-      tagsIta {
-        tagTextIta
-      }
       modulBazeTekstova2KolumneIta {
         naslovNadnaslov2KolumneTekstaIta {
+          kolumneTeksta2 {
+            tekstBazaTekstova
+            tekstBazaTekstova2kolumna
+          }
           naslovIPodnaslovDvaPolja {
             nadnaslovPodnaslovBazaTekstova
             naslovBazaTekstova
@@ -126,97 +140,64 @@ export const getSingleServicesOfferQuery = (id: string, lang: string) => {
     `,
   };
 
+  // Common fields for all languages
+  const commonFields = `
+    modulBazeTekstovaUvod {
+      slika1 {
+        node {
+          sourceUrl
+          srcSet
+        }
+      }
+      slika2 {
+        node {
+          sourceUrl
+          srcSet
+        }
+      }
+      statusPrikazaTekstaZaPodstranicu
+    }
+    photoGallery {
+    fotogalerija {
+        ${generatePhotoGalleryFields()}
+      }
+    }
+  `;
+
   return `
     query NewQuery {
       usluge(id: "${id}") {
-        id
         ${languageFieldsMap[lang] || ''}
-        modulBazeTekstovaUvod {
-          slika1 {
-            node {
-              sourceUrl
-              srcSet
-            }
-          }
-          slika2 {
-            node {
-              sourceUrl
-              srcSet
-            }
-          }
-          statusPrikazaTekstaZaPodstranicu
-        }
-        photoGallery {
-          fotogalerija {
-            galSlika01 {
-              node {
-                sourceUrl
-                srcSet
-              }
-            }
-            galSlika02 {
-              node {
-                sourceUrl
-                srcSet
-              }
-            }
-            galSlika03 {
-              node {
-                sourceUrl
-                srcSet
-              }
-            }
-            galSlika04 {
-              node {
-                sourceUrl
-                srcSet
-              }
-            }
-            galSlika05 {
-              node {
-                sourceUrl
-                srcSet
-              }
-            }
-            galSlika06 {
-              node {
-                sourceUrl
-                srcSet
-              }
-            }
-            galSlika07 {
-              node {
-                sourceUrl
-                srcSet
-              }
-            }
-            galSlika08 {
-              node {
-                sourceUrl
-                srcSet
-              }
-            }
-            galSlika09 {
-              node {
-                sourceUrl
-                srcSet
-              }
-            }
-            galSlika10 {
-              node {
-                sourceUrl
-                srcSet
-              }
-            }
-          }
-        }
-        statusAtivacijePoJezicima {
-          aktivatorEng
-          aktivatorGer
-          aktivatorHr
-          aktivatorIta
-        }
+        ${commonFields}
       }
     }
   `;
 };
+
+function generatePoljeAtributaFields() {
+  let fields = '';
+  for (let i = 1; i <= 20; i++) {
+    fields += `
+      poljeAtributa${String(i).padStart(2, '0')} {
+        nazivAtributa
+        vrijednostAtributa
+      }
+    `;
+  }
+  return fields;
+}
+
+function generatePhotoGalleryFields() {
+  let fields = '';
+  for (let i = 1; i <= 10; i++) {
+    fields += `
+      galSlika${String(i).padStart(2, '0')} {
+        node {
+          sourceUrl
+          srcSet
+        }
+      }
+    `;
+  }
+  return fields;
+}
