@@ -19,7 +19,7 @@ const PageContent = ({ content, global, gallery, files, tags }: BlogPageContent)
 
   const prepareTags =
     tags &&
-    tags.split(',').map((singleTag: string) => {
+    tags.split(', ').map((singleTag: string) => {
       return `#${singleTag.trim()}`;
     });
 
