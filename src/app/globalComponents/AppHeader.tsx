@@ -32,6 +32,10 @@ const AppHeader = () => {
       url: `/${currentLang}/about-us`,
       title: 'About',
     },
+    {
+      url: `/${currentLang}/sub-page-5`,
+      title: 'Baza tekstova 5 pasusa',
+    },
   ];
 
   const handleLangSwitch = (pathName: string) => {

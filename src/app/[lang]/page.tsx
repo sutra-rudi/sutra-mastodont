@@ -115,7 +115,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
   const uslugeDataArrayShorthand = parseDataUsluge.data.allUsluge.edges;
 
   return (
-    <Suspense>
+    <Suspense fallback={<h2>LOADING...</h2>}>
       <main>
         <BlogSection pageContent={blogDataArrayShorthand} lang={lang} />
         <NewsSection pageContent={newsDataArrayShorthand} lang={lang} />
