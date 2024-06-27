@@ -10,7 +10,7 @@ import { getAllBrojcaniciQuery } from '../queries/getAllBrojcaniciQuery';
 import SingleFaqSection from './SingleFaqSection';
 import { getAllFaqSinglesQuery } from '../queries/getAllFaqSingles';
 import { getAllFaqOnePagerQuery } from '../queries/getAllFaqOnePagerQuery';
-import OnePageFaqSection from './OnePageFaqSection';
+
 import { getAllUslugeQuery } from '../queries/getAllUslugeQuery';
 import UslugeSection from './UslugeSection';
 
@@ -80,19 +80,6 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
   const parseDataFaqSingle = await getAllFaqSingle.json();
 
-  const getAllFaqOnePager = await fetch(`${process.env.CMS_BASE_URL}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      query: getAllFaqOnePagerQuery(lang),
-    }),
-    cache: 'no-cache',
-  });
-
-  const parseDataFaqOnePager = await getAllFaqOnePager.json();
-
   const getAllUsluge = await fetch(`${process.env.CMS_BASE_URL}`, {
     method: 'POST',
     headers: {
@@ -111,7 +98,6 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
   const newsDataArrayShorthand = parseDataNews.data.allNovosti.edges;
   const brojcaniciDataArrayShorthand = parseDataBrojcanici.data.allBrojcanici.edges;
   const faqSingleDataArrayShorthand = parseDataFaqSingle.data.allFAQPojedinacno.edges;
-  const faqOnePagerDataArrayShorthand = parseDataFaqOnePager.data.allfaqOnePager.edges;
   const uslugeDataArrayShorthand = parseDataUsluge.data.allUsluge.edges;
 
   return (
@@ -122,7 +108,6 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
         <LocationsSection pageContent={parseDataLocations} />
         <BrojcaniciSection pageContent={brojcaniciDataArrayShorthand} lang={lang} />
         <SingleFaqSection pageContent={faqSingleDataArrayShorthand} lang={lang} />
-        <OnePageFaqSection pageContent={faqOnePagerDataArrayShorthand} lang={lang} />
         <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />
       </main>
     </Suspense>

@@ -4,10 +4,9 @@ interface OnePageFaqSectionInterface {
   lang: any;
 }
 import parse from 'html-react-parser';
-
-const OnePageFaqSection = ({ pageContent, lang }: OnePageFaqSectionInterface) => {
-  const l = `${lang[0].toUpperCase() + lang.slice(1).toLowerCase()}`;
-
+import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
+const PageContent = ({ pageContent, lang }: OnePageFaqSectionInterface) => {
+  const l = getSuffixFromLang(lang);
   return (
     <section>
       <h2 className='w-full text-center text-7xl font-semibold pt-8'>FAQ One pager</h2>
@@ -28,4 +27,4 @@ const OnePageFaqSection = ({ pageContent, lang }: OnePageFaqSectionInterface) =>
   );
 };
 
-export default OnePageFaqSection;
+export default PageContent;

@@ -37,6 +37,9 @@ const AppHeader = () => {
       url: `/${currentLang}/legal-info`,
       title: 'Legal info',
     },
+
+    { url: `/${currentLang}/faq`, title: 'FAQ' },
+
     {
       url: `/${currentLang}/sub-page-5`,
       title: 'Baza tekstova 5 pasusa',
