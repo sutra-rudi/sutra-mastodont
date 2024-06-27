@@ -1,4 +1,4 @@
-export const getAllLogotipiPartneraQuery = `query NewQuery {
+export const getAllLogotipiPartneraQuery = () => `query NewQuery {
   logotipiPartneraKlijenata {
     edges {
       node {
@@ -8,6 +8,7 @@ export const getAllLogotipiPartneraQuery = `query NewQuery {
             node {
               sourceUrl
               srcSet
+              sizes
             }
           }
           linkNaStranicuKlijentapartnera
