@@ -2,14 +2,12 @@
 
 import React from 'react';
 import parse from 'html-react-parser';
-import Image from 'next/image';
 
 interface LocationsSectionInterface {
   pageContent: any;
-  lang: any;
 }
 
-const LocationsSection = ({ pageContent, lang }: LocationsSectionInterface) => {
+const LocationsSection = ({ pageContent }: LocationsSectionInterface) => {
   const contentShorthand = pageContent.data.lokacije.edges;
 
   return (
@@ -53,12 +51,9 @@ const LocationsSection = ({ pageContent, lang }: LocationsSectionInterface) => {
               </div>
 
               <div className='relative w-[250px] h-[200px]'>
-                <Image
-                  src={imageSourceNaslovnaSlika}
-                  alt='company logo'
-                  fill
-                  className='object-contain object-center block'
-                />
+                <picture>
+                  <img src={imageSourceNaslovnaSlika.node.sourceUrl} alt='company logo' />
+                </picture>
               </div>
             </div>
           );

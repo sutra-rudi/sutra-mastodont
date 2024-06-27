@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import React from 'react';
 import parse from 'html-react-parser';
 
@@ -29,7 +28,9 @@ const BrojcaniciSection = ({ pageContent, lang }: BrojcaniciSectionInterface) =>
             return (
               <div className='grid grid-cols-1 gap-3' key={brojcanik.id}>
                 <div className='relative w-24 h-24'>
-                  <Image fill src={imgSource} alt='some company img' />
+                  <picture>
+                    <img src={imgSource} alt='some company img' />
+                  </picture>
                 </div>
                 <h2 className='text-red-400'>{shortHand.brojcanikCompanyInNumbersUvod.broj}</h2>
                 <h3 className=' max-w-[15ch]'>{parse(shortHand[constructKey]?.[constructKey] ?? 'no value')}</h3>

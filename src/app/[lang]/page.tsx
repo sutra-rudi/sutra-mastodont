@@ -119,7 +119,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       <main>
         <BlogSection pageContent={blogDataArrayShorthand} lang={lang} />
         <NewsSection pageContent={newsDataArrayShorthand} lang={lang} />
-        <LocationsSection pageContent={parseDataLocations} lang={lang} />
+        <LocationsSection pageContent={parseDataLocations} />
         <BrojcaniciSection pageContent={brojcaniciDataArrayShorthand} lang={lang} />
         <SingleFaqSection pageContent={faqSingleDataArrayShorthand} lang={lang} />
         <OnePageFaqSection pageContent={faqOnePagerDataArrayShorthand} lang={lang} />
