@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.scss';
 import AppHeader from './globalComponents/AppHeader';
 import AppFooter from './globalComponents/AppFooter';
-export const maxDuration = 300;
+
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {

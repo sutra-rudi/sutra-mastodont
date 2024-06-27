@@ -9,14 +9,14 @@ import BrojcaniciSection from './BrojcaniciSection';
 import { getAllBrojcaniciQuery } from '../queries/getAllBrojcaniciQuery';
 import SingleFaqSection from './SingleFaqSection';
 import { getAllFaqSinglesQuery } from '../queries/getAllFaqSingles';
-import { getAllFaqOnePagerQuery } from '../queries/getAllFaqOnePagerQuery';
-
 import { getAllUslugeQuery } from '../queries/getAllUslugeQuery';
 import UslugeSection from './UslugeSection';
 import PartnersSection from './PartnersSection';
 import { getAllLogotipiPartneraQuery } from '../queries/getAllLogotipiPartnera';
 import { getAllCarouselBaseQuery } from '../queries/getAllCarouselBase';
 import CarouselBase from './CarouselBase';
+
+export const maxDuration = 300;
 
 export default async function Landing({ params: { lang } }: { params: { lang: string } }) {
   const getAllblogs = await fetch(`${process.env.CMS_BASE_URL}`, {
