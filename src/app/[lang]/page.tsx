@@ -15,115 +15,123 @@ import PartnersSection from './PartnersSection';
 import { getAllLogotipiPartneraQuery } from '../queries/getAllLogotipiPartnera';
 import { getAllCarouselBaseQuery } from '../queries/getAllCarouselBase';
 import CarouselBase from './CarouselBase';
-
 export const maxDuration = 300;
 
 export default async function Landing({ params: { lang } }: { params: { lang: string } }) {
-  const getAllblogs = await fetch(`${process.env.CMS_BASE_URL}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      query: getAllBlogsQuery(lang),
+  const requests = [
+    fetch(`${process.env.CMS_BASE_URL}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        query: getAllBlogsQuery(lang),
+      }),
+      cache: 'no-cache',
     }),
-    cache: 'no-cache',
-  });
-
-  const parseDataBlog = await getAllblogs.json();
-
-  const getAllNews = await fetch(`${process.env.CMS_BASE_URL}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      query: getAllNewsQuery(lang),
+    fetch(`${process.env.CMS_BASE_URL}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        query: getAllNewsQuery(lang),
+      }),
+      cache: 'no-cache',
     }),
-    cache: 'no-cache',
-  });
-
-  const parseDataNews = await getAllNews.json();
-
-  const getAllLocations = await fetch(`${process.env.CMS_BASE_URL}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      query: getAllLocationsQuery,
+    fetch(`${process.env.CMS_BASE_URL}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        query: getAllLocationsQuery,
+      }),
+      cache: 'no-cache',
     }),
-    cache: 'no-cache',
-  });
-
-  const parseDataLocations = await getAllLocations.json();
-
-  const getAllBrojcanici = await fetch(`${process.env.CMS_BASE_URL}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      query: getAllBrojcaniciQuery(lang),
+    fetch(`${process.env.CMS_BASE_URL}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        query: getAllBrojcaniciQuery(lang),
+      }),
+      cache: 'no-cache',
     }),
-    cache: 'no-cache',
-  });
-
-  const parseDataBrojcanici = await getAllBrojcanici.json();
-
-  const getAllFaqSingle = await fetch(`${process.env.CMS_BASE_URL}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      query: getAllFaqSinglesQuery(lang),
+    fetch(`${process.env.CMS_BASE_URL}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        query: getAllFaqSinglesQuery(lang),
+      }),
+      cache: 'no-cache',
     }),
-    cache: 'no-cache',
-  });
-
-  const parseDataFaqSingle = await getAllFaqSingle.json();
-
-  const getAllUsluge = await fetch(`${process.env.CMS_BASE_URL}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      query: getAllUslugeQuery(lang),
+    fetch(`${process.env.CMS_BASE_URL}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        query: getAllUslugeQuery(lang),
+      }),
+      cache: 'no-cache',
     }),
-    cache: 'no-cache',
-  });
-
-  const parseDataUsluge = await getAllUsluge.json();
-
-  const getAllPartnersLogos = await fetch(`${process.env.CMS_BASE_URL}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      query: getAllLogotipiPartneraQuery(),
+    fetch(`${process.env.CMS_BASE_URL}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        query: getAllLogotipiPartneraQuery(),
+      }),
+      cache: 'no-cache',
     }),
-    cache: 'no-cache',
-  });
-
-  const parseDataPartnersLogos = await getAllPartnersLogos.json();
-
-  const getAllCarouselBase = await fetch(`${process.env.CMS_BASE_URL}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      query: getAllCarouselBaseQuery(),
+    fetch(`${process.env.CMS_BASE_URL}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        query: getAllCarouselBaseQuery(),
+      }),
+      cache: 'no-cache',
     }),
-    cache: 'no-cache',
-  });
+  ];
 
-  const parseDataCarouselQuery = await getAllCarouselBase.json();
+  const [
+    getAllblogs,
+    getAllNews,
+    getAllLocations,
+    getAllBrojcanici,
+    getAllFaqSingle,
+    getAllUsluge,
+    getAllPartnersLogos,
+    getAllCarouselBase,
+  ] = await Promise.all(requests);
 
-  ///
+  const [
+    parseDataBlog,
+    parseDataNews,
+    parseDataLocations,
+    parseDataBrojcanici,
+    parseDataFaqSingle,
+    parseDataUsluge,
+    parseDataPartnersLogos,
+    parseDataCarouselQuery,
+  ] = await Promise.all([
+    getAllblogs.json(),
+    getAllNews.json(),
+    getAllLocations.json(),
+    getAllBrojcanici.json(),
+    getAllFaqSingle.json(),
+    getAllUsluge.json(),
+    getAllPartnersLogos.json(),
+    getAllCarouselBase.json(),
+  ]);
+
   const blogDataArrayShorthand = parseDataBlog.data.allBlog.edges;
   const newsDataArrayShorthand = parseDataNews.data.allNovosti.edges;
   const brojcaniciDataArrayShorthand = parseDataBrojcanici.data.allBrojcanici.edges;
