@@ -9,6 +9,8 @@ export const getAllCarouselBaseQuery = () => `query NewQuery {
               sourceUrl
               srcSet
               altText
+              description
+              date
             }
           }
           galSlika02 {
@@ -16,6 +18,8 @@ export const getAllCarouselBaseQuery = () => `query NewQuery {
               sourceUrl
               srcSet
               altText
+              description
+              date
             }
           }
           galSlika03 {
@@ -23,6 +27,8 @@ export const getAllCarouselBaseQuery = () => `query NewQuery {
               sourceUrl
               srcSet
               altText
+              description
+              date
             }
           }
           galSlika04 {
@@ -30,6 +36,8 @@ export const getAllCarouselBaseQuery = () => `query NewQuery {
               sourceUrl
               srcSet
               altText
+              description
+              date
             }
           }
           galSlika05 {
@@ -37,6 +45,8 @@ export const getAllCarouselBaseQuery = () => `query NewQuery {
               sourceUrl
               srcSet
               altText
+              description
+              date
             }
           }
           galSlika06 {
@@ -44,6 +54,8 @@ export const getAllCarouselBaseQuery = () => `query NewQuery {
               sourceUrl
               srcSet
               altText
+              description
+              date
             }
           }
           galSlika07 {
@@ -51,6 +63,8 @@ export const getAllCarouselBaseQuery = () => `query NewQuery {
               sourceUrl
               srcSet
               altText
+              description
+              date
             }
           }
           galSlika08 {
@@ -58,6 +72,8 @@ export const getAllCarouselBaseQuery = () => `query NewQuery {
               sourceUrl
               srcSet
               altText
+              description
+              date
             }
           }
           galSlika09 {
@@ -65,6 +81,8 @@ export const getAllCarouselBaseQuery = () => `query NewQuery {
               sourceUrl
               srcSet
               altText
+              description
+              date
             }
           }
           galSlika10 {
@@ -72,6 +90,8 @@ export const getAllCarouselBaseQuery = () => `query NewQuery {
               sourceUrl
               srcSet
               altText
+              description
+              date
             }
           }
           galSlika11 {
@@ -79,6 +99,8 @@ export const getAllCarouselBaseQuery = () => `query NewQuery {
               sourceUrl
               srcSet
               altText
+              description
+              date
             }
           }
           galSlika12 {
@@ -86,6 +108,8 @@ export const getAllCarouselBaseQuery = () => `query NewQuery {
               sourceUrl
               srcSet
               altText
+              description
+              date
             }
           }
           galSlika13 {
@@ -93,6 +117,8 @@ export const getAllCarouselBaseQuery = () => `query NewQuery {
               sourceUrl
               srcSet
               altText
+              description
+              date
             }
           }
           galSlika14 {
@@ -100,6 +126,8 @@ export const getAllCarouselBaseQuery = () => `query NewQuery {
               sourceUrl
               srcSet
               altText
+              description
+              date
             }
           }
           galSlika15 {
@@ -107,6 +135,8 @@ export const getAllCarouselBaseQuery = () => `query NewQuery {
               sourceUrl
               srcSet
               altText
+              description
+              date
             }
           }
           galSlika16 {
@@ -114,6 +144,8 @@ export const getAllCarouselBaseQuery = () => `query NewQuery {
               sourceUrl
               srcSet
               altText
+              description
+              date
             }
           }
         }
