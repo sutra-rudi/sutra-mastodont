@@ -14,7 +14,6 @@ interface UslugeSectionInterface {
 const UslugeSection = ({ pageContent, lang }: UslugeSectionInterface) => {
   const router = useRouter();
 
-  console.log('PAGI CONTENT', pageContent);
   return (
     <section>
       <h2 className='w-full text-center text-7xl font-semibold pt-8'>Usluge</h2>

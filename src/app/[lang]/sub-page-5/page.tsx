@@ -18,13 +18,9 @@ export default async function SubPageFive({ params: { lang } }: { params: { lang
 
   const dataShorthand = parseData.data.bazaTekstovaPodstranice5Pasusa.edges[0].node;
 
-  console.log('PARS', dataShorthand);
-
   const l = getSuffixFromLang(lang);
 
   const prepareDataForClient = dataShorthand[`sadrzaj5Pasusa${l}`];
-
-  //   console.log('PREP DATA', prepareDataForClient);
 
   return (
     <main>

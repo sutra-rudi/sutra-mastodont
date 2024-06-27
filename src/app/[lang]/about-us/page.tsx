@@ -47,8 +47,6 @@ export default async function AboutUsPage({ params: { lang } }: { params: { lang
 
   const l = getSuffixFromLang(lang);
 
-  console.log('prep', prepareDataForClient);
-
   const pageContent = {
     title: prepareDataForClient[`oNamaSadrzaj${l}`]?.[`tekstoviPodstraniceONama${l}`],
     textualContent: {
@@ -59,8 +57,6 @@ export default async function AboutUsPage({ params: { lang } }: { params: { lang
     photoGallery: Object.values(prepareDataForClient.photoGallery.fotogalerija),
     heroImage: prepareDataForClient.naslovnaSlika,
   };
-
-  console.log('pageContent', prepareDataForClient);
 
   return (
     <main>

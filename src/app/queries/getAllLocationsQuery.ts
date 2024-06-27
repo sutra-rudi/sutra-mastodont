@@ -7,9 +7,11 @@ export const getAllLocationsQuery = `query NewQuery {
           adresaLokacije
           emailLokacije
           googleMapsLinkPojedineLokacije
-          imeLokacije
           imeOdgovorneOsobe
           kontaktTelefonLokacije
+          kontaktTelefonLokacijeLink
+          nazivLokacije
+          status
         }
         naslovnaSlika {
           glavnaSlikaNaslovnaSlika {

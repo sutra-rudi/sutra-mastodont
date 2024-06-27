@@ -7,14 +7,11 @@ interface ServicesOffersInterface {
   attributes: any;
   textContent: any;
   tags: any;
-  //   seo: any;
   gallery: any[];
   introImages: any;
 }
 
 const PageContent = ({ textContent, introImages, gallery, tags, attributes }: ServicesOffersInterface) => {
-  // console.log('ATT', Object.values(attributes));
-
   const prepAttr = Object.values(attributes);
   return (
     <article className='mx-auto my-0 max-w-[1024px] py-8'>
