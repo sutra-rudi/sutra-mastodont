@@ -15,6 +15,8 @@ import { getAllUslugeQuery } from '../queries/getAllUslugeQuery';
 import UslugeSection from './UslugeSection';
 import PartnersSection from './PartnersSection';
 import { getAllLogotipiPartneraQuery } from '../queries/getAllLogotipiPartnera';
+import { getAllCarouselBaseQuery } from '../queries/getAllCarouselBase';
+import CarouselBase from './CarouselBase';
 
 export default async function Landing({ params: { lang } }: { params: { lang: string } }) {
   const getAllblogs = await fetch(`${process.env.CMS_BASE_URL}`, {
@@ -108,6 +110,19 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
   const parseDataPartnersLogos = await getAllPartnersLogos.json();
 
+  const getAllCarouselBase = await fetch(`${process.env.CMS_BASE_URL}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      query: getAllCarouselBaseQuery(),
+    }),
+    cache: 'no-cache',
+  });
+
+  const parseDataCarouselQuery = await getAllCarouselBase.json();
+
   ///
   const blogDataArrayShorthand = parseDataBlog.data.allBlog.edges;
   const newsDataArrayShorthand = parseDataNews.data.allNovosti.edges;
@@ -115,6 +130,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
   const faqSingleDataArrayShorthand = parseDataFaqSingle.data.allFAQPojedinacno.edges;
   const uslugeDataArrayShorthand = parseDataUsluge.data.allUsluge.edges;
   const logotipiPartneraDataArrayShorthand = parseDataPartnersLogos.data.logotipiPartneraKlijenata.edges;
+  const baseCarouselDataShorthand = parseDataCarouselQuery.data.karuselNaslovnica.edges[0].node;
 
   return (
     <Suspense fallback={<h2>LOADING...</h2>}>
@@ -126,6 +142,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
         <SingleFaqSection pageContent={faqSingleDataArrayShorthand} lang={lang} />
         <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />
         <PartnersSection pageContent={logotipiPartneraDataArrayShorthand} />
+        <CarouselBase imageArray={baseCarouselDataShorthand} />
       </main>
     </Suspense>
   );

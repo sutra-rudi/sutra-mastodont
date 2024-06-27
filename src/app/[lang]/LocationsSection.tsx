@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import parse from 'html-react-parser';
 
@@ -14,7 +12,7 @@ const LocationsSection = ({ pageContent }: LocationsSectionInterface) => {
     <section>
       <h2 className='w-full text-center text-7xl font-semibold pt-8'>Lokacije</h2>
 
-      <div className='max-w-[1225px] mx-auto my-8 '>
+      <div className='max-w-[1225px] mx-auto my-8'>
         {contentShorthand.map((cont: any) => {
           const contShorthand = cont.node.radnaVremenaLokacijaOsnovneInformacije;
 
