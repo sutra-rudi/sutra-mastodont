@@ -11,7 +11,7 @@ export default async function SubPageFive({ params: { lang } }: { params: { lang
     body: JSON.stringify({
       query: getBazaTekstovaPodstranice5PasusaQuery(lang),
     }),
-    cache: 'no-cache',
+    // cache: 'no-cache',
   });
 
   const parseData = await getSubPageFive.json();

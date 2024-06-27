@@ -10,7 +10,7 @@ export default async function AppFooter() {
     body: JSON.stringify({
       query: getAllSocialLinksQuery(),
     }),
-    cache: 'no-cache',
+    // cache: 'no-cache',
   });
 
   const parseDataSocialLinks = await getAllSocialLinks.json();

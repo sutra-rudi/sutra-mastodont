@@ -18,7 +18,7 @@ export default async function SingleNewsPage({ params: { lang, id } }: { params:
     body: JSON.stringify({
       query: getSingleNewsQuery(slugId, lang),
     }),
-    cache: 'no-cache',
+    // cache: 'no-cache',
   });
 
   const parseData = await getSingleNews.json();

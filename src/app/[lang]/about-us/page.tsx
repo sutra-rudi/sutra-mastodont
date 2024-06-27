@@ -11,7 +11,7 @@ export async function generateMetadata({ params: { lang } }: { params: { lang: s
     body: JSON.stringify({
       query: getAllONamaQuery(lang),
     }),
-    cache: 'no-cache',
+    // cache: 'no-cache',
   });
 
   const parseData = await getAboutUs.json();

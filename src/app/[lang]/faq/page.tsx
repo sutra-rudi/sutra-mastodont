@@ -10,7 +10,7 @@ export default async function FaqPage({ params: { lang } }: { params: { lang: st
     body: JSON.stringify({
       query: getAllFaqOnePagerQuery(lang),
     }),
-    cache: 'no-cache',
+    // cache: 'no-cache',
   });
 
   const parseDataFaqOnePager = await getAllFaqOnePager.json();
