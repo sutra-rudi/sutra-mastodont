@@ -158,11 +158,6 @@ export const getAllUslugeQuery = (lang: string) => {
       statusPrikazaTekstaZaPodstranicu
     }
     id
-    photoGallery {
-      fotogalerija {
-        ${generatePhotoGalleryFields()}
-      }
-    }
   `;
 
   return `
