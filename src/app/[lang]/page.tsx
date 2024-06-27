@@ -27,7 +27,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       body: JSON.stringify({
         query: getAllBlogsQuery(lang),
       }),
-      cache: 'no-cache',
+      // cache: 'no-cache',
     }),
     fetch(`${process.env.CMS_BASE_URL}`, {
       method: 'POST',
@@ -37,7 +37,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       body: JSON.stringify({
         query: getAllNewsQuery(lang),
       }),
-      cache: 'no-cache',
+      // cache: 'no-cache',
     }),
     fetch(`${process.env.CMS_BASE_URL}`, {
       method: 'POST',
@@ -47,7 +47,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       body: JSON.stringify({
         query: getAllLocationsQuery,
       }),
-      cache: 'no-cache',
+      // cache: 'no-cache',
     }),
     fetch(`${process.env.CMS_BASE_URL}`, {
       method: 'POST',
@@ -57,7 +57,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       body: JSON.stringify({
         query: getAllBrojcaniciQuery(lang),
       }),
-      cache: 'no-cache',
+      // cache: 'no-cache',
     }),
     fetch(`${process.env.CMS_BASE_URL}`, {
       method: 'POST',
@@ -67,7 +67,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       body: JSON.stringify({
         query: getAllFaqSinglesQuery(lang),
       }),
-      cache: 'no-cache',
+      // cache: 'no-cache',
     }),
     fetch(`${process.env.CMS_BASE_URL}`, {
       method: 'POST',
@@ -77,7 +77,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       body: JSON.stringify({
         query: getAllUslugeQuery(lang),
       }),
-      cache: 'no-cache',
+      // cache: 'no-cache',
     }),
     fetch(`${process.env.CMS_BASE_URL}`, {
       method: 'POST',
@@ -87,7 +87,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       body: JSON.stringify({
         query: getAllLogotipiPartneraQuery(),
       }),
-      cache: 'no-cache',
+      // cache: 'no-cache',
     }),
     fetch(`${process.env.CMS_BASE_URL}`, {
       method: 'POST',
@@ -97,7 +97,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       body: JSON.stringify({
         query: getAllCarouselBaseQuery(),
       }),
-      cache: 'no-cache',
+      // cache: 'no-cache',
     }),
   ];
 
