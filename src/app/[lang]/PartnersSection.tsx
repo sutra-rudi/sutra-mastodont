@@ -6,7 +6,6 @@ interface PartnersSectionInterface {
   pageContent: any;
 }
 const PartnersSection = ({ pageContent }: PartnersSectionInterface) => {
-  console.log('PAGI CONT', pageContent);
   return (
     <section>
       <h2 className='w-full text-center text-7xl font-semibold pt-8'>Partneri</h2>
