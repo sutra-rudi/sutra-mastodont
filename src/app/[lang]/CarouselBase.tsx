@@ -1,5 +1,3 @@
-'use client';
-
 import Image from 'next/image';
 import React from 'react';
 
@@ -8,7 +6,7 @@ interface CarouselBase {
 }
 const CarouselBase = ({ imageArray }: CarouselBase) => {
   const prepGallery = Object.values(imageArray.photoGallery16pcs);
-  //   console.log('IMG ARR', prepGallery);
+
   return (
     <section>
       <div className='max-w-[1225px] mx-auto my-8'>
