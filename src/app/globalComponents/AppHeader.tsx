@@ -49,6 +49,11 @@ const AppHeader = () => {
       url: `/${currentLang}/sub-page-1`,
       title: 'Baza tekstova 1 modul',
     },
+
+    {
+      url: `/${currentLang}/msg-singles`,
+      title: 'Poruke pojedinacno',
+    },
   ];
 
   const handleLangSwitch = (pathName: string) => {
