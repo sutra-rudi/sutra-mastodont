@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import parse from 'html-react-parser';
 interface SubPageFiveInterface {

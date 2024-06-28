@@ -44,6 +44,11 @@ const AppHeader = () => {
       url: `/${currentLang}/sub-page-5`,
       title: 'Baza tekstova 5 pasusa',
     },
+
+    {
+      url: `/${currentLang}/sub-page-1`,
+      title: 'Baza tekstova 1 modul',
+    },
   ];
 
   const handleLangSwitch = (pathName: string) => {
