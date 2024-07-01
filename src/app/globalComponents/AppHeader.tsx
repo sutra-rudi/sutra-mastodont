@@ -39,6 +39,11 @@ const AppHeader = () => {
     },
 
     {
+      url: `/${currentLang}/what-to-visit`,
+      title: 'What to visit?',
+    },
+
+    {
       url: `/${currentLang}/legal-info`,
       title: 'Legal info',
     },
