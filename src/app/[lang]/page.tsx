@@ -17,6 +17,8 @@ import { getAllCarouselBaseQuery } from '../queries/getAllCarouselBase';
 import CarouselBase from './CarouselBase';
 import { getAllIskustvaKlijenataQuery } from '../queries/getAllIskustvaKlijenataQuery';
 import TestimonialsSection from './TestimonialsSection';
+import { getWhyUsQuery } from '../queries/getAllWhyUsQuery';
+import WhyUsSection from './WhyUsSection';
 export const maxDuration = 300;
 
 export default async function Landing({ params: { lang } }: { params: { lang: string } }) {
@@ -111,6 +113,16 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       }),
       // cache: 'no-cache',
     }),
+    fetch(`${process.env.CMS_BASE_URL}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        query: getWhyUsQuery(lang),
+      }),
+      // cache: 'no-cache',
+    }),
   ];
 
   const [
@@ -123,6 +135,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
     getAllPartnersLogos,
     getAllCarouselBase,
     getAllIskustvaKlijenata,
+    getAllWhyUs,
   ] = await Promise.all(requests);
 
   const [
@@ -135,6 +148,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
     parseDataPartnersLogos,
     parseDataCarouselQuery,
     parseDataIskustva,
+    parseDataWhyUs,
   ] = await Promise.all([
     getAllblogs.json(),
     getAllNews.json(),
@@ -145,6 +159,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
     getAllPartnersLogos.json(),
     getAllCarouselBase.json(),
     getAllIskustvaKlijenata.json(),
+    getAllWhyUs.json(),
   ]);
 
   const blogDataArrayShorthand = parseDataBlog.data.allBlog.edges;
@@ -155,6 +170,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
   const logotipiPartneraDataArrayShorthand = parseDataPartnersLogos.data.logotipiPartneraKlijenata.edges;
   const baseCarouselDataShorthand = parseDataCarouselQuery.data.karuselNaslovnica.edges[0].node;
   const iskustvaKlijenataShorthand = parseDataIskustva.data.allIskustvaKlijenata.edges;
+  const whyUsDataShorthand = parseDataWhyUs.data.allWhyus.edges;
 
   return (
     <Suspense fallback={<h2>LOADING...</h2>}>
@@ -168,6 +184,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
         <PartnersSection pageContent={logotipiPartneraDataArrayShorthand} />
         <CarouselBase imageArray={baseCarouselDataShorthand} />
         <TestimonialsSection pageContent={iskustvaKlijenataShorthand} lang={lang} />
+        <WhyUsSection pageContent={whyUsDataShorthand} lang={lang} />
       </main>
     </Suspense>
   );
