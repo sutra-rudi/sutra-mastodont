@@ -21,6 +21,8 @@ import { getWhyUsQuery } from '../queries/getAllWhyUsQuery';
 import WhyUsSection from './WhyUsSection';
 import { getObavijestiNaStraniciQuery } from '../queries/getAllObavijestiQuery';
 import ObavijestiSection from './ObavijestiSection';
+import { getDokumentikataloziQuery } from '../queries/getAllDocumentsQuery';
+import DocumentsCatalogsSection from './DocumentsCatalogsSection';
 export const maxDuration = 300;
 
 export default async function Landing({ params: { lang } }: { params: { lang: string } }) {
@@ -135,6 +137,16 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       }),
       // cache: 'no-cache',
     }),
+    fetch(`${process.env.CMS_BASE_URL}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        query: getDokumentikataloziQuery(lang),
+      }),
+      // cache: 'no-cache',
+    }),
   ];
 
   const [
@@ -149,6 +161,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
     getAllIskustvaKlijenata,
     getAllWhyUs,
     getAllObavijesti,
+    getAllDocuments,
   ] = await Promise.all(requests);
 
   const [
@@ -163,6 +176,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
     parseDataIskustva,
     parseDataWhyUs,
     parseDataObavijesti,
+    parseAllDocuments,
   ] = await Promise.all([
     getAllblogs.json(),
     getAllNews.json(),
@@ -175,6 +189,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
     getAllIskustvaKlijenata.json(),
     getAllWhyUs.json(),
     getAllObavijesti.json(),
+    getAllDocuments.json(),
   ]);
 
   const blogDataArrayShorthand = parseDataBlog.data.allBlog.edges;
@@ -187,6 +202,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
   const iskustvaKlijenataShorthand = parseDataIskustva.data.allIskustvaKlijenata.edges;
   const whyUsDataShorthand = parseDataWhyUs.data.allWhyus.edges;
   const obavijestiNaStraniciDataShorthand = parseDataObavijesti.data.allObavijestiNaStranici.edges;
+  const dokumentiKataloziDataShorthand = parseAllDocuments.data.dokumentikatalozi.edges;
 
   return (
     <Suspense fallback={<h2>LOADING...</h2>}>
@@ -202,6 +218,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
         <TestimonialsSection pageContent={iskustvaKlijenataShorthand} lang={lang} />
         <WhyUsSection pageContent={whyUsDataShorthand} lang={lang} />
         <ObavijestiSection pageContent={obavijestiNaStraniciDataShorthand} lang={lang} />
+        <DocumentsCatalogsSection pageContent={dokumentiKataloziDataShorthand} lang={lang} />
       </main>
     </Suspense>
   );
