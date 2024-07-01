@@ -1,5 +1,5 @@
 import React from 'react';
-import { getSuffixFromLang } from '../langUtils/getSuffixFromLang';
+
 import Image from 'next/image';
 
 interface WhyUsSectionInterface {
@@ -8,8 +8,6 @@ interface WhyUsSectionInterface {
 }
 
 const WhyUsSection = ({ pageContent, lang }: WhyUsSectionInterface) => {
-  const l = getSuffixFromLang(lang);
-
   return (
     <section>
       <div className='max-w-[1225px] mx-auto my-8'>
@@ -20,7 +18,6 @@ const WhyUsSection = ({ pageContent, lang }: WhyUsSectionInterface) => {
             const shorthandTitle = cont.node[`text${lang}`];
             const shorthandArguments = cont.node[`uvodArgumentiWhyChooseUsKeys`];
 
-            console.log('CKONT', cont.node[`text${lang}`]);
             return (
               <article key={cont.node.id}>
                 <h2>{typeof shorthandTitle !== 'undefined' ? shorthandTitle[`naslov${lang}`] : 'Nema naslova'}</h2>

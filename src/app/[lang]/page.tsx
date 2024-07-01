@@ -19,6 +19,8 @@ import { getAllIskustvaKlijenataQuery } from '../queries/getAllIskustvaKlijenata
 import TestimonialsSection from './TestimonialsSection';
 import { getWhyUsQuery } from '../queries/getAllWhyUsQuery';
 import WhyUsSection from './WhyUsSection';
+import { getObavijestiNaStraniciQuery } from '../queries/getAllObavijestiQuery';
+import ObavijestiSection from './ObavijestiSection';
 export const maxDuration = 300;
 
 export default async function Landing({ params: { lang } }: { params: { lang: string } }) {
@@ -123,6 +125,16 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       }),
       // cache: 'no-cache',
     }),
+    fetch(`${process.env.CMS_BASE_URL}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        query: getObavijestiNaStraniciQuery(lang),
+      }),
+      // cache: 'no-cache',
+    }),
   ];
 
   const [
@@ -136,6 +148,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
     getAllCarouselBase,
     getAllIskustvaKlijenata,
     getAllWhyUs,
+    getAllObavijesti,
   ] = await Promise.all(requests);
 
   const [
@@ -149,6 +162,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
     parseDataCarouselQuery,
     parseDataIskustva,
     parseDataWhyUs,
+    parseDataObavijesti,
   ] = await Promise.all([
     getAllblogs.json(),
     getAllNews.json(),
@@ -160,6 +174,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
     getAllCarouselBase.json(),
     getAllIskustvaKlijenata.json(),
     getAllWhyUs.json(),
+    getAllObavijesti.json(),
   ]);
 
   const blogDataArrayShorthand = parseDataBlog.data.allBlog.edges;
@@ -171,6 +186,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
   const baseCarouselDataShorthand = parseDataCarouselQuery.data.karuselNaslovnica.edges[0].node;
   const iskustvaKlijenataShorthand = parseDataIskustva.data.allIskustvaKlijenata.edges;
   const whyUsDataShorthand = parseDataWhyUs.data.allWhyus.edges;
+  const obavijestiNaStraniciDataShorthand = parseDataObavijesti.data.allObavijestiNaStranici.edges;
 
   return (
     <Suspense fallback={<h2>LOADING...</h2>}>
@@ -185,6 +201,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
         <CarouselBase imageArray={baseCarouselDataShorthand} />
         <TestimonialsSection pageContent={iskustvaKlijenataShorthand} lang={lang} />
         <WhyUsSection pageContent={whyUsDataShorthand} lang={lang} />
+        <ObavijestiSection pageContent={obavijestiNaStraniciDataShorthand} lang={lang} />
       </main>
     </Suspense>
   );
