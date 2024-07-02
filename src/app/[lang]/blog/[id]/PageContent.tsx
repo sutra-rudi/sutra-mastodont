@@ -56,7 +56,7 @@ const PageContent = ({ content, global, gallery, files, tags }: BlogPageContent)
       <h4 className='text-4xl font-bold'>{dayjs(global.datum).format('DD.MM.YYYY')}</h4>
       <h4>Kategorija: {global.kategorija.edges[0].node.name}</h4>
       <h2 className='text-6xl font-bold'>{prepareContent[1]}</h2>
-      <div className='mt-4 grid grid-cols-1 gap-2'>{parse(prepareContent[2])}</div>
+      <div className='mt-4 prose'>{parse(prepareContent[2])}</div>
 
       <div className='flex flex-wrap w-full gap-2'>
         {prepareGallery.map((galImage: any) => {

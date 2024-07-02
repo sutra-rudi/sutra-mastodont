@@ -24,7 +24,7 @@ const ObavijestiSection = ({ pageContent, lang }: ObavijestiNaStraniciInterface)
               <div className='' key={cont.node.id}>
                 <h2>{sht[`naslov${l}`] ?? 'Nema naslova'}</h2>
 
-                <div className=''>{sht[`sadrzajText${l}`] ? parse(sht[`sadrzajText${l}`]) : 'Nema sadržaja'}</div>
+                <div className='prose'>{sht[`sadrzajText${l}`] ? parse(sht[`sadrzajText${l}`]) : 'Nema sadržaja'}</div>
 
                 <span>
                   {dayjs(sh.datumIVrijemeObjave).format('DD.MM.YYYY') +

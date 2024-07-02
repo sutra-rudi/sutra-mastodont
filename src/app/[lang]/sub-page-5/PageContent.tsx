@@ -32,7 +32,7 @@ const PageContent = ({ content }: SubPageFiveInterface) => {
                 <h2 className='font-bold'>{cont[`naslov${indAppend}`]}</h2>
                 <h3 className='font-semibold'>{cont[`nadnaslovPodnaslov${indAppend}`]}</h3>
               </div>
-              <div className=''>{parse(cont[contentToMap])}</div>
+              <div className='prose'>{parse(cont[contentToMap])}</div>
             </div>
           )
         );

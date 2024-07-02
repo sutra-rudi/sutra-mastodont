@@ -26,19 +26,19 @@ const PageContent = ({ content, title, gallery, hero }: AboutUsPageContent) => {
       <div className='py-8'>
         <h4 className='font-bold'>{content.oNamaNaslov1Pasus}</h4>
         <h4 className='font-semibold'>{content.oNamaNadnaslovPodnaslov1}</h4>
-        <div className='py-4'>{parse(content.sadrzaj1)}</div>
+        <div className='py-4 prose'>{parse(content.sadrzaj1)}</div>
       </div>
 
       <div className='py-8'>
         <h4 className='font-bold'>{content.oNamaNaslov2Pasus}</h4>
         <h4 className='font-semibold'>{content.oNamaNadnaslovPodnaslov2}</h4>
-        <div className='py-4'> {content.oNamaSadrzaj2 ? parse(content.oNamaSadrzaj2) : <p>Nema sadrzaja</p>}</div>
+        <div className='py-4 prose'> {content.oNamaSadrzaj2 ? parse(content.oNamaSadrzaj2) : <p>Nema sadrzaja</p>}</div>
       </div>
 
       <div className='py-8'>
         <h4 className='font-bold'>{content.oNamaNaslov3Pasus}</h4>
         <h4 className='font-semibold'>{content.oNamaNadnaslovPodnaslov3}</h4>
-        <div className='py-4'>{content.oNamaSadrzaj3 ? parse(content.oNamaSadrzaj3) : <p>Nema sadrzaja</p>}</div>
+        <div className='py-4 prose'>{content.oNamaSadrzaj3 ? parse(content.oNamaSadrzaj3) : <p>Nema sadrzaja</p>}</div>
       </div>
 
       <h3>Gallery</h3>

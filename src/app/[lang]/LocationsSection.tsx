@@ -23,7 +23,7 @@ const LocationsSection = ({ pageContent }: LocationsSectionInterface) => {
           return (
             <div className='flex justify-center place-items-center gap-8' key={cont.node.id}>
               <div className='grid'>
-                <div className='flex '>
+                <div className='flex prose'>
                   <h3>Adresa</h3>
                   <p>{parse(contShorthand.adresaLokacije)}</p>
                 </div>

@@ -16,7 +16,7 @@ const PageContent = ({ pageContent, lang }: OnePageFaqSectionInterface) => {
           const pageContentShorthand = pagContent.node[`text${l}`];
 
           return (
-            <div className='' key={pagContent.id}>
+            <div className='prose' key={pagContent.id}>
               <h3 className='text-center text-4xl font-semibold'>{pageContentShorthand[`naslov${l}`]}</h3>
               {parse(pageContentShorthand?.[`sadrzajText${l}`])}
             </div>

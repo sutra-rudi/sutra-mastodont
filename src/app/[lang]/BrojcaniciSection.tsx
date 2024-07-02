@@ -33,7 +33,7 @@ const BrojcaniciSection = ({ pageContent, lang }: BrojcaniciSectionInterface) =>
                   </picture>
                 </div>
                 <h2 className='text-red-400'>{shortHand.brojcanikCompanyInNumbersUvod.broj}</h2>
-                <h3 className=' max-w-[15ch]'>{parse(shortHand[constructKey]?.[constructKey] ?? 'no value')}</h3>
+                <h3 className=' max-w-[15ch] prose'>{parse(shortHand[constructKey]?.[constructKey] ?? 'no value')}</h3>
               </div>
             );
           })}

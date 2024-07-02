@@ -42,7 +42,7 @@ const PageContent = ({ intro, pageContent }: LegalInfoInterface) => {
         <h3 className='font-semibold'>{pageContent.subtitle}</h3>
       </div>
 
-      <div className=''>{pageContent.content ? parse(pageContent.content) : <h2>No content</h2>}</div>
+      <div className='prose'>{pageContent.content ? parse(pageContent.content) : <h2>No content</h2>}</div>
 
       <div className='py-4'>
         <h3 className='font-semibold'>Dokumenti</h3>

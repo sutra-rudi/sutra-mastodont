@@ -25,7 +25,7 @@ const PageContent = ({ content }: SingleMSGInterface) => {
                   </div>
                 </div>
 
-                <div className='py-4'>{cont.msgContent && parse(cont.msgContent)}</div>
+                <div className='py-4 prose'>{cont.msgContent && parse(cont.msgContent)}</div>
               </div>
             );
           })}

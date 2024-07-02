@@ -14,7 +14,7 @@ const PageContent = ({ content }: CompanyInfoInterface) => {
           {content[0].content.naslovTekstaSDvijeKolumne ?? 'Nema naslova'}
         </h2>
 
-        <div className='flex justify-between gap-8 py-8'>
+        <div className='flex justify-between gap-8 py-8 prose'>
           <p>
             {content[0].content.sadrzajTextLijevaKolumna
               ? parse(content[0].content.sadrzajTextLijevaKolumna)

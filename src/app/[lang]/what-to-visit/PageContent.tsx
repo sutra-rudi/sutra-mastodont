@@ -21,7 +21,7 @@ const PageContent = ({ content, lang }: WhatToVisitInterface) => {
               <h2>{sh[`naslovBazaTekstova${lang}`]}</h2>
               <h3>{sh[`nadnaslovPodnaslovBazaTekstova${lang}`]}</h3>
 
-              <div className=''>
+              <div className='prose'>
                 {sh[`tekstBazaTekstova${lang}`] ? parse(sh[`tekstBazaTekstova${lang}`]) : 'No content'}
               </div>
 

@@ -29,7 +29,7 @@ const PageContent = ({ content }: SubPageOneInterface) => {
         <h4 className='font-semibold text-2xl'>{content.pageCont.subtitle}</h4>
       </div>
 
-      <div className='py-4'>{content.pageCont.pageContent && parse(content.pageCont.pageContent)}</div>
+      <div className='py-4 prose'>{content.pageCont.pageContent && parse(content.pageCont.pageContent)}</div>
 
       <div className='py-4'>
         <div className='flex flex-wrap gap-2 '>
