@@ -23,7 +23,7 @@ import { getObavijestiNaStraniciQuery } from '../queries/getAllObavijestiQuery';
 import ObavijestiSection from './ObavijestiSection';
 import { getDokumentikataloziQuery } from '../queries/getAllDocumentsQuery';
 import DocumentsCatalogsSection from './DocumentsCatalogsSection';
-export const maxDuration = 300;
+export const maxDuration = 60;
 
 export default async function Landing({ params: { lang } }: { params: { lang: string } }) {
   const requests = [
