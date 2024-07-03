@@ -79,6 +79,19 @@ const AppHeader = () => {
     // console.log('path', constructNewPath);
   };
 
+  const [theme, setTheme] = React.useState('light');
+  const handleTheme = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
+  };
+
+  React.useEffect(() => {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [theme]);
+
   return (
     <nav className='bg-white dark:bg-gray-800 antialiased'>
       <div className='max-w-screen-xl px-4 mx-auto 2xl:px-0 py-4'>
@@ -354,7 +367,7 @@ const AppHeader = () => {
                     href='#'
                     className='truncate text-sm font-semibold leading-none text-gray-900 dark:text-white hover:underline'
                   >
-                    Apple iMac 20"
+                    Apple iMac 20
                   </a>
                   <p className='mt-0.5 truncate text-sm font-normal text-gray-500 dark:text-gray-400'>$8,997</p>
                 </div>
@@ -584,6 +597,10 @@ const AppHeader = () => {
             </li>
           </ul>
         </div>
+
+        <button onClick={handleTheme} className=' border bg-yellow-200 px-4 py-2 rounded-lg dark:bg-white'>
+          Switch
+        </button>
       </div>
     </nav>
   );
