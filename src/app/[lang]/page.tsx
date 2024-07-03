@@ -23,6 +23,7 @@ import { getObavijestiNaStraniciQuery } from '../queries/getAllObavijestiQuery';
 import ObavijestiSection from './ObavijestiSection';
 import { getDokumentikataloziQuery } from '../queries/getAllDocumentsQuery';
 import DocumentsCatalogsSection from './DocumentsCatalogsSection';
+import HeroSection from './HeroSection';
 export const maxDuration = 60;
 
 export default async function Landing({ params: { lang } }: { params: { lang: string } }) {
@@ -207,6 +208,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
   return (
     <Suspense fallback={<h2>LOADING...</h2>}>
       <main>
+        <HeroSection />
         <BlogSection pageContent={blogDataArrayShorthand} lang={lang} />
         <NewsSection pageContent={newsDataArrayShorthand} lang={lang} />
         <LocationsSection pageContent={parseDataLocations} />
