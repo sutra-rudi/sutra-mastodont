@@ -9,21 +9,21 @@ interface WhyUsSectionInterface {
 
 const WhyUsSection = ({ pageContent, lang }: WhyUsSectionInterface) => {
   return (
-    <section>
-      <div className='max-w-[1225px] mx-auto my-8'>
-        <h2 className='w-full text-center text-7xl font-semibold pt-8'>Why us</h2>
-
-        <div className=''>
+    <section className='bg-white dark:bg-gray-900'>
+      <div className='py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6'>
+        <div className='max-w-screen-md mb-8 lg:mb-16'>
+          <h2 className='mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white'>Why us</h2>
+          <p className='text-gray-500 sm:text-xl dark:text-gray-400'>
+            Here at Sutra we focus on markets where technology, innovation, and capital can unlock long-term value and
+            drive economic growth.
+          </p>
+        </div>
+        <div className='space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0'>
           {pageContent.map((cont: any) => {
             const shorthandTitle = cont.node[`text${lang}`];
             const shorthandArguments = cont.node[`uvodArgumentiWhyChooseUsKeys`];
-
             return (
-              <article key={cont.node.id}>
-                <h2>{typeof shorthandTitle !== 'undefined' ? shorthandTitle[`naslov${lang}`] : 'Nema naslova'}</h2>
-
-                <p>{typeof shorthandTitle !== 'undefined' ? shorthandTitle[`sadrzajTekst${lang}`] : 'Nema teksta'}</p>
-
+              <div key={cont.node.id}>
                 <div className='relative w-full max-w-[200px] h-[200px]'>
                   <Image
                     src={
@@ -36,11 +36,17 @@ const WhyUsSection = ({ pageContent, lang }: WhyUsSectionInterface) => {
                   />
                 </div>
 
-                <div className=''>
+                <h3 className='mb-2 text-xl font-bold dark:text-white'>
+                  {typeof shorthandTitle !== 'undefined' ? shorthandTitle[`naslov${lang}`] : 'Nema naslova'}
+                </h3>
+                <p className='text-gray-500 dark:text-gray-400'>
+                  {typeof shorthandTitle !== 'undefined' ? shorthandTitle[`sadrzajTekst${lang}`] : 'Nema teksta'}
+                </p>
+                <div className='text-gray-500 dark:text-gray-400 flex justify-between gap-4'>
                   <span>broj: {shorthandArguments.brojKeys}</span>
                   <span>odabir boje: {shorthandArguments.odabirBojeKeysArgumenti}</span>
                 </div>
-              </article>
+              </div>
             );
           })}
         </div>

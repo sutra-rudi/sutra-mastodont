@@ -1,19 +1,14 @@
-'use client';
-
 import React from 'react';
 import { getSuffixFromLang } from '../langUtils/getSuffixFromLang';
-import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 import slugify from 'slugify';
 import { slugifyOptions } from '../pathsUtils/slugifyOptions';
+import ServiceCard from '../components/ServiceCard';
 interface UslugeSectionInterface {
   pageContent: any;
   lang: any;
 }
 
 const UslugeSection = ({ pageContent, lang }: UslugeSectionInterface) => {
-  const router = useRouter();
-
   return (
     <section>
       <h2 className='w-full text-center text-7xl font-semibold pt-8'>Usluge</h2>
@@ -30,39 +25,15 @@ const UslugeSection = ({ pageContent, lang }: UslugeSectionInterface) => {
             ].naslovIPodnaslovDvaPolja;
 
           return (
-            <article
-              onClick={() =>
-                router.push(
-                  `/${lang}/services-offers/${
-                    slugify(`${titleShorthandObj.naslovBazaTekstova}`, slugifyOptions) + `-${contentShorthand.id}`
-                  }`
-                )
-              }
+            <ServiceCard
+              url={`/${lang}/services-offers/${
+                slugify(`${titleShorthandObj.naslovBazaTekstova}`, slugifyOptions) + `-${contentShorthand.id}`
+              }`}
+              title={titleShorthandObj.naslovBazaTekstova}
+              subtitle={titleShorthandObj.nadnaslovPodnaslovBazaTekstova}
+              imgSource={thumbImageShorthandObj.sourceUrl}
               key={contentShorthand.id}
-              className='outline outline-1 outline-blue-300'
-            >
-              <div className='relative w-full h-32'>
-                <Image
-                  src={thumbImageShorthandObj.sourceUrl}
-                  alt='service image'
-                  fill
-                  className='object-center object-cover aspect-video block'
-                />
-              </div>
-              <div className='py-2 grid grid-cols-1 gap-2 px-4'>
-                <h3 className='text-3xl font-medium'>{titleShorthandObj.naslovBazaTekstova}</h3>
-                <p className='max-w-[25ch] text-balance line-clamp-5'>
-                  {titleShorthandObj.nadnaslovPodnaslovBazaTekstova}
-                </p>
-              </div>
-
-              {/* <div className='grid grid-cols-1 items-start gap-1 py-2 px-4 '>
-                <p>Naziv atributa: {atributesShorthandObj.nazivAtributa ?? 'Nema unosa'}</p>
-                <p>atribut 1: {atributesShorthandObj.vrijednostAtributa1 ?? 'Nema unosa'}</p>
-                <p>atribut 2: {atributesShorthandObj.vrijednostAtributa2 ?? 'Nema unosa'}</p>
-                <p>atribut 3: {atributesShorthandObj.vrijednostAtributa3 ?? 'Nema unosa'}</p>
-              </div> */}
-            </article>
+            />
           );
         })}
       </div>
