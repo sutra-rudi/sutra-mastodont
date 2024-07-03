@@ -25,11 +25,7 @@ const NewsSection = ({ pageContent, lang }: NewsSectionInterface) => {
           const contentCardShorthand = contentShorthand.introNews;
           const languageField = blogLanguageFields[lang];
 
-          const las = `naslovSadrzaj${
-            lang === UserLanguage.eng
-              ? `Sadrzaj${lang[0].toUpperCase() + lang.slice(1).toLowerCase()}`
-              : `${lang[0].toUpperCase() + lang.slice(1).toLowerCase()}`
-          }`;
+          const las = `naslovSadrzaj${lang === UserLanguage.eng ? `Sadrzaj${l}` : `${l}`}`;
 
           const imgSource = contentCardShorthand.thumbnail
             ? contentCardShorthand.thumbnail.node.sourceUrl
