@@ -39,16 +39,11 @@ export default async function AppFooter() {
             <div>
               <h2 className='mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white'>Resources</h2>
               <ul className='text-gray-600 dark:text-gray-400'>
-                <li className='mb-4'>
-                  <a href='https://flowbite.com' className='hover:underline'>
-                    Flowbite
-                  </a>
-                </li>
-                <li>
-                  <a href='https://tailwindcss.com/' className='hover:underline'>
-                    Tailwind CSS
-                  </a>
-                </li>
+                {socialLinks.map(([network, url]) => (
+                  <li key={network} className='hover:underline'>
+                    <a href={url}>{network}</a>
+                  </li>
+                ))}
               </ul>
             </div>
             <div>
@@ -81,9 +76,9 @@ export default async function AppFooter() {
         <hr className='my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8' />
         <div className='sm:flex sm:items-center sm:justify-between'>
           <span className='text-sm text-gray-500 sm:text-center dark:text-gray-400'>
-            © 2022{' '}
+            © 2024{' '}
             <a href='https://flowbite.com' className='hover:underline'>
-              Flowbite™
+              Studio Sutra
             </a>
             . All Rights Reserved.
           </span>
