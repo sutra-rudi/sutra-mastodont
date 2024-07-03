@@ -22,7 +22,6 @@ const SingleFaqSection: React.FC<SingleFaqSectionInterface> = ({ pageContent, la
         {pageContent.map((pageCont, index) => {
           const contentShorthand = pageCont.node[`faqPojedinacnoDodavanje${l}`];
 
-          console.log('CONT', contentShorthand);
           if (!contentShorthand) return null;
 
           const isAccordionOpen = openAccordionIndex === index;

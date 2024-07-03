@@ -11,8 +11,6 @@ interface DokumentiKataloziInterface {
   lang: any;
 }
 const DocumentsCatalogsSection = ({ pageContent, lang }: DokumentiKataloziInterface) => {
-  console.log('PAG', pageContent);
-
   const l = getSuffixFromLang(lang);
   return (
     <section>
