@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import React from 'react';
+import { AppButtonGradient } from '../components/AppButton';
 
 const AppHeader = () => {
   const currentPath = usePathname();
@@ -133,9 +134,7 @@ const AppHeader = () => {
           </div>
         </div>
 
-        <button onClick={handleTheme} className=' border bg-yellow-200 px-4 py-2 rounded-lg dark:bg-white'>
-          THEME Switch
-        </button>
+        <AppButtonGradient action={handleTheme} buttonText='Theme switcher' />
       </div>
     </nav>
   );

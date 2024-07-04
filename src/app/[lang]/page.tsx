@@ -24,6 +24,7 @@ import ObavijestiSection from './ObavijestiSection';
 import { getDokumentikataloziQuery } from '../queries/getAllDocumentsQuery';
 import DocumentsCatalogsSection from './DocumentsCatalogsSection';
 import HeroSection from './HeroSection';
+import ButtonsDisplay from './ButtonsDisplay';
 export const maxDuration = 60;
 
 export default async function Landing({ params: { lang } }: { params: { lang: string } }) {
@@ -221,6 +222,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
         <WhyUsSection pageContent={whyUsDataShorthand} lang={lang} />
         <ObavijestiSection pageContent={obavijestiNaStraniciDataShorthand} lang={lang} />
         <DocumentsCatalogsSection pageContent={dokumentiKataloziDataShorthand} lang={lang} />
+        <ButtonsDisplay />
       </main>
     </Suspense>
   );

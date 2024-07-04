@@ -5,6 +5,8 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import AppHeader from './globalComponents/AppHeader';
 import AppFooter from './globalComponents/AppFooter';
+import { Toaster } from 'react-hot-toast';
+import SpeedDial from './components/SpeedDial';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -22,7 +24,9 @@ export default function RootLayout({
     <html lang='en'>
       <body className={inter.className}>
         <AppHeader />
+        <Toaster />
         {children}
+        <SpeedDial />
         <AppFooter />
       </body>
     </html>
