@@ -2,6 +2,7 @@ import {
   HeroSectionFive,
   HeroSectionFour,
   HeroSectionOne,
+  HeroSectionSeven,
   HeroSectionSix,
   HeroSectionThree,
   HeroSectionTwo,
@@ -21,6 +22,8 @@ export default async function HeroCompilation() {
       <HeroSectionFive />
 
       <HeroSectionSix />
+
+      <HeroSectionSeven />
     </main>
   );
 }

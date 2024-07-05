@@ -1,12 +1,13 @@
 import React from 'react';
 import parse from 'html-react-parser';
+import { getSuffixFromLang } from '../langUtils/getSuffixFromLang';
 
 interface BrojcaniciSectionInterface {
   pageContent: any;
   lang: any;
 }
 const BrojcaniciSection = ({ pageContent, lang }: BrojcaniciSectionInterface) => {
-  const l = `${lang[0].toUpperCase() + lang.slice(1).toLowerCase()}`;
+  const l = getSuffixFromLang(lang);
 
   const constructKey = `tekstBox${l}`;
 
@@ -26,14 +27,21 @@ const BrojcaniciSection = ({ pageContent, lang }: BrojcaniciSectionInterface) =>
                 : 'https://placehold.co/400.png';
 
             return (
-              <div className='grid grid-cols-1 gap-3' key={brojcanik.id}>
+              <div
+                className='grid grid-cols-1 gap-3 py-4 border border-dashed rounded-lg border-slate-400'
+                key={brojcanik.id}
+              >
                 <div className='relative w-24 h-24'>
                   <picture>
                     <img src={imgSource} alt='some company img' />
                   </picture>
                 </div>
-                <h2 className='text-red-400'>{shortHand.brojcanikCompanyInNumbersUvod.broj}</h2>
-                <h3 className=' max-w-[15ch] prose'>{parse(shortHand[constructKey]?.[constructKey] ?? 'no value')}</h3>
+                <h3 className=' max-w-[15ch] prose relative mb-0 text-transparent z-1 bg-clip-text bg-gradient-to-tl from-purple-700 to-pink-500'>
+                  {parse(shortHand[constructKey]?.[constructKey] ?? 'no value')}
+                </h3>
+                <h2 className='text-red-400 font-bold dark:text-white'>
+                  {shortHand.brojcanikCompanyInNumbersUvod.broj}
+                </h2>
               </div>
             );
           })}

@@ -4,7 +4,7 @@ import React from 'react';
 
 const SpeedDial = () => {
   return (
-    <div data-dial-init className='fixed end-6 bottom-6 group'>
+    <div data-dial-init className='fixed end-6 bottom-6 group z-30'>
       <div id='speed-dial-menu-default' className='flex flex-col items-center  mb-4 space-y-2'>
         <button
           type='button'

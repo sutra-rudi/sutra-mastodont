@@ -87,7 +87,7 @@ const AppHeader = () => {
         <div className='flex items-center justify-between'>
           <div className='flex items-center space-x-8'>
             <div className='shrink-0'>
-              <a href='/' title=''>
+              <a href={`/${currentLang}`} title=''>
                 <picture>
                   <img
                     className='block w-auto h-8 dark:hidden'
