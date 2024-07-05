@@ -1,22 +1,22 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
 import React from 'react';
 import { AppButtonGradient } from '../components/AppButton';
 
 const AppHeader = () => {
   const currentPath = usePathname();
-  const router = useRouter();
+  const searchParams = useSearchParams();
 
   const splitPath = currentPath.split('/');
   const currentLang = splitPath[1];
 
   const langs = [
-    { title: 'Hr', lang: 'Hr' },
-    { title: 'Eng', lang: 'Eng' },
-    { title: 'Ger', lang: 'Ger' },
-    { title: 'Ita', lang: 'Ita' },
+    { title: 'Hr', lang: 'hr' },
+    { title: 'Eng', lang: 'eng' },
+    { title: 'Ger', lang: 'ger' },
+    { title: 'Ita', lang: 'ita' },
   ];
 
   const navLinks = [
@@ -33,52 +33,40 @@ const AppHeader = () => {
       url: `/${currentLang}/about-us`,
       title: 'About',
     },
-
     {
       url: `/${currentLang}/contact`,
       title: 'Contact',
     },
-
     {
       url: `/${currentLang}/what-to-visit`,
       title: 'What to visit?',
     },
-
     {
       url: `/${currentLang}/legal-info`,
       title: 'Legal info',
     },
-
     {
       url: `/${currentLang}/company-info`,
       title: 'Company info',
     },
-
     { url: `/${currentLang}/faq`, title: 'FAQ' },
-
     {
       url: `/${currentLang}/sub-page-5`,
       title: 'Baza tekstova 5 pasusa',
     },
-
     {
       url: `/${currentLang}/sub-page-1`,
       title: 'Baza tekstova 1 modul',
     },
-
     {
       url: `/${currentLang}/msg-singles`,
       title: 'Poruke pojedinacno',
     },
+    {
+      url: `/${currentLang}/hero-sections`,
+      title: 'Hero kompilacija',
+    },
   ];
-
-  const handleLangSwitch = (pathName: string) => {
-    let constructNewPath = splitPath[1];
-
-    constructNewPath = pathName;
-
-    // console.log('path', constructNewPath);
-  };
 
   const [theme, setTheme] = React.useState('light');
   const handleTheme = () => {
@@ -99,7 +87,7 @@ const AppHeader = () => {
         <div className='flex items-center justify-between'>
           <div className='flex items-center space-x-8'>
             <div className='shrink-0'>
-              <a href='/' title='' className=''>
+              <a href='/' title=''>
                 <picture>
                   <img
                     className='block w-auto h-8 dark:hidden'
@@ -118,23 +106,37 @@ const AppHeader = () => {
             </div>
 
             <ul className='hidden lg:flex items-center justify-start gap-6 md:gap-8 py-3 sm:justify-center flex-wrap'>
-              {navLinks.map((navLink) => {
-                return (
-                  <li key={navLink.title} className='shrink-0'>
-                    <a
-                      href={navLink.url}
-                      className='flex text-sm font-medium text-gray-900 hover:text-primary-700 dark:text-white dark:hover:text-primary-500'
-                    >
-                      {navLink.title}
-                    </a>
-                  </li>
-                );
-              })}
+              {navLinks.map((navLink) => (
+                <li key={navLink.title} className='shrink-0'>
+                  <a
+                    href={navLink.url}
+                    className='flex text-sm font-medium text-gray-900 hover:text-primary-700 dark:text-white dark:hover:text-primary-500'
+                  >
+                    {navLink.title}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
+          <div className='flex items-center space-x-4'>
+            {langs.map((language) => (
+              <Link
+                key={language.lang}
+                href={`/${language.lang}${currentPath.replace(`/${currentLang}`, '')}${
+                  searchParams.toString() ? '?' + searchParams.toString() : ''
+                }`}
+              >
+                <button
+                  disabled={currentLang === language.lang}
+                  className='text-sm font-medium text-gray-900 dark:text-white'
+                >
+                  {language.title}
+                </button>
+              </Link>
+            ))}
+            <AppButtonGradient action={handleTheme} buttonText='Theme switcher' />
+          </div>
         </div>
-
-        <AppButtonGradient action={handleTheme} buttonText='Theme switcher' />
       </div>
     </nav>
   );
