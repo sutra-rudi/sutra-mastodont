@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { AppButtonClean, AppButtonDefault, AppButtonGradient } from '../components/AppButton';
+import { AppButtonClean, AppButtonDefault, AppButtonGradient, AppButtonOutline } from '../components/AppButton';
 import toast from 'react-hot-toast';
 
 const ButtonsDisplay = () => {
@@ -40,7 +40,7 @@ const ButtonsDisplay = () => {
       <div className='max-w-[1225px] mx-auto my-8 flex place-items-center gap-6'>
         <AppButtonDefault buttonText='Prvi sa ikonom' action={customToast} />
         <AppButtonClean buttonText='Prvi bez ikone' action={customToast} />
-        <AppButtonGradient buttonText='Gradient botun' action={() => {}} />
+        <AppButtonOutline buttonText='Outline botun' action={customToast} />
       </div>
     </section>
   );

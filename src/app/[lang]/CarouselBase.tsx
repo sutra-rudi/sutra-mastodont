@@ -17,7 +17,7 @@ const CarouselBase = ({ imageArray }: CarouselBase) => {
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
-    speed: 9000,
+    speed: 4000,
     autoplaySpeed: 0,
     cssEase: 'linear',
   };
@@ -35,10 +35,10 @@ const CarouselBase = ({ imageArray }: CarouselBase) => {
     centerMode: true,
     infinite: true,
     centerPadding: '60px',
-    slidesToShow: 3,
+    slidesToShow: 4,
     speed: 500,
     rows: 2,
-    slidesPerRow: 2,
+    slidesPerRow: 1,
   };
 
   return (
@@ -55,7 +55,7 @@ const CarouselBase = ({ imageArray }: CarouselBase) => {
                     src={gal.node.sourceUrl}
                     alt={gal.node.alt ?? 'Some image'}
                     className='object-cover object-center aspect-video block'
-                    loading='lazy'
+                    // loading='lazy'
                   />
                 </div>
               );
