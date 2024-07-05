@@ -7,6 +7,7 @@ import AppHeader from './globalComponents/AppHeader';
 import AppFooter from './globalComponents/AppFooter';
 import { Toaster } from 'react-hot-toast';
 import SpeedDial from './components/SpeedDial';
+import { Suspense } from 'react';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -26,11 +27,13 @@ export default function RootLayout({
       className='scrollbar scrollbar-thumb-primary-light dark:scrollbar-thumb-primary-dark  scrollbar-track-primary-dark dark:scrollbar-track-primary-light '
     >
       <body className={inter.className}>
-        <AppHeader />
-        <Toaster />
-        {children}
-        <SpeedDial />
-        <AppFooter />
+        <Suspense fallback={<h2>LOADING</h2>}>
+          <AppHeader />
+          <Toaster />
+          {children}
+          <SpeedDial />
+          <AppFooter />
+        </Suspense>
       </body>
     </html>
   );
