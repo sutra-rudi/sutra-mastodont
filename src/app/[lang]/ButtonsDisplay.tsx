@@ -3,7 +3,7 @@
 import React from 'react';
 import { AppButtonClean, AppButtonDefault, AppButtonGradient, AppButtonOutline } from '../components/AppButton';
 import toast from 'react-hot-toast';
-import { BsArrowUpRight as ArrowIconLink } from 'react-icons/bs';
+import { BsArrowUpRight as ArrowIconLink, BsXCircle as CloseIcon } from 'react-icons/bs';
 const ButtonsDisplay = () => {
   const customToast = () =>
     toast.custom((t) => (
@@ -30,7 +30,7 @@ const ButtonsDisplay = () => {
           </div>
         </div>
 
-        <AppButtonDefault action={() => toast.dismiss(t.id)} buttonText='Zatvori' />
+        <AppButtonDefault action={() => toast.dismiss(t.id)} buttonText='Zatvori' icon={<CloseIcon />} />
       </div>
     ));
 
@@ -38,7 +38,7 @@ const ButtonsDisplay = () => {
     <section>
       <h2 className='w-full text-center text-7xl font-semibold pt-8'>Buttons display</h2>
       <div className='max-w-[1225px] mx-auto my-8 flex place-items-center gap-6'>
-        <AppButtonDefault icon={ArrowIconLink} buttonText='Prvi sa ikonom' action={customToast} />
+        <AppButtonDefault icon={<ArrowIconLink />} buttonText='Prvi sa ikonom' action={customToast} />
         <AppButtonClean buttonText='Prvi bez ikone' action={customToast} />
         <AppButtonOutline buttonText='Outline botun' action={customToast} />
         <AppButtonGradient buttonText='Gradient botun' action={customToast} />

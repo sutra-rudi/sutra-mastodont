@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { getSuffixFromLang } from '../langUtils/getSuffixFromLang';
-import Image from 'next/image';
+
 import parse from 'html-react-parser';
 
 import dynamic from 'next/dynamic';
@@ -56,37 +56,43 @@ const TestimonialsSection = ({ pageContent, lang }: ClientTestimonials) => {
                     <ReactPlayer url={singleExp.introContent.uploadVideo.node.mediaItemUrl} controls playsinline pip />
                   )}
                 </blockquote>
-                <figcaption className='relative mt-6 flex items-center justify-start border-t border-slate-100 pt-6'>
-                  <div className='grid grid-cols-1 gap-2'>
-                    <div className='flex items-center gap-2 text-base text-slate-900'>
-                      <h2 className='flex items-center gap-2'>
-                        <UserIcon /> {singleExp.introContent.imeKlijentaTestimonials ?? 'Nema imena'}
-                      </h2>
-                    </div>
-                    <div className='grid grid-cols-1 text-sm gap-2 text-slate-500'>
-                      <p className='flex items-center gap-2'>
-                        <RoleIcon /> {singleExp.mainContent.clientPosition ?? 'Nema pozicije'}
-                      </p>
-                      <p className='flex items-center gap-2'>
-                        <CompanyIcon /> {singleExp.introContent.imeTvrtkeZemljaTestimonials ?? 'Nema imena tvrtke'}
-                      </p>
+                <figcaption className='relative mt-6 flex items-center justify-between border-t border-slate-100 pt-6'>
+                  <div className='flex gap-4 items-center'>
+                    <div className='overflow-hidden rounded-full bg-slate-50'>
+                      <picture>
+                        <img
+                          className='h-24 w-24 object-cover rounded-full'
+                          src={shorthand.prilozenaSlikaTestimonials.node.sourceUrl ?? 'https://placehold.co/400.png'}
+                          alt=''
+                        />
+                      </picture>
                     </div>
 
-                    <div className='flex items-center gap-2'>
-                      <StarIcon /> <span>{singleExp.introContent.ocijenaIliBrojZvjezdicaTestimonials}</span>
+                    <div className='grid grid-cols-1 gap-2'>
+                      <div className='flex items-center gap-2 text-base text-slate-900'>
+                        <h2 className='flex items-center gap-2'>
+                          <UserIcon /> {singleExp.introContent.imeKlijentaTestimonials ?? 'Nema imena'}
+                        </h2>
+                      </div>
+                      <div className='grid grid-cols-1 text-sm gap-2 text-slate-500'>
+                        <p className='flex items-center gap-2'>
+                          <RoleIcon /> {singleExp.mainContent.clientPosition ?? 'Nema pozicije'}
+                        </p>
+                        <p className='flex items-center gap-2'>
+                          <CompanyIcon /> {singleExp.introContent.imeTvrtkeZemljaTestimonials ?? 'Nema imena tvrtke'}
+                        </p>
+                      </div>
+
+                      <div className='flex items-center gap-2'>
+                        <StarIcon /> <span>{singleExp.introContent.ocijenaIliBrojZvjezdicaTestimonials}</span>
+                      </div>
                     </div>
                   </div>
-                  <div className='overflow-hidden rounded-full bg-slate-50'>
-                    <picture>
-                      <img
-                        className=' h-14 w-14 object-cover rounded-full'
-                        src={shorthand.prilozenaSlikaTestimonials.node.sourceUrl ?? 'https://placehold.co/400.png'}
-                        alt=''
-                      />
-                    </picture>
-                  </div>
 
-                  <div className=''></div>
+                  <div className='flex prose gap-4'>
+                    <a href={singleExp.introContent.vanjskaPoveznicaTestimonials}>Procitaj punu recenziju</a>
+                    <a href={singleExp.introContent.vanjskiLinkNaVideoYoutube}>Video link</a>
+                  </div>
                 </figcaption>
               </figure>
             </article>
