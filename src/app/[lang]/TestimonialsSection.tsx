@@ -4,8 +4,14 @@ import React from 'react';
 import { getSuffixFromLang } from '../langUtils/getSuffixFromLang';
 import Image from 'next/image';
 import parse from 'html-react-parser';
-// import ReactPlayer from 'react-player';
+
 import dynamic from 'next/dynamic';
+import { IoIosStarOutline as StarIcon } from 'react-icons/io';
+import {
+  BsFillBuildingsFill as CompanyIcon,
+  BsPersonFillGear as RoleIcon,
+  BsFillPersonVcardFill as UserIcon,
+} from 'react-icons/bs';
 const ReactPlayer = dynamic(() => import('react-player'), { ssr: false });
 interface ClientTestimonials {
   pageContent: any;
@@ -24,6 +30,8 @@ const TestimonialsSection = ({ pageContent, lang }: ClientTestimonials) => {
     };
   });
 
+  console.log('PAGI CONT', pageContent);
+
   return (
     <section>
       <h2 className='w-full text-center text-7xl font-semibold pt-8'>Iskustva klijenata</h2>
@@ -32,121 +40,55 @@ const TestimonialsSection = ({ pageContent, lang }: ClientTestimonials) => {
         {prepareData.map((singleExp: any, index: number) => {
           const shorthand = singleExp.introContent;
 
+          console.log('single', singleExp);
+
           return (
-            <article
-              key={index}
-              className='md:gap-8 md:grid md:grid-cols-2 py-2 px-4 bg-almost-white dark:bg-almost-black items-start place-items-center'
-            >
-              <div className='col-span-1 max-w-[400px]'>
-                <div className='flex items-center justify-start gap-8 mb-6'>
-                  <div className='font-medium text-almost-black dark:text-almost-white flex place-items-center gap-4'>
+            <article key={index}>
+              <figure className='relative rounded-2xl bg-white p-6 shadow-xl shadow-slate-900/10'>
+                <svg aria-hidden='true' width='105' height='78' className='absolute top-16 left-6 fill-slate-100'>
+                  <path d='M25.086 77.292c-4.821 0-9.115-1.205-12.882-3.616-3.767-2.561-6.78-6.102-9.04-10.622C1.054 58.534 0 53.411 0 47.686c0-5.273.904-10.396 2.712-15.368 1.959-4.972 4.746-9.567 8.362-13.786a59.042 59.042 0 0 1 12.43-11.3C28.325 3.917 33.599 1.507 39.324 0l11.074 13.786c-6.479 2.561-11.677 5.951-15.594 10.17-3.767 4.219-5.65 7.835-5.65 10.848 0 1.356.377 2.863 1.13 4.52.904 1.507 2.637 3.089 5.198 4.746 3.767 2.41 6.328 4.972 7.684 7.684 1.507 2.561 2.26 5.5 2.26 8.814 0 5.123-1.959 9.19-5.876 12.204-3.767 3.013-8.588 4.52-14.464 4.52Zm54.24 0c-4.821 0-9.115-1.205-12.882-3.616-3.767-2.561-6.78-6.102-9.04-10.622-2.11-4.52-3.164-9.643-3.164-15.368 0-5.273.904-10.396 2.712-15.368 1.959-4.972 4.746-9.567 8.362-13.786a59.042 59.042 0 0 1 12.43-11.3C82.565 3.917 87.839 1.507 93.564 0l11.074 13.786c-6.479 2.561-11.677 5.951-15.594 10.17-3.767 4.219-5.65 7.835-5.65 10.848 0 1.356.377 2.863 1.13 4.52.904 1.507 2.637 3.089 5.198 4.746 3.767 2.41 6.328 4.972 7.684 7.684 1.507 2.561 2.26 5.5 2.26 8.814 0 5.123-1.959 9.19-5.876 12.204-3.767 3.013-8.588 4.52-14.464 4.52Z'></path>
+                </svg>
+                <blockquote className='relative flex items-center gap-4'>
+                  <p className='text-lg tracking-tight text-slate-900 prose line-clamp-6'>
+                    {singleExp.mainContent.clientContent ? parse(singleExp.mainContent.clientContent) : 'Nema sadržaja'}
+                  </p>
+                  {singleExp.introContent.uploadVideo && (
+                    <ReactPlayer url={singleExp.introContent.uploadVideo.node.mediaItemUrl} controls playsinline pip />
+                  )}
+                </blockquote>
+                <figcaption className='relative mt-6 flex items-center justify-start border-t border-slate-100 pt-6'>
+                  <div className='grid grid-cols-1 gap-2'>
+                    <div className='flex items-center gap-2 text-base text-slate-900'>
+                      <h2 className='flex items-center gap-2'>
+                        <UserIcon /> {singleExp.introContent.imeKlijentaTestimonials ?? 'Nema imena'}
+                      </h2>
+                    </div>
+                    <div className='grid grid-cols-1 text-sm gap-2 text-slate-500'>
+                      <p className='flex items-center gap-2'>
+                        <RoleIcon /> {singleExp.mainContent.clientPosition ?? 'Nema pozicije'}
+                      </p>
+                      <p className='flex items-center gap-2'>
+                        <CompanyIcon /> {singleExp.introContent.imeTvrtkeZemljaTestimonials ?? 'Nema imena tvrtke'}
+                      </p>
+                    </div>
+
+                    <div className='flex items-center gap-2'>
+                      <StarIcon /> <span>{singleExp.introContent.ocijenaIliBrojZvjezdicaTestimonials}</span>
+                    </div>
+                  </div>
+                  <div className='overflow-hidden rounded-full bg-slate-50'>
                     <picture>
                       <img
-                        className='w-10 h-10 rounded-full'
+                        className=' h-14 w-14 object-cover rounded-full'
                         src={shorthand.prilozenaSlikaTestimonials.node.sourceUrl ?? 'https://placehold.co/400.png'}
                         alt=''
                       />
                     </picture>
-                    <p className='text-almost-black dark:text-almost-white'>
-                      {singleExp.introContent.imeKlijentaTestimonials ?? 'Nema imena'}
-                    </p>
                   </div>
-                  <p className='bg-blue-700 text-white text-sm font-semibold inline-flex items-center p-1.5 rounded'>
-                    {shorthand.ocijenaIliBrojZvjezdicaTestimonials ?? 'Nema ocjene'}
-                  </p>
-                </div>
-                <ul className='space-y-4 text-sm text-almost-black dark:text-almost-white'>
-                  <li className='flex items-center'>
-                    <svg
-                      className='w-3 h-3 me-2'
-                      aria-hidden='true'
-                      xmlns='http://www.w3.org/2000/svg'
-                      fill='none'
-                      viewBox='0 0 20 20'
-                    >
-                      <path
-                        stroke='currentColor'
-                        stroke-linecap='round'
-                        stroke-linejoin='round'
-                        stroke-width='2'
-                        d='M4 15V9m4 6V9m4 6V9m4 6V9M2 16h16M1 19h18M2 7v1h16V7l-8-6-8 6Z'
-                      />
-                    </svg>
-                    <p className='text-almost-black dark:text-almost-white'>
-                      {singleExp.introContent.imeTvrtkeZemljaTestimonials ?? 'Nema tvrtke'}
-                    </p>
-                  </li>
-                  <li className='flex items-center'>
-                    <svg
-                      className='w-3 h-3 me-2'
-                      aria-hidden='true'
-                      xmlns='http://www.w3.org/2000/svg'
-                      fill='currentColor'
-                      viewBox='0 0 20 19'
-                    >
-                      <path d='M14.5 0A3.987 3.987 0 0 0 11 2.1a4.977 4.977 0 0 1 3.9 5.858A3.989 3.989 0 0 0 14.5 0ZM9 13h2a4 4 0 0 1 4 4v2H5v-2a4 4 0 0 1 4-4Z' />
-                      <path d='M5 19h10v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2ZM5 7a5.008 5.008 0 0 1 4-4.9 3.988 3.988 0 1 0-3.9 5.859A4.974 4.974 0 0 1 5 7Zm5 3a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm5-1h-.424a5.016 5.016 0 0 1-1.942 2.232A6.007 6.007 0 0 1 17 17h2a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5ZM5.424 9H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h2a6.007 6.007 0 0 1 4.366-5.768A5.016 5.016 0 0 1 5.424 9Z' />
-                    </svg>
-                    <p className='text-almost-black dark:text-almost-white'>
-                      {singleExp.mainContent.clientPosition ?? 'Nema pozicije'}
-                    </p>
-                  </li>
-                  <li className='flex items-center'>
-                    <picture>
-                      <img
-                        src={shorthand.logotipTestimonials.node.sourceUrl ?? 'https://placehold.co/400.png'}
-                        alt=''
-                        className='w-1/3 h-1/3 rounded-full object-cover object-center aspect-square block'
-                      />
-                    </picture>
-                  </li>
-                </ul>
-              </div>
-              <div className='col-span-1 w-full mt-6 md:mt-0'>
-                <div className='flex items-start mb-5'>
-                  <div className='pe-4'>
-                    <footer>
-                      <p className='mb-2 text-sm text-almost-black dark:text-almost-white'>
-                        Reviewed: <time className='2022-01-20 19:00'>January 20, 2022</time>
-                      </p>
-                    </footer>
-                  </div>
-                </div>
-                <div className='mb-2 text-almost-black dark:text-almost-white prose'>
-                  {singleExp.mainContent.clientContent ? parse(singleExp.mainContent.clientContent) : 'Nema sadržaja'}
-                </div>
 
-                <aside className='flex items-center mt-3'>
-                  {shorthand.vanjskaPoveznicaTestimonials && (
-                    <a
-                      className='inline-flex items-center text-sm font-medium text-blue-600 hover:underline dark:text-blue-500'
-                      href={shorthand.vanjskaPoveznicaTestimonials}
-                    >
-                      Vanjski link
-                    </a>
-                  )}
-
-                  {shorthand.vanjskiLinkNaVideoYoutube && (
-                    <a
-                      className='inline-flex items-center text-sm font-medium text-blue-600 hover:underline dark:text-blue-500 group ms-5'
-                      href={shorthand.vanjskiLinkNaVideoYoutube}
-                    >
-                      Youtube link
-                    </a>
-                  )}
-                </aside>
-              </div>
-              <div className='col-span-2'>
-                {shorthand.uploadVideo && (
-                  <ReactPlayer
-                    url={shorthand.uploadVideo.node.mediaItemUrl}
-                    width={'100%'}
-                    height={'100%'}
-                    playsinline
-                    controls
-                  />
-                )}
-              </div>
+                  <div className=''></div>
+                </figcaption>
+              </figure>
             </article>
           );
         })}

@@ -33,8 +33,6 @@ const LocationsSection = ({ pageContent }: LocationsSectionInterface) => {
 
           const prepGallery = Object.values(cont.node.photoGallery.fotogalerija);
 
-          console.log('GAL PREP', prepGallery);
-
           const imageSourceNaslovnaSlika = cont.node.naslovnaSlika.glavnaSlikaNaslovnaSlika
             ? cont.node.naslovnaSlika.glavnaSlikaNaslovnaSlika
             : 'https://placehold.co/400.png';
