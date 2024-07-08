@@ -4,7 +4,6 @@ import { getAllNewsQuery } from '../queries/getAllNewsQuery';
 import BlogSection from './BlogSection';
 import NewsSection from './NewsSection';
 import LocationsSection from './LocationsSection';
-import { getAllLocationsQuery } from '../queries/getAllLocationsQuery';
 import BrojcaniciSection from './BrojcaniciSection';
 import { getAllBrojcaniciQuery } from '../queries/getAllBrojcaniciQuery';
 import SingleFaqSection from './SingleFaqSection';
@@ -25,6 +24,7 @@ import { getDokumentikataloziQuery } from '../queries/getAllDocumentsQuery';
 import DocumentsCatalogsSection from './DocumentsCatalogsSection';
 import HeroSection from './HeroSection';
 import ButtonsDisplay from './ButtonsDisplay';
+import { getLokacijeQuery } from '../queries/getAllLocationsQuery';
 export const maxDuration = 60;
 
 export default async function Landing({ params: { lang } }: { params: { lang: string } }) {
@@ -55,7 +55,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        query: getAllLocationsQuery,
+        query: getLokacijeQuery(lang),
       }),
       // cache: 'no-cache',
     }),

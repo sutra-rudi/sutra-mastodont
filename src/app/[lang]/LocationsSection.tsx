@@ -1,5 +1,8 @@
+'use client';
+
 import React from 'react';
 import parse from 'html-react-parser';
+import Slider from 'react-slick';
 
 interface LocationsSectionInterface {
   pageContent: any;
@@ -7,6 +10,14 @@ interface LocationsSectionInterface {
 
 const LocationsSection = ({ pageContent }: LocationsSectionInterface) => {
   const contentShorthand = pageContent.data.lokacije.edges;
+
+  const defaultMultiple = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+  };
 
   return (
     <section>
@@ -20,16 +31,27 @@ const LocationsSection = ({ pageContent }: LocationsSectionInterface) => {
         {contentShorthand.map((cont: any) => {
           const contShorthand = cont.node.radnaVremenaLokacijaOsnovneInformacije;
 
+          const prepGallery = Object.values(cont.node.photoGallery.fotogalerija);
+
+          console.log('GAL PREP', prepGallery);
+
           const imageSourceNaslovnaSlika = cont.node.naslovnaSlika.glavnaSlikaNaslovnaSlika
             ? cont.node.naslovnaSlika.glavnaSlikaNaslovnaSlika
             : 'https://placehold.co/400.png';
 
+          const imageSourceSekundarnaSlika = cont.node.naslovnaSlika.sekundarnaGlavnaSlikaThumbnailHover
+            ? cont.node.naslovnaSlika.sekundarnaGlavnaSlikaThumbnailHover
+            : 'https://placehold.co/400.png';
+
           return (
-            <div key={cont.node.id} className='mt-16 lg:mt-20'>
+            <div key={cont.node.id} className='mt-16 lg:mt-20 grid grid-cols-1 gap-4'>
               <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
-                <div className='rounded-lg overflow-hidden'>
-                  <picture>
-                    <img src={imageSourceNaslovnaSlika.node.sourceUrl} alt='company logo' />
+                <div className='rounded-lg overflow-hidden group relative'>
+                  <picture className='group-hover:opacity-0 group-hover:scale-90 transition-all scale-100 duration-200 absolute inset-0'>
+                    <img src={imageSourceNaslovnaSlika.node.sourceUrl} alt='company location' />
+                  </picture>
+                  <picture className='group-hover:opacity-100 group-hover:scale-100 opacity-0 scale-90 transition-all duration-200 absolute inset-0'>
+                    <img src={imageSourceSekundarnaSlika.node.sourceUrl} alt='company location' />
                   </picture>
                 </div>
                 <div>
@@ -49,6 +71,20 @@ const LocationsSection = ({ pageContent }: LocationsSectionInterface) => {
                     </div>
                   </div>
                 </div>
+              </div>
+
+              <div className=''>
+                <Slider {...defaultMultiple}>
+                  {prepGallery.map((galItem: any, index: number) => {
+                    return (
+                      galItem && (
+                        <picture key={index} className=''>
+                          <img src={galItem.node.sourceUrl} alt='company locations gallery image' />
+                        </picture>
+                      )
+                    );
+                  })}
+                </Slider>
               </div>
             </div>
           );
