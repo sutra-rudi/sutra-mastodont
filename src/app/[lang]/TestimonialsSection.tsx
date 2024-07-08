@@ -2,9 +2,7 @@
 
 import React from 'react';
 import { getSuffixFromLang } from '../langUtils/getSuffixFromLang';
-
 import parse from 'html-react-parser';
-
 import dynamic from 'next/dynamic';
 import { IoIosStarOutline as StarIcon } from 'react-icons/io';
 import {
@@ -12,7 +10,9 @@ import {
   BsPersonFillGear as RoleIcon,
   BsFillPersonVcardFill as UserIcon,
 } from 'react-icons/bs';
+
 const ReactPlayer = dynamic(() => import('react-player'), { ssr: false });
+
 interface ClientTestimonials {
   pageContent: any;
   lang: any;
@@ -30,8 +30,6 @@ const TestimonialsSection = ({ pageContent, lang }: ClientTestimonials) => {
     };
   });
 
-  console.log('PAGI CONT', pageContent);
-
   return (
     <section>
       <h2 className='w-full text-center text-7xl font-semibold pt-8'>Iskustva klijenata</h2>
@@ -39,8 +37,6 @@ const TestimonialsSection = ({ pageContent, lang }: ClientTestimonials) => {
       <div className='max-w-[1225px] mx-auto my-8 grid grid-cols-1 gap-6'>
         {prepareData.map((singleExp: any, index: number) => {
           const shorthand = singleExp.introContent;
-
-          console.log('single', singleExp);
 
           return (
             <article key={index}>
