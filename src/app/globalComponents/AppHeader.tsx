@@ -85,6 +85,14 @@ const AppHeader = () => {
     }
   }, [theme]);
 
+  React.useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.documentElement.classList.add('overflow-hidden');
+    } else {
+      document.documentElement.classList.remove('overflow-hidden');
+    }
+  }, [isMobileMenuOpen]);
+
   return (
     <nav className='bg-white dark:bg-gray-800 antialiased relative'>
       <div className='max-w-screen-xl px-4 mx-auto 2xl:px-0 py-4'>
