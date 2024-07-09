@@ -15,8 +15,6 @@ const SingleFaqSection: React.FC<SingleFaqSectionInterface> = ({ pageContent, la
     setOpenAccordionIndex(openAccordionIndex === index ? null : index);
   };
 
-  console.log('PAGI CONT', pageContent);
-
   return (
     <section>
       <h2 className='w-full text-center text-7xl font-semibold pt-8'>FAQ Pojedinacno</h2>

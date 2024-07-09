@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname, useSearchParams } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import React from 'react';
 import { AppButtonGradient } from '../components/AppButton';
 import { Twirl as Hamburger } from 'hamburger-react';
@@ -70,12 +70,18 @@ const AppHeader = () => {
       url: `/${currentLang}/hero-sections`,
       title: 'Hero kompilacija',
     },
+    {
+      url: `/${currentLang}/maps`,
+      title: 'Mape kompilacija',
+    },
   ];
 
   const [theme, setTheme] = React.useState('light');
   const handleTheme = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark');
   };
+
+  const router = useRouter();
 
   React.useEffect(() => {
     if (theme === 'dark') {
@@ -140,19 +146,27 @@ const AppHeader = () => {
           </div>
           <div className='flex items-center space-x-4 z-40'>
             {langs.map((language) => (
-              <Link
+              // <Link
+              //   key={language.lang}
+              //   href={`/${language.lang}${currentPath.replace(`/${currentLang}`, '')}${
+              //     searchParams.toString() ? '?' + searchParams.toString() : ''
+              //   }`}
+              // >
+              <button
+                disabled={currentLang === language.lang}
                 key={language.lang}
-                href={`/${language.lang}${currentPath.replace(`/${currentLang}`, '')}${
-                  searchParams.toString() ? '?' + searchParams.toString() : ''
-                }`}
+                className='text-sm font-medium text-gray-900 dark:text-white flex place-items-center gap-2'
+                onClick={() =>
+                  router.replace(
+                    `/${language.lang}${currentPath.replace(`/${currentLang}`, '')}${
+                      searchParams.toString() ? '?' + searchParams.toString() : ''
+                    }`
+                  )
+                }
               >
-                <button
-                  disabled={currentLang === language.lang}
-                  className='text-sm font-medium text-gray-900 dark:text-white flex place-items-center gap-2'
-                >
-                  {language.flag} <span>{language.title.substring(0, 3)}</span>
-                </button>
-              </Link>
+                {language.flag} <span>{language.title.substring(0, 3)}</span>
+              </button>
+              // </Link>
             ))}
 
             <div

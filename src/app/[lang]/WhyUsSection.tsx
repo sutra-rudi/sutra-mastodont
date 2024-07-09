@@ -12,7 +12,6 @@ interface WhyUsSectionInterface {
 }
 
 const WhyUsSection = ({ pageContent, lang }: WhyUsSectionInterface) => {
-  console.log('PAGI CONT', pageContent);
   const l = getSuffixFromLang(lang);
 
   return (
@@ -29,7 +28,6 @@ const WhyUsSection = ({ pageContent, lang }: WhyUsSectionInterface) => {
           {pageContent.map((cont: any) => {
             const shorthandTitle = cont.node[`text${l}`];
 
-            // console.log('SHOR', lang);
             const shorthandArguments = cont.node[`uvodArgumentiWhyChooseUsKeys`];
             return (
               <div key={cont.node.id}>
