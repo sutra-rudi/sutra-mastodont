@@ -1,6 +1,10 @@
+'use client';
+
 import React from 'react';
 
 import Image from 'next/image';
+import { getSuffixFromLang } from '../langUtils/getSuffixFromLang';
+import parse from 'html-react-parser';
 
 interface WhyUsSectionInterface {
   pageContent: any;
@@ -8,6 +12,9 @@ interface WhyUsSectionInterface {
 }
 
 const WhyUsSection = ({ pageContent, lang }: WhyUsSectionInterface) => {
+  console.log('PAGI CONT', pageContent);
+  const l = getSuffixFromLang(lang);
+
   return (
     <section className='bg-white dark:bg-gray-900'>
       <div className='py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6'>
@@ -20,7 +27,9 @@ const WhyUsSection = ({ pageContent, lang }: WhyUsSectionInterface) => {
         </div>
         <div className='space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0'>
           {pageContent.map((cont: any) => {
-            const shorthandTitle = cont.node[`text${lang}`];
+            const shorthandTitle = cont.node[`text${l}`];
+
+            // console.log('SHOR', lang);
             const shorthandArguments = cont.node[`uvodArgumentiWhyChooseUsKeys`];
             return (
               <div key={cont.node.id}>
@@ -37,11 +46,17 @@ const WhyUsSection = ({ pageContent, lang }: WhyUsSectionInterface) => {
                 </div>
 
                 <h3 className='mb-2 text-xl font-bold dark:text-white'>
-                  {typeof shorthandTitle !== 'undefined' ? shorthandTitle[`naslov${lang}`] : 'Nema naslova'}
+                  {typeof shorthandTitle !== 'undefined' ? shorthandTitle[`naslov${l}`] : 'Nema naslova'}
                 </h3>
-                <p className='text-gray-500 dark:text-gray-400'>
-                  {typeof shorthandTitle !== 'undefined' ? shorthandTitle[`sadrzajTekst${lang}`] : 'Nema teksta'}
-                </p>
+
+                {typeof shorthandTitle !== 'undefined' ? (
+                  <div className='text-gray-500 dark:text-gray-400 prose'>
+                    {parse(shorthandTitle[`sadrzajText${l}`])}
+                  </div>
+                ) : (
+                  'Nema teksta'
+                )}
+
                 <div className='text-gray-500 dark:text-gray-400 flex justify-between gap-4'>
                   <span>broj: {shorthandArguments.brojKeys}</span>
                   <span>odabir boje: {shorthandArguments.odabirBojeKeysArgumenti}</span>
