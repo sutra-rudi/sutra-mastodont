@@ -26,7 +26,7 @@ import HeroSection from './HeroSection';
 import ButtonsDisplay from './ButtonsDisplay';
 import { getLokacijeQuery } from '../queries/getAllLocationsQuery';
 export const maxDuration = 60;
-
+export const revalidate = 3600; // revalidate at most every hour
 export default async function Landing({ params: { lang } }: { params: { lang: string } }) {
   const requests = [
     fetch(`${process.env.CMS_BASE_URL}`, {
@@ -77,7 +77,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       body: JSON.stringify({
         query: getAllFaqSinglesQuery(lang),
       }),
-      // cache: 'no-cache',
+      // cache: 'no-store',
     }),
     fetch(`${process.env.CMS_BASE_URL}`, {
       method: 'POST',
