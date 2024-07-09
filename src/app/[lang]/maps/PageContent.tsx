@@ -34,6 +34,13 @@ const PageContent = ({ pageContent }: MapsPageContent) => {
 
     adminMap.current.setCenter([adminLng, adminLat]);
     adminMap.current.flyTo({ adminLng, adminLat });
+
+    const rotateCamera = (timestamp: any) => {
+      adminMap.current.rotateTo((timestamp / 100) % 360, { duration: 0 });
+      requestAnimationFrame(rotateCamera);
+    };
+
+    rotateCamera(0);
   }, [contShorthand]);
 
   return (
