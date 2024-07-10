@@ -1,5 +1,6 @@
 import { getAllMapsQuery } from '@/app/queries/getAllMapsQuery';
 import PageContent from './PageContent';
+import { Suspense } from 'react';
 
 export default async function Maps() {
   const getAllMaps = await fetch(`${process.env.CMS_BASE_URL}`, {
@@ -22,7 +23,7 @@ export default async function Maps() {
 
   return (
     <main>
-      <PageContent pageContent={prepareDataMaps} />
+      <Suspense>{parseMapsData.data && <PageContent pageContent={prepareDataMaps} />}</Suspense>
     </main>
   );
 }

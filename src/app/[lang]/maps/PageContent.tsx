@@ -1,12 +1,22 @@
 'use client';
 import React from 'react';
 import mapboxgl from 'mapbox-gl';
+import Loading from '@/app/loading';
 interface MapsPageContent {
   pageContent: any;
 }
 
 const PageContent = ({ pageContent }: MapsPageContent) => {
   console.log('PAGI CONT', pageContent);
+
+  const [mapsLoadingState, setMapsLoadingState] = React.useState({
+    admin: true,
+    location2: true,
+    location3: true,
+    location4: true,
+    location5: true,
+    location6: true,
+  });
 
   const adminMapContainer = React.useRef<any>(null);
   const adminMap = React.useRef<any>(null);
@@ -75,6 +85,11 @@ const PageContent = ({ pageContent }: MapsPageContent) => {
                   features: [
                     {
                       type: 'Feature',
+                      properties: {
+                        description:
+                          contShorthand.adminMapLokacijaIzCmsSustava.popUpPorukaKojaSeIspisujeKlikomNaTockuNaMapi,
+                        icon: 'theatre',
+                      },
                       geometry: {
                         type: 'Point',
                         coordinates: [adminLng, adminLat],
@@ -91,6 +106,27 @@ const PageContent = ({ pageContent }: MapsPageContent) => {
           }
         });
       }
+
+      setMapsLoadingState((_prev) => {
+        return { ..._prev, admin: false };
+      });
+    });
+
+    adminMap.current.on('click', 'custom-icon-layer', (e: any) => {
+      // Copy coordinates array.
+      const coordinates = e.features[0].geometry.coordinates.slice();
+      const description = e.features[0].properties.description;
+
+      // Ensure that if the map is zoomed out such that multiple
+      // copies of the feature are visible, the popup appears
+      // over the copy being pointed to.
+      if (['mercator', 'equirectangular'].includes(adminMap.current.getProjection().name)) {
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+          coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        }
+      }
+
+      new mapboxgl.Popup().setLngLat(coordinates).setHTML(description).addTo(adminMap.current);
     });
   }, [contShorthand]);
 
@@ -153,6 +189,12 @@ const PageContent = ({ pageContent }: MapsPageContent) => {
                         type: 'Point',
                         coordinates: [lng, lat],
                       },
+                      properties: {
+                        description:
+                          contShorthand.adminMapLokacijaIzCmsSustava.podaciZaAktiviranuLokaciju2
+                            .porukaKojaSeIspisujeZaDodatnuLokaciju,
+                        icon: 'theatre',
+                      },
                     },
                   ],
                 },
@@ -165,6 +207,27 @@ const PageContent = ({ pageContent }: MapsPageContent) => {
           }
         });
       }
+
+      setMapsLoadingState((_prev) => {
+        return { ..._prev, location2: false };
+      });
+    });
+
+    location2Map.current.on('click', 'custom-icon-layer', (e: any) => {
+      // Copy coordinates array.
+      const coordinates = e.features[0].geometry.coordinates.slice();
+      const description = e.features[0].properties.description;
+
+      // Ensure that if the map is zoomed out such that multiple
+      // copies of the feature are visible, the popup appears
+      // over the copy being pointed to.
+      if (['mercator', 'equirectangular'].includes(location2Map.current.getProjection().name)) {
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+          coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        }
+      }
+
+      new mapboxgl.Popup().setLngLat(coordinates).setHTML(description).addTo(location2Map.current);
     });
   }, [contShorthand]);
 
@@ -225,6 +288,12 @@ const PageContent = ({ pageContent }: MapsPageContent) => {
                         type: 'Point',
                         coordinates: [lng, lat],
                       },
+                      properties: {
+                        description:
+                          contShorthand.adminMapLokacijaIzCmsSustava.podaciZaAktiviranuLokaciju3
+                            .porukaKojaSeIspisujeZaDodatnuLokaciju,
+                        icon: 'theatre',
+                      },
                     },
                   ],
                 },
@@ -237,6 +306,26 @@ const PageContent = ({ pageContent }: MapsPageContent) => {
           }
         });
       }
+      setMapsLoadingState((_prev) => {
+        return { ..._prev, location3: false };
+      });
+    });
+
+    location3Map.current.on('click', 'custom-icon-layer', (e: any) => {
+      // Copy coordinates array.
+      const coordinates = e.features[0].geometry.coordinates.slice();
+      const description = e.features[0].properties.description;
+
+      // Ensure that if the map is zoomed out such that multiple
+      // copies of the feature are visible, the popup appears
+      // over the copy being pointed to.
+      if (['mercator', 'equirectangular'].includes(location3Map.current.getProjection().name)) {
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+          coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        }
+      }
+
+      new mapboxgl.Popup().setLngLat(coordinates).setHTML(description).addTo(location3Map.current);
     });
   }, [contShorthand]);
 
@@ -297,6 +386,12 @@ const PageContent = ({ pageContent }: MapsPageContent) => {
                         type: 'Point',
                         coordinates: [lng, lat],
                       },
+                      properties: {
+                        description:
+                          contShorthand.adminMapLokacijaIzCmsSustava.podaciZaAktiviranuLokaciju4
+                            .porukaKojaSeIspisujeZaDodatnuLokaciju,
+                        icon: 'theatre',
+                      },
                     },
                   ],
                 },
@@ -309,6 +404,26 @@ const PageContent = ({ pageContent }: MapsPageContent) => {
           }
         });
       }
+      setMapsLoadingState((_prev) => {
+        return { ..._prev, location4: false };
+      });
+    });
+
+    location4Map.current.on('click', 'custom-icon-layer', (e: any) => {
+      // Copy coordinates array.
+      const coordinates = e.features[0].geometry.coordinates.slice();
+      const description = e.features[0].properties.description;
+
+      // Ensure that if the map is zoomed out such that multiple
+      // copies of the feature are visible, the popup appears
+      // over the copy being pointed to.
+      if (['mercator', 'equirectangular'].includes(location4Map.current.getProjection().name)) {
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+          coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        }
+      }
+
+      new mapboxgl.Popup().setLngLat(coordinates).setHTML(description).addTo(location4Map.current);
     });
   }, [contShorthand]);
 
@@ -369,6 +484,12 @@ const PageContent = ({ pageContent }: MapsPageContent) => {
                         type: 'Point',
                         coordinates: [lng, lat],
                       },
+                      properties: {
+                        description:
+                          contShorthand.adminMapLokacijaIzCmsSustava.podaciZaAktiviranuLokaciju5
+                            .porukaKojaSeIspisujeZaDodatnuLokaciju,
+                        icon: 'theatre',
+                      },
                     },
                   ],
                 },
@@ -381,6 +502,26 @@ const PageContent = ({ pageContent }: MapsPageContent) => {
           }
         });
       }
+      setMapsLoadingState((_prev) => {
+        return { ..._prev, location5: false };
+      });
+    });
+
+    location5Map.current.on('click', 'custom-icon-layer', (e: any) => {
+      // Copy coordinates array.
+      const coordinates = e.features[0].geometry.coordinates.slice();
+      const description = e.features[0].properties.description;
+
+      // Ensure that if the map is zoomed out such that multiple
+      // copies of the feature are visible, the popup appears
+      // over the copy being pointed to.
+      if (['mercator', 'equirectangular'].includes(location5Map.current.getProjection().name)) {
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+          coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        }
+      }
+
+      new mapboxgl.Popup().setLngLat(coordinates).setHTML(description).addTo(location5Map.current);
     });
   }, [contShorthand]);
 
@@ -441,6 +582,12 @@ const PageContent = ({ pageContent }: MapsPageContent) => {
                         type: 'Point',
                         coordinates: [lng, lat],
                       },
+                      properties: {
+                        description:
+                          contShorthand.adminMapLokacijaIzCmsSustava.podaciZaAktiviranuLokaciju6
+                            .porukaKojaSeIspisujeZaDodatnuLokaciju,
+                        icon: 'theatre',
+                      },
                     },
                   ],
                 },
@@ -453,46 +600,115 @@ const PageContent = ({ pageContent }: MapsPageContent) => {
           }
         });
       }
+      setMapsLoadingState((_prev) => {
+        return { ..._prev, location6: false };
+      });
+    });
+
+    location6Map.current.on('click', 'custom-icon-layer', (e: any) => {
+      // Copy coordinates array.
+      const coordinates = e.features[0].geometry.coordinates.slice();
+      const description = e.features[0].properties.description;
+
+      // Ensure that if the map is zoomed out such that multiple
+      // copies of the feature are visible, the popup appears
+      // over the copy being pointed to.
+      if (['mercator', 'equirectangular'].includes(location6Map.current.getProjection().name)) {
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+          coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        }
+      }
+
+      new mapboxgl.Popup().setLngLat(coordinates).setHTML(description).addTo(location6Map.current);
     });
   }, [contShorthand]);
 
   return (
     <div>
       <div className='max-w-[1440px] mx-auto my-0'>
-        <div className='relative'>
-          <h2>{contShorthand.adminMaps.nazivMape}</h2>
-          <div className='min-h-[400px] w-full ' ref={adminMapContainer}></div>
-        </div>
+        {contShorthand.adminMapLokacijaIzCmsSustava && (
+          <div className='relative'>
+            <h2>{contShorthand.adminMaps.nazivMape}</h2>
+            {mapsLoadingState.admin && <Loading />}
+            <div
+              className={`min-h-[400px] w-full ${
+                mapsLoadingState.admin ? 'opacity-0' : 'opacity-100'
+              } transition-opacity duration-700`}
+              ref={adminMapContainer}
+            ></div>
+          </div>
+        )}
         <h2 className='w-full text-5xl font-medium text-center my-8'>Dodatne lokacije</h2>
         <div className='w-full grid grid-cols-1 gap-8'>
           {contShorthand.adminMapLokacijaIzCmsSustava.lokacija2 && (
-            <div className='relative'>
-              <h2>{contShorthand.adminMapLokacijaIzCmsSustava.podaciZaAktiviranuLokaciju2.nazivLokacije}</h2>
-              <div className='min-h-[400px] w-full ' ref={location2}></div>
+            <div className='relative my-12'>
+              <h2 className='-top-[50px] absolute'>
+                {contShorthand.adminMapLokacijaIzCmsSustava.podaciZaAktiviranuLokaciju2.nazivLokacije}
+              </h2>
+              {mapsLoadingState.location2 && <Loading />}
+              <div
+                className={`min-h-[400px] w-full ${
+                  mapsLoadingState.location2 ? 'opacity-0' : 'opacity-100'
+                } transition-opacity duration-700`}
+                ref={location2}
+              ></div>
             </div>
           )}
           {contShorthand.adminMapLokacijaIzCmsSustava.lokacija3 && (
-            <div className='relative'>
-              <h2>{contShorthand.adminMapLokacijaIzCmsSustava.podaciZaAktiviranuLokaciju3.nazivLokacije}</h2>
-              <div className='min-h-[400px] w-full ' ref={location3}></div>
+            <div className='relative my-12'>
+              <h2 className='-top-[50px] absolute'>
+                {contShorthand.adminMapLokacijaIzCmsSustava.podaciZaAktiviranuLokaciju3.nazivLokacije}
+              </h2>
+              {mapsLoadingState.location3 && <Loading />}
+
+              <div
+                className={`min-h-[400px] w-full ${
+                  mapsLoadingState.location3 ? 'opacity-0' : 'opacity-100'
+                } transition-opacity duration-700`}
+                ref={location3}
+              ></div>
             </div>
           )}
           {contShorthand.adminMapLokacijaIzCmsSustava.lokacija4 && (
-            <div className='relative'>
-              <h2>{contShorthand.adminMapLokacijaIzCmsSustava.podaciZaAktiviranuLokaciju4.nazivLokacije}</h2>
-              <div className='min-h-[400px] w-full ' ref={location4}></div>
+            <div className='relative my-12'>
+              <h2 className='-top-[50px] absolute'>
+                {contShorthand.adminMapLokacijaIzCmsSustava.podaciZaAktiviranuLokaciju4.nazivLokacije}
+              </h2>
+              {mapsLoadingState.location4 && <Loading />}
+              <div
+                className={`min-h-[400px] w-full ${
+                  mapsLoadingState.location4 ? 'opacity-0' : 'opacity-100'
+                } transition-opacity duration-700`}
+                ref={location4}
+              ></div>
             </div>
           )}
           {contShorthand.adminMapLokacijaIzCmsSustava.lokacija5 && (
-            <div className='relative'>
-              <h2>{contShorthand.adminMapLokacijaIzCmsSustava.podaciZaAktiviranuLokaciju5.nazivLokacije}</h2>
-              <div className='min-h-[400px] w-full ' ref={location5}></div>
+            <div className='relative my-12'>
+              <h2 className='-top-[50px] absolute'>
+                {contShorthand.adminMapLokacijaIzCmsSustava.podaciZaAktiviranuLokaciju5.nazivLokacije}
+              </h2>
+              {mapsLoadingState.location5 && <Loading />}
+              <div
+                className={`min-h-[400px] w-full ${
+                  mapsLoadingState.location5 ? 'opacity-0' : 'opacity-100'
+                } transition-opacity duration-700`}
+                ref={location5}
+              ></div>
             </div>
           )}
           {contShorthand.adminMapLokacijaIzCmsSustava.lokacija6 && (
-            <div className='relative'>
-              <h2>{contShorthand.adminMapLokacijaIzCmsSustava.podaciZaAktiviranuLokaciju6.nazivLokacije}</h2>
-              <div className='min-h-[400px] w-full ' ref={location6}></div>
+            <div className='relative my-12'>
+              <h2 className='-top-[50px] absolute'>
+                {contShorthand.adminMapLokacijaIzCmsSustava.podaciZaAktiviranuLokaciju6.nazivLokacije}
+              </h2>
+              {mapsLoadingState.location6 && <Loading />}
+              <div
+                className={`min-h-[400px] w-full ${
+                  mapsLoadingState.location6 ? 'opacity-0' : 'opacity-100'
+                } transition-opacity duration-700`}
+                ref={location6}
+              ></div>
             </div>
           )}
         </div>
