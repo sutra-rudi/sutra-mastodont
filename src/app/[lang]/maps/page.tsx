@@ -14,7 +14,7 @@ export default async function Maps() {
     next: {
       revalidate: 60 * 30,
     },
-    // cache: 'no-cache',
+    cache: 'no-cache',
   });
 
   const parseMapsData = await getAllMaps.json();

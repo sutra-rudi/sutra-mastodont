@@ -626,6 +626,7 @@ const PageContent = ({ pageContent }: MapsPageContent) => {
   return (
     <div>
       <div className='max-w-[1440px] mx-auto my-0'>
+        <h2 className='w-full text-5xl font-medium text-center my-8'>Admin mapa</h2>
         {contShorthand.adminMapLokacijaIzCmsSustava && (
           <div className='relative'>
             <h2>{contShorthand.adminMaps.nazivMape}</h2>
