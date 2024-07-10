@@ -18,12 +18,24 @@ export const getAllMapsQuery = () => {
             mapsLongitudeDodatneLokacije
             nazivLokacije
             porukaKojaSeIspisujeZaDodatnuLokaciju
+            dodajIkonuIliSliku {
+              node {
+                srcSet
+                sourceUrl
+              }
+            }
           }
           podaciZaAktiviranuLokaciju5 {
             mapsLatitudeDodatneLokacije
             mapsLongitudeDodatneLokacije
             nazivLokacije
             porukaKojaSeIspisujeZaDodatnuLokaciju
+            dodajIkonuIliSliku {
+              node {
+                srcSet
+                sourceUrl
+              }
+            }
           }
           podaciZaAktiviranuLokaciju4 {
             mapsLatitudeDodatneLokacije
@@ -56,7 +68,8 @@ export const getAllMapsQuery = () => {
             porukaKojaSeIspisujeZaDodatnuLokaciju
             dodajIkonuIliSliku {
               node {
-                id
+                srcSet
+                sourceUrl
               }
             }
           }

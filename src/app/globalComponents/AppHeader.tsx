@@ -124,7 +124,7 @@ const AppHeader = () => {
             </div>
 
             <div
-              className={`absolute w-full h-screen bg-red-300 inset-0 transition-all duration-300 flex items-center justify-center ${
+              className={`absolute z-40 w-full h-screen bg-red-300 inset-0 transition-all duration-300 flex items-center justify-center ${
                 isMobileMenuOpen
                   ? 'opacity-100 pointer-events-auto select-auto'
                   : 'opacity-0 select-none pointer-events-none'

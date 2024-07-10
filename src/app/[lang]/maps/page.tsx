@@ -10,6 +10,9 @@ export default async function Maps() {
     body: JSON.stringify({
       query: getAllMapsQuery(),
     }),
+    next: {
+      revalidate: 60 * 30,
+    },
     // cache: 'no-cache',
   });
 
