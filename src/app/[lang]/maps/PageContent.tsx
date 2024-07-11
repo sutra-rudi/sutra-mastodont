@@ -52,6 +52,7 @@ const PageContent = ({ pageContent }: MapsPageContent) => {
           type: 'Feature',
           properties: {
             description: contShorthand.adminMapLokacijaIzCmsSustava.popUpPorukaKojaSeIspisujeKlikomNaTockuNaMapi,
+            textBy: contShorthand.adminMapLokacijaIzCmsSustava.imeLokacijeKojaSeIspisujeUMapi,
             imgSource: contShorthand.adminMapLokacijaIzCmsSustava.ikonaIliSlikaNaMapi.node.sourceUrl,
             iconSize: [40, 40],
           },
@@ -68,6 +69,9 @@ const PageContent = ({ pageContent }: MapsPageContent) => {
               contShorthand.adminMapLokacijaIzCmsSustava.podaciZaAktiviranuLokaciju2
                 .porukaKojaSeIspisujeZaDodatnuLokaciju,
             iconSize: [40, 40],
+            // textBy:
+            //   contShorthand.adminMapLokacijaIzCmsSustava.podaciZaAktiviranuLokaciju2
+            //     .porukaKojaSeIspisujeZaDodatnuLokaciju,
             imgSource:
               contShorthand.adminMapLokacijaIzCmsSustava.podaciZaAktiviranuLokaciju2.dodajIkonuIliSliku.node.sourceUrl,
           },
@@ -86,6 +90,9 @@ const PageContent = ({ pageContent }: MapsPageContent) => {
               contShorthand.adminMapLokacijaIzCmsSustava.podaciZaAktiviranuLokaciju3
                 .porukaKojaSeIspisujeZaDodatnuLokaciju,
             iconSize: [40, 40],
+            // textBy:
+            //   contShorthand.adminMapLokacijaIzCmsSustava.podaciZaAktiviranuLokaciju3
+            //     .porukaKojaSeIspisujeZaDodatnuLokaciju,
             imgSource:
               contShorthand.adminMapLokacijaIzCmsSustava.podaciZaAktiviranuLokaciju3.dodajIkonuIliSliku.node.sourceUrl,
           },
@@ -104,6 +111,9 @@ const PageContent = ({ pageContent }: MapsPageContent) => {
               contShorthand.adminMapLokacijaIzCmsSustava.podaciZaAktiviranuLokaciju4
                 .porukaKojaSeIspisujeZaDodatnuLokaciju,
             iconSize: [40, 40],
+            // textBy:
+            //   contShorthand.adminMapLokacijaIzCmsSustava.podaciZaAktiviranuLokaciju4
+            //     .porukaKojaSeIspisujeZaDodatnuLokaciju,
             imgSource:
               contShorthand.adminMapLokacijaIzCmsSustava.podaciZaAktiviranuLokaciju4.dodajIkonuIliSliku.node.sourceUrl,
           },
@@ -124,6 +134,9 @@ const PageContent = ({ pageContent }: MapsPageContent) => {
             imgSource:
               contShorthand.adminMapLokacijaIzCmsSustava.podaciZaAktiviranuLokaciju5.dodajIkonuIliSliku.node.sourceUrl,
             iconSize: [40, 40],
+            // textBy:
+            //   contShorthand.adminMapLokacijaIzCmsSustava.podaciZaAktiviranuLokaciju5
+            //     .porukaKojaSeIspisujeZaDodatnuLokaciju,
           },
           geometry: {
             type: 'Point',
@@ -140,6 +153,9 @@ const PageContent = ({ pageContent }: MapsPageContent) => {
               contShorthand.adminMapLokacijaIzCmsSustava.podaciZaAktiviranuLokaciju6
                 .porukaKojaSeIspisujeZaDodatnuLokaciju,
             iconSize: [40, 40],
+            // textBy:
+            //   contShorthand.adminMapLokacijaIzCmsSustava.podaciZaAktiviranuLokaciju6
+            //     .porukaKojaSeIspisujeZaDodatnuLokaciju,
             imgSource:
               contShorthand.adminMapLokacijaIzCmsSustava.podaciZaAktiviranuLokaciju6.dodajIkonuIliSliku.node.sourceUrl,
           },
@@ -174,6 +190,7 @@ const PageContent = ({ pageContent }: MapsPageContent) => {
           el.style.borderRadius = '50%';
           el.style.cursor = 'pointer';
           el.style.padding = '0';
+          el.textContent = marker.properties.textBy ?? null;
 
           var html = `<div><p>${marker.properties.description}</p></div>`;
 
