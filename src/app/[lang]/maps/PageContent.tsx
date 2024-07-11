@@ -205,6 +205,7 @@ const PageContent = ({ pageContent }: MapsPageContent) => {
           new mapboxgl.Marker(el).setLngLat(marker.geometry.coordinates).addTo(adminMap.current).setPopup(customPopUp);
 
           el.addEventListener('mouseover', () => customPopUp.addTo(adminMap.current));
+          el.addEventListener('mouseleave', () => customPopUp.remove());
         }
       });
 
