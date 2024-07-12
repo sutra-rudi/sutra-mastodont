@@ -98,6 +98,9 @@ export const getAllMapsQuery = () => {
           mapsLongitudeMapCenter
           maxZoomIn
           maxZoomOut
+          pitchNagib
+          rotationSpeed
+          bearing
         }
       }
     }

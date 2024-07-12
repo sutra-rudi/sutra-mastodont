@@ -33,10 +33,14 @@ const PageContent = ({ pageContent }: MapsPageContent) => {
       zoom: contShorthand.adminMaps.mapboxZoomAdminMaps,
       maxZoom: contShorthand.mapsCentarMapeKoordinate.maxZoomIn,
       cooperativeGestures: true,
+      pitch: contShorthand.mapsCentarMapeKoordinate.pitchNagib ?? undefined,
+      bearing: contShorthand.mapsCentarMapeKoordinate.bearing ?? undefined,
     });
 
     adminMap.current.setCenter([adminLng, adminLat]);
     adminMap.current.flyTo({ adminLng, adminLat });
+
+    // console.log(contShorthand.mapsCentarMapeKoordinate.pitchNagib);
 
     const rotateCamera = (timestamp: any) => {
       adminMap.current.rotateTo((timestamp / 100) % 360, { duration: 0 });
@@ -180,7 +184,7 @@ const PageContent = ({ pageContent }: MapsPageContent) => {
           const el = document.createElement('div');
           const width = marker.properties.iconSize[0];
           const height = marker.properties.iconSize[1];
-          el.className = 'marker';
+          el.className = 'marker-custom';
           el.style.backgroundImage = `url(${marker.properties.imgSource})`;
           el.style.width = `${width}px`;
           el.style.height = `${height}px`;
@@ -190,17 +194,19 @@ const PageContent = ({ pageContent }: MapsPageContent) => {
           el.style.borderRadius = '50%';
           el.style.cursor = 'pointer';
           el.style.padding = '0';
-          el.textContent = marker.properties.textBy ?? null;
 
-          var html = `<div><p>${marker.properties.description}</p></div>`;
+          const textDiv = document.createElement('div');
+          textDiv.className = 'marker-text';
+          textDiv.textContent = marker.properties.textBy ?? '';
+          marker.properties.textBy && el.appendChild(textDiv);
+
+          var html = `<div className="!bg-blue-300"><p>${marker.properties.description}</p></div>`;
 
           var customPopUp = new mapboxgl.Popup({
             anchor: 'bottom', // To show popup on top
             offset: { bottom: [0, -10] }, // To prevent popup from over shadowing the marker.
             closeOnClick: false, // To prevent close on mapClick.
           }).setHTML(html); // You can set any valid HTML.
-
-          console.log('ALO', marker);
 
           new mapboxgl.Marker(el).setLngLat(marker.geometry.coordinates).addTo(adminMap.current).setPopup(customPopUp);
 

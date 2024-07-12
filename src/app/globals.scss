@@ -24,4 +24,32 @@
   .overflow-hidden {
     overflow: hidden;
   }
+
+  .marker-text {
+    position: absolute;
+    bottom: -2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    white-space: nowrap;
+    pointer-events: none;
+    font-size: theme('fontSize.lg');
+    font-family: '__Inter_aaf875', '__Inter_Fallback_aaf875' !important;
+  }
+}
+
+.mapboxgl-map {
+  font-family: '__Inter_aaf875', '__Inter_Fallback_aaf875' !important;
+}
+
+.mapboxgl-popup-close-button {
+  font-size: theme('fontSize.lg') !important;
+  font-family: '__Inter_aaf875', '__Inter_Fallback_aaf875' !important;
+  margin: 0 0.5rem 0 0;
+}
+
+.mapboxgl-popup-content {
+  padding: 1rem 0.5rem !important;
 }
