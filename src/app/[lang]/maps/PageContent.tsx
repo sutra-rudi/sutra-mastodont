@@ -32,6 +32,7 @@ const PageContent = ({ pageContent }: MapsPageContent) => {
       center: [adminLng, adminLat],
       zoom: contShorthand.adminMaps.mapboxZoomAdminMaps,
       maxZoom: contShorthand.mapsCentarMapeKoordinate.maxZoomIn,
+      minZoom: contShorthand.mapsCentarMapeKoordinate.maxZoomOut,
       cooperativeGestures: true,
       pitch: contShorthand.mapsCentarMapeKoordinate.pitchNagib ?? undefined,
       bearing: contShorthand.mapsCentarMapeKoordinate.bearing ?? undefined,
@@ -40,12 +41,13 @@ const PageContent = ({ pageContent }: MapsPageContent) => {
     adminMap.current.setCenter([adminLng, adminLat]);
     adminMap.current.flyTo({ adminLng, adminLat });
 
-    // console.log(contShorthand.mapsCentarMapeKoordinate.pitchNagib);
-
-    const rotateCamera = (timestamp: any) => {
-      adminMap.current.rotateTo((timestamp / 100) % 360, { duration: 0 });
-      requestAnimationFrame(rotateCamera);
-    };
+    function rotateCamera(timestamp: any) {
+      const speed = contShorthand.mapsCentarMapeKoordinate.rotationSpeed;
+      if (speed) {
+        adminMap.current.rotateTo((timestamp / speed) % 360, { duration: 0 });
+        requestAnimationFrame(rotateCamera);
+      }
+    }
 
     if (contShorthand.adminMapsAktivatorSpecijalnihMapboxSkripti.animateMapCameraAroundAPoint) rotateCamera(0);
 
@@ -219,7 +221,7 @@ const PageContent = ({ pageContent }: MapsPageContent) => {
         return { ..._prev, admin: false };
       });
     });
-
+    adminMap.current.resize();
     return () => {
       if (adminMap.current) {
         adminMap.current.remove();
