@@ -1,6 +1,6 @@
 import { getAllMapsQuery } from '@/app/queries/getAllMapsQuery';
-import PageContent from './PageContent';
-import { Suspense } from 'react';
+
+import { lazy, Suspense } from 'react';
 
 export default async function Maps() {
   const getAllMaps = await fetch(`${process.env.CMS_BASE_URL}`, {
@@ -21,9 +21,11 @@ export default async function Maps() {
 
   const prepareDataMaps = parseMapsData.data.bazaMapsKarte.edges;
 
+  const LazyContent = lazy(() => import('./PageContent'));
+
   return (
     <main>
-      <Suspense>{parseMapsData.data && <PageContent pageContent={prepareDataMaps} />}</Suspense>
+      <Suspense>{parseMapsData.data && <LazyContent pageContent={prepareDataMaps} />}</Suspense>
     </main>
   );
 }
