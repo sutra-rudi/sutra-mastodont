@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import React from 'react';
 import Slider from 'react-slick';
+import { LayoutGrid } from '../aceternityComponents/LayoutGrid';
 
 interface CarouselBase {
   imageArray: any;
@@ -40,6 +41,28 @@ const CarouselBase = ({ imageArray }: CarouselBase) => {
     rows: 2,
     slidesPerRow: 1,
   };
+
+  const prepAceternityGal = prepGallery.map((galItem: any, index: number) => {
+    const generateClassName = () => {
+      if (index + 1 !== 1) {
+        console.log('ALO');
+        return 'col-span-1';
+      }
+
+      if (index + 1 !== prepGallery.length - 2) {
+        return 'col-span-1';
+      } else return 'md:col-span-2';
+    };
+    const card: { id: number; content: JSX.Element | React.ReactNode | string; className: string; thumbnail: string } =
+      {
+        id: index + 1,
+        content: 'Ciao',
+        className: generateClassName(),
+        thumbnail: galItem.node.sourceUrl,
+      };
+
+    return card;
+  });
 
   return (
     <section>
@@ -98,6 +121,10 @@ const CarouselBase = ({ imageArray }: CarouselBase) => {
             })}
           </Slider>
         </div>
+      </div>
+
+      <div className='h-screen py-20 w-full'>
+        <LayoutGrid cards={prepAceternityGal} />
       </div>
     </section>
   );

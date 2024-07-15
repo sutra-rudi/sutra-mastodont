@@ -30,8 +30,7 @@ export const getAllBlogsQuery = (lang: string) => {
     `,
   };
 
-  return `
-    query NewQuery {
+  return `query NewQuery {
       allBlog {
         edges {
           node {

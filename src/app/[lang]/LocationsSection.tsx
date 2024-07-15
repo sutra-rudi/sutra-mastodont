@@ -9,8 +9,6 @@ interface LocationsSectionInterface {
 }
 
 const LocationsSection = ({ pageContent }: LocationsSectionInterface) => {
-  const contentShorthand = pageContent.data.lokacije.edges;
-
   const defaultMultiple = {
     dots: true,
     infinite: true,
@@ -28,7 +26,7 @@ const LocationsSection = ({ pageContent }: LocationsSectionInterface) => {
         <p className='mt-4 text-lg text-gray-500'>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
       </div>
       <div className='max-w-[1225px] mx-auto my-8'>
-        {contentShorthand.map((cont: any) => {
+        {pageContent.map((cont: any) => {
           const contShorthand = cont.node.radnaVremenaLokacijaOsnovneInformacije;
 
           const prepGallery = Object.values(cont.node.photoGallery.fotogalerija);

@@ -22,8 +22,7 @@ export const getAllBrojcaniciQuery = (lang: string) => {
     `,
   };
 
-  return `
-    query newQuery {
+  return `query newQuery {
       allBrojcanici {
         edges {
           node {

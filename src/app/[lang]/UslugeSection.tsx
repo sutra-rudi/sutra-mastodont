@@ -27,7 +27,7 @@ const UslugeSection = ({ pageContent, lang }: UslugeSectionInterface) => {
           return (
             <ServiceCard
               url={`/${lang}/services-offers/${
-                slugify(`${titleShorthandObj.naslovBazaTekstova}`, slugifyOptions) + `-${contentShorthand.id}`
+                slugify(`${titleShorthandObj.naslovBazaTekstova ?? ''}`, slugifyOptions) + `-${contentShorthand.id}`
               }`}
               title={titleShorthandObj.naslovBazaTekstova}
               subtitle={titleShorthandObj.nadnaslovPodnaslovBazaTekstova}

@@ -124,13 +124,7 @@ const SpeedDial = () => {
           fill='none'
           viewBox='0 0 18 18'
         >
-          <path
-            stroke='currentColor'
-            stroke-linecap='round'
-            stroke-linejoin='round'
-            stroke-width='2'
-            d='M9 1v16M1 9h16'
-          />
+          <path stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M9 1v16M1 9h16' />
         </svg>
         <span className='sr-only'>Open actions menu</span>
       </button>
