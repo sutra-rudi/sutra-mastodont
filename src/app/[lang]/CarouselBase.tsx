@@ -42,24 +42,25 @@ const CarouselBase = ({ imageArray }: CarouselBase) => {
     slidesPerRow: 1,
   };
 
-  const prepAceternityGal = prepGallery.map((galItem: any, index: number) => {
-    const generateClassName = () => {
-      if (index + 1 !== 1) {
-        console.log('ALO');
-        return 'col-span-1';
-      }
+  const generateClassName = (index: number) => {
+    if (index % 3 === 1) {
+      return 'md:col-span-2';
+    }
+    return 'col-span-1';
+  };
 
-      if (index + 1 !== prepGallery.length - 2) {
-        return 'col-span-1';
-      } else return 'md:col-span-2';
+  const prepAceternityGal = prepGallery.map((galItem: any, index: number) => {
+    const ind = index + 1;
+    const className = generateClassName(ind);
+
+    console.log('CLASS NAME', className);
+
+    const card = {
+      id: ind,
+      content: 'Ciao',
+      className: className,
+      thumbnail: galItem.node.sourceUrl,
     };
-    const card: { id: number; content: JSX.Element | React.ReactNode | string; className: string; thumbnail: string } =
-      {
-        id: index + 1,
-        content: 'Ciao',
-        className: generateClassName(),
-        thumbnail: galItem.node.sourceUrl,
-      };
 
     return card;
   });
@@ -123,7 +124,7 @@ const CarouselBase = ({ imageArray }: CarouselBase) => {
         </div>
       </div>
 
-      <div className='h-screen py-20 w-full'>
+      <div className='min-h-[1800px] h-screen py-20 w-full'>
         <LayoutGrid cards={prepAceternityGal} />
       </div>
     </section>
