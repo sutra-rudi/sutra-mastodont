@@ -17,6 +17,8 @@ const PageContent = ({ content, global, gallery, files, tags }: BlogPageContent)
 
   const prepareGallery = Object.values(gallery);
 
+  console.log('PAG', prepareGallery);
+
   const prepareTags =
     tags &&
     tags.split(', ').map((singleTag: string) => {
@@ -61,14 +63,16 @@ const PageContent = ({ content, global, gallery, files, tags }: BlogPageContent)
       <div className='flex flex-wrap w-full gap-2'>
         {prepareGallery.map((galImage: any) => {
           return (
-            <div key={galImage.node.sourceUrl} className='h-[250px] w-[350px] relative'>
-              <Image
-                src={galImage.node.sourceUrl}
-                alt='gallery image'
-                fill
-                className='object-cover object-center aspect-auto block'
-              />
-            </div>
+            galImage && (
+              <div key={galImage.node.sourceUrl} className='h-[250px] w-[350px] relative'>
+                <Image
+                  src={galImage.node.sourceUrl ?? 'https://placehold.co/400.png'}
+                  alt='gallery image'
+                  fill
+                  className='object-cover object-center aspect-auto block'
+                />
+              </div>
+            )
           );
         })}
       </div>

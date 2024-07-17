@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { blogLanguageFields } from '../pathsUtils/blogLanguageFields';
 import { UserLanguage } from '../enums/LangEnum';
@@ -14,6 +16,8 @@ interface NewsSectionInterface {
 
 const NewsSection = ({ pageContent, lang }: NewsSectionInterface) => {
   const l = getSuffixFromLang(lang);
+
+  console.log('news', pageContent);
 
   return (
     <section>

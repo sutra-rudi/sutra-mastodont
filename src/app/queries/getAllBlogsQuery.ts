@@ -43,6 +43,21 @@ export const getAllBlogsQuery = (lang: string) => {
                 edges {
                   node {
                     id
+                  ... on Category {
+                  id
+                  name
+                  informacijeKategorije {
+                    bojaKategorije
+                    imeKategorijeEng
+                    imeKategorijeGer
+                    imeKategorijeHr
+                    imeKategorijeIta
+                    opisKategorijeEng
+                    opisKategorijeGer
+                    opisKategorijeHr
+                    opisKategorijeIta
+                  }
+                }
                   }
                 }
               }
@@ -59,6 +74,19 @@ export const getAllBlogsQuery = (lang: string) => {
                 }
               }
             }
+        author {
+          node {
+            avatar {
+              url
+            }
+            firstName
+            name
+            nickname
+            lastName
+            nicename
+            username
+          }
+        }
           }
         }
       }

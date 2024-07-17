@@ -36,6 +36,18 @@ export const getAllNewsQuery = (lang: string) => {
         edges {
           node {
             id
+          author {
+          node {
+            id
+            name
+            nickname
+            nicename
+            lastName
+            avatar {
+              url
+            }
+          }
+        }
             ${languageFieldsMap[lang] || ''}
             introNews {
               datum

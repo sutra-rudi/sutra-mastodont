@@ -16,7 +16,7 @@ export const LayoutGrid = ({ cards }: { cards: Card[] }) => {
   const [selected, setSelected] = useState<Card | null>(null);
   const [lastSelected, setLastSelected] = useState<Card | null>(null);
 
-  console.log('KARTICE', cards);
+
 
   const handleClick = (card: Card) => {
     setLastSelected(selected);

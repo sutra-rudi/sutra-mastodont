@@ -7,8 +7,6 @@ interface MapsPageContent {
 }
 
 const PageContent = ({ pageContent }: MapsPageContent) => {
-  console.log('PAGI CONT', pageContent);
-
   const [mapsLoadingState, setMapsLoadingState] = React.useState({
     admin: true,
   });

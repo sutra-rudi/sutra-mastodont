@@ -53,8 +53,6 @@ const CarouselBase = ({ imageArray }: CarouselBase) => {
     const ind = index + 1;
     const className = generateClassName(ind);
 
-    console.log('CLASS NAME', className);
-
     const card = {
       id: ind,
       content: 'Ciao',

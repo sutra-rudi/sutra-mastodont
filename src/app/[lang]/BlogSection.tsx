@@ -1,3 +1,4 @@
+'use client';
 import dayjs from 'dayjs';
 import React from 'react';
 import { blogLanguageFields } from '../pathsUtils/blogLanguageFields';
@@ -13,6 +14,7 @@ interface BlogSection {
 }
 
 const BlogSection = ({ pageContent, lang }: BlogSection) => {
+  console.log('PAGI CONTENT', pageContent);
   const l = getSuffixFromLang(lang);
 
   return (
