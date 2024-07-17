@@ -130,6 +130,17 @@ export const getSingleBlogQuery = (id: string, lang: string) => {
                 ... on Category {
                   id
                   name
+                    informacijeKategorije {
+                    bojaKategorije
+                    imeKategorijeEng
+                    imeKategorijeGer
+                    imeKategorijeHr
+                    imeKategorijeIta
+                    opisKategorijeEng
+                    opisKategorijeGer
+                    opisKategorijeHr
+                    opisKategorijeIta
+                  }
                 }
               }
             }
@@ -140,6 +151,19 @@ export const getSingleBlogQuery = (id: string, lang: string) => {
               sourceUrl
               srcSet
             }
+          }
+        }
+       author {
+          node {
+            avatar {
+              url
+            }
+            firstName
+            name
+            nickname
+            lastName
+            nicename
+            username
           }
         }
         ${languageFieldsMap[lang] || ''}

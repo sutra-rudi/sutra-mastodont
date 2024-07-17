@@ -6,6 +6,9 @@ export const getAllNewsQuery = (lang: string) => {
         naslovSadrzajHr
         sadrzajSadrzajHr
       }
+      tagsHr {
+          tagTextHr
+        }
     `,
     eng: `
       sadrzajEngFields {
@@ -13,6 +16,9 @@ export const getAllNewsQuery = (lang: string) => {
         naslovSadrzajSadrzajEng
         sadrzajSadrzajEng
       }
+      tagsEng {
+          tagTextEng
+        }
     `,
     ger: `
       sadrzajGerFields {
@@ -20,6 +26,9 @@ export const getAllNewsQuery = (lang: string) => {
         naslovSadrzajGer
         sadrzajSadrzajGer
       }
+      tagsGer {
+          tagTextGer
+        }
     `,
     ita: `
       sadrzajItaFields {
@@ -27,6 +36,9 @@ export const getAllNewsQuery = (lang: string) => {
         naslovSadrzajIta
         sadrzajSadrzajIta
       }
+      tagsIta {
+          tagTextIta
+        }
     `,
   };
 
@@ -35,7 +47,7 @@ export const getAllNewsQuery = (lang: string) => {
       allNovosti {
         edges {
           node {
-            id
+          id
           author {
           node {
             id
@@ -56,10 +68,24 @@ export const getAllNewsQuery = (lang: string) => {
                 edges {
                   node {
                     id
-                    ... on Category {
-                      id
-                      name
-                    }
+                ... on Category {
+                  id
+                  name
+                  informacijeKategorije {
+                    bojaKategorije
+                    imeKategorijeEng
+                    imeKategorijeGer
+                    imeKategorijeHr
+                    imeKategorijeIta
+                    opisKategorijeEng
+                    opisKategorijeGer
+                    opisKategorijeHr
+                    opisKategorijeIta
+                  }
+                  taxonomy {
+                    cursor
+                  }
+                }
                   }
                 }
               }
