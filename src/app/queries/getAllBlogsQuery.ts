@@ -6,6 +6,9 @@ export const getAllBlogsQuery = (lang: string) => {
         naslovSadrzajHr
         sadrzajSadrzajHr
       }
+      tagsHr {
+        tagTextHr
+      }    
     `,
     eng: `
       sadrzajEngFields {
@@ -13,6 +16,9 @@ export const getAllBlogsQuery = (lang: string) => {
         naslovSadrzajSadrzajEng
         sadrzajSadrzajEng
       }
+      tagsEng {
+        tagTextEng
+      }    
     `,
     ger: `
       sadrzajGerFields {
@@ -20,12 +26,18 @@ export const getAllBlogsQuery = (lang: string) => {
         naslovSadrzajGer
         sadrzajSadrzajGer
       }
+      tagsGer {
+        tagTextGer
+      }
     `,
     ita: `
       sadrzajItaFields {
         kratkiUvodniTekstSadrzajIta
         naslovSadrzajIta
         sadrzajSadrzajIta
+      }
+      tagsIta {
+        tagTextIta
       }
     `,
   };

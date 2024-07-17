@@ -13,10 +13,10 @@ export const AppButtonDefault = ({
     <button
       onClick={action}
       type='button'
-      className='text-white bg-primary-dark hover:bg-secondary-dark focus:ring-4 focus:outline-none focus:ring-accent font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 dark:bg-primary-light dark:hover:bg-secondary-light dark:focus:ring-accent group'
+      className='transition-all ease-in-out text-sutraButtonTextColor bg-primary-light hover:bg-secondary-dark hover:text-primary-light focus:ring-4 focus:outline-none focus:ring-accent font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 dark:bg-transparent dark:text-accent dark:hover:bg-secondary-light dark:focus:ring-accent group dark:hover:text-secondary-dark'
     >
       {buttonText}
-      {icon && icon}
+      <div className='dark:block hidden text-inherit text-sm'>{icon && icon}</div>
     </button>
   );
 };

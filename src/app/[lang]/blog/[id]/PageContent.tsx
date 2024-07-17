@@ -17,8 +17,6 @@ const PageContent = ({ content, global, gallery, files, tags }: BlogPageContent)
 
   const prepareGallery = Object.values(gallery);
 
-  console.log('PAG', prepareGallery);
-
   const prepareTags =
     tags &&
     tags.split(', ').map((singleTag: string) => {

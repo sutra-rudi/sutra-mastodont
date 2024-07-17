@@ -21,6 +21,8 @@ const config: Config = {
         error: '#FF7A00',
         success: '#C6FF00',
         info: '#8C946F',
+        sutraCardDivider: '#D9D9D9',
+        sutraButtonTextColor: '#2E363E',
       },
 
       fontSize: {
@@ -32,6 +34,15 @@ const config: Config = {
         default: '1rem',
         small: '0.875rem',
         tag: '0.75rem',
+      },
+
+      borderRadius: {
+        sutraCardBorderRadius: '4px',
+        sutraCardTagBorderRadius: '6px',
+      },
+
+      lineHeight: {
+        sutraCardTitleLineHeight: '32px',
       },
     },
   },
