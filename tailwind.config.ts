@@ -44,6 +44,9 @@ const config: Config = {
       lineHeight: {
         sutraCardTitleLineHeight: '32px',
       },
+      maxWidth: {
+        sutraBlogTestMaxWidth: '750px',
+      },
     },
   },
   plugins: [require('@tailwindcss/typography'), require('tailwind-scrollbar')],

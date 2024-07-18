@@ -41,6 +41,23 @@ export default async function SingleBlogPage({ params: { lang, id } }: { params:
 
   const tagsField = prepareDataForClient.blog[constructFieldTags][`tagText${l}`];
 
+  const introField = prepareDataForClient.blog[languageField]?.[`kratkiUvodniTekstSadrzaj${l}`] ?? '';
+
+  const authorField = prepareDataForClient.blog.author ?? '';
+
+  // console.log('PRE', prepareDataForClient.blog.introBlog.kategorija.edges);
+
+  const categoryField =
+    prepareDataForClient.blog.introBlog.kategorija.edges.map((noda: any) => {
+      return {
+        catName: noda.node.informacijeKategorije ? noda.node.informacijeKategorije[`imeKategorije${l}`] : 'No category',
+        catDesc: noda.node.informacijeKategorije
+          ? noda.node.informacijeKategorije[`opisKategorije${l}`]
+          : 'No category',
+        catColor: noda.node.informacijeKategorije ? noda.node.informacijeKategorije.bojaKategorije : 'No color',
+      };
+    }) ?? [];
+
   return (
     <main>
       <PageContent
@@ -49,6 +66,9 @@ export default async function SingleBlogPage({ params: { lang, id } }: { params:
         gallery={prepareDataForClient.blog.photoGallery.fotogalerija}
         files={documentsField}
         tags={tagsField}
+        author={authorField}
+        intro={introField}
+        category={categoryField}
       />
     </main>
   );

@@ -11,8 +11,12 @@ interface BlogPageContent {
   gallery: any;
   files: any;
   tags: any;
+  author: any;
+  intro: any;
+  category: any[];
 }
-const PageContent = ({ content, global, gallery, files, tags }: BlogPageContent) => {
+const PageContent = ({ content, global, gallery, files, tags, author, intro, category }: BlogPageContent) => {
+  console.log('GGG', category);
   const prepareContent: any[] = Object.values(content);
 
   const prepareGallery = Object.values(gallery);
@@ -43,8 +47,34 @@ const PageContent = ({ content, global, gallery, files, tags }: BlogPageContent)
   };
 
   return (
-    <article className='mx-auto my-0 max-w-[1024px] py-8'>
-      <div className='w-full h-[250px] relative'>
+    <article className='mx-auto my-0 py-8'>
+      <div className='w-full max-w-[1140px] mx-auto my-0 text-center'>
+        <p className='text-base text-accent font-medium flex items-center justify-center gap-1'>
+          <span>{author.node.name}</span>
+          <span className='w-1 h-1 bg-accent rounded-full block'></span>
+          <span>{dayjs(global.datum).format('DD.MM.YYYY')}</span>
+        </p>
+      </div>
+
+      <h2 className='text-5xl font-bold max-w-sutraBlogTestMaxWidth mx-auto my-0 text-almost-black text-balance text-center'>
+        {prepareContent[1]}
+      </h2>
+
+      <div className='prose prose-p:text-xl prose-p:text-secondary-dark line-clamp-1 w-full max-w-[40%] mx-auto  text-center my-4'>
+        {parse(intro)}
+      </div>
+
+      <div className='w-full max-w-[1140px] mx-auto my-0 text-center pt-6 pb-12'>
+        {category.map((cat) => {
+          return (
+            <span className=' bg-accent/10 text-accent px-3 py-1 rounded-[36px]' key={cat.catName}>
+              {cat.catName}
+            </span>
+          );
+        })}
+      </div>
+
+      <div className='w-full h-[250px] max-w-[1140px] mx-auto my-0 min-h-[640px] relative'>
         <Image
           src={global.naslovnaSlika.node.sourceUrl}
           alt='blog banner image'
@@ -53,10 +83,11 @@ const PageContent = ({ content, global, gallery, files, tags }: BlogPageContent)
         />
       </div>
 
-      <h4 className='text-4xl font-bold'>{dayjs(global.datum).format('DD.MM.YYYY')}</h4>
-      <h4>Kategorija: {global.kategorija.edges[0].node.name}</h4>
-      <h2 className='text-6xl font-bold'>{prepareContent[1]}</h2>
-      <div className='mt-4 prose'>{parse(prepareContent[2])}</div>
+      <div className='mt-4 prose max-w-sutraBlogTestMaxWidth mx-auto my-0'>
+        <div className='text-primary-dark/50 line-clamp-4 w-full mx-auto  my-4'>{parse(intro)}</div>
+        <div className='w-full bg-almost-black/5 h-px'></div>
+        {parse(prepareContent[2])}
+      </div>
 
       <div className='flex flex-wrap w-full gap-2'>
         {prepareGallery.map((galImage: any) => {
