@@ -274,6 +274,63 @@ export const ArticleCardFullImage = ({
   );
 };
 
-export const ArticleCardTextCard = () => {};
+//<ArrowIcon fontSize={24} className='shrink-0' />
+
+export const ArticleCardTextCard = ({
+  cta,
+  url,
+  title,
+  date,
+  imgSource,
+  introContent,
+  author,
+  tags,
+  readTime,
+  categories,
+}: DefaultArticleCard) => {
+  return (
+    <article>
+      <div className='bg-white max-w-[408px] w-full relative'>
+        <div className='absolute top-0 w-full h-4 bg-accent'></div>
+        <div className='px-11 py-8 w-full'>
+          {date && (
+            <div className='text-xs  font-medium flex items-center gap-2 text-primary-light'>
+              <span>{date}</span>
+            </div>
+          )}
+
+          {categories.length > 0 && (
+            <div className='text-xs font-medium text-accent border w-max uppercase border-accent rounded-sutraCardTagBorderRadius px-2 py-px mt-6 text-nowrap'>
+              {categories.map((kata) => {
+                return <span key={kata.catName}>{kata.catName}</span>;
+              })}
+            </div>
+          )}
+
+          <a href={url}>
+            <h5 className='mb-2 mt-2 text-2xl font-bold tracking-tight text-accent leading-sutraCardTitleLineHeight'>
+              <span>{title}</span>
+            </h5>
+          </a>
+
+          {introContent && (
+            <div className='prose prose-p:text-secondary-dark  prose-p:text-base line-clamp-4 mt-2'>
+              {parse(introContent)}
+            </div>
+          )}
+
+          <div className='w-full h-px bg-sutraCardDivider my-6 shrink-0'></div>
+
+          <div className='w-full flex items-center justify-end'>
+            <a href={url} className='flex items-center gap-1 text-secondary-dark text-base'>
+              <span>{cta}</span> <ArrowIcon />
+              {/* <AppButtonDefault buttonText={cta} action={() => null} icon={<RightIcon />} /> */}
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+  );
+};
 
 export const ArticleCardMiniCard = () => {};
