@@ -333,4 +333,55 @@ export const ArticleCardTextCard = ({
   );
 };
 
-export const ArticleCardMiniCard = () => {};
+export const ArticleCardMiniCard = ({
+  cta,
+  url,
+  title,
+  date,
+  imgSource,
+  introContent,
+  author,
+  tags,
+  readTime,
+  categories,
+}: DefaultArticleCard) => {
+  return (
+    <article>
+      <div className='bg-white max-w-[190px] w-full relative rounded-xl'>
+        <picture className=''>
+          <img
+            src={imgSource}
+            alt=''
+            className='max-w-full w-full object-cover object-center block aspect-video rounded-t-xl'
+          />
+        </picture>
+        <div className='p-4 relative'>
+          {categories.length > 0 && (
+            <div className='w-full leading-none'>
+              {categories.map((kata) => {
+                return (
+                  <span className='text-primary-dark text-xs font-semibold uppercase leading-none' key={kata.catName}>
+                    {kata.catName}
+                  </span>
+                );
+              })}
+            </div>
+          )}
+
+          <a href={url}>
+            <h5 className='mb-2 mt-2 text-sm font-semibold tracking-tight text-accent leading-[20px]'>
+              <span>{title}</span>
+            </h5>
+          </a>
+
+          {readTime && (
+            <div className='text-xs text-primary-light flex items-center gap-1 text-nowrap font-medium '>
+              <ClockIcon />
+              <span>{readTime.text}</span>
+            </div>
+          )}
+        </div>
+      </div>
+    </article>
+  );
+};
