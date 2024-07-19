@@ -18,7 +18,7 @@ export default async function SingleBlogPage({ params: { lang, id } }: { params:
     body: JSON.stringify({
       query: getSingleBlogQuery(slugId, lang),
     }),
-    // cache: 'no-cache',
+    cache: 'no-cache',
   });
 
   const parseData = await getSingleBlog.json();
