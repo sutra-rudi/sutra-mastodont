@@ -81,29 +81,19 @@ const PageContent = ({ content, global, gallery, files, tags, author, intro, cat
     });
 
   const downloadFile = async (url: any, fileName: any) => {
-    await fetch(url, {
-      method: 'GET',
-      headers: {
-        // 'Content-Type': 'application/octet-stream',
-      },
-      mode: 'cors',
-      cache: 'no-cache',
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.blob();
-      })
-      .then((blob) => {
-        const link = document.createElement('a');
-        link.href = window.URL.createObjectURL(blob);
-        link.download = fileName;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-      })
-      .catch((error) => console.error('Error while downloading file:', error));
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const blob = await response.blob();
+      const link = document.createElement('a');
+      link.href = window.URL.createObjectURL(blob);
+      link.download = fileName;
+      link.click();
+    } catch (error) {
+      console.error('Error while downloading file:', error);
+    }
   };
 
   return (
