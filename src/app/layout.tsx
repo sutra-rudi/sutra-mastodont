@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import './globals.scss';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import './globals.scss';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import AppHeader from './globalComponents/AppHeader';
 import AppFooter from './globalComponents/AppFooter';
@@ -10,6 +10,7 @@ import { Toaster } from 'react-hot-toast';
 import SpeedDial from './components/SpeedDial';
 import { Suspense } from 'react';
 import Loading from './loading';
+import { Providers } from './providers';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -32,7 +33,7 @@ export default function RootLayout({
         <Suspense fallback={<Loading />}>
           <AppHeader />
           <Toaster />
-          {children}
+          <Providers>{children}</Providers>
           <SpeedDial />
           <AppFooter />
         </Suspense>

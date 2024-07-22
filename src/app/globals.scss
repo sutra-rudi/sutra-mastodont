@@ -60,4 +60,26 @@
   figure {
     width: auto !important;
   }
+
+  b {
+    font-weight: 600;
+  }
+}
+.proza-custom-blog {
+  .flex {
+    @media only screen and (max-width: theme('screens.xl')) {
+      flex-wrap: wrap;
+    }
+  }
+}
+
+// SLIDER
+
+.slider-container {
+  .slick-prev,
+  .slick-next {
+    &::before {
+      color: theme('colors.accent');
+    }
+  }
 }

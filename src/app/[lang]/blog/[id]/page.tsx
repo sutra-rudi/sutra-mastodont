@@ -2,6 +2,8 @@ import { getSingleBlogQuery } from '@/app/queries/getSingleBlogQuery';
 import PageContent from './PageContent';
 import { blogLanguageFields } from '@/app/pathsUtils/blogLanguageFields';
 
+export async function generateMetadata() {}
+
 export default async function SingleBlogPage({ params: { lang, id } }: { params: { lang: string; id: string } }) {
   const getIdFromSlug = (slug: string): string => {
     const parts = slug.split('-');
@@ -44,8 +46,6 @@ export default async function SingleBlogPage({ params: { lang, id } }: { params:
   const introField = prepareDataForClient.blog[languageField]?.[`kratkiUvodniTekstSadrzaj${l}`] ?? '';
 
   const authorField = prepareDataForClient.blog.author ?? '';
-
-  // console.log('PRE', prepareDataForClient.blog.introBlog.kategorija.edges);
 
   const categoryField =
     prepareDataForClient.blog.introBlog.kategorija.edges.map((noda: any) => {
