@@ -32,7 +32,7 @@ import {
   WorkplaceShareButton,
 } from 'react-share';
 import toast from 'react-hot-toast';
-import { defaultMultiple } from '@/app/scriptSettings/slickOptions';
+
 import { ParallaxBanner } from 'react-scroll-parallax';
 
 interface BlogPageContent {

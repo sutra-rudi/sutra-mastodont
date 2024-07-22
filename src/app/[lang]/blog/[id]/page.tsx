@@ -3,6 +3,7 @@ import PageContent from './PageContent';
 import { blogLanguageFields } from '@/app/pathsUtils/blogLanguageFields';
 import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 
+import { htmlToText } from 'html-to-text';
 export async function generateMetadata({ params: { lang, id } }: { params: { lang: string; id: string } }) {
   const getIdFromSlug = (slug: string): string => {
     const parts = slug.split('-');
@@ -28,14 +29,22 @@ export async function generateMetadata({ params: { lang, id } }: { params: { lan
   const ogImage = globalData.naslovnaSlika.node.sourceUrl;
   const ogImageAlt = prepareDataForClient.blog.title;
   const languageField = blogLanguageFields[lang];
+
   const l = getSuffixFromLang(lang);
   const blogTitle = prepareDataForClient.blog[languageField][`naslovSadrzaj${l}`];
+
+  const introField = prepareDataForClient.blog[languageField]?.[`kratkiUvodniTekstSadrzaj${l}`] ?? '';
+
+  const plainIntroText = htmlToText(introField, {
+    wordwrap: 130,
+  });
+
   return {
     title: blogTitle,
     description: prepareDataForClient.blog.description,
     openGraph: {
       title: blogTitle,
-      description: prepareDataForClient.blog.description,
+      description: plainIntroText,
       // url: `https://yourwebsite.com/blog/${id}`,
       type: 'article',
       images: [
@@ -64,7 +73,7 @@ export async function generateMetadata({ params: { lang, id } }: { params: { lan
       // site: '@YourTwitterHandle',
       // creator: '@AuthorTwitterHandle',
       title: blogTitle,
-      description: prepareDataForClient.blog.description,
+      description: plainIntroText,
       image: ogImage,
     },
   };
@@ -125,6 +134,8 @@ export default async function SingleBlogPage({ params: { lang, id } }: { params:
         catColor: noda.node.informacijeKategorije ? noda.node.informacijeKategorije.bojaKategorije : 'No color',
       };
     }) ?? [];
+
+  // console.log('ALO', introField);
 
   return (
     <main>

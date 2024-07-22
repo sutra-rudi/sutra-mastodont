@@ -27,6 +27,7 @@
     "framer-motion": "^11.3.2",
     "hamburger-react": "^2.5.1",
     "html-react-parser": "^5.1.10",
+    "html-to-text": "^9.0.5",
     "mapbox-gl": "^3.5.1",
     "next": "14.2.4",
     "react": "^18",
@@ -47,6 +48,7 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.13",
+    "@types/html-to-text": "^9.0.4",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
