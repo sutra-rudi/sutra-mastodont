@@ -30,7 +30,7 @@ import { getCategoriesQuery } from '../queries/getAllBlogCategoriesQuery';
 export const maxDuration = 60;
 export const revalidate = 3600; // revalidate at most every hour
 
-async function fetchData(query: any, cache: RequestCache = 'default') {
+async function fetchData(query: any) {
   const response = await fetch(`${process.env.CMS_BASE_URL}`, {
     method: 'POST',
     headers: {
@@ -39,7 +39,6 @@ async function fetchData(query: any, cache: RequestCache = 'default') {
     body: JSON.stringify({
       query,
     }),
-    cache: cache,
   });
 
   if (!response.ok) {
@@ -81,7 +80,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       fetchData(getWhyUsQuery(lang)),
       fetchData(getObavijestiNaStraniciQuery(lang)),
       fetchData(getDokumentikataloziQuery(lang)),
-      fetchData(getCategoriesQuery(lang), 'no-cache'),
+      fetchData(getCategoriesQuery(lang)),
     ]);
     // console.log('GET ALL brojcanici', getAllObavijesti);
     const blogDataArrayShorthand = getAllBlogs.data.allBlog.edges;
