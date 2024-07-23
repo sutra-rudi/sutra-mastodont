@@ -26,11 +26,11 @@ export async function generateMetadata({ params: { lang, id } }: { params: { lan
   const prepareDataForClient = parseData.data;
 
   const globalData = prepareDataForClient.blog.introBlog;
-  const ogImage = globalData.naslovnaSlika.node.sourceUrl;
-  const ogImageAlt = prepareDataForClient.blog.title;
+  const fallbackOg = globalData.naslovnaSlika.node.sourceUrl;
   const languageField = blogLanguageFields[lang];
 
   const l = getSuffixFromLang(lang);
+  const constructFieldTags = `tags` + l;
   const blogTitle = prepareDataForClient.blog[languageField][`naslovSadrzaj${l}`];
 
   const introField = prepareDataForClient.blog[languageField]?.[`kratkiUvodniTekstSadrzaj${l}`] ?? '';
@@ -39,42 +39,58 @@ export async function generateMetadata({ params: { lang, id } }: { params: { lan
     wordwrap: 130,
   });
 
+  const seoTagField = prepareDataForClient.blog[`seo${l}`]?.[`seoTagovi${l}`];
+  const seoDescField = prepareDataForClient.blog[`seo${l}`]?.[`seoTekst${l}`];
+  const seoImageField = prepareDataForClient.blog[`seo${l}`]?.[`ogImage${l}`]
+    ? prepareDataForClient.blog[`seo${l}`]?.[`ogImage${l}`].node.sourceUrl
+    : null;
+
+  const seoTagPrep = seoTagField ? seoTagField.split(', ') : [];
+
+  const authorField = prepareDataForClient.blog.author.node.name ?? '';
+
+  const tagsField = prepareDataForClient.blog[constructFieldTags][`tagText${l}`];
+
   return {
     title: blogTitle,
     description: prepareDataForClient.blog.description,
+    keywords: seoTagPrep,
     openGraph: {
       title: blogTitle,
-      description: plainIntroText,
+      keywords: seoTagPrep,
+      description: seoDescField ?? plainIntroText,
       // url: `https://yourwebsite.com/blog/${id}`,
       type: 'article',
       images: [
         {
-          url: ogImage,
+          url: seoImageField ?? fallbackOg,
           width: 1200,
           height: 630,
-          alt: ogImageAlt,
+          alt: 'descriptive image of article',
           type: 'image/jpeg',
-          secure_url: ogImage,
+          secure_url: seoImageField ?? fallbackOg,
         },
       ],
       locale: lang,
 
       article: {
-        published_time: prepareDataForClient.blog.publishedDate,
-        modified_time: prepareDataForClient.blog.modifiedDate,
-        expiration_time: prepareDataForClient.blog.expirationDate,
+        published_time: prepareDataForClient.blog.introBlog.datum,
+        // modified_time: prepareDataForClient.blog.modifiedDate,
+        // expiration_time: prepareDataForClient.blog.expirationDate,
         section: 'Blog',
-        tag: prepareDataForClient.blog.tags,
-        author: prepareDataForClient.blog.author.name,
+        tag: tagsField,
+        author: authorField,
       },
     },
     twitter: {
       card: 'summary_large_image',
       // site: '@YourTwitterHandle',
-      // creator: '@AuthorTwitterHandle',
+      creator: authorField,
       title: blogTitle,
-      description: plainIntroText,
-      image: ogImage,
+      keywords: seoTagPrep,
+      description: seoDescField ?? plainIntroText,
+      image: seoImageField ?? fallbackOg,
+      alt: 'descriptive image of article',
     },
   };
 }
@@ -135,7 +151,9 @@ export default async function SingleBlogPage({ params: { lang, id } }: { params:
       };
     }) ?? [];
 
-  // console.log('ALO', introField);
+  // const seoTagField = prepareDataForClient.blog[`seo${l}`]?.[`seoTagovi${l}`];
+
+  console.log('ALO', prepareDataForClient.blog.introBlog);
 
   return (
     <main>

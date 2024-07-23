@@ -39,7 +39,11 @@ const ArticleCard = ({
       <a href={url}>
         <div className='relative'>
           <picture>
-            <img className='' src={imgSource} alt='' />
+            <img
+              className='w-full object-cover object-center block aspect-video min-h-[245px]'
+              src={imgSource}
+              alt=''
+            />
 
             <div className='absolute top-0 w-full flex items-center gap-2 px-11 pt-7'>
               {date && (
@@ -71,7 +75,7 @@ const ArticleCard = ({
 
       <div className='px-11 pt-12'>
         {tags.length > 0 ? (
-          <div className='flex items-center gap-1 text-xs flex-wrap font-medium'>
+          <div className='flex items-center gap-1 text-xs flex-wrap font-medium mb-2'>
             {tags.map((singleTag) => (
               <span
                 className='uppercase text-accent border border-accent rounded-sutraCardTagBorderRadius px-2 py-px'
@@ -111,7 +115,7 @@ const ArticleCard = ({
         </a>
 
         {introContent && (
-          <div className='prose prose-p:text-secondary-dark dark:prose-p:text-secondary-light prose-p:text-base  my-3 line-clamp-4'>
+          <div className='prose prose-p:text-secondary-dark dark:prose-p:text-secondary-light prose-p:text-base  my-3 line-clamp-4 prose-p:leading-[24px]'>
             {parse(introContent)}
           </div>
         )}
@@ -176,7 +180,7 @@ const ArticleCard = ({
           )}
 
           {author && (
-            <div className='flex gap-3 items-center'>
+            <div className='flex gap-4 items-center'>
               {author.avatar && (
                 <picture>
                   <img

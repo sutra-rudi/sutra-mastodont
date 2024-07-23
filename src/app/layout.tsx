@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Poppins } from 'next/font/google';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './globals.scss';
@@ -12,7 +12,9 @@ import { Suspense } from 'react';
 import Loading from './loading';
 import { Providers } from './providers';
 
-const inter = Inter({ subsets: ['latin'] });
+// const inter = Inter({ subsets: ['latin'] });
+
+const poppins = Poppins({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700'] });
 
 export const metadata: Metadata = {
   title: 'Sutra mastodont',
@@ -29,7 +31,7 @@ export default function RootLayout({
       lang='en'
       className='scrollbar scrollbar-thumb-primary-light dark:scrollbar-thumb-primary-dark  scrollbar-track-primary-dark dark:scrollbar-track-primary-light '
     >
-      <body className={inter.className}>
+      <body className={poppins.className}>
         <Suspense fallback={<Loading />}>
           <AppHeader />
           <Toaster />

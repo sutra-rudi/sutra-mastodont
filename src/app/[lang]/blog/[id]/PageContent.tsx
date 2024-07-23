@@ -131,7 +131,7 @@ const PageContent = ({ content, global, gallery, files, tags, author, intro, cat
           {parse(intro)}
         </div>
         <div className='w-full bg-almost-black/5 h-px my-8'></div>
-        <div className='proza-custom-blog prose-blockquote:border-accent prose-img:mb-0 prose-figcaption:mt-1 prose-figcaption:italic lg:prose-base prose-sm  prose-strong:font-semibold'>
+        <div className='proza-custom-blog prose-blockquote:border-accent prose-blockquote:text-xs prose-blockquote:font-medium prose-img:mb-0 prose-figcaption:mt-1 prose-figcaption:italic lg:prose-base prose-sm  prose-strong:font-semibold'>
           {parse(prepareContent[2])}
         </div>
       </div>
@@ -146,7 +146,7 @@ const PageContent = ({ content, global, gallery, files, tags, author, intro, cat
                       src={galImage.node.sourceUrl ?? 'https://placehold.co/400.png'}
                       alt='gallery image'
                       fill
-                      className='object-cover object-center aspect-auto block'
+                      className='object-cover object-center aspect-auto block w-full h-full'
                     />
                   </div>
                 )

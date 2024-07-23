@@ -25,11 +25,12 @@ import DocumentsCatalogsSection from './DocumentsCatalogsSection';
 import HeroSection from './HeroSection';
 import ButtonsDisplay from './ButtonsDisplay';
 import { getLokacijeQuery } from '../queries/getAllLocationsQuery';
+import { getCategoriesQuery } from '../queries/getAllBlogCategoriesQuery';
 
 export const maxDuration = 60;
 export const revalidate = 3600; // revalidate at most every hour
 
-async function fetchData(query: any) {
+async function fetchData(query: any, cache: RequestCache = 'default') {
   const response = await fetch(`${process.env.CMS_BASE_URL}`, {
     method: 'POST',
     headers: {
@@ -38,6 +39,7 @@ async function fetchData(query: any) {
     body: JSON.stringify({
       query,
     }),
+    cache: cache,
   });
 
   if (!response.ok) {
@@ -65,6 +67,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       getAllWhyUs,
       getAllObavijesti,
       getAllDocuments,
+      getAllCategories,
     ] = await Promise.all([
       fetchData(getAllBlogsQuery(lang)),
       fetchData(getAllNewsQuery(lang)),
@@ -78,6 +81,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       fetchData(getWhyUsQuery(lang)),
       fetchData(getObavijestiNaStraniciQuery(lang)),
       fetchData(getDokumentikataloziQuery(lang)),
+      fetchData(getCategoriesQuery(lang), 'no-cache'),
     ]);
     // console.log('GET ALL brojcanici', getAllObavijesti);
     const blogDataArrayShorthand = getAllBlogs.data.allBlog.edges;
@@ -92,12 +96,13 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
     const whyUsDataShorthand = getAllWhyUs.data.allWhyus.edges;
     const obavijestiNaStraniciDataShorthand = getAllObavijesti.data.allObavijestiNaStranici.edges;
     const dokumentiKataloziDataShorthand = getAllDocuments.data.dokumentikatalozi.edges;
+    const kategorijeDataShorthand = getAllCategories.data.categories.edges;
 
     return (
       <Suspense>
         <main>
           <HeroSection />
-          <BlogSection pageContent={blogDataArrayShorthand} lang={lang} />
+          <BlogSection pageContent={blogDataArrayShorthand} lang={lang} categoriesList={kategorijeDataShorthand} />
           <NewsSection pageContent={newsDataArrayShorthand} lang={lang} />
           <LocationsSection pageContent={locationsDataArrayShorthand} />
           <BrojcaniciSection pageContent={brojcaniciDataArrayShorthand} lang={lang} />

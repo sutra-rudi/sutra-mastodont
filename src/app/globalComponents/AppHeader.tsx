@@ -1,9 +1,8 @@
 'use client';
 
-import Link from 'next/link';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import React from 'react';
-import { AppButtonGradient } from '../components/AppButton';
+
 import { Twirl as Hamburger } from 'hamburger-react';
 import { LuSun as SunIcon, LuMoon as MoonIcon } from 'react-icons/lu';
 import { Hr, Gb, It, De } from 'react-flags-select';
@@ -146,16 +145,10 @@ const AppHeader = () => {
           </div>
           <div className='flex items-center space-x-4 z-40'>
             {langs.map((language) => (
-              // <Link
-              //   key={language.lang}
-              //   href={`/${language.lang}${currentPath.replace(`/${currentLang}`, '')}${
-              //     searchParams.toString() ? '?' + searchParams.toString() : ''
-              //   }`}
-              // >
               <button
                 disabled={currentLang === language.lang}
                 key={language.lang}
-                className='text-sm font-medium text-gray-900 dark:text-white flex place-items-center gap-2'
+                className='text-sm font-medium text-gray-900 dark:text-white flex place-items-center gap-2 transition-all ease-out hover:-translate-y-1 hover:scale-110'
                 onClick={() =>
                   router.replace(
                     `/${language.lang}${currentPath.replace(`/${currentLang}`, '')}${
@@ -164,9 +157,8 @@ const AppHeader = () => {
                   )
                 }
               >
-                {language.flag} <span>{language.title.substring(0, 3)}</span>
+                {language.flag}
               </button>
-              // </Link>
             ))}
 
             <div
