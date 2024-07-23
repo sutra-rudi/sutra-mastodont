@@ -232,12 +232,31 @@ export const ArticleCardFullImage = ({
         </picture>
       </a>
 
-      <div className='absolute top-0 right-0 bg-almost-black/70'>
+      <div className='absolute top-0 right-0 flex flex-col items-end justify-end'>
         {categories.length > 0 && (
-          <div className='text-sm font-semibold py-1 px-2 text-secondary-light  text-nowrap'>
+          <div className='text-xs font-medium py-1 px-2 text-secondary-light bg-almost-black/70   text-nowrap'>
             {categories.map((kata) => {
               return <span key={kata.catName}>{kata.catName}</span>;
             })}
+          </div>
+        )}
+
+        {readTime && (
+          <div className='text-xs bg-almost-black/70 font-medium py-1 px-2   text-almost-white flex items-center gap-1 text-nowrap'>
+            <ClockIcon />
+            <span>{readTime.text}</span>
+          </div>
+        )}
+
+        {author && (
+          <div className='flex flex-col justify-start items-start py-1 px-2 bg-almost-black/70'>
+            <p className='text-xs font-medium text-almost-white'>{`${author.firstName} ${author.lastName}`}</p>
+          </div>
+        )}
+
+        {date && (
+          <div className='text-xs  text-almost-white font-medium flex items-center gap-2 py-1 px-2 bg-almost-black/70'>
+            <span>{date}</span>
           </div>
         )}
       </div>
@@ -264,7 +283,7 @@ export const ArticleCardFullImage = ({
           )}
 
           <a href={url}>
-            <h5 className='mb-2 text-3xl font-semibold tracking-tight text-almost-white leading-sutraCardTitleLineHeight flex items-end justify-between'>
+            <h5 className='mb-3 text-3xl font-semibold tracking-tight text-almost-white leading-sutraCardTitleLineHeight flex items-end justify-between'>
               <span>{title}</span> <ArrowIcon fontSize={24} className='shrink-0' />
             </h5>
           </a>
@@ -347,12 +366,12 @@ export const ArticleCardMiniCard = ({
 }: DefaultArticleCard) => {
   return (
     <article>
-      <div className='bg-white max-w-[190px] w-full relative rounded-xl'>
+      <div className='bg-white max-w-[190px] w-full relative rounded-lg'>
         <picture className=''>
           <img
             src={imgSource}
             alt=''
-            className='max-w-full w-full object-cover object-center block aspect-video rounded-t-xl'
+            className='max-w-full w-full object-cover object-center block aspect-video rounded-t-lg'
           />
         </picture>
         <div className='p-4 relative'>
@@ -360,7 +379,7 @@ export const ArticleCardMiniCard = ({
             <div className='w-full leading-none'>
               {categories.map((kata) => {
                 return (
-                  <span className='text-primary-dark text-xs font-semibold uppercase leading-none' key={kata.catName}>
+                  <span className='text-accent text-xs font-semibold uppercase leading-none' key={kata.catName}>
                     {kata.catName}
                   </span>
                 );
@@ -369,7 +388,7 @@ export const ArticleCardMiniCard = ({
           )}
 
           <a href={url}>
-            <h5 className='mb-2 mt-2 text-sm font-semibold tracking-tight text-accent leading-[20px]'>
+            <h5 className='mb-2 mt-2 text-sm font-semibold tracking-tight text-primary-dark leading-[20px]'>
               <span>{title}</span>
             </h5>
           </a>
