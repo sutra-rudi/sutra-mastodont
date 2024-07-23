@@ -191,7 +191,7 @@ const ArticleCard = ({
                 </picture>
               )}
 
-              <p className='text-sm font-medium text-secondary-dark dark:text-secondary-light'>{`${author.firstName} ${author.lastName}`}</p>
+              <p className='text-xs font-medium text-secondary-dark dark:text-secondary-light'>{`${author.firstName} ${author.lastName}`}</p>
 
               {date && (
                 <div className='text-xs  text-secondary-dark dark:text-secondary-light font-medium flex items-center gap-2 '>

@@ -184,7 +184,7 @@ export const ArticleCardHorizontal = ({
                     </picture>
                   )}
 
-                  <p className='text-sm font-medium text-secondary-dark dark:text-secondary-light'>{`${author.firstName} ${author.lastName}`}</p>
+                  <p className='text-xs font-medium text-secondary-dark dark:text-secondary-light'>{`${author.firstName} ${author.lastName}`}</p>
 
                   {date && (
                     <div className='text-xs  text-secondary-dark dark:text-secondary-light font-medium flex items-center gap-2 '>
@@ -272,7 +272,7 @@ export const ArticleCardFullImage = ({
 
           {author && (
             <div className='flex flex-col justify-start items-start'>
-              <p className='text-sm font-medium text-almost-white'>{`${author.firstName} ${author.lastName}`}</p>
+              <p className='text-xs font-medium text-almost-white'>{`${author.firstName} ${author.lastName}`}</p>
 
               {date && (
                 <div className='text-xs  text-almost-white font-medium flex items-center gap-2 '>
