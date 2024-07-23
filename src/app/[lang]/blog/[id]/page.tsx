@@ -4,6 +4,7 @@ import { blogLanguageFields } from '@/app/pathsUtils/blogLanguageFields';
 import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 
 import { htmlToText } from 'html-to-text';
+import { UserLanguage } from '@/app/enums/LangEnum';
 export async function generateMetadata({ params: { lang, id } }: { params: { lang: string; id: string } }) {
   const getIdFromSlug = (slug: string): string => {
     const parts = slug.split('-');
@@ -31,7 +32,8 @@ export async function generateMetadata({ params: { lang, id } }: { params: { lan
 
   const l = getSuffixFromLang(lang);
   const constructFieldTags = `tags` + l;
-  const blogTitle = prepareDataForClient.blog[languageField][`naslovSadrzaj${l}`];
+  const las = `naslovSadrzaj${lang === UserLanguage.eng ? `Sadrzaj${l}` : `${l}`}`;
+  const blogTitle = prepareDataForClient.blog[languageField][las];
 
   const introField = prepareDataForClient.blog[languageField]?.[`kratkiUvodniTekstSadrzaj${l}`] ?? '';
 
@@ -153,7 +155,8 @@ export default async function SingleBlogPage({ params: { lang, id } }: { params:
 
   // const seoTagField = prepareDataForClient.blog[`seo${l}`]?.[`seoTagovi${l}`];
 
-  console.log('ALO', prepareDataForClient.blog.introBlog);
+  console.log('ALO', prepareDataForClient.blog[languageField]);
+  // naslovSadrzajSadrzajEng
 
   return (
     <main>
