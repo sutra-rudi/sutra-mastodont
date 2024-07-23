@@ -139,7 +139,7 @@ const BlogSection = ({ pageContent, lang, categoriesList }: BlogSection) => {
 
       <div className=''>
         <h2 className='w-full text-center text-4xl font-semibold pt-8'>Swiss knife cards alt</h2>
-        <div className='max-w-[1440px] mx-auto my-8 flex flex-wrap gap-4'>
+        <div className='max-w-[1440px] mx-auto my-8 flex flex-wrap  justify-center gap-4'>
           {pageContent.map((blogContent: any, index: number) => {
             const contentShorthand = blogContent.node;
             const contentCardShorthand = contentShorthand.introBlog;

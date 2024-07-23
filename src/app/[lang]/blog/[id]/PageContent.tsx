@@ -131,7 +131,7 @@ const PageContent = ({ content, global, gallery, files, tags, author, intro, cat
           {parse(intro)}
         </div>
         <div className='w-full bg-almost-black/5 h-px my-8'></div>
-        <div className='proza-custom-blog prose-blockquote:border-accent prose-blockquote:text-xs prose-blockquote:font-medium prose-img:mb-0 prose-figcaption:mt-1 prose-figcaption:italic lg:prose-base prose-sm  prose-strong:font-semibold'>
+        <div className='proza-custom-blog prose-blockquote:border-accent prose-blockquote:text-2xl prose-blockquote:font-medium prose-img:mb-0 prose-figcaption:mt-1 prose-figcaption:italic lg:prose-base prose-sm  prose-strong:font-semibold'>
           {parse(prepareContent[2])}
         </div>
       </div>

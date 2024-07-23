@@ -33,7 +33,7 @@ export const ArticleCardHorizontal = ({
   categories,
 }: DefaultArticleCard) => {
   return (
-    <article className='max-w-[824px] w-full h-auto bg-white shadow dark:bg-almost-black dark:border-gray-700 '>
+    <article className='max-w-[624px] w-full h-auto bg-white shadow dark:bg-almost-black dark:border-gray-700 '>
       <div className='flex w-full place-content-stretch items-stretch h-full'>
         <a href={url} className='w-full h-full max-w-[408px] flex flex-col'>
           <div className='relative flex-1'>
