@@ -73,6 +73,10 @@ const AppHeader = () => {
       url: `/${currentLang}/maps`,
       title: 'Mape kompilacija',
     },
+    {
+      url: `/${currentLang}/schedule`,
+      title: 'Rasporedi',
+    },
   ];
 
   const [theme, setTheme] = React.useState('light');
