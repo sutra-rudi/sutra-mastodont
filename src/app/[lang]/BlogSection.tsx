@@ -8,6 +8,7 @@ import { UserLanguage } from '../enums/LangEnum';
 import ArticleCard from '../components/ArticleCard';
 import { getSuffixFromLang } from '../langUtils/getSuffixFromLang';
 import { readingTime } from 'reading-time-estimator';
+import { FaTag as TagIcon } from 'react-icons/fa6';
 import {
   ArticleCardFullImage,
   ArticleCardHorizontal,
@@ -19,9 +20,12 @@ interface BlogSection {
   pageContent: any;
   lang: any;
   categoriesList: any[];
+  tagsList: any[];
 }
 
-const BlogSection = ({ pageContent, lang, categoriesList }: BlogSection) => {
+const BlogSection = ({ pageContent, lang, categoriesList, tagsList }: BlogSection) => {
+  console.log('TAGOVI', tagsList);
+
   const l = getSuffixFromLang(lang);
 
   const [clientDisplayData, setClientDisplayData] = React.useState<any[]>(pageContent);
@@ -67,6 +71,26 @@ const BlogSection = ({ pageContent, lang, categoriesList }: BlogSection) => {
     );
   };
 
+  const TagsTaxonomy = () => {
+    return (
+      <div className='flex items-center justify-center gap-2 my-6'>
+        {tagsList.map((tag: any, index) => {
+          const tagShortHand = tag.node;
+
+          return (
+            <div
+              key={tagShortHand.name}
+              className='flex outline outline-accent rounded-sm px-2 py-1 cursor-pointer gap-1 items-center'
+            >
+              <TagIcon />
+              <span>{tagShortHand.name}</span>
+            </div>
+          );
+        })}
+      </div>
+    );
+  };
+
   return (
     <section>
       <h2 className='w-full text-center text-7xl font-semibold pt-8'>Blogovi</h2>
@@ -76,6 +100,10 @@ const BlogSection = ({ pageContent, lang, categoriesList }: BlogSection) => {
         <div className='max-w-[1440px] mx-auto'>
           <CategoryTaxonomy />
         </div>
+        <div className='max-w-[1440px] mx-auto my-2'>
+          <TagsTaxonomy />
+        </div>
+
         <div className='max-w-[1440px] mx-auto my-8 flex flex-wrap gap-4 items-start justify-center'>
           {pageContent &&
             clientDisplayData.map((blogContent: any, index: number) => {

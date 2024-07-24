@@ -26,6 +26,7 @@ import HeroSection from './HeroSection';
 import ButtonsDisplay from './ButtonsDisplay';
 import { getLokacijeQuery } from '../queries/getAllLocationsQuery';
 import { getCategoriesQuery } from '../queries/getAllBlogCategoriesQuery';
+import { getTagsQuery } from '../queries/getAllTagsQuery';
 
 export const maxDuration = 60;
 export const revalidate = 3600; // revalidate at most every hour
@@ -67,6 +68,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       getAllObavijesti,
       getAllDocuments,
       getAllCategories,
+      getAllTags,
     ] = await Promise.all([
       fetchData(getAllBlogsQuery(lang)),
       fetchData(getAllNewsQuery(lang)),
@@ -81,6 +83,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       fetchData(getObavijestiNaStraniciQuery(lang)),
       fetchData(getDokumentikataloziQuery(lang)),
       fetchData(getCategoriesQuery(lang)),
+      fetchData(getTagsQuery(lang)),
     ]);
 
     const blogDataArrayShorthand = getAllBlogs.data.allBlog.edges;
@@ -96,12 +99,18 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
     const obavijestiNaStraniciDataShorthand = getAllObavijesti.data.allObavijestiNaStranici.edges;
     const dokumentiKataloziDataShorthand = getAllDocuments.data.dokumentikatalozi.edges;
     const kategorijeDataShorthand = getAllCategories.data.categories.edges;
+    const tagsDataShorthand = getAllTags.data.tags.edges;
 
     return (
       <Suspense>
         <main>
           <HeroSection />
-          <BlogSection pageContent={blogDataArrayShorthand} lang={lang} categoriesList={kategorijeDataShorthand} />
+          <BlogSection
+            pageContent={blogDataArrayShorthand}
+            lang={lang}
+            categoriesList={kategorijeDataShorthand}
+            tagsList={tagsDataShorthand}
+          />
           <NewsSection pageContent={newsDataArrayShorthand} lang={lang} />
           <LocationsSection pageContent={locationsDataArrayShorthand} />
           <BrojcaniciSection pageContent={brojcaniciDataArrayShorthand} lang={lang} />
