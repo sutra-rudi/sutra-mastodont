@@ -156,17 +156,13 @@ const PageContent = ({ content, global, gallery, files, tags, author, intro, cat
         </div>
       </div>
       <div className='w-full flex items-center justify-start max-w-sutraBlogTestMaxWidth mx-auto mt-4 mb-6 gap-1 text-base text-almost-black font-normal cursor-pointer '>
-        {files.file ? (
+        {files.file && (
           <button
             onClick={() => downloadFile(files.file.node.mediaItemUrl, files.fileName)}
             className='flex items-center border rounded-sutraCardTagBorderRadius border-accent/50 px-2 py-1 text-accent/70  hover:text-accent transition-all ease-in-out gap-2'
           >
             <DownloadIcon /> <span>Preuzmi {files.fileName}</span>
           </button>
-        ) : (
-          <div className='flex items-center border rounded-sutraCardTagBorderRadius border-accent/50 px-2 py-1 text-accent/70  hover:text-accent transition-all ease-in-out'>
-            <span>No files</span>
-          </div>
         )}
       </div>
       <div className='flex gap-1 w-full max-w-sutraBlogTestMaxWidth mx-auto my-4'>

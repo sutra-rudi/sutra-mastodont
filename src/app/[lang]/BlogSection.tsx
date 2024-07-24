@@ -38,7 +38,7 @@ const BlogSection = ({ pageContent, lang, categoriesList }: BlogSection) => {
           item.node.introBlog.kategorija.edges[0].node.informacijeKategorije[`imeKategorije${l}`] === categoryName
       );
 
-      console.log('TAXLK', tax);
+      // console.log('TAXLK', tax);
 
       setClientDisplayData(tax);
     };
@@ -116,22 +116,26 @@ const BlogSection = ({ pageContent, lang, categoriesList }: BlogSection) => {
 
               const readTime = readingTime(contentField);
 
+              const isActivatedOnLang: boolean = contentShorthand.statusAtivacijePoJezicima[`aktivator${l}`];
+
               return (
-                <ArticleCard
-                  title={contentShorthand[languageField]?.[las]}
-                  url={`/${lang}/blog/${
-                    slugify(`${contentShorthand[languageField]?.[las]}`, slugifyOptions) + `-${contentShorthand.id}`
-                  }`}
-                  date={dayjs(contentCardShorthand.datum).format('DD.MM.YYYY') ?? 'Nema datuma'}
-                  cta='Read more'
-                  imgSource={imgSource}
-                  introContent={introField}
-                  author={authorField}
-                  key={index}
-                  tags={tagsField}
-                  readTime={readTime}
-                  categories={categoryField}
-                />
+                isActivatedOnLang && (
+                  <ArticleCard
+                    title={contentShorthand[languageField]?.[las]}
+                    url={`/${lang}/blog/${
+                      slugify(`${contentShorthand[languageField]?.[las]}`, slugifyOptions) + `-${contentShorthand.id}`
+                    }`}
+                    date={dayjs(contentCardShorthand.datum).format('DD.MM.YYYY') ?? 'Nema datuma'}
+                    cta='Read more'
+                    imgSource={imgSource}
+                    introContent={introField}
+                    author={authorField}
+                    key={index}
+                    tags={tagsField}
+                    readTime={readTime}
+                    categories={categoryField}
+                  />
+                )
               );
             })}
         </div>

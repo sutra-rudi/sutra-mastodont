@@ -47,6 +47,12 @@ export const getAllBlogsQuery = (lang: string) => {
         edges {
           node {
             id
+        statusAtivacijePoJezicima {
+          aktivatorEng
+          aktivatorGer
+          aktivatorHr
+          aktivatorIta
+        }
             ${languageFieldsMap[lang] || ''}
             introBlog {
               datum

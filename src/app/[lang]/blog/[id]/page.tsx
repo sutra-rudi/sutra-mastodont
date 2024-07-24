@@ -26,8 +26,7 @@ export async function generateMetadata({ params: { lang, id } }: { params: { lan
   const parseData = await getSingleBlog.json();
   const prepareDataForClient = parseData.data;
 
-  const globalData = prepareDataForClient.blog.introBlog;
-  const fallbackOg = globalData.naslovnaSlika.node.sourceUrl;
+  const fallbackOg = prepareDataForClient.blog.introBlog.thumbnail.node.sourceUrl;
   const languageField = blogLanguageFields[lang];
 
   const l = getSuffixFromLang(lang);
@@ -155,7 +154,7 @@ export default async function SingleBlogPage({ params: { lang, id } }: { params:
 
   // const seoTagField = prepareDataForClient.blog[`seo${l}`]?.[`seoTagovi${l}`];
 
-  console.log('ALO', prepareDataForClient.blog[languageField]);
+  // console.log('ALO', prepareDataForClient.blog.introBlog.thumbnail.node.sourceUrl);
   // naslovSadrzajSadrzajEng
 
   return (

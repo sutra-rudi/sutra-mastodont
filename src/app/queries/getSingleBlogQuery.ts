@@ -152,6 +152,12 @@ export const getSingleBlogQuery = (id: string, lang: string) => {
               srcSet
             }
           }
+          thumbnail {
+                node {
+                  srcSet
+                  sourceUrl
+                }
+            }
         }
        author {
           node {

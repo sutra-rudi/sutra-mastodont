@@ -39,7 +39,7 @@ export const ArticleCardHorizontal = ({
           <div className='relative flex-1'>
             <picture className='w-full h-full '>
               <img className='w-full h-full object-cover object-center aspect-[9/16] block' src={imgSource} alt='' />
-              <div className='absolute top-0 w-full flex items-center gap-2 px-11 pt-7'>
+              <div className='absolute top-0 w-full flex items-center gap-2 px-11 pt-7 flex-wrap'>
                 {date && (
                   <div className='text-xs bg-almost-black/75 rounded-sutraCardBorderRadius px-2 py-1 text-white'>
                     <span>{date}</span>
@@ -67,7 +67,7 @@ export const ArticleCardHorizontal = ({
 
         <div className=''>
           <div className='px-11 pt-12'>
-            {tags.length > 0 ? (
+            {tags.length > 0 && (
               <div className='flex items-center gap-1 text-xs flex-wrap font-medium'>
                 {tags.map((singleTag) => (
                   <span
@@ -78,10 +78,6 @@ export const ArticleCardHorizontal = ({
                   </span>
                 ))}
               </div>
-            ) : (
-              <span className='uppercase text-accent border border-accent rounded-sutraCardTagBorderRadius px-2 py-px text-xs'>
-                No tags
-              </span>
             )}
 
             {categories.length > 0 && (

@@ -35,17 +35,17 @@ const ArticleCard = ({
   // console.log('kate', categories);
 
   return (
-    <article className='max-w-[408px] w-full bg-white shadow dark:bg-almost-black dark:border-gray-700 '>
+    <article className='max-w-[408px] w-full bg-white shadow dark:bg-almost-black dark:border-gray-700 group overflow-hidden'>
       <a href={url}>
         <div className='relative'>
           <picture>
             <img
-              className='w-full object-cover object-center block aspect-video min-h-[245px]'
+              className='w-full object-cover object-center block aspect-video min-h-[245px] group-hover:scale-125 transition-all ease-out'
               src={imgSource}
               alt=''
             />
 
-            <div className='absolute top-0 w-full flex items-center gap-2 px-11 pt-7'>
+            <div className='absolute top-0 w-full flex items-center gap-2 px-11 pt-7 flex-wrap transition-all ease-out group-hover:opacity-0'>
               {date && (
                 <div className='text-xs bg-almost-black/75 rounded-sutraCardBorderRadius px-2 py-1  text-white'>
                   <span>{date}</span>
@@ -71,10 +71,12 @@ const ArticleCard = ({
         </div>
       </a>
 
-      <div className='w-full bg-accent h-4'></div>
+      <div className='overflow-hidden'>
+        <div className='w-full bg-accent h-4 group-hover:translate-y-full transition-all ease-out'></div>
+      </div>
 
       <div className='px-11 pt-12'>
-        {tags.length > 0 ? (
+        {tags.length > 0 && (
           <div className='flex items-center gap-1 text-xs flex-wrap font-medium mb-2'>
             {tags.map((singleTag) => (
               <span
@@ -85,16 +87,19 @@ const ArticleCard = ({
               </span>
             ))}
           </div>
-        ) : (
-          <span className='uppercase text-accent border border-accent rounded-sutraCardTagBorderRadius px-2 py-px text-xs'>
-            No tags
-          </span>
         )}
 
         {categories.length > 0 && (
-          <div className='text-sm font-semibold py-[10px]  text-secondary-dark dark:text-secondary-light uppercase text-nowrap'>
+          <div className='py-[10px]'>
             {categories.map((kata) => {
-              return <span key={kata.catName}>{kata.catName}</span>;
+              return (
+                <span
+                  className='uppercase text-accent border border-accent rounded-sutraCardTagBorderRadius px-2 py-px text-xs font-medium'
+                  key={kata.catName}
+                >
+                  {kata.catName}
+                </span>
+              );
             })}
           </div>
         )}

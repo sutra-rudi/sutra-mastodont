@@ -98,6 +98,12 @@ const AppHeader = () => {
     }
   }, [isMobileMenuOpen]);
 
+  const handleLangSwitch = (where: string) => {
+    router.replace(where);
+
+    router.refresh();
+  };
+
   return (
     <nav className='bg-white dark:bg-gray-800 antialiased relative'>
       <div className='max-w-screen-xl px-4 mx-auto 2xl:px-0 py-4'>
@@ -150,7 +156,7 @@ const AppHeader = () => {
                 key={language.lang}
                 className='text-sm font-medium text-gray-900 dark:text-white flex place-items-center gap-2 transition-all ease-out hover:-translate-y-1 hover:scale-110'
                 onClick={() =>
-                  router.replace(
+                  handleLangSwitch(
                     `/${language.lang}${currentPath.replace(`/${currentLang}`, '')}${
                       searchParams.toString() ? '?' + searchParams.toString() : ''
                     }`
