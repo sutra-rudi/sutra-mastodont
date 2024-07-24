@@ -22,7 +22,6 @@ interface BlogSection {
 }
 
 const BlogSection = ({ pageContent, lang, categoriesList }: BlogSection) => {
-  console.log('PAGI CONTENT', pageContent);
   const l = getSuffixFromLang(lang);
 
   const [clientDisplayData, setClientDisplayData] = React.useState<any[]>(pageContent);
@@ -37,8 +36,6 @@ const BlogSection = ({ pageContent, lang, categoriesList }: BlogSection) => {
         (item: any) =>
           item.node.introBlog.kategorija.edges[0].node.informacijeKategorije[`imeKategorije${l}`] === categoryName
       );
-
-      // console.log('TAXLK', tax);
 
       setClientDisplayData(tax);
     };

@@ -14,6 +14,8 @@ interface WhyUsSectionInterface {
 const WhyUsSection = ({ pageContent, lang }: WhyUsSectionInterface) => {
   const l = getSuffixFromLang(lang);
 
+  console.log('PAGI CONTENT', pageContent);
+
   return (
     <section className='bg-white dark:bg-gray-900'>
       <div className='py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6'>
@@ -29,13 +31,14 @@ const WhyUsSection = ({ pageContent, lang }: WhyUsSectionInterface) => {
             const shorthandTitle = cont.node[`text${l}`];
 
             const shorthandArguments = cont.node[`uvodArgumentiWhyChooseUsKeys`];
+
             return (
               <div key={cont.node.id}>
                 <div className='relative w-full max-w-[200px] h-[200px]'>
                   <Image
                     src={
-                      shorthandArguments.ikonaSlikaKeys.sourceUrl
-                        ? shorthandArguments.ikonaSlikaKeys.sourceUrl
+                      shorthandArguments.ikonaSlikaKeys.node.sourceUrl
+                        ? shorthandArguments.ikonaSlikaKeys.node.sourceUrl
                         : 'https://placehold.co/400.png'
                     }
                     alt='some img'

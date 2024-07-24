@@ -82,7 +82,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       fetchData(getDokumentikataloziQuery(lang)),
       fetchData(getCategoriesQuery(lang)),
     ]);
-    // console.log('GET ALL brojcanici', getAllObavijesti);
+
     const blogDataArrayShorthand = getAllBlogs.data.allBlog.edges;
     const newsDataArrayShorthand = getAllNews.data.allNovosti.edges;
     const locationsDataArrayShorthand = getAllLocations.data.lokacije.edges;

@@ -32,8 +32,6 @@ const ArticleCard = ({
   readTime,
   categories,
 }: DefaultArticleCard) => {
-  // console.log('kate', categories);
-
   return (
     <article className='max-w-[408px] w-full bg-white shadow dark:bg-almost-black dark:border-gray-700 group overflow-hidden'>
       <a href={url}>
