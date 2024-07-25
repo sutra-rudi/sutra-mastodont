@@ -101,6 +101,14 @@ const ArticleCard = ({
             })}
           </div>
         )}
+
+        {categories.length > 0 && (
+          <div className='text-sm font-semibold py-[10px]  text-secondary-dark dark:text-secondary-light uppercase text-nowrap'>
+            {categories.map((kata) => {
+              return <span key={kata.catName}>{kata.catName}</span>;
+            })}
+          </div>
+        )}
       </div>
 
       <div className='px-11'>
@@ -111,9 +119,9 @@ const ArticleCard = ({
         </a>
 
         <a href={url}>
-          <h5 className='mb-2 text-2xl font-bold tracking-tight text-accent leading-sutraCardTitleLineHeight  flex'>
+          <h5 className='mb-2 text-2xl font-bold tracking-tight text-accent leading-sutraCardTitleLineHeight  flex items-start gap-2'>
             <span>{title}</span>
-            <ArrowIcon className='shrink-0 text-secondary-dark dark:text-secondary-light' />
+            <ArrowIcon className='shrink-0 text-secondary-dark dark:text-secondary-light mt-1 group-hover:rotate-45 origin-center transition-all duration-200 ease-out group-hover:translate-x-4' />
           </h5>
         </a>
 
