@@ -4,7 +4,7 @@ import React from 'react';
 import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 import PhoneInput from 'react-phone-number-input';
 import DatePicker from 'react-datepicker';
-
+import { useFormspark } from '@formspark/use-formspark';
 interface ContactPageInterface {
   personsData: any;
   sectorsData: any;
@@ -30,8 +30,15 @@ const PageContent = ({ personsData, sectorsData, lang }: ContactPageInterface) =
     formState: { errors },
   } = useForm<FormValues>();
 
-  const onSubmit: SubmitHandler<FormValues> = (data) => {
+  const [submit, submitting] = useFormspark({
+    formId: 'qzYhzVkrj',
+  });
+
+  const onSubmit: SubmitHandler<FormValues> = async (data) => {
     console.log('DATA', data);
+
+    await submit({ data });
+    // await submit({ data: 'pozdrav' });
   };
 
   return (
