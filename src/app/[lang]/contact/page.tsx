@@ -37,7 +37,7 @@ export default async function ContactPage({ params: { lang } }: { params: { lang
   const l = getSuffixFromLang(lang);
 
   return (
-    <main>
+    <main className='min-h-svh'>
       <PageContent personsData={dataShorthandPersons} sectorsData={dataShorthandSectors} lang={l} />
     </main>
   );
