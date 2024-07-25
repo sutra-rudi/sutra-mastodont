@@ -36,8 +36,6 @@ const PageContent = ({ personsData, sectorsData, lang }: ContactPageInterface) =
 
   return (
     <section>
-      <div className='max-w-[1225px] mx-auto my-8'>{/* Your existing content for personsData and sectorsData */}</div>
-
       <form className='max-w-md mx-auto' onSubmit={handleSubmit(onSubmit)}>
         {/* Email Input */}
         <div className='relative z-0 w-full mb-5 group'>
@@ -45,7 +43,7 @@ const PageContent = ({ personsData, sectorsData, lang }: ContactPageInterface) =
             className={`block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 appearance-none ${
               errors.email ? 'border-red-500' : 'border-gray-300'
             } peer`}
-            placeholder=' '
+            placeholder=''
             {...register('email', {
               required: 'Email je obavezan',
               maxLength: {
@@ -141,7 +139,7 @@ const PageContent = ({ personsData, sectorsData, lang }: ContactPageInterface) =
         </div>
 
         {/* Visit Date Input */}
-        <div className='relative z-0 w-full mb-5 group'>
+        <div className='relative z-50 w-full mb-5 group'>
           <Controller
             name='visitDate'
             control={control}
@@ -154,7 +152,7 @@ const PageContent = ({ personsData, sectorsData, lang }: ContactPageInterface) =
                 selected={field.value ? new Date(field.value) : null}
                 onChange={(date: Date | null) => field.onChange(date)}
                 placeholderText='Select visit date'
-                className={`block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 appearance-none ${
+                className={`block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 appearance-none z-50 ${
                   errors.visitDate ? 'border-red-500' : 'border-gray-300'
                 } peer`}
               />

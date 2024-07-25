@@ -38,6 +38,10 @@
     font-size: theme('fontSize.lg');
     font-family: '__Inter_aaf875', '__Inter_Fallback_aaf875' !important;
   }
+
+  .react-datepicker {
+    z-index: 9999 !important;
+  }
 }
 
 .mapboxgl-map {
@@ -82,4 +86,8 @@
       color: theme('colors.accent');
     }
   }
+}
+
+.react-datepicker-popper {
+  z-index: 9999 !important;
 }
