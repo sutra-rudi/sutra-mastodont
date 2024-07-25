@@ -4,8 +4,6 @@ import React from 'react';
 import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 import PhoneInput from 'react-phone-number-input';
 import DatePicker from 'react-datepicker';
-import 'react-phone-number-input/style.css'; // Import CSS for PhoneInput
-import 'react-datepicker/dist/react-datepicker.css'; // Import CSS for DatePicker
 
 interface ContactPageInterface {
   personsData: any;
@@ -20,7 +18,8 @@ interface FormValues {
   phone: string;
   company: string;
   visitDate: Date | null;
-  excursionType: string; // Add excursion type field
+  excursionType: string;
+  message?: string;
 }
 
 const PageContent = ({ personsData, sectorsData, lang }: ContactPageInterface) => {
@@ -181,6 +180,7 @@ const PageContent = ({ personsData, sectorsData, lang }: ContactPageInterface) =
                 defaultValue=''
                 rules={{ required: 'Vrsta izleta je obavezna' }}
                 render={({ field }) => (
+                  //@ts-ignore
                   <input
                     type='radio'
                     value='cityTour'
@@ -250,6 +250,25 @@ const PageContent = ({ personsData, sectorsData, lang }: ContactPageInterface) =
           {errors.excursionType && <p className='text-red-500 text-xs italic'>{errors.excursionType.message}</p>}
         </fieldset>
 
+        {/* Optional Message Input */}
+        <div className='relative z-0 w-full mb-5 group'>
+          <textarea
+            className={`block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 appearance-none ${
+              errors.message ? 'border-red-500' : 'border-gray-300'
+            } peer`}
+            placeholder=' '
+            {...register('message')}
+          />
+          <label
+            htmlFor='message'
+            className='peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
+          >
+            Message (optional)
+          </label>
+          {errors.message && <p className='text-red-500 text-xs italic'>{errors.message.message}</p>}
+        </div>
+
+        {/* Submit Button */}
         <button type='submit' className='mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700'>
           Submit
         </button>
