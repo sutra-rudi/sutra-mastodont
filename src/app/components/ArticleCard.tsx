@@ -18,6 +18,7 @@ interface DefaultArticleCard {
   tags: any[];
   categories: any[];
   readTime: any;
+  hoverImgSource: string;
 }
 
 const ArticleCard = ({
@@ -31,14 +32,24 @@ const ArticleCard = ({
   tags,
   readTime,
   categories,
+  hoverImgSource,
 }: DefaultArticleCard) => {
+  console.log('haver', hoverImgSource);
+
   return (
     <article className='max-w-[408px] w-full bg-white shadow dark:bg-almost-black dark:border-gray-700 group overflow-hidden'>
       <a href={url}>
         <div className='relative'>
           <picture>
             <img
-              className='w-full object-cover object-center block aspect-video min-h-[245px] group-hover:scale-125 transition-all ease-out'
+              className='w-full object-cover object-center block aspect-video min-h-[245px] group-hover:scale-125 transition-all ease-out opacity-0 group-hover:opacity-100 absolute inset-0'
+              src={hoverImgSource}
+              alt=''
+            />
+          </picture>
+          <picture>
+            <img
+              className='w-full object-cover object-center block aspect-video min-h-[245px] group-hover:scale-125 transition-all ease-out group-hover:opacity-0'
               src={imgSource}
               alt=''
             />

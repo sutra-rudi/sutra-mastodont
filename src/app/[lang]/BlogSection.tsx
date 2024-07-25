@@ -139,6 +139,10 @@ const BlogSection = ({ pageContent, lang, categoriesList, tagsList }: BlogSectio
                 ? contentCardShorthand.thumbnail.node.sourceUrl
                 : 'https://placehold.co/400.png';
 
+              const hoverImgSource = contentCardShorthand.naslovnaSlika
+                ? contentCardShorthand.naslovnaSlika.node.sourceUrl
+                : 'https://placehold.co/400.png';
+
               const readTime = readingTime(contentField);
 
               const isActivatedOnLang: boolean = contentShorthand.statusAtivacijePoJezicima[`aktivator${l}`];
@@ -159,6 +163,7 @@ const BlogSection = ({ pageContent, lang, categoriesList, tagsList }: BlogSectio
                     tags={tagsField}
                     readTime={readTime}
                     categories={categoryField}
+                    hoverImgSource={hoverImgSource}
                   />
                 )
               );
