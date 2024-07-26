@@ -46,7 +46,12 @@ async function fetchData(query: any) {
       throw new Error(`Fetch error: ${response.statusText}\n${errorResponse}`);
     }
 
-    return response.json();
+    const responseData = await response.text();
+    try {
+      return JSON.parse(responseData);
+    } catch (e) {
+      throw new Error(`Invalid JSON: ${responseData}`);
+    }
   } catch (error) {
     console.error('Fetch data error:', error);
     return null; // vratite null ili fallback podatke u slučaju greške
