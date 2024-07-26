@@ -23,6 +23,7 @@ const config: Config = {
         info: '#8C946F',
         sutraCardDivider: '#D9D9D9',
         sutraButtonTextColor: '#2E363E',
+        sutraContactUsTempBg: '#FBFBFB',
       },
 
       fontSize: {
@@ -39,6 +40,8 @@ const config: Config = {
       borderRadius: {
         sutraCardBorderRadius: '4px',
         sutraCardTagBorderRadius: '6px',
+        sutraContactCardBorderRadius: '10px',
+        sutraContactFormButton: '5px',
       },
 
       lineHeight: {
@@ -46,6 +49,7 @@ const config: Config = {
       },
       maxWidth: {
         sutraBlogTestMaxWidth: '750px',
+        sutraContactUsTempFormWidth: '1200px',
       },
     },
   },
