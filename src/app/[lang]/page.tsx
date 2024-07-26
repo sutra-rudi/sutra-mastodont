@@ -32,24 +32,25 @@ export const maxDuration = 60;
 export const revalidate = 3600; // revalidate at most every hour
 
 async function fetchData(query: any) {
-  const response = await fetch(`${process.env.CMS_BASE_URL}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      query,
-    }),
-  });
+  try {
+    const response = await fetch(`${process.env.CMS_BASE_URL}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ query }),
+    });
 
-  if (!response.ok) {
-    const errorResponse = await response.text();
-    throw new Error(`Fetch error: ${response.statusText}\n${errorResponse}`);
+    if (!response.ok) {
+      const errorResponse = await response.text();
+      throw new Error(`Fetch error: ${response.statusText}\n${errorResponse}`);
+    }
+
+    return response.json();
+  } catch (error) {
+    console.error('Fetch data error:', error);
+    return null; // vratite null ili fallback podatke u slučaju greške
   }
-
-  // console.log('DATA QUERY', query);
-
-  return response.json();
 }
 
 export default async function Landing({ params: { lang } }: { params: { lang: string } }) {
@@ -86,20 +87,20 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       fetchData(getTagsQuery(lang)),
     ]);
 
-    const blogDataArrayShorthand = getAllBlogs.data.allBlog.edges;
-    const newsDataArrayShorthand = getAllNews.data.allNovosti.edges;
-    const locationsDataArrayShorthand = getAllLocations.data.lokacije.edges;
-    const brojcaniciDataArrayShorthand = getAllBrojcanici.data.allBrojcanici.edges;
-    const faqSingleDataArrayShorthand = getAllFaqSingle.data.allFAQPojedinacno.edges;
-    const uslugeDataArrayShorthand = getAllUsluge.data.allUsluge.edges;
-    const logotipiPartneraDataArrayShorthand = getAllPartnersLogos.data.logotipiPartneraKlijenata.edges;
-    const baseCarouselDataShorthand = getAllCarouselBase.data.karuselNaslovnica.edges[0].node;
-    const iskustvaKlijenataShorthand = getAllIskustvaKlijenata.data.allIskustvaKlijenata.edges;
-    const whyUsDataShorthand = getAllWhyUs.data.allWhyus.edges;
-    const obavijestiNaStraniciDataShorthand = getAllObavijesti.data.allObavijestiNaStranici.edges;
-    const dokumentiKataloziDataShorthand = getAllDocuments.data.dokumentikatalozi.edges;
-    const kategorijeDataShorthand = getAllCategories.data.categories.edges;
-    const tagsDataShorthand = getAllTags.data.tags.edges;
+    const blogDataArrayShorthand = getAllBlogs?.data?.allBlog?.edges || [];
+    const newsDataArrayShorthand = getAllNews?.data?.allNovosti?.edges || [];
+    const locationsDataArrayShorthand = getAllLocations?.data?.lokacije?.edges || [];
+    const brojcaniciDataArrayShorthand = getAllBrojcanici?.data?.allBrojcanici?.edges || [];
+    const faqSingleDataArrayShorthand = getAllFaqSingle?.data?.allFAQPojedinacno?.edges || [];
+    const uslugeDataArrayShorthand = getAllUsluge?.data?.allUsluge?.edges || [];
+    const logotipiPartneraDataArrayShorthand = getAllPartnersLogos?.data?.logotipiPartneraKlijenata?.edges || [];
+    const baseCarouselDataShorthand = getAllCarouselBase?.data?.karuselNaslovnica?.edges[0]?.node || {};
+    const iskustvaKlijenataShorthand = getAllIskustvaKlijenata?.data?.allIskustvaKlijenata?.edges || [];
+    const whyUsDataShorthand = getAllWhyUs?.data?.allWhyus?.edges || [];
+    const obavijestiNaStraniciDataShorthand = getAllObavijesti?.data?.allObavijestiNaStranici?.edges || [];
+    const dokumentiKataloziDataShorthand = getAllDocuments?.data?.dokumentikatalozi?.edges || [];
+    const kategorijeDataShorthand = getAllCategories?.data?.categories?.edges || [];
+    const tagsDataShorthand = getAllTags?.data?.tags?.edges || [];
 
     return (
       <Suspense>
