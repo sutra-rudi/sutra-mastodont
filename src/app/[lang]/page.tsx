@@ -92,42 +92,48 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       fetchData(getTagsQuery(lang)),
     ]);
 
-    const blogDataArrayShorthand = getAllBlogs?.data?.allBlog?.edges || [];
-    const newsDataArrayShorthand = getAllNews?.data?.allNovosti?.edges || [];
-    const locationsDataArrayShorthand = getAllLocations?.data?.lokacije?.edges || [];
-    const brojcaniciDataArrayShorthand = getAllBrojcanici?.data?.allBrojcanici?.edges || [];
-    const faqSingleDataArrayShorthand = getAllFaqSingle?.data?.allFAQPojedinacno?.edges || [];
-    const uslugeDataArrayShorthand = getAllUsluge?.data?.allUsluge?.edges || [];
-    const logotipiPartneraDataArrayShorthand = getAllPartnersLogos?.data?.logotipiPartneraKlijenata?.edges || [];
-    const baseCarouselDataShorthand = getAllCarouselBase?.data?.karuselNaslovnica?.edges[0]?.node || {};
-    const iskustvaKlijenataShorthand = getAllIskustvaKlijenata?.data?.allIskustvaKlijenata?.edges || [];
-    const whyUsDataShorthand = getAllWhyUs?.data?.allWhyus?.edges || [];
-    const obavijestiNaStraniciDataShorthand = getAllObavijesti?.data?.allObavijestiNaStranici?.edges || [];
-    const dokumentiKataloziDataShorthand = getAllDocuments?.data?.dokumentikatalozi?.edges || [];
-    const kategorijeDataShorthand = getAllCategories?.data?.categories?.edges || [];
-    const tagsDataShorthand = getAllTags?.data?.tags?.edges || [];
+    const blogDataArrayShorthand = getAllBlogs?.data?.allBlog?.edges || null;
+    const newsDataArrayShorthand = getAllNews?.data?.allNovosti?.edges || null;
+    const locationsDataArrayShorthand = getAllLocations?.data?.lokacije?.edges || null;
+    const brojcaniciDataArrayShorthand = getAllBrojcanici?.data?.allBrojcanici?.edges || null;
+    const faqSingleDataArrayShorthand = getAllFaqSingle?.data?.allFAQPojedinacno?.edges || null;
+    const uslugeDataArrayShorthand = getAllUsluge?.data?.allUsluge?.edges || null;
+    const logotipiPartneraDataArrayShorthand = getAllPartnersLogos?.data?.logotipiPartneraKlijenata?.edges || null;
+    const baseCarouselDataShorthand = getAllCarouselBase?.data?.karuselNaslovnica?.edges[0]?.node || null;
+    const iskustvaKlijenataShorthand = getAllIskustvaKlijenata?.data?.allIskustvaKlijenata?.edges || null;
+    const whyUsDataShorthand = getAllWhyUs?.data?.allWhyus?.edges || null;
+    const obavijestiNaStraniciDataShorthand = getAllObavijesti?.data?.allObavijestiNaStranici?.edges || null;
+    const dokumentiKataloziDataShorthand = getAllDocuments?.data?.dokumentikatalozi?.edges || null;
+    const kategorijeDataShorthand = getAllCategories?.data?.categories?.edges || null;
+    const tagsDataShorthand = getAllTags?.data?.tags?.edges || null;
 
     return (
       <Suspense>
         <main>
           <HeroSection />
-          <BlogSection
-            pageContent={blogDataArrayShorthand}
-            lang={lang}
-            categoriesList={kategorijeDataShorthand}
-            tagsList={tagsDataShorthand}
-          />
-          <NewsSection pageContent={newsDataArrayShorthand} lang={lang} />
-          <LocationsSection pageContent={locationsDataArrayShorthand} />
-          <BrojcaniciSection pageContent={brojcaniciDataArrayShorthand} lang={lang} />
-          <SingleFaqSection pageContent={faqSingleDataArrayShorthand} lang={lang} />
-          <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />
-          <PartnersSection pageContent={logotipiPartneraDataArrayShorthand} />
-          <CarouselBase imageArray={baseCarouselDataShorthand} />
-          <TestimonialsSection pageContent={iskustvaKlijenataShorthand} lang={lang} />
-          <WhyUsSection pageContent={whyUsDataShorthand} lang={lang} />
-          <ObavijestiSection pageContent={obavijestiNaStraniciDataShorthand} lang={lang} />
-          <DocumentsCatalogsSection pageContent={dokumentiKataloziDataShorthand} lang={lang} />
+          {blogDataArrayShorthand && (
+            <BlogSection
+              pageContent={blogDataArrayShorthand}
+              lang={lang}
+              categoriesList={kategorijeDataShorthand}
+              tagsList={tagsDataShorthand}
+            />
+          )}
+          {newsDataArrayShorthand && <NewsSection pageContent={newsDataArrayShorthand} lang={lang} />}
+          {locationsDataArrayShorthand && <LocationsSection pageContent={locationsDataArrayShorthand} />}
+          {brojcaniciDataArrayShorthand && <BrojcaniciSection pageContent={brojcaniciDataArrayShorthand} lang={lang} />}
+          {faqSingleDataArrayShorthand && <SingleFaqSection pageContent={faqSingleDataArrayShorthand} lang={lang} />}
+          {uslugeDataArrayShorthand && <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />}
+          {logotipiPartneraDataArrayShorthand && <PartnersSection pageContent={logotipiPartneraDataArrayShorthand} />}
+          {baseCarouselDataShorthand && <CarouselBase imageArray={baseCarouselDataShorthand} />}
+          {iskustvaKlijenataShorthand && <TestimonialsSection pageContent={iskustvaKlijenataShorthand} lang={lang} />}
+          {whyUsDataShorthand && <WhyUsSection pageContent={whyUsDataShorthand} lang={lang} />}
+          {obavijestiNaStraniciDataShorthand && (
+            <ObavijestiSection pageContent={obavijestiNaStraniciDataShorthand} lang={lang} />
+          )}
+          {dokumentiKataloziDataShorthand && (
+            <DocumentsCatalogsSection pageContent={dokumentiKataloziDataShorthand} lang={lang} />
+          )}
           <ButtonsDisplay />
         </main>
       </Suspense>
