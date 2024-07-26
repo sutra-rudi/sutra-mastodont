@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 interface CountdownRedirectProps {
   seconds: number;
@@ -26,8 +27,15 @@ const CountdownRedirect: React.FC<CountdownRedirectProps> = ({ seconds, redirect
   }, [countdown, redirectTo, router]);
 
   return (
-    <div>
-      <p>Vraćam vas na naslovnu stranicu za {countdown} sekundi...</p>
+    <div className='w-full h-full grid grid-cols-1 gap-8 items-start'>
+      <p>
+        Vraćam vas na naslovnu stranicu za <span className='font-bold text-accent underline'>{countdown}</span>{' '}
+        sekundi...
+      </p>
+
+      <Link className='px-6 py-3 outline outline-accent w-min' href={'/'}>
+        <span className='text-nowrap text-base'>Vrati me odmah</span>
+      </Link>
     </div>
   );
 };
