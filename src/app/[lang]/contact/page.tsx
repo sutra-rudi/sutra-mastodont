@@ -35,9 +35,9 @@ export default async function ContactPage({ params: { lang } }: { params: { lang
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      query: getAdminContactFormSemantics(lang),
+      query: getAdminContactFormSemantics(),
     }),
-    // cache: 'no-cache',
+    cache: 'no-cache',
   });
 
   const parseDataSectors = await getAllContactSectors.json();
@@ -50,7 +50,7 @@ export default async function ContactPage({ params: { lang } }: { params: { lang
 
   // const l = getSuffixFromLang(lang);
 
-  const contactSemanticsShorthand = parseDataContactSemantics.data.adminTekstoviSetupKomponenti.edges[0].node;
+  const contactSemanticsShorthand = parseDataContactSemantics.data.adminKontaktForme.edges[0].node ?? [];
 
   return (
     <main className='min-h-svh bg-sutraContactUsTempBg'>
