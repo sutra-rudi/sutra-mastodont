@@ -255,17 +255,13 @@ const PageContent = ({
     const loadingToast = toast.loading('Šaljem...');
 
     try {
-      // Čekamo da se podaci pošalju
       await submit({ data });
 
-      // Ako je slanje podataka uspješno
-      toast.success('Data sent successfully!');
+      toast.success('Uspješno poslano, bravo!');
       pageRouter.push(`/${lang}/submit-success?rtime=${contactGlobalIntro.timerZaRedirectKontaktForme ?? '10'}`);
     } catch (error) {
-      // Ako dođe do greške
-      toast.error('Failed to send data. Please try again.');
+      toast.error('Nešto ne valja :(');
     } finally {
-      // Uklanjamo obavijest o slanju podataka
       toast.dismiss(loadingToast);
     }
   };
