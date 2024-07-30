@@ -35,8 +35,10 @@ interface FormValues {
   endDate: Date | null;
   followUpDate: Date | null;
   excursionType: string;
-  message?: string;
+  messageTitle?: string; // Naslov poruke
+  messageBody?: string; // Tekst poruke
   terms: boolean;
+  contactTerms: boolean;
   optionalField1?: string;
   optionalField2?: string;
   optionalField3?: string;
@@ -89,7 +91,7 @@ const PageContent = ({ personsData, sectorsData, lang, contactSemantics }: Conta
           <div key={ind} className='relative z-0 w-full mb-5 group'>
             <input
               type='text'
-              className={`block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none ${
+              className={`block py-2.5 px-0 w-full  text-sm text-gray-900 bg-transparent border-0 border-b-2 appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none ${
                 errors[`optionalField${ind}`] ? 'border-red-500' : 'border-gray-300'
               } peer`}
               placeholder={optionalField.bonusPoljeUnosaPlaceholder ?? 'Bonus polje '}
@@ -103,7 +105,7 @@ const PageContent = ({ personsData, sectorsData, lang, contactSemantics }: Conta
             />
             <label
               htmlFor={`optionalField${ind}`}
-              className='peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
+              className='peer-focus:font-medium absolute text-xs text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
             >
               {`Bonus polje ${ind}`}
             </label>
@@ -140,7 +142,7 @@ const PageContent = ({ personsData, sectorsData, lang, contactSemantics }: Conta
           return (
             <div key={index}>
               <fieldset className='flex w-full items-center justify-between'>
-                <legend>{optionalSelector.odabirNazivStavke}</legend>
+                <legend className='text-sm font-semibold mb-4'>{optionalSelector.odabirNazivStavke}</legend>
                 {fields.map((field) => (
                   <div className='w-full flex items-center gap-2' key={field}>
                     <input
@@ -154,11 +156,13 @@ const PageContent = ({ personsData, sectorsData, lang, contactSemantics }: Conta
                       value={field}
                       id={`${field}_${index}`}
                     />
-                    <label htmlFor={`${field}_${index}`}>{field}</label>
+                    <label htmlFor={`${field}_${index}`} className='text-xs'>
+                      {field}
+                    </label>
                   </div>
                 ))}
-                {errorMessage && <p className='text-red-500 text-xs italic mt-2'>{errorMessage}</p>}
               </fieldset>
+              {errorMessage && <p className='text-red-500 text-xs italic mt-2'>{errorMessage}</p>}
             </div>
           );
         }
@@ -171,7 +175,9 @@ const PageContent = ({ personsData, sectorsData, lang, contactSemantics }: Conta
 
           return (
             <div key={index}>
-              <label htmlFor={`selektor${index + 1}`}>{optionalSelector.odabirNazivStavke}</label>
+              <label className='text-sm font-semibold text-almost-black' htmlFor={`selektor${index + 1}`}>
+                {optionalSelector.odabirNazivStavke}
+              </label>
               <select
                 id={`selektor${index + 1}`}
                 {...register(`selektor${index + 1}`, {
@@ -180,8 +186,9 @@ const PageContent = ({ personsData, sectorsData, lang, contactSemantics }: Conta
                     message: optionalSelector.odabirErrorPoruka ?? 'Polje je obavezno',
                   },
                 })}
+                className='bg-transparent border-0 border-b-2 pb-1 text-xs text-brand-clr'
               >
-                <option value=''>Select an option</option>
+                <option value=''>Opcije za odabir</option>
                 {fields.map((field) => (
                   <option key={field} value={field}>
                     {field}
@@ -202,8 +209,10 @@ const PageContent = ({ personsData, sectorsData, lang, contactSemantics }: Conta
           return (
             <div key={index}>
               <fieldset className='flex items-center w-full justify-between'>
-                <legend>{optionalSelector.odabirNazivStavke}</legend>
-                <div>
+                <legend className='text-sm font-semibold text-almost-black mb-4'>
+                  {optionalSelector.odabirNazivStavke}
+                </legend>
+                <div className='flex items-center justify-between w-full'>
                   {fields.map((field) => (
                     <div className='w-full flex items-center gap-2' key={field}>
                       <input
@@ -218,12 +227,14 @@ const PageContent = ({ personsData, sectorsData, lang, contactSemantics }: Conta
                         })}
                         value={field}
                       />
-                      <label htmlFor={`${field}_${index}`}>{field}</label>
+                      <label htmlFor={`${field}_${index}`} className='text-xs'>
+                        {field}
+                      </label>
                     </div>
                   ))}
                 </div>
-                {errorMessage && <p className='text-red-500 text-xs italic mt-2'>{errorMessage}</p>}
               </fieldset>
+              {errorMessage && <p className='text-red-500 text-xs italic mt-2'>{errorMessage}</p>}
             </div>
           );
         }
@@ -232,14 +243,12 @@ const PageContent = ({ personsData, sectorsData, lang, contactSemantics }: Conta
     });
   };
 
-  // console.log('SEM', contactSemantics);
-
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     console.log('DATA', data);
 
-    // await submit({ data });
+    await submit({ data });
 
-    // pageRouter.push(`/${lang}/submit-success`);
+    pageRouter.push(`/${lang}/submit-success`);
   };
 
   const formErrorMessageTriage = React.useCallback(
@@ -421,7 +430,7 @@ const PageContent = ({ personsData, sectorsData, lang, contactSemantics }: Conta
                   <PhoneInput
                     {...field}
                     id='phone'
-                    defaultCountry='US'
+                    defaultCountry='HR'
                     international
                     placeholder='Phone number'
                     className={`block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 appearance-none ${
@@ -444,8 +453,40 @@ const PageContent = ({ personsData, sectorsData, lang, contactSemantics }: Conta
           </div>
 
           {/* Bonus selektori */}
-          <div className='pt-14 pb-9 w-full grid grid-cols-1 gap-6'>
+          <div className='pt-14 pb-9 w-full grid grid-cols-1 gap-10'>
             <OptionalSelectors />
+          </div>
+
+          {/* Naslov poruke */}
+          <div className='mb-4'>
+            <label htmlFor='messageTitle' className='block text-sm font-medium text-gray-700'>
+              Naslov poruke
+            </label>
+            <input
+              type='text'
+              id='messageTitle'
+              {...register('messageTitle', {
+                required: 'Naslov poruke je obavezan',
+              })}
+              className='mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm'
+            />
+            {errors.messageTitle && <p className='text-red-500 text-xs italic mt-2'>{errors.messageTitle.message}</p>}
+          </div>
+
+          {/* Tekst poruke */}
+          <div className='mb-4'>
+            <label htmlFor='messageBody' className='block text-sm font-medium text-gray-700'>
+              Tekst poruke
+            </label>
+            <textarea
+              id='messageBody'
+              {...register('messageBody', {
+                required: 'Tekst poruke je obavezan',
+              })}
+              rows={4}
+              className='mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm'
+            />
+            {errors.messageBody && <p className='text-red-500 text-xs italic mt-2'>{errors.messageBody.message}</p>}
           </div>
 
           {/* First DatePicker Input */}
@@ -463,7 +504,7 @@ const PageContent = ({ personsData, sectorsData, lang, contactSemantics }: Conta
                   selected={field.value ? new Date(field.value) : null}
                   minDate={dayjs(new Date()).toDate()}
                   onChange={(date) => field.onChange(date)}
-                  placeholderText='Select visit date'
+                  placeholderText={contactSemanticFormContent.datepicker1.datePickerPlaceholderTekst ?? 'Odaberi datum'}
                   className={`block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 appearance-none z-50 focus:outline-none ${
                     errors.visitDate ? 'border-red-500' : 'border-gray-300'
                   } peer`}
@@ -494,7 +535,7 @@ const PageContent = ({ personsData, sectorsData, lang, contactSemantics }: Conta
                   selected={field.value ? new Date(field.value) : null}
                   minDate={dayjs(new Date()).toDate()}
                   onChange={(date) => field.onChange(date)}
-                  placeholderText='Select end date'
+                  placeholderText={contactSemanticFormContent.datepicker2.datePickerPlaceholderTekst ?? 'Odaberi datum'}
                   className={`block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 appearance-none z-50 focus:outline-none ${
                     errors.endDate ? 'border-red-500' : 'border-gray-300'
                   } peer`}
@@ -551,9 +592,31 @@ const PageContent = ({ personsData, sectorsData, lang, contactSemantics }: Conta
                   />
                 )}
               />
-              <span className='ml-2'>{contactSemanticFormContent.termsLabel ?? 'Slažem se sa uvjetima'}</span>
+              <span className='ml-2'>{contactSemanticFormContent.uvjetiCheckmark ?? 'Slažem se sa uvjetima'}</span>
             </label>
             {errors.terms && <p className='text-red-500 text-xs italic'>{errors.terms.message}</p>}
+          </div>
+
+          <div className='relative z-0 w-full mb-5 group'>
+            <label className='inline-flex items-center'>
+              <Controller
+                name='contactTerms'
+                control={control}
+                defaultValue={false}
+                rules={{ required: 'Morate se složiti sa uvjetima' }}
+                render={({ field }) => (
+                  <input
+                    type='checkbox'
+                    id='contactTerms'
+                    checked={field.value}
+                    onChange={(e) => field.onChange(e.target.checked)}
+                    className='form-checkbox text-blue-600'
+                  />
+                )}
+              />
+              <span className='ml-2'>{contactSemanticFormContent.checkmarkBonusPolje ?? 'Slažem se sa uvjetima'}</span>
+            </label>
+            {errors.contactTerms && <p className='text-red-500 text-xs italic'>{errors.contactTerms.message}</p>}
           </div>
 
           {/* Submit Button */}
