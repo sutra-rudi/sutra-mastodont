@@ -1,7 +1,5 @@
-// @ts-nocheck
-
 'use client';
-
+import { toast } from 'react-hot-toast';
 import React from 'react';
 import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 import PhoneInput from 'react-phone-number-input';
@@ -23,6 +21,9 @@ interface ContactPageInterface {
   sectorsData: any;
   lang: any;
   contactSemantics: any;
+  contactSemanticFormContent: any;
+  contactSemanticIntro: any;
+  contactGlobalIntro: any;
 }
 
 interface FormValues {
@@ -53,14 +54,16 @@ interface FormValues {
   fileUpload?: FileList;
 }
 
-const PageContent = ({ personsData, sectorsData, lang, contactSemantics }: ContactPageInterface) => {
+const PageContent = ({
+  personsData,
+  sectorsData,
+  lang,
+  contactSemantics,
+  contactSemanticFormContent,
+  contactSemanticIntro,
+  contactGlobalIntro,
+}: ContactPageInterface) => {
   const pageRouter = useRouter();
-
-  const contactSemanticIntro =
-    contactSemantics.adminStavkeOsnovniTekstoviHr.kontaktiBazaTekstovaHr.uvodniTekstoviZaKontakteGrupaPolja;
-
-  const contactSemanticFormContent =
-    contactSemantics.adminStavkeOsnovniTekstoviHr.kontaktiBazaTekstovaHr.tekstoviStavkiUKontaktima;
 
   const {
     control,
@@ -82,7 +85,7 @@ const PageContent = ({ personsData, sectorsData, lang, contactSemantics }: Conta
       contactSemanticFormContent.bonusPoljeUnosaInformacija5,
     ];
 
-    console.log('PAGI CONT', contactSemantics);
+    console.log('PAGI CONT', contactGlobalIntro);
 
     return optionalFieldsArr.map((optionalField: any, index) => {
       const ind = index + 1;
@@ -92,6 +95,7 @@ const PageContent = ({ personsData, sectorsData, lang, contactSemantics }: Conta
             <input
               type='text'
               className={`block py-2.5 px-0 w-full  text-sm text-gray-900 bg-transparent border-0 border-b-2 appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none ${
+                //@ts-ignore
                 errors[`optionalField${ind}`] ? 'border-red-500' : 'border-gray-300'
               } peer`}
               placeholder={optionalField.bonusPoljeUnosaPlaceholder ?? 'Bonus polje '}
@@ -110,9 +114,12 @@ const PageContent = ({ personsData, sectorsData, lang, contactSemantics }: Conta
               {`Bonus polje ${ind}`}
             </label>
 
-            {errors[`optionalField${ind}`] && (
-              <p className='text-red-500 text-xs italic'>{errors[`optionalField${ind}`].message}</p>
-            )}
+            {
+              //@ts-ignore
+              errors[`optionalField${ind}`] && ( //@ts-ignore
+                <p className='text-red-500 text-xs italic'>{errors[`optionalField${ind}`].message}</p>
+              )
+            }
           </div>
         );
       }
@@ -136,7 +143,7 @@ const PageContent = ({ personsData, sectorsData, lang, contactSemantics }: Conta
         if (optionalSelector.odabirVrstaPrikaza === 'Radio button') {
           const options = optionalSelector.odabirPopisStavkiKojeSePrikazuju;
           const fields: string[] = options.split('\r').join('').split('\n');
-
+          //@ts-ignore
           errorMessage = errors[`selektor${index + 1}`]?.message;
 
           return (
@@ -147,6 +154,7 @@ const PageContent = ({ personsData, sectorsData, lang, contactSemantics }: Conta
                   <div className='w-full flex items-center gap-2' key={field}>
                     <input
                       type='radio'
+                      //@ts-ignore
                       {...register(`selektor${index + 1}`, {
                         required: {
                           value: true,
@@ -170,7 +178,7 @@ const PageContent = ({ personsData, sectorsData, lang, contactSemantics }: Conta
         if (optionalSelector.odabirVrstaPrikaza === 'Dropdown') {
           const options = optionalSelector.odabirPopisStavkiKojeSePrikazuju;
           const fields: string[] = options.split('\r').join('').split('\n');
-
+          //@ts-ignore
           errorMessage = errors[`selektor${index + 1}`]?.message;
 
           return (
@@ -179,7 +187,7 @@ const PageContent = ({ personsData, sectorsData, lang, contactSemantics }: Conta
                 {optionalSelector.odabirNazivStavke}
               </label>
               <select
-                id={`selektor${index + 1}`}
+                id={`selektor${index + 1}`} //@ts-ignore
                 {...register(`selektor${index + 1}`, {
                   required: {
                     value: true,
@@ -203,7 +211,7 @@ const PageContent = ({ personsData, sectorsData, lang, contactSemantics }: Conta
         if (optionalSelector.odabirVrstaPrikaza === 'Checkmark') {
           const options = optionalSelector.odabirPopisStavkiKojeSePrikazuju;
           const fields: string[] = options.split('\r').join('').split('\n');
-
+          //@ts-ignore
           errorMessage = errors[`selektor${index + 1}`]?.message;
 
           return (
@@ -217,7 +225,7 @@ const PageContent = ({ personsData, sectorsData, lang, contactSemantics }: Conta
                     <div className='w-full flex items-center gap-2' key={field}>
                       <input
                         type='checkbox'
-                        id={`${field}_${index}`}
+                        id={`${field}_${index}`} //@ts-ignore
                         {...register(`selektor${index + 1}`, {
                           validate: (value) => {
                             if (!value) {
@@ -244,11 +252,22 @@ const PageContent = ({ personsData, sectorsData, lang, contactSemantics }: Conta
   };
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
-    console.log('DATA', data);
+    const loadingToast = toast.loading('Šaljem...');
 
-    await submit({ data });
+    try {
+      // Čekamo da se podaci pošalju
+      await submit({ data });
 
-    pageRouter.push(`/${lang}/submit-success`);
+      // Ako je slanje podataka uspješno
+      toast.success('Data sent successfully!');
+      pageRouter.push(`/${lang}/submit-success?rtime=${contactGlobalIntro.timerZaRedirectKontaktForme ?? '10'}`);
+    } catch (error) {
+      // Ako dođe do greške
+      toast.error('Failed to send data. Please try again.');
+    } finally {
+      // Uklanjamo obavijest o slanju podataka
+      toast.dismiss(loadingToast);
+    }
   };
 
   const formErrorMessageTriage = React.useCallback(
@@ -556,6 +575,7 @@ const PageContent = ({ personsData, sectorsData, lang, contactSemantics }: Conta
             <Controller
               name='fileUpload'
               control={control}
+              //@ts-ignore
               defaultValue={null}
               render={({ field }) => (
                 <input
