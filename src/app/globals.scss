@@ -72,6 +72,8 @@ body {
   }
   .custom-radio:checked {
     @apply text-secondary-dark;
+    // @apply text-accent
+    // color: theme('colors.accent');
     background-color: currentColor;
     background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 12l2 2l4 -4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
     background-size: 100% 100%;
@@ -134,4 +136,12 @@ body {
 
 .react-datepicker-popper {
   z-index: 9999 !important;
+}
+
+///// NAPRAVIT
+
+.karticaPrva {
+}
+
+.karticaAlt {
 }
