@@ -299,7 +299,7 @@ const PageContent = ({
           offsetTop={20}
           className='w-full h-full p-3 lg:max-w-lg self-stretch max-lg:!relative max-lg:!top-0'
         >
-          <div className='w-full h-full p-3 lg:max-w-lg self-stretch'>
+          <div className='w-full h-full lg:p-3 lg:max-w-lg self-stretch'>
             <div className='bg-secondary-dark w-full h-full rounded-sutraContactCardBorderRadius relative overflow-hidden'>
               {/* KRUGOVI */}
               <div className='absolute -bottom-12 w-64 h-64 rounded-full bg-accent opacity-20 -right-24'></div>
@@ -356,7 +356,7 @@ const PageContent = ({
           </div>
         </StickyBox>
 
-        <form className='lg:max-w-3xl w-full lg:pt-14 pt-4 pb-9 lg:px-0 px-6' onSubmit={handleSubmit(onSubmit)}>
+        <form className='lg:max-w-3xl w-full lg:pt-14 pt-4 pb-9 lg:px-0 px-3' onSubmit={handleSubmit(onSubmit)}>
           {/* First and Last Name Inputs */}
           <div className='grid lg:grid-cols-2 lg:gap-6'>
             <div className='relative z-0 w-full mb-5 group'>
