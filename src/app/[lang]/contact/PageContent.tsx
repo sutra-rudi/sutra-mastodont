@@ -518,7 +518,7 @@ const PageContent = ({
               >
                 Naslov poruke
               </label>
-              {errors.messageTitle && <p className='text-red-500 text-xs italic mt-2'>{errors.messageTitle.message}</p>}
+              {errors.messageTitle && <p className='text-error text-xs italic mt-2'>{errors.messageTitle.message}</p>}
             </div>
 
             {/* Tekst poruke */}
@@ -538,7 +538,7 @@ const PageContent = ({
               >
                 Tekst poruke
               </label>
-              {errors.messageBody && <p className='text-red-500 text-xs italic mt-2'>{errors.messageBody.message}</p>}
+              {errors.messageBody && <p className='text-error text-xs italic mt-2'>{errors.messageBody.message}</p>}
             </div>
 
             {/* First DatePicker Input */}
@@ -561,7 +561,7 @@ const PageContent = ({
                         contactSemanticFormContent.datepicker1.datePickerPlaceholderTekst ?? 'Odaberi datum'
                       }
                       className={`form-input block py-2.5 px-0 w-full text-sm text-secondary-dark bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0 peer ${
-                        errors.visitDate ? 'border-red-500' : 'border-gray-300'
+                        errors.visitDate ? 'border-error' : 'border-sutraPlaceholderClr'
                       } `}
                     />
                     <label
@@ -573,7 +573,7 @@ const PageContent = ({
                   </div>
                 )}
               />
-              {errors.visitDate && <p className='text-red-500 text-xs italic'>{errors.visitDate.message}</p>}
+              {errors.visitDate && <p className='text-error text-xs italic'>{errors.visitDate.message}</p>}
             </div>
 
             {/* Second DatePicker Input */}
@@ -595,7 +595,7 @@ const PageContent = ({
                       contactSemanticFormContent.datepicker2.datePickerPlaceholderTekst ?? 'Odaberi datum'
                     }
                     className={`form-input block py-2.5 px-0 w-full text-sm text-secondary-dark bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0 peer ${
-                      errors.endDate ? 'border-red-500' : 'border-gray-300'
+                      errors.endDate ? 'border-error' : 'border-sutraPlaceholderClr'
                     } `}
                   />
                 )}
@@ -606,7 +606,7 @@ const PageContent = ({
               >
                 {contactSemanticFormContent.datepicker2.datePickerNazivStavke ?? 'End date'}
               </label>
-              {errors.endDate && <p className='text-red-500 text-xs italic'>{errors.endDate.message}</p>}
+              {errors.endDate && <p className='text-error text-xs italic'>{errors.endDate.message}</p>}
             </div>
 
             {/* File Upload Input */}
@@ -659,7 +659,7 @@ const PageContent = ({
                     {contactSemanticFormContent.uvjetiCheckmark ?? 'Slažem se sa uvjetima'}
                   </span>
                 </label>
-                {errors.terms && <p className='text-red-500 text-xs italic'>{errors.terms.message}</p>}
+                {errors.terms && <p className='text-error text-xs italic'>{errors.terms.message}</p>}
               </div>
 
               <div className='relative z-0 w-full group'>
@@ -683,7 +683,7 @@ const PageContent = ({
                     {contactSemanticFormContent.checkmarkBonusPolje ?? 'Slažem se sa uvjetima'}
                   </span>
                 </label>
-                {errors.contactTerms && <p className='text-red-500 text-xs italic'>{errors.contactTerms.message}</p>}
+                {errors.contactTerms && <p className='text-error text-xs italic'>{errors.contactTerms.message}</p>}
               </div>
             </div>
           </div>
