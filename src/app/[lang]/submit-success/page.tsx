@@ -1,3 +1,4 @@
+import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 import CountdownRedirect from './CountdownRedirect';
 
 export default async function SubmitSuccess({
@@ -7,6 +8,7 @@ export default async function SubmitSuccess({
   params: { lang: string };
   searchParams: { rtime: string };
 }) {
+  const l = getSuffixFromLang(lang);
   return (
     <main className='w-full h-full min-h-svh'>
       <div className='flex flex-col items-start gap-8 max-w-sutraBlogTestMaxWidth mx-auto'>
@@ -15,7 +17,7 @@ export default async function SubmitSuccess({
           sta
         </h2>
 
-        <CountdownRedirect seconds={Number(rtime ?? 10)} redirectTo='/' />
+        <CountdownRedirect seconds={Number(rtime ?? 10)} redirectTo={`/${l}`} />
       </div>
     </main>
   );

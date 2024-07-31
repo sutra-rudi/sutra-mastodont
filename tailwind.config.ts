@@ -24,6 +24,8 @@ const config: Config = {
         sutraCardDivider: '#D9D9D9',
         sutraButtonTextColor: '#2E363E',
         sutraContactUsTempBg: '#FBFBFB',
+        sutraPlaceholderClr: '#8D8D8D',
+        sutraRadioBgUnchecked: '#E0E0E0',
       },
 
       fontSize: {
@@ -35,6 +37,7 @@ const config: Config = {
         default: '1rem',
         small: '0.875rem',
         tag: '0.75rem',
+        contactFormSidebarHeading: '1.75rem',
       },
 
       borderRadius: {
@@ -53,6 +56,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [require('@tailwindcss/typography'), require('tailwind-scrollbar')],
+  plugins: [require('@tailwindcss/typography'), require('tailwind-scrollbar'), require('@tailwindcss/forms')],
 };
 export default config;

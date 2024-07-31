@@ -15,6 +15,7 @@ import {
 import { MdLocationPin as LocationIcon } from 'react-icons/md';
 import { FaDiscord as DiscordIcon } from 'react-icons/fa';
 import dayjs from 'dayjs';
+import StickyBox from 'react-sticky-box';
 
 interface ContactPageInterface {
   personsData: any;
@@ -85,7 +86,7 @@ const PageContent = ({
       contactSemanticFormContent.bonusPoljeUnosaInformacija5,
     ];
 
-    console.log('PAGI CONT', contactGlobalIntro);
+    console.log('PAGI CONT', contactSemantics);
 
     return optionalFieldsArr.map((optionalField: any, index) => {
       const ind = index + 1;
@@ -94,10 +95,10 @@ const PageContent = ({
           <div key={ind} className='relative z-0 w-full mb-5 group'>
             <input
               type='text'
-              className={`block py-2.5 px-0 w-full  text-sm text-gray-900 bg-transparent border-0 border-b-2 appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none ${
+              className={`form-input block py-2.5 px-0 w-full text-sm text-secondary-dark bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0  peer ${
                 //@ts-ignore
-                errors[`optionalField${ind}`] ? 'border-red-500' : 'border-gray-300'
-              } peer`}
+                errors[`optionalField${ind}`] ? 'border-error' : 'border-sutraPlaceholderClr'
+              } `}
               placeholder={optionalField.bonusPoljeUnosaPlaceholder ?? 'Bonus polje '}
               {...register(`optionalField${ind}` as any, {
                 required: optionalField.bonusPoljeUnosaErrorPoruka ?? 'Bonus polje je obavezno',
@@ -109,7 +110,7 @@ const PageContent = ({
             />
             <label
               htmlFor={`optionalField${ind}`}
-              className='peer-focus:font-medium absolute text-xs text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
+              className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
             >
               {`Bonus polje ${ind}`}
             </label>
@@ -117,7 +118,7 @@ const PageContent = ({
             {
               //@ts-ignore
               errors[`optionalField${ind}`] && ( //@ts-ignore
-                <p className='text-red-500 text-xs italic'>{errors[`optionalField${ind}`].message}</p>
+                <p className='text-error text-xs italic'>{errors[`optionalField${ind}`].message}</p>
               )
             }
           </div>
@@ -149,7 +150,9 @@ const PageContent = ({
           return (
             <div key={index}>
               <fieldset className='flex w-full items-center justify-between'>
-                <legend className='text-sm font-semibold mb-4'>{optionalSelector.odabirNazivStavke}</legend>
+                <legend className='text-sm font-semibold mb-4 text-balance leading-normal'>
+                  {optionalSelector.odabirNazivStavke}
+                </legend>
                 {fields.map((field) => (
                   <div className='w-full flex items-center gap-2' key={field}>
                     <input
@@ -163,6 +166,7 @@ const PageContent = ({
                       })}
                       value={field}
                       id={`${field}_${index}`}
+                      className='custom-radio'
                     />
                     <label htmlFor={`${field}_${index}`} className='text-xs'>
                       {field}
@@ -170,7 +174,7 @@ const PageContent = ({
                   </div>
                 ))}
               </fieldset>
-              {errorMessage && <p className='text-red-500 text-xs italic mt-2'>{errorMessage}</p>}
+              {errorMessage && <p className='text-error text-xs italic mt-2'>{errorMessage}</p>}
             </div>
           );
         }
@@ -182,8 +186,8 @@ const PageContent = ({
           errorMessage = errors[`selektor${index + 1}`]?.message;
 
           return (
-            <div key={index}>
-              <label className='text-sm font-semibold text-almost-black' htmlFor={`selektor${index + 1}`}>
+            <div key={index} className='flex flex-col gap-2 items-start'>
+              <label className='text-sm font-semibold text-almost-black mb-1' htmlFor={`selektor${index + 1}`}>
                 {optionalSelector.odabirNazivStavke}
               </label>
               <select
@@ -194,16 +198,18 @@ const PageContent = ({
                     message: optionalSelector.odabirErrorPoruka ?? 'Polje je obavezno',
                   },
                 })}
-                className='bg-transparent border-0 border-b-2 pb-1 text-xs text-brand-clr'
+                className='bg-white border border-gray-300 rounded-md py-1 px-2 text-xs text-gray-700 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent w-full max-w-36 form-select'
               >
-                <option value=''>Opcije za odabir</option>
+                <option value='' className='text-gray-500'>
+                  Opcije za odabir
+                </option>
                 {fields.map((field) => (
                   <option key={field} value={field}>
                     {field}
                   </option>
                 ))}
               </select>
-              {errorMessage && <p className='text-red-500 text-xs italic mt-2'>{errorMessage}</p>}
+              {errorMessage && <p className='text-error text-xs italic mt-2'>{errorMessage}</p>}
             </div>
           );
         }
@@ -215,6 +221,7 @@ const PageContent = ({
           errorMessage = errors[`selektor${index + 1}`]?.message;
 
           return (
+            // Komponenta
             <div key={index}>
               <fieldset className='flex items-center w-full justify-between'>
                 <legend className='text-sm font-semibold text-almost-black mb-4'>
@@ -234,6 +241,7 @@ const PageContent = ({
                           },
                         })}
                         value={field}
+                        className='form-checkbox h-4 w-4 text-almost-black rounded-full checked:bg-almost-black checked:border-none focus:outline-none focus:ring-0 bg-sutraRadioBgUnchecked border-none outline-none'
                       />
                       <label htmlFor={`${field}_${index}`} className='text-xs'>
                         {field}
@@ -242,7 +250,7 @@ const PageContent = ({
                   ))}
                 </div>
               </fieldset>
-              {errorMessage && <p className='text-red-500 text-xs italic mt-2'>{errorMessage}</p>}
+              {errorMessage && <p className='text-error text-xs italic mt-2'>{errorMessage}</p>}
             </div>
           );
         }
@@ -256,6 +264,8 @@ const PageContent = ({
 
     try {
       await submit({ data });
+
+      console.log('FORM DATA', data);
 
       toast.success('Uspješno poslano, bravo!');
       pageRouter.push(`/${lang}/submit-success?rtime=${contactGlobalIntro.timerZaRedirectKontaktForme ?? '10'}`);
@@ -273,7 +283,7 @@ const PageContent = ({
 
   return (
     <section className='w-full h-full'>
-      <div className='w-full flex items-center justify-center flex-col gap-2'>
+      <div className='w-full flex items-center justify-center flex-col gap-2 pt-12'>
         <h2 className='text-h2 leading-normal text-primary-dark font-bold'>
           {contactSemanticIntro ? contactSemanticIntro.naslovUKontaktima : 'Contact Us'}
         </h2>
@@ -283,69 +293,79 @@ const PageContent = ({
         </p>
       </div>
 
-      <div className='flex mx-auto max-w-sutraContactUsTempFormWidth w-full justify-between items-start lg:flex-nowrap flex-wrap lg:px-0 px-3 bg-white gap-12 lg:pr-12'>
-        <div className='w-full h-full p-3 max-w-lg self-stretch'>
-          <div className='bg-secondary-dark w-full h-full rounded-sutraContactCardBorderRadius'>
-            {/* /// */}
-            <div className='grid items-start w-full gap-28 pb-9 pt-10 pl-10'>
-              <div className=''>
-                <h3 className='text-white'>
-                  {contactSemanticIntro ? contactSemanticIntro.nadnaslovpodnaslovUKontaktima : 'Contact Us'}
-                </h3>
-                <p className='text-secondary-light prose leading-normal '>
-                  {contactSemanticIntro ? contactSemanticIntro.uvodniTekstZaKontakte12Recenice : 'Intro text'}
-                </p>
-              </div>
+      <div className='flex mx-auto max-w-sutraContactUsTempFormWidth w-full justify-between items-start lg:flex-nowrap flex-wrap lg:px-0 px-3 bg-white lg:gap-12 lg:pr-12 mt-12'>
+        <StickyBox
+          offsetBottom={20}
+          offsetTop={20}
+          className='w-full h-full p-3 lg:max-w-lg self-stretch max-lg:!relative max-lg:!top-0'
+        >
+          <div className='w-full h-full p-3 lg:max-w-lg self-stretch'>
+            <div className='bg-secondary-dark w-full h-full rounded-sutraContactCardBorderRadius relative overflow-hidden'>
+              {/* KRUGOVI */}
+              <div className='absolute -bottom-12 w-64 h-64 rounded-full bg-accent opacity-20 -right-24'></div>
+              <div className='absolute bottom-24 w-32 h-32 rounded-full bg-accent opacity-10 right-12'></div>
 
-              <div className='grid grid-cols-1 items-start gap-12'>
-                <div className='flex items-center justify-start gap-6'>
-                  <PhoneIcon className='text-white text-base shrink-0' />
-                  <span className='text-white text-base'>+1012 3456 789</span>
+              {/* /// */}
+              <div className='grid items-start w-full gap-28 pb-9 pt-10 px-10'>
+                <div className='w-full flex flex-col items-start gap-2'>
+                  <h3 className='text-white text-contactFormSidebarHeading leading-none'>
+                    {contactSemanticIntro ? contactSemanticIntro.nadnaslovpodnaslovUKontaktima : 'Contact Us'}
+                  </h3>
+                  <p className='text-secondary-light  leading-normal text-base max-w-prose'>
+                    {contactSemanticIntro ? contactSemanticIntro.uvodniTekstZaKontakte12Recenice : 'Intro text'}
+                  </p>
                 </div>
-                <div className='flex items-center justify-start gap-6'>
-                  <MailIcon className='text-white text-base shrink-0' />
-                  <span className='text-white text-base'>demo@gmail.com</span>
-                </div>
-                <div className='flex items-center justify-start gap-6'>
-                  <LocationIcon className='text-white text-base shrink-0' />
-                  <span className='text-white text-base  text-balance'>
-                    132 Dartmouth Street Boston, Massachusetts 02156 United States
-                  </span>
-                </div>
-              </div>
 
-              <div className='flex items-center gap-6'>
-                <div className=''>
-                  <div className='w-8 h-8 bg-accent rounded-full flex items-center justify-center'>
-                    <TwitterIcon className='text-base text-white' />
+                <div className='grid grid-cols-1 items-start gap-12'>
+                  <div className='flex items-center justify-start gap-6'>
+                    <PhoneIcon className='text-white text-2xl shrink-0' />
+                    <span className='text-white text-base'>+1012 3456 789</span>
+                  </div>
+                  <div className='flex items-center justify-start gap-6'>
+                    <MailIcon className='text-white text-2xl shrink-0' />
+                    <span className='text-white text-base'>demo@gmail.com</span>
+                  </div>
+                  <div className='flex items-center justify-start gap-6'>
+                    <LocationIcon className='text-white text-2xl shrink-0' />
+                    <span className='text-white text-base  text-balance'>
+                      132 Dartmouth Street Boston, Massachusetts 02156 United States
+                    </span>
                   </div>
                 </div>
-                <div className=''>
-                  <div className='w-8 h-8 bg-accent rounded-full flex items-center justify-center'>
-                    <InstagramIcon className='text-base text-white' />
+
+                <div className='flex items-center gap-6'>
+                  <div className='group cursor-pointer'>
+                    <div className='w-8 h-8 bg-accent rounded-full flex items-center justify-center transition-all duration-300 ease-linear group-hover:bg-white'>
+                      <TwitterIcon className='shrink-0 text-base text-white transition-all ease-linear duration-200 group-hover:text-secondary-dark' />
+                    </div>
                   </div>
-                </div>
-                <div className=''>
-                  <div className='w-8 h-8 bg-accent rounded-full flex items-center justify-center'>
-                    <DiscordIcon className='text-base text-white' />
+                  <div className='group cursor-pointer'>
+                    <div className='w-8 h-8 bg-accent rounded-full flex items-center justify-center transition-all duration-300 ease-linear group-hover:bg-white'>
+                      <InstagramIcon className='shrink-0 text-base text-white transition-all ease-linear duration-200 group-hover:text-secondary-dark' />
+                    </div>
+                  </div>
+                  <div className='group cursor-pointer'>
+                    <div className='w-8 h-8 bg-accent rounded-full flex items-center justify-center transition-all duration-300 ease-linear group-hover:bg-white'>
+                      <DiscordIcon className='shrink-0 text-base text-white transition-all ease-linear duration-200 group-hover:text-secondary-dark' />
+                    </div>
                   </div>
                 </div>
               </div>
+              {/* /// */}
             </div>
-            {/* /// */}
           </div>
-        </div>
+        </StickyBox>
 
-        <form className='max-w-3xl w-full pt-14 pb-9' onSubmit={handleSubmit(onSubmit)}>
+        <form className='lg:max-w-3xl w-full lg:pt-14 pt-4 pb-9 lg:px-0 px-6' onSubmit={handleSubmit(onSubmit)}>
           {/* First and Last Name Inputs */}
           <div className='grid lg:grid-cols-2 lg:gap-6'>
             <div className='relative z-0 w-full mb-5 group'>
               <input
                 type='text'
                 id='firstName'
-                className={`block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none ${
-                  errors.firstName ? 'border-red-500' : 'border-gray-300'
-                } peer`}
+                className={`form-input block py-2.5 px-0 w-full text-sm text-secondary-dark bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0  peer ${
+                  errors.firstName ? 'border-error' : 'border-sutraPlaceholderClr'
+                }`}
                 placeholder={contactSemanticFormContent.imePlaceholderTekst ?? 'Ime osobe'}
                 {...register('firstName', {
                   required: 'Ime je obavezno',
@@ -360,19 +380,20 @@ const PageContent = ({
               />
               <label
                 htmlFor='firstName'
-                className='peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
+                className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
               >
                 {contactSemanticFormContent.imeNazivStavke ?? 'First name'}
               </label>
-              {errors.firstName && <p className='text-red-500 text-xs italic'>{errors.firstName.message}</p>}
+              {errors.firstName && <p className='text-error text-xs italic'>{errors.firstName.message}</p>}
             </div>
+
             <div className='relative z-0 w-full mb-5 group'>
               <input
                 type='text'
                 id='lastName'
-                className={`block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 appearance-none focus:outline-none ${
-                  errors.lastName ? 'border-red-500' : 'border-gray-300'
-                } peer placeholder:opacity-0 focus:placeholder:opacity-100`}
+                className={`form-input block py-2.5 px-0 w-full text-sm text-secondary-dark bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0  peer  ${
+                  errors.lastName ? 'border-error' : 'border-sutraPlaceholderClr'
+                } `}
                 placeholder={contactSemanticFormContent.prezimePlaceholderTekst ?? 'Prezime'}
                 {...register('lastName', {
                   required: 'Prezime je obavezno',
@@ -387,11 +408,11 @@ const PageContent = ({
               />
               <label
                 htmlFor='lastName'
-                className='peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
+                className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
               >
                 {contactSemanticFormContent.prezimeNazivStavke ?? 'Last name'}
               </label>
-              {errors.lastName && <p className='text-red-500 text-xs italic'>{errors.lastName.message}</p>}
+              {errors.lastName && <p className='text-error text-xs italic'>{errors.lastName.message}</p>}
             </div>
           </div>
 
@@ -400,9 +421,9 @@ const PageContent = ({
             <div className='relative z-0 w-full mb-5 group'>
               <input
                 id='email'
-                className={`block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 appearance-none focus:outline-none ${
-                  errors.email ? 'border-red-500' : 'border-gray-300 '
-                } peer placeholder:opacity-0 focus:placeholder:opacity-100`}
+                className={`form-input block py-2.5 px-0 w-full text-sm text-secondary-dark bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0  peer  ${
+                  errors.email ? 'border-error' : 'border-sutraPlaceholderClr'
+                } `}
                 placeholder={contactSemanticFormContent.emailPlaceholderTekst ?? 'Email'}
                 {...register('email', {
                   required: 'Email je obavezan',
@@ -421,218 +442,250 @@ const PageContent = ({
               />
               <label
                 htmlFor='email'
-                className='peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
+                className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
               >
                 {contactSemanticFormContent.emailNazivStavke ?? 'Email'}
               </label>
-              {errors.email && <p className='text-red-500 text-xs italic'>{errors.email.message}</p>}
+              {errors.email && <p className='text-error text-xs italic'>{errors.email.message}</p>}
             </div>
 
             {/* Phone Input */}
-            <div className='relative z-0 w-full mb-5 group'>
-              <Controller
-                name='phone'
-                control={control}
-                defaultValue=''
-                rules={{
-                  required: 'Telefon je obavezan',
-                  validate: (value) => {
-                    const phoneNumberPattern = /^\+?[1-9]\d{1,14}$/;
-                    return phoneNumberPattern.test(value) || 'Unesite valjan telefonski broj';
-                  },
-                }}
-                render={({ field }) => (
+
+            <Controller
+              name='phone'
+              control={control}
+              defaultValue=''
+              rules={{
+                required: 'Telefon je obavezan',
+                validate: (value) => {
+                  const phoneNumberPattern = /^\+?[1-9]\d{1,14}$/;
+                  return phoneNumberPattern.test(value) || 'Unesite valjan telefonski broj';
+                },
+              }}
+              render={({ field }) => (
+                <div className='relative z-0 w-full mb-5 group'>
                   <PhoneInput
                     {...field}
                     id='phone'
                     defaultCountry='HR'
                     international
-                    placeholder='Phone number'
-                    className={`block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 appearance-none ${
-                      errors.phone ? 'border-red-500' : 'border-gray-300'
-                    } peer flex`}
+                    numberInputProps={{
+                      className: `form-input block py-2.5 px-0 w-full text-sm text-secondary-dark bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0 peer flex items-center justify-start ${
+                        errors.phone ? 'border-error' : 'border-sutraPlaceholderClr'
+                      } `,
+                      placeholder: contactSemanticFormContent.telefonPlaceholderTekst ?? 'Phone number',
+                    }}
+                    limitMaxLength
+                    focusInputOnCountrySelection
+                    placeholder={contactSemanticFormContent.telefonPlaceholderTekst ?? 'Phone number'}
                   />
-                )}
-              />
-              <label
-                htmlFor='phone'
-                className='peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
-              >
-                Phone number
-              </label>
-              {errors.phone && <p className='text-red-500 text-xs italic'>{errors.phone.message}</p>}
-            </div>
+                  <label
+                    htmlFor='phone'
+                    className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
+                  >
+                    Phone number
+                  </label>
+                  {errors.phone && <p className='text-error text-xs italic'>{errors.phone.message}</p>}
+                </div>
+              )}
+            />
 
             {/* Bonus polja */}
             <OptionalFields />
           </div>
 
-          {/* Bonus selektori */}
-          <div className='pt-14 pb-9 w-full grid grid-cols-1 gap-10'>
-            <OptionalSelectors />
-          </div>
+          <div className='w-full grid grid-cols-1 gap-5'>
+            {/* Bonus selektori */}
+            <div className='pt-14 pb-9 w-full grid grid-cols-1 gap-10'>
+              <OptionalSelectors />
+            </div>
 
-          {/* Naslov poruke */}
-          <div className='mb-4'>
-            <label htmlFor='messageTitle' className='block text-sm font-medium text-gray-700'>
-              Naslov poruke
-            </label>
-            <input
-              type='text'
-              id='messageTitle'
-              {...register('messageTitle', {
-                required: 'Naslov poruke je obavezan',
-              })}
-              className='mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm'
-            />
-            {errors.messageTitle && <p className='text-red-500 text-xs italic mt-2'>{errors.messageTitle.message}</p>}
-          </div>
+            {/* Naslov poruke */}
+            <div className='relative z-0 w-full mb-5 group'>
+              <input
+                type='text'
+                id='messageTitle'
+                {...register('messageTitle', {
+                  required: 'Naslov poruke je obavezan',
+                })}
+                placeholder='Naslov poruke'
+                className='form-input block py-2.5 px-0 w-full text-sm text-secondary-dark bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0 peer'
+              />
 
-          {/* Tekst poruke */}
-          <div className='mb-4'>
-            <label htmlFor='messageBody' className='block text-sm font-medium text-gray-700'>
-              Tekst poruke
-            </label>
-            <textarea
-              id='messageBody'
-              {...register('messageBody', {
-                required: 'Tekst poruke je obavezan',
-              })}
-              rows={4}
-              className='mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm'
-            />
-            {errors.messageBody && <p className='text-red-500 text-xs italic mt-2'>{errors.messageBody.message}</p>}
-          </div>
+              <label
+                htmlFor='messageTitle'
+                className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
+              >
+                Naslov poruke
+              </label>
+              {errors.messageTitle && <p className='text-red-500 text-xs italic mt-2'>{errors.messageTitle.message}</p>}
+            </div>
 
-          {/* First DatePicker Input */}
-          <div className='relative z-50 w-full mb-5 group'>
-            <Controller
-              name='visitDate'
-              control={control}
-              defaultValue={null}
-              rules={{
-                required: 'Datum posjeta je obavezan',
-              }}
-              render={({ field }) => (
-                <DatePicker
-                  id='visitDate'
-                  selected={field.value ? new Date(field.value) : null}
-                  minDate={dayjs(new Date()).toDate()}
-                  onChange={(date) => field.onChange(date)}
-                  placeholderText={contactSemanticFormContent.datepicker1.datePickerPlaceholderTekst ?? 'Odaberi datum'}
-                  className={`block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 appearance-none z-50 focus:outline-none ${
-                    errors.visitDate ? 'border-red-500' : 'border-gray-300'
-                  } peer`}
-                />
-              )}
-            />
-            <label
-              htmlFor='visitDate'
-              className='peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
-            >
-              {contactSemanticFormContent.datepicker1.datePickerNazivStavke ?? 'Visit date'}
-            </label>
-            {errors.visitDate && <p className='text-red-500 text-xs italic'>{errors.visitDate.message}</p>}
-          </div>
+            {/* Tekst poruke */}
+            <div className='relative z-0 w-full mb-5 group'>
+              <textarea
+                id='messageBody'
+                {...register('messageBody', {
+                  required: 'Tekst poruke je obavezan',
+                })}
+                rows={4}
+                placeholder='ciao'
+                className='form-input block py-2.5 px-0 w-full text-sm text-secondary-dark bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0  peer '
+              />
+              <label
+                htmlFor='messageBody'
+                className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
+              >
+                Tekst poruke
+              </label>
+              {errors.messageBody && <p className='text-red-500 text-xs italic mt-2'>{errors.messageBody.message}</p>}
+            </div>
 
-          {/* Second DatePicker Input */}
-          <div className='relative z-50 w-full mb-5 group'>
-            <Controller
-              name='endDate'
-              control={control}
-              defaultValue={null}
-              rules={{
-                required: 'Krajnji datum je obavezan',
-              }}
-              render={({ field }) => (
-                <DatePicker
-                  id='endDate'
-                  selected={field.value ? new Date(field.value) : null}
-                  minDate={dayjs(new Date()).toDate()}
-                  onChange={(date) => field.onChange(date)}
-                  placeholderText={contactSemanticFormContent.datepicker2.datePickerPlaceholderTekst ?? 'Odaberi datum'}
-                  className={`block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 appearance-none z-50 focus:outline-none ${
-                    errors.endDate ? 'border-red-500' : 'border-gray-300'
-                  } peer`}
-                />
-              )}
-            />
-            <label
-              htmlFor='endDate'
-              className='peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
-            >
-              {contactSemanticFormContent.datepicker2.datePickerNazivStavke ?? 'End date'}
-            </label>
-            {errors.endDate && <p className='text-red-500 text-xs italic'>{errors.endDate.message}</p>}
-          </div>
-
-          {/* File Upload Input */}
-          <div className='relative z-0 w-full mb-5 group'>
-            <Controller
-              name='fileUpload'
-              control={control}
-              //@ts-ignore
-              defaultValue={null}
-              render={({ field }) => (
-                <input
-                  type='file'
-                  id='fileUpload'
-                  onChange={(e) => field.onChange(e.target.files)}
-                  className='block w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 appearance-none focus:outline-none'
-                />
-              )}
-            />
-            <label
-              htmlFor='fileUpload'
-              className='absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
-            >
-              Upload File (optional)
-            </label>
-          </div>
-
-          {/* Terms and Conditions Checkbox */}
-          <div className='relative z-0 w-full mb-5 group'>
-            <label className='inline-flex items-center'>
+            {/* First DatePicker Input */}
+            <div className='relative z-50 w-full mb-5 group'>
               <Controller
-                name='terms'
+                name='visitDate'
                 control={control}
-                defaultValue={false}
-                rules={{ required: 'Morate se složiti sa uvjetima' }}
+                defaultValue={null}
+                rules={{
+                  required: 'Datum posjeta je obavezan',
+                }}
                 render={({ field }) => (
-                  <input
-                    type='checkbox'
-                    id='terms'
-                    checked={field.value}
-                    onChange={(e) => field.onChange(e.target.checked)}
-                    className='form-checkbox text-blue-600'
+                  <div className='relative'>
+                    <DatePicker
+                      id='visitDate'
+                      selected={field.value ? new Date(field.value) : null}
+                      minDate={dayjs(new Date()).toDate()}
+                      onChange={(date) => field.onChange(date)}
+                      placeholderText={
+                        contactSemanticFormContent.datepicker1.datePickerPlaceholderTekst ?? 'Odaberi datum'
+                      }
+                      className={`form-input block py-2.5 px-0 w-full text-sm text-secondary-dark bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0 peer ${
+                        errors.visitDate ? 'border-red-500' : 'border-gray-300'
+                      } `}
+                    />
+                    <label
+                      htmlFor='visitDate'
+                      className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
+                    >
+                      {contactSemanticFormContent.datepicker1.datePickerNazivStavke ?? 'Visit date'}
+                    </label>
+                  </div>
+                )}
+              />
+              {errors.visitDate && <p className='text-red-500 text-xs italic'>{errors.visitDate.message}</p>}
+            </div>
+
+            {/* Second DatePicker Input */}
+            <div className='relative z-50 w-full mb-5 group'>
+              <Controller
+                name='endDate'
+                control={control}
+                defaultValue={null}
+                rules={{
+                  required: 'Krajnji datum je obavezan',
+                }}
+                render={({ field }) => (
+                  <DatePicker
+                    id='endDate'
+                    selected={field.value ? new Date(field.value) : null}
+                    minDate={dayjs(new Date()).toDate()}
+                    onChange={(date) => field.onChange(date)}
+                    placeholderText={
+                      contactSemanticFormContent.datepicker2.datePickerPlaceholderTekst ?? 'Odaberi datum'
+                    }
+                    className={`form-input block py-2.5 px-0 w-full text-sm text-secondary-dark bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0 peer ${
+                      errors.endDate ? 'border-red-500' : 'border-gray-300'
+                    } `}
                   />
                 )}
               />
-              <span className='ml-2'>{contactSemanticFormContent.uvjetiCheckmark ?? 'Slažem se sa uvjetima'}</span>
-            </label>
-            {errors.terms && <p className='text-red-500 text-xs italic'>{errors.terms.message}</p>}
-          </div>
+              <label
+                htmlFor='endDate'
+                className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
+              >
+                {contactSemanticFormContent.datepicker2.datePickerNazivStavke ?? 'End date'}
+              </label>
+              {errors.endDate && <p className='text-red-500 text-xs italic'>{errors.endDate.message}</p>}
+            </div>
 
-          <div className='relative z-0 w-full mb-5 group'>
-            <label className='inline-flex items-center'>
+            {/* File Upload Input */}
+            <div className='relative z-0 w-full mb-5 group'>
               <Controller
-                name='contactTerms'
+                name='fileUpload'
                 control={control}
-                defaultValue={false}
-                rules={{ required: 'Morate se složiti sa uvjetima' }}
+                //@ts-ignore
+                defaultValue={null}
                 render={({ field }) => (
-                  <input
-                    type='checkbox'
-                    id='contactTerms'
-                    checked={field.value}
-                    onChange={(e) => field.onChange(e.target.checked)}
-                    className='form-checkbox text-blue-600'
-                  />
+                  <div>
+                    <input
+                      type='file'
+                      id='fileUpload'
+                      placeholder='ciaos'
+                      onChange={(e) => field.onChange(e.target.files)}
+                      className='form-input block py-2.5 px-0 w-full text-sm text-secondary-dark bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0 peer'
+                    />
+                    <label
+                      htmlFor='fileUpload'
+                      className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
+                    >
+                      Upload File (optional)
+                    </label>
+                  </div>
                 )}
               />
-              <span className='ml-2'>{contactSemanticFormContent.checkmarkBonusPolje ?? 'Slažem se sa uvjetima'}</span>
-            </label>
-            {errors.contactTerms && <p className='text-red-500 text-xs italic'>{errors.contactTerms.message}</p>}
+            </div>
+
+            {/* Terms and Conditions Checkbox */}
+            <div className='flex w-full flex-col gap-2'>
+              <div className='relative z-0 w-full group'>
+                <label className='inline-flex items-center'>
+                  <Controller
+                    name='terms'
+                    control={control}
+                    defaultValue={false}
+                    rules={{ required: 'Morate se složiti sa uvjetima' }}
+                    render={({ field }) => (
+                      <input
+                        type='checkbox'
+                        id='terms'
+                        checked={field.value}
+                        onChange={(e) => field.onChange(e.target.checked)}
+                        className='form-checkbox h-4 w-4 text-almost-black rounded-full checked:bg-almost-black checked:border-none focus:outline-none focus:ring-0 bg-sutraRadioBgUnchecked border-none outline-none'
+                      />
+                    )}
+                  />
+                  <span className='ml-2 text-xs'>
+                    {contactSemanticFormContent.uvjetiCheckmark ?? 'Slažem se sa uvjetima'}
+                  </span>
+                </label>
+                {errors.terms && <p className='text-red-500 text-xs italic'>{errors.terms.message}</p>}
+              </div>
+
+              <div className='relative z-0 w-full group'>
+                <label className='inline-flex items-center'>
+                  <Controller
+                    name='contactTerms'
+                    control={control}
+                    defaultValue={false}
+                    rules={{ required: 'Morate se složiti sa uvjetima' }}
+                    render={({ field }) => (
+                      <input
+                        type='checkbox'
+                        id='contactTerms'
+                        checked={field.value}
+                        onChange={(e) => field.onChange(e.target.checked)}
+                        className='form-checkbox h-4 w-4 text-almost-black rounded-full checked:bg-almost-black checked:border-none focus:outline-none focus:ring-0 bg-sutraRadioBgUnchecked border-none outline-none'
+                      />
+                    )}
+                  />
+                  <span className='ml-2 text-xs'>
+                    {contactSemanticFormContent.checkmarkBonusPolje ?? 'Slažem se sa uvjetima'}
+                  </span>
+                </label>
+                {errors.contactTerms && <p className='text-red-500 text-xs italic'>{errors.contactTerms.message}</p>}
+              </div>
+            </div>
           </div>
 
           {/* Submit Button */}

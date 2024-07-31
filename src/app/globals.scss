@@ -16,6 +16,10 @@
   }
 }
 
+body {
+  accent-color: theme('colors.accent');
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -56,6 +60,46 @@
 
 .mapboxgl-popup-content {
   padding: 1rem 0.5rem !important;
+}
+
+@layer components {
+  .custom-radio {
+    @apply form-radio;
+
+    background-color: theme('colors.sutraRadioBgUnchecked');
+    outline: none;
+    border: none;
+  }
+  .custom-radio:checked {
+    @apply text-secondary-dark;
+    background-color: currentColor;
+    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 12l2 2l4 -4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .custom-radio:focus {
+    @apply outline-none ring-0;
+  }
+
+  // .custom-checkbox {
+  //   @apply form-checkbox border-gray-300;
+  //   background-color: #fff;
+  //   accent-color: #000; /* Tailwind 3.2+ */
+  //   border-radius: 0.25rem; /* Adjust if needed */
+  // }
+  // .custom-checkbox:checked {
+  //   @apply bg-almost-black text-white;
+  //   background-color: #000; /* Change background color for checked state */
+  //   border: none; /* Remove border */
+  // }
+  // .custom-checkbox:focus {
+  //   @apply ring-0 outline-none;
+  //   border-color: transparent; /* Remove border color on focus */
+  // }
+  // .custom-checkbox:active {
+  //   @apply ring-0 outline-none;
+  // }
 }
 
 // BLOGOVI / NOVOSTI WP CONTENT
