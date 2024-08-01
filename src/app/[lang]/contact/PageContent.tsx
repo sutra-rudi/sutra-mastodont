@@ -16,6 +16,7 @@ import { MdLocationPin as LocationIcon } from 'react-icons/md';
 import { FaDiscord as DiscordIcon } from 'react-icons/fa';
 import dayjs from 'dayjs';
 import StickyBox from 'react-sticky-box';
+import { FileUploaderRegular, UploadCtxProvider } from '@uploadcare/react-uploader';
 
 interface ContactPageInterface {
   personsData: any;
@@ -66,6 +67,23 @@ const PageContent = ({
 }: ContactPageInterface) => {
   const pageRouter = useRouter();
 
+  const ctxProviderRef = React.useRef(null);
+
+  const uCapiKey = 'e0e7dbf3ab114523a67a';
+
+  const [files, setFiles] = React.useState([]);
+  const [isClient, setIsClient] = React.useState(false);
+
+  React.useEffect(() => {
+    setIsClient(true);
+  }, []);
+  const uploaderRef = React.useRef<InstanceType<UploadCtxProvider> | null>(null);
+  const handleChangeEvent = (e: any) => {
+    console.log('EVENT', e);
+    //@ts-ignore
+    setFiles([...e.detail.allEntries.filter((file) => file.status === 'success')]);
+  };
+
   const {
     control,
     handleSubmit,
@@ -86,7 +104,7 @@ const PageContent = ({
       contactSemanticFormContent.bonusPoljeUnosaInformacija5,
     ];
 
-    console.log('PAGI CONT', contactSemantics);
+    // console.log('PAGI CONT', contactSemantics);
 
     return optionalFieldsArr.map((optionalField: any, index) => {
       const ind = index + 1;
@@ -259,7 +277,9 @@ const PageContent = ({
     });
   };
 
-  const onSubmit: SubmitHandler<FormValues> = async (data) => {
+  const onSubmit: SubmitHandler<FormValues> = async (data, event) => {
+    console.log('EVENT', event);
+    event?.preventDefault();
     const loadingToast = toast.loading('Šaljem...');
 
     try {
@@ -611,29 +631,48 @@ const PageContent = ({
 
             {/* File Upload Input */}
             <div className='relative z-0 w-full mb-5 group'>
-              <Controller
-                name='fileUpload'
-                control={control}
-                //@ts-ignore
-                defaultValue={null}
-                render={({ field }) => (
-                  <div>
-                    <input
-                      type='file'
-                      id='fileUpload'
-                      placeholder='ciaos'
-                      onChange={(e) => field.onChange(e.target.files)}
-                      className='form-input block py-2.5 px-0 w-full text-sm text-secondary-dark bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0 peer'
-                    />
-                    <label
-                      htmlFor='fileUpload'
-                      className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
-                    >
-                      Upload File (optional)
-                    </label>
-                  </div>
-                )}
-              />
+              {isClient && (
+                <Controller
+                  name='fileUpload'
+                  control={control}
+                  render={({ field }) => (
+                    <div>
+                      <FileUploaderRegular
+                        debug
+                        apiRef={uploaderRef}
+                        onChange={async (files) => {
+                          console.log('FIELD', field);
+                          console.log('FILES', files);
+                          console.log('FAJLOVI', files.allEntries);
+                          //@ts-ignore
+                          setFiles([...files.allEntries.filter((file) => file.status === 'success')]);
+                          return field.onChange(files.allEntries);
+                        }}
+                        pubkey={uCapiKey}
+                        ctxName='fileUpload'
+                      />
+
+                      {files.length !== 0 &&
+                        files.map((file) => (
+                          //@ts-ignore
+                          <div key={file.uuid}>
+                            <picture>
+                              {/* @ts-ignore */}
+                              <img src={file.cdnUrl} alt={file.fileInfo ? file.fileInfo.originalFilename : 'nista'} />
+                            </picture>
+                          </div>
+                        ))}
+
+                      <label
+                        htmlFor='fileUpload'
+                        className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
+                      >
+                        Upload File (optional)
+                      </label>
+                    </div>
+                  )}
+                />
+              )}
             </div>
 
             {/* Terms and Conditions Checkbox */}

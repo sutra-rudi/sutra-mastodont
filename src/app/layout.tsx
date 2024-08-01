@@ -6,6 +6,8 @@ import './globals.scss';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import 'react-phone-number-input/style.css';
 import 'react-datepicker/dist/react-datepicker.css';
+import '@uploadcare/react-uploader/core.css';
+import '@uploadcare/blocks/web/lr-file-uploader-regular.min.css';
 import AppHeader from './globalComponents/AppHeader';
 import AppFooter from './globalComponents/AppFooter';
 import { Toaster } from 'react-hot-toast';

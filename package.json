@@ -25,6 +25,7 @@
     "@formspark/use-formspark": "^0.1.39",
     "@hookform/error-message": "^2.0.1",
     "@tailwindcss/forms": "^0.5.7",
+    "@uploadcare/react-uploader": "^0.6.1",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.11",
     "framer-motion": "^11.3.2",
