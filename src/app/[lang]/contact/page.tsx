@@ -60,7 +60,7 @@ export default async function ContactPage({ params: { lang } }: { params: { lang
 
   const contactFormGlobalIntro = contactSemanticsShorthand.kontaktFormaUvod;
   return (
-    <main className='min-h-svh bg-sutraContactUsTempBg'>
+    <main className='min-h-svh bg-sutraContactUsTempBg dark:bg-almost-black'>
       <PageContent
         personsData={dataShorthandPersons}
         sectorsData={dataShorthandSectors}

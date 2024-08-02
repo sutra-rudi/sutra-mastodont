@@ -64,24 +64,39 @@ body {
 
 @layer components {
   .custom-radio {
-    @apply form-radio;
+    @apply form-radio bg-sutraRadioBgUnchecked;
 
-    background-color: theme('colors.sutraRadioBgUnchecked');
+    // background-color: theme('colors.sutraRadioBgUnchecked');
     outline: none;
     border: none;
+
+    &:is(.dark *) {
+      // background-color: theme('colors.secondary-light');
+      background-color: transparent;
+      outline: 1px solid theme('colors.secondary-light');
+
+      @apply ring-0;
+    }
   }
   .custom-radio:checked {
     @apply text-secondary-dark;
     // @apply text-accent
     // color: theme('colors.accent');
+
+    &:is(.dark *) {
+      @apply text-secondary-light;
+      @apply ring-0 outline-none;
+      background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 12l2 2l4 -4" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+    }
     background-color: currentColor;
+
     background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 12l2 2l4 -4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
   }
   .custom-radio:focus {
-    @apply outline-none ring-0;
+    @apply outline-none ring-transparent;
   }
 
   // .custom-checkbox {

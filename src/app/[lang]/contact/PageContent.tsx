@@ -113,7 +113,7 @@ const PageContent = ({
           <div key={ind} className='relative z-0 w-full mb-5 group'>
             <input
               type='text'
-              className={`form-input block py-2.5 px-0 w-full text-sm text-secondary-dark bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0  peer ${
+              className={`form-input block py-2.5 px-0 w-full text-sm text-secondary-dark dark:text-secondary-light bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0  peer  ${
                 //@ts-ignore
                 errors[`optionalField${ind}`] ? 'border-error' : 'border-sutraPlaceholderClr'
               } `}
@@ -128,7 +128,7 @@ const PageContent = ({
             />
             <label
               htmlFor={`optionalField${ind}`}
-              className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
+              className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-secondary-light duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
             >
               {`Bonus polje ${ind}`}
             </label>
@@ -168,7 +168,7 @@ const PageContent = ({
           return (
             <div key={index}>
               <fieldset className='flex w-full items-center justify-between'>
-                <legend className='text-sm font-semibold mb-4 text-balance leading-normal'>
+                <legend className='text-sm text-secondary-dark dark:text-secondary-light font-semibold mb-4 text-balance leading-normal'>
                   {optionalSelector.odabirNazivStavke}
                 </legend>
                 {fields.map((field) => (
@@ -186,7 +186,10 @@ const PageContent = ({
                       id={`${field}_${index}`}
                       className='custom-radio'
                     />
-                    <label htmlFor={`${field}_${index}`} className='text-xs'>
+                    <label
+                      htmlFor={`${field}_${index}`}
+                      className='text-xs text-secondary-dark dark:text-secondary-light'
+                    >
                       {field}
                     </label>
                   </div>
@@ -205,7 +208,10 @@ const PageContent = ({
 
           return (
             <div key={index} className='flex flex-col gap-2 items-start'>
-              <label className='text-sm font-semibold text-almost-black mb-1' htmlFor={`selektor${index + 1}`}>
+              <label
+                className='text-sm font-semibold text-secondary-dark dark:text-secondary-light mb-1'
+                htmlFor={`selektor${index + 1}`}
+              >
                 {optionalSelector.odabirNazivStavke}
               </label>
               <select
@@ -242,7 +248,7 @@ const PageContent = ({
             // Komponenta
             <div key={index}>
               <fieldset className='flex items-center w-full justify-between'>
-                <legend className='text-sm font-semibold text-almost-black mb-4'>
+                <legend className='text-sm font-semibold text-secondary-dark dark:text-secondary-light  mb-4'>
                   {optionalSelector.odabirNazivStavke}
                 </legend>
                 <div className='flex items-center justify-between w-full'>
@@ -259,9 +265,12 @@ const PageContent = ({
                           },
                         })}
                         value={field}
-                        className='form-checkbox h-4 w-4 text-almost-black rounded-full checked:bg-almost-black checked:border-none focus:outline-none focus:ring-0 bg-sutraRadioBgUnchecked border-none outline-none'
+                        className=' custom-radio form-checkbox'
                       />
-                      <label htmlFor={`${field}_${index}`} className='text-xs'>
+                      <label
+                        htmlFor={`${field}_${index}`}
+                        className='text-xs text-secondary-dark dark:text-secondary-light'
+                      >
                         {field}
                       </label>
                     </div>
@@ -304,23 +313,23 @@ const PageContent = ({
   return (
     <section className='w-full h-full'>
       <div className='w-full flex items-center justify-center flex-col gap-2 pt-12'>
-        <h2 className='text-h2 leading-normal text-primary-dark font-bold'>
+        <h2 className='text-h2 leading-normal text-primary-dark dark:text-primary-light font-bold'>
           {contactSemanticIntro ? contactSemanticIntro.naslovUKontaktima : 'Contact Us'}
         </h2>
 
-        <p className='prose'>
+        <p className='prose text-primary-dark dark:text-primary-light'>
           {contactSemanticIntro ? contactSemanticIntro.uvodniTekstZaKontakte12Recenice : 'Intro text'}
         </p>
       </div>
 
-      <div className='flex mx-auto max-w-sutraContactUsTempFormWidth w-full justify-between items-start lg:flex-nowrap flex-wrap lg:px-0 px-3 bg-white lg:gap-12 lg:pr-12 mt-12'>
+      <div className='flex mx-auto max-w-sutraContactUsTempFormWidth w-full justify-between items-start lg:flex-nowrap flex-wrap lg:px-0 px-3 bg-white dark:bg-secondary-dark lg:gap-12 lg:pr-12 mt-12'>
         <StickyBox
           offsetBottom={20}
           offsetTop={20}
           className='w-full h-full p-3 lg:max-w-lg self-stretch max-lg:!relative max-lg:!top-0'
         >
           <div className='w-full h-full lg:p-3 lg:max-w-lg self-stretch'>
-            <div className='bg-secondary-dark w-full h-full rounded-sutraContactCardBorderRadius relative overflow-hidden'>
+            <div className='bg-secondary-dark dark:bg-primary-dark w-full h-full rounded-sutraContactCardBorderRadius relative overflow-hidden'>
               {/* KRUGOVI */}
               <div className='absolute -bottom-12 w-64 h-64 rounded-full bg-accent opacity-20 -right-24'></div>
               <div className='absolute bottom-24 w-32 h-32 rounded-full bg-accent opacity-10 right-12'></div>
@@ -383,7 +392,7 @@ const PageContent = ({
               <input
                 type='text'
                 id='firstName'
-                className={`form-input block py-2.5 px-0 w-full text-sm text-secondary-dark bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0  peer ${
+                className={`form-input block py-2.5 px-0 w-full text-sm text-secondary-dark dark:text-secondary-light bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0  peer ${
                   errors.firstName ? 'border-error' : 'border-sutraPlaceholderClr'
                 }`}
                 placeholder={contactSemanticFormContent.imePlaceholderTekst ?? 'Ime osobe'}
@@ -400,7 +409,7 @@ const PageContent = ({
               />
               <label
                 htmlFor='firstName'
-                className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
+                className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-secondary-light duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
               >
                 {contactSemanticFormContent.imeNazivStavke ?? 'First name'}
               </label>
@@ -411,7 +420,7 @@ const PageContent = ({
               <input
                 type='text'
                 id='lastName'
-                className={`form-input block py-2.5 px-0 w-full text-sm text-secondary-dark bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0  peer  ${
+                className={`form-input block py-2.5 px-0 w-full text-sm text-secondary-dark dark:text-secondary-light bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0  peer  ${
                   errors.lastName ? 'border-error' : 'border-sutraPlaceholderClr'
                 } `}
                 placeholder={contactSemanticFormContent.prezimePlaceholderTekst ?? 'Prezime'}
@@ -428,7 +437,7 @@ const PageContent = ({
               />
               <label
                 htmlFor='lastName'
-                className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
+                className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-secondary-light duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
               >
                 {contactSemanticFormContent.prezimeNazivStavke ?? 'Last name'}
               </label>
@@ -441,7 +450,7 @@ const PageContent = ({
             <div className='relative z-0 w-full mb-5 group'>
               <input
                 id='email'
-                className={`form-input block py-2.5 px-0 w-full text-sm text-secondary-dark bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0  peer  ${
+                className={`form-input block py-2.5 px-0 w-full text-sm text-secondary-dark dark:text-secondary-light bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0  peer ${
                   errors.email ? 'border-error' : 'border-sutraPlaceholderClr'
                 } `}
                 placeholder={contactSemanticFormContent.emailPlaceholderTekst ?? 'Email'}
@@ -462,7 +471,7 @@ const PageContent = ({
               />
               <label
                 htmlFor='email'
-                className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
+                className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-secondary-light duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
               >
                 {contactSemanticFormContent.emailNazivStavke ?? 'Email'}
               </label>
@@ -490,7 +499,7 @@ const PageContent = ({
                     defaultCountry='HR'
                     international
                     numberInputProps={{
-                      className: `form-input block py-2.5 px-0 w-full text-sm text-secondary-dark bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0 peer flex items-center justify-start ${
+                      className: `form-input block py-2.5 px-0 w-full text-sm text-secondary-dark dark:text-secondary-light bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0  peer  flex items-center justify-start ${
                         errors.phone ? 'border-error' : 'border-sutraPlaceholderClr'
                       } `,
                       placeholder: contactSemanticFormContent.telefonPlaceholderTekst ?? 'Phone number',
@@ -501,7 +510,7 @@ const PageContent = ({
                   />
                   <label
                     htmlFor='phone'
-                    className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
+                    className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-secondary-light duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
                   >
                     Phone number
                   </label>
@@ -529,12 +538,12 @@ const PageContent = ({
                   required: 'Naslov poruke je obavezan',
                 })}
                 placeholder='Naslov poruke'
-                className='form-input block py-2.5 px-0 w-full text-sm text-secondary-dark bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0 peer'
+                className='form-input block py-2.5 px-0 w-full text-sm text-secondary-dark dark:text-secondary-light bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0  peer'
               />
 
               <label
                 htmlFor='messageTitle'
-                className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
+                className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-secondary-light duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
               >
                 Naslov poruke
               </label>
@@ -550,11 +559,11 @@ const PageContent = ({
                 })}
                 rows={4}
                 placeholder='ciao'
-                className='form-input block py-2.5 px-0 w-full text-sm text-secondary-dark bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0  peer '
+                className='form-input block py-2.5 px-0 w-full text-sm text-secondary-dark dark:text-secondary-light bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0  peer'
               />
               <label
                 htmlFor='messageBody'
-                className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
+                className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-secondary-light duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
               >
                 Tekst poruke
               </label>
