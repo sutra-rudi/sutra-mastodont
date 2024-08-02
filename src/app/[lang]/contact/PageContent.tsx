@@ -14,6 +14,8 @@ import {
   IoLogoTwitter as TwitterIcon,
   IoLogoInstagram as InstagramIcon,
 } from 'react-icons/io5';
+
+import { FaRegFilePdf as FileIcon } from 'react-icons/fa';
 import { MdLocationPin as LocationIcon } from 'react-icons/md';
 import { FaDiscord as DiscordIcon } from 'react-icons/fa';
 import dayjs from 'dayjs';
@@ -706,18 +708,22 @@ const PageContent = ({
                 </div>
               )}
               {files.map((file) => (
-                <div key={file.uuid}>
-                  <img
-                    // className={st.previewImage}
-                    key={file.uuid}
-                    src={`${file.cdnUrl}/-/preview/-/resize/x400/`}
-                    width='200'
-                    height='200'
-                    alt={file.fileInfo.originalFilename || ''}
-                    title={file.fileInfo.originalFilename || ''}
-                  />
+                <div key={file.uuid} className='mt-6 flex items-start gap-1 flex-wrap justify-between'>
+                  <picture>
+                    <img
+                      key={file.uuid}
+                      src={`${file.cdnUrl}/-/preview/-/resize/x400/`}
+                      width='200'
+                      height='200'
+                      alt={`Original: ${file.fileInfo.originalFilename || 'Nema imena'}`}
+                      title={file.fileInfo.originalFilename || ''}
+                      className='text-secondary-dark dark:text-secondary-light'
+                    />
+                  </picture>
 
-                  <p className={'st.previewData'}>{file.fileInfo.originalFilename}</p>
+                  <p className='text-secondary-dark dark:text-secondary-light text-sm flex items-center gap-2'>
+                    <FileIcon /> <span>Ime: {file.fileInfo.originalFilename}</span>
+                  </p>
                   {/* <p className={"st.previewData"}>{formatSize(file.fileInfo.size)}</p> */}
                 </div>
               ))}
@@ -742,7 +748,7 @@ const PageContent = ({
                       />
                     )}
                   />
-                  <span className='ml-2 text-xs'>
+                  <span className='ml-2 text-xs text-secondary-dark dark:text-secondary-light'>
                     {contactSemanticFormContent.uvjetiCheckmark ?? 'Slažem se sa uvjetima'}
                   </span>
                 </label>
@@ -766,7 +772,7 @@ const PageContent = ({
                       />
                     )}
                   />
-                  <span className='ml-2 text-xs'>
+                  <span className='ml-2 text-xs text-secondary-dark dark:text-secondary-light'>
                     {contactSemanticFormContent.checkmarkBonusPolje ?? 'Slažem se sa uvjetima'}
                   </span>
                 </label>
