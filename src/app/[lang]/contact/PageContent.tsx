@@ -571,71 +571,76 @@ const PageContent = ({
             </div>
 
             {/* First DatePicker Input */}
-            <div className='relative z-50 w-full mb-5 group'>
-              <Controller
-                name='visitDate'
-                control={control}
-                defaultValue={null}
-                rules={{
-                  required: 'Datum posjeta je obavezan',
-                }}
-                render={({ field }) => (
-                  <div className='relative'>
-                    <DatePicker
-                      id='visitDate'
-                      selected={field.value ? new Date(field.value) : null}
-                      minDate={dayjs(new Date()).toDate()}
-                      onChange={(date) => field.onChange(date)}
-                      placeholderText={
-                        contactSemanticFormContent.datepicker1.datePickerPlaceholderTekst ?? 'Odaberi datum'
-                      }
-                      className={`form-input block py-2.5 px-0 w-full text-sm text-secondary-dark bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0 peer ${
-                        errors.visitDate ? 'border-error' : 'border-sutraPlaceholderClr'
-                      } `}
-                    />
-                    <label
-                      htmlFor='visitDate'
-                      className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
-                    >
-                      {contactSemanticFormContent.datepicker1.datePickerNazivStavke ?? 'Visit date'}
-                    </label>
-                  </div>
-                )}
-              />
-              {errors.visitDate && <p className='text-error text-xs italic'>{errors.visitDate.message}</p>}
-            </div>
+            <div className='w-full flex justify-between lg:flex-nowrap wrap items-center'>
+              <div className='relative z-50 w-full mb-5 group'>
+                <Controller
+                  name='visitDate'
+                  control={control}
+                  defaultValue={null}
+                  rules={{
+                    required: 'Datum posjeta je obavezan',
+                  }}
+                  render={({ field }) => (
+                    <div className='relative peer'>
+                      <DatePicker
+                        id='visitDate'
+                        selected={field.value ? new Date(field.value) : null}
+                        minDate={dayjs(new Date()).toDate()}
+                        onChange={(date) => field.onChange(date)}
+                        placeholderText={
+                          contactSemanticFormContent.datepicker1.datePickerPlaceholderTekst ?? 'Odaberi datum'
+                        }
+                        className={`block py-2.5 px-0 w-full text-sm text-secondary-dark dark:text-secondary-light bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0 relative peer ${
+                          errors.visitDate ? 'border-error' : 'border-sutraPlaceholderClr'
+                        } `}
+                      />
+                      <label
+                        htmlFor='visitDate'
+                        className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-secondary-light duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 transition-all ease-linear'
+                      >
+                        {contactSemanticFormContent.datepicker1.datePickerNazivStavke ?? 'Visit date'}
+                      </label>
+                    </div>
+                  )}
+                />
+                {errors.visitDate && <p className='text-error text-xs italic'>{errors.visitDate.message}</p>}
+              </div>
 
-            {/* Second DatePicker Input */}
-            <div className='relative z-50 w-full mb-5 group'>
-              <Controller
-                name='endDate'
-                control={control}
-                defaultValue={null}
-                rules={{
-                  required: 'Krajnji datum je obavezan',
-                }}
-                render={({ field }) => (
-                  <DatePicker
-                    id='endDate'
-                    selected={field.value ? new Date(field.value) : null}
-                    minDate={dayjs(new Date()).toDate()}
-                    onChange={(date) => field.onChange(date)}
-                    placeholderText={
-                      contactSemanticFormContent.datepicker2.datePickerPlaceholderTekst ?? 'Odaberi datum'
-                    }
-                    className={`form-input block py-2.5 px-0 w-full text-sm text-secondary-dark bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0 peer ${
-                      errors.endDate ? 'border-error' : 'border-sutraPlaceholderClr'
-                    } `}
-                  />
-                )}
-              />
-              <label
-                htmlFor='endDate'
-                className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
-              >
-                {contactSemanticFormContent.datepicker2.datePickerNazivStavke ?? 'End date'}
-              </label>
-              {errors.endDate && <p className='text-error text-xs italic'>{errors.endDate.message}</p>}
+              {/* Second DatePicker Input */}
+              <div className='relative z-50 w-full mb-5 group'>
+                <Controller
+                  name='endDate'
+                  control={control}
+                  defaultValue={null}
+                  rules={{
+                    required: 'Krajnji datum je obavezan',
+                  }}
+                  render={({ field }) => (
+                    <div className='w-full'>
+                      <DatePicker
+                        id='endDate'
+                        selected={field.value ? new Date(field.value) : null}
+                        minDate={dayjs(new Date()).toDate()}
+                        onChange={(date) => field.onChange(date)}
+                        placeholderText={
+                          contactSemanticFormContent.datepicker2.datePickerPlaceholderTekst ?? 'Odaberi datum'
+                        }
+                        className={`block py-2.5 px-0 w-full text-sm text-secondary-dark dark:text-secondary-light bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0 relative peer ${
+                          errors.endDate ? 'border-error' : 'border-sutraPlaceholderClr'
+                        } `}
+                      />
+                      <label
+                        htmlFor='endDate'
+                        className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-secondary-light duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
+                      >
+                        {contactSemanticFormContent.datepicker2.datePickerNazivStavke ?? 'End date'}
+                      </label>
+                    </div>
+                  )}
+                />
+
+                {errors.endDate && <p className='text-error text-xs italic'>{errors.endDate.message}</p>}
+              </div>
             </div>
 
             {/* File Upload Input */}
@@ -699,7 +704,7 @@ const PageContent = ({
                         id='terms'
                         checked={field.value}
                         onChange={(e) => field.onChange(e.target.checked)}
-                        className='form-checkbox h-4 w-4 text-almost-black rounded-full checked:bg-almost-black checked:border-none focus:outline-none focus:ring-0 bg-sutraRadioBgUnchecked border-none outline-none'
+                        className='custom-radio'
                       />
                     )}
                   />
@@ -723,7 +728,7 @@ const PageContent = ({
                         id='contactTerms'
                         checked={field.value}
                         onChange={(e) => field.onChange(e.target.checked)}
-                        className='form-checkbox h-4 w-4 text-almost-black rounded-full checked:bg-almost-black checked:border-none focus:outline-none focus:ring-0 bg-sutraRadioBgUnchecked border-none outline-none'
+                        className='custom-radio'
                       />
                     )}
                   />
