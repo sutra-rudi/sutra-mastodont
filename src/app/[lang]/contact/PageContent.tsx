@@ -17,7 +17,9 @@ import { FaDiscord as DiscordIcon } from 'react-icons/fa';
 import dayjs from 'dayjs';
 import StickyBox from 'react-sticky-box';
 import { FileUploaderRegular, UploadCtxProvider } from '@uploadcare/react-uploader';
-
+import * as LR from '@uploadcare/blocks';
+import '@uploadcare/blocks/web/lr-file-uploader-regular.min.css';
+LR.registerBlocks(LR);
 interface ContactPageInterface {
   personsData: any;
   sectorsData: any;
@@ -67,22 +69,38 @@ const PageContent = ({
 }: ContactPageInterface) => {
   const pageRouter = useRouter();
 
-  const ctxProviderRef = React.useRef(null);
-
   const uCapiKey = 'e0e7dbf3ab114523a67a';
 
-  const [files, setFiles] = React.useState([]);
+  const ctxProviderRef = React.useRef(null);
+  const [files, setFiles] = React.useState<any[]>([]);
   const [isClient, setIsClient] = React.useState(false);
 
   React.useEffect(() => {
     setIsClient(true);
   }, []);
-  const uploaderRef = React.useRef<InstanceType<UploadCtxProvider> | null>(null);
-  const handleChangeEvent = (e: any) => {
-    console.log('EVENT', e);
-    //@ts-ignore
-    setFiles([...e.detail.allEntries.filter((file) => file.status === 'success')]);
-  };
+
+  React.useEffect(() => {
+    if (ctxProviderRef.current) {
+      const handleChangeEvent = (e) => {
+        console.log('change event payload:', e.detail);
+
+        setFiles([...e.detail.allEntries.filter((f) => f.status === 'success')]);
+      };
+
+      const ctxProvider = ctxProviderRef.current;
+
+      ctxProvider.addEventListener('change', handleChangeEvent);
+      ctxProvider.addEventListener('file-upload-progress', () => console.log('file-upload-progress event'));
+
+      return () => {
+        ctxProvider.removeEventListener('change', handleChangeEvent);
+      };
+    }
+  }, [ctxProviderRef.current]); // Pokreće se kada se ctxProviderRef ažurira
+
+  React.useEffect(() => {
+    console.log('ctxProviderRef on mount:', ctxProviderRef.current);
+  }, []);
 
   const {
     control,
@@ -292,7 +310,8 @@ const PageContent = ({
     const loadingToast = toast.loading('Šaljem...');
 
     try {
-      await submit({ data });
+      const parseData = { ...data, fileName: files[0].name, fileUrl: files[0].cdnUrl };
+      await submit({ parseData });
 
       console.log('FORM DATA', data);
 
@@ -309,6 +328,27 @@ const PageContent = ({
     (cmsMessage: string | null, fallback: string) => (cmsMessage ? cmsMessage : fallback),
     []
   );
+
+  console.log('files', files);
+
+  const setCtxProviderRef = React.useCallback((node) => {
+    if (node) {
+      ctxProviderRef.current = node;
+
+      const handleChangeEvent = (e) => {
+        console.log('change event payload:', e.detail);
+
+        setFiles([...e.detail.allEntries.filter((f) => f.status === 'success')]);
+      };
+
+      node.addEventListener('change', handleChangeEvent);
+      node.addEventListener('file-upload-progress', () => console.log('file-upload-progress event'));
+
+      return () => {
+        node.removeEventListener('change', handleChangeEvent);
+      };
+    }
+  }, []);
 
   return (
     <section className='w-full h-full'>
@@ -646,47 +686,39 @@ const PageContent = ({
             {/* File Upload Input */}
             <div className='relative z-0 w-full mb-5 group'>
               {isClient && (
-                <Controller
-                  name='fileUpload'
-                  control={control}
-                  render={({ field }) => (
-                    <div>
-                      <FileUploaderRegular
-                        debug
-                        apiRef={uploaderRef}
-                        onChange={async (files) => {
-                          console.log('FIELD', field);
-                          console.log('FILES', files);
-                          console.log('FAJLOVI', files.allEntries);
-                          //@ts-ignore
-                          setFiles([...files.allEntries.filter((file) => file.status === 'success')]);
-                          return field.onChange(files.allEntries);
-                        }}
-                        pubkey={uCapiKey}
-                        ctxName='fileUpload'
-                      />
+                <div>
+                  <lr-config
+                    ctx-name='fileUpload'
+                    pubkey={uCapiKey}
+                    sourceList='local, url, camera, dropbox'
+                  ></lr-config>
+                  <lr-file-uploader-regular ctx-name='fileUpload' class='uc-light'></lr-file-uploader-regular>
+                  <lr-upload-ctx-provider ctx-name='fileUpload' ref={setCtxProviderRef}></lr-upload-ctx-provider>
 
-                      {files.length !== 0 &&
-                        files.map((file) => (
-                          //@ts-ignore
-                          <div key={file.uuid}>
-                            <picture>
-                              {/* @ts-ignore */}
-                              <img src={file.cdnUrl} alt={file.fileInfo ? file.fileInfo.originalFilename : 'nista'} />
-                            </picture>
-                          </div>
-                        ))}
-
-                      <label
-                        htmlFor='fileUpload'
-                        className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
-                      >
-                        Upload File (optional)
-                      </label>
-                    </div>
-                  )}
-                />
+                  <label
+                    htmlFor='fileUpload'
+                    className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
+                  >
+                    Upload File (optional)
+                  </label>
+                </div>
               )}
+              {files.map((file) => (
+                <div key={file.uuid}>
+                  <img
+                    // className={st.previewImage}
+                    key={file.uuid}
+                    src={`${file.cdnUrl}/-/preview/-/resize/x400/`}
+                    width='200'
+                    height='200'
+                    alt={file.fileInfo.originalFilename || ''}
+                    title={file.fileInfo.originalFilename || ''}
+                  />
+
+                  <p className={'st.previewData'}>{file.fileInfo.originalFilename}</p>
+                  {/* <p className={"st.previewData"}>{formatSize(file.fileInfo.size)}</p> */}
+                </div>
+              ))}
             </div>
 
             {/* Terms and Conditions Checkbox */}
@@ -749,6 +781,20 @@ const PageContent = ({
             {contactSemanticFormContent.submitButtonText ?? 'Send message'}
           </button>
         </form>
+
+        {/* <form action=''>
+          {' '}
+          <div>
+            <lr-config
+              ctx-name='fileUpload'
+              // pubkey='a6ca334c3520777c0045'
+              pubkey={uCapiKey}
+              sourceList='local, url, camera, dropbox'
+            ></lr-config>
+            <lr-file-uploader-regular ctx-name='fileUpload' class='uc-light'></lr-file-uploader-regular>
+            <lr-upload-ctx-provider ctx-name='fileUpload' ref={ctxProviderRef}></lr-upload-ctx-provider>
+          </div>
+        </form> */}
       </div>
     </section>
   );
