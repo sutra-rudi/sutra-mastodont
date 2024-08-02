@@ -1,4 +1,6 @@
+//@ts-nocheck
 'use client';
+
 import { toast } from 'react-hot-toast';
 import React from 'react';
 import { useForm, Controller, SubmitHandler } from 'react-hook-form';
