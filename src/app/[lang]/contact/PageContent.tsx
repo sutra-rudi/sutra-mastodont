@@ -24,6 +24,11 @@ import { FileUploaderRegular, UploadCtxProvider } from '@uploadcare/react-upload
 import * as LR from '@uploadcare/blocks';
 import '@uploadcare/blocks/web/lr-file-uploader-regular.min.css';
 LR.registerBlocks(LR);
+
+import 'dayjs/locale/hr';
+
+// dayjs.locale('hr');
+
 interface ContactPageInterface {
   personsData: any;
   sectorsData: any;
@@ -39,11 +44,8 @@ interface FormValues {
   firstName: string;
   lastName: string;
   phone: string;
-  company: string;
   visitDate: Date | null;
   endDate: Date | null;
-  followUpDate: Date | null;
-  excursionType: string;
   messageTitle?: string; // Naslov poruke
   messageBody?: string; // Tekst poruke
   terms: boolean;
@@ -314,13 +316,70 @@ const PageContent = ({
     const loadingToast = toast.loading('Šaljem...');
 
     try {
-      const parseData = { ...data, fileName: files[0].name, fileUrl: files[0].cdnUrl };
-      await submit({ parseData });
+      // const parseData = { ...data, fileName: files[0].name, fileUrl: files[0].cdnUrl };
 
-      console.log('FORM DATA', data);
+      const {
+        email,
+        firstName,
+        lastName,
+        phone,
+        visitDate,
+        endDate,
+        messageTitle,
+        messageBody,
+        terms,
+        contactTerms,
+        optionalField1,
+        optionalField2,
+        optionalField3,
+        optionalField4,
+        optionalField5,
+        selektor1,
+        selektor2,
+        selektor3,
+        selektor4,
+        selektor5,
+        selektor6,
+        fileUpload,
+      } = data;
 
-      toast.success('Uspješno poslano, bravo!');
-      pageRouter.push(`/${lang}/submit-success?rtime=${contactGlobalIntro.timerZaRedirectKontaktForme ?? '10'}`);
+      const parsedData: { [key: string]: any } = {
+        ['Email']: email,
+        ['Ime']: firstName,
+        ['Prezime']: lastName,
+        ['Telefon']: phone,
+        ['Datum posjete']: visitDate ? dayjs(visitDate).format('DD.MM.YYYY') : null,
+        ['Datum završetka']: endDate ? dayjs(endDate).format('DD.MM.YYYY') : null,
+        ['Uvjeti']: terms,
+        ['Uvjeti kontaktiranja']: contactTerms,
+      };
+
+      // Add optional fields if they exist
+      if (messageTitle) parsedData['Naslov poruke'] = messageTitle;
+      if (messageBody) parsedData['Tekst poruke'] = messageBody;
+      if (optionalField1) parsedData['Dodatno polje 1'] = optionalField1;
+      if (optionalField2) parsedData['Dodatno polje 2'] = optionalField2;
+      if (optionalField3) parsedData['Dodatno polje 3'] = optionalField3;
+      if (optionalField4) parsedData['Dodatno polje 4'] = optionalField4;
+      if (optionalField5) parsedData['Dodatno polje 5'] = optionalField5;
+      if (selektor1) parsedData['Selektor 1'] = selektor1;
+      if (selektor2) parsedData['Selektor 2'] = selektor2;
+      if (selektor3) parsedData['Selektor 3'] = selektor3.join(', ');
+      if (selektor4) parsedData['Selektor 4'] = selektor4;
+      if (selektor5) parsedData['Selektor 5'] = selektor5;
+      if (selektor6) parsedData['Selektor 6'] = selektor6.join(', ');
+      if (files.length > 0) parsedData['Priložena datoteka'] = files[0].cdnUrl;
+      // if (fileUpload)
+      //   parsedData['Učitavanje datoteke'] = Array.from(fileUpload)
+      //     .map((file) => file.name)
+      //     .join(', ');
+
+      console.log('FORM DATA', parsedData);
+
+      await submit({ ...parsedData });
+
+      // toast.success('Uspješno poslano, bravo!');
+      // pageRouter.push(`/${lang}/submit-success?rtime=${contactGlobalIntro.timerZaRedirectKontaktForme ?? '10'}`);
     } catch (error) {
       toast.error('Nešto ne valja :(');
     } finally {
@@ -333,7 +392,7 @@ const PageContent = ({
     []
   );
 
-  console.log('files', files);
+  // console.log('files', files);
 
   const setCtxProviderRef = React.useCallback((node) => {
     if (node) {
