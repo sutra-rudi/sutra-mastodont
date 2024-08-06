@@ -378,8 +378,8 @@ const PageContent = ({
 
       await submit({ ...parsedData });
 
-      // toast.success('Uspješno poslano, bravo!');
-      // pageRouter.push(`/${lang}/submit-success?rtime=${contactGlobalIntro.timerZaRedirectKontaktForme ?? '10'}`);
+      toast.success('Uspješno poslano, bravo!');
+      pageRouter.push(`/${lang}/submit-success?rtime=${contactGlobalIntro.timerZaRedirectKontaktForme ?? '10'}`);
     } catch (error) {
       toast.error('Nešto ne valja :(');
     } finally {
