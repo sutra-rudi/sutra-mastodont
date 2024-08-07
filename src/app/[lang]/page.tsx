@@ -27,6 +27,7 @@ import ButtonsDisplay from './ButtonsDisplay';
 import { getLokacijeQuery } from '../queries/getAllLocationsQuery';
 import { getCategoriesQuery } from '../queries/getAllBlogCategoriesQuery';
 import { getTagsQuery } from '../queries/getAllTagsQuery';
+import { getAdminCtaSelectionQuery } from '../queries/getAdminCtaSelectionQuery';
 
 export const maxDuration = 60;
 export const revalidate = 3600; // revalidate at most every hour
@@ -75,6 +76,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       getAllDocuments,
       getAllCategories,
       getAllTags,
+      getAllAdminCtaSelection,
     ] = await Promise.all([
       fetchData(getAllBlogsQuery(lang)),
       fetchData(getAllNewsQuery(lang)),
@@ -90,6 +92,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       fetchData(getDokumentikataloziQuery(lang)),
       fetchData(getCategoriesQuery(lang)),
       fetchData(getTagsQuery(lang)),
+      fetchData(getAdminCtaSelectionQuery()),
     ]);
 
     const blogDataArrayShorthand = getAllBlogs?.data?.allBlog?.edges || null;
@@ -107,6 +110,10 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
     const kategorijeDataShorthand = getAllCategories?.data?.categories?.edges || null;
     const tagsDataShorthand = getAllTags?.data?.tags?.edges || null;
 
+    const adminCtaSelection = getAllAdminCtaSelection?.data?.adminSetupArea.edges[0].node || null;
+
+    console.log('ADMIN', adminCtaSelection);
+
     return (
       <Suspense>
         <main>
@@ -117,6 +124,8 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
               lang={lang}
               categoriesList={kategorijeDataShorthand}
               tagsList={tagsDataShorthand}
+              blogCtaKey={adminCtaSelection.adminGlobalniSelektorCta.blogSekcijaCta[0]}
+              blogTableKey={process.env.BLOG_AIRTABLE_CTA_ID!}
             />
           )}
           {newsDataArrayShorthand && <NewsSection pageContent={newsDataArrayShorthand} lang={lang} />}

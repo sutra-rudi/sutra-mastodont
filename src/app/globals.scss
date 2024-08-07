@@ -155,8 +155,24 @@ body {
 
 ///// NAPRAVIT
 
-.karticaPrva {
+.test-kartica {
+  // box-shadow: 1px 1px 1px theme('colors.accent', #ff5733);
+  // border-radius: theme('borderRadius.sutraCardBorderRadius', '8px');
+
+  a {
+    h5 {
+      span {
+        font-size: 50px;
+        line-height: 1.2;
+      }
+    }
+  }
 }
 
-.karticaAlt {
+.test-kartica-demo-fallback {
+  box-shadow: 1px 1px 1px rebeccapurple;
+}
+
+.lovre {
+  // transform: scale(2);
 }

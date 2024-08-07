@@ -15,18 +15,41 @@ import {
   ArticleCardMiniCard,
   ArticleCardTextCard,
 } from '../components/ArticleCardAlt';
+import { getRecords } from '../lib/airtable';
 
 interface BlogSection {
   pageContent: any;
   lang: any;
   categoriesList: any[];
   tagsList: any[];
+  blogCtaKey: string;
+  blogTableKey: string;
 }
 
-const BlogSection = ({ pageContent, lang, categoriesList, tagsList }: BlogSection) => {
-  console.log('TAGOVI', tagsList);
+const BlogSection = ({ pageContent, lang, categoriesList, tagsList, blogCtaKey, blogTableKey }: BlogSection) => {
+  // console.log('TAGOVI', tagsList);
+
+  const [blogCta, setBlogCta] = React.useState<string>('');
+
+  console.log('CTA KLJUCE', blogCtaKey);
 
   const l = getSuffixFromLang(lang);
+
+  React.useEffect(() => {
+    const getRecordsDemo = async () => {
+      const callApi = await getRecords(lang, blogCtaKey, blogTableKey);
+
+      console.log('LANG', lang);
+
+      // const parseData = await callApi.json();
+
+      console.log('DATA', callApi);
+
+      setBlogCta(callApi.parseTranslation);
+    };
+
+    getRecordsDemo();
+  }, [lang, blogCtaKey, blogTableKey]);
 
   const [clientDisplayData, setClientDisplayData] = React.useState<any[]>(pageContent);
 
@@ -155,7 +178,7 @@ const BlogSection = ({ pageContent, lang, categoriesList, tagsList }: BlogSectio
                       slugify(`${contentShorthand[languageField]?.[las]}`, slugifyOptions) + `-${contentShorthand.id}`
                     }`}
                     date={dayjs(contentCardShorthand.datum).format('DD.MM.YYYY') ?? 'Nema datuma'}
-                    cta='Read more'
+                    cta={blogCta}
                     imgSource={imgSource}
                     introContent={introField}
                     author={authorField}

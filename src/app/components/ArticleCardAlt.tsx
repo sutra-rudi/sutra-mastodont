@@ -8,6 +8,7 @@ import { FiClock as ClockIcon } from 'react-icons/fi';
 import { GoArrowUpRight as ArrowIcon } from 'react-icons/go';
 import { LuCalendarDays as CalendarIcon } from 'react-icons/lu';
 import { FaChevronRight as RightIcon } from 'react-icons/fa';
+
 interface DefaultArticleCard {
   cta: string;
   url: string;
