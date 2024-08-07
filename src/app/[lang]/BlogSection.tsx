@@ -187,6 +187,7 @@ const BlogSection = ({ pageContent, lang, categoriesList, tagsList, blogCtaKey, 
                     readTime={readTime}
                     categories={categoryField}
                     hoverImgSource={hoverImgSource}
+                    boolSwitches={{ isWithAuthor: false, isWithTags: false, isWithTopBar: true, isWithImage: true }}
                   />
                 )
               );

@@ -20,6 +20,12 @@ interface DefaultArticleCard {
   categories: any[];
   readTime: any;
   hoverImgSource: string;
+  boolSwitches: {
+    isWithTags: boolean;
+    isWithAuthor: boolean;
+    isWithTopBar: boolean;
+    isWithImage: boolean;
+  };
 }
 
 const ArticleCard = ({
@@ -34,25 +40,33 @@ const ArticleCard = ({
   readTime,
   categories,
   hoverImgSource,
+  boolSwitches,
 }: DefaultArticleCard) => {
   return (
     <article className='max-w-[408px] w-full bg-white shadow dark:bg-almost-black dark:border-gray-700 group overflow-hidden'>
       <a href={url}>
         <div className='relative'>
-          <picture>
-            <img
-              className='w-full object-cover object-center block aspect-video min-h-[245px] group-hover:scale-125 transition-all ease-out opacity-0 group-hover:opacity-100 absolute inset-0'
-              src={hoverImgSource}
-              alt=''
-            />
-          </picture>
-          <picture>
-            <img
-              className='w-full object-cover object-center block aspect-video min-h-[245px] group-hover:scale-125 transition-all ease-out group-hover:opacity-0'
-              src={imgSource}
-              alt=''
-            />
+          {boolSwitches.isWithImage && (
+            <picture>
+              <img
+                className='w-full object-cover object-center block aspect-video min-h-[245px] group-hover:scale-125 transition-all ease-out opacity-0 group-hover:opacity-100 absolute inset-0'
+                src={hoverImgSource}
+                alt=''
+              />
+            </picture>
+          )}
 
+          {boolSwitches.isWithImage && (
+            <picture>
+              <img
+                className='w-full object-cover object-center block aspect-video min-h-[245px] group-hover:scale-125 transition-all ease-out group-hover:opacity-0'
+                src={imgSource}
+                alt=''
+              />
+            </picture>
+          )}
+
+          {boolSwitches.isWithTopBar && (
             <div className='absolute top-0 w-full flex items-center gap-2 px-11 pt-7 flex-wrap transition-all ease-out group-hover:opacity-0'>
               {date && (
                 <div className='text-xs bg-almost-black/75 rounded-sutraCardBorderRadius px-2 py-1  text-white'>
@@ -75,7 +89,7 @@ const ArticleCard = ({
                 </div>
               )}
             </div>
-          </picture>
+          )}
         </div>
       </a>
 
