@@ -127,7 +127,7 @@ const BlogSection = ({ pageContent, lang, categoriesList, tagsList, blogCtaKey, 
           <TagsTaxonomy />
         </div>
 
-        <div className='max-w-[1440px] mx-auto my-8 flex flex-wrap gap-4 items-start justify-center'>
+        <div className='max-w-[1740px] mx-auto my-8 flex flex-wrap gap-4 items-start justify-center'>
           {pageContent &&
             clientDisplayData.map((blogContent: any, index: number) => {
               const contentShorthand = blogContent.node;
@@ -187,7 +187,8 @@ const BlogSection = ({ pageContent, lang, categoriesList, tagsList, blogCtaKey, 
                     readTime={readTime}
                     categories={categoryField}
                     hoverImgSource={hoverImgSource}
-                    boolSwitches={{ isWithAuthor: false, isWithTags: false, isWithTopBar: true, isWithImage: true }}
+                    boolSwitches={{ isWithAuthor: false, isWithTags: true, isWithTopBar: false, isWithImage: true }}
+                    isHorizontal={true}
                   />
                 )
               );
