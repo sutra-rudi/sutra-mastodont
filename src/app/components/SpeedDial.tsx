@@ -2,6 +2,8 @@
 
 import React from 'react';
 
+interface SideButtonsDefault {}
+
 const SpeedDial = () => {
   return (
     <div data-dial-init className='fixed end-6 bottom-6 group z-30'>

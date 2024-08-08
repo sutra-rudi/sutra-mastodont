@@ -4,7 +4,7 @@ import Image from 'next/image';
 import React from 'react';
 import { getSuffixFromLang } from '../langUtils/getSuffixFromLang';
 import parse from 'html-react-parser';
-import { AppButtonClean, AppButtonDefault } from '../components/AppButton';
+import { AppButtonClean } from '../components/AppButton';
 
 interface ObavijestiNaStraniciInterface {
   pageContent: any;
@@ -12,6 +12,7 @@ interface ObavijestiNaStraniciInterface {
 }
 const ObavijestiSection = ({ pageContent, lang }: ObavijestiNaStraniciInterface) => {
   const l = getSuffixFromLang(lang);
+
   return (
     <section>
       <div className='max-w-[1225px] mx-auto my-8'>
@@ -78,7 +79,11 @@ const ObavijestiSection = ({ pageContent, lang }: ObavijestiNaStraniciInterface)
                       </p>
 
                       <Image
-                        src={sh.obavijestiPngSlikaIliIkona.node.sourceUrl ?? 'https://placehold.co/400.png'}
+                        src={
+                          sh.obavijestiPngSlikaIliIkona
+                            ? sh.obavijestiPngSlikaIliIkona.node.sourceUrl
+                            : 'https://placehold.co/400.png'
+                        }
                         width={300}
                         height={300}
                         alt='some imag'

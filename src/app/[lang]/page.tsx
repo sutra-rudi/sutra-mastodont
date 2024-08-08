@@ -28,6 +28,7 @@ import { getLokacijeQuery } from '../queries/getAllLocationsQuery';
 import { getCategoriesQuery } from '../queries/getAllBlogCategoriesQuery';
 import { getTagsQuery } from '../queries/getAllTagsQuery';
 import { getAdminCtaSelectionQuery } from '../queries/getAdminCtaSelectionQuery';
+import NewsTrack from '../components/NewsTrack';
 
 export const maxDuration = 60;
 export const revalidate = 3600; // revalidate at most every hour
@@ -112,11 +113,11 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
     const adminCtaSelection = getAllAdminCtaSelection?.data?.adminSetupArea.edges[0].node || null;
 
-    console.log('ADMIN', adminCtaSelection);
+    // console.log('ADMIN', adminCtaSelection);
 
     return (
       <Suspense>
-        <main>
+        <main className='relative'>
           <HeroSection />
           {blogDataArrayShorthand && (
             <BlogSection
@@ -144,6 +145,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
             <DocumentsCatalogsSection pageContent={dokumentiKataloziDataShorthand} lang={lang} />
           )}
           <ButtonsDisplay />
+          <NewsTrack pageContent={obavijestiNaStraniciDataShorthand} lang={lang} />
         </main>
       </Suspense>
     );

@@ -187,69 +187,12 @@ const BlogSection = ({ pageContent, lang, categoriesList, tagsList, blogCtaKey, 
                     readTime={readTime}
                     categories={categoryField}
                     hoverImgSource={hoverImgSource}
-                    boolSwitches={{ isWithAuthor: false, isWithTags: true, isWithTopBar: false, isWithImage: true }}
-                    isHorizontal={true}
+                    boolSwitches={{ isWithAuthor: true, isWithTags: false, isWithTopBar: true, isWithImage: true }}
+                    isHorizontal={false}
                   />
                 )
               );
             })}
-        </div>
-      </div>
-
-      <div className=''>
-        <h2 className='w-full text-center text-4xl font-semibold pt-8'>Swiss knife cards alt</h2>
-        <div className='max-w-[1440px] mx-auto my-8 flex flex-wrap  justify-center gap-4'>
-          {pageContent.map((blogContent: any, index: number) => {
-            const contentShorthand = blogContent.node;
-            const contentCardShorthand = contentShorthand.introBlog;
-            const languageField = blogLanguageFields[lang];
-            const introField = contentShorthand[languageField]?.[`kratkiUvodniTekstSadrzaj${l}`];
-
-            const las = `naslovSadrzaj${lang === UserLanguage.eng ? `Sadrzaj${l}` : `${l}`}`;
-
-            const authorField = contentShorthand.author.node;
-            const tags = contentShorthand[`tags${l}`]?.[`tagText${l}`];
-
-            const tagsField = tags ? tags.split(', ') : [];
-
-            const contentField = contentShorthand[languageField]?.[`sadrzajSadrzaj${l}`];
-
-            const categoryField = contentCardShorthand.kategorija.edges.map((noda: any) => {
-              return {
-                catName: noda.node.informacijeKategorije
-                  ? noda.node.informacijeKategorije[`imeKategorije${l}`]
-                  : 'No category',
-                catDesc: noda.node.informacijeKategorije
-                  ? noda.node.informacijeKategorije[`opisKategorije${l}`]
-                  : 'No category',
-                catColor: noda.node.informacijeKategorije ? noda.node.informacijeKategorije.bojaKategorije : 'No color',
-              };
-            });
-
-            const imgSource = contentCardShorthand.thumbnail
-              ? contentCardShorthand.thumbnail.node.sourceUrl
-              : 'https://placehold.co/400.png';
-
-            const readTime = readingTime(contentField);
-
-            return (
-              <ArticleCardHorizontal
-                title={contentShorthand[languageField]?.[las]}
-                url={`/${lang}/blog/${
-                  slugify(`${contentShorthand[languageField]?.[las]}`, slugifyOptions) + `-${contentShorthand.id}`
-                }`}
-                date={dayjs(contentCardShorthand.datum).format('DD.MM.YYYY') ?? 'Nema datuma'}
-                cta='Read more'
-                imgSource={imgSource}
-                introContent={introField}
-                author={authorField}
-                key={index}
-                tags={tagsField}
-                readTime={readTime}
-                categories={categoryField}
-              />
-            );
-          })}
         </div>
       </div>
 

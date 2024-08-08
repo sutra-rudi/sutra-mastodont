@@ -40,7 +40,7 @@ export default function RootLayout({
           <AppHeader />
           <Toaster />
           <Providers>{children}</Providers>
-          <SpeedDial />
+
           <AppFooter />
         </Suspense>
       </body>

@@ -45,6 +45,7 @@ const config: Config = {
         sutraCardTagBorderRadius: '6px',
         sutraContactCardBorderRadius: '10px',
         sutraContactFormButton: '5px',
+        sutraObavijestTrakaRadius: '12px',
       },
 
       lineHeight: {

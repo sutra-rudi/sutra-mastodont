@@ -5,6 +5,7 @@ import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 
 import { htmlToText } from 'html-to-text';
 import { UserLanguage } from '@/app/enums/LangEnum';
+import SpeedDial from '@/app/components/SpeedDial';
 export async function generateMetadata({ params: { lang, id } }: { params: { lang: string; id: string } }) {
   const getIdFromSlug = (slug: string): string => {
     const parts = slug.split('-');
@@ -169,6 +170,7 @@ export default async function SingleBlogPage({ params: { lang, id } }: { params:
         intro={introField}
         category={categoryField}
       />
+      <SpeedDial />
     </main>
   );
 }
