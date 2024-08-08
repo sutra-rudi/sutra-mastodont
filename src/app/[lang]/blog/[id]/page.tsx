@@ -170,7 +170,6 @@ export default async function SingleBlogPage({ params: { lang, id } }: { params:
         intro={introField}
         category={categoryField}
       />
-      <SpeedDial />
     </main>
   );
 }
