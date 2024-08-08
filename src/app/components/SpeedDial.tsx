@@ -61,49 +61,49 @@ const SpeedDial = ({ handlePrint }: SpeedDialInterface) => {
   }
 
   return (
-    <div className='fixed end-12 bottom-16 group z-30 flex flex-col items-start gap-3'>
+    <div className='fixed end-12 bottom-16  z-30 flex flex-col items-start gap-3'>
       <FacebookShareButton
         url={currentLocation}
-        className='flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-gray-200 dark:border-gray-600 shadow-sm dark:hover:text-white dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400'
+        className='flex justify-center items-center group w-12 h-12  bg-almost-white rounded-full  shadow-sm  group cursor-pointer transition-all ease-in-out hover:shadow'
       >
-        <FacebookIcon />
+        <FacebookIcon className='text-almost-black group-hover:text-accent transition-all ' />
       </FacebookShareButton>
 
       <FacebookShareButton
         url={currentLocation}
-        className='flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-gray-200 dark:border-gray-600 shadow-sm dark:hover:text-white dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400'
+        className='flex justify-center items-center group w-12 h-12  bg-almost-white rounded-full  shadow-sm  group cursor-pointer transition-all ease-in-out hover:shadow'
       >
-        <MsgIcon />
+        <MsgIcon className='text-almost-black group-hover:text-accent transition-all ' />
       </FacebookShareButton>
 
       <TwitterShareButton
         url={currentLocation}
-        className='flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-gray-200 dark:border-gray-600 shadow-sm dark:hover:text-white dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400'
+        className='flex justify-center items-center group w-12 h-12  bg-almost-white rounded-full  shadow-sm  group cursor-pointer transition-all ease-in-out hover:shadow'
       >
-        <TwitterIcon />
+        <TwitterIcon className='text-almost-black group-hover:text-accent transition-all ' />
       </TwitterShareButton>
 
       <RedditShareButton
         url={currentLocation}
-        className='flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-gray-200 dark:border-gray-600 shadow-sm dark:hover:text-white dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400'
+        className='flex justify-center items-center group w-12 h-12  bg-almost-white rounded-full  shadow-sm  group cursor-pointer transition-all ease-in-out hover:shadow'
       >
-        <RedditIcon />
+        <RedditIcon className='text-almost-black group-hover:text-accent transition-all ' />
       </RedditShareButton>
 
       <div
-        className='flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-gray-200 dark:border-gray-600 shadow-sm dark:hover:text-white dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400 border-none cursor-pointer'
+        className='flex justify-center items-center group w-12 h-12  bg-almost-white rounded-full  shadow-sm  group cursor-pointer transition-all ease-in-out hover:shadow border-none bg-transparent'
         onClick={handlePrint}
       >
         {/* <RedditShareButton url={currentLocation} className=''> */}
-        <PrintIcon />
+        <PrintIcon className='text-almost-black group-hover:text-accent transition-all ' />
         {/* </RedditShareButton> */}
       </div>
 
       <div
         onClick={copyToClip}
-        className='flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-gray-200 dark:border-gray-600 dark:hover:text-white shadow-sm dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400 border-none cursor-pointer'
+        className='flex justify-center items-center group w-12 h-12  bg-almost-white rounded-full  shadow-sm  group cursor-pointer transition-all ease-in-out hover:shadow border-none bg-transparent'
       >
-        <CopyIcon />
+        <CopyIcon className='text-almost-black group-hover:text-accent transition-all ' />
       </div>
     </div>
   );
