@@ -23,6 +23,15 @@ const poppins = Poppins({ subsets: ['latin'], weight: ['300', '400', '500', '600
 export const metadata: Metadata = {
   title: 'Sutra mastodont',
   description: 'One repo to rule them all',
+
+  icons: [
+    {
+      rel: 'icon',
+      type: 'image/png',
+      sizes: '32x32',
+      url: 'https://cms.sutra.hr/cms_sutra/Favicon/favicon-32x32.png',
+    },
+  ],
 };
 
 export default function RootLayout({

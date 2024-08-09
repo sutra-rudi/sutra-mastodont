@@ -58,7 +58,7 @@ const ArticleCard = ({
                 <img
                   className={`w-full object-cover object-center block ${
                     isHorizontal ? 'aspect-[9/16] h-full' : 'aspect-video min-h-[245px]'
-                  } ${isHorizontal ? '' : 'group-hover:scale-125 transition-all ease-out'} ${
+                  } ${isHorizontal ? '' : 'group-hover:scale-125 transition-all ease-out duration-300'} ${
                     isHorizontal ? '' : 'opacity-0 group-hover:opacity-100 absolute inset-0'
                   }`}
                   src={isHorizontal ? imgSource : hoverImgSource}
@@ -70,7 +70,7 @@ const ArticleCard = ({
             {boolSwitches.isWithImage && !isHorizontal && (
               <picture>
                 <img
-                  className='w-full object-cover object-center block aspect-video min-h-[245px] group-hover:scale-125 transition-all ease-out group-hover:opacity-0'
+                  className='w-full object-cover object-center block aspect-video min-h-[245px] group-hover:scale-125 transition-all ease-out group-hover:opacity-0 duration-300'
                   src={imgSource}
                   alt=''
                 />
