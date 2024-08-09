@@ -6,50 +6,137 @@ import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 import { blogLanguageFields } from '@/app/pathsUtils/blogLanguageFields';
 import { slugifyOptions } from '@/app/pathsUtils/slugifyOptions';
 import dayjs from 'dayjs';
-import React from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import { readingTime } from 'reading-time-estimator';
 import slugify from 'slugify';
 import { FaChevronLeft as PrevIcon, FaChevronRight as NextIcon } from 'react-icons/fa6';
+import Image from 'next/image';
+
 interface BlogArchivePage {
   pageContent: any[];
   totalPosts: number;
   adminSetup: any;
   lang: any;
+  catList: any[];
 }
 
-const PageContent = ({ pageContent, totalPosts, adminSetup, lang }: BlogArchivePage) => {
-  const [currentPage, setCurrentPage] = React.useState(0);
-
-  console.log('PAGE CONTENT FROM BLOGS', pageContent);
-  console.log('TOTAL NUM', totalPosts);
-
-  console.log('ADMIN SETUP', adminSetup);
+const PageContent = ({ pageContent, totalPosts, adminSetup, lang, catList }: BlogArchivePage) => {
+  const [currentPage, setCurrentPage] = useState(0);
+  const [filteredPosts, setFilteredPosts] = useState(pageContent);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState(''); // State za pretraživanje
 
   const postsPerPage = Number(adminSetup.archiveItemsNumberOnSinglePage[0]);
   const offset = currentPage * postsPerPage;
-  const currentPosts = React.useMemo(
-    () => pageContent.slice(offset, offset + postsPerPage),
-    [offset, postsPerPage, pageContent]
+
+  const l = getSuffixFromLang(lang);
+
+  // Filtriranje postova prema kategoriji i unosu pretraživanja
+  const filteredAndSearchedPosts = useMemo(() => {
+    return filteredPosts.filter((item) => {
+      const title = item.node[blogLanguageFields[lang]]?.[`naslovSadrzaj${l}`] ?? '';
+      const content = item.node[blogLanguageFields[lang]]?.[`sadrzajSadrzaj${l}`] ?? '';
+      return (
+        title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        content.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    });
+  }, [searchQuery, filteredPosts, lang, l]);
+
+  const currentPosts = useMemo(
+    () => filteredAndSearchedPosts.slice(offset, offset + postsPerPage),
+    [offset, postsPerPage, filteredAndSearchedPosts]
   );
 
   const handlePageClick = (event: { selected: number }) => {
     setCurrentPage(event.selected);
   };
 
-  console.log('CURRENT', currentPosts);
+  const handleCategoryPick = (categoryName: string | null) => {
+    setSelectedCategory(categoryName);
+    if (categoryName) {
+      const filtered = pageContent.filter((item: any) =>
+        item.node.introBlog.kategorija.edges.some(
+          (edge: any) => edge.node.informacijeKategorije[`imeKategorije${l}`] === categoryName
+        )
+      );
+      setFilteredPosts(filtered);
+    } else {
+      setFilteredPosts(pageContent);
+    }
+    setCurrentPage(0); // Resetiranje paginacije na prvu stranicu
+  };
 
-  const l = getSuffixFromLang(lang);
+  const CategoryTaxonomy = () => {
+    const categoryName = `imeKategorije${l}`;
 
-  //   React.useEffect(() => {
-  //     return setCurrentPage(1);
-  //   }, []);
+    return (
+      <div className='flex items-center justify-center gap-2 my-6'>
+        {catList.map((singleCat: any, index) => {
+          const catShorthand = singleCat.node.informacijeKategorije;
+          return (
+            catShorthand[categoryName] && (
+              <span
+                onClick={() => handleCategoryPick(catShorthand[categoryName])}
+                className={`outline outline-accent rounded-sm px-2 py-1 cursor-pointer ${
+                  selectedCategory === catShorthand[categoryName] ? 'bg-accent text-white' : ''
+                }`}
+                key={index}
+              >
+                {catShorthand[categoryName]}
+              </span>
+            )
+          );
+        })}
 
-  console.log('CUURENT PAG', currentPage);
+        <span
+          onClick={() => handleCategoryPick(null)}
+          className={`outline outline-accent rounded-sm px-2 py-1 cursor-pointer ${
+            !selectedCategory ? 'bg-accent text-white' : ''
+          }`}
+        >
+          {'sve'}
+        </span>
+      </div>
+    );
+  };
 
   return (
     <section>
-      <div className='max-w-[1440px] mx-auto my-8 grid grid-cols-3 gap-4 place-items-center'>
+      <div className='w-full'>
+        <picture className='w-full'>
+          <img
+            src='https://cms.sutra.hr/cms_sutra/Hero_images_database/CMS_Archive_Blog_Hero_Image.jpg'
+            alt=''
+            className='w-full h-48 object-cover object-center'
+            onError={(e) => {
+              const target = e.target as HTMLImageElement;
+              target.src = 'https://placehold.co/400.png'; // Promjena izvora slike
+              target.onerror = null; // Sprječava beskonačnu petlju
+            }}
+          />
+        </picture>
+      </div>
+      <div>
+        <CategoryTaxonomy />
+      </div>
+
+      {/* Polje za unos pretrage */}
+      <div className='max-w-[1440px] mx-auto my-4'>
+        <input
+          type='text'
+          value={searchQuery}
+          onChange={(e) => {
+            setSearchQuery(e.target.value);
+            setCurrentPage(0);
+          }}
+          placeholder='Pretraži blogove...'
+          className='w-full px-4 py-2 border rounded'
+        />
+      </div>
+
+      <div className='max-w-[1440px] mx-auto my-8 grid grid-cols-4 gap-4 place-items-center'>
         {currentPosts.map((blogContent: any, index: number) => {
           const contentShorthand = blogContent.node;
           const contentCardShorthand = contentShorthand.introBlog;
@@ -103,27 +190,24 @@ const PageContent = ({ pageContent, totalPosts, adminSetup, lang }: BlogArchiveP
         })}
       </div>
 
-      {pageContent && (
+      {filteredAndSearchedPosts.length > 0 && (
         <ReactPaginate
           previousLabel={<PrevIcon className='transition-all ease-in-out group-hover:text-accent' />}
           nextLabel={<NextIcon className='transition-all ease-in-out group-hover:text-accent' />}
           breakLabel={'...'}
-          pageCount={Math.ceil(totalPosts / postsPerPage)}
+          pageCount={Math.ceil(filteredAndSearchedPosts.length / postsPerPage)}
           onPageChange={handlePageClick}
-          //   pageCount={Math.ceil(totalPosts / postsPerPage)}
-          //   marginPagesDisplayed={2}
-          //   pageRangeDisplayed={3}
-          //   onPageChange={handlePageClick}
+          forcePage={currentPage}
           containerClassName={'flex justify-center space-x-2 mt-6'}
-          pageClassName={'w-8 h-8 p-2  rounded-full flex items-center justify-center'}
+          pageClassName={'w-8 h-8 p-2 rounded-full flex items-center justify-center'}
           activeClassName={'bg-accent text-almost-white'}
           previousClassName={
-            'w-8 h-8 p-2  rounded-full bg-almost-white flex items-center justify-center group cursor-pointer transition-all hover:bg-accent/10'
+            'w-8 h-8 p-2 rounded-full bg-almost-white flex items-center justify-center group cursor-pointer transition-all hover:bg-accent/10'
           }
           nextClassName={
-            'w-8 h-8 p-2  rounded-full bg-almost-white flex items-center justify-center group cursor-pointer transition-all hover:bg-accent/10'
+            'w-8 h-8 p-2 rounded-full bg-almost-white flex items-center justify-center group cursor-pointer transition-all hover:bg-accent/10'
           }
-          breakClassName={'px-4 py-2  rounded bg-gray-200'}
+          breakClassName={'px-4 py-2 rounded bg-gray-200'}
         />
       )}
     </section>

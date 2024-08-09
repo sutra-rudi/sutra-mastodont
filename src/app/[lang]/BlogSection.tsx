@@ -9,12 +9,7 @@ import ArticleCard from '../components/ArticleCard';
 import { getSuffixFromLang } from '../langUtils/getSuffixFromLang';
 import { readingTime } from 'reading-time-estimator';
 import { FaTag as TagIcon } from 'react-icons/fa6';
-import {
-  ArticleCardFullImage,
-  ArticleCardHorizontal,
-  ArticleCardMiniCard,
-  ArticleCardTextCard,
-} from '../components/ArticleCardAlt';
+import { ArticleCardFullImage, ArticleCardMiniCard, ArticleCardTextCard } from '../components/ArticleCardAlt';
 import { getRecords } from '../lib/airtable';
 
 interface BlogSection {
