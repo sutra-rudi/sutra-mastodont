@@ -20,6 +20,7 @@ interface DefaultArticleCard {
   tags: any[];
   categories: any[];
   readTime: any;
+  isArchive?: boolean;
 }
 export const ArticleCardHorizontal = ({
   cta,
@@ -216,13 +217,14 @@ export const ArticleCardFullImage = ({
   tags,
   readTime,
   categories,
+  isArchive,
 }: DefaultArticleCard) => {
   return (
     <article className='relative min-h-[400px] flex place-items-stretch'>
       <a href={url}>
         <picture className='flex-1 w-full h-full'>
           <img
-            className=' block object-cover object-center max-w-[288px] w-full h-full '
+            className={`block object-cover object-center ${!isArchive && 'max-w-[288px]'} w-full h-full`}
             src={imgSource}
             alt='article card'
           />

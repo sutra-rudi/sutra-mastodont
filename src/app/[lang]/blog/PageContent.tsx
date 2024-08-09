@@ -72,15 +72,17 @@ const PageContent = ({ pageContent, totalPosts, adminSetup, lang, catList }: Blo
     const categoryName = `imeKategorije${l}`;
 
     return (
-      <div className='flex items-center justify-center gap-2 my-6'>
+      <div className='flex items-center justify-start gap-2 my-6'>
         {catList.map((singleCat: any, index) => {
           const catShorthand = singleCat.node.informacijeKategorije;
           return (
             catShorthand[categoryName] && (
               <span
                 onClick={() => handleCategoryPick(catShorthand[categoryName])}
-                className={`outline outline-accent rounded-sm px-2 py-1 cursor-pointer ${
-                  selectedCategory === catShorthand[categoryName] ? 'bg-accent text-white' : ''
+                className={`border rounded-sm px-2 py-1 cursor-pointer transition-all ease-in-out ${
+                  selectedCategory === catShorthand[categoryName]
+                    ? 'border-accent bg-accent text-white'
+                    : 'border-accent/10 hover:border-accent hover:bg-accent/10'
                 }`}
                 key={index}
               >
@@ -92,8 +94,10 @@ const PageContent = ({ pageContent, totalPosts, adminSetup, lang, catList }: Blo
 
         <span
           onClick={() => handleCategoryPick(null)}
-          className={`outline outline-accent rounded-sm px-2 py-1 cursor-pointer ${
-            !selectedCategory ? 'bg-accent text-white' : ''
+          className={`border rounded-sm px-2 py-1 cursor-pointer transition-all ease-in-out ${
+            !selectedCategory
+              ? 'border-accent bg-accent text-white'
+              : 'border-accent/10 hover:border-accent hover:bg-accent/10'
           }`}
         >
           {'sve'}
@@ -118,7 +122,7 @@ const PageContent = ({ pageContent, totalPosts, adminSetup, lang, catList }: Blo
           />
         </picture>
       </div>
-      <div>
+      <div className='max-w-[1440px] mx-auto my-4'>
         <CategoryTaxonomy />
       </div>
 
@@ -132,11 +136,11 @@ const PageContent = ({ pageContent, totalPosts, adminSetup, lang, catList }: Blo
             setCurrentPage(0);
           }}
           placeholder='Pretraži blogove...'
-          className='w-full px-4 py-2 border rounded'
+          className='w-full px-4 py-2 border border-accent/15 rounded max-w-lg transition-all ease-in-out focus:border-accent focus:ring-1 focus:ring-accent focus:outline-none placeholder:text-secondary-light active:placeholder:text-secondary-dark focus:placeholder:text-secondary-dark'
         />
       </div>
 
-      <div className='max-w-[1440px] mx-auto my-8 grid grid-cols-4 gap-4 place-items-center'>
+      <div className='max-w-[1440px] mx-auto my-8 grid grid-cols-4 gap-4 '>
         {currentPosts.map((blogContent: any, index: number) => {
           const contentShorthand = blogContent.node;
           const contentCardShorthand = contentShorthand.introBlog;
@@ -185,6 +189,7 @@ const PageContent = ({ pageContent, totalPosts, adminSetup, lang, catList }: Blo
               tags={tagsField}
               readTime={readTime}
               categories={categoryField}
+              isArchive
             />
           );
         })}
