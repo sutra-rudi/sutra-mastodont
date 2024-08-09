@@ -30,9 +30,9 @@ const NewsTrack = ({ pageContent, lang }: ObavijestiNaStraniciInterface) => {
           );
 
           if (preklapaSe) {
-            // Ako se preklapaju, zadrži onu koja završava kasnije
+            // Ako se preklapaju, zadrži onu koja završava ranije
             if (
-              dayjs(obavijest.node.obavijestiInterventne.datumIVrijemeKrajaObjave).isAfter(
+              dayjs(obavijest.node.obavijestiInterventne.datumIVrijemeKrajaObjave).isBefore(
                 dayjs(zadnjaObavijest.obavijestiInterventne.datumIVrijemeKrajaObjave)
               )
             ) {
@@ -53,18 +53,8 @@ const NewsTrack = ({ pageContent, lang }: ObavijestiNaStraniciInterface) => {
 
   const [isOpen, setIsOpen] = React.useState<boolean>(true);
 
-  const currentTextContent = React.useMemo(() => {
-    const langSelector = `text${l}`;
-    const a = {
-      naslov: '',
-      sadrzaj: '',
-    };
-
-    return a;
-  }, [l]);
-
   return (
-    <>
+    <div>
       {filtriraneObavijesti.map((contentShorthand: any, index: number) => {
         const notificationToShow = contentShorthand.statusAtivacijePoJezicima[`aktivator${l}`];
         const currentTextContent = {
@@ -84,7 +74,7 @@ const NewsTrack = ({ pageContent, lang }: ObavijestiNaStraniciInterface) => {
               <h2 className='text-sm font-semibold text-almost-white'>{currentTextContent.naslov ?? 'ciaos'}</h2>
               <div className='flex items-center gap-3'>
                 {currentTextContent.sadrzaj && (
-                  <div className='line-clamp-1 text-xs max-w-[385px]'>{parse(currentTextContent.sadrzaj)}</div>
+                  <div className='line-clamp-1 text-xs max-w-[60ch] w-full'>{parse(currentTextContent.sadrzaj)}</div>
                 )}
                 {contentShorthand.obavijestiInterventne.linkNaKojiVodiObavijestOpcionalno && (
                   <div>
@@ -110,7 +100,7 @@ const NewsTrack = ({ pageContent, lang }: ObavijestiNaStraniciInterface) => {
           </div>
         );
       })}
-    </>
+    </div>
   );
 };
 
