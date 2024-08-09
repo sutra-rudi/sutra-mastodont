@@ -13,6 +13,9 @@ export const getAdminBlogArchiveSettingsQuery = () => `query NewQuery {
             archiveItemsNumberOnSinglePage
           }
         }
+        adminGlobalniSelektorCta {
+          blogSekcijaCta
+        }
       }
     }
   }

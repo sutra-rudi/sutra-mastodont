@@ -10,6 +10,7 @@ import React from 'react';
 import ReactPaginate from 'react-paginate';
 import { readingTime } from 'reading-time-estimator';
 import slugify from 'slugify';
+import { FaChevronLeft as PrevIcon, FaChevronRight as NextIcon } from 'react-icons/fa6';
 interface BlogArchivePage {
   pageContent: any[];
   totalPosts: number;
@@ -18,16 +19,19 @@ interface BlogArchivePage {
 }
 
 const PageContent = ({ pageContent, totalPosts, adminSetup, lang }: BlogArchivePage) => {
-  const [currentPage, setCurrentPage] = React.useState(1);
+  const [currentPage, setCurrentPage] = React.useState(0);
 
   console.log('PAGE CONTENT FROM BLOGS', pageContent);
   console.log('TOTAL NUM', totalPosts);
 
   console.log('ADMIN SETUP', adminSetup);
 
-  const postsPerPage = Number(adminSetup.archiveItemsNumberOnSinglePage[0] ?? 12);
+  const postsPerPage = Number(adminSetup.archiveItemsNumberOnSinglePage[0]);
   const offset = currentPage * postsPerPage;
-  const currentPosts = pageContent.slice(offset, offset + postsPerPage);
+  const currentPosts = React.useMemo(
+    () => pageContent.slice(offset, offset + postsPerPage),
+    [offset, postsPerPage, pageContent]
+  );
 
   const handlePageClick = (event: { selected: number }) => {
     setCurrentPage(event.selected);
@@ -37,9 +41,15 @@ const PageContent = ({ pageContent, totalPosts, adminSetup, lang }: BlogArchiveP
 
   const l = getSuffixFromLang(lang);
 
+  //   React.useEffect(() => {
+  //     return setCurrentPage(1);
+  //   }, []);
+
+  console.log('CUURENT PAG', currentPage);
+
   return (
-    <div>
-      <div className='max-w-[1440px] mx-auto my-8 flex flex-wrap gap-4 items-start justify-center'>
+    <section>
+      <div className='max-w-[1440px] mx-auto my-8 grid grid-cols-3 gap-4 place-items-center'>
         {currentPosts.map((blogContent: any, index: number) => {
           const contentShorthand = blogContent.node;
           const contentCardShorthand = contentShorthand.introBlog;
@@ -93,24 +103,30 @@ const PageContent = ({ pageContent, totalPosts, adminSetup, lang }: BlogArchiveP
         })}
       </div>
 
-      <ReactPaginate
-        previousLabel={'Previous'}
-        nextLabel={'Next'}
-        breakLabel={'...'}
-        pageCount={Math.ceil(totalPosts / postsPerPage)}
-        onPageChange={handlePageClick}
-        //   pageCount={Math.ceil(totalPosts / postsPerPage)}
-        //   marginPagesDisplayed={2}
-        //   pageRangeDisplayed={3}
-        //   onPageChange={handlePageClick}
-        containerClassName={'flex justify-center space-x-2 mt-6'}
-        pageClassName={'px-4 py-2 border rounded'}
-        activeClassName={'bg-blue-500 text-white'}
-        previousClassName={'px-4 py-2 border rounded bg-gray-200'}
-        nextClassName={'px-4 py-2 border rounded bg-gray-200'}
-        breakClassName={'px-4 py-2 border rounded bg-gray-200'}
-      />
-    </div>
+      {pageContent && (
+        <ReactPaginate
+          previousLabel={<PrevIcon className='transition-all ease-in-out group-hover:text-accent' />}
+          nextLabel={<NextIcon className='transition-all ease-in-out group-hover:text-accent' />}
+          breakLabel={'...'}
+          pageCount={Math.ceil(totalPosts / postsPerPage)}
+          onPageChange={handlePageClick}
+          //   pageCount={Math.ceil(totalPosts / postsPerPage)}
+          //   marginPagesDisplayed={2}
+          //   pageRangeDisplayed={3}
+          //   onPageChange={handlePageClick}
+          containerClassName={'flex justify-center space-x-2 mt-6'}
+          pageClassName={'w-8 h-8 p-2  rounded-full flex items-center justify-center'}
+          activeClassName={'bg-accent text-almost-white'}
+          previousClassName={
+            'w-8 h-8 p-2  rounded-full bg-almost-white flex items-center justify-center group cursor-pointer transition-all hover:bg-accent/10'
+          }
+          nextClassName={
+            'w-8 h-8 p-2  rounded-full bg-almost-white flex items-center justify-center group cursor-pointer transition-all hover:bg-accent/10'
+          }
+          breakClassName={'px-4 py-2  rounded bg-gray-200'}
+        />
+      )}
+    </section>
   );
 };
 
