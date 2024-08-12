@@ -5,7 +5,8 @@ import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 
 import { htmlToText } from 'html-to-text';
 import { UserLanguage } from '@/app/enums/LangEnum';
-import SpeedDial from '@/app/components/SpeedDial';
+import { ogImagesArchiveBlog } from '@/app/pathsUtils/mediaImportsDynamic';
+
 export async function generateMetadata({ params: { lang, id } }: { params: { lang: string; id: string } }) {
   const getIdFromSlug = (slug: string): string => {
     const parts = slug.split('-');
@@ -27,7 +28,9 @@ export async function generateMetadata({ params: { lang, id } }: { params: { lan
   const parseData = await getSingleBlog.json();
   const prepareDataForClient = parseData.data;
 
-  const fallbackOg = prepareDataForClient.blog.introBlog.thumbnail.node.sourceUrl;
+  const fallbackOg = prepareDataForClient.blog.introBlog.thumbnail
+    ? prepareDataForClient.blog.introBlog.thumbnail.node.sourceUrl
+    : ogImagesArchiveBlog.default;
   const languageField = blogLanguageFields[lang];
 
   const l = getSuffixFromLang(lang);
