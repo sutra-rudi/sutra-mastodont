@@ -55,7 +55,7 @@ export default async function BlogPage({ params: { lang } }: { params: { lang: s
 
   const categoriesDataShorthand = categoresRes.data.categories.edges;
 
-  // console.log('CAT', categoresRes);
+  console.log('CAT', categoresRes);
 
   console.log('BLOGS', dataShorthand.lenght);
 
