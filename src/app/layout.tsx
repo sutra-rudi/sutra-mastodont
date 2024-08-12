@@ -11,12 +11,10 @@ import '@uploadcare/blocks/web/lr-file-uploader-regular.min.css';
 import AppHeader from './globalComponents/AppHeader';
 import AppFooter from './globalComponents/AppFooter';
 import { Toaster } from 'react-hot-toast';
-import SpeedDial from './components/SpeedDial';
 import { Suspense } from 'react';
 import Loading from './loading';
 import { Providers } from './providers';
-
-// const inter = Inter({ subsets: ['latin'] });
+import { appleTouchIcons, favicons } from './pathsUtils/mediaImportsDynamic';
 
 const poppins = Poppins({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700'] });
 
@@ -28,8 +26,73 @@ export const metadata: Metadata = {
     {
       rel: 'icon',
       type: 'image/png',
+      sizes: '196x196',
+      url: favicons['196x196'],
+    },
+    {
+      rel: 'icon',
+      type: 'image/png',
+      sizes: '96x96',
+      url: favicons['96x96'],
+    },
+    {
+      rel: 'icon',
+      type: 'image/png',
       sizes: '32x32',
-      url: 'https://cms.sutra.hr/cms_sutra/Favicon/favicon-32x32.png',
+      url: favicons['32x32'],
+    },
+    {
+      rel: 'icon',
+      type: 'image/png',
+      sizes: '16x16',
+      url: favicons['16x16'],
+    },
+    {
+      rel: 'icon',
+      type: 'image/png',
+      sizes: '128x128',
+      url: favicons['128x128'],
+    },
+    // Apple Touch Icons
+    {
+      rel: 'apple-touch-icon',
+      sizes: '57x57',
+      url: appleTouchIcons['57x57'],
+    },
+    {
+      rel: 'apple-touch-icon',
+      sizes: '114x114',
+      url: appleTouchIcons['114x114'],
+    },
+    {
+      rel: 'apple-touch-icon',
+      sizes: '72x72',
+      url: appleTouchIcons['72x72'],
+    },
+    {
+      rel: 'apple-touch-icon',
+      sizes: '144x144',
+      url: appleTouchIcons['144x144'],
+    },
+    {
+      rel: 'apple-touch-icon',
+      sizes: '60x60',
+      url: appleTouchIcons['60x60'],
+    },
+    {
+      rel: 'apple-touch-icon',
+      sizes: '120x120',
+      url: appleTouchIcons['120x120'],
+    },
+    {
+      rel: 'apple-touch-icon',
+      sizes: '76x76',
+      url: appleTouchIcons['76x76'],
+    },
+    {
+      rel: 'apple-touch-icon',
+      sizes: '152x152',
+      url: appleTouchIcons['152x152'],
     },
   ],
 };
