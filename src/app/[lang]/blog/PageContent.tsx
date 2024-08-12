@@ -26,11 +26,13 @@ const PageContent = ({ pageContent, totalPosts, adminSetup, lang, catList }: Blo
   const [filteredPosts, setFilteredPosts] = useState(pageContent);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState(''); // State za pretraživanje
-
+  console.log('ADMIN SETUP', adminSetup);
   const postsPerPage = Number(adminSetup.archiveItemsNumberOnSinglePage[0]);
   const offset = currentPage * postsPerPage;
 
   const l = getSuffixFromLang(lang);
+
+  console.log('POST PER PAGE', postsPerPage);
 
   // Filtriranje postova prema kategoriji i unosu pretraživanja
   const filteredAndSearchedPosts = useMemo(() => {

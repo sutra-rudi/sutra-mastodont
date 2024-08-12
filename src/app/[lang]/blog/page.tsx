@@ -12,7 +12,7 @@ export default async function BlogPage({ params: { lang } }: { params: { lang: s
     body: JSON.stringify({
       query: getAllBlogsQuery(lang),
     }),
-    // cache: 'no-cache',
+    cache: 'no-cache',
   });
 
   const res = await getAllBlogs.json();
@@ -29,7 +29,7 @@ export default async function BlogPage({ params: { lang } }: { params: { lang: s
     body: JSON.stringify({
       query: getAdminBlogArchiveSettingsQuery(),
     }),
-    // cache: 'no-cache',
+    cache: 'no-cache',
   });
 
   const settingsRes = await getAdminBlogArchiveSettings.json();
@@ -48,7 +48,7 @@ export default async function BlogPage({ params: { lang } }: { params: { lang: s
     body: JSON.stringify({
       query: getCategoriesQuery(lang),
     }),
-    // cache: 'no-cache',
+    cache: 'no-cache',
   });
 
   const categoresRes = await getAllCategories.json();
@@ -56,6 +56,8 @@ export default async function BlogPage({ params: { lang } }: { params: { lang: s
   const categoriesDataShorthand = categoresRes.data.categories.edges;
 
   // console.log('CAT', categoresRes);
+
+  console.log('BLOGS', dataShorthand.lenght);
 
   return (
     <main>
