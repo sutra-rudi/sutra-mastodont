@@ -25,18 +25,44 @@ const PageContent = ({ pageContent, totalPosts, adminSetup, lang, catList }: Blo
   const [currentPage, setCurrentPage] = useState(0);
   const [filteredPosts, setFilteredPosts] = useState(pageContent);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const [searchQuery, setSearchQuery] = useState(''); // State za pretraživanje
-  console.log('ADMIN SETUP', adminSetup);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [sortAlphabetically, setSortAlphabetically] = useState<string>(''); // State za abecedno sortiranje
+  const [sortByDate, setSortByDate] = useState<string>(''); // State za sortiranje po datumu
+
   const postsPerPage = Number(adminSetup.archiveItemsNumberOnSinglePage[0]);
   const offset = currentPage * postsPerPage;
 
   const l = getSuffixFromLang(lang);
 
-  console.log('POST PER PAGE', postsPerPage);
+  // Sortiranje postova abecedno
+  const alphabeticallySortedPosts = useMemo(() => {
+    let postsToSort = [...filteredPosts];
+    if (sortAlphabetically === 'az') {
+      postsToSort.sort((a, b) => {
+        const titleA = a.node[blogLanguageFields[lang]]?.[`naslovSadrzaj${l}`]?.toLowerCase();
+        const titleB = b.node[blogLanguageFields[lang]]?.[`naslovSadrzaj${l}`]?.toLowerCase();
+        return titleA > titleB ? 1 : -1;
+      });
+    }
+    return postsToSort;
+  }, [sortAlphabetically, filteredPosts, lang, l]);
+
+  // Sortiranje postova po datumu
+  const dateSortedPosts = useMemo(() => {
+    let postsToSort = [...alphabeticallySortedPosts];
+    if (sortByDate === 'date') {
+      postsToSort.sort((a, b) => {
+        const dateA = dayjs(a.node.introBlog.datum);
+        const dateB = dayjs(b.node.introBlog.datum);
+        return dateB.diff(dateA);
+      });
+    }
+    return postsToSort;
+  }, [sortByDate, alphabeticallySortedPosts]);
 
   // Filtriranje postova prema kategoriji i unosu pretraživanja
   const filteredAndSearchedPosts = useMemo(() => {
-    return filteredPosts.filter((item) => {
+    return dateSortedPosts.filter((item) => {
       const title = item.node[blogLanguageFields[lang]]?.[`naslovSadrzaj${l}`] ?? '';
       const content = item.node[blogLanguageFields[lang]]?.[`sadrzajSadrzaj${l}`] ?? '';
       return (
@@ -44,7 +70,7 @@ const PageContent = ({ pageContent, totalPosts, adminSetup, lang, catList }: Blo
         content.toLowerCase().includes(searchQuery.toLowerCase())
       );
     });
-  }, [searchQuery, filteredPosts, lang, l]);
+  }, [searchQuery, dateSortedPosts, lang, l]);
 
   const currentPosts = useMemo(
     () => filteredAndSearchedPosts.slice(offset, offset + postsPerPage),
@@ -67,7 +93,7 @@ const PageContent = ({ pageContent, totalPosts, adminSetup, lang, catList }: Blo
     } else {
       setFilteredPosts(pageContent);
     }
-    setCurrentPage(0); // Resetiranje paginacije na prvu stranicu
+    setCurrentPage(0);
   };
 
   const CategoryTaxonomy = () => {
@@ -118,8 +144,8 @@ const PageContent = ({ pageContent, totalPosts, adminSetup, lang, catList }: Blo
             className='w-full h-48 object-cover object-center'
             onError={(e) => {
               const target = e.target as HTMLImageElement;
-              target.src = 'https://placehold.co/400.png'; // Promjena izvora slike
-              target.onerror = null; // Sprječava beskonačnu petlju
+              target.src = 'https://placehold.co/400.png';
+              target.onerror = null;
             }}
           />
         </picture>
@@ -142,22 +168,46 @@ const PageContent = ({ pageContent, totalPosts, adminSetup, lang, catList }: Blo
         />
       </div>
 
+      {/* Polje za sortiranje abecedno */}
+      <div className='max-w-[1440px] mx-auto my-4 flex gap-4'>
+        <select
+          value={sortAlphabetically}
+          onChange={(e) => {
+            setSortAlphabetically(e.target.value);
+            setCurrentPage(0);
+          }}
+          className='px-4 py-2 border border-accent/15 rounded transition-all ease-in-out focus:border-accent focus:ring-1 focus:ring-accent focus:outline-none'
+        >
+          <option value=''>Sortiraj abecedno...</option>
+          <option value='az'>Abecedno (A-Z)</option>
+        </select>
+
+        {/* Polje za sortiranje po datumu */}
+        <select
+          value={sortByDate}
+          onChange={(e) => {
+            setSortByDate(e.target.value);
+            setCurrentPage(0);
+          }}
+          className='px-4 py-2 border border-accent/15 rounded transition-all ease-in-out focus:border-accent focus:ring-1 focus:ring-accent focus:outline-none'
+        >
+          <option value=''>Sortiraj po datumu...</option>
+          <option value='date'>Po datumu</option>
+        </select>
+      </div>
+
       <div className='max-w-[1440px] mx-auto my-8 grid grid-cols-4 gap-4 '>
         {currentPosts.map((blogContent: any, index: number) => {
           const contentShorthand = blogContent.node;
           const contentCardShorthand = contentShorthand.introBlog;
           const languageField = blogLanguageFields[lang];
           const introField = contentShorthand[languageField]?.[`kratkiUvodniTekstSadrzaj${l}`];
-
           const las = `naslovSadrzaj${lang === UserLanguage.eng ? `Sadrzaj${l}` : `${l}`}`;
 
           const authorField = contentShorthand.author.node;
           const tags = contentShorthand[`tags${l}`]?.[`tagText${l}`];
-
           const tagsField = tags ? tags.split(', ') : [];
-
           const contentField = contentShorthand[languageField]?.[`sadrzajSadrzaj${l}`];
-
           const categoryField = contentCardShorthand.kategorija.edges.map((noda: any) => {
             return {
               catName: noda.node.informacijeKategorije
@@ -172,7 +222,7 @@ const PageContent = ({ pageContent, totalPosts, adminSetup, lang, catList }: Blo
 
           const imgSource = contentCardShorthand.thumbnail
             ? contentCardShorthand.thumbnail.node.sourceUrl
-            : 'https://placehold.co/400.png';
+            : contentCardShorthand.naslovnaSlika.node.sourceUrl;
 
           const readTime = readingTime(contentField);
 
