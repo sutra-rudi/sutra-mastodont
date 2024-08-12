@@ -11,6 +11,7 @@ import ReactPaginate from 'react-paginate';
 import { readingTime } from 'reading-time-estimator';
 import slugify from 'slugify';
 import { FaChevronLeft as PrevIcon, FaChevronRight as NextIcon } from 'react-icons/fa6';
+import { heroImagesArchiveBlog } from '@/app/pathsUtils/mediaImportsDynamic';
 
 interface BlogArchivePage {
   pageContent: any[];
@@ -138,7 +139,7 @@ const PageContent = ({ pageContent, totalPosts, adminSetup, lang, catList }: Blo
       <div className='w-full'>
         <picture className='w-full'>
           <img
-            src='https://cms.sutra.hr/cms_sutra/Hero_images_database/CMS_Archive_Blog_Hero_Image.jpg'
+            src={heroImagesArchiveBlog.desktop}
             alt=''
             className='w-full h-48 object-cover object-center'
             onError={(e) => {

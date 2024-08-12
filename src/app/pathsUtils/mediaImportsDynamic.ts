@@ -236,8 +236,8 @@ export const heroImagesAmenities = {
 };
 
 export const heroImagesArchiveBlog = {
-  mobile: `${basePath}/Hero_images_database/CMS_Archive_Blog__Hero_image-mobile.jpg`,
-  desktop: `${basePath}/Hero_images_database/CMS_Archive_Blog__Hero_Image.jpg`,
+  mobile: `${basePath}/Hero_images_database/CMS_Archive_Blog_Hero_image-mobile.jpg`,
+  desktop: `${basePath}/Hero_images_database/CMS_Archive_Blog_Hero_Image.jpg`,
 };
 
 export const heroImagesArchiveNews = {
