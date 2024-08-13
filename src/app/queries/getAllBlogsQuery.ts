@@ -57,6 +57,7 @@ export const getAllBlogsQuery = (lang: string) => {
             introBlog {
               datum
               istaknutoNaNaslovnici
+              statusBloga
               kategorija {
                 edges {
                   node {
