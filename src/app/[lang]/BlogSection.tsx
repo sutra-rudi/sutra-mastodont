@@ -26,7 +26,7 @@ const BlogSection = ({ pageContent, lang, categoriesList, tagsList, blogCtaKey, 
 
   const [blogCta, setBlogCta] = React.useState<string>('');
 
-  console.log('CTA KLJUCE', blogCtaKey);
+  console.log('BLOG CONTENT', pageContent);
 
   const l = getSuffixFromLang(lang);
 

@@ -12,7 +12,6 @@ import { readingTime } from 'reading-time-estimator';
 import slugify from 'slugify';
 import { FaChevronLeft as PrevIcon, FaChevronRight as NextIcon } from 'react-icons/fa6';
 import { heroImagesArchiveBlog } from '@/app/pathsUtils/mediaImportsDynamic';
-import Lottie from 'lottie-react';
 
 interface BlogArchivePage {
   pageContent: any[];
@@ -96,29 +95,6 @@ const PageContent = ({ pageContent, totalPosts, adminSetup, lang, catList, lotti
     setCurrentPage(0);
   };
 
-  // const [animationData, setAnimationData] = useState(null);
-
-  // React.useEffect(() => {
-  //   const fetchAnimation = async () => {
-  //     try {
-  //       const response = await fetch('https://cms.sutra.hr/cms_sutra/Lottie/hvar-lottie.json', {});
-
-  //       console.log('RESPONS', response);
-  //       if (response.ok) {
-  //         const json = await response.json();
-  //         // setAnimationData(json);
-  //         console.log('RESPONSE', json);
-  //       } else {
-  //         console.error('Error fetching Lottie animation:', response);
-  //       }
-  //     } catch (error) {
-  //       console.error('Error fetching Lottie animation:', error);
-  //     }
-  //   };
-
-  //   fetchAnimation();
-  // }, []);
-
   const CategoryTaxonomy = () => {
     const categoryName = `imeKategorije${l}`;
 
@@ -162,9 +138,6 @@ const PageContent = ({ pageContent, totalPosts, adminSetup, lang, catList, lotti
 
   return (
     <section>
-      {/* <div className=''>{animationData && <Lottie animationData={animationData} />}</div> */}
-
-      {/* {lottieData && <Lottie animationData={lottieData} />} */}
       <div className='w-full'>
         <picture className='w-full'>
           <img
