@@ -105,7 +105,7 @@ const AppHeader = () => {
   const handleLangSwitch = (where: string) => {
     router.replace(where);
 
-    router.refresh();
+    // router.refresh();
   };
 
   return (

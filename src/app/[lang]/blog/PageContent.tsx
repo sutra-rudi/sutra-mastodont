@@ -164,7 +164,7 @@ const PageContent = ({ pageContent, totalPosts, adminSetup, lang, catList, lotti
     <section>
       {/* <div className=''>{animationData && <Lottie animationData={animationData} />}</div> */}
 
-      {lottieData && <Lottie animationData={lottieData} />}
+      {/* {lottieData && <Lottie animationData={lottieData} />} */}
       <div className='w-full'>
         <picture className='w-full'>
           <img
