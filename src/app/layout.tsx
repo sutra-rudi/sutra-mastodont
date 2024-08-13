@@ -117,7 +117,7 @@ export default async function RootLayout({
 
   const adminTokenData = await getAllTokens.json();
 
-  const adminTokenDataShorthand = adminTokenData.data.kodoviApitokenStylebox.edges[0];
+  const adminTokenDataShorthand = adminTokenData.data.kodoviApitokenStylebox.edges[0].node;
 
   // console.log('ADMIN TOK', adminTokenData.data.kodoviApitokenStylebox.edges[0]);
 
