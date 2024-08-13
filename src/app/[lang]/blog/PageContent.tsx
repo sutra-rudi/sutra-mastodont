@@ -12,6 +12,7 @@ import { readingTime } from 'reading-time-estimator';
 import slugify from 'slugify';
 import { FaChevronLeft as PrevIcon, FaChevronRight as NextIcon } from 'react-icons/fa6';
 import { heroImagesArchiveBlog } from '@/app/pathsUtils/mediaImportsDynamic';
+import Lottie from 'lottie-react';
 
 interface BlogArchivePage {
   pageContent: any[];
@@ -19,9 +20,10 @@ interface BlogArchivePage {
   adminSetup: any;
   lang: any;
   catList: any[];
+  lottieData: any;
 }
 
-const PageContent = ({ pageContent, totalPosts, adminSetup, lang, catList }: BlogArchivePage) => {
+const PageContent = ({ pageContent, totalPosts, adminSetup, lang, catList, lottieData }: BlogArchivePage) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
@@ -31,6 +33,7 @@ const PageContent = ({ pageContent, totalPosts, adminSetup, lang, catList }: Blo
   const postsPerPage = Number(adminSetup.archiveItemsNumberOnSinglePage[0]);
   const offset = currentPage * postsPerPage;
 
+  console.log('LOTTIE DATA', lottieData);
   const l = getSuffixFromLang(lang);
 
   // Filtriranje i sortiranje postova
@@ -93,6 +96,29 @@ const PageContent = ({ pageContent, totalPosts, adminSetup, lang, catList }: Blo
     setCurrentPage(0);
   };
 
+  // const [animationData, setAnimationData] = useState(null);
+
+  // React.useEffect(() => {
+  //   const fetchAnimation = async () => {
+  //     try {
+  //       const response = await fetch('https://cms.sutra.hr/cms_sutra/Lottie/hvar-lottie.json', {});
+
+  //       console.log('RESPONS', response);
+  //       if (response.ok) {
+  //         const json = await response.json();
+  //         // setAnimationData(json);
+  //         console.log('RESPONSE', json);
+  //       } else {
+  //         console.error('Error fetching Lottie animation:', response);
+  //       }
+  //     } catch (error) {
+  //       console.error('Error fetching Lottie animation:', error);
+  //     }
+  //   };
+
+  //   fetchAnimation();
+  // }, []);
+
   const CategoryTaxonomy = () => {
     const categoryName = `imeKategorije${l}`;
 
@@ -136,6 +162,9 @@ const PageContent = ({ pageContent, totalPosts, adminSetup, lang, catList }: Blo
 
   return (
     <section>
+      {/* <div className=''>{animationData && <Lottie animationData={animationData} />}</div> */}
+
+      {lottieData && <Lottie animationData={lottieData} />}
       <div className='w-full'>
         <picture className='w-full'>
           <img

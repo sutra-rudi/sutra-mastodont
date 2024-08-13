@@ -15,6 +15,8 @@ import { Suspense } from 'react';
 import Loading from './loading';
 import { Providers } from './providers';
 import { appleTouchIcons, favicons } from './pathsUtils/mediaImportsDynamic';
+import { getAdminTokensQuery } from './queries/getAdminTokens';
+import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google';
 
 const poppins = Poppins({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700'] });
 
@@ -97,17 +99,40 @@ export const metadata: Metadata = {
   ],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const getAllTokens = await fetch(`${process.env.CMS_BASE_URL}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      query: getAdminTokensQuery(),
+    }),
+    cache: 'no-cache',
+  });
+
+  const adminTokenData = await getAllTokens.json();
+
+  const adminTokenDataShorthand = adminTokenData.data.kodoviApitokenStylebox.edges[0];
+
+  // console.log('ADMIN TOK', adminTokenData.data.kodoviApitokenStylebox.edges[0]);
+
   return (
     <html
       lang='en'
       className='scrollbar scrollbar-thumb-primary-light dark:scrollbar-thumb-primary-dark  scrollbar-track-primary-dark dark:scrollbar-track-primary-light '
     >
       <body className={poppins.className}>
+        {adminTokenDataShorthand.kodoviAdminApi.googleAnalytics && (
+          <GoogleAnalytics gaId={adminTokenDataShorthand.kodoviAdminApi.googleAnalytics} />
+        )}
+        {adminTokenDataShorthand.kodoviAdminApi.googleTagManager && (
+          <GoogleTagManager gtmId={adminTokenDataShorthand.kodoviAdminApi.googleTagManager} />
+        )}
         <Suspense fallback={<Loading />}>
           <AppHeader />
           <Toaster />

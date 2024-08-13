@@ -59,6 +59,27 @@ export default async function BlogPage({ params: { lang } }: { params: { lang: s
 
   console.log('BLOGS', dataShorthand.lenght);
 
+  const fetchAnimation = async () => {
+    try {
+      const response = await fetch('https://cms.sutra.hr/cms_sutra/Lottie/alkar-lottie/alkar2_1200px.json', {});
+
+      console.log('RESPONS', response);
+      if (response.ok) {
+        const json = await response.json();
+        // setAnimationData(json);
+        console.log('RESPONSE', json);
+
+        return json;
+      } else {
+        console.error('Error fetching Lottie animation:', response);
+      }
+    } catch (error) {
+      console.error('Error fetching Lottie animation:', error);
+    }
+  };
+
+  const lottieTest = await fetchAnimation();
+
   return (
     <main>
       <PageContent
@@ -67,6 +88,7 @@ export default async function BlogPage({ params: { lang } }: { params: { lang: s
         adminSetup={settingsDataShorthand}
         catList={categoriesDataShorthand}
         lang={lang}
+        lottieData={lottieTest}
       />
     </main>
   );

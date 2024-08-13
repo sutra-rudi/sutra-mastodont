@@ -103,9 +103,9 @@ const AppHeader = () => {
   }, [isMobileMenuOpen]);
 
   const handleLangSwitch = (where: string) => {
-    router.push(where);
+    router.replace(where);
 
-    // router.refresh();
+    router.refresh();
   };
 
   return (
