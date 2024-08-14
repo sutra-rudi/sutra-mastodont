@@ -20,9 +20,11 @@ interface BlogArchivePage {
   lang: any;
   catList: any[];
   lottieData: any;
+  currentLandingTag: string | null;
 }
 
-const PageContent = ({ pageContent, totalPosts, adminSetup, lang, catList, lottieData }: BlogArchivePage) => {
+const PageContent = ({ pageContent, adminSetup, lang, catList, currentLandingTag }: BlogArchivePage) => {
+  console.log('KURENT', currentLandingTag);
   const [currentPage, setCurrentPage] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
@@ -39,6 +41,13 @@ const PageContent = ({ pageContent, totalPosts, adminSetup, lang, catList, lotti
   const processedPosts = useMemo(() => {
     let posts = [...pageContent];
 
+    if (currentLandingTag) {
+      posts = posts.filter((post: any) => {
+        const postTags =
+          post.node.introBlog.tag && post.node.introBlog.tag.edges.map((edge: any) => slugify(edge.node.name));
+        return postTags && postTags.includes(currentLandingTag);
+      });
+    }
     // Filtriranje prema pretrazi
     if (adminSetup.activateSearchBar && searchQuery) {
       posts = posts.filter((item: any) => {

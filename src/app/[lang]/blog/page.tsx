@@ -93,6 +93,7 @@ export default async function BlogPage({
         catList={categoriesDataShorthand}
         lang={lang}
         lottieData={lottieTest}
+        currentLandingTag={tag}
       />
     </main>
   );
