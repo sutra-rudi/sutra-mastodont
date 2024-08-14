@@ -111,7 +111,7 @@ const PageContent = ({ pageContent, adminSetup, lang, catList, currentLandingTag
 
   const handleCloseTag = () => {
     const urlWithoutTag = window.location.pathname; // Uklanjanje query stringa
-    router.replace(urlWithoutTag); // Shallow routing kako bi se izbeglo ponovno učitavanje
+    router.push(urlWithoutTag); // Shallow routing kako bi se izbeglo ponovno učitavanje
 
     setCurrentActiveTag(null);
   };
