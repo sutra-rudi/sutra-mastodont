@@ -13,6 +13,7 @@ import slugify from 'slugify';
 import { FaChevronLeft as PrevIcon, FaChevronRight as NextIcon } from 'react-icons/fa6';
 import { heroImagesArchiveBlog } from '@/app/pathsUtils/mediaImportsDynamic';
 import { FaTag as TagIcon } from 'react-icons/fa6';
+import { useRouter } from 'next/navigation';
 
 interface BlogArchivePage {
   pageContent: any[];
@@ -38,7 +39,7 @@ const PageContent = ({ pageContent, adminSetup, lang, catList, currentLandingTag
 
   console.log('pageCONTENT', pageContent);
   const l = getSuffixFromLang(lang);
-
+  const router = useRouter();
   // Filtriranje i sortiranje postova
   const processedPosts = useMemo(() => {
     let posts = [...pageContent];
@@ -108,7 +109,12 @@ const PageContent = ({ pageContent, adminSetup, lang, catList, currentLandingTag
     [offset, postsPerPage, processedPosts]
   );
 
-  const handleCloseTag = () => setCurrentActiveTag(null);
+  const handleCloseTag = () => {
+    const urlWithoutTag = window.location.pathname; // Uklanjanje query stringa
+    router.replace(urlWithoutTag); // Shallow routing kako bi se izbeglo ponovno učitavanje
+
+    setCurrentActiveTag(null);
+  };
 
   const handlePageClick = (event: { selected: number }) => {
     setCurrentPage(event.selected);
