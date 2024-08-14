@@ -32,7 +32,7 @@ const PageContent = ({ pageContent, totalPosts, adminSetup, lang, catList, lotti
   const postsPerPage = Number(adminSetup.archiveItemsNumberOnSinglePage[0]);
   const offset = currentPage * postsPerPage;
 
-  console.log('LOTTIE DATA', lottieData);
+  console.log('pageCONTENT', pageContent);
   const l = getSuffixFromLang(lang);
 
   // Filtriranje i sortiranje postova

@@ -58,6 +58,14 @@ export const getAllBlogsQuery = (lang: string) => {
               datum
               istaknutoNaNaslovnici
               statusBloga
+          tag {
+            edges {
+              node {
+                id
+                name
+              }
+            }
+          }
               kategorija {
                 edges {
                   node {

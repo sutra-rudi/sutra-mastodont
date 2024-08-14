@@ -3,7 +3,15 @@ import PageContent from './PageContent';
 import { getAdminBlogArchiveSettingsQuery } from '@/app/queries/getAdminBlogArchiveSettings';
 import { getCategoriesQuery } from '@/app/queries/getAllBlogCategoriesQuery';
 
-export default async function BlogPage({ params: { lang } }: { params: { lang: string } }) {
+export default async function BlogPage({
+  params: { lang },
+  searchParams: { tag },
+}: {
+  params: { lang: string };
+  searchParams: { tag: string };
+}) {
+  console.log('TAGGGG', tag);
+
   const getAllBlogs = await fetch(`${process.env.CMS_BASE_URL}`, {
     method: 'POST',
     headers: {
@@ -54,10 +62,6 @@ export default async function BlogPage({ params: { lang } }: { params: { lang: s
   const categoresRes = await getAllCategories.json();
 
   const categoriesDataShorthand = categoresRes.data.categories.edges;
-
-  console.log('CAT', categoresRes);
-
-  console.log('BLOGS', dataShorthand.lenght);
 
   const fetchAnimation = async () => {
     try {
