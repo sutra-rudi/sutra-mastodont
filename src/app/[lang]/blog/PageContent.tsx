@@ -12,6 +12,7 @@ import { readingTime } from 'reading-time-estimator';
 import slugify from 'slugify';
 import { FaChevronLeft as PrevIcon, FaChevronRight as NextIcon } from 'react-icons/fa6';
 import { heroImagesArchiveBlog } from '@/app/pathsUtils/mediaImportsDynamic';
+import { FaTag as TagIcon } from 'react-icons/fa6';
 
 interface BlogArchivePage {
   pageContent: any[];
@@ -31,6 +32,7 @@ const PageContent = ({ pageContent, adminSetup, lang, catList, currentLandingTag
   const [sortAlphabetically, setSortAlphabetically] = useState<string>('');
   const [sortByDate, setSortByDate] = useState<string>('');
 
+  const [currentActiveTag, setCurrentActiveTag] = React.useState<string | null>(currentLandingTag);
   const postsPerPage = Number(adminSetup.archiveItemsNumberOnSinglePage[0]);
   const offset = currentPage * postsPerPage;
 
@@ -41,7 +43,7 @@ const PageContent = ({ pageContent, adminSetup, lang, catList, currentLandingTag
   const processedPosts = useMemo(() => {
     let posts = [...pageContent];
 
-    if (currentLandingTag) {
+    if (currentActiveTag) {
       posts = posts.filter((post: any) => {
         const postTags =
           post.node.introBlog.tag && post.node.introBlog.tag.edges.map((edge: any) => slugify(edge.node.name));
@@ -87,13 +89,26 @@ const PageContent = ({ pageContent, adminSetup, lang, catList, currentLandingTag
     }
 
     return posts;
-  }, [searchQuery, selectedCategory, sortAlphabetically, sortByDate, pageContent, lang, l, adminSetup]);
+  }, [
+    searchQuery,
+    selectedCategory,
+    sortAlphabetically,
+    sortByDate,
+    pageContent,
+    lang,
+    l,
+    adminSetup,
+    currentActiveTag,
+    currentLandingTag,
+  ]);
 
   // Odabir trenutnih postova za prikaz na osnovu stranice
   const currentPosts = useMemo(
     () => processedPosts.slice(offset, offset + postsPerPage),
     [offset, postsPerPage, processedPosts]
   );
+
+  const handleCloseTag = () => setCurrentActiveTag(null);
 
   const handlePageClick = (event: { selected: number }) => {
     setCurrentPage(event.selected);
@@ -211,6 +226,23 @@ const PageContent = ({ pageContent, adminSetup, lang, catList, currentLandingTag
           </select>
         )}
       </div>
+
+      {currentLandingTag && (
+        <div className='max-w-[1440px] mx-auto my-8'>
+          <div className='flex items-center justify-start gap-1 rounded-sutraCardTagBorderRadius border max-w-max px-2 py-1 border-accent/50'>
+            <TagIcon />
+            <p className='flex gap-4 items-center'>
+              {currentLandingTag}
+              <span
+                onClick={handleCloseTag}
+                className='transition-all cursor-pointer hover:scale-110 opacity-20 hover:opacity-100'
+              >
+                X
+              </span>
+            </p>
+          </div>
+        </div>
+      )}
 
       <div className='max-w-[1440px] mx-auto my-8 grid grid-cols-4 gap-4'>
         {currentPosts.map((blogContent: any, index: number) => {
