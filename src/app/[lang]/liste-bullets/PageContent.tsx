@@ -29,8 +29,6 @@ const PageContent = ({ pageContent, lang }: ListePageContent) => {
                 {triageOfIcons !== 'Brojevi' ? (
                   <ul className='flex items-start flex-col gap-2 appearance-none'>
                     {listaContent.map((list: any, index: number) => {
-                      //   console.log();
-
                       const imgShorthand = nodeCont.node.ikona.svgListIcon
                         ? nodeCont.node.ikona.svgListIcon.node.sourceUrl
                         : null;
@@ -49,9 +47,22 @@ const PageContent = ({ pageContent, lang }: ListePageContent) => {
                     })}
                   </ul>
                 ) : (
-                  <ol className='appearance-auto list-decimal'>
+                  <ol className='appearance-none flex items-start flex-col gap-2'>
                     {listaContent.map((list: any, index: number) => {
-                      return <li key={index}>{list}</li>;
+                      const clr = nodeCont.node.ikona.odabirBojeZaDefaultIkone;
+                      console.log('KOLOR', clr);
+                      return (
+                        <li key={index} className='flex items-center justify-start gap-3'>
+                          <span
+                            className={`${
+                              clr[0] === 'error-boja' && 'bg-error'
+                            } rounded-full w-6 h-6  flex items-center justify-center`}
+                          >
+                            {index + 1}
+                          </span>{' '}
+                          {list}
+                        </li>
+                      );
                     })}
                   </ol>
                 )}
