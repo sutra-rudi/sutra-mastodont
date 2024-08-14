@@ -12,6 +12,7 @@ import { FaTag as TagIcon } from 'react-icons/fa6';
 import { ArticleCardFullImage, ArticleCardMiniCard, ArticleCardTextCard } from '../components/ArticleCardAlt';
 import { getRecords } from '../lib/airtable';
 import { useRouter } from 'next/navigation';
+import { heroImagesArchiveBlog } from '../pathsUtils/mediaImportsDynamic';
 
 interface BlogSection {
   pageContent: any;
@@ -170,11 +171,15 @@ const BlogSection = ({ pageContent, lang, categoriesList, tagsList, blogCtaKey, 
 
             const imgSource = contentCardShorthand.thumbnail
               ? contentCardShorthand.thumbnail.node.sourceUrl
-              : 'https://placehold.co/400.png';
+              : contentCardShorthand.naslovnaSlika
+              ? contentCardShorthand.naslovnaSlika.node.sourceUrl
+              : heroImagesArchiveBlog.desktop;
 
             const hoverImgSource = contentCardShorthand.naslovnaSlika
               ? contentCardShorthand.naslovnaSlika.node.sourceUrl
-              : 'https://placehold.co/400.png';
+              : contentCardShorthand.naslovnaSlika
+              ? contentCardShorthand.naslovnaSlika.node.sourceUrl
+              : heroImagesArchiveBlog.desktop;
 
             const readTime = readingTime(contentField);
 
@@ -253,12 +258,15 @@ const BlogSection = ({ pageContent, lang, categoriesList, tagsList, blogCtaKey, 
 
               const imgSource = contentCardShorthand.thumbnail
                 ? contentCardShorthand.thumbnail.node.sourceUrl
-                : 'https://placehold.co/400.png';
+                : contentCardShorthand.naslovnaSlika
+                ? contentCardShorthand.naslovnaSlika.node.sourceUrl
+                : heroImagesArchiveBlog.desktop;
 
               const hoverImgSource = contentCardShorthand.naslovnaSlika
                 ? contentCardShorthand.naslovnaSlika.node.sourceUrl
-                : 'https://placehold.co/400.png';
-
+                : contentCardShorthand.naslovnaSlika
+                ? contentCardShorthand.naslovnaSlika.node.sourceUrl
+                : heroImagesArchiveBlog.desktop;
               const readTime = readingTime(contentField);
 
               const isActivatedOnLang: boolean = contentShorthand.statusAtivacijePoJezicima[`aktivator${l}`];

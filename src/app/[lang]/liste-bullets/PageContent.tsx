@@ -20,7 +20,7 @@ const PageContent = ({ pageContent, lang }: ListePageContent) => {
             const contentFieldMaster = `lista${l}`;
             const contentField = nodeCont.node[contentFieldMaster][`listaSadrzaj${l}`];
             const listaContent = contentField.split('\r\n');
-            // console.log('KOO', contentField.split('\r\n'));
+
             const triageOfIcons = nodeCont.node.ikona.odabirIkoneKojaSePrikazujeNaListi[0];
             return (
               <div key={nodeCont.node.title}>
