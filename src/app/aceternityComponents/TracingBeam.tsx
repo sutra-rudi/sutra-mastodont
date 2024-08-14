@@ -47,32 +47,26 @@ export const TracingBeam = ({ children, className }: { children: React.ReactNode
               delay: 0.5,
             }}
             animate={{
-              backgroundColor: scrollYProgress.get() > 0 ? 'white' : '#8B9554', // Updated background color
-              borderColor: scrollYProgress.get() > 0 ? 'white' : '#8B9554', // Updated border color
+              backgroundColor: scrollYProgress.get() > 0 ? 'white' : '#8B9554',
+              borderColor: scrollYProgress.get() > 0 ? 'white' : '#8B9554',
             }}
             className='h-2 w-2 rounded-full border border-neutral-300 bg-white'
           />
         </motion.div>
-        <svg
-          viewBox={`0 0 20 ${svgHeight}`}
-          width='20'
-          height={svgHeight} // Set the SVG height
-          className='ml-4 block'
-          aria-hidden='true'
-        >
+        <svg viewBox={`0 0 20 ${svgHeight}`} width='20' height={svgHeight} className='ml-4 block' aria-hidden='true'>
           <motion.path
-            d={`M 10 0 V ${svgHeight}`} // Vertical line from top to bottom
+            d={`M 10 0 V ${svgHeight}`}
             fill='none'
-            stroke='#8B9554' // Updated color for static line
+            stroke='#8B9554'
             strokeOpacity='0.16'
             transition={{
               duration: 10,
             }}
           ></motion.path>
           <motion.path
-            d={`M 10 0 V ${svgHeight}`} // Vertical line from top to bottom
+            d={`M 10 0 V ${svgHeight}`}
             fill='none'
-            stroke='url(#gradient)' // Gradient stroke
+            stroke='url(#gradient)'
             strokeWidth='1.25'
             className='motion-reduce:hidden'
             transition={{
@@ -80,18 +74,11 @@ export const TracingBeam = ({ children, className }: { children: React.ReactNode
             }}
           ></motion.path>
           <defs>
-            <motion.linearGradient
-              id='gradient'
-              gradientUnits='userSpaceOnUse'
-              x1='0'
-              x2='0'
-              y1={y1} // set y1 for gradient
-              y2={y2} // set y2 for gradient
-            >
-              <stop stopColor='#8B9554' stopOpacity='0'></stop> // Gradient start color
-              <stop stopColor='#8B9554'></stop> // Gradient stop color
-              <stop offset='0.325' stopColor='#8B9554'></stop> // Updated gradient color
-              <stop offset='1' stopColor='#8B9554' stopOpacity='0'></stop> // Updated gradient color
+            <motion.linearGradient id='gradient' gradientUnits='userSpaceOnUse' x1='0' x2='0' y1={y1} y2={y2}>
+              <stop stopColor='#8B9554' stopOpacity='0'></stop>
+              <stop stopColor='#8B9554'></stop>
+              <stop offset='0.325' stopColor='#8B9554'></stop>
+              <stop offset='1' stopColor='#8B9554' stopOpacity='0'></stop>
             </motion.linearGradient>
           </defs>
         </svg>
