@@ -200,7 +200,7 @@ const ArticleCard = ({
                         <img
                           src={author.avatar.url}
                           alt='profile pic of author'
-                          className='w-10 h-10 object-cover object-center block aspect-square'
+                          className='w-10 h-10 object-cover object-center block aspect-square rounded-full'
                         />
                       </picture>
                     )}
