@@ -48,7 +48,7 @@ const ArticleCard = ({
     <article
       className={`w-full bg-white shadow dark:bg-almost-black dark:border-gray-700 ${
         isHorizontal ? 'max-w-[824px] h-auto flex' : 'max-w-[408px] h-full'
-      } group overflow-hidden`}
+      } group overflow-hidden max-h-[345px]`}
     >
       <div className={`${isHorizontal ? 'flex w-full place-content-stretch items-stretch h-full' : 'block'}`}>
         <a href={url} className={`${isHorizontal ? 'w-full h-full max-w-[408px] flex flex-col' : 'flex-1 w-full'}`}>
@@ -58,7 +58,7 @@ const ArticleCard = ({
               <picture className='w-full h-full flex-1  shrink-0'>
                 <img
                   className={`w-full object-cover object-center block ${
-                    isHorizontal ? 'aspect-[9/16] h-full' : 'aspect-video min-h-[245px]'
+                    isHorizontal ? 'aspect-square h-full' : 'aspect-video min-h-[145px]'
                   } ${isHorizontal ? '' : 'group-hover:scale-125 transition-all ease-out duration-300'} ${
                     isHorizontal ? '' : 'opacity-0 group-hover:opacity-100 absolute inset-0'
                   }`}
@@ -71,7 +71,7 @@ const ArticleCard = ({
             {boolSwitches.isWithImage && !isHorizontal && (
               <picture>
                 <img
-                  className='w-full object-cover object-center block aspect-video min-h-[245px] group-hover:scale-125 transition-all ease-out group-hover:opacity-0 duration-300'
+                  className='w-full object-cover object-center block aspect-video min-h-[145px] group-hover:scale-125 transition-all ease-out group-hover:opacity-0 duration-300'
                   src={imgSource}
                   alt=''
                 />
@@ -192,7 +192,7 @@ const ArticleCard = ({
               </div>
             )}
 
-            {boolSwitches.isWithAuthor && (
+            {/* {boolSwitches.isWithAuthor && (
               <div className='grid gap-6'>
                 {author && (
                   <div className='flex gap-3 items-center'>
@@ -265,7 +265,7 @@ const ArticleCard = ({
                   </div>
                 )}
               </div>
-            )}
+            )} */}
           </div>
         </div>
       </div>

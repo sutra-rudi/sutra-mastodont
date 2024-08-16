@@ -208,7 +208,7 @@ const BlogSection = ({ pageContent, lang, categoriesList, tagsList, blogCtaKey, 
                   categories={categoryField}
                   hoverImgSource={hoverImgSource}
                   boolSwitches={{ isWithAuthor: true, isWithTags: false, isWithTopBar: true, isWithImage: true }}
-                  isHorizontal={false}
+                  isHorizontal={true}
                 />
               )
             );
