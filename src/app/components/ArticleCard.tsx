@@ -53,6 +53,7 @@ const ArticleCard = ({
       <div className={`${isHorizontal ? 'flex w-full place-content-stretch items-stretch h-full' : 'block'}`}>
         <a href={url} className={`${isHorizontal ? 'w-full h-full max-w-[408px] flex flex-col' : 'flex-1 w-full'}`}>
           <div className='relative w-full flex-1 h-full'>
+            <div className='absolute bottom-0 w-full h-28 bg-gradient-to-b from-transparent to-black opacity-65'></div>
             {boolSwitches.isWithImage && (
               <picture className='w-full h-full flex-1  shrink-0'>
                 <img
