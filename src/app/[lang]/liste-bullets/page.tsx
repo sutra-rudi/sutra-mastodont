@@ -21,7 +21,6 @@ export default async function ListePage({
 
   const res = await getAllListe.json();
 
-  //   console.log('LISTE RTES', res.data.liste.edges);
   const dataShorthand = res.data.liste.edges;
   return (
     <main>

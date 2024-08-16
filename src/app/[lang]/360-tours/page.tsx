@@ -21,9 +21,10 @@ export default async function VirtualTours({ params: { lang } }: { params: { lan
 
   return (
     <main>
-      <div className='w-full max-w-[1440px] mx-auto my-0 px-4'>
-        <h2>Šetnje</h2>
-
+      <div className='w-full max-w-[1440px] mx-auto my-0 px-4 min-h-screen'>
+        <div className='w-full mx-auto flex items-center justify-center'>
+          <h2 className='text-4xl font-medium'>Šetnje</h2>
+        </div>
         {sites && <PageContent toursList={sites} lang={lang} />}
       </div>
     </main>

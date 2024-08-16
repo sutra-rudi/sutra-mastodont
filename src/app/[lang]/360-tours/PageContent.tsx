@@ -21,14 +21,20 @@ const PageContent = ({ toursList, lang }: ToursPageContent) => {
 
   return (
     <div className='w-full max-w-[1440px] mx-auto my-0'>
-      {toursList.map((sinTour: any) => {
-        console.log('PREP', prepTourNameForClient(sinTour.name));
-        return (
-          <Link key={sinTour.name} href={{ pathname: `/${lang}/360-tours/${sinTour.name}` }}>
-            {prepTourNameForClient(sinTour.name)}
-          </Link>
-        );
-      })}
+      <div className='grid grid-cols-2 w-full px-4 place-items-center py-16'>
+        {toursList.map((sinTour: any) => {
+          console.log('PREP', prepTourNameForClient(sinTour.name));
+          return (
+            <Link
+              key={sinTour.name}
+              href={{ pathname: `/${lang}/360-tours/${sinTour.name}` }}
+              className=' w-full border border-accent max-w-lg min-h-28 flex items-center justify-center'
+            >
+              {prepTourNameForClient(sinTour.name)}
+            </Link>
+          );
+        })}
+      </div>
     </div>
   );
 };
