@@ -46,7 +46,7 @@ const ArticleCard = ({
 }: DefaultArticleCard) => {
   return (
     <article
-      className={`w-full bg-white shadow dark:bg-almost-black dark:border-gray-700 ${
+      className={`w-full bg-white shadow dark:bg-almost-black dark:border-gray-700 rounded-sutraCardBorderRadiusBlog ${
         isHorizontal ? 'max-w-[824px] h-auto flex' : 'max-w-[408px] h-full'
       } group overflow-hidden max-h-[345px]`}
     >
