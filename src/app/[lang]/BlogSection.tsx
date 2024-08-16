@@ -187,12 +187,11 @@ const BlogSection = ({ pageContent, lang, categoriesList, tagsList, blogCtaKey, 
 
             // console.log('RUDI CIAO', contentShorthand);
 
-            // console.log('STATUS ', contentCardShorthand.statusBloga);
+            console.log('STATUS ', contentCardShorthand);
 
             return (
-              contentCardShorthand.statusBloga &&
               contentCardShorthand.istaknutoNaNaslovnici &&
-              isActivatedOnLang && (
+              contentCardShorthand.statusBloga && (
                 <ArticleCard
                   title={contentShorthand[languageField]?.[las]}
                   url={`/${lang}/blog/${
@@ -338,23 +337,27 @@ const BlogSection = ({ pageContent, lang, categoriesList, tagsList, blogCtaKey, 
                 : 'https://placehold.co/400.png';
 
               const readTime = readingTime(contentField);
+              const isActivatedOnLang: boolean = contentShorthand.statusAtivacijePoJezicima[`aktivator${l}`];
 
               return (
-                <ArticleCardFullImage
-                  title={contentShorthand[languageField]?.[las]}
-                  url={`/${lang}/blog/${
-                    slugify(`${contentShorthand[languageField]?.[las]}`, slugifyOptions) + `-${contentShorthand.id}`
-                  }`}
-                  date={dayjs(contentCardShorthand.datum).format('DD.MM.YYYY') ?? 'Nema datuma'}
-                  cta='Read more'
-                  imgSource={imgSource}
-                  introContent={introField}
-                  author={authorField}
-                  key={index}
-                  tags={tagsField}
-                  readTime={readTime}
-                  categories={categoryField}
-                />
+                contentCardShorthand.statusBloga &&
+                isActivatedOnLang && (
+                  <ArticleCardFullImage
+                    title={contentShorthand[languageField]?.[las]}
+                    url={`/${lang}/blog/${
+                      slugify(`${contentShorthand[languageField]?.[las]}`, slugifyOptions) + `-${contentShorthand.id}`
+                    }`}
+                    date={dayjs(contentCardShorthand.datum).format('DD.MM.YYYY') ?? 'Nema datuma'}
+                    cta='Read more'
+                    imgSource={imgSource}
+                    introContent={introField}
+                    author={authorField}
+                    key={index}
+                    tags={tagsField}
+                    readTime={readTime}
+                    categories={categoryField}
+                  />
+                )
               );
             })}
         </div>
@@ -395,23 +398,27 @@ const BlogSection = ({ pageContent, lang, categoriesList, tagsList, blogCtaKey, 
               : 'https://placehold.co/400.png';
 
             const readTime = readingTime(contentField);
+            const isActivatedOnLang: boolean = contentShorthand.statusAtivacijePoJezicima[`aktivator${l}`];
 
             return (
-              <ArticleCardTextCard
-                title={contentShorthand[languageField]?.[las]}
-                url={`/${lang}/blog/${
-                  slugify(`${contentShorthand[languageField]?.[las]}`, slugifyOptions) + `-${contentShorthand.id}`
-                }`}
-                date={dayjs(contentCardShorthand.datum).format('DD.MM.YYYY') ?? 'Nema datuma'}
-                cta='Read more'
-                imgSource={imgSource}
-                introContent={introField}
-                author={authorField}
-                key={index}
-                tags={tagsField}
-                readTime={readTime}
-                categories={categoryField}
-              />
+              contentCardShorthand.statusBloga &&
+              isActivatedOnLang && (
+                <ArticleCardTextCard
+                  title={contentShorthand[languageField]?.[las]}
+                  url={`/${lang}/blog/${
+                    slugify(`${contentShorthand[languageField]?.[las]}`, slugifyOptions) + `-${contentShorthand.id}`
+                  }`}
+                  date={dayjs(contentCardShorthand.datum).format('DD.MM.YYYY') ?? 'Nema datuma'}
+                  cta='Read more'
+                  imgSource={imgSource}
+                  introContent={introField}
+                  author={authorField}
+                  key={index}
+                  tags={tagsField}
+                  readTime={readTime}
+                  categories={categoryField}
+                />
+              )
             );
           })}
         </div>
@@ -452,23 +459,27 @@ const BlogSection = ({ pageContent, lang, categoriesList, tagsList, blogCtaKey, 
               : 'https://placehold.co/400.png';
 
             const readTime = readingTime(contentField);
+            const isActivatedOnLang: boolean = contentShorthand.statusAtivacijePoJezicima[`aktivator${l}`];
 
             return (
-              <ArticleCardMiniCard
-                title={contentShorthand[languageField]?.[las]}
-                url={`/${lang}/blog/${
-                  slugify(`${contentShorthand[languageField]?.[las]}`, slugifyOptions) + `-${contentShorthand.id}`
-                }`}
-                date={dayjs(contentCardShorthand.datum).format('DD.MM.YYYY') ?? 'Nema datuma'}
-                cta='Read more'
-                imgSource={imgSource}
-                introContent={introField}
-                author={authorField}
-                key={index}
-                tags={tagsField}
-                readTime={readTime}
-                categories={categoryField}
-              />
+              contentCardShorthand.statusBloga &&
+              isActivatedOnLang && (
+                <ArticleCardMiniCard
+                  title={contentShorthand[languageField]?.[las]}
+                  url={`/${lang}/blog/${
+                    slugify(`${contentShorthand[languageField]?.[las]}`, slugifyOptions) + `-${contentShorthand.id}`
+                  }`}
+                  date={dayjs(contentCardShorthand.datum).format('DD.MM.YYYY') ?? 'Nema datuma'}
+                  cta='Read more'
+                  imgSource={imgSource}
+                  introContent={introField}
+                  author={authorField}
+                  key={index}
+                  tags={tagsField}
+                  readTime={readTime}
+                  categories={categoryField}
+                />
+              )
             );
           })}
         </div>

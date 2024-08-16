@@ -53,11 +53,7 @@ const PageContent = ({ pageContent, lang }: ListePageContent) => {
                       console.log('KOLOR', clr);
                       return (
                         <li key={index} className='flex items-center justify-start gap-3'>
-                          <span
-                            className={`${
-                              clr[0] === 'error-boja' && 'bg-error'
-                            } rounded-full w-6 h-6  flex items-center justify-center`}
-                          >
+                          <span className={`${'bg-' + clr[0]} rounded-full w-6 h-6  flex items-center justify-center`}>
                             {index + 1}
                           </span>{' '}
                           {list}
