@@ -3,15 +3,13 @@ export default async function SingleTourDisplay({
 }: {
   params: { lang: string; tourId: string };
 }) {
-  const getIdFromSlug = (slug: string): string => {
-    const parts = slug.split('-');
-    return parts.pop() || '';
-  };
+  const baseUrl = `https://${tourId}.netlify.app/`;
 
-  //   const tourId = getIdFromSlug(params);
-  //  const router = useRouter();
-
-  //   console.log('TUR ID', tourId);
-
-  return <main>{JSON.stringify(tourId)}</main>;
+  return (
+    <main className='w-full h-screen'>
+      <div className='w-full h-full'>
+        <iframe src={baseUrl} style={{ width: '100%', height: '100%', border: 'none' }} allowFullScreen />
+      </div>
+    </main>
+  );
 }

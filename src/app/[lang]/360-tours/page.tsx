@@ -1,22 +1,30 @@
-import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
-import Link from 'next/link';
-import slugify from 'slugify';
+import PageContent from './PageContent';
 
 export default async function VirtualTours({ params: { lang } }: { params: { lang: string } }) {
-  const tourList = ['Gym-360', 'Villa Culina'];
+  const fetchSites = async () => {
+    const res = await fetch(process.env.SUTRA_NETLIFY_BASE_URL!, {
+      headers: {
+        Authorization: `Bearer ${process.env.SUTRA_VIRTUAL_TOURS_API_KEY!}`,
+      },
+      cache: 'no-cache',
+    });
 
-  //   const l = getSuffixFromLang(lang);
+    if (res.ok) {
+      const data = await res.json();
+      return data;
+    } else {
+      console.error('Greška pri dohvaćanju sajtova:', res.status);
+    }
+  };
+
+  const sites = await fetchSites();
 
   return (
     <main>
-      <h2>Šetnje</h2>
+      <div className='w-full max-w-[1440px] mx-auto my-0 px-4'>
+        <h2>Šetnje</h2>
 
-      <div className=''>
-        {tourList.map((tour, index) => (
-          <Link href={`/${lang}/360-tours/${slugify(tour) + `-${index + 1}`}`} key={index}>
-            {tour}
-          </Link>
-        ))}
+        {sites && <PageContent toursList={sites} lang={lang} />}
       </div>
     </main>
   );
