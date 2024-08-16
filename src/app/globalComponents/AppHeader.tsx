@@ -81,6 +81,11 @@ const AppHeader = () => {
       url: `/${currentLang}/liste-bullets`,
       title: 'Liste',
     },
+
+    {
+      url: `/${currentLang}/360-tours`,
+      title: 'Šetnje',
+    },
   ];
 
   const [theme, setTheme] = React.useState('light');
