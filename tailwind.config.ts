@@ -38,6 +38,18 @@ const config: Config = {
         small: '0.875rem',
         tag: '0.75rem',
         contactFormSidebarHeading: '1.75rem',
+        //////// FIGMA ///////
+        h0_2xl: '4.5rem',
+        h1_xl: '3.75rem',
+        h2_lg: '3rem',
+        h3_md: '2.25rem',
+        h4_sm: '1,875rem',
+        h5_xs: '1.5rem',
+        xl: '1.25rem',
+        lg: '1.125rem',
+        md: '1rem',
+        sm: '0.875rem',
+        xs: '0.75rem',
       },
 
       borderRadius: {
