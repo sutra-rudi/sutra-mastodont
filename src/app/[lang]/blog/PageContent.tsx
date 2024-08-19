@@ -14,6 +14,7 @@ import { FaChevronLeft as PrevIcon, FaChevronRight as NextIcon } from 'react-ico
 import { heroImagesArchiveBlog } from '@/app/pathsUtils/mediaImportsDynamic';
 import { FaTag as TagIcon } from 'react-icons/fa6';
 import { useRouter } from 'next/navigation';
+import { motion } from 'framer-motion'; // Import framer-motion
 
 interface BlogArchivePage {
   pageContent: any[];
@@ -280,23 +281,33 @@ const PageContent = ({ pageContent, adminSetup, lang, catList, currentLandingTag
 
           const readTime = readingTime(contentField);
 
+          const uniqueKey = `${selectedCategory || 'all'}-${searchQuery}-${sortAlphabetically}-${sortByDate}-${index}`;
+
           return (
-            <ArticleCardFullImage
-              title={contentShorthand[languageField]?.[las]}
-              url={`/${lang}/blog/${
-                slugify(`${contentShorthand[languageField]?.[las]}`, slugifyOptions) + `-${contentShorthand.id}`
-              }`}
-              date={dayjs(contentCardShorthand.datum).format('DD.MM.YYYY') ?? 'Nema datuma'}
-              cta='Read more'
-              imgSource={imgSource}
-              introContent={introField}
-              author={authorField}
-              key={index}
-              tags={tagsField}
-              readTime={readTime}
-              categories={categoryField}
-              isArchive
-            />
+            <motion.div
+              key={uniqueKey}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 10 }}
+              transition={{ duration: 0.6, delay: index * 0.15 }}
+            >
+              <ArticleCardFullImage
+                title={contentShorthand[languageField]?.[las]}
+                url={`/${lang}/blog/${
+                  slugify(`${contentShorthand[languageField]?.[las]}`, slugifyOptions) + `-${contentShorthand.id}`
+                }`}
+                date={dayjs(contentCardShorthand.datum).format('DD.MM.YYYY') ?? 'Nema datuma'}
+                cta='Read more'
+                imgSource={imgSource}
+                introContent={introField}
+                author={authorField}
+                key={uniqueKey}
+                tags={tagsField}
+                readTime={readTime}
+                categories={categoryField}
+                isArchive
+              />
+            </motion.div>
           );
         })}
       </div>
