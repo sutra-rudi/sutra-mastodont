@@ -86,6 +86,10 @@ const AppHeader = () => {
       url: `/${currentLang}/360-tours`,
       title: 'Šetnje',
     },
+    {
+      url: `/${currentLang}/buttons-compilation`,
+      title: 'Botuni',
+    },
   ];
 
   const [theme, setTheme] = React.useState('light');

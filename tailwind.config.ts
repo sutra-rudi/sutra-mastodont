@@ -26,6 +26,8 @@ const config: Config = {
         sutraContactUsTempBg: '#FBFBFB',
         sutraPlaceholderClr: '#8D8D8D',
         sutraRadioBgUnchecked: '#E0E0E0',
+        ///
+        sutraButtonText: '#F0FDF4',
       },
 
       fontSize: {
@@ -50,6 +52,7 @@ const config: Config = {
         md: '1rem',
         sm: '0.875rem',
         xs: '0.75rem',
+        base: '1rem',
       },
 
       borderRadius: {
@@ -58,7 +61,7 @@ const config: Config = {
         sutraContactCardBorderRadius: '10px',
         sutraContactFormButton: '5px',
         sutraObavijestTrakaRadius: '12px',
-        // sutraCardBorderRadiusBlog: '200px',
+        sutraButtonBorderRadius: '46px',
       },
 
       lineHeight: {
