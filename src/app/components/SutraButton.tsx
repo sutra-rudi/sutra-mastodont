@@ -68,3 +68,45 @@ export const SutraButtonOutlined = ({ innerText, size }: SutraButtonBaseInterfac
     </button>
   );
 };
+
+export const SutraButtonGhost = ({ innerText, size }: SutraButtonBaseInterface) => {
+  return (
+    <button
+      role='button'
+      className={`${
+        size === 'small'
+          ? 'text-sm rounded-sutraButtonBorderRadiusSmall'
+          : size === 'normal'
+          ? 'text-base rounded-sutraButtonBorderRadiusBase'
+          : size === 'large'
+          ? 'text-lg rounded-sutraButtonBorderRadiusLarge'
+          : ''
+      } transition-all ease-in-out py-[0.75rem] px-[1.125rem]  hover:scale-105 outline outline-sutraButtonOutlineAsPrim outline-primary-dark text-primary-dark  active:outline-sutraButtonOutlineAsPrimHover dark:outline-primary-light dark:text-accent opacity-ghostButtonOpacity`}
+    >
+      {innerText}
+    </button>
+  );
+};
+
+export const SutraButtonLink = ({ innerText, size, isAccentButton }: SutraButtonBaseInterface) => {
+  return (
+    <button
+      role='button'
+      className={`${
+        size === 'small'
+          ? 'text-sm rounded-sutraButtonBorderRadiusSmall'
+          : size === 'normal'
+          ? 'text-base rounded-sutraButtonBorderRadiusBase'
+          : size === 'large'
+          ? 'text-lg rounded-sutraButtonBorderRadiusLarge'
+          : ''
+      } transition-all ease-in-out py-[0.75rem] px-[1.125rem] ${
+        isAccentButton
+          ? 'text-accent dark:text-accent hover:text-primary-dark dark:hover:text-primary-light active:text-primary-dark dark:active:text-primary-light'
+          : ' text-primary-dark hover:text-accent dark:hover:text-accent active:text-primary-dark dark:text-primary-light dark:active:text-primary-light'
+      }`}
+    >
+      {innerText}
+    </button>
+  );
+};

@@ -41,6 +41,10 @@ const config: Config = {
         sutraButtonOutlineAsPrim: '1px',
         sutraButtonOutlineAsPrimHover: '2.5px',
       },
+      //OPACITY
+      opacity: {
+        ghostButtonOpacity: '0.5',
+      },
 
       fontSize: {
         h1: '3.4375rem',
