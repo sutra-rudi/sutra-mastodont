@@ -30,3 +30,22 @@ export const SutraButtonBase = ({ innerText, size, isAccentButton }: SutraButton
     </button>
   );
 };
+
+export const SutraButtonGradient = ({ innerText, size }: SutraButtonBaseInterface) => {
+  return (
+    <button
+      role='button'
+      className={`${
+        size === 'small'
+          ? 'text-sm rounded-sutraButtonBorderRadiusSmall'
+          : size === 'normal'
+          ? 'text-base rounded-sutraButtonBorderRadiusBase'
+          : size === 'large'
+          ? 'text-lg rounded-sutraButtonBorderRadiusLarge'
+          : ''
+      } transition-all ease-in-out py-[0.75rem] px-[1.125rem]  hover:scale-105 active:outline active:outline-sutraButtonOutline bg-sutraGradientButton text-sutraButtonText  dark:bg-sutraGradientButtonDark active:outline-accent hover:bg-sutraGradientButtonDark dark:hover:bg-sutraGradientButton`}
+    >
+      {innerText}
+    </button>
+  );
+};
