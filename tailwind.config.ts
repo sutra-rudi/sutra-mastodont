@@ -30,6 +30,10 @@ const config: Config = {
         sutraButtonText: '#F0FDF4',
       },
 
+      outlineWidth: {
+        sutraButtonOutline: '2px',
+      },
+
       fontSize: {
         h1: '3.4375rem',
         h2: '2.5rem',
