@@ -138,6 +138,11 @@ const BlogSection = ({ pageContent, lang, categoriesList, tagsList, blogCtaKey, 
       <h2 className='w-full text-center text-7xl font-semibold pt-8'>Blogovi</h2>
 
       <h2 className='w-full text-center text-4xl font-semibold pt-8'>Istaknuti</h2>
+      <p className='text-sm w-full text-center'>
+        {
+          'boolSwitches={{ isWithAuthor: true, isWithTags: false, isWithTopBar: true, isWithImage: false }} isHorizontal={false}'
+        }
+      </p>
 
       {/* TAKSONOMIJA */}
       <div className='max-w-[1740px] mx-auto my-8 flex flex-wrap gap-4 items-start justify-center'>
@@ -207,8 +212,8 @@ const BlogSection = ({ pageContent, lang, categoriesList, tagsList, blogCtaKey, 
                   readTime={readTime}
                   categories={categoryField}
                   hoverImgSource={hoverImgSource}
-                  boolSwitches={{ isWithAuthor: true, isWithTags: false, isWithTopBar: true, isWithImage: true }}
-                  isHorizontal={true}
+                  boolSwitches={{ isWithAuthor: true, isWithTags: false, isWithTopBar: true, isWithImage: false }}
+                  isHorizontal={false}
                 />
               )
             );

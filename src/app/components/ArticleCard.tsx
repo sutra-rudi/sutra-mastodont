@@ -48,13 +48,14 @@ const ArticleCard = ({
     <article
       className={`w-full bg-white shadow dark:bg-almost-black dark:border-gray-700 rounded-sutraCardBorderRadiusBlog ${
         isHorizontal ? 'max-w-[824px] h-auto flex' : 'max-w-[408px] h-full'
-      } group overflow-hidden max-h-[345px]`}
+      } group overflow-hidden`}
     >
       <div className={`${isHorizontal ? 'flex w-full place-content-stretch items-stretch h-full' : 'block'}`}>
-        <a href={url} className={`${isHorizontal ? 'w-full h-full max-w-[408px] flex flex-col' : 'flex-1 w-full'}`}>
-          <div className='relative w-full flex-1 h-full'>
-            <div className='absolute bottom-0 w-full h-28 bg-gradient-to-b from-transparent to-black opacity-65'></div>
-            {boolSwitches.isWithImage && (
+        {boolSwitches.isWithImage && (
+          <a href={url} className={`${isHorizontal ? 'w-full h-full max-w-[408px] flex flex-col' : 'flex-1 w-full'}`}>
+            <div className='relative w-full flex-1 h-full'>
+              <div className='absolute bottom-0 w-full h-28 bg-gradient-to-b from-transparent to-black opacity-65'></div>
+
               <picture className='w-full h-full flex-1  shrink-0'>
                 <img
                   className={`w-full object-cover object-center block ${
@@ -66,44 +67,44 @@ const ArticleCard = ({
                   alt=''
                 />
               </picture>
-            )}
 
-            {boolSwitches.isWithImage && !isHorizontal && (
-              <picture>
-                <img
-                  className='w-full object-cover object-center block aspect-video min-h-[145px] group-hover:scale-125 transition-all ease-out group-hover:opacity-0 duration-300'
-                  src={imgSource}
-                  alt=''
-                />
-              </picture>
-            )}
+              {boolSwitches.isWithImage && !isHorizontal && (
+                <picture>
+                  <img
+                    className='w-full object-cover object-center block aspect-video min-h-[145px] group-hover:scale-125 transition-all ease-out group-hover:opacity-0 duration-300'
+                    src={imgSource}
+                    alt=''
+                  />
+                </picture>
+              )}
 
-            {boolSwitches.isWithTopBar && (
-              <div className='absolute top-0 w-full flex items-center gap-2 px-11 pt-7 flex-wrap transition-all ease-out group-hover:opacity-0'>
-                {date && (
-                  <div className='text-xs bg-almost-black/75 rounded-sutraCardBorderRadius px-2 py-1  text-white'>
-                    <span>{date}</span>
-                  </div>
-                )}
+              {boolSwitches.isWithTopBar && (
+                <div className='absolute top-0 w-full flex items-center gap-2 px-11 pt-7 flex-wrap transition-all ease-out group-hover:opacity-0'>
+                  {date && (
+                    <div className='text-xs bg-almost-black/75 rounded-sutraCardBorderRadius px-2 py-1  text-white'>
+                      <span>{date}</span>
+                    </div>
+                  )}
 
-                {categories.length > 0 && (
-                  <div className='text-xs bg-almost-black/75 rounded-sutraCardBorderRadius px-2 py-1  text-white text-nowrap'>
-                    {categories.map((kata) => {
-                      return <span key={kata.catName}>{kata.catName}</span>;
-                    })}
-                  </div>
-                )}
+                  {categories.length > 0 && (
+                    <div className='text-xs bg-almost-black/75 rounded-sutraCardBorderRadius px-2 py-1  text-white text-nowrap'>
+                      {categories.map((kata) => {
+                        return <span key={kata.catName}>{kata.catName}</span>;
+                      })}
+                    </div>
+                  )}
 
-                {readTime && (
-                  <div className='text-xs bg-almost-black/75 rounded-sutraCardBorderRadius px-2 py-1  text-white flex items-center gap-1 text-nowrap'>
-                    <ClockIcon />
-                    <span>{readTime.text}</span>
-                  </div>
-                )}
-              </div>
-            )}
-          </div>
-        </a>
+                  {readTime && (
+                    <div className='text-xs bg-almost-black/75 rounded-sutraCardBorderRadius px-2 py-1  text-white flex items-center gap-1 text-nowrap'>
+                      <ClockIcon />
+                      <span>{readTime.text}</span>
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          </a>
+        )}
 
         <div className={`${isHorizontal ? 'w-2 bg-accent shrink-0' : 'overflow-hidden shrink-0'}`}>
           {!isHorizontal && (
@@ -111,88 +112,87 @@ const ArticleCard = ({
           )}
         </div>
 
-        <div className={`${isHorizontal ? '' : ''}`}>
-          {boolSwitches.isWithTags && (
-            <div className={`${isHorizontal ? 'px-6 pt-6' : 'px-11 pt-12'}`}>
-              {tags.length > 0 && (
-                <div className='flex items-center gap-1 text-xs flex-wrap font-medium mb-2'>
-                  {tags.map((singleTag) => (
+        {boolSwitches.isWithTags && (
+          <div className={`${isHorizontal ? 'px-6 pt-6' : 'px-11 pt-12'}`}>
+            {tags.length > 0 && (
+              <div className='flex items-center gap-1 text-xs flex-wrap font-medium mb-2'>
+                {tags.map((singleTag) => (
+                  <span
+                    className='uppercase text-accent border border-accent rounded-sutraCardTagBorderRadius px-2 py-px'
+                    key={singleTag}
+                  >
+                    {singleTag}
+                  </span>
+                ))}
+              </div>
+            )}
+
+            {categories.length > 0 && (
+              <div className='py-[10px]'>
+                {categories.map((kata) => {
+                  return (
                     <span
-                      className='uppercase text-accent border border-accent rounded-sutraCardTagBorderRadius px-2 py-px'
-                      key={singleTag}
+                      className='uppercase text-accent border border-accent rounded-sutraCardTagBorderRadius px-2 py-px text-xs font-medium'
+                      key={kata.catName}
                     >
-                      {singleTag}
+                      {kata.catName}
                     </span>
-                  ))}
-                </div>
-              )}
+                  );
+                })}
+              </div>
+            )}
 
-              {categories.length > 0 && (
-                <div className='py-[10px]'>
-                  {categories.map((kata) => {
-                    return (
-                      <span
-                        className='uppercase text-accent border border-accent rounded-sutraCardTagBorderRadius px-2 py-px text-xs font-medium'
-                        key={kata.catName}
-                      >
-                        {kata.catName}
-                      </span>
-                    );
-                  })}
-                </div>
-              )}
+            {categories.length > 0 && (
+              <div className='text-sm font-semibold py-[10px]  text-secondary-dark dark:text-secondary-light uppercase text-nowrap'>
+                {categories.map((kata) => {
+                  return <span key={kata.catName}>{kata.catName}</span>;
+                })}
+              </div>
+            )}
+          </div>
+        )}
 
-              {categories.length > 0 && (
-                <div className='text-sm font-semibold py-[10px]  text-secondary-dark dark:text-secondary-light uppercase text-nowrap'>
-                  {categories.map((kata) => {
-                    return <span key={kata.catName}>{kata.catName}</span>;
-                  })}
-                </div>
-              )}
+        <div className={`${isHorizontal ? 'px-6 pt-6' : 'px-11 pt-12'}`}>
+          <a href={url}>
+            <h5 className='mb-2 text-2xl font-bold tracking-tight text-accent leading-sutraCardTitleLineHeight flex items-start gap-2'>
+              <span>{title}</span>
+              <ArrowIcon
+                className={`shrink-0 text-secondary-dark dark:text-secondary-light mt-1 ${
+                  isHorizontal
+                    ? ''
+                    : 'group-hover:rotate-45 origin-center transition-all duration-200 ease-out group-hover:translate-x-4'
+                }`}
+              />
+            </h5>
+          </a>
+
+          {introContent && (
+            <div
+              className={`prose prose-p:text-secondary-dark dark:prose-p:text-secondary-light prose-p:text-base my-3 line-clamp-4 ${
+                isHorizontal ? '' : 'prose-p:leading-[24px]'
+              }`}
+            >
+              {parse(introContent)}
             </div>
           )}
 
-          <div className={`${isHorizontal ? 'px-6 pt-6' : 'px-11 pt-12'}`}>
-            <a href={url}>
-              <h5 className='mb-2 text-2xl font-bold tracking-tight text-accent leading-sutraCardTitleLineHeight flex items-start gap-2'>
-                <span>{title}</span>
-                <ArrowIcon
-                  className={`shrink-0 text-secondary-dark dark:text-secondary-light mt-1 ${
-                    isHorizontal
-                      ? ''
-                      : 'group-hover:rotate-45 origin-center transition-all duration-200 ease-out group-hover:translate-x-4'
-                  }`}
-                />
-              </h5>
+          <div className='w-full bg-sutraCardDivider h-px'></div>
+
+          <div className='w-full flex items-center justify-end py-6'>
+            <a href={url} className=''>
+              <AppButtonDefault buttonText={cta} action={() => null} icon={<RightIcon />} />
             </a>
+          </div>
 
-            {introContent && (
-              <div
-                className={`prose prose-p:text-secondary-dark dark:prose-p:text-secondary-light prose-p:text-base my-3 line-clamp-4 ${
-                  isHorizontal ? '' : 'prose-p:leading-[24px]'
-                }`}
-              >
-                {parse(introContent)}
-              </div>
-            )}
+          {boolSwitches.isWithAuthor && <div className='w-full bg-sutraCardDivider h-px'></div>}
 
-            <div className='w-full bg-sutraCardDivider h-px'></div>
-
-            <div className='w-full flex items-center justify-end py-6'>
-              <a href={url} className=''>
-                <AppButtonDefault buttonText={cta} action={() => null} icon={<RightIcon />} />
-              </a>
+          {date && (
+            <div className='text-xs text-primary-light font-medium py-6'>
+              <span>{date}</span>
             </div>
+          )}
 
-            {boolSwitches.isWithAuthor && <div className='w-full bg-sutraCardDivider h-px'></div>}
-
-            {date && (
-              <div className='text-xs text-primary-light font-medium py-6'>
-                <span>{date}</span>
-              </div>
-            )}
-
-            {/* {boolSwitches.isWithAuthor && (
+          {/* {boolSwitches.isWithAuthor && (
               <div className='grid gap-6'>
                 {author && (
                   <div className='flex gap-3 items-center'>
@@ -266,7 +266,6 @@ const ArticleCard = ({
                 )}
               </div>
             )} */}
-          </div>
         </div>
       </div>
     </article>
