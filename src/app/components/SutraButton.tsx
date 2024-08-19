@@ -49,3 +49,22 @@ export const SutraButtonGradient = ({ innerText, size }: SutraButtonBaseInterfac
     </button>
   );
 };
+
+export const SutraButtonOutlined = ({ innerText, size }: SutraButtonBaseInterface) => {
+  return (
+    <button
+      role='button'
+      className={`${
+        size === 'small'
+          ? 'text-sm rounded-sutraButtonBorderRadiusSmall'
+          : size === 'normal'
+          ? 'text-base rounded-sutraButtonBorderRadiusBase'
+          : size === 'large'
+          ? 'text-lg rounded-sutraButtonBorderRadiusLarge'
+          : ''
+      } transition-all ease-in-out py-[0.75rem] px-[1.125rem]  hover:scale-105 outline outline-sutraButtonOutlineAsPrim outline-primary-dark text-primary-dark hover:text-accent hover:outline-sutraButtonOutlineAsPrimHover active:outline-sutraButtonOutlineAsPrimHover dark:outline-primary-light dark:text-primary-light`}
+    >
+      {innerText}
+    </button>
+  );
+};

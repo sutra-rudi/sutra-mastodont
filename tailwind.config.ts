@@ -35,9 +35,11 @@ const config: Config = {
         sutraGradientButton: 'linear-gradient(180deg, rgba(90,93,82,1) 0%, rgba(36,41,40,1) 100%)',
         sutraGradientButtonDark: 'linear-gradient(180deg, rgba(188,192,175,1) 0%, rgba(178,182,137,1) 100%)',
       },
-
+      //OUTLINE
       outlineWidth: {
         sutraButtonOutline: '2px',
+        sutraButtonOutlineAsPrim: '1px',
+        sutraButtonOutlineAsPrimHover: '2.5px',
       },
 
       fontSize: {
