@@ -4,7 +4,8 @@ import Image from 'next/image';
 import React from 'react';
 import { getSuffixFromLang } from '../langUtils/getSuffixFromLang';
 import parse from 'html-react-parser';
-import { AppButtonClean } from '../components/AppButton';
+
+import { SutraButtonBase } from '../components/SutraButton';
 
 interface ObavijestiNaStraniciInterface {
   pageContent: any;
@@ -95,7 +96,7 @@ const ObavijestiSection = ({ pageContent, lang }: ObavijestiNaStraniciInterface)
                     </div>
 
                     <div className='flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600'>
-                      <AppButtonClean buttonText='Okay' action={() => console.log('hi')} />
+                      <SutraButtonBase innerText='Okay' size='normal' />
                     </div>
                   </div>
                 </div>

@@ -3,11 +3,11 @@
 import React from 'react';
 
 import parse from 'html-react-parser';
-import { AppButtonDefault } from './AppButton';
 import { FiClock as ClockIcon } from 'react-icons/fi';
 import { GoArrowUpRight as ArrowIcon } from 'react-icons/go';
 import { LuCalendarDays as CalendarIcon } from 'react-icons/lu';
 import { FaChevronRight as RightIcon } from 'react-icons/fa';
+import { SutraButtonBase } from './SutraButton';
 
 interface DefaultArticleCard {
   cta: string;
@@ -115,7 +115,7 @@ export const ArticleCardHorizontal = ({
 
             <div className='w-full flex items-center justify-end py-6'>
               <a href={url} className=''>
-                <AppButtonDefault buttonText={cta} action={() => null} icon={<RightIcon />} />
+                <SutraButtonBase backIcon={RightIcon} innerText={cta} size='normal' />
               </a>
             </div>
 
@@ -342,7 +342,6 @@ export const ArticleCardTextCard = ({
           <div className='w-full flex items-center justify-end'>
             <a href={url} className='flex items-center gap-1 text-secondary-dark text-base'>
               <span>{cta}</span> <ArrowIcon />
-              {/* <AppButtonDefault buttonText={cta} action={() => null} icon={<RightIcon />} /> */}
             </a>
           </div>
         </div>
