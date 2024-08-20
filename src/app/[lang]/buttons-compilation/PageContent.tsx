@@ -6,8 +6,11 @@ import {
   SutraButtonGradient,
   SutraButtonLink,
   SutraButtonOutlined,
+  SutraButtonWithIcon,
 } from '@/app/components/SutraButton';
 import React from 'react';
+
+import { BsCartPlusFill as CartIcon, BsArrowRightShort as RightIcon } from 'react-icons/bs';
 
 const PageContent = () => {
   return (
@@ -58,6 +61,15 @@ const PageContent = () => {
             <SutraButtonLink innerText='Base Button' size='normal' isAccentButton={false} />
             <SutraButtonLink innerText='Large Button' size='large' isAccentButton={false} />
             <SutraButtonLink innerText='Accent Button' size='normal' isAccentButton={true} />
+          </div>
+        </div>
+
+        <div className='w-full flex items-center gap-4 flex-col'>
+          <h3 className='text-h3_md dark:text-primary-light'>Icon botun</h3>
+          <div className='flex items-center justify-start gap-4'>
+            <SutraButtonWithIcon innerText='Small Button' size='small' frontIcon={CartIcon} />
+            <SutraButtonWithIcon innerText='Base Button' size='normal' backIcon={RightIcon} />
+            <SutraButtonWithIcon innerText='Large Button' size='large' frontIcon={CartIcon} backIcon={RightIcon} />
           </div>
         </div>
       </div>

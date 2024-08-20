@@ -5,7 +5,9 @@ import React from 'react';
 interface SutraButtonBaseInterface {
   size: 'small' | 'normal' | 'large';
   innerText: string;
-  isAccentButton: boolean;
+  isAccentButton?: boolean;
+  frontIcon?: React.ElementType;
+  backIcon?: React.ElementType;
 }
 
 export const SutraButtonBase = ({ innerText, size, isAccentButton }: SutraButtonBaseInterface) => {
@@ -43,7 +45,7 @@ export const SutraButtonGradient = ({ innerText, size }: SutraButtonBaseInterfac
           : size === 'large'
           ? 'text-lg rounded-sutraButtonBorderRadiusLarge'
           : ''
-      } transition-all ease-in-out py-[0.75rem] px-[1.125rem]  hover:scale-105 active:outline active:outline-sutraButtonOutline bg-sutraGradientButton text-sutraButtonText  dark:bg-sutraGradientButtonDark active:outline-accent hover:bg-sutraGradientButtonDark dark:hover:bg-sutraGradientButton`}
+      } transition-all ease-in-out py-[0.75rem] px-[1.125rem]  hover:scale-105 active:outline active:outline-sutraButtonOutline bg-sutraGradientButton text-sutraButtonText  dark:bg-sutraGradientButtonDark active:outline-accent hover:bg-sutraGradientButtonDark dark:hover:bg-sutraGradientButton dark:text-almost-black dark:hover:text-almost-white`}
     >
       {innerText}
     </button>
@@ -62,7 +64,7 @@ export const SutraButtonOutlined = ({ innerText, size }: SutraButtonBaseInterfac
           : size === 'large'
           ? 'text-lg rounded-sutraButtonBorderRadiusLarge'
           : ''
-      } transition-all ease-in-out py-[0.75rem] px-[1.125rem]  hover:scale-105 outline outline-sutraButtonOutlineAsPrim outline-primary-dark text-primary-dark hover:text-accent hover:outline-sutraButtonOutlineAsPrimHover active:outline-sutraButtonOutlineAsPrimHover dark:outline-primary-light dark:text-primary-light`}
+      } transition-all ease-in-out py-[0.75rem] px-[1.125rem]  hover:scale-105 outline outline-sutraButtonOutlineAsPrim outline-primary-dark text-primary-dark hover:text-accent hover:outline-sutraButtonOutlineAsPrimHover active:outline-sutraButtonOutlineAsPrimHover dark:outline-primary-light dark:text-primary-light `}
     >
       {innerText}
     </button>
@@ -107,6 +109,33 @@ export const SutraButtonLink = ({ innerText, size, isAccentButton }: SutraButton
       }`}
     >
       {innerText}
+    </button>
+  );
+};
+
+export const SutraButtonWithIcon = ({
+  innerText,
+  size,
+  isAccentButton,
+  frontIcon: FrontIcon,
+  backIcon: BackIcon,
+}: SutraButtonBaseInterface) => {
+  return (
+    <button
+      role='button'
+      className={`${
+        size === 'small'
+          ? 'text-sm rounded-sutraButtonBorderRadiusSmall'
+          : size === 'normal'
+          ? 'text-base rounded-sutraButtonBorderRadiusBase'
+          : size === 'large'
+          ? 'text-lg rounded-sutraButtonBorderRadiusLarge'
+          : ''
+      } transition-all ease-in-out py-[0.75rem] px-[1.125rem] flex items-center gap-2 bg-accent text-sutraButtonText hover:text-accent hover:bg-primary-dark active:outline-accent`}
+    >
+      {FrontIcon && <FrontIcon className='shrink-0' />}
+      <span>{innerText}</span>
+      {BackIcon && <BackIcon className='shrink-0' />}
     </button>
   );
 };
