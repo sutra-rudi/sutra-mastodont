@@ -13,8 +13,8 @@ const PageContent = ({ pageContent, lang }: ListePageContent) => {
 
   const l = getSuffixFromLang(lang);
   return (
-    <section>
-      <div className='w-full max-w-[1440px] mx-auto my-0 grid grid-cols-2 gap-4 place-items-start'>
+    <section className='w-full px-12 py-16'>
+      <div className='w-full max-w-[1440px] mx-auto my-0 grid grid-cols-2 gap-4 gap-y-8 place-items-start'>
         {pageContent &&
           pageContent.map((nodeCont: any) => {
             const contentFieldMaster = `lista${l}`;
@@ -33,6 +33,10 @@ const PageContent = ({ pageContent, lang }: ListePageContent) => {
                         ? nodeCont.node.ikona.svgListIcon.node.sourceUrl
                         : null;
 
+                      console.log('ALO', nodeCont.node);
+
+                      console.log('LIST IKONA', imgShorthand);
+
                       console.log('TRIJAZA', triageOfIcons);
                       return (
                         <li key={index} className='w-full flex items-center justify-start gap-3'>
@@ -50,12 +54,12 @@ const PageContent = ({ pageContent, lang }: ListePageContent) => {
                   <ol className='appearance-none flex items-start flex-col gap-2'>
                     {listaContent.map((list: any, index: number) => {
                       const clr = nodeCont.node.ikona.odabirBojeZaDefaultIkone;
-                      console.log('KOLOR', clr);
+                      console.log('KOLOR', clr[0]);
                       return (
                         <li key={index} className='flex items-center justify-start gap-3'>
-                          <span className={`${'bg-' + clr[0]} rounded-full w-6 h-6  flex items-center justify-center`}>
+                          <span className={`bg-${clr[0]} rounded-full w-6 h-6  flex items-center justify-center`}>
                             {index + 1}
-                          </span>{' '}
+                          </span>
                           {list}
                         </li>
                       );
