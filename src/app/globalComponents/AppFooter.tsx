@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { getAllSocialLinksQuery } from '../queries/getAllSocialLinksQuery';
 
@@ -41,23 +39,16 @@ export default async function AppFooter() {
           </div>
           <div className='grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3'>
             <div>
-              <h2 className='mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white'>Resources</h2>
+              <h2 className='mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white'>Social links</h2>
               <ul className='text-gray-600 dark:text-gray-400'>
-                {socialLinks.map(([network, url]) => (
-                  <li key={network} className='hover:underline'>
-                    <a href={url}>{network}</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h2 className='mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white'>Follow us</h2>
-              <ul className='text-gray-600 dark:text-gray-400'>
-                {socialLinks.map(([network, url]) => (
-                  <li key={network}>
-                    <a href={url}>{network}</a>
-                  </li>
-                ))}
+                {socialLinks.map(
+                  ([network, url], index) =>
+                    url && (
+                      <li key={network ?? index}>
+                        <a href={url}>{network ?? 'Default social media name'}</a>
+                      </li>
+                    )
+                )}
               </ul>
             </div>
             <div>

@@ -84,28 +84,29 @@ const BlogSection = ({ pageContent, lang, categoriesList, tagsList, blogCtaKey, 
   const TagsTaxonomy = () => {
     return (
       <div className='flex items-center justify-center gap-2 my-6'>
-        {tagsList.map((tag: any, index) => {
-          const tagShortHand = tag.node;
+        {tagsList &&
+          tagsList.map((tag: any, index) => {
+            const tagShortHand = tag.node;
 
-          const tagNaming = tagShortHand[`imeKategorije${l}`] ?? tagShortHand.name;
+            const tagNaming = tagShortHand[`imeKategorije${l}`] ?? tagShortHand.name;
 
-          return (
-            <div
-              key={index}
-              onClick={() => {
-                const parseTag = slugify(tagShortHand.name);
+            return (
+              <div
+                key={index}
+                onClick={() => {
+                  const parseTag = slugify(tagShortHand.name);
 
-                const pushToPath = `${lang}/blog/?tag=${parseTag}`;
+                  const pushToPath = `${lang}/blog/?tag=${parseTag}`;
 
-                router.push(pushToPath);
-              }}
-              className='flex outline outline-accent rounded-sm px-2 py-1 cursor-pointer gap-1 items-center'
-            >
-              <TagIcon />
-              <span>{tagNaming}</span>
-            </div>
-          );
-        })}
+                  router.push(pushToPath);
+                }}
+                className='flex outline outline-accent rounded-sm px-2 py-1 cursor-pointer gap-1 items-center'
+              >
+                <TagIcon />
+                <span>{tagNaming}</span>
+              </div>
+            );
+          })}
       </div>
     );
   };

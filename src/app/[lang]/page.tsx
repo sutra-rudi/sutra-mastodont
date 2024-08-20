@@ -23,7 +23,7 @@ import ObavijestiSection from './ObavijestiSection';
 import { getDokumentikataloziQuery } from '../queries/getAllDocumentsQuery';
 import DocumentsCatalogsSection from './DocumentsCatalogsSection';
 import HeroSection from './HeroSection';
-// import ButtonsDisplay from './ButtonsDisplay';
+
 import { getLokacijeQuery } from '../queries/getAllLocationsQuery';
 import { getCategoriesQuery } from '../queries/getAllBlogCategoriesQuery';
 import { getTagsQuery } from '../queries/getAllTagsQuery';
