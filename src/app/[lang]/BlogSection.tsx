@@ -24,11 +24,7 @@ interface BlogSection {
 }
 
 const BlogSection = ({ pageContent, lang, categoriesList, tagsList, blogCtaKey, blogTableKey }: BlogSection) => {
-  console.log('BLOGOVI', pageContent);
-
   const [blogCta, setBlogCta] = React.useState<string>('');
-
-  // console.log('BLOG CONTENT', pageContent);
 
   const l = getSuffixFromLang(lang);
 
@@ -37,12 +33,6 @@ const BlogSection = ({ pageContent, lang, categoriesList, tagsList, blogCtaKey, 
   React.useEffect(() => {
     const getRecordsDemo = async () => {
       const callApi = await getRecords(lang, blogCtaKey, blogTableKey);
-
-      console.log('LANG', lang);
-
-      // const parseData = await callApi.json();
-
-      console.log('DATA', callApi);
 
       setBlogCta(callApi.parseTranslation);
     };
@@ -56,8 +46,6 @@ const BlogSection = ({ pageContent, lang, categoriesList, tagsList, blogCtaKey, 
     const categoryName = `imeKategorije${l}`;
 
     const handleCategoryPick = (categoryName: string) => {
-      console.log('cat name', categoryName);
-
       const tax = pageContent.filter(
         (item: any) =>
           item.node.introBlog.kategorija.edges[0].node.informacijeKategorije[`imeKategorije${l}`] === categoryName
@@ -101,24 +89,13 @@ const BlogSection = ({ pageContent, lang, categoriesList, tagsList, blogCtaKey, 
 
           const tagNaming = tagShortHand[`imeKategorije${l}`] ?? tagShortHand.name;
 
-          // console.log('TAG SHORT', tagShortHand);
-
           return (
             <div
               key={index}
               onClick={() => {
-                console.log('TAG NAME KLIKNUT', tagShortHand.name);
-
-                // const parseTag = tagShortHand.name.split(" ").join("-")
-
-                // console.log("PARSE TAG")
                 const parseTag = slugify(tagShortHand.name);
 
                 const pushToPath = `${lang}/blog/?tag=${parseTag}`;
-
-                // console.log('PARSE TAG', parseTag);
-
-                // console.log('PUSH TO PATH', pushToPath);
 
                 router.push(pushToPath);
               }}
@@ -187,12 +164,6 @@ const BlogSection = ({ pageContent, lang, categoriesList, tagsList, blogCtaKey, 
               : heroImagesArchiveBlog.desktop;
 
             const readTime = readingTime(contentField);
-
-            const isActivatedOnLang: boolean = contentShorthand.statusAtivacijePoJezicima[`aktivator${l}`];
-
-            // console.log('RUDI CIAO', contentShorthand);
-
-            console.log('STATUS ', contentCardShorthand);
 
             return (
               contentCardShorthand.istaknutoNaNaslovnici &&
@@ -274,8 +245,6 @@ const BlogSection = ({ pageContent, lang, categoriesList, tagsList, blogCtaKey, 
               const readTime = readingTime(contentField);
 
               const isActivatedOnLang: boolean = contentShorthand.statusAtivacijePoJezicima[`aktivator${l}`];
-
-              // console.log('RUDI CIAO', contentShorthand);
 
               return (
                 contentCardShorthand.statusBloga &&

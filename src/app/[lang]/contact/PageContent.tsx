@@ -88,8 +88,6 @@ const PageContent = ({
   React.useEffect(() => {
     if (ctxProviderRef.current) {
       const handleChangeEvent = (e) => {
-        console.log('change event payload:', e.detail);
-
         setFiles([...e.detail.allEntries.filter((f) => f.status === 'success')]);
       };
 
@@ -127,8 +125,6 @@ const PageContent = ({
       contactSemanticFormContent.bonusPoljeUnosaInformacija4,
       contactSemanticFormContent.bonusPoljeUnosaInformacija5,
     ];
-
-    // console.log('PAGI CONT', contactSemantics);
 
     return optionalFieldsArr.map((optionalField: any, index) => {
       const ind = index + 1;
@@ -311,13 +307,10 @@ const PageContent = ({
   };
 
   const onSubmit: SubmitHandler<FormValues> = async (data, event) => {
-    console.log('EVENT', event);
     event?.preventDefault();
     const loadingToast = toast.loading('Šaljem...');
 
     try {
-      // const parseData = { ...data, fileName: files[0].name, fileUrl: files[0].cdnUrl };
-
       const {
         email,
         firstName,
@@ -374,8 +367,6 @@ const PageContent = ({
       //     .map((file) => file.name)
       //     .join(', ');
 
-      console.log('FORM DATA', parsedData);
-
       await submit({ ...parsedData });
 
       toast.success('Uspješno poslano, bravo!');
@@ -391,8 +382,6 @@ const PageContent = ({
     (cmsMessage: string | null, fallback: string) => (cmsMessage ? cmsMessage : fallback),
     []
   );
-
-  // console.log('files', files);
 
   const setCtxProviderRef = React.useCallback((node) => {
     if (node) {

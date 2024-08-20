@@ -9,8 +9,6 @@ interface ListePageContent {
 }
 
 const PageContent = ({ pageContent, lang }: ListePageContent) => {
-  console.log('LISTE PAGE CONTENT', pageContent);
-
   const l = getSuffixFromLang(lang);
   return (
     <section className='w-full px-12 py-16'>
@@ -33,11 +31,6 @@ const PageContent = ({ pageContent, lang }: ListePageContent) => {
                         ? nodeCont.node.ikona.svgListIcon.node.sourceUrl
                         : null;
 
-                      console.log('ALO', nodeCont.node);
-
-                      console.log('LIST IKONA', imgShorthand);
-
-                      console.log('TRIJAZA', triageOfIcons);
                       return (
                         <li key={index} className='w-full flex items-center justify-start gap-3'>
                           {triageOfIcons === 'Dodaj svoju ikonu' && imgShorthand && (
@@ -54,7 +47,7 @@ const PageContent = ({ pageContent, lang }: ListePageContent) => {
                   <ol className='appearance-none flex items-start flex-col gap-2'>
                     {listaContent.map((list: any, index: number) => {
                       const clr = nodeCont.node.ikona.odabirBojeZaDefaultIkone;
-                      console.log('KOLOR', clr[0]);
+
                       return (
                         <li key={index} className='flex items-center justify-start gap-3'>
                           <span className={`bg-${clr[0]} rounded-full w-6 h-6  flex items-center justify-center`}>

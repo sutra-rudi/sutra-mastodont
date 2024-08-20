@@ -123,8 +123,6 @@ export default async function SingleBlogPage({ params: { lang, id } }: { params:
 
   const prepareDataForClient = parseData.data;
 
-  // console.log('PREP', prepareDataForClient.blog);
-
   const languageField = blogLanguageFields[lang];
 
   const l = getSuffixFromLang(lang);
@@ -155,11 +153,6 @@ export default async function SingleBlogPage({ params: { lang, id } }: { params:
         catColor: noda.node.informacijeKategorije ? noda.node.informacijeKategorije.bojaKategorije : 'No color',
       };
     }) ?? [];
-
-  // const seoTagField = prepareDataForClient.blog[`seo${l}`]?.[`seoTagovi${l}`];
-
-  // console.log('ALO', prepareDataForClient.blog.introBlog.thumbnail.node.sourceUrl);
-  // naslovSadrzajSadrzajEng
 
   return (
     <main>

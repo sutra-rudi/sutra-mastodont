@@ -27,7 +27,6 @@ interface BlogArchivePage {
 }
 
 const PageContent = ({ pageContent, adminSetup, lang, catList, currentLandingTag }: BlogArchivePage) => {
-  console.log('KURENT', currentLandingTag);
   const [currentPage, setCurrentPage] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
@@ -38,7 +37,6 @@ const PageContent = ({ pageContent, adminSetup, lang, catList, currentLandingTag
   const postsPerPage = Number(adminSetup.archiveItemsNumberOnSinglePage[0]);
   const offset = currentPage * postsPerPage;
 
-  console.log('pageCONTENT', pageContent);
   const l = getSuffixFromLang(lang);
   const router = useRouter();
   // Filtriranje i sortiranje postova

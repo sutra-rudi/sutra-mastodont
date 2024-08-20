@@ -45,7 +45,6 @@ interface SpeedDialInterface {
 }
 
 const SpeedDial = ({ handlePrint }: SpeedDialInterface) => {
-  // console.log(pageContentForPrint);
   const [currentLocation, setCurrentLocation] = React.useState<string>('');
 
   React.useEffect(() => {

@@ -113,8 +113,6 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
     const adminCtaSelection = getAllAdminCtaSelection?.data?.adminSetupArea.edges[0].node || null;
 
-    // console.log('ADMIN', adminCtaSelection);
-
     return (
       <Suspense>
         <main className='relative'>

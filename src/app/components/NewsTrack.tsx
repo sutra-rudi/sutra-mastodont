@@ -12,8 +12,6 @@ interface ObavijestiNaStraniciInterface {
 }
 
 const NewsTrack = ({ pageContent, lang }: ObavijestiNaStraniciInterface) => {
-  console.log('OBAVJESTI SADRZAJ', pageContent);
-
   function filtrirajObavijesti(obavijesti: any) {
     const filtriraneObavijesti: any[] = [];
 

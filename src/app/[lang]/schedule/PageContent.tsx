@@ -20,14 +20,10 @@ const PageContent = ({ content, lang }: ScheduleInterface) => {
     { hr: 'nedjelja', eng: 'Sunday', ger: 'Sonntag', ita: 'domenica' },
   ];
 
-  console.log('PAGI CONT', content);
-
   const l = getSuffixFromLang(lang);
   const contShorthand = content[`tjedniRaspored${l}`]?.[`tjedniRaspored${l}`];
   const uvodShorthand = content.tjedniRasporedUvod;
   const isSeasonal: boolean = uvodShorthand.sezonskoRadnoVrijeme;
-
-  //dayjs(contentCardShorthand.datum).format('DD.MM.YYYY') ?? 'Nema datuma'
 
   return (
     <article className='mx-auto my-0 max-w-[1024px] py-4'>

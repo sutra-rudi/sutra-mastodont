@@ -10,8 +10,6 @@ export default async function BlogPage({
   params: { lang: string };
   searchParams: { tag: string };
 }) {
-  console.log('TAGGGG', tag);
-
   const getAllBlogs = await fetch(`${process.env.CMS_BASE_URL}`, {
     method: 'POST',
     headers: {
@@ -67,11 +65,8 @@ export default async function BlogPage({
     try {
       const response = await fetch('https://cms.sutra.hr/cms_sutra/Lottie/alkar-lottie/alkar2_1200px.json', {});
 
-      console.log('RESPONS', response);
       if (response.ok) {
         const json = await response.json();
-        // setAnimationData(json);
-        console.log('RESPONSE', json);
 
         return json;
       } else {

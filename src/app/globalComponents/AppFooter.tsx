@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { getAllSocialLinksQuery } from '../queries/getAllSocialLinksQuery';
 
@@ -18,6 +20,8 @@ export default async function AppFooter() {
   const dataShorthand = parseDataSocialLinks.data.allDrustveneMrezeLinkovi.edges[0].node;
 
   const socialLinks: [string, string][] = Object.entries(dataShorthand.povezniceDrustvene);
+
+  console.log('SOCIALS', socialLinks);
 
   return (
     <footer className='p-4 bg-white sm:p-6 dark:bg-gray-800'>
