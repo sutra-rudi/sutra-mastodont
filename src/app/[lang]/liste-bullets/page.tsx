@@ -25,7 +25,7 @@ export default async function ListePage({
 
   const baseURL = process.env.CMS_PUBLIC_MEDIA_URL;
   return (
-    <main>
+    <main className='w-full min-h-dvh dark:bg-primary-dark'>
       <PageContent pageContent={dataShorthand} lang={lang} baseURL={baseURL!} />
     </main>
   );

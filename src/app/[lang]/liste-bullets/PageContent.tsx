@@ -46,7 +46,7 @@ const PageContent = ({ pageContent, lang, baseURL }: ListePageContent) => {
             const triageOfIcons = nodeCont.node.ikona.odabirIkoneKojaSePrikazujeNaListi[0];
             return (
               <div key={nodeCont.node.title}>
-                <h2 className='text-2xl font-medium py-4'>{nodeCont.node.title}</h2>
+                <h2 className='text-2xl font-medium py-4 dark:text-primary-light'>{nodeCont.node.title}</h2>
 
                 {triageOfIcons !== 'Brojevi' ? (
                   <ul className='flex items-start flex-col gap-2 appearance-none'>
@@ -57,7 +57,10 @@ const PageContent = ({ pageContent, lang, baseURL }: ListePageContent) => {
 
                       const cmsImgPath = nodeCont.node.ikona.odabirIkoneKojaSePrikazujeNaListi[0];
                       const cmsClrPath = nodeCont.node.ikona.odabirBojeZaDefaultIkone[0];
-                      const slugCrl = slugify(cmsClrPath, { lower: true });
+                      const slugCrl =
+                        isDarkMode && cmsClrPath === 'Primarna tamna'
+                          ? slugify('Primarna svjetla', { lower: true })
+                          : slugify(cmsClrPath, { lower: true });
 
                       const fullURL = `${basePath}${cmsImgPath}-${slugCrl}.svg`;
 
@@ -80,7 +83,7 @@ const PageContent = ({ pageContent, lang, baseURL }: ListePageContent) => {
                               />
                             </picture>
                           )}
-                          <span className='text-base font-normal'>{list}</span>
+                          <span className='text-base font-normal dark:text-primary-light'>{list}</span>
                         </li>
                       );
                     })}
@@ -107,10 +110,10 @@ const PageContent = ({ pageContent, lang, baseURL }: ListePageContent) => {
                       };
 
                       return (
-                        <li key={index} className='flex items-center justify-start gap-3'>
+                        <li key={index} className='flex items-center justify-start gap-3 dark:text-primary-light'>
                           <span
                             className={`bg-${clrPathDict()} rounded-full w-6 h-6  flex items-center justify-center ${
-                              clrPathDict() === 'primary-dark' && 'text-primary-light'
+                              clrPathDict() === 'primary-dark' && 'text-primary-light dark:text-primary-dark'
                             }`}
                           >
                             {index + 1}
