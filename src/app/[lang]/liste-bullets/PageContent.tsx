@@ -27,7 +27,7 @@ const PageContent = ({ pageContent, lang, baseURL }: ListePageContent) => {
             const triageOfIcons = nodeCont.node.ikona.odabirIkoneKojaSePrikazujeNaListi[0];
             return (
               <div key={nodeCont.node.title}>
-                <h2 className='text-2xl font-medium'>{nodeCont.node.title}</h2>
+                <h2 className='text-2xl font-medium py-4'>{nodeCont.node.title}</h2>
 
                 {triageOfIcons !== 'Brojevi' ? (
                   <ul className='flex items-start flex-col gap-2 appearance-none'>
@@ -46,11 +46,19 @@ const PageContent = ({ pageContent, lang, baseURL }: ListePageContent) => {
                         <li key={index} className='w-full flex items-center justify-start gap-3'>
                           {triageOfIcons === 'Dodaj svoju ikonu' && imgShorthand ? (
                             <picture>
-                              <img src={imgShorthand} alt='' className='w-6 h-6 object-cover object-center' />
+                              <img
+                                src={imgShorthand}
+                                alt='image for list item'
+                                className='w-6 h-6 object-cover object-center'
+                              />
                             </picture>
                           ) : (
                             <picture>
-                              <img src={fullURL} alt='' className='w-6 h-6 object-cover object-center' />
+                              <img
+                                src={fullURL}
+                                alt='image for list item'
+                                className='w-6 h-6 object-cover object-center'
+                              />
                             </picture>
                           )}
                           <span className='text-base font-normal'>{list}</span>
