@@ -90,6 +90,10 @@ const AppHeader = () => {
       url: `/${currentLang}/buttons-compilation`,
       title: 'Botuni',
     },
+    {
+      url: `/${currentLang}/radna-vremena`,
+      title: 'Radna vremena',
+    },
   ];
 
   const [theme, setTheme] = React.useState('light');
