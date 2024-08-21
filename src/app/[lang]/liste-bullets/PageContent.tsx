@@ -59,7 +59,7 @@ const PageContent = ({ pageContent, lang, baseURL }: ListePageContent) => {
                       const cmsClrPath = nodeCont.node.ikona.odabirBojeZaDefaultIkone[0];
                       const slugCrl =
                         isDarkMode && cmsClrPath === 'Primarna tamna'
-                          ? slugify('Primarna svjetla', { lower: true })
+                          ? slugify('Primarna svijetla', { lower: true })
                           : slugify(cmsClrPath, { lower: true });
 
                       const fullURL = `${basePath}${cmsImgPath}-${slugCrl}.svg`;
