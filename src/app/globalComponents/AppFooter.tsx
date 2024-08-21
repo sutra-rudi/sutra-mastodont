@@ -41,14 +41,19 @@ export default async function AppFooter() {
             <div>
               <h2 className='mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white'>Social links</h2>
               <ul className='text-gray-600 dark:text-gray-400'>
-                {socialLinks.map(
-                  ([network, url], index) =>
+                {socialLinks.map(([network, url], index) => {
+                  console.log('NET', network);
+                  return (
                     url && (
                       <li key={network ?? index}>
-                        <a href={url}>{network ?? 'Default social media name'}</a>
+                        <span>
+                          <span>{network === 'imeProfilaDrustvene' && url} </span>{' '}
+                          <a href={url}>{network ?? 'Default social media name'}</a>
+                        </span>
                       </li>
                     )
-                )}
+                  );
+                })}
               </ul>
             </div>
             <div>

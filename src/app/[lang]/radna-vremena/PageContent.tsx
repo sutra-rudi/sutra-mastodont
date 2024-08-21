@@ -10,7 +10,6 @@ interface RadnaVremenaPageContent {
 }
 
 const PageContent = ({ pageContent, lang }: RadnaVremenaPageContent) => {
-  console.log('PAGE CONT RADNA', pageContent);
   const l = getSuffixFromLang(lang);
   const masterField = `radnoVrijeme${l}`;
 
@@ -29,7 +28,7 @@ const PageContent = ({ pageContent, lang }: RadnaVremenaPageContent) => {
           <h2 className='max-w-prose text-2xl font-semibold'>{displayField ?? 'Nema polja'}</h2>
 
           <div className=''>
-            <p>
+            <p className='underline'>
               Vrijedi od: <span>{dayjs(vrijediOdSez).format('DD.MM.YYYY')}</span> do:{' '}
               {dayjs(vrijediDoSez).format('DD.MM.YYYY')}
             </p>
