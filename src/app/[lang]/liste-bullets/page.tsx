@@ -22,9 +22,11 @@ export default async function ListePage({
   const res = await getAllListe.json();
 
   const dataShorthand = res.data.liste.edges;
+
+  const baseURL = process.env.CMS_PUBLIC_MEDIA_URL;
   return (
     <main>
-      <PageContent pageContent={dataShorthand} lang={lang} />
+      <PageContent pageContent={dataShorthand} lang={lang} baseURL={baseURL!} />
     </main>
   );
 }
