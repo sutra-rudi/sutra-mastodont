@@ -24,18 +24,14 @@ const PageContent = ({ pageContent, lang, baseURL }: ListePageContent) => {
 
     checkDarkMode();
 
-    const observer = new MutationObserver(() => {
-      checkDarkMode();
-    });
+    const observer = new MutationObserver(() => checkDarkMode());
 
     observer.observe(document.documentElement, {
       attributes: true,
       attributeFilter: ['class'],
     });
 
-    return () => {
-      observer.disconnect();
-    };
+    return () => observer.disconnect();
   }, []);
 
   return (
