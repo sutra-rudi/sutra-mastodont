@@ -15,6 +15,29 @@ const PageContent = ({ pageContent, lang, baseURL }: ListePageContent) => {
 
   const basePath = React.useMemo(() => `${baseURL}icons-list/`, [baseURL]);
 
+  const [isDarkMode, setIsDarkMode] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkDarkMode = () => {
+      setIsDarkMode(document.documentElement.classList.contains('dark'));
+    };
+
+    checkDarkMode();
+
+    const observer = new MutationObserver(() => {
+      checkDarkMode();
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <section className='w-full px-12 py-16'>
       <div className='w-full max-w-[1440px] mx-auto my-0 grid grid-cols-2 gap-4 gap-y-8 place-items-start'>
@@ -69,13 +92,31 @@ const PageContent = ({ pageContent, lang, baseURL }: ListePageContent) => {
                 ) : (
                   <ol className='appearance-none flex items-start flex-col gap-2'>
                     {listaContent.map((list: any, index: number) => {
-                      const clr = nodeCont.node.ikona.odabirBojeZaDefaultIkone;
+                      const clr = nodeCont.node.ikona.odabirBojeZaDefaultIkone[0];
 
-                      const clrPath = `!bg-${clr[0]}`;
+                      const clrPathDict = () => {
+                        if (isDarkMode) {
+                          return 'accent';
+                        } else {
+                          if (clr === 'Akcentna') {
+                            return 'accent';
+                          }
+                          if (clr === 'Primarna tamna') {
+                            return 'primary-dark';
+                          }
+                          if (clr === 'Primarna svijetla') {
+                            return 'primary-light';
+                          }
+                        }
+                      };
 
                       return (
                         <li key={index} className='flex items-center justify-start gap-3'>
-                          <span className={`${clrPath} rounded-full w-6 h-6  flex items-center justify-center`}>
+                          <span
+                            className={`bg-${clrPathDict()} rounded-full w-6 h-6  flex items-center justify-center ${
+                              clrPathDict() === 'primary-dark' && 'text-primary-light'
+                            }`}
+                          >
                             {index + 1}
                           </span>
                           {list}
