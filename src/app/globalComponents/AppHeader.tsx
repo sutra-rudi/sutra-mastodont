@@ -94,6 +94,10 @@ const AppHeader = () => {
       url: `/${currentLang}/radna-vremena`,
       title: 'Radna vremena',
     },
+    {
+      url: `/${currentLang}/social-links`,
+      title: 'Drustvene mreze',
+    },
   ];
 
   const [theme, setTheme] = React.useState('light');

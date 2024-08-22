@@ -19,8 +19,6 @@ export default async function AppFooter() {
 
   const socialLinks: [string, string][] = Object.entries(dataShorthand.povezniceDrustvene);
 
-  console.log('SOCIALS', socialLinks);
-
   return (
     <footer className='p-4 bg-white sm:p-6 dark:bg-gray-800'>
       <div className='mx-auto max-w-screen-xl'>
@@ -42,7 +40,6 @@ export default async function AppFooter() {
               <h2 className='mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white'>Social links</h2>
               <ul className='text-gray-600 dark:text-gray-400'>
                 {socialLinks.map(([network, url], index) => {
-                  console.log('NET', network);
                   return (
                     url && (
                       <li key={network ?? index}>

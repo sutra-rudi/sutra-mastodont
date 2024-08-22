@@ -14,7 +14,6 @@ interface ListePageContent {
 const PageContent = ({ pageContent, lang, baseURL, adminLists }: ListePageContent) => {
   const l = getSuffixFromLang(lang);
 
-  console.log('PAGE CONTENT', adminLists);
   const basePath = React.useMemo(() => `${baseURL}icons-list/`, [baseURL]);
 
   const [isDarkMode, setIsDarkMode] = React.useState(false);
