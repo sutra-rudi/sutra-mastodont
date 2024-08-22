@@ -2,22 +2,42 @@ export const getListeQuery = (lang: string) => {
   const languageFieldsMap: Record<string, string> = {
     hr: `
       listaHr {
+        listaUvodHr {
+          nadnaslovpodnaslovOpcionalno
+          naslov
+          uvodnaRecenica
+        }
         listaSadrzajHr
       }
     `,
     eng: `
       listaEng {
+        listaUvodEng {
+          nadnaslovpodnaslovOpcionalno
+          naslov
+          uvodnaRecenica
+        }
         listaSadrzajEng
-      }
-    `,
-    ger: `
-      listaGer {
-        listaSadrzajGer
       }
     `,
     ita: `
       listaIta {
+        listaUvodIta {
+          nadnaslovpodnaslovOpcionalno
+          naslov
+          uvodnaRecenica
+        }
         listaSadrzajIta
+      }
+    `,
+    ger: `
+      listaGer {
+        listaUvodGer {
+          nadnaslovpodnaslovOpcionalno
+          naslov
+          uvodnaRecenica
+        }
+        listaSadrzajGer
       }
     `,
   };
@@ -28,18 +48,17 @@ export const getListeQuery = (lang: string) => {
         edges {
           node {
             id
-            title
             ${languageFieldsMap[lang] || ''}
             ikona {
+              odabirBojeZaDefaultIkone
+              odabirIkoneKojaSePrikazujeNaListi
               svgListIcon {
                 node {
-                  id
                   sourceUrl
                 }
               }
-              odabirBojeZaDefaultIkone
-              odabirIkoneKojaSePrikazujeNaListi
             }
+            title
           }
         }
       }

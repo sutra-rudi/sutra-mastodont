@@ -13,6 +13,7 @@ interface ListePageContent {
 const PageContent = ({ pageContent, lang, baseURL }: ListePageContent) => {
   const l = getSuffixFromLang(lang);
 
+  console.log('PAGE CONTENT', pageContent);
   const basePath = React.useMemo(() => `${baseURL}icons-list/`, [baseURL]);
 
   const [isDarkMode, setIsDarkMode] = React.useState(false);
@@ -44,10 +45,29 @@ const PageContent = ({ pageContent, lang, baseURL }: ListePageContent) => {
             const listaContent = contentField.split('\r\n');
 
             const triageOfIcons = nodeCont.node.ikona.odabirIkoneKojaSePrikazujeNaListi[0];
+
+            const introField = nodeCont.node[contentFieldMaster][`listaUvod${l}`];
             return (
               <div key={nodeCont.node.title}>
-                <h2 className='text-2xl font-medium py-4 dark:text-primary-light'>{nodeCont.node.title}</h2>
+                {/* <h2 className='text-2xl font-medium py-4 dark:text-primary-light'>{nodeCont.node.title}</h2> */}
+                {introField.naslov && (
+                  <div className='pt-4'>
+                    <h3 className='text-2xl font-medium  dark:text-primary-light'>{introField.naslov}</h3>
+                  </div>
+                )}
+                {introField.nadnaslovpodnaslovOpcionalno && (
+                  <div className='pt-1'>
+                    <h5 className='text-lg font-medium  dark:text-primary-light'>
+                      {introField.nadnaslovpodnaslovOpcionalno}
+                    </h5>
+                  </div>
+                )}
 
+                {introField.uvodnaRecenica && (
+                  <div className='pt-1'>
+                    <p className='text-base font-medium  dark:text-primary-light'>{introField.uvodnaRecenica}</p>
+                  </div>
+                )}
                 {triageOfIcons !== 'Brojevi' ? (
                   <ul className='flex items-start flex-col gap-2 appearance-none'>
                     {listaContent.map((list: any, index: number) => {
@@ -62,6 +82,8 @@ const PageContent = ({ pageContent, lang, baseURL }: ListePageContent) => {
                           ? slugify('Primarna svijetla', { lower: true })
                           : slugify(cmsClrPath, { lower: true });
 
+                      const checkIfNumber = cmsImgPath.split('-')[0];
+
                       const fullURL = `${basePath}${cmsImgPath}-${slugCrl}.svg`;
 
                       return (
@@ -74,6 +96,15 @@ const PageContent = ({ pageContent, lang, baseURL }: ListePageContent) => {
                                 className='w-6 h-6 object-cover object-center'
                               />
                             </picture>
+                          ) : checkIfNumber === 'Broj' ? (
+                            <div className='relative'>
+                              <span className='absolute left-1/2 -translate-x-1/2 text-primary-dark dark:text-primary-light z-20'>
+                                {index + 1}
+                              </span>
+                              <picture>
+                                <img src={fullURL} className='w-6 h-6 object-cover object-center' alt='' />
+                              </picture>
+                            </div>
                           ) : (
                             <picture>
                               <img
