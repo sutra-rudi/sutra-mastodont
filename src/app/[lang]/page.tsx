@@ -117,13 +117,13 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       <Suspense>
         <main className='relative'>
           <HeroSection />
-          {adminCtaSelection && blogDataArrayShorthand && (
+          {blogDataArrayShorthand && (
             <BlogSection
               pageContent={blogDataArrayShorthand}
               lang={lang}
               categoriesList={kategorijeDataShorthand}
               tagsList={tagsDataShorthand}
-              blogCtaKey={adminCtaSelection.adminGlobalniSelektorCta.blogSekcijaCta[0]}
+              blogCtaKey={adminCtaSelection ? adminCtaSelection.adminGlobalniSelektorCta.blogSekcijaCta[0] : ''}
               blogTableKey={process.env.BLOG_AIRTABLE_CTA_ID!}
             />
           )}
