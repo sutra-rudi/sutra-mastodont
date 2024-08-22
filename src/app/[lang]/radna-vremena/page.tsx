@@ -1,5 +1,6 @@
 import { getSezonskoRadnoVrijemeQuery } from '@/app/queries/getAllSezonskoRadnoVrijemeQuery';
 import PageContent from './PageContent';
+import { getAllRadnoVrijemeQuery } from '@/app/queries/getDefaultRadnoVrijeme';
 
 export default async function RadnaVremena({
   params: { lang },
@@ -23,5 +24,26 @@ export default async function RadnaVremena({
 
   const dataShorthandSezonsko = parseData.data.allSezonskoRadnoVrijeme.edges[0].node;
 
-  return <main>{dataShorthandSezonsko && <PageContent lang={lang} pageContent={dataShorthandSezonsko} />}</main>;
+  const getDefaultRadnaVremena = await fetch(`${process.env.CMS_BASE_URL}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      query: getAllRadnoVrijemeQuery(lang),
+    }),
+    cache: 'no-cache',
+  });
+
+  const parseDefaultData = await getDefaultRadnaVremena.json();
+
+  const defaultShorthand = parseDefaultData.data.allRadnoVrijeme.edges[0].node;
+
+  return (
+    <main>
+      {dataShorthandSezonsko && (
+        <PageContent defaultRadno={defaultShorthand} lang={lang} pageContent={dataShorthandSezonsko} />
+      )}
+    </main>
+  );
 }
