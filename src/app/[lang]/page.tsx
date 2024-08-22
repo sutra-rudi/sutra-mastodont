@@ -117,7 +117,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       <Suspense>
         <main className='relative'>
           <HeroSection />
-          {blogDataArrayShorthand && (
+          {adminCtaSelection && blogDataArrayShorthand && (
             <BlogSection
               pageContent={blogDataArrayShorthand}
               lang={lang}
