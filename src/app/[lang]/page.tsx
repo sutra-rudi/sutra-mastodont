@@ -1,34 +1,34 @@
-import { Suspense } from 'react';
+import { Suspense, lazy } from 'react';
+
 import { getAllBlogsQuery } from '../queries/getAllBlogsQuery';
-import { getAllNewsQuery } from '../queries/getAllNewsQuery';
-import BlogSection from './BlogSection';
-import NewsSection from './NewsSection';
-import LocationsSection from './LocationsSection';
-import BrojcaniciSection from './BrojcaniciSection';
 import { getAllBrojcaniciQuery } from '../queries/getAllBrojcaniciQuery';
-import SingleFaqSection from './SingleFaqSection';
 import { getAllFaqSinglesQuery } from '../queries/getAllFaqSingles';
 import { getAllUslugeQuery } from '../queries/getAllUslugeQuery';
-import UslugeSection from './UslugeSection';
-import PartnersSection from './PartnersSection';
 import { getAllLogotipiPartneraQuery } from '../queries/getAllLogotipiPartnera';
 import { getAllCarouselBaseQuery } from '../queries/getAllCarouselBase';
-import CarouselBase from './CarouselBase';
 import { getAllIskustvaKlijenataQuery } from '../queries/getAllIskustvaKlijenataQuery';
-import TestimonialsSection from './TestimonialsSection';
 import { getWhyUsQuery } from '../queries/getAllWhyUsQuery';
-import WhyUsSection from './WhyUsSection';
 import { getObavijestiNaStraniciQuery } from '../queries/getAllObavijestiQuery';
-import ObavijestiSection from './ObavijestiSection';
 import { getDokumentikataloziQuery } from '../queries/getAllDocumentsQuery';
-import DocumentsCatalogsSection from './DocumentsCatalogsSection';
-import HeroSection from './HeroSection';
-
 import { getLokacijeQuery } from '../queries/getAllLocationsQuery';
 import { getCategoriesQuery } from '../queries/getAllBlogCategoriesQuery';
 import { getTagsQuery } from '../queries/getAllTagsQuery';
 import { getAdminCtaSelectionQuery } from '../queries/getAdminCtaSelectionQuery';
-import NewsTrack from '../components/NewsTrack';
+
+// Lazy loading komponenti
+const BlogSection = lazy(() => import('./BlogSection'));
+const LocationsSection = lazy(() => import('./LocationsSection'));
+const BrojcaniciSection = lazy(() => import('./BrojcaniciSection'));
+const SingleFaqSection = lazy(() => import('./SingleFaqSection'));
+const UslugeSection = lazy(() => import('./UslugeSection'));
+const PartnersSection = lazy(() => import('./PartnersSection'));
+const CarouselBase = lazy(() => import('./CarouselBase'));
+const TestimonialsSection = lazy(() => import('./TestimonialsSection'));
+const WhyUsSection = lazy(() => import('./WhyUsSection'));
+const ObavijestiSection = lazy(() => import('./ObavijestiSection'));
+const DocumentsCatalogsSection = lazy(() => import('./DocumentsCatalogsSection'));
+const HeroSection = lazy(() => import('./HeroSection'));
+const NewsTrack = lazy(() => import('../components/NewsTrack'));
 
 export const maxDuration = 60;
 export const revalidate = 3600; // revalidate at most every hour
@@ -44,19 +44,13 @@ async function fetchData(query: any) {
     });
 
     if (!response.ok) {
-      const errorResponse = await response.text();
-      throw new Error(`Fetch error: ${response.statusText}\n${errorResponse}`);
+      throw new Error(`Fetch error: ${response.statusText}`);
     }
 
-    const responseData = await response.text();
-    try {
-      return JSON.parse(responseData);
-    } catch (e) {
-      throw new Error(`Invalid JSON: ${responseData}`);
-    }
+    return response.json();
   } catch (error) {
     console.error('Fetch data error:', error);
-    return null; // vratite null ili fallback podatke u slučaju greške
+    return null;
   }
 }
 
@@ -64,7 +58,6 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
   try {
     const [
       getAllBlogs,
-      // getAllNews,
       getAllLocations,
       getAllBrojcanici,
       getAllFaqSingle,
@@ -80,7 +73,6 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       getAllAdminCtaSelection,
     ] = await Promise.all([
       fetchData(getAllBlogsQuery(lang)),
-      // fetchData(getAllNewsQuery(lang)),
       fetchData(getLokacijeQuery(lang)),
       fetchData(getAllBrojcaniciQuery(lang)),
       fetchData(getAllFaqSinglesQuery(lang)),
@@ -97,7 +89,6 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
     ]);
 
     const blogDataArrayShorthand = getAllBlogs?.data?.allBlog?.edges || null;
-    // const newsDataArrayShorthand = getAllNews?.data?.allNovosti?.edges || null;
     const locationsDataArrayShorthand = getAllLocations?.data?.lokacije?.edges || null;
     const brojcaniciDataArrayShorthand = getAllBrojcanici?.data?.allBrojcanici?.edges || null;
     const faqSingleDataArrayShorthand = getAllFaqSingle?.data?.allFAQPojedinacno?.edges || null;
@@ -110,40 +101,79 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
     const dokumentiKataloziDataShorthand = getAllDocuments?.data?.dokumentikatalozi?.edges || null;
     const kategorijeDataShorthand = getAllCategories?.data?.categories?.edges || null;
     const tagsDataShorthand = getAllTags?.data?.tags?.edges || null;
-
     const adminCtaSelection = getAllAdminCtaSelection?.data?.adminSetupArea.edges[0].node || null;
 
     return (
       <Suspense>
         <main className='relative'>
-          <HeroSection />
+          <Suspense>
+            <HeroSection />
+          </Suspense>
           {blogDataArrayShorthand && (
-            <BlogSection
-              pageContent={blogDataArrayShorthand}
-              lang={lang}
-              categoriesList={kategorijeDataShorthand}
-              tagsList={tagsDataShorthand}
-              blogCtaKey={adminCtaSelection ? adminCtaSelection.adminGlobalniSelektorCta.blogSekcijaCta[0] : ''}
-              blogTableKey={process.env.BLOG_AIRTABLE_CTA_ID!}
-            />
+            <Suspense>
+              <BlogSection
+                pageContent={blogDataArrayShorthand}
+                lang={lang}
+                categoriesList={kategorijeDataShorthand}
+                tagsList={tagsDataShorthand}
+                blogCtaKey={adminCtaSelection ? adminCtaSelection.adminGlobalniSelektorCta.blogSekcijaCta[0] : ''}
+                blogTableKey={process.env.BLOG_AIRTABLE_CTA_ID!}
+              />
+            </Suspense>
           )}
-          {/* {newsDataArrayShorthand && <NewsSection pageContent={newsDataArrayShorthand} lang={lang} />} */}
-          {locationsDataArrayShorthand && <LocationsSection pageContent={locationsDataArrayShorthand} />}
-          {brojcaniciDataArrayShorthand && <BrojcaniciSection pageContent={brojcaniciDataArrayShorthand} lang={lang} />}
-          {faqSingleDataArrayShorthand && <SingleFaqSection pageContent={faqSingleDataArrayShorthand} lang={lang} />}
-          {uslugeDataArrayShorthand && <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />}
-          {logotipiPartneraDataArrayShorthand && <PartnersSection pageContent={logotipiPartneraDataArrayShorthand} />}
-          {baseCarouselDataShorthand && <CarouselBase imageArray={baseCarouselDataShorthand} />}
-          {iskustvaKlijenataShorthand && <TestimonialsSection pageContent={iskustvaKlijenataShorthand} lang={lang} />}
-          {whyUsDataShorthand && <WhyUsSection pageContent={whyUsDataShorthand} lang={lang} />}
+          {locationsDataArrayShorthand && (
+            <Suspense>
+              <LocationsSection pageContent={locationsDataArrayShorthand} />
+            </Suspense>
+          )}
+          {brojcaniciDataArrayShorthand && (
+            <Suspense>
+              <BrojcaniciSection pageContent={brojcaniciDataArrayShorthand} lang={lang} />
+            </Suspense>
+          )}
+          {faqSingleDataArrayShorthand && (
+            <Suspense>
+              <SingleFaqSection pageContent={faqSingleDataArrayShorthand} lang={lang} />
+            </Suspense>
+          )}
+          {uslugeDataArrayShorthand && (
+            <Suspense>
+              <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />
+            </Suspense>
+          )}
+          {logotipiPartneraDataArrayShorthand && (
+            <Suspense>
+              <PartnersSection pageContent={logotipiPartneraDataArrayShorthand} />
+            </Suspense>
+          )}
+          {baseCarouselDataShorthand && (
+            <Suspense>
+              <CarouselBase imageArray={baseCarouselDataShorthand} />
+            </Suspense>
+          )}
+          {iskustvaKlijenataShorthand && (
+            <Suspense>
+              <TestimonialsSection pageContent={iskustvaKlijenataShorthand} lang={lang} />
+            </Suspense>
+          )}
+          {whyUsDataShorthand && (
+            <Suspense>
+              <WhyUsSection pageContent={whyUsDataShorthand} lang={lang} />
+            </Suspense>
+          )}
           {obavijestiNaStraniciDataShorthand && (
-            <ObavijestiSection pageContent={obavijestiNaStraniciDataShorthand} lang={lang} />
+            <Suspense>
+              <ObavijestiSection pageContent={obavijestiNaStraniciDataShorthand} lang={lang} />
+            </Suspense>
           )}
           {dokumentiKataloziDataShorthand && (
-            <DocumentsCatalogsSection pageContent={dokumentiKataloziDataShorthand} lang={lang} />
+            <Suspense>
+              <DocumentsCatalogsSection pageContent={dokumentiKataloziDataShorthand} lang={lang} />
+            </Suspense>
           )}
-
-          <NewsTrack pageContent={obavijestiNaStraniciDataShorthand} lang={lang} />
+          <Suspense>
+            <NewsTrack pageContent={obavijestiNaStraniciDataShorthand} lang={lang} />
+          </Suspense>
         </main>
       </Suspense>
     );
