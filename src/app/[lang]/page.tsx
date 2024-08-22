@@ -64,7 +64,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
   try {
     const [
       getAllBlogs,
-      getAllNews,
+      // getAllNews,
       getAllLocations,
       getAllBrojcanici,
       getAllFaqSingle,
@@ -80,7 +80,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       getAllAdminCtaSelection,
     ] = await Promise.all([
       fetchData(getAllBlogsQuery(lang)),
-      fetchData(getAllNewsQuery(lang)),
+      // fetchData(getAllNewsQuery(lang)),
       fetchData(getLokacijeQuery(lang)),
       fetchData(getAllBrojcaniciQuery(lang)),
       fetchData(getAllFaqSinglesQuery(lang)),
@@ -97,7 +97,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
     ]);
 
     const blogDataArrayShorthand = getAllBlogs?.data?.allBlog?.edges || null;
-    const newsDataArrayShorthand = getAllNews?.data?.allNovosti?.edges || null;
+    // const newsDataArrayShorthand = getAllNews?.data?.allNovosti?.edges || null;
     const locationsDataArrayShorthand = getAllLocations?.data?.lokacije?.edges || null;
     const brojcaniciDataArrayShorthand = getAllBrojcanici?.data?.allBrojcanici?.edges || null;
     const faqSingleDataArrayShorthand = getAllFaqSingle?.data?.allFAQPojedinacno?.edges || null;
@@ -127,7 +127,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
               blogTableKey={process.env.BLOG_AIRTABLE_CTA_ID!}
             />
           )}
-          {newsDataArrayShorthand && <NewsSection pageContent={newsDataArrayShorthand} lang={lang} />}
+          {/* {newsDataArrayShorthand && <NewsSection pageContent={newsDataArrayShorthand} lang={lang} />} */}
           {locationsDataArrayShorthand && <LocationsSection pageContent={locationsDataArrayShorthand} />}
           {brojcaniciDataArrayShorthand && <BrojcaniciSection pageContent={brojcaniciDataArrayShorthand} lang={lang} />}
           {faqSingleDataArrayShorthand && <SingleFaqSection pageContent={faqSingleDataArrayShorthand} lang={lang} />}
