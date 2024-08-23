@@ -18,7 +18,7 @@ export default async function SchedulePage({ params: { lang, id } }: { params: {
   const prepareDataForClient = parseData.data.allTjedniRaspored.edges[0].node;
 
   return (
-    <main className='min-h-svh'>
+    <main className='min-h-dvh'>
       <PageContent content={prepareDataForClient} lang={lang} />
     </main>
   );

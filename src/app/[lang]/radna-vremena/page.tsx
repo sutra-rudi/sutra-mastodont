@@ -55,7 +55,7 @@ export default async function RadnaVremena({
   const dataShorthandTjedni = parseTjedniRasporedData.data.allTjedniRaspored.edges[0].node;
 
   return (
-    <main>
+    <main className='w-full min-h-dvh pb-12 dark:bg-primary-dark'>
       {dataShorthandSezonsko && (
         <PageContent
           defaultRadno={defaultShorthand}
