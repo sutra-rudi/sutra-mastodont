@@ -4,6 +4,7 @@ import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 import dayjs from 'dayjs';
 import React from 'react';
 import parse from 'html-react-parser';
+
 interface RadnaVremenaPageContent {
   pageContent: any;
   defaultRadno: any;
@@ -32,6 +33,8 @@ const PageContent = ({ pageContent, lang, defaultRadno, tjedniRaspored }: RadnaV
     { hr: 'subota', eng: 'Saturday', ger: 'Samstag', ita: 'sabato' },
     { hr: 'nedjelja', eng: 'Sunday', ger: 'Sonntag', ita: 'domenica' },
   ];
+
+  console.log('CIII', contShorthand);
 
   return (
     <section className='w-full min-h-dvh px-4'>
@@ -96,22 +99,26 @@ const PageContent = ({ pageContent, lang, defaultRadno, tjedniRaspored }: RadnaV
           <table className='w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400'>
             <thead className='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>
               <tr>
-                {fieldDays.map((day) => (
-                  <th scope='col' key={day[lang]} className='px-6 py-3'>
-                    {day[lang]}
-                  </th>
-                ))}
+                {fieldDays.map(
+                  (day) =>
+                    contShorthand[day.hr] && ( // Prikazujemo samo dane koji imaju vrijednost
+                      <th scope='col' key={day[lang]} className='px-6 py-3'>
+                        {day[lang]}
+                      </th>
+                    )
+                )}
               </tr>
             </thead>
             <tbody>
               <tr className='bg-white border-b dark:bg-gray-800 dark:border-gray-700'>
-                {fieldDays.map((day) => {
-                  return (
-                    <td key={day.hr} className='px-6 py-4'>
-                      {contShorthand[day.hr]}
-                    </td>
-                  );
-                })}
+                {fieldDays.map(
+                  (day) =>
+                    contShorthand[day.hr] && ( // Prikazujemo samo dane koji imaju vrijednost
+                      <td key={day.hr} className='px-6 py-4'>
+                        {contShorthand[day.hr]}
+                      </td>
+                    )
+                )}
               </tr>
             </tbody>
           </table>
