@@ -49,7 +49,7 @@ const SocialLinks: React.FC<SocialLinksProps> = ({ links }) => {
               className='flex items-center justify-start gap-2 border-b border-accent'
             >
               <span>{network.charAt(0).toUpperCase() + network.slice(1)}</span>
-              <span className='italic'>{profileName && `@${profileName}`}</span>
+              <span className='italic'>{profileName && `${profileName}`}</span>
             </a>
           </div>
         ) : null;
