@@ -1,6 +1,7 @@
 import { getSezonskoRadnoVrijemeQuery } from '@/app/queries/getAllSezonskoRadnoVrijemeQuery';
 import PageContent from './PageContent';
 import { getAllRadnoVrijemeQuery } from '@/app/queries/getDefaultRadnoVrijeme';
+import { getTjedniRasporedQuery } from '@/app/queries/getAllTjedniRasporedQuery';
 
 export default async function RadnaVremena({
   params: { lang },
@@ -39,10 +40,29 @@ export default async function RadnaVremena({
 
   const defaultShorthand = parseDefaultData.data.allRadnoVrijeme.edges[0].node;
 
+  const getTjedniRaspored = await fetch(`${process.env.CMS_BASE_URL}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      query: getTjedniRasporedQuery(lang),
+    }),
+    cache: 'no-cache',
+  });
+
+  const parseTjedniRasporedData = await getTjedniRaspored.json();
+  const dataShorthandTjedni = parseTjedniRasporedData.data.allTjedniRaspored.edges[0].node;
+
   return (
     <main>
       {dataShorthandSezonsko && (
-        <PageContent defaultRadno={defaultShorthand} lang={lang} pageContent={dataShorthandSezonsko} />
+        <PageContent
+          defaultRadno={defaultShorthand}
+          lang={lang}
+          pageContent={dataShorthandSezonsko}
+          tjedniRaspored={dataShorthandTjedni}
+        />
       )}
     </main>
   );
