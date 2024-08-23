@@ -24,6 +24,8 @@ const PageContent = ({ pageContent, lang, defaultRadno, tjedniRaspored }: RadnaV
   const uvodShorthand = tjedniRaspored.tjedniRasporedUvod;
   const isSeasonal: boolean = uvodShorthand.sezonskoRadnoVrijeme;
 
+  const notifyShort = tjedniRaspored[`tjedniRaspored${l}`].dodatnaNapomenaTjedniRasporedHr;
+
   const fieldDays: any[] = [
     { hr: 'ponedjeljak', eng: 'Monday', ger: 'Montag', ita: 'lunedì' },
     { hr: 'utorak', eng: 'Tuesday', ger: 'Dienstag', ita: 'martedì' },
@@ -33,8 +35,6 @@ const PageContent = ({ pageContent, lang, defaultRadno, tjedniRaspored }: RadnaV
     { hr: 'subota', eng: 'Saturday', ger: 'Samstag', ita: 'sabato' },
     { hr: 'nedjelja', eng: 'Sunday', ger: 'Sonntag', ita: 'domenica' },
   ];
-
-  console.log('CIII', contShorthand);
 
   return (
     <section className='w-full min-h-dvh px-4'>
@@ -92,6 +92,11 @@ const PageContent = ({ pageContent, lang, defaultRadno, tjedniRaspored }: RadnaV
       <div className='w-full mx-auto flex flex-col place-items-center gap-4 py-6'>
         <h1 className='text-3xl font-bold dark:text-primary-light'>Tjedni raspored prijatelju moj</h1>
         <p className='italic text-xl text-primary-dark/25 dark:text-primary-light'>...Đavo ga odnio...</p>
+        {notifyShort && (
+          <div className='prose prose-p:text-base prose-p:text-balance dark:prose-p:text-primary-light dark:prose-strong:text-primary-light text-center'>
+            {parse(notifyShort)}
+          </div>
+        )}
       </div>
 
       <div className='grid items-start gap-8 w-full max-w-[1440px] mx-auto'>

@@ -11,6 +11,7 @@ export const getTjedniRasporedQuery = (lang: string) => {
           subota
           nedjelja
         }
+          dodatnaNapomenaTjedniRasporedHr
       }
     `,
     eng: `
@@ -24,6 +25,7 @@ export const getTjedniRasporedQuery = (lang: string) => {
           subota
           nedjelja
         }
+          dodatnaNapomenaTjedniRasporedEng
       }
     `,
     ger: `
@@ -37,6 +39,7 @@ export const getTjedniRasporedQuery = (lang: string) => {
           subota
           nedjelja
         }
+          dodatnaNapomenaTjedniRasporedGer
       }
     `,
     ita: `
@@ -50,6 +53,7 @@ export const getTjedniRasporedQuery = (lang: string) => {
           subota
           nedjelja
         }
+          dodatnaNapomenaTjedniRasporedIta
       }
     `,
   };
