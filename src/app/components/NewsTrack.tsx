@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { motion } from 'framer-motion';
 import { getSuffixFromLang } from '../langUtils/getSuffixFromLang';
 import parse from 'html-react-parser';
 import { IoIosClose as CloseButton } from 'react-icons/io';
@@ -52,52 +53,57 @@ const NewsTrack = ({ pageContent, lang }: ObavijestiNaStraniciInterface) => {
   const [isOpen, setIsOpen] = React.useState<boolean>(true);
 
   return (
-    <div>
-      {filtriraneObavijesti.map((contentShorthand: any, index: number) => {
-        const notificationToShow = contentShorthand.statusAtivacijePoJezicima[`aktivator${l}`];
-        const currentTextContent = {
-          naslov: contentShorthand[`text${l}`]?.[`naslov${l}`],
-          sadrzaj: contentShorthand[`text${l}`]?.[`sadrzajText${l}`],
-        };
+    <div className='fixed bottom-4 left-0 right-0 z-40 w-full flex justify-center'>
+      <div className='w-full max-w-screen-lg px-4'>
+        {filtriraneObavijesti.map((contentShorthand: any, index: number) => {
+          const notificationToShow = contentShorthand.statusAtivacijePoJezicima[`aktivator${l}`];
+          const currentTextContent = {
+            naslov: contentShorthand[`text${l}`]?.[`naslov${l}`],
+            sadrzaj: contentShorthand[`text${l}`]?.[`sadrzajText${l}`],
+          };
 
-        return (
-          <div
-            key={index}
-            style={{ background: contentShorthand.obavijestiInterventne.odabirAkcijskeBoje }}
-            className={`w-full fixed bottom-4 left-1/2 -translate-x-1/2 bg-almost-black z-40 max-w-screen-xl mx-auto my-0 rounded-sutraObavijestTrakaRadius flex items-center justify-between py-2 ${
-              !isOpen && 'hidden'
-            } ${!notificationToShow && 'hidden'}`}
-          >
-            <div className='flex self-center mx-auto items-center gap-6'>
-              <h2 className='text-sm font-semibold text-almost-white'>{currentTextContent.naslov ?? 'ciaos'}</h2>
-              <div className='flex items-center gap-3'>
-                {currentTextContent.sadrzaj && (
-                  <div className='line-clamp-1 text-xs max-w-[60ch] w-full'>{parse(currentTextContent.sadrzaj)}</div>
-                )}
-                {contentShorthand.obavijestiInterventne.linkNaKojiVodiObavijestOpcionalno && (
-                  <div>
-                    <a
-                      href={contentShorthand.obavijestiInterventne.linkNaKojiVodiObavijestOpcionalno}
-                      className='text-xs text-almost-white underline font-normal'
-                      target='_blank'
-                      rel='noopener noreferrer'
-                    >
-                      Saznaj više
-                    </a>
-                  </div>
-                )}
-              </div>
-            </div>
-
-            <div
-              className='justify-self-end px-5 cursor-pointer group hover:scale-110 transition-all ease-in'
-              onClick={() => setIsOpen(false)}
+          return (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: -20 }} // Početni stil
+              animate={{ opacity: 1, y: 0 }} // Stil kad se animira
+              transition={{ duration: 0.5, ease: 'easeInOut' }} // Trajanje i vrsta animacije
+              style={{ background: contentShorthand.obavijestiInterventne.odabirAkcijskeBoje }}
+              className={`w-full mx-auto px-4 py-2 rounded-sutraObavijestTrakaRadius flex items-center justify-between ${
+                !isOpen && 'hidden'
+              } ${!notificationToShow && 'hidden'}`}
             >
-              <CloseButton className=' text-almost-white text-xl group-hover:scale-110 transition-all ease-out' />
-            </div>
-          </div>
-        );
-      })}
+              <div className='flex self-center items-center gap-6 w-full'>
+                <h2 className='text-sm font-semibold text-almost-white'>{currentTextContent.naslov ?? 'ciaos'}</h2>
+                <div className='flex items-center gap-3'>
+                  {currentTextContent.sadrzaj && (
+                    <div className='line-clamp-1 text-xs max-w-[60ch] w-full'>{parse(currentTextContent.sadrzaj)}</div>
+                  )}
+                  {contentShorthand.obavijestiInterventne.linkNaKojiVodiObavijestOpcionalno && (
+                    <div>
+                      <a
+                        href={contentShorthand.obavijestiInterventne.linkNaKojiVodiObavijestOpcionalno}
+                        className='text-xs text-almost-white underline font-normal'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                      >
+                        Saznaj više
+                      </a>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              <div
+                className='justify-self-end px-5 cursor-pointer group hover:scale-110 transition-all ease-in'
+                onClick={() => setIsOpen(false)}
+              >
+                <CloseButton className=' text-almost-white text-xl group-hover:scale-110 transition-all ease-out' />
+              </div>
+            </motion.div>
+          );
+        })}
+      </div>
     </div>
   );
 };
