@@ -24,6 +24,11 @@ export const getAllFaqSinglesQuery = (lang: string) => {
         pitanjeFaqIta
       }
     `,
+    fra: `
+      faqPojedinacnoDodavanjeFra {
+        odgovorFaqFra
+        pitanjeFaqFra
+      }`,
   };
 
   return `

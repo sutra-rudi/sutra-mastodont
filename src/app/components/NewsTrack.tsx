@@ -64,7 +64,7 @@ const NewsTrack = ({ pageContent, lang }: ObavijestiNaStraniciInterface) => {
           <div
             key={index}
             style={{ background: contentShorthand.obavijestiInterventne.odabirAkcijskeBoje }}
-            className={`w-full fixed top-4 left-1/2 -translate-x-1/2 bg-almost-black z-40 max-w-screen-xl mx-auto my-0 rounded-sutraObavijestTrakaRadius flex items-center justify-between py-2 ${
+            className={`w-full fixed bottom-4 left-1/2 -translate-x-1/2 bg-almost-black z-40 max-w-screen-xl mx-auto my-0 rounded-sutraObavijestTrakaRadius flex items-center justify-between py-2 ${
               !isOpen && 'hidden'
             } ${!notificationToShow && 'hidden'}`}
           >
