@@ -47,7 +47,7 @@ const PartnersSection = ({ pageContent }: PartnersSectionInterface) => {
                 cont.node.logotipiPartnera.prikaziNaNaslovnici && (
                   <Link
                     key={cont.node.id}
-                    className='block mx-4 flex-shrink-0'
+                    className='block mx-4 flex-shrink-0 px-6 py-8'
                     href={cont.node.logotipiPartnera.linkNaStranicuKlijentapartnera}
                   >
                     <picture>
