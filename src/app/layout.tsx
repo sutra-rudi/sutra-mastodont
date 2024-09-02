@@ -17,6 +17,7 @@ import { Providers } from './providers';
 import { appleTouchIcons, favicons } from './pathsUtils/mediaImportsDynamic';
 import { getAdminTokensQuery } from './queries/getAdminTokens';
 import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google';
+
 import Script from 'next/script';
 const poppins = Poppins({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700'] });
 
@@ -119,7 +120,7 @@ export default async function RootLayout({
 
   const adminTokenDataShorthand = adminTokenData.data.kodoviApitokenStylebox.edges[0].node;
 
-  console.log('darmar', adminTokenDataShorthand.kodoviAdminApi.microsoftClarity);
+  console.log('darmar', adminTokenDataShorthand.kodoviAdminApi.hotjar);
 
   return (
     <html
@@ -140,7 +141,6 @@ export default async function RootLayout({
 
           <AppFooter />
         </Suspense>
-
         {adminTokenDataShorthand.kodoviAdminApi.microsoftClarity && (
           <Script id='clarity-script' strategy='afterInteractive'>
             {`
@@ -150,6 +150,20 @@ export default async function RootLayout({
                 y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
             })(window, document, "clarity", "script", "${adminTokenDataShorthand.kodoviAdminApi.microsoftClarity}");
           `}
+          </Script>
+        )}
+        {adminTokenDataShorthand.kodoviAdminApi.hotjar && (
+          <Script id='hotjar-snippet'>
+            {`
+          (function(h,o,t,j,a,r){
+              h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+              h._hjSettings={hjid:${adminTokenDataShorthand.kodoviAdminApi.hotjar},hjsv:6};
+              a=o.getElementsByTagName('head')[0];
+              r=o.createElement('script');r.async=1;
+              r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+              a.appendChild(r);
+          })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+        `}
           </Script>
         )}
       </body>
