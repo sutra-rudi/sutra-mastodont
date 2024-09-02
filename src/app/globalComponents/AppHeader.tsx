@@ -98,6 +98,10 @@ const AppHeader = () => {
       url: `/${currentLang}/social-links`,
       title: 'Drustvene mreze',
     },
+    {
+      url: `/${currentLang}/gallery`,
+      title: 'Galerija',
+    },
   ];
 
   const [theme, setTheme] = React.useState('light');
