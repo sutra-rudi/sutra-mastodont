@@ -32,7 +32,8 @@ export const getAdminTokensQuery = () => `query NewQuery {
           mojPosao
           notionEmbed
           opentable
-          plerdy
+          plerdySiteHashCode
+          plerdySuidSiteUniqueId
           rentlioEmbed
           tablein
           tallyApi
@@ -42,6 +43,7 @@ export const getAdminTokensQuery = () => `query NewQuery {
           windy
           zapier
           zendeskChatCode
+          plerdySiteHashCode
         }
       }
     }

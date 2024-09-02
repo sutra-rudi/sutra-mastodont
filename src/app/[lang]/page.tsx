@@ -105,7 +105,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
     return (
       <Suspense>
-        <main className='relative'>
+        <main className='relative w-full min-h-dvh dark:bg-primary-dark'>
           <Suspense>
             <HeroSection />
           </Suspense>

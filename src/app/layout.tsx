@@ -120,14 +120,14 @@ export default async function RootLayout({
 
   const adminTokenDataShorthand = adminTokenData.data.kodoviApitokenStylebox.edges[0].node;
 
-  console.log('darmar', adminTokenDataShorthand.kodoviAdminApi.hotjar);
+  console.log('darmar', adminTokenDataShorthand.kodoviAdminApi);
 
   return (
     <html
       lang='en'
-      className='scrollbar scrollbar-thumb-primary-light dark:scrollbar-thumb-primary-dark  scrollbar-track-primary-dark dark:scrollbar-track-primary-light '
+      className='scrollbar scrollbar-thumb-primary-light dark:scrollbar-thumb-primary-dark  scrollbar-track-primary-dark dark:scrollbar-track-primary-light'
     >
-      <body className={poppins.className}>
+      <body className={`${poppins.className} w-full min-h-dvh`}>
         {adminTokenDataShorthand.kodoviAdminApi.googleAnalytics && (
           <GoogleAnalytics gaId={adminTokenDataShorthand.kodoviAdminApi.googleAnalytics} />
         )}
@@ -166,6 +166,28 @@ export default async function RootLayout({
         `}
           </Script>
         )}
+
+        {adminTokenDataShorthand.kodoviAdminApi.plerdySiteHashCode &&
+          adminTokenDataShorthand.kodoviAdminApi.plerdySuidSiteUniqueId && (
+            <Script id='plerdy-script' strategy='afterInteractive'>
+              {`
+              var _protocol="https:"==document.location.protocol?"https://":"http://";
+              var _site_hash_code = "${adminTokenDataShorthand.kodoviAdminApi.plerdySiteHashCode}";
+              var _suid = ${adminTokenDataShorthand.kodoviAdminApi.plerdySuidSiteUniqueId};
+              var plerdyScript=document.createElement("script");
+              plerdyScript.setAttribute("defer","");
+              plerdyScript.dataset.plerdymainscript="plerdymainscript";
+              plerdyScript.src="https://a.plerdy.com/public/js/click/main.js?v="+Math.random();
+              var plerdymainscript=document.querySelector("[data-plerdymainscript='plerdymainscript']");
+              if(plerdymainscript) plerdymainscript.parentNode.removeChild(plerdymainscript);
+              try {
+                document.head.appendChild(plerdyScript);
+              } catch(t) {
+                console.log(t,"unable to add script tag");
+              }
+            `}
+            </Script>
+          )}
       </body>
     </html>
   );
