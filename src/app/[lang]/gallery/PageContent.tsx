@@ -3,8 +3,18 @@
 import React, { useState } from 'react';
 import { Gallery } from 'react-grid-gallery';
 import Lightbox from 'yet-another-react-lightbox';
+import Slider from 'react-slick';
 import 'yet-another-react-lightbox/styles.css';
-import { carusel1Images, carusel2Images, carusel3Images } from '@/app/pathsUtils/mediaImportsDynamic';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import {
+  carusel1Images,
+  carusel2Images,
+  carusel3Images,
+  carusel4Images,
+  carusel5Images,
+} from '@/app/pathsUtils/mediaImportsDynamic';
+import { defaultMultiple, infiScrollSettings, multipleRows } from '@/app/scriptSettings/slickOptions';
 
 // Pripremamo slike za osnovni prikaz
 const imageArray1 = Object.keys(carusel1Images).map((key) => {
@@ -28,7 +38,6 @@ const imageArray2 = Object.keys(carusel2Images).map((key) => {
     caption: `carousel image ${key}`,
     customOverlay: (
       <div className='custom-overlay__caption'>
-        {/* <div>Boats (Jeshu John - designerspics.com)</div> */}
         <span>{`karuzel slika ${key}`}</span>
       </div>
     ),
@@ -47,6 +56,25 @@ const slides = Object.keys(carusel3Images).map((key) => {
   };
 });
 
+// Pripremamo slike za react-slick
+const slickImages = Object.keys(carusel4Images).map((key) => {
+  const imageUrl = carusel4Images[key as keyof typeof carusel4Images];
+  return (
+    <picture key={key} className='w-full h-auto'>
+      <img src={imageUrl} alt={`carousel image ${key}`} className='w-full h-auto object-cover' />
+    </picture>
+  );
+});
+
+const slickImagesInfi = Object.keys(carusel4Images).map((key) => {
+  const imageUrl = carusel5Images[key as keyof typeof carusel4Images];
+  return (
+    <picture key={key} className='w-full h-auto'>
+      <img src={imageUrl} alt={`carousel image ${key}`} className='w-full h-auto object-cover' />
+    </picture>
+  );
+});
+
 const PageContent = () => {
   const [index, setIndex] = useState(-1);
 
@@ -55,20 +83,54 @@ const PageContent = () => {
   return (
     <div className='p-4'>
       {/* Osnovni prikaz slika */}
-      <h2 className='text-2xl font-bold mb-4'>Basic galerija</h2>
+      <div className='flex flex-col gap-2 items-center justify-center'>
+        <h2 className='font-bold mb-4 text-center text-4xl'>Basic galerija</h2>
+        <p>Koristi slike iz carusel 1 mape</p>
+      </div>
       <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8'>{imageArray1}</div>
 
       {/* React Grid Gallery bez Lightbox-a */}
       <div className='mb-8'>
-        <h2 className='text-2xl font-bold mb-4'>Grid galerija</h2>
+        <div className='flex flex-col gap-2 items-center justify-center'>
+          <h2 className='font-bold mb-4 text-center text-4xl'>Grid galerija</h2>
+          <p>Koristi slike iz carusel 2 mape</p>
+        </div>
         <Gallery images={imageArray2} enableImageSelection={false} />
       </div>
 
       {/* React Grid Gallery s Lightbox funkcionalnošću */}
-      <div>
-        <h2 className='text-2xl font-bold mb-4'>Grid galerija sa lightboxom</h2>
+      <div className='mb-8'>
+        <div className='flex flex-col gap-2 items-center justify-center'>
+          <h2 className='font-bold mb-4 text-center text-4xl'>Grid galerija sa lightboxom</h2>
+          <p>Koristi slike iz carusel 2 mape</p>
+        </div>
         <Gallery images={imageArray2} onClick={handleClick} enableImageSelection={false} />
         <Lightbox slides={slides} open={index >= 0} index={index} close={() => setIndex(-1)} />
+      </div>
+
+      {/* React Slick Carousel */}
+      <div className='mb-8'>
+        <div className='flex flex-col gap-2 items-center justify-center'>
+          <h2 className='font-bold mb-4 text-center text-4xl'>Galerija karuzel</h2>
+          <p>Koristi slike iz carusel 3 mape</p>
+        </div>
+        <Slider {...defaultMultiple}>{slickImages}</Slider>
+      </div>
+
+      <div className='mb-8'>
+        <div className='flex flex-col gap-2 items-center justify-center'>
+          <h2 className='font-bold mb-4 text-center text-4xl'>Galerija karuzel u 2 reda</h2>
+          <p>Koristi slike iz carusel 4 mape</p>
+        </div>
+        <Slider {...multipleRows}>{slickImages}</Slider>
+      </div>
+
+      <div className='mb-8'>
+        <div className='flex flex-col gap-2 items-center justify-center'>
+          <h2 className='font-bold mb-4 text-center text-4xl'>Galerija karuzel autoplay</h2>
+          <p>Koristi slike iz carusel 5 mape</p>
+        </div>
+        <Slider {...infiScrollSettings}>{slickImagesInfi}</Slider>
       </div>
     </div>
   );
