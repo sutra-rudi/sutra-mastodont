@@ -31,7 +31,7 @@ const NewsTrack = lazy(() => import('../components/NewsTrack'));
 export const maxDuration = 60;
 export const revalidate = 3600; // revalidate at most every hour
 
-export async function fetchData(query: any) {
+async function fetchData(query: any) {
   try {
     const response = await fetch(`${process.env.CMS_BASE_URL}`, {
       method: 'POST',

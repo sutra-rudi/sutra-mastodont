@@ -66,12 +66,10 @@ body {
   .custom-radio {
     @apply form-radio bg-sutraRadioBgUnchecked;
 
-    // background-color: theme('colors.sutraRadioBgUnchecked');
     outline: none;
     border: none;
 
     &:is(.dark *) {
-      // background-color: theme('colors.secondary-light');
       background-color: transparent;
       outline: 1px solid theme('colors.secondary-light');
 
@@ -80,8 +78,6 @@ body {
   }
   .custom-radio:checked {
     @apply text-secondary-dark;
-    // @apply text-accent
-    // color: theme('colors.accent');
 
     &:is(.dark *) {
       @apply text-secondary-light;
@@ -98,25 +94,6 @@ body {
   .custom-radio:focus {
     @apply outline-none ring-transparent;
   }
-
-  // .custom-checkbox {
-  //   @apply form-checkbox border-gray-300;
-  //   background-color: #fff;
-  //   accent-color: #000; /* Tailwind 3.2+ */
-  //   border-radius: 0.25rem; /* Adjust if needed */
-  // }
-  // .custom-checkbox:checked {
-  //   @apply bg-almost-black text-white;
-  //   background-color: #000; /* Change background color for checked state */
-  //   border: none; /* Remove border */
-  // }
-  // .custom-checkbox:focus {
-  //   @apply ring-0 outline-none;
-  //   border-color: transparent; /* Remove border color on focus */
-  // }
-  // .custom-checkbox:active {
-  //   @apply ring-0 outline-none;
-  // }
 }
 
 // BLOGOVI / NOVOSTI WP CONTENT
@@ -156,9 +133,6 @@ body {
 ///// NAPRAVIT
 
 .test-kartica {
-  // box-shadow: 1px 1px 1px theme('colors.accent', #ff5733);
-  // border-radius: theme('borderRadius.sutraCardBorderRadius', '8px');
-
   a {
     h5 {
       span {
