@@ -2,7 +2,6 @@ import { Suspense, lazy } from 'react';
 
 import { getAllBlogsQuery } from '../queries/getAllBlogsQuery';
 import { getAllBrojcaniciQuery } from '../queries/getAllBrojcaniciQuery';
-import { getAllFaqSinglesQuery } from '../queries/getAllFaqSingles';
 import { getAllUslugeQuery } from '../queries/getAllUslugeQuery';
 import { getAllLogotipiPartneraQuery } from '../queries/getAllLogotipiPartnera';
 import { getAllCarouselBaseQuery } from '../queries/getAllCarouselBase';
@@ -17,13 +16,11 @@ import { getAdminCtaSelectionQuery } from '../queries/getAdminCtaSelectionQuery'
 // Lazy loading komponenti
 const BlogSection = lazy(() => import('./BlogSection'));
 const BrojcaniciSection = lazy(() => import('./BrojcaniciSection'));
-const SingleFaqSection = lazy(() => import('./SingleFaqSection'));
 const UslugeSection = lazy(() => import('./UslugeSection'));
 const PartnersSection = lazy(() => import('./PartnersSection'));
 const CarouselBase = lazy(() => import('./CarouselBase'));
 const TestimonialsSection = lazy(() => import('./TestimonialsSection'));
 const WhyUsSection = lazy(() => import('./WhyUsSection'));
-const ObavijestiSection = lazy(() => import('./ObavijestiSection'));
 const DocumentsCatalogsSection = lazy(() => import('./DocumentsCatalogsSection'));
 const HeroSection = lazy(() => import('./HeroSection'));
 const NewsTrack = lazy(() => import('../components/NewsTrack'));
@@ -58,7 +55,6 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
     const [
       getAllBlogs,
       getAllBrojcanici,
-      getAllFaqSingle,
       getAllUsluge,
       getAllPartnersLogos,
       getAllCarouselBase,
@@ -72,7 +68,6 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
     ] = await Promise.all([
       fetchData(getAllBlogsQuery(lang)),
       fetchData(getAllBrojcaniciQuery(lang)),
-      fetchData(getAllFaqSinglesQuery(lang)),
       fetchData(getAllUslugeQuery(lang)),
       fetchData(getAllLogotipiPartneraQuery()),
       fetchData(getAllCarouselBaseQuery()),
@@ -88,7 +83,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
     const blogDataArrayShorthand = getAllBlogs?.data?.allBlog?.edges || null;
 
     const brojcaniciDataArrayShorthand = getAllBrojcanici?.data?.allBrojcanici?.edges || null;
-    const faqSingleDataArrayShorthand = getAllFaqSingle?.data?.allFAQPojedinacno?.edges || null;
+
     const uslugeDataArrayShorthand = getAllUsluge?.data?.allUsluge?.edges || null;
     const logotipiPartneraDataArrayShorthand = getAllPartnersLogos?.data?.logotipiPartneraKlijenata?.edges || null;
     const baseCarouselDataShorthand = getAllCarouselBase?.data?.karuselNaslovnica?.edges[0]?.node || null;
@@ -124,11 +119,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
               <BrojcaniciSection pageContent={brojcaniciDataArrayShorthand} lang={lang} />
             </Suspense>
           )}
-          {faqSingleDataArrayShorthand && (
-            <Suspense>
-              <SingleFaqSection pageContent={faqSingleDataArrayShorthand} lang={lang} />
-            </Suspense>
-          )}
+
           {uslugeDataArrayShorthand && (
             <Suspense>
               <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />
@@ -154,11 +145,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
               <WhyUsSection pageContent={whyUsDataShorthand} lang={lang} />
             </Suspense>
           )}
-          {obavijestiNaStraniciDataShorthand && (
-            <Suspense>
-              <ObavijestiSection pageContent={obavijestiNaStraniciDataShorthand} lang={lang} />
-            </Suspense>
-          )}
+
           {dokumentiKataloziDataShorthand && (
             <Suspense>
               <DocumentsCatalogsSection pageContent={dokumentiKataloziDataShorthand} lang={lang} />

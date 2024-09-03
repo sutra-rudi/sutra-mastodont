@@ -110,6 +110,11 @@ const AppHeader = () => {
       url: `/${currentLang}/locations`,
       title: 'Lokacije',
     },
+
+    {
+      url: `/${currentLang}/notifications-page`,
+      title: 'Obavijesti',
+    },
   ];
 
   const [theme, setTheme] = React.useState('light');
