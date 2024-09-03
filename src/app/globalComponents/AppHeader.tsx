@@ -106,6 +106,10 @@ const AppHeader = () => {
       url: `/${currentLang}/blog-news-cards`,
       title: 'Kartice',
     },
+    {
+      url: `/${currentLang}/locations`,
+      title: 'Lokacije',
+    },
   ];
 
   const [theme, setTheme] = React.useState('light');

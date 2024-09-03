@@ -10,14 +10,12 @@ import { getAllIskustvaKlijenataQuery } from '../queries/getAllIskustvaKlijenata
 import { getWhyUsQuery } from '../queries/getAllWhyUsQuery';
 import { getObavijestiNaStraniciQuery } from '../queries/getAllObavijestiQuery';
 import { getDokumentikataloziQuery } from '../queries/getAllDocumentsQuery';
-import { getLokacijeQuery } from '../queries/getAllLocationsQuery';
 import { getCategoriesQuery } from '../queries/getAllBlogCategoriesQuery';
 import { getTagsQuery } from '../queries/getAllTagsQuery';
 import { getAdminCtaSelectionQuery } from '../queries/getAdminCtaSelectionQuery';
 
 // Lazy loading komponenti
 const BlogSection = lazy(() => import('./BlogSection'));
-const LocationsSection = lazy(() => import('./LocationsSection'));
 const BrojcaniciSection = lazy(() => import('./BrojcaniciSection'));
 const SingleFaqSection = lazy(() => import('./SingleFaqSection'));
 const UslugeSection = lazy(() => import('./UslugeSection'));
@@ -33,7 +31,7 @@ const NewsTrack = lazy(() => import('../components/NewsTrack'));
 export const maxDuration = 60;
 export const revalidate = 3600; // revalidate at most every hour
 
-async function fetchData(query: any) {
+export async function fetchData(query: any) {
   try {
     const response = await fetch(`${process.env.CMS_BASE_URL}`, {
       method: 'POST',
@@ -59,7 +57,6 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
   try {
     const [
       getAllBlogs,
-      getAllLocations,
       getAllBrojcanici,
       getAllFaqSingle,
       getAllUsluge,
@@ -74,7 +71,6 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       getAllAdminCtaSelection,
     ] = await Promise.all([
       fetchData(getAllBlogsQuery(lang)),
-      fetchData(getLokacijeQuery(lang)),
       fetchData(getAllBrojcaniciQuery(lang)),
       fetchData(getAllFaqSinglesQuery(lang)),
       fetchData(getAllUslugeQuery(lang)),
@@ -90,7 +86,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
     ]);
 
     const blogDataArrayShorthand = getAllBlogs?.data?.allBlog?.edges || null;
-    const locationsDataArrayShorthand = getAllLocations?.data?.lokacije?.edges || null;
+
     const brojcaniciDataArrayShorthand = getAllBrojcanici?.data?.allBrojcanici?.edges || null;
     const faqSingleDataArrayShorthand = getAllFaqSingle?.data?.allFAQPojedinacno?.edges || null;
     const uslugeDataArrayShorthand = getAllUsluge?.data?.allUsluge?.edges || null;
@@ -122,11 +118,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
               />
             </Suspense>
           )}
-          {locationsDataArrayShorthand && (
-            <Suspense>
-              <LocationsSection pageContent={locationsDataArrayShorthand} />
-            </Suspense>
-          )}
+
           {brojcaniciDataArrayShorthand && (
             <Suspense>
               <BrojcaniciSection pageContent={brojcaniciDataArrayShorthand} lang={lang} />
