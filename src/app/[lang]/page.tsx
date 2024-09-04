@@ -28,9 +28,18 @@ const NewsTrack = lazy(() => import('../components/NewsTrack'));
 export const maxDuration = 60;
 export const revalidate = 3600; // revalidate at most every hour
 
+function fetchWithTimeout(resource: string, options: RequestInit, timeout = 5000): Promise<Response> {
+  const controller = new AbortController();
+  const id = setTimeout(() => controller.abort(), timeout);
+  return fetch(resource, {
+    ...options,
+    signal: controller.signal,
+  }).finally(() => clearTimeout(id));
+}
+
 async function fetchData(query: any) {
   try {
-    const response = await fetch(`${process.env.CMS_BASE_URL}`, {
+    const response = await fetchWithTimeout(`${process.env.CMS_BASE_URL}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -43,7 +52,13 @@ async function fetchData(query: any) {
       throw new Error(`Fetch error: ${response.statusText}`);
     }
 
-    return response.json();
+    const data = await response.text(); // Use text() to avoid JSON parsing issues
+    try {
+      return JSON.parse(data); // Attempt to parse the response
+    } catch (jsonError) {
+      console.error('Invalid JSON response:', data);
+      return null;
+    }
   } catch (error) {
     console.error('Fetch data error:', error);
     return null;
