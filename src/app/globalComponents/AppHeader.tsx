@@ -176,18 +176,18 @@ const AppHeader = () => {
             </div>
 
             <div
-              className={`absolute z-40 w-full h-screen bg-red-300 inset-0 transition-all duration-300 flex items-center justify-center ${
+              className={`absolute z-40 w-full h-screen bg-red-300 inset-0 transition-all duration-300 flex items-center lg:justify-center justify-start flex-col lg:pt-0 pt-24  ${
                 isMobileMenuOpen
                   ? 'opacity-100 pointer-events-auto select-auto'
                   : 'opacity-0 select-none pointer-events-none'
               }`}
             >
-              <ul className='grid 2xl:grid-cols-3 lg:grid-cols-2 grid-cols-1 gap-x-4 gap-y-2'>
+              <ul className='grid 2xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 gap-x-4 gap-y-2 w-full lg:px-6 px-2'>
                 {navLinks.map((navLink) => (
                   <li key={navLink.title} className='shrink-0'>
                     <a
                       href={navLink.url}
-                      className='flex text-h3 font-medium text-gray-900 hover:text-primary-700 dark:text-white dark:hover:text-primary-500'
+                      className='flex xl:text-3xl lg:text-2xl md:text-xl text-base font-medium text-gray-900 hover:text-primary-700 dark:text-white dark:hover:text-primary-500'
                     >
                       {navLink.title}
                     </a>

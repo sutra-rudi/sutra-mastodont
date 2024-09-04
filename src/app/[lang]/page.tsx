@@ -12,6 +12,7 @@ import { getDokumentikataloziQuery } from '../queries/getAllDocumentsQuery';
 import { getCategoriesQuery } from '../queries/getAllBlogCategoriesQuery';
 import { getTagsQuery } from '../queries/getAllTagsQuery';
 import { getAdminCtaSelectionQuery } from '../queries/getAdminCtaSelectionQuery';
+import dynamic from 'next/dynamic';
 
 // Lazy loading komponenti
 const BlogSection = lazy(() => import('./BlogSection'));
@@ -22,7 +23,7 @@ const CarouselBase = lazy(() => import('./CarouselBase'));
 const TestimonialsSection = lazy(() => import('./TestimonialsSection'));
 const WhyUsSection = lazy(() => import('./WhyUsSection'));
 const DocumentsCatalogsSection = lazy(() => import('./DocumentsCatalogsSection'));
-const HeroSection = lazy(() => import('./HeroSection'));
+const HeroSection = dynamic(() => import('./HeroSection'), { ssr: false });
 const NewsTrack = lazy(() => import('../components/NewsTrack'));
 
 export const maxDuration = 60;
@@ -106,7 +107,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
     return (
       <Suspense>
-        <main className='relative w-full min-h-dvh dark:bg-primary-dark'>
+        <main className='relative w-full  dark:bg-primary-dark'>
           <Suspense>
             <HeroSection />
           </Suspense>

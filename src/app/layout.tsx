@@ -128,7 +128,7 @@ export default async function RootLayout({
       lang='en'
       className='scrollbar scrollbar-thumb-primary-light dark:scrollbar-thumb-primary-dark  scrollbar-track-primary-dark dark:scrollbar-track-primary-light'
     >
-      <body className={`${poppins.className} w-full min-h-dvh`}>
+      <body className={`${poppins.className}`}>
         {adminTokenDataShorthand.kodoviAdminApi.googleAnalytics && (
           <GoogleAnalytics gaId={adminTokenDataShorthand.kodoviAdminApi.googleAnalytics} />
         )}
