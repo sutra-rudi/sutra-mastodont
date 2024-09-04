@@ -28,7 +28,7 @@ const NewsTrack = lazy(() => import('../components/NewsTrack'));
 export const maxDuration = 60;
 export const revalidate = 3600; // revalidate at most every hour
 
-function fetchWithTimeout(resource: string, options: RequestInit, timeout = 5000): Promise<Response> {
+async function fetchWithTimeout(resource: string, options: RequestInit, timeout = 5000): Promise<Response> {
   const controller = new AbortController();
   const id = setTimeout(() => controller.abort(), timeout);
   return fetch(resource, {
