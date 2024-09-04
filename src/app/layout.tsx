@@ -117,11 +117,15 @@ export default async function RootLayout({
     cache: 'no-cache',
   });
 
+  if (!getAllTokens.ok) {
+    const errorText = await getAllTokens.text();
+    console.error('Response error:', errorText);
+    throw new Error(`Fetch error: ${getAllTokens.statusText}`);
+  }
+
   const adminTokenData = await getAllTokens.json();
 
   const adminTokenDataShorthand = adminTokenData.data.kodoviApitokenStylebox.edges[0].node;
-
-  console.log('darmar', adminTokenDataShorthand.kodoviAdminApi);
 
   return (
     <html

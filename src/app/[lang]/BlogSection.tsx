@@ -56,20 +56,21 @@ const BlogSection = ({ pageContent, lang, categoriesList, tagsList, blogCtaKey, 
 
     return (
       <div className='flex items-center justify-center gap-2 my-6'>
-        {categoriesList.map((singleCat: any, index) => {
-          const catShorthand = singleCat.node.informacijeKategorije;
-          return (
-            catShorthand[categoryName] && (
-              <span
-                onClick={() => handleCategoryPick(catShorthand[categoryName])}
-                className='outline outline-accent rounded-sm px-2 py-1 cursor-pointer'
-                key={index}
-              >
-                {catShorthand[categoryName]}
-              </span>
-            )
-          );
-        })}
+        {categoriesList &&
+          categoriesList.map((singleCat: any, index) => {
+            const catShorthand = singleCat.node.informacijeKategorije;
+            return (
+              catShorthand[categoryName] && (
+                <span
+                  onClick={() => handleCategoryPick(catShorthand[categoryName])}
+                  className='outline outline-accent rounded-sm px-2 py-1 cursor-pointer'
+                  key={index}
+                >
+                  {catShorthand[categoryName]}
+                </span>
+              )
+            );
+          })}
 
         <span
           onClick={() => setClientDisplayData(pageContent)}
