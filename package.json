@@ -26,6 +26,7 @@
     "@hookform/error-message": "^2.0.1",
     "@next/third-parties": "^14.2.5",
     "@tailwindcss/forms": "^0.5.7",
+    "@uidotdev/usehooks": "^2.4.1",
     "@uploadcare/blocks": "^0.50.1",
     "@uploadcare/react-uploader": "^0.6.1",
     "airtable": "^0.12.2",

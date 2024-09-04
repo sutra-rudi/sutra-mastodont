@@ -5,8 +5,10 @@ import { SutraButtonOutlined, SutraButtonWithIcon } from '../components/SutraBut
 import { BsArrowRightShort as RightIcon } from 'react-icons/bs';
 import ReactPlayer from 'react-player';
 import { heroImagesHomePage, videoResources } from '../pathsUtils/mediaImportsDynamic';
-
+import { useWindowSize } from '@uidotdev/usehooks';
 const HeroSection = () => {
+  const clientSize = useWindowSize();
+
   return (
     <section className='bg-white dark:bg-gray-900'>
       <div className=''>
@@ -31,7 +33,17 @@ const HeroSection = () => {
           />
         ) : (
           <picture>
-            <img src={heroImagesHomePage.desktop} alt='' />
+            <img
+              src={
+                clientSize.width! > 1536
+                  ? heroImagesHomePage.desktop
+                  : clientSize.width! > 1024
+                  ? heroImagesHomePage.desktopMiddle
+                  : heroImagesHomePage.mobile
+              }
+              alt='hero image'
+              className='w-full h-full object-cover object-center block'
+            />
           </picture>
         )}
       </div>
