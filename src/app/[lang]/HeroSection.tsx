@@ -11,8 +11,8 @@ const HeroSection = () => {
 
   return (
     <section className='bg-white dark:bg-gray-900'>
-      <div className=''>
-        {!videoResources.homePage.video ? (
+      <div className='relative'>
+        {videoResources.homePage.video ? (
           <ReactPlayer
             url={videoResources.homePage.video}
             playsinline
