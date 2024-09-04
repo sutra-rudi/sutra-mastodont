@@ -20,6 +20,16 @@ export const getPojedinacnePoruketekstoviZaPrikazQuery = (lang: string) => {
         pojedinacniTekstIta
       }
     `,
+    esp: `
+      bazaPojedinacniTekstEsp {
+        pojedinacniTekstEsp
+      }
+    `,
+    fra: `
+      bazaPojedinacniTekstFra {
+        pojedinacniTekstFra
+      }
+    `,
   };
 
   return `

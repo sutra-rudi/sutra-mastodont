@@ -3,4 +3,6 @@ export enum UserLanguage {
   eng = 'eng',
   ger = 'ger',
   ita = 'ita',
+  fra = 'fra',
+  esp = 'esp',
 }
