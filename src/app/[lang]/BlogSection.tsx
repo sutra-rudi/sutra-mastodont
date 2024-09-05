@@ -13,6 +13,7 @@ import { ArticleCardFullImage, ArticleCardMiniCard, ArticleCardTextCard } from '
 import { getRecords } from '../lib/airtable';
 import { useRouter } from 'next/navigation';
 import { heroImagesArchiveBlog } from '../pathsUtils/mediaImportsDynamic';
+import { SutraTagBase, SutraTagWithIcon } from '../components/SutraTag';
 
 interface BlogSection {
   pageContent: any;
@@ -101,10 +102,9 @@ const BlogSection = ({ pageContent, lang, categoriesList, tagsList, blogCtaKey, 
 
                   router.push(pushToPath);
                 }}
-                className='flex outline outline-accent rounded-sm px-2 py-1 cursor-pointer gap-1 items-center'
+                className='cursor-pointer'
               >
-                <TagIcon />
-                <span>{tagNaming}</span>
+                <SutraTagWithIcon frontIcon={TagIcon} innerText={tagNaming} size='small' />
               </div>
             );
           })}
