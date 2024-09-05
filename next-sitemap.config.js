@@ -1,9 +1,9 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://www.davegray.codes/',
+  siteUrl: 'https://sutra-mastodont.vercel.app/',
   exclude: ['/icon.svg', '/apple-icon.png', '/manifest.webmanifest', '/tags/*'],
   generateRobotsTxt: true,
-  generateIndexSitemap: false,
+  generateIndexSitemap: true,
   robotsTxtOptions: {
     policies: [
       {
