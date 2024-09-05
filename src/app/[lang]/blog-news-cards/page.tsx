@@ -10,7 +10,7 @@ export default async function BlogAndNewsCards({ params: { lang } }: { params: {
     body: JSON.stringify({
       query: getAllBlogsQuery(lang),
     }),
-    cache: 'no-cache',
+    // cache: 'no-cache',
   });
 
   const res = await getAllBlogs.json();

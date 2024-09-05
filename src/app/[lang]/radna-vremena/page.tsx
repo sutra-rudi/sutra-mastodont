@@ -18,7 +18,7 @@ export default async function RadnaVremena({
     body: JSON.stringify({
       query: getSezonskoRadnoVrijemeQuery(lang),
     }),
-    cache: 'no-cache',
+    // cache: 'no-cache',
   });
 
   const parseData = await getAllSeasonalVremena.json();
@@ -33,7 +33,7 @@ export default async function RadnaVremena({
     body: JSON.stringify({
       query: getAllRadnoVrijemeQuery(lang),
     }),
-    cache: 'no-cache',
+    // cache: 'no-cache',
   });
 
   const parseDefaultData = await getDefaultRadnaVremena.json();
@@ -48,7 +48,7 @@ export default async function RadnaVremena({
     body: JSON.stringify({
       query: getTjedniRasporedQuery(lang),
     }),
-    cache: 'no-cache',
+    // cache: 'no-cache',
   });
 
   const parseTjedniRasporedData = await getTjedniRaspored.json();

@@ -6,7 +6,7 @@ export default async function VirtualTours({ params: { lang } }: { params: { lan
       headers: {
         Authorization: `Bearer ${process.env.SUTRA_VIRTUAL_TOURS_API_KEY!}`,
       },
-      cache: 'no-cache',
+      // cache: 'no-cache',
     });
 
     if (res.ok) {

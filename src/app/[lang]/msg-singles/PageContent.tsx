@@ -8,7 +8,6 @@ interface SingleMSGInterface {
   content: any;
 }
 const PageContent = ({ content }: SingleMSGInterface) => {
-  console.log('KONTENT', content);
   return (
     <article className='mx-auto my-0 max-w-[1024px] py-8'>
       <div className='py-4'>

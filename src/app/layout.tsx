@@ -114,7 +114,7 @@ export default async function RootLayout({
     body: JSON.stringify({
       query: getAdminTokensQuery(),
     }),
-    cache: 'no-cache',
+    // cache: 'no-cache',
   });
 
   if (!getAllTokens.ok) {

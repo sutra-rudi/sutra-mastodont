@@ -10,7 +10,7 @@ export default async function SchedulePage({ params: { lang, id } }: { params: {
     body: JSON.stringify({
       query: getTjedniRasporedQuery(lang),
     }),
-    cache: 'no-cache',
+    // cache: 'no-cache',
   });
 
   const parseData = await getAllSchedule.json();

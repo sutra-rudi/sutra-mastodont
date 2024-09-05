@@ -10,7 +10,7 @@ export default async function LokacijePage({ params: { lang } }: { params: { lan
     body: JSON.stringify({
       query: getLokacijeQuery(lang),
     }),
-    cache: 'no-cache',
+    // cache: 'no-cache',
   });
 
   const getAllLocations = await getAllLokacije.json();

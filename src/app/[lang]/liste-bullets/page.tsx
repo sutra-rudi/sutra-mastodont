@@ -16,7 +16,7 @@ export default async function ListePage({
     body: JSON.stringify({
       query: getListeQuery(lang),
     }),
-    cache: 'no-cache',
+    // cache: 'no-cache',
   });
 
   const res = await getAllListe.json();
@@ -31,7 +31,7 @@ export default async function ListePage({
     body: JSON.stringify({
       query: getAdminBazaListaQuery(lang),
     }),
-    cache: 'no-cache',
+    // cache: 'no-cache',
   });
 
   const adminListeRes = await getAllAdminListe.json();

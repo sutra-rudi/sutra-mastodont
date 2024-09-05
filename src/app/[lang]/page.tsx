@@ -27,7 +27,7 @@ const HeroSection = dynamic(() => import('./HeroSection'), { ssr: false });
 const NewsTrack = lazy(() => import('../components/NewsTrack'));
 
 export const maxDuration = 60;
-export const revalidate = 3600; // revalidate at most every hour
+// export const revalidate = 3600; // revalidate at most every hour
 
 async function fetchData(query: any) {
   try {

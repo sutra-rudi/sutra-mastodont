@@ -59,8 +59,6 @@ const SocialLinks: React.FC<SocialLinksProps> = ({ links }) => {
 };
 
 export const PageContent = ({ pageContent }: SocialLinksPageContent) => {
-  console.log('PAGE CONTENT', pageContent);
-
   return (
     <section className='w-full min-h-dvh'>
       <div className='w-full max-w-[1440px] mx-auto my-8'>
