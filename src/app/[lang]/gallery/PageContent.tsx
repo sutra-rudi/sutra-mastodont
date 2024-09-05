@@ -66,13 +66,22 @@ const slickImages = Object.keys(carusel4Images).map((key) => {
   );
 });
 
-const slickImagesInfi = Object.keys(carusel4Images).map((key) => {
+const slickImagesInfi = Object.keys(carusel5Images).map((key) => {
   const imageUrl = carusel5Images[key as keyof typeof carusel4Images];
   return (
     <picture key={key} className='w-full h-auto'>
       <img src={imageUrl} alt={`carousel image ${key}`} className='w-full h-auto object-cover' />
     </picture>
   );
+});
+
+// Slike za Masonry galeriju
+const masonryImages = Object.keys(carusel3Images).map((key) => {
+  const imageUrl = carusel3Images[key as keyof typeof carusel3Images];
+  return {
+    src: imageUrl,
+    alt: `masonry image ${key}`,
+  };
 });
 
 const PageContent = () => {
@@ -131,6 +140,42 @@ const PageContent = () => {
           <p>Koristi slike iz carusel 5 mape</p>
         </div>
         <Slider {...infiScrollSettings}>{slickImagesInfi}</Slider>
+      </div>
+
+      {/* Masonry Galerija */}
+      <div className='mb-8'>
+        <div className='flex flex-col gap-2 items-center justify-center'>
+          <h2 className='font-bold mb-4 text-center text-4xl'>Masonry galerija</h2>
+          <p>Koristi slike iz carusel 3 mape</p>
+        </div>
+        <div
+          style={{
+            columnCount: 3, // Broj stupaca
+            columnGap: '15px', // Razmak između stupaca
+          }}
+        >
+          {masonryImages.map((image, index) => (
+            <div
+              key={index}
+              style={{
+                marginBottom: '15px', // Razmak između slika
+                breakInside: 'avoid', // Sprečava da se slika razdvoji između stupaca
+              }}
+            >
+              <picture>
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  style={{
+                    width: '100%',
+                    display: 'block',
+                    borderRadius: '8px', // Zaokruživanje rubova
+                  }}
+                />
+              </picture>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
