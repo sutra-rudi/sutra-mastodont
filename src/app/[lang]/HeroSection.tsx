@@ -7,6 +7,10 @@ import { heroImagesHomePage, videoResources } from '../pathsUtils/mediaImportsDy
 import { useWindowSize } from '@uidotdev/usehooks';
 import Image from 'next/image';
 import Loading from '../loading';
+import dynamic from 'next/dynamic';
+
+const ReactPlayerDy = dynamic(() => import('react-player'), { ssr: false });
+
 const HeroSection = () => {
   const clientSize = useWindowSize();
 
@@ -23,12 +27,12 @@ const HeroSection = () => {
 
   return (
     <section
-      className='bg-white dark:bg-gray-900 min-h-dvh
+      className='bg-white dark:bg-gray-900 min-h-screen w-full
     '
     >
-      <div className='relative'>
+      <div className='relative w-full h-screen'>
         {videoResources.homePage.video ? (
-          <ReactPlayer
+          <ReactPlayerDy
             url={videoResources.homePage.video}
             playsinline
             pip
@@ -43,7 +47,7 @@ const HeroSection = () => {
             config={{
               file: {
                 attributes: {
-                  poster: videoResources.homePage.placeholder,
+                  poster: <Image src={videoResources.homePage.placeholder} alt='poster for video' />,
                 },
               },
             }}

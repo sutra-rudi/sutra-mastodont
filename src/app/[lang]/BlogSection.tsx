@@ -112,7 +112,7 @@ const BlogSection = ({ pageContent, lang, categoriesList, tagsList, blogCtaKey, 
   };
 
   return (
-    <section>
+    <section className='min-h-screen'>
       <h2 className='w-full text-center text-7xl font-semibold pt-8'>Blogovi</h2>
 
       <h2 className='w-full text-center text-4xl font-semibold pt-8'>Istaknuti</h2>
