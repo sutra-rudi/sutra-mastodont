@@ -4,6 +4,7 @@ import { GoArrowUpRight as ArrowIcon } from 'react-icons/go';
 import { LuCalendarDays as CalendarIcon } from 'react-icons/lu';
 import { FaChevronRight as RightIcon } from 'react-icons/fa';
 import { SutraButtonBase } from './SutraButton';
+import Image from 'next/image';
 
 interface DefaultArticleCard {
   cta: string;
@@ -217,14 +218,15 @@ export const ArticleCardFullImage = ({
 }: DefaultArticleCard) => {
   return (
     <article className='relative min-h-[400px] flex place-items-stretch'>
-      <a href={url}>
-        <picture className='flex-1 w-full h-full'>
-          <img
+      <a href={url} className='min-w-[288px] w-full'>
+        <div className='relative flex-1 w-full h-full'>
+          <Image
+            fill
             className={`block object-cover object-center ${!isArchive && 'max-w-[288px]'} w-full h-full`}
             src={imgSource}
             alt='article card'
           />
-        </picture>
+        </div>
       </a>
 
       <div className='absolute top-0 right-0 flex flex-col items-end justify-end'>

@@ -3,6 +3,7 @@ import { FiClock as ClockIcon } from 'react-icons/fi';
 import { GoArrowUpRight as ArrowIcon } from 'react-icons/go';
 import { FaChevronRight as RightIcon } from 'react-icons/fa';
 import { SutraButtonWithIcon } from './SutraButton';
+import Image from 'next/image';
 // import Image from 'next/image';
 
 interface DefaultArticleCard {
@@ -49,31 +50,31 @@ const ArticleCard = ({
     >
       <div className={`${isHorizontal ? 'flex w-full place-content-stretch items-stretch h-full' : 'block'} group`}>
         {boolSwitches.isWithImage && (
-          <a href={url} className={`${isHorizontal ? 'w-full h-full max-w-[408px] ' : 'flex-1 w-full'} shrink-0`}>
-            <div className={`${isHorizontal && 'overflow-hidden'} relative w-full flex-1 h-full`}>
+          <a href={url} className={`${isHorizontal ? 'max-w-[408px] ' : 'flex-1'} shrink-0 w-full h-[365px] block`}>
+            <div className={`overflow-hidden relative w-full flex-1 h-full`}>
               <div className='absolute bottom-0 w-full h-28 bg-gradient-to-b from-transparent to-black opacity-65 group-hover:translate-y-1/4 transition-all ease-out duration-300 z-40'></div>
 
-              <picture className='w-full h-full flex-1  shrink-0'>
-                <img
+              <div className='w-full h-full flex-1 shrink-0 relative group-hover:scale-125 transition-all ease-out duration-300'>
+                <Image
                   className={`w-full object-cover object-center block ${
                     isHorizontal ? 'aspect-square h-full min-h-[356px]' : 'aspect-video min-h-[145px]'
-                  } 
-                   group-hover:scale-125 transition-all ease-out duration-300 opacity-0 group-hover:opacity-100 absolute inset-0`}
-                  src={hoverImgSource}
-                  alt=''
-                />
-              </picture>
-
-              <picture className='w-full h-full flex-1 shrink-0'>
-                <img
-                  className={`w-full object-cover object-center block aspect-video min-h-[145px] group-hover:scale-125 transition-all ease-out group-hover:opacity-0 duration-300 h-full ${
-                    isHorizontal && 'min-h-[356px]  h-full'
-                  }`}
+                  } transition-all ease-out duration-300 group-hover:opacity-0`}
                   src={imgSource}
                   alt=''
+                  fill
                 />
-              </picture>
+              </div>
 
+              <div className='w-full h-full flex-1 shrink-0 absolute inset-0 opacity-0 group-hover:opacity-100 group-hover:scale-125 transition-all ease-out duration-300'>
+                <Image
+                  className={`w-full object-cover object-center block ${
+                    isHorizontal ? 'aspect-square h-full min-h-[356px]' : 'aspect-video min-h-[145px]'
+                  }`}
+                  src={hoverImgSource}
+                  fill
+                  alt=''
+                />
+              </div>
               {boolSwitches.isWithTopBar && (
                 <div className='absolute top-0 w-full flex items-center gap-2 px-11 pt-7 flex-wrap transition-all ease-out group-hover:opacity-0'>
                   {date && (

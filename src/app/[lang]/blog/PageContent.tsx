@@ -6,7 +6,7 @@ import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 import { blogLanguageFields } from '@/app/pathsUtils/blogLanguageFields';
 import { slugifyOptions } from '@/app/pathsUtils/slugifyOptions';
 import dayjs from 'dayjs';
-import React, { useMemo, useState } from 'react';
+import React from 'react';
 import ReactPaginate from 'react-paginate';
 import { readingTime } from 'reading-time-estimator';
 import slugify from 'slugify';
@@ -15,6 +15,7 @@ import { heroImagesArchiveBlog } from '@/app/pathsUtils/mediaImportsDynamic';
 import { FaTag as TagIcon } from 'react-icons/fa6';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion'; // Import framer-motion
+import Image from 'next/image';
 
 interface BlogArchivePage {
   pageContent: any[];
@@ -27,11 +28,11 @@ interface BlogArchivePage {
 }
 
 const PageContent = ({ pageContent, adminSetup, lang, catList, currentLandingTag }: BlogArchivePage) => {
-  const [currentPage, setCurrentPage] = useState(0);
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [sortAlphabetically, setSortAlphabetically] = useState<string>('');
-  const [sortByDate, setSortByDate] = useState<string>('');
+  const [currentPage, setCurrentPage] = React.useState(0);
+  const [selectedCategory, setSelectedCategory] = React.useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = React.useState('');
+  const [sortAlphabetically, setSortAlphabetically] = React.useState<string>('');
+  const [sortByDate, setSortByDate] = React.useState<string>('');
 
   const [currentActiveTag, setCurrentActiveTag] = React.useState<string | null>(currentLandingTag);
   const postsPerPage = Number(adminSetup.archiveItemsNumberOnSinglePage[0]);
@@ -40,7 +41,7 @@ const PageContent = ({ pageContent, adminSetup, lang, catList, currentLandingTag
   const l = getSuffixFromLang(lang);
   const router = useRouter();
   // Filtriranje i sortiranje postova
-  const processedPosts = useMemo(() => {
+  const processedPosts = React.useMemo(() => {
     let posts = [...pageContent];
 
     if (currentActiveTag) {
@@ -103,7 +104,7 @@ const PageContent = ({ pageContent, adminSetup, lang, catList, currentLandingTag
   ]);
 
   // Odabir trenutnih postova za prikaz na osnovu stranice
-  const currentPosts = useMemo(
+  const currentPosts = React.useMemo(
     () => processedPosts.slice(offset, offset + postsPerPage),
     [offset, postsPerPage, processedPosts]
   );
@@ -167,19 +168,18 @@ const PageContent = ({ pageContent, adminSetup, lang, catList, currentLandingTag
 
   return (
     <section>
-      <div className='w-full'>
-        <picture className='w-full'>
-          <img
-            src={heroImagesArchiveBlog.desktop}
-            alt=''
-            className='w-full h-48 object-cover object-center'
-            onError={(e) => {
-              const target = e.target as HTMLImageElement;
-              target.src = 'https://placehold.co/400.png';
-              target.onerror = null;
-            }}
-          />
-        </picture>
+      <div className='w-full relative fill h-56'>
+        <Image
+          src={heroImagesArchiveBlog.desktop}
+          alt=''
+          fill
+          className='w-full h-full object-cover object-center'
+          onError={(e) => {
+            const target = e.target as HTMLImageElement;
+            target.src = 'https://placehold.co/400.png';
+            target.onerror = null;
+          }}
+        />
       </div>
       <div className='max-w-[1440px] mx-auto my-4'>
         <CategoryTaxonomy />

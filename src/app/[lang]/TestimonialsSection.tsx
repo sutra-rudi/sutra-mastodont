@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { getSuffixFromLang } from '../langUtils/getSuffixFromLang';
 import parse from 'html-react-parser';
 import dynamic from 'next/dynamic';
@@ -9,8 +10,10 @@ import {
   BsPersonFillGear as RoleIcon,
   BsFillPersonVcardFill as UserIcon,
 } from 'react-icons/bs';
+import ReactPlayer from 'react-player';
+import Loading from '../loading';
 
-const ReactPlayer = dynamic(() => import('react-player'), { ssr: false });
+const ReactPlayerDy = dynamic(() => import('react-player'), { ssr: false });
 
 interface ClientTestimonials {
   pageContent: any;
@@ -28,7 +31,16 @@ const TestimonialsSection = ({ pageContent, lang }: ClientTestimonials) => {
       },
     };
   });
+  const [isReady, setIsReady] = React.useState(false);
+  const playerRef = React.useRef<ReactPlayer>(null);
 
+  const onReady = React.useCallback(() => {
+    if (!isReady) {
+      // const timeToStart = 7 * 60 + 12.6;
+      playerRef.current && playerRef.current.seekTo(0, 'seconds');
+      setIsReady(true);
+    }
+  }, [isReady]);
   return (
     <section>
       <h2 className='w-full text-center text-7xl font-semibold pt-8'>Iskustva klijenata</h2>
@@ -48,7 +60,28 @@ const TestimonialsSection = ({ pageContent, lang }: ClientTestimonials) => {
                     {singleExp.mainContent.clientContent ? parse(singleExp.mainContent.clientContent) : 'Nema sadržaja'}
                   </span>
                   {singleExp.introContent.uploadVideo && (
-                    <ReactPlayer url={singleExp.introContent.uploadVideo.node.mediaItemUrl} controls playsinline pip />
+                    <ReactPlayerDy
+                      url={singleExp.introContent.uploadVideo.node.mediaItemUrl}
+                      playsinline
+                      pip
+                      muted
+                      loop
+                      light
+                      volume={0}
+                      width={'100%'}
+                      height={'100%'}
+                      playing={isReady}
+                      onReady={onReady}
+                      fallback={<Loading />}
+                      config={{
+                        file: {
+                          attributes: {
+                            poster:
+                              shorthand.prilozenaSlikaTestimonials.node.sourceUrl ?? 'https://placehold.co/400.png',
+                          },
+                        },
+                      }}
+                    />
                   )}
                 </blockquote>
                 <figcaption className='relative mt-6 flex items-center justify-between border-t border-slate-100 pt-6'>
