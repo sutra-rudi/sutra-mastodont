@@ -1,8 +1,5 @@
-'use client';
-
 import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 import dayjs from 'dayjs';
-import React from 'react';
 import parse from 'html-react-parser';
 
 interface RadnaVremenaPageContent {

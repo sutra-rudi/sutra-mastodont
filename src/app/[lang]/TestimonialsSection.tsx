@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import { getSuffixFromLang } from '../langUtils/getSuffixFromLang';
 import parse from 'html-react-parser';
 import dynamic from 'next/dynamic';

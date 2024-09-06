@@ -1,7 +1,4 @@
-'use client';
-
 import Link from 'next/link';
-import React from 'react';
 import Marquee from 'react-fast-marquee';
 
 interface PartnersSectionInterface {

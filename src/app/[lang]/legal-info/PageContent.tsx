@@ -1,7 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-import React from 'react';
 import parse from 'html-react-parser';
 import Link from 'next/link';
 

@@ -1,5 +1,3 @@
-'use client';
-import React from 'react';
 import parse from 'html-react-parser';
 
 interface CompanyInfoInterface {
@@ -20,11 +18,10 @@ const PageContent = ({ content }: CompanyInfoInterface) => {
               ? parse(content[0].content.sadrzajTextLijevaKolumna)
               : 'No content'}
           </p>
-          <p>
-            {content[0].content.sadrzajTextDesnaKolumna
-              ? parse(content[0].content.sadrzajTextDesnaKolumna)
-              : 'No content'}
-          </p>
+
+          {content[0].content.sadrzajTextDesnaKolumna
+            ? parse(content[0].content.sadrzajTextDesnaKolumna)
+            : 'No content'}
         </div>
       </div>
     </article>

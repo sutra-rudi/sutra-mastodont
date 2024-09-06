@@ -4,9 +4,7 @@ import React, { useState } from 'react';
 import { Gallery } from 'react-grid-gallery';
 import Lightbox from 'yet-another-react-lightbox';
 import Slider from 'react-slick';
-import 'yet-another-react-lightbox/styles.css';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+
 import {
   carusel1Images,
   carusel2Images,

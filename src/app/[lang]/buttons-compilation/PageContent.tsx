@@ -1,5 +1,3 @@
-'use client';
-
 import {
   SutraButtonBase,
   SutraButtonGhost,
@@ -8,7 +6,6 @@ import {
   SutraButtonOutlined,
   SutraButtonWithIcon,
 } from '@/app/components/SutraButton';
-import React from 'react';
 
 import { BsCartPlusFill as CartIcon, BsArrowRightShort as RightIcon } from 'react-icons/bs';
 

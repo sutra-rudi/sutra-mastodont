@@ -1,8 +1,5 @@
-'use client';
 import dayjs from 'dayjs';
 import Image from 'next/image';
-import React from 'react';
-
 import parse from 'html-react-parser';
 import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 import { SutraButtonBase } from '@/app/components/SutraButton';

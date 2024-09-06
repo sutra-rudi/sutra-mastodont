@@ -1,7 +1,4 @@
-'use client';
-
 import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
-import React from 'react';
 import dayjs from 'dayjs';
 
 interface ScheduleInterface {

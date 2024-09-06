@@ -1,14 +1,9 @@
-'use client';
-
-import React from 'react';
 import parse from 'html-react-parser';
-
 import { FiClock as ClockIcon } from 'react-icons/fi';
 import { GoArrowUpRight as ArrowIcon } from 'react-icons/go';
-import { LuCalendarDays as CalendarIcon } from 'react-icons/lu';
 import { FaChevronRight as RightIcon } from 'react-icons/fa';
 import { SutraButtonWithIcon } from './SutraButton';
-import Image from 'next/image';
+// import Image from 'next/image';
 
 interface DefaultArticleCard {
   cta: string;
