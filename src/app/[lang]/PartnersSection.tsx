@@ -27,15 +27,14 @@ const PartnersSection = ({ pageContent }: PartnersSectionInterface) => {
                   className='block mx-4 flex-shrink-0'
                   href={cont.node.logotipiPartnera.linkNaStranicuKlijentapartnera}
                 >
-                  <div className='relative h-24 w-24'>
-                    <Image
-                      src={imageSourcesShorthand.sourceUrl}
-                      alt='partner logo'
-                      fill
-                      sizes={imageSourcesShorthand.sizes}
-                      className='w-full h-full object-contain object-center block'
-                    />
-                  </div>
+                  <Image
+                    src={imageSourcesShorthand.sourceUrl}
+                    alt='partner logo'
+                    width={96}
+                    height={96}
+                    sizes={imageSourcesShorthand.sizes}
+                    className='object-contain object-center block'
+                  />
                 </Link>
               )
             );
