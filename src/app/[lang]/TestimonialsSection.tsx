@@ -94,6 +94,7 @@ const TestimonialsSection = ({ pageContent, lang }: ClientTestimonials) => {
                         width={96}
                         height={96}
                         className='object-cover w-24 h-24 rounded-full object-center block'
+                        loading='lazy'
                       />
                     </div>
 
