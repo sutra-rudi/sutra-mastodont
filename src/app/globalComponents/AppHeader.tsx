@@ -6,6 +6,7 @@ import React from 'react';
 import { Twirl as Hamburger } from 'hamburger-react';
 import { LuSun as SunIcon, LuMoon as MoonIcon } from 'react-icons/lu';
 import { Hr, Gb, It, De } from 'react-flags-select';
+import Image from 'next/image';
 
 const AppHeader = () => {
   const currentPath = usePathname();
@@ -92,21 +93,22 @@ const AppHeader = () => {
         <div className='flex items-center justify-between'>
           <div className='flex items-center'>
             <div className='shrink-0'>
-              <a href={`/${currentLang}`} title=''>
-                <picture>
-                  <img
-                    className='block w-auto h-8 dark:hidden'
-                    src='https://cms.sutra.hr/wp-content/uploads/2024/06/Sutra-profilna-slika-1.jpg'
-                    alt=''
-                  />
-                </picture>
-                <picture>
-                  <img
-                    className='hidden w-auto h-8 dark:block'
-                    src='https://cms.sutra.hr/wp-content/uploads/2024/06/Sutra-profilna-slika-1.jpg'
-                    alt=''
-                  />
-                </picture>
+              <a href={`/${currentLang}`} title='' className='w-8 h-8 block'>
+                <Image
+                  className='dark:hidden block w-full h-full'
+                  src='https://cms.sutra.hr/wp-content/uploads/2024/06/Sutra-profilna-slika-1.jpg'
+                  alt=''
+                  width={32}
+                  height={32}
+                />
+
+                <Image
+                  className='hidden dark:block w-full h-full'
+                  src='https://cms.sutra.hr/wp-content/uploads/2024/06/Sutra-profilna-slika-1.jpg'
+                  alt=''
+                  width={32}
+                  height={32}
+                />
               </a>
             </div>
 
