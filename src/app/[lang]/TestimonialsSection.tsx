@@ -12,6 +12,7 @@ import {
 } from 'react-icons/bs';
 import ReactPlayer from 'react-player';
 import Loading from '../loading';
+import Image from 'next/image';
 
 const ReactPlayerDy = dynamic(() => import('react-player'), { ssr: false });
 
@@ -87,13 +88,13 @@ const TestimonialsSection = ({ pageContent, lang }: ClientTestimonials) => {
                 <figcaption className='relative mt-6 flex items-center justify-between border-t border-slate-100 pt-6'>
                   <div className='flex gap-4 items-center'>
                     <div className='overflow-hidden rounded-full bg-slate-50'>
-                      <picture>
-                        <img
-                          className='h-24 w-24 object-cover rounded-full'
-                          src={shorthand.prilozenaSlikaTestimonials.node.sourceUrl ?? 'https://placehold.co/400.png'}
-                          alt=''
-                        />
-                      </picture>
+                      <Image
+                        src={shorthand.prilozenaSlikaTestimonials.node.sourceUrl ?? 'https://placehold.co/400.png'}
+                        alt='testimonial'
+                        width={96}
+                        height={96}
+                        className='object-cover w-24 h-24 rounded-full object-center block'
+                      />
                     </div>
 
                     <div className='grid grid-cols-1 gap-2'>
