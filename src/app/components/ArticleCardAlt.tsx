@@ -363,13 +363,15 @@ export const ArticleCardMiniCard = ({
   return (
     <article>
       <div className='bg-white max-w-[190px] w-full relative rounded-lg'>
-        <picture className=''>
-          <img
+        <div className='relative flex-1 w-full h-[106px]'>
+          <Image
+            fill
+            className={`max-w-full w-full object-cover object-center block aspect-video rounded-t-lg`}
             src={imgSource}
-            alt=''
-            className='max-w-full w-full object-cover object-center block aspect-video rounded-t-lg'
+            alt='article card'
           />
-        </picture>
+        </div>
+
         <div className='p-4 relative'>
           {categories.length > 0 && (
             <div className='w-full leading-none'>

@@ -173,9 +173,10 @@ const PageContent = ({ pageContent, lang }: BlogSection) => {
                 catColor: noda.node.informacijeKategorije ? noda.node.informacijeKategorije.bojaKategorije : 'No color',
               };
             });
-
             const imgSource = contentCardShorthand.thumbnail
               ? contentCardShorthand.thumbnail.node.sourceUrl
+              : contentCardShorthand.naslovnaSlika
+              ? contentCardShorthand.naslovnaSlika.node.sourceUrl
               : 'https://placehold.co/400.png';
 
             const readTime = readingTime(contentField);
