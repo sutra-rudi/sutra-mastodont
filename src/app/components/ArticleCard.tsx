@@ -8,6 +8,7 @@ import { GoArrowUpRight as ArrowIcon } from 'react-icons/go';
 import { LuCalendarDays as CalendarIcon } from 'react-icons/lu';
 import { FaChevronRight as RightIcon } from 'react-icons/fa';
 import { SutraButtonWithIcon } from './SutraButton';
+import Image from 'next/image';
 
 interface DefaultArticleCard {
   cta: string;
@@ -51,33 +52,32 @@ const ArticleCard = ({
         isHorizontal ? 'max-w-[824px] h-auto flex' : 'max-w-[408px] h-full'
       } group overflow-hidden`}
     >
-      <div className={`${isHorizontal ? 'flex w-full place-content-stretch items-stretch h-full' : 'block'}`}>
+      <div className={`${isHorizontal ? 'flex w-full place-content-stretch items-stretch h-full' : 'block'} group`}>
         {boolSwitches.isWithImage && (
-          <a href={url} className={`${isHorizontal ? 'w-full h-full max-w-[408px] flex flex-col' : 'flex-1 w-full'}`}>
-            <div className='relative w-full flex-1 h-full'>
-              <div className='absolute bottom-0 w-full h-28 bg-gradient-to-b from-transparent to-black opacity-65'></div>
+          <a href={url} className={`${isHorizontal ? 'w-full h-full max-w-[408px] ' : 'flex-1 w-full'} shrink-0`}>
+            <div className={`${isHorizontal && 'overflow-hidden'} relative w-full flex-1 h-full`}>
+              <div className='absolute bottom-0 w-full h-28 bg-gradient-to-b from-transparent to-black opacity-65 group-hover:translate-y-1/4 transition-all ease-out duration-300 z-40'></div>
 
               <picture className='w-full h-full flex-1  shrink-0'>
                 <img
                   className={`w-full object-cover object-center block ${
-                    isHorizontal ? 'aspect-square h-full' : 'aspect-video min-h-[145px]'
-                  } ${isHorizontal ? '' : 'group-hover:scale-125 transition-all ease-out duration-300'} ${
-                    isHorizontal ? '' : 'opacity-0 group-hover:opacity-100 absolute inset-0'
-                  }`}
-                  src={isHorizontal ? imgSource : hoverImgSource}
+                    isHorizontal ? 'aspect-square h-full min-h-[356px]' : 'aspect-video min-h-[145px]'
+                  } 
+                   group-hover:scale-125 transition-all ease-out duration-300 opacity-0 group-hover:opacity-100 absolute inset-0`}
+                  src={hoverImgSource}
                   alt=''
                 />
               </picture>
 
-              {boolSwitches.isWithImage && !isHorizontal && (
-                <picture>
-                  <img
-                    className='w-full object-cover object-center block aspect-video min-h-[145px] group-hover:scale-125 transition-all ease-out group-hover:opacity-0 duration-300'
-                    src={imgSource}
-                    alt=''
-                  />
-                </picture>
-              )}
+              <picture className='w-full h-full flex-1 shrink-0'>
+                <img
+                  className={`w-full object-cover object-center block aspect-video min-h-[145px] group-hover:scale-125 transition-all ease-out group-hover:opacity-0 duration-300 h-full ${
+                    isHorizontal && 'min-h-[356px]  h-full'
+                  }`}
+                  src={imgSource}
+                  alt=''
+                />
+              </picture>
 
               {boolSwitches.isWithTopBar && (
                 <div className='absolute top-0 w-full flex items-center gap-2 px-11 pt-7 flex-wrap transition-all ease-out group-hover:opacity-0'>
@@ -107,9 +107,15 @@ const ArticleCard = ({
           </a>
         )}
 
-        <div className={`${isHorizontal ? 'w-2 bg-accent shrink-0' : 'overflow-hidden shrink-0'}`}>
+        <div
+          className={`${
+            isHorizontal
+              ? 'w-2 bg-accent shrink-0 group-hover:translate-x-2 tranistion-all ease-out duration-300 group-hover:opacity-0'
+              : 'overflow-hidden shrink-0'
+          }`}
+        >
           {!isHorizontal && (
-            <div className='w-full bg-accent h-4 group-hover:translate-y-full transition-all ease-out '></div>
+            <div className='w-full bg-accent h-4 group-hover:translate-y-full transition-all ease-out'></div>
           )}
         </div>
 
@@ -158,11 +164,7 @@ const ArticleCard = ({
             <h5 className='mb-2 text-2xl font-bold tracking-tight text-accent leading-sutraCardTitleLineHeight flex items-start gap-2'>
               <span>{title}</span>
               <ArrowIcon
-                className={`shrink-0 text-secondary-dark dark:text-secondary-light mt-1 ${
-                  isHorizontal
-                    ? ''
-                    : 'group-hover:rotate-45 origin-center transition-all duration-200 ease-out group-hover:translate-x-4'
-                }`}
+                className={`shrink-0 text-secondary-dark dark:text-secondary-light mt-1 ${'group-hover:rotate-45 origin-center transition-all duration-200 ease-out group-hover:translate-x-4'}`}
               />
             </h5>
           </a>

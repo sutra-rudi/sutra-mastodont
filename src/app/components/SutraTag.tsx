@@ -1,7 +1,3 @@
-'use client';
-
-import React from 'react';
-
 interface SutraTagInterface {
   size: 'small' | 'normal' | 'large';
   innerText: string;

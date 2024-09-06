@@ -46,7 +46,7 @@ async function fetchData(query: any) {
     }
 
     const data = await response.text(); // Get raw response text
-    console.log('Raw response:', data); // Log raw response for debugging
+    // console.log('Raw response:', data); // Log raw response for debugging
 
     try {
       return JSON.parse(data); // Attempt to parse JSON
@@ -107,7 +107,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
     return (
       <Suspense>
-        <main className='relative w-full  dark:bg-primary-dark'>
+        <main className='relative w-full  dark:bg-primary-dark min-h-screen'>
           <Suspense>
             <HeroSection />
           </Suspense>

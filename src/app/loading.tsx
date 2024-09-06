@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import { CirclesWithBar } from 'react-loader-spinner';
 
 const Loading = () => {

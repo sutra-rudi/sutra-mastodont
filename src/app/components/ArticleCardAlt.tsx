@@ -1,7 +1,3 @@
-'use client';
-
-import React from 'react';
-
 import parse from 'html-react-parser';
 import { FiClock as ClockIcon } from 'react-icons/fi';
 import { GoArrowUpRight as ArrowIcon } from 'react-icons/go';

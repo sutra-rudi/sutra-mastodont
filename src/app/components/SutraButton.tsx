@@ -1,7 +1,3 @@
-'use client';
-
-import React from 'react';
-
 interface SutraButtonBaseInterface {
   size: 'small' | 'normal' | 'large';
   innerText: string;

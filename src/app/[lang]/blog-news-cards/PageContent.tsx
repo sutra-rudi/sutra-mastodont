@@ -1,5 +1,3 @@
-'use client';
-
 import { ArticleCardFullImage, ArticleCardMiniCard, ArticleCardTextCard } from '@/app/components/ArticleCardAlt';
 import { UserLanguage } from '@/app/enums/LangEnum';
 import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
@@ -52,8 +50,12 @@ const PageContent = ({ pageContent, lang }: BlogSection) => {
                 };
               });
 
+              // console.log('KARTICE', contentCardShorthand);
+
               const imgSource = contentCardShorthand.thumbnail
                 ? contentCardShorthand.thumbnail.node.sourceUrl
+                : contentCardShorthand.naslovnaSlika
+                ? contentCardShorthand.naslovnaSlika.node.sourceUrl
                 : 'https://placehold.co/400.png';
 
               const readTime = readingTime(contentField);

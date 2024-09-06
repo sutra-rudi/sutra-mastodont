@@ -1,10 +1,10 @@
 'use client';
 
-import React from 'react';
 import parse from 'html-react-parser';
 import { getSuffixFromLang } from '../langUtils/getSuffixFromLang';
 
 import CountUp from 'react-countup';
+import Image from 'next/image';
 
 interface BrojcaniciSectionInterface {
   pageContent: any;
@@ -36,11 +36,8 @@ const BrojcaniciSection = ({ pageContent, lang }: BrojcaniciSectionInterface) =>
                   className='grid grid-cols-1 gap-3 py-4 border border-dashed rounded-lg border-slate-400'
                   key={brojcanik.id}
                 >
-                  <div className='relative w-24 h-24'>
-                    <picture>
-                      <img src={imgSource} alt='some company img' />
-                    </picture>
-                  </div>
+                  <Image width={96} height={96} src={imgSource} alt='some company img' />
+
                   <h3 className=' max-w-[15ch] prose relative mb-0 text-transparent z-1 bg-clip-text bg-gradient-to-tl from-purple-700 to-pink-500'>
                     {parse(shortHand[constructKey]?.[constructKey] ?? 'Default naziv')}
                   </h3>

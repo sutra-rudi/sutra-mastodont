@@ -9,11 +9,10 @@ import ArticleCard from '../components/ArticleCard';
 import { getSuffixFromLang } from '../langUtils/getSuffixFromLang';
 import { readingTime } from 'reading-time-estimator';
 import { FaTag as TagIcon } from 'react-icons/fa6';
-import { ArticleCardFullImage, ArticleCardMiniCard, ArticleCardTextCard } from '../components/ArticleCardAlt';
 import { getRecords } from '../lib/airtable';
 import { useRouter } from 'next/navigation';
 import { heroImagesArchiveBlog } from '../pathsUtils/mediaImportsDynamic';
-import { SutraTagBase, SutraTagWithIcon } from '../components/SutraTag';
+import { SutraTagWithIcon } from '../components/SutraTag';
 
 interface BlogSection {
   pageContent: any;
@@ -56,7 +55,7 @@ const BlogSection = ({ pageContent, lang, categoriesList, tagsList, blogCtaKey, 
     };
 
     return (
-      <div className='flex items-center justify-center gap-2 my-6'>
+      <div className='flex items-center justify-center gap-2 my-6 lg:flex-nowrap flex-wrap'>
         {categoriesList &&
           categoriesList.map((singleCat: any, index) => {
             const catShorthand = singleCat.node.informacijeKategorije;
@@ -85,7 +84,7 @@ const BlogSection = ({ pageContent, lang, categoriesList, tagsList, blogCtaKey, 
 
   const TagsTaxonomy = () => {
     return (
-      <div className='flex items-center justify-center gap-2 my-6'>
+      <div className='flex items-center justify-center gap-2 my-6 lg:flex-nowrap flex-wrap'>
         {tagsList &&
           tagsList.map((tag: any, index) => {
             const tagShortHand = tag.node;
@@ -124,7 +123,7 @@ const BlogSection = ({ pageContent, lang, categoriesList, tagsList, blogCtaKey, 
       </p>
 
       {/* TAKSONOMIJA */}
-      <div className='max-w-[1740px] mx-auto my-8 flex flex-wrap gap-4 items-start justify-center'>
+      <div className='max-w-[1740px] mx-auto my-8 flex flex-wrap gap-4 items-start justify-center min-h-dvh'>
         {pageContent &&
           pageContent.map((blogContent: any, index: number) => {
             const contentShorthand = blogContent.node;
@@ -202,7 +201,7 @@ const BlogSection = ({ pageContent, lang, categoriesList, tagsList, blogCtaKey, 
           <TagsTaxonomy />
         </div>
 
-        <div className='max-w-[1740px] mx-auto my-8 flex flex-wrap gap-4 items-start justify-center'>
+        <div className='max-w-[1740px] mx-auto my-8 flex flex-wrap gap-4 items-start justify-center min-h-dvh'>
           {pageContent &&
             clientDisplayData.map((blogContent: any, index: number) => {
               const contentShorthand = blogContent.node;
@@ -267,7 +266,7 @@ const BlogSection = ({ pageContent, lang, categoriesList, tagsList, blogCtaKey, 
                     categories={categoryField}
                     hoverImgSource={hoverImgSource}
                     boolSwitches={{ isWithAuthor: true, isWithTags: false, isWithTopBar: true, isWithImage: true }}
-                    isHorizontal={false}
+                    isHorizontal={true}
                   />
                 )
               );
