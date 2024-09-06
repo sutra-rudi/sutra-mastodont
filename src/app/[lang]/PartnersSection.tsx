@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import Marquee from 'react-fast-marquee';
 
@@ -26,10 +27,15 @@ const PartnersSection = ({ pageContent }: PartnersSectionInterface) => {
                   className='block mx-4 flex-shrink-0'
                   href={cont.node.logotipiPartnera.linkNaStranicuKlijentapartnera}
                 >
-                  <picture>
-                    <source srcSet={imageSourcesShorthand.srcSet} sizes={imageSourcesShorthand.sizes} />
-                    <img className='h-24 w-auto' src={imageSourcesShorthand.sourceUrl} alt='partner logo' />
-                  </picture>
+                  <div className='relative h-24 w-24'>
+                    <Image
+                      src={imageSourcesShorthand.sourceUrl}
+                      alt='partner logo'
+                      fill
+                      sizes={imageSourcesShorthand.sizes}
+                      className='w-full h-full object-contain object-center block'
+                    />
+                  </div>
                 </Link>
               )
             );
