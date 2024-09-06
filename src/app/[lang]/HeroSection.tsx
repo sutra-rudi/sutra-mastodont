@@ -1,13 +1,25 @@
 'use client';
-
+import React from 'react';
 import { SutraButtonOutlined, SutraButtonWithIcon } from '../components/SutraButton';
 import { BsArrowRightShort as RightIcon } from 'react-icons/bs';
 import ReactPlayer from 'react-player';
 import { heroImagesHomePage, videoResources } from '../pathsUtils/mediaImportsDynamic';
 import { useWindowSize } from '@uidotdev/usehooks';
 import Image from 'next/image';
+import Loading from '../loading';
 const HeroSection = () => {
   const clientSize = useWindowSize();
+
+  const [isReady, setIsReady] = React.useState(false);
+  const playerRef = React.useRef<ReactPlayer>(null);
+
+  const onReady = React.useCallback(() => {
+    if (!isReady) {
+      // const timeToStart = 7 * 60 + 12.6;
+      playerRef.current && playerRef.current.seekTo(0, 'seconds');
+      setIsReady(true);
+    }
+  }, [isReady]);
 
   return (
     <section
@@ -20,12 +32,14 @@ const HeroSection = () => {
             url={videoResources.homePage.video}
             playsinline
             pip
-            playing
             muted
             loop
             volume={0}
             width={'100%'}
             height={'100%'}
+            playing={isReady}
+            onReady={onReady}
+            fallback={<Loading />}
             config={{
               file: {
                 attributes: {
