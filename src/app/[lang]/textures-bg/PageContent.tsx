@@ -3,7 +3,7 @@ import { bgTextures } from '@/app/pathsUtils/mediaImportsDynamic';
 
 const PageContent = () => {
   return (
-
+    <div className='p-4'>
       {Object.keys(bgTextures).map((key) => (
         <section key={key} className='mb-8 text-center'>
           <div className='relative w-full min-h-screen'>
@@ -14,7 +14,7 @@ const PageContent = () => {
           </div>
         </section>
       ))}
-
+    </div>
   );
 };
 
