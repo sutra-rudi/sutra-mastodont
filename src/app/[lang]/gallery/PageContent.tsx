@@ -162,7 +162,9 @@ const PageContent = () => {
           {masonryImages.map((image, index) => (
             <div className='grid gap-4' key={index}>
               <div>
-                <img className='h-auto max-w-full rounded-lg' src={image.src} alt={`masonry image ${index}`} />
+                <picture>
+                  <img className='h-auto max-w-full rounded-lg' src={image.src} alt={`masonry image ${index}`} />
+                </picture>
               </div>
             </div>
           ))}
@@ -187,22 +189,26 @@ const PageContent = () => {
             <div className='flex flex-wrap w-1/2'>
               {galleryImages.gallery5.slice(0, 3).map((image, index) => (
                 <div className={`md:p-2 p-1 ${index < 2 ? 'w-1/2' : 'w-full'}`} key={index}>
-                  <img
-                    alt={`gallery ${index}`}
-                    className='w-full object-cover h-full object-center block'
-                    src={image.src}
-                  />
+                  <picture>
+                    <img
+                      alt={`gallery ${index}`}
+                      className='w-full object-cover h-full object-center block'
+                      src={image.src}
+                    />
+                  </picture>
                 </div>
               ))}
             </div>
             <div className='flex flex-wrap w-1/2'>
               {galleryImages.gallery5.slice(3, 6).map((image, index) => (
                 <div className={`md:p-2 p-1 ${index === 0 ? 'w-full' : 'w-1/2'}`} key={index + 3}>
-                  <img
-                    alt={`gallery ${index + 3}`}
-                    className='w-full object-cover h-full object-center block'
-                    src={image.src}
-                  />
+                  <picture>
+                    <img
+                      alt={`gallery ${index + 3}`}
+                      className='w-full object-cover h-full object-center block'
+                      src={image.src}
+                    />
+                  </picture>
                 </div>
               ))}
             </div>
