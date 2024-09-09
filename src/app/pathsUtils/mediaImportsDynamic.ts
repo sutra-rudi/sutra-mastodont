@@ -688,3 +688,17 @@ export const galleryImages = {
     { src: `${basePath}/Gallery database/carusel 6/img-16.jpg`, class: 'carusel-6-img-16' },
   ],
 };
+
+export const bgTextures = {
+  texturePaper: `${basePath}/BG_Texture/BG_Texture-Paper.png`,
+  textureConcrete: `${basePath}/BG_Texture/BG_Texture-Concrete.png`,
+  textureWall: `${basePath}/BG_Texture/BG_Texture-Wall.png`,
+  textureSVGWaves: `${basePath}/BG_Texture/BG_Texture-SVG_Waves.png`,
+  shadow01: `${basePath}/Shadows/Shadow_01.png`,
+  shadow02: `${basePath}/Shadows/Shadow_02.png`,
+  shadow03: `${basePath}/Shadows/Shadow_03.png`,
+  shadowLinearGradientBrandColors: `${basePath}/Shadows/Shadow_Linear_Gradient_Brand_Colors.png`,
+  shadowLinearGradientBlack: `${basePath}/Shadows/Shadow_LinearGradient_Black.png`,
+  shadowVignett: `${basePath}/Shadows/Shadow_Vignett.png`,
+  shadowSideShadows: `${basePath}/Shadows/Shadow_Side_Shadows.png`,
+};
