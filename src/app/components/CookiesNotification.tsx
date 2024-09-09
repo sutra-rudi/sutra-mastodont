@@ -6,11 +6,16 @@ import { cookiesUsed } from '../lib/cookiesUsed';
 import { usePathname } from 'next/navigation';
 import { getSuffixFromLang } from '../langUtils/getSuffixFromLang';
 
-const CookieConsentNotification = () => {
+interface CookieInt {
+  lang: string;
+}
+
+const CookieConsentNotification = ({ lang }: CookieInt) => {
   const pathname = usePathname(); // Dohvati putanju
   const segments = pathname.split('/'); // Razdvoji putanju na segmente
 
-  const lang = getSuffixFromLang(segments[1]) || 'Hr';
+  //   const lang = getSuffixFromLang(segments[1]) || 'Hr';
+  const l = getSuffixFromLang(lang);
   return (
     <CookieConsent
       location='bottom'
@@ -28,7 +33,7 @@ const CookieConsentNotification = () => {
         {cookiesUsed.map((cookie, index) => (
           <li key={index}>
             <strong>{cookie.name}</strong> - domena: <strong>{cookie.domain}</strong>, opis: {/* @ts-ignore */}
-            <strong>{cookie[`description${lang}`]}</strong>
+            <strong>{cookie[`description${l}`]}</strong>
           </li>
         ))}
       </ul>
