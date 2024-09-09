@@ -22,6 +22,7 @@ const CookieConsentNotification = ({ lang }: CookieInt) => {
       buttonText='Prihvaćam'
       declineButtonText='Odbijam'
       enableDeclineButton
+      debug
       cookieName='userCookieConsent'
       style={{ background: '#2B373B' }}
       buttonStyle={{ color: '#4e503b', fontSize: '13px' }}
