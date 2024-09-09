@@ -21,6 +21,7 @@ import { getAdminTokensQuery } from './queries/getAdminTokens';
 import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google';
 
 import Script from 'next/script';
+import CookieConsentNotification from './components/CookiesNotification';
 const poppins = Poppins({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700'] });
 
 export const metadata: Metadata = {
@@ -217,6 +218,7 @@ export default async function RootLayout({
             `}
           </Script>
         )}
+        <CookieConsentNotification />
       </body>
     </html>
   );

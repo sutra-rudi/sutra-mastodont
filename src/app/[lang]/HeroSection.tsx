@@ -9,6 +9,8 @@ import Image from 'next/image';
 import Loading from '../loading';
 import dynamic from 'next/dynamic';
 
+import { getCookies } from 'cookies-next';
+
 const ReactPlayerDy = dynamic(() => import('react-player'), { ssr: false });
 
 const HeroSection = () => {
@@ -24,6 +26,10 @@ const HeroSection = () => {
       setIsReady(true);
     }
   }, [isReady]);
+
+  const cooks = getCookies();
+
+  console.log('KUKI', cooks);
 
   return (
     <section
