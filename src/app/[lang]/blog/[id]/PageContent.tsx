@@ -4,39 +4,12 @@ import dayjs from 'dayjs';
 import Image from 'next/image';
 import React from 'react';
 import parse from 'html-react-parser';
-import {
-  FaFacebookF as FacebookIcon,
-  FaTwitter as TwitterIcon,
-  FaRedditAlien as RedditIcon,
-  FaPrint as PrintIcon,
-} from 'react-icons/fa';
+import { FaFacebookF as FacebookIcon, FaTwitter as TwitterIcon, FaRedditAlien as RedditIcon } from 'react-icons/fa';
 import { FaRegFileLines as FileIcon } from 'react-icons/fa6';
 import { BsCloudDownload as DownloadIcon } from 'react-icons/bs';
 import Slider from 'react-slick';
 
-import { motion, useMotionValueEvent, useScroll, useSpring, useTransform } from 'framer-motion';
-import {
-  EmailShareButton,
-  FacebookShareButton,
-  GabShareButton,
-  HatenaShareButton,
-  InstapaperShareButton,
-  LineShareButton,
-  LinkedinShareButton,
-  LivejournalShareButton,
-  MailruShareButton,
-  OKShareButton,
-  PinterestShareButton,
-  PocketShareButton,
-  RedditShareButton,
-  TelegramShareButton,
-  TumblrShareButton,
-  TwitterShareButton,
-  ViberShareButton,
-  VKShareButton,
-  WhatsappShareButton,
-  WorkplaceShareButton,
-} from 'react-share';
+import { FacebookShareButton, RedditShareButton, TwitterShareButton } from 'react-share';
 import toast from 'react-hot-toast';
 import { useReactToPrint } from 'react-to-print';
 import { ParallaxBanner } from 'react-scroll-parallax';

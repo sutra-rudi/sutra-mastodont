@@ -16,7 +16,7 @@ const PageContent = ({ pageContent }: MapsPageContent) => {
 
   const contShorthand = pageContent[0].node;
 
-  console.log('ADMIN MAPE', contShorthand);
+  // console.log('ADMIN MAPE', contShorthand);
 
   React.useEffect(() => {
     if (!contShorthand || adminMap.current) return;

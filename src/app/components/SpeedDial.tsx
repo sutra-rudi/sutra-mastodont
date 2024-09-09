@@ -3,31 +3,7 @@
 import React from 'react';
 import toast from 'react-hot-toast';
 
-interface SideButtonsDefault {}
-
-import {
-  EmailShareButton,
-  FacebookShareButton,
-  FacebookMessengerShareButton,
-  GabShareButton,
-  HatenaShareButton,
-  InstapaperShareButton,
-  LineShareButton,
-  LinkedinShareButton,
-  LivejournalShareButton,
-  MailruShareButton,
-  OKShareButton,
-  PinterestShareButton,
-  PocketShareButton,
-  RedditShareButton,
-  TelegramShareButton,
-  TumblrShareButton,
-  TwitterShareButton,
-  ViberShareButton,
-  VKShareButton,
-  WhatsappShareButton,
-  WorkplaceShareButton,
-} from 'react-share';
+import { FacebookShareButton, RedditShareButton, TwitterShareButton } from 'react-share';
 import {
   FaFacebookF as FacebookIcon,
   FaTwitter as TwitterIcon,
@@ -93,9 +69,7 @@ const SpeedDial = ({ handlePrint }: SpeedDialInterface) => {
         className='flex justify-center items-center group w-12 h-12  bg-almost-white rounded-full  shadow-sm  group cursor-pointer transition-all ease-in-out hover:shadow border-none bg-transparent'
         onClick={handlePrint}
       >
-        {/* <RedditShareButton url={currentLocation} className=''> */}
         <PrintIcon className='text-almost-black group-hover:text-accent transition-all ' />
-        {/* </RedditShareButton> */}
       </div>
 
       <div

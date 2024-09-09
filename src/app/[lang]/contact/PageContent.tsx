@@ -27,8 +27,6 @@ LR.registerBlocks(LR);
 
 import 'dayjs/locale/hr';
 
-// dayjs.locale('hr');
-
 interface ContactPageInterface {
   personsData: any;
   sectorsData: any;
