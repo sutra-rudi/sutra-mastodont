@@ -12,6 +12,7 @@ import { getDokumentikataloziQuery } from '../queries/getAllDocumentsQuery';
 import { getCategoriesQuery } from '../queries/getAllBlogCategoriesQuery';
 import { getTagsQuery } from '../queries/getAllTagsQuery';
 import { getAdminCtaSelectionQuery } from '../queries/getAdminCtaSelectionQuery';
+import CookieConsentNotification from '../components/CookiesNotification';
 
 // Lazy loading komponenti
 const BlogSection = lazy(() => import('./BlogSection'));
@@ -106,6 +107,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
     return (
       <Suspense>
+        <CookieConsentNotification />
         <main className='relative w-full  dark:bg-primary-dark min-h-screen'>
           <HeroSection />
 
