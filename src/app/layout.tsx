@@ -21,6 +21,8 @@ import { getAdminTokensQuery } from './queries/getAdminTokens';
 import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google';
 
 import Script from 'next/script';
+import CookieConsentNotification from './components/CookiesNotification';
+import { getAdminTekstoviManjihKomponentiQuery } from './queries/getAdminTekstoviManjihKomponenti';
 
 const poppins = Poppins({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700'] });
 
@@ -129,12 +131,28 @@ export default async function RootLayout({
 
   const adminTokenDataShorthand = adminTokenData.data.kodoviApitokenStylebox.edges[0].node;
 
+  const getAllCookies = await fetch(`${process.env.CMS_BASE_URL}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      query: getAdminTekstoviManjihKomponentiQuery(),
+    }),
+    // cache: 'no-cache',
+  });
+
+  const adminTekstoviManjihKomponenti = await getAllCookies.json();
+
+  const adminTekstoviShorthand = adminTekstoviManjihKomponenti.data.allAdminTekstoviManjihKomponenti.edges[0].node;
+
   return (
     <html
       lang='en'
       className='scrollbar scrollbar-thumb-primary-light dark:scrollbar-thumb-primary-dark  scrollbar-track-primary-dark dark:scrollbar-track-primary-light'
     >
       <body className={`${poppins.className}`}>
+        <CookieConsentNotification pageContent={adminTekstoviShorthand} />
         {adminTokenDataShorthand.kodoviAdminApi.googleAnalytics && (
           <GoogleAnalytics gaId={adminTokenDataShorthand.kodoviAdminApi.googleAnalytics} />
         )}

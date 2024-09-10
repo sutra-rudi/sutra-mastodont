@@ -29,8 +29,6 @@ const HeroSection = () => {
 
   const cooks = getCookies();
 
-  console.log('KUKI', cooks);
-
   return (
     <section
       className='bg-white dark:bg-gray-900 min-h-screen w-full

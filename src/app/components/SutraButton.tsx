@@ -4,12 +4,14 @@ interface SutraButtonBaseInterface {
   isAccentButton?: boolean;
   frontIcon?: React.ElementType;
   backIcon?: React.ElementType;
+  onClickAction?: () => any;
 }
 
-export const SutraButtonBase = ({ innerText, size, isAccentButton }: SutraButtonBaseInterface) => {
+export const SutraButtonBase = ({ innerText, size, isAccentButton, onClickAction }: SutraButtonBaseInterface) => {
   return (
     <button
       role='button'
+      onClick={onClickAction && onClickAction}
       className={`${
         size === 'small'
           ? 'text-sm rounded-sutraButtonBorderRadiusSmall'

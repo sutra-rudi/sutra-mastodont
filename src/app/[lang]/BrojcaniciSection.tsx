@@ -21,7 +21,7 @@ const BrojcaniciSection = ({ pageContent, lang }: BrojcaniciSectionInterface) =>
 
       <div className='max-w-[1225px] mx-auto my-8'>
         <div className='flex items-center gap-4 justify-center'>
-          {pageContent.map((brojcanik: any) => {
+          {pageContent.map((brojcanik: any, index: number) => {
             const shortHand = brojcanik.node;
 
             const imgSource =
@@ -34,7 +34,7 @@ const BrojcaniciSection = ({ pageContent, lang }: BrojcaniciSectionInterface) =>
               shortHand.brojcanikCompanyInNumbersUvod.broj && (
                 <div
                   className='grid grid-cols-1 gap-3 py-4 border border-dashed rounded-lg border-slate-400'
-                  key={brojcanik.id}
+                  key={`${brojcanik.id}+${index}`}
                 >
                   <Image width={96} height={96} src={imgSource} alt='some company img' />
 

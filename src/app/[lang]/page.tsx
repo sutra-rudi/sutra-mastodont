@@ -107,7 +107,6 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
     return (
       <Suspense>
-        <CookieConsentNotification lang={lang} />
         <main className='relative w-full  dark:bg-primary-dark min-h-screen'>
           <HeroSection />
 

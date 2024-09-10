@@ -18,12 +18,12 @@ const PartnersSection = ({ pageContent }: PartnersSectionInterface) => {
         </h2>
 
         <Marquee direction='left'>
-          {duplicatedContent.map((cont: any) => {
+          {duplicatedContent.map((cont: any, index) => {
             const imageSourcesShorthand = cont.node.logotipiPartnera.logoPNG.node;
             return (
               cont.node.logotipiPartnera.prikaziNaNaslovnici && (
                 <Link
-                  key={cont.node.id}
+                  key={`${cont.node.id}+${index}`}
                   className='block mx-4 flex-shrink-0'
                   href={cont.node.logotipiPartnera.linkNaStranicuKlijentapartnera}
                 >
