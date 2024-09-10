@@ -9,7 +9,7 @@ import Image from 'next/image';
 import Loading from '../loading';
 import dynamic from 'next/dynamic';
 
-import { getCookies } from 'cookies-next';
+// import { getCookies } from 'cookies-next';
 
 const ReactPlayerDy = dynamic(() => import('react-player'), { ssr: false });
 
@@ -27,7 +27,7 @@ const HeroSection = () => {
     }
   }, [isReady]);
 
-  const cooks = getCookies();
+  // const cooks = getCookies();
 
   return (
     <section

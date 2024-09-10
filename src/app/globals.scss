@@ -147,6 +147,28 @@ body {
   box-shadow: 1px 1px 1px rebeccapurple;
 }
 
-.lovre {
-  // transform: scale(2);
+/// COOKIES ///
+
+.cookie-custom-master {
+  max-width: 80% !important;
+  width: 100%;
+  // padding: 0 12rem;
+  top: 40%;
+  left: 50% !important;
+  transform: translateX(-50%);
+  background: theme('colors.secondary-light') !important;
+
+  & > div:nth-of-type(2) {
+    display: none;
+  }
+}
+
+.cookie-custom-container {
+  margin: 0 !important;
+  padding: 0 !important;
+
+  // flex: none !important;
+  // display: flex;
+  // place-items: center;
+  // justify-content: start;
 }
