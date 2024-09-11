@@ -1,3 +1,5 @@
+'use client';
+
 import { getSuffixFromLang } from '../langUtils/getSuffixFromLang';
 
 interface DokumentiKataloziInterface {
@@ -6,6 +8,23 @@ interface DokumentiKataloziInterface {
 }
 const DocumentsCatalogsSection = ({ pageContent, lang }: DokumentiKataloziInterface) => {
   const l = getSuffixFromLang(lang);
+
+  const downloadFile = async (url: any, fileName: any) => {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const blob = await response.blob();
+      const link = document.createElement('a');
+      link.href = window.URL.createObjectURL(blob);
+      link.download = fileName;
+      link.click();
+    } catch (error) {
+      console.error('Error while downloading file:', error);
+    }
+  };
+
   return (
     <section>
       <div className='max-w-[1225px] mx-auto my-8'>
@@ -14,6 +33,9 @@ const DocumentsCatalogsSection = ({ pageContent, lang }: DokumentiKataloziInterf
         <div className='py-4 flex items-center gap-8'>
           {pageContent.map((cont: any) => {
             const sh = cont.node[`docsUpload${l}`];
+
+            const fileTitle = sh?.[`nazivDokumenta${l}`] ? sh?.[`nazivDokumenta${l}`] : 'no title';
+            const filePath = sh[lang].node.mediaItemUrl;
 
             return (
               <div
@@ -45,6 +67,7 @@ const DocumentsCatalogsSection = ({ pageContent, lang }: DokumentiKataloziInterf
                 <button
                   type='button'
                   className='relative inline-flex items-center w-full px-4 py-2 text-sm font-medium rounded-b-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white'
+                  onClick={() => downloadFile(filePath, fileTitle)}
                 >
                   <svg
                     className='w-3 h-3 me-2.5'
@@ -68,13 +91,3 @@ const DocumentsCatalogsSection = ({ pageContent, lang }: DokumentiKataloziInterf
 };
 
 export default DocumentsCatalogsSection;
-
-{
-  /* <a
-  key={cont.node.id}
-  className='block'
-  href={sh?.[l.toLowerCase()] ? sh?.[l.toLowerCase()].node.mediaItemUrl : 'nema linka na fajl'}
->
-  {sh?.[`nazivDokumenta${l}`] ? sh?.[`nazivDokumenta${l}`] : 'nema naziva fajla'}
-</a>; */
-}
