@@ -64,7 +64,7 @@ const CookieConsentNotification = ({ pageContent }: CookieInt) => {
           ButtonComponent={() => null}
           buttonText={null} // Hide default button text
           declineButtonText={null} // Hide default decline button text
-          debug
+          //     debug
           cookieName='userCookieConsent'
           onAccept={handleAccept}
           onDecline={handleDecline}
