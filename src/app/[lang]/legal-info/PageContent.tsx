@@ -49,6 +49,7 @@ const PageContent = ({ intro, pageContent, lang }: LegalInfoInterface) => {
       </div>
 
       <div className='py-4 grid grid-cols-1 gap-2 items-start w-full'>
+        <h2 className='w-full py-4 text-xl font-medium text-accent uppercase'>Lista kolačića</h2>
         {cookiesUsed.map((cookie) => {
           return (
             <div key={cookie.name} className='border-b border-almost-black/10'>
