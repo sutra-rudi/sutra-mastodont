@@ -48,12 +48,12 @@ const PageContent = ({ intro, pageContent, lang }: LegalInfoInterface) => {
         {pageContent.content ? parse(pageContent.content) : <h2>No content</h2>}
       </div>
 
-      <div className='py-4 grid grid-cols-1 gap-2 items-start w-full'>
+      <div className='py-4 grid grid-cols-1 gap-4 items-start w-full'>
         <h2 className='w-full py-4 text-xl font-medium text-accent uppercase'>Lista kolačića</h2>
         {cookiesUsed.map((cookie) => {
           return (
             <div key={cookie.name} className='border-b border-almost-black/10'>
-              <h4 className='text-lg font-medium'>{cookie.name}</h4>
+              {/* <h4 className='text-lg font-medium'>{cookie.name}</h4> */}
               {/* @ts-ignore */}
               <p>- {cookie[`description${l}`]}</p>
             </div>
