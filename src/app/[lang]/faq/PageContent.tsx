@@ -21,11 +21,11 @@ const PageContent = ({ pageContent, lang, singlePageCont }: OnePageFaqSectionInt
       <h2 className='w-full text-center text-7xl font-semibold pt-8'>FAQ One pager</h2>
 
       <div className='max-w-[1225px] mx-auto my-8 flex flex-wrap gap-4 place-items-center justify-center'>
-        {pageContent.map((pagContent: any) => {
+        {pageContent.map((pagContent: any, index: number) => {
           const pageContentShorthand = pagContent.node[`text${l}`];
 
           return (
-            <div className='prose' key={pagContent.id}>
+            <div className='prose' key={pagContent.id + index}>
               <h3 className='text-center text-4xl font-semibold'>{pageContentShorthand[`naslov${l}`]}</h3>
               {parse(pageContentShorthand?.[`sadrzajText${l}`])}
             </div>
@@ -42,7 +42,7 @@ const PageContent = ({ pageContent, lang, singlePageCont }: OnePageFaqSectionInt
           const isAccordionOpen = openAccordionIndex === index;
 
           return (
-            <div key={pageCont.node.id} id={`accordion-collapse-${index}`} data-accordion='collapse'>
+            <div key={pageCont.node.id + index} id={`accordion-collapse-${index}`} data-accordion='collapse'>
               <h2 id={`accordion-collapse-heading-${index}`}>
                 <button
                   type='button'
