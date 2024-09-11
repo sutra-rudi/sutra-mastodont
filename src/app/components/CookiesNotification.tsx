@@ -4,7 +4,7 @@ import React from 'react';
 import CookieConsent from 'react-cookie-consent';
 // import { getSuffixFromLang } from '../langUtils/getSuffixFromLang';
 import { FaCookieBite as CookieIcon } from 'react-icons/fa';
-import { SutraButtonBase, SutraButtonLink, SutraButtonWithIcon } from './SutraButton';
+import { SutraButtonBase } from './SutraButton';
 import toast from 'react-hot-toast';
 import { motion } from 'framer-motion';
 import { setCookie } from 'cookies-next';
