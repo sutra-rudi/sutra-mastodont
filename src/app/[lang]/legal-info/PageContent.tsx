@@ -3,14 +3,19 @@
 import Image from 'next/image';
 import parse from 'html-react-parser';
 import Link from 'next/link';
+import { cookiesUsed } from '@/app/lib/cookiesUsed';
+import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 
 interface LegalInfoInterface {
   intro: any;
   pageContent: any;
+  lang: string;
 }
 
-const PageContent = ({ intro, pageContent }: LegalInfoInterface) => {
+const PageContent = ({ intro, pageContent, lang }: LegalInfoInterface) => {
   const imgSource = intro.slikaLegal.node ? intro.slikaLegal.node.sourceUrl : 'https://placehold.co/800.png';
+
+  const l = getSuffixFromLang(lang);
 
   const downloadFile = async (url: any, fileName: any) => {
     try {
@@ -41,6 +46,18 @@ const PageContent = ({ intro, pageContent }: LegalInfoInterface) => {
 
       <div className='proza-custom-blog prose-blockquote:border-accent prose-blockquote:text-2xl prose-blockquote:font-medium prose-img:mb-0 prose-figcaption:mt-1 prose-figcaption:italic lg:prose-base prose-sm  prose-strong:font-semibold'>
         {pageContent.content ? parse(pageContent.content) : <h2>No content</h2>}
+      </div>
+
+      <div className='py-4 grid grid-cols-1 gap-2 items-start w-full'>
+        {cookiesUsed.map((cookie) => {
+          return (
+            <div key={cookie.name} className='border-b border-almost-black/10'>
+              <h4 className='text-lg font-medium'>{cookie.name}</h4>
+              {/* @ts-ignore */}
+              <p>- {cookie[`description${l}`]}</p>
+            </div>
+          );
+        })}
       </div>
 
       <div className='py-4'>

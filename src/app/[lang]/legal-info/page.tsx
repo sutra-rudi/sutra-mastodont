@@ -11,7 +11,10 @@ export default async function LegalInfo({ params: { lang } }: { params: { lang: 
     body: JSON.stringify({
       query: getAllLegalneInformacijeQuery(lang),
     }),
-    cache: 'no-cache',
+    // cache: 'no-cache',
+    next: {
+      revalidate: 3600,
+    },
   });
 
   const parseData = await getAllLegal.json();
@@ -29,7 +32,7 @@ export default async function LegalInfo({ params: { lang } }: { params: { lang: 
   };
   return (
     <main>
-      <PageContent intro={prepareData.intro} pageContent={prepareData.pageContent} />
+      <PageContent intro={prepareData.intro} pageContent={prepareData.pageContent} lang={lang} />
     </main>
   );
 }
