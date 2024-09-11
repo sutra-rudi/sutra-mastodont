@@ -9,6 +9,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import '@uploadcare/react-uploader/core.css';
 import '@uploadcare/blocks/web/lr-file-uploader-regular.min.css';
 import 'yet-another-react-lightbox/styles.css';
+import { cookies } from 'next/headers';
 
 import AppHeader from './globalComponents/AppHeader';
 import AppFooter from './globalComponents/AppFooter';
@@ -25,6 +26,8 @@ import CookieConsentNotification from './components/CookiesNotification';
 import { getAdminTekstoviManjihKomponentiQuery } from './queries/getAdminTekstoviManjihKomponenti';
 
 const poppins = Poppins({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700'] });
+
+import { getCookies } from 'cookies-next';
 
 export const metadata: Metadata = {
   title: 'Sutra mastodont',
@@ -146,6 +149,10 @@ export default async function RootLayout({
 
   const adminTekstoviShorthand = adminTekstoviManjihKomponenti.data.allAdminTekstoviManjihKomponenti.edges[0].node;
 
+  const getUserCookieConsent = cookies().get('@sutra-cookies-consent')?.value;
+
+  const userEnabledAllCookies = getUserCookieConsent === 'true';
+
   return (
     <html
       lang='en'
@@ -153,10 +160,10 @@ export default async function RootLayout({
     >
       <body className={`${poppins.className}`}>
         <CookieConsentNotification pageContent={adminTekstoviShorthand} />
-        {adminTokenDataShorthand.kodoviAdminApi.googleAnalytics && (
+        {adminTokenDataShorthand.kodoviAdminApi.googleAnalytics && userEnabledAllCookies && (
           <GoogleAnalytics gaId={adminTokenDataShorthand.kodoviAdminApi.googleAnalytics} />
         )}
-        {adminTokenDataShorthand.kodoviAdminApi.googleTagManager && (
+        {adminTokenDataShorthand.kodoviAdminApi.googleTagManager && userEnabledAllCookies && (
           <GoogleTagManager gtmId={adminTokenDataShorthand.kodoviAdminApi.googleTagManager} />
         )}
         <Suspense fallback={<Loading />}>
@@ -166,7 +173,7 @@ export default async function RootLayout({
 
           <AppFooter />
         </Suspense>
-        {adminTokenDataShorthand.kodoviAdminApi.microsoftClarity && (
+        {adminTokenDataShorthand.kodoviAdminApi.microsoftClarity && userEnabledAllCookies && (
           <Script id='clarity-script' strategy='afterInteractive'>
             {`
             (function(c,l,a,r,i,t,y){
@@ -177,7 +184,7 @@ export default async function RootLayout({
           `}
           </Script>
         )}
-        {adminTokenDataShorthand.kodoviAdminApi.hotjar && (
+        {adminTokenDataShorthand.kodoviAdminApi.hotjar && userEnabledAllCookies && (
           <Script id='hotjar-snippet'>
             {`
           (function(h,o,t,j,a,r){
@@ -193,7 +200,8 @@ export default async function RootLayout({
         )}
 
         {adminTokenDataShorthand.kodoviAdminApi.plerdySiteHashCode &&
-          adminTokenDataShorthand.kodoviAdminApi.plerdySuidSiteUniqueId && (
+          adminTokenDataShorthand.kodoviAdminApi.plerdySuidSiteUniqueId &&
+          userEnabledAllCookies && (
             <Script id='plerdy-script' strategy='afterInteractive'>
               {`
               var _protocol="https:"==document.location.protocol?"https://":"http://";
@@ -214,7 +222,7 @@ export default async function RootLayout({
             </Script>
           )}
 
-        {adminTokenDataShorthand.kodoviAdminApi.inspectlet && (
+        {adminTokenDataShorthand.kodoviAdminApi.inspectlet && userEnabledAllCookies && (
           <Script id='inspectlet-script' strategy='afterInteractive'>
             {`
               window.__insp = window.__insp || [];

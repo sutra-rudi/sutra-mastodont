@@ -150,13 +150,15 @@ body {
 /// COOKIES ///
 
 .cookie-custom-master {
-  max-width: 80% !important;
+  max-width: 384px !important;
   width: 100%;
-  // padding: 0 12rem;
-  top: 40%;
-  left: 50% !important;
-  transform: translateX(-50%);
-  background: theme('colors.secondary-light') !important;
+  position: fixed !important;
+  bottom: 2rem;
+  left: unset !important;
+  right: 2.3rem;
+  flex: unset !important;
+
+  background: theme('colors.almost-black') !important;
 
   & > div:nth-of-type(2) {
     display: none;
@@ -166,9 +168,5 @@ body {
 .cookie-custom-container {
   margin: 0 !important;
   padding: 0 !important;
-
-  // flex: none !important;
-  // display: flex;
-  // place-items: center;
-  // justify-content: start;
+  flex: unset !important;
 }
