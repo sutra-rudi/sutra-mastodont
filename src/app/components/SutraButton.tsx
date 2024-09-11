@@ -14,7 +14,7 @@ export const SutraButtonBase = ({ innerText, size, isAccentButton, onClickAction
       onClick={onClickAction && onClickAction}
       className={`${
         size === 'small'
-          ? 'text-sm rounded-sutraButtonBorderRadiusSmall'
+          ? 'text-xs rounded-sutraButtonBorderRadiusSmall'
           : size === 'normal'
           ? 'text-base rounded-sutraButtonBorderRadiusBase'
           : size === 'large'
@@ -123,7 +123,7 @@ export const SutraButtonWithIcon = ({
       role='button'
       className={`${
         size === 'small'
-          ? 'text-sm rounded-sutraButtonBorderRadiusSmall'
+          ? 'text-xs rounded-sutraButtonBorderRadiusSmall'
           : size === 'normal'
           ? 'text-base rounded-sutraButtonBorderRadiusBase'
           : size === 'large'

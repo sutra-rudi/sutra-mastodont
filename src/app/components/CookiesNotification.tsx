@@ -2,29 +2,31 @@
 
 import React from 'react';
 import CookieConsent from 'react-cookie-consent';
-import { cookiesUsed } from '../lib/cookiesUsed';
 // import { getSuffixFromLang } from '../langUtils/getSuffixFromLang';
 import { FaCookieBite as CookieIcon } from 'react-icons/fa';
-import { SutraButtonBase } from './SutraButton';
+import { SutraButtonBase, SutraButtonLink, SutraButtonWithIcon } from './SutraButton';
 import toast from 'react-hot-toast';
 import { motion } from 'framer-motion';
 import { setCookie } from 'cookies-next';
-import { useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
+import { GoArrowUpRight as ArrowIcon } from 'react-icons/go';
+
+import Link from 'next/link';
+// import { getSuffixFromLang } from '../langUtils/getSuffixFromLang';
 
 interface CookieInt {
   pageContent: any;
 }
 
 const CookieConsentNotification = ({ pageContent }: CookieInt) => {
-  //   const l = getSuffixFromLang(lang);
-
-  //   console.log('Page content', pageContent);
+  const currentPath = usePathname();
+  const splitPath = currentPath.split('/');
+  const currentLang = splitPath[1];
+  //   const l = getSuffixFromLang(currentLang);
 
   const [isVisible, setIsVisible] = React.useState<boolean>(true);
 
   const contentShorthand = pageContent.adminCookiesFooterNewsletter.cookiesTekstovi;
-
-  const router = useRouter();
 
   // Callback functions
   const handleAccept = () => {
@@ -72,17 +74,25 @@ const CookieConsentNotification = ({ pageContent }: CookieInt) => {
           hideOnAccept
           hideOnDecline
         >
-          <div className='w-full h-full outline outline-red-500 px-2 pt-3'>
-            <h3 className='text-lg font-bold mb-4 text-primary-light flex items-center justify-start gap-2'>
+          <div className='w-full h-full flex flex-col items-start gap-2'>
+            <h3 className='text-lg font-bold text-primary-light flex items-center justify-start gap-2'>
               <CookieIcon />
               <span>{contentShorthand.naslov}</span>
             </h3>
-            <p className='mb-4 text-primary-light text-sm'>{contentShorthand.tekst}</p>
+            <p className='text-primary-light text-sm'>{contentShorthand.tekst}</p>
 
-            <p className='mb-2 text-primary-light italic text-xs'>{contentShorthand.napomena}</p>
+            <p className='text-primary-light italic text-xs'>{contentShorthand.napomena}</p>
+
+            <Link
+              href={`/${currentLang}/legal-info`}
+              className='flex items-center justify-start gap-2 text-sm mb-4 text-accent border-b border-b-accent'
+            >
+              <span>Postavke privatnosti</span>
+              <ArrowIcon />
+            </Link>
           </div>
 
-          <div className='outline outline-blue-400 my-6 px-2 w-full flex items-center justify-start gap-4'>
+          <div className='w-full flex items-center justify-start gap-4'>
             <SutraButtonBase innerText='Prihvačam sve' size='small' onClickAction={handleAccept} isAccentButton />
             <SutraButtonBase
               innerText='Prihvačam samo nužne'
