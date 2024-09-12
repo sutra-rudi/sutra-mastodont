@@ -7,7 +7,7 @@ import { FaCookieBite as CookieIcon } from 'react-icons/fa';
 import { SutraButtonBase } from './SutraButton';
 import toast from 'react-hot-toast';
 import { motion } from 'framer-motion';
-import { setCookie } from 'cookies-next';
+import { setCookie, getCookie } from 'cookies-next';
 import { usePathname } from 'next/navigation';
 import { GoArrowUpRight as ArrowIcon } from 'react-icons/go';
 
@@ -25,6 +25,7 @@ const CookieConsentNotification = ({ pageContent }: CookieInt) => {
   //   const l = getSuffixFromLang(currentLang);
 
   const [isVisible, setIsVisible] = React.useState<boolean>(true);
+  const [userHasCookies, setUserHasCookies] = React.useState<boolean>(false);
 
   const contentShorthand = pageContent.adminCookiesFooterNewsletter.cookiesTekstovi;
 
@@ -47,8 +48,19 @@ const CookieConsentNotification = ({ pageContent }: CookieInt) => {
     window.location.reload();
   };
 
+  React.useEffect(() => {
+    const checkCookie = getCookie('@sutra-cookies-consent');
+
+    console.log('CHECK', checkCookie);
+
+    if (checkCookie) {
+      setUserHasCookies(true);
+    }
+  }, []);
+
   return (
-    isVisible && (
+    isVisible &&
+    userHasCookies && (
       <motion.div
         initial={{ opacity: 0, y: -20 }} // Početni stil
         animate={{ opacity: 1, y: 0 }} // Stil kad se animira
