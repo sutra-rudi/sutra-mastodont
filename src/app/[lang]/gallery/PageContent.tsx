@@ -6,7 +6,7 @@ import Slider from 'react-slick';
 import Image from 'next/image';
 
 import { galleryImages } from '@/app/pathsUtils/mediaImportsDynamic';
-import { defaultMultiple, infiScrollSettings, multipleRows } from '@/app/scriptSettings/slickOptions';
+import { infiScrollSettings, multipleRows } from '@/app/scriptSettings/slickOptions';
 import Loading from '@/app/loading';
 
 interface ImageData {
@@ -77,8 +77,9 @@ const PageContent = () => {
   const imageArray1 = filteredGallery1.map((image, index) => (
     <Image
       key={`${index}-${image.src}`}
-      width={300}
-      height={350}
+      width={350}
+      height={300}
+      className='w-full h-auto object-cover object-center aspect-video'
       alt='ciao'
       src={image.src}
       onError={(img) => img.currentTarget.classList.add('display-none')}
@@ -88,8 +89,9 @@ const PageContent = () => {
   const imageArray2 = filteredGallery2.map((image, index) => (
     <Image
       key={`${index}-${image.src}`}
-      width={300}
-      height={350}
+      width={350}
+      height={300}
+      className='w-full h-auto object-cover object-center aspect-video'
       alt='ciao'
       src={image.src}
       onError={(img) => img.currentTarget.classList.add('display-none')}
@@ -99,8 +101,8 @@ const PageContent = () => {
 
   const slides = filteredGallery2.map((image, index) => ({
     src: image.src,
-    width: 800,
-    height: 650,
+    width: 1600,
+    height: 800,
     key: `${index}-${image.src}`,
   }));
 
@@ -111,7 +113,7 @@ const PageContent = () => {
       height={350}
       src={image.src}
       alt={`gallery 4 image ${index}`}
-      className='w-full h-auto object-cover'
+      className='w-full h-auto object-cover object-center aspect-video'
       onError={(img) => img.currentTarget.classList.add('display-none')}
     />
   ));
@@ -119,11 +121,11 @@ const PageContent = () => {
   const slickImagesInfi = filteredGallery5.map((image, index) => (
     <Image
       key={`${index}-${image.src}`}
-      width={300}
-      height={350}
+      width={350}
+      height={300}
       src={image.src}
       alt={`gallery 5 image ${index}`}
-      className='w-full h-auto object-cover'
+      className='w-full h-auto object-cover object-center aspect-video'
       onError={(img) => img.currentTarget.classList.add('display-none')}
     />
   ));
@@ -154,7 +156,14 @@ const PageContent = () => {
             <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8'>
               {imageArray2}
             </div>
-            <Lightbox slides={slides} open={index >= 0} index={index} close={() => setIndex(-1)} />
+
+            <Lightbox
+              slides={slides}
+              open={index >= 0}
+              index={index}
+              close={() => setIndex(-1)}
+              controller={{ closeOnBackdropClick: true }}
+            />
           </>
         ) : (
           <div className='w-full h-full min-h-56 relative'>
@@ -214,8 +223,8 @@ const PageContent = () => {
                 }}
               >
                 <Image
-                  width={300}
-                  height={350}
+                  width={350}
+                  height={300}
                   onError={(img) => img.currentTarget.classList.add('display-none')}
                   src={image.src}
                   alt={image.alt}
@@ -224,6 +233,7 @@ const PageContent = () => {
                     display: 'block',
                     borderRadius: '8px', // Zaokruživanje rubova
                   }}
+                  className='w-full h-auto object-cover object-center aspect-video'
                 />
               </div>
             ))}
@@ -253,27 +263,27 @@ const PageContent = () => {
             <div className='flex flex-wrap md:-m-2 -m-1'>
               <div className='flex flex-wrap w-1/2'>
                 {galleryImages.gallery5.slice(0, 3).map((image, index) => (
-                  <div className={`md:p-2 p-1 ${index < 2 ? 'w-1/2' : 'w-full'}`} key={index}>
-                    <picture>
-                      <img
-                        alt={`gallery ${index}`}
-                        className='w-full object-cover h-full object-center block'
-                        src={image.src}
-                      />
-                    </picture>
+                  <div className={`md:p-2 p-1 relative ${index < 2 ? 'w-1/2' : 'w-full'}`} key={index}>
+                    <Image
+                      alt={`gallery ${index}`}
+                      width={350}
+                      height={300}
+                      className='w-full h-auto object-cover object-center aspect-video'
+                      src={image.src}
+                    />
                   </div>
                 ))}
               </div>
               <div className='flex flex-wrap w-1/2'>
                 {galleryImages.gallery3.slice(3, 6).map((image, index) => (
-                  <div className={`md:p-2 p-1 ${index === 0 ? 'w-full' : 'w-1/2'}`} key={index + 3}>
-                    <picture>
-                      <img
-                        alt={`gallery ${index + 3}`}
-                        className='w-full object-cover h-full object-center block'
-                        src={image.src}
-                      />
-                    </picture>
+                  <div className={`md:p-2 p-1 relative ${index === 0 ? 'w-full' : 'w-1/2'}`} key={index + 3}>
+                    <Image
+                      width={350}
+                      height={300}
+                      alt={`gallery ${index + 3}`}
+                      className='w-full h-auto object-cover object-center aspect-video'
+                      src={image.src}
+                    />
                   </div>
                 ))}
               </div>
