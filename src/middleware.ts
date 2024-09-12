@@ -4,6 +4,12 @@ import { UserLanguage } from './app/enums/LangEnum';
 
 export function middleware(request: NextRequest) {
   const SUPPORTED_LANGUAGES = Object.values(UserLanguage);
+
+  // Izuzmi sitemap.xml iz middleware-a
+  if (request.nextUrl.pathname === '/sitemap.xml' || request.nextUrl.pathname.startsWith('/hr/sitemap.xml')) {
+    return NextResponse.next();
+  }
+
   // Ako je URL osnovni ("/"), preusmjerite na "/hr"
   if (request.nextUrl.pathname === '/') {
     return NextResponse.redirect(new URL('/hr', request.url));
@@ -22,5 +28,5 @@ export function middleware(request: NextRequest) {
 
 // Konfigurirajte middleware da presreće osnovni URL ("/")
 export const config = {
-  matcher: '/((?!api|_next|static|favicon.ico).*)',
+  matcher: '/((?!api|_next|static|favicon.ico|sitemap.xml).*)',
 };
