@@ -143,7 +143,13 @@ const PageContent = () => {
         <h2 className='font-bold mb-4 text-center text-4xl'>Basic galerija</h2>
         <p>Koristi slike iz gallery 1 mape</p>
       </div>
-      <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8'>{imageArray1}</div>
+      {filteredGallery1.length > 0 ? (
+        <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8'>{imageArray1}</div>
+      ) : (
+        <div className='w-full h-full min-h-56 relative'>
+          <Loading />
+        </div>
+      )}
 
       {/* React Grid Gallery s Lightbox funkcionalnošću */}
       <div className='mb-8'>
