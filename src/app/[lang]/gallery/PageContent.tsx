@@ -14,18 +14,24 @@ interface ImageData {
   class?: string;
 }
 
-interface GalleryImages {
-  gallery1: ImageData[];
-  gallery2: ImageData[];
-  gallery4: ImageData[];
-  gallery5: ImageData[];
-  gallery6: ImageData[];
-}
+// interface GalleryImages {
+//   gallery1: ImageData[];
+//   gallery2: ImageData[];
+//   gallery4: ImageData[];
+//   gallery5: ImageData[];
+//   gallery6: ImageData[];
+// }
 
 // Funkcija za provjeru ispravnosti URL-a
 const checkImageUrl = async (url: string): Promise<boolean> => {
   try {
-    const response = await fetch(url, { method: 'HEAD', cache: 'force-cache' });
+    const response = await fetch(url, {
+      method: 'HEAD',
+      // cache: 'force-cache',
+      next: {
+        revalidate: 3600,
+      },
+    });
     return response.ok;
   } catch (error) {
     return false;
