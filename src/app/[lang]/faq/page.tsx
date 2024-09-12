@@ -43,7 +43,6 @@ export default async function FaqPage({ params: { lang } }: { params: { lang: st
 
   const l = getSuffixFromLang(lang);
 
-  // Kreiranje JSON-LD (schema.org) podataka
   const faqItems = faqSingleDataArrayShorthand.map((faq: any) => ({
     '@type': 'Question',
     name: faq.node[`faqPojedinacnoDodavanje${l}`]?.[`pitanjeFaq${l}`],
@@ -67,7 +66,6 @@ export default async function FaqPage({ params: { lang } }: { params: { lang: st
         singlePageCont={faqSingleDataArrayShorthand}
       />
 
-      {/* Umetanje JSON-LD koristeći Next.js Script komponentu */}
       <Script id='faq-schema' type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
     </main>
   );

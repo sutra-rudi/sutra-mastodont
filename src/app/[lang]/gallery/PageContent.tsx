@@ -1,67 +1,81 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Gallery } from 'react-grid-gallery';
 import Lightbox from 'yet-another-react-lightbox';
 import Slider from 'react-slick';
 
-import { galleryImages } from '@/app/pathsUtils/mediaImportsDynamic'; // Pretpostavljam da si dodao galleryImages u pathsUtils
+import { galleryImages } from '@/app/pathsUtils/mediaImportsDynamic';
 import { defaultMultiple, infiScrollSettings, multipleRows } from '@/app/scriptSettings/slickOptions';
-
-// Pripremamo slike za osnovni prikaz
-const imageArray1 = galleryImages.gallery1.map((image, index) => (
-  <picture key={index} className='w-full h-auto'>
-    <source srcSet={image.src} />
-    <img src={image.src} alt={`gallery 1 image ${index}`} className='w-full h-auto object-cover' />
-  </picture>
-));
-
-// Pripremamo slike za react-grid-gallery
-const imageArray2 = galleryImages.gallery2.map((image, index) => ({
-  src: image.src,
-  thumbnail: image.src,
-  thumbnailWidth: 320,
-  thumbnailHeight: 174,
-  caption: `gallery 2 image ${index}`,
-  customOverlay: (
-    <div className='custom-overlay__caption'>
-      <span>{`gallery 2 image ${index}`}</span>
-    </div>
-  ),
-  width: 800,
-  height: 650,
-}));
-
-// Pripremamo slike za lightbox
-const slides = galleryImages.gallery3.map((image, index) => ({
-  src: image.src,
-  width: 800,
-  height: 650,
-}));
-
-// Pripremamo slike za react-slick
-const slickImages = galleryImages.gallery4.map((image, index) => (
-  <picture key={index} className='w-full h-auto'>
-    <img src={image.src} alt={`gallery 4 image ${index}`} className='w-full h-auto object-cover' />
-  </picture>
-));
-
-const slickImagesInfi = galleryImages.gallery5.map((image, index) => (
-  <picture key={index} className='w-full h-auto'>
-    <img src={image.src} alt={`gallery 5 image ${index}`} className='w-full h-auto object-cover' />
-  </picture>
-));
-
-// Slike za Masonry galeriju
-const masonryImages = galleryImages.gallery6.map((image, index) => ({
-  src: image.src,
-  alt: `gallery 6 image ${index}`,
-}));
+import Image from 'next/image';
 
 const PageContent = () => {
   const [index, setIndex] = useState(-1);
 
   const handleClick = (index: number) => setIndex(index);
+
+  const imageArray1 = galleryImages.gallery1.map((image, index) => {
+    return (
+      <Image
+        key={`${index}-${image.src}`}
+        width={300}
+        height={350}
+        alt='ciao'
+        src={image.src}
+        onError={(img) => img.currentTarget.classList.add('display-none')}
+      />
+    );
+  });
+
+  // Pripremamo slike za react-grid-gallery
+  const imageArray2 = galleryImages.gallery2.map((image, index) => {
+    return (
+      <Image
+        key={`${index}-${image.src}`}
+        width={300}
+        height={350}
+        alt='ciao'
+        src={image.src}
+        onError={(img) => img.currentTarget.classList.add('display-none')}
+        onClick={() => handleClick(index)}
+      />
+    );
+  });
+
+  // Pripremamo slike za lightbox
+  const slides = galleryImages.gallery2.map((image, index) => ({
+    src: image.src,
+    width: 800,
+    height: 650,
+  }));
+
+  // Pripremamo slike za react-slick
+  const slickImages = galleryImages.gallery4.map((image, index) => (
+    <Image
+      width={300}
+      height={350}
+      src={image.src}
+      alt={`gallery 4 image ${index}`}
+      className='w-full h-auto object-cover'
+      onError={(img) => img.currentTarget.classList.add('display-none')}
+    />
+  ));
+
+  const slickImagesInfi = galleryImages.gallery5.map((image, index) => (
+    <Image
+      width={300}
+      height={350}
+      src={image.src}
+      alt={`gallery 5 image ${index}`}
+      className='w-full h-auto object-cover'
+      onError={(img) => img.currentTarget.classList.add('display-none')}
+    />
+  ));
+
+  // Slike za Masonry galeriju
+  const masonryImages = galleryImages.gallery6.map((image, index) => ({
+    src: image.src,
+    alt: `gallery 6 image ${index}`,
+  }));
 
   return (
     <div className='p-4'>
@@ -72,22 +86,13 @@ const PageContent = () => {
       </div>
       <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8'>{imageArray1}</div>
 
-      {/* React Grid Gallery bez Lightbox-a */}
-      <div className='mb-8'>
-        <div className='flex flex-col gap-2 items-center justify-center'>
-          <h2 className='font-bold mb-4 text-center text-4xl'>Grid galerija</h2>
-          <p>Koristi slike iz gallery 2 mape</p>
-        </div>
-        <Gallery images={imageArray2} enableImageSelection={false} />
-      </div>
-
       {/* React Grid Gallery s Lightbox funkcionalnošću */}
       <div className='mb-8'>
         <div className='flex flex-col gap-2 items-center justify-center'>
-          <h2 className='font-bold mb-4 text-center text-4xl'>Grid galerija sa lightboxom</h2>
+          <h2 className='font-bold mb-4 text-center text-4xl'>Galerija sa lightboxom</h2>
           <p>Koristi slike iz gallery 2 mape</p>
         </div>
-        <Gallery images={imageArray2} onClick={handleClick} enableImageSelection={false} />
+        <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8'>{imageArray2}</div>
         <Lightbox slides={slides} open={index >= 0} index={index} close={() => setIndex(-1)} />
       </div>
 
@@ -136,17 +141,20 @@ const PageContent = () => {
                 breakInside: 'avoid', // Sprečava da se slika razdvoji između stupaca
               }}
             >
-              <picture>
-                <img
-                  src={image.src}
-                  alt={image.alt}
-                  style={{
-                    width: '100%',
-                    display: 'block',
-                    borderRadius: '8px', // Zaokruživanje rubova
-                  }}
-                />
-              </picture>
+              {/* <picture> */}
+              <Image
+                width={300}
+                height={350}
+                onError={(img) => img.currentTarget.classList.add('display-none')}
+                src={image.src}
+                alt={image.alt}
+                style={{
+                  width: '100%',
+                  display: 'block',
+                  borderRadius: '8px', // Zaokruživanje rubova
+                }}
+              />
+              {/* </picture> */}
             </div>
           ))}
         </div>
