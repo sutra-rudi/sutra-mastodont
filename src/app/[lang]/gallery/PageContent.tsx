@@ -1,56 +1,103 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Lightbox from 'yet-another-react-lightbox';
 import Slider from 'react-slick';
+import Image from 'next/image';
 
 import { galleryImages } from '@/app/pathsUtils/mediaImportsDynamic';
 import { defaultMultiple, infiScrollSettings, multipleRows } from '@/app/scriptSettings/slickOptions';
-import Image from 'next/image';
+
+interface ImageData {
+  src: string;
+  class?: string;
+}
+
+interface GalleryImages {
+  gallery1: ImageData[];
+  gallery2: ImageData[];
+  gallery4: ImageData[];
+  gallery5: ImageData[];
+  gallery6: ImageData[];
+}
+
+// Funkcija za provjeru ispravnosti URL-a
+const checkImageUrl = async (url: string): Promise<boolean> => {
+  try {
+    const response = await fetch(url, { method: 'HEAD' });
+    return response.ok;
+  } catch (error) {
+    return false;
+  }
+};
 
 const PageContent = () => {
   const [index, setIndex] = useState(-1);
+  const [filteredGallery1, setFilteredGallery1] = useState<ImageData[]>([]);
+  const [filteredGallery2, setFilteredGallery2] = useState<ImageData[]>([]);
+  const [filteredGallery4, setFilteredGallery4] = useState<ImageData[]>([]);
+  const [filteredGallery5, setFilteredGallery5] = useState<ImageData[]>([]);
+  const [filteredGallery6, setFilteredGallery6] = useState<ImageData[]>([]);
 
   const handleClick = (index: number) => setIndex(index);
 
-  const imageArray1 = galleryImages.gallery1.map((image, index) => {
-    return (
-      <Image
-        key={`${index}-${image.src}`}
-        width={300}
-        height={350}
-        alt='ciao'
-        src={image.src}
-        onError={(img) => img.currentTarget.classList.add('display-none')}
-      />
-    );
-  });
+  // Funkcija koja filtrira slike
+  const filterImages = async (gallery: any[]) => {
+    const validImages = [];
+    for (let image of gallery) {
+      const isValid = await checkImageUrl(image.src);
+      if (isValid) validImages.push(image);
+    }
+    return validImages;
+  };
 
-  // Pripremamo slike za react-grid-gallery
-  const imageArray2 = galleryImages.gallery2.map((image, index) => {
-    return (
-      <Image
-        key={`${index}-${image.src}`}
-        width={300}
-        height={350}
-        alt='ciao'
-        src={image.src}
-        onError={(img) => img.currentTarget.classList.add('display-none')}
-        onClick={() => handleClick(index)}
-      />
-    );
-  });
+  // useEffect za filtriranje slika
+  useEffect(() => {
+    const filterAllGalleries = async () => {
+      setFilteredGallery1(await filterImages(galleryImages.gallery1));
+      setFilteredGallery2(await filterImages(galleryImages.gallery2));
+      setFilteredGallery4(await filterImages(galleryImages.gallery4));
+      setFilteredGallery5(await filterImages(galleryImages.gallery5));
+      setFilteredGallery6(await filterImages(galleryImages.gallery6));
+    };
 
-  // Pripremamo slike za lightbox
-  const slides = galleryImages.gallery2.map((image, index) => ({
+    filterAllGalleries();
+  }, []);
+
+  // Priprema za prikaz galerija nakon filtriranja
+  const imageArray1 = filteredGallery1.map((image, index) => (
+    <Image
+      key={`${index}-${image.src}`}
+      width={300}
+      height={350}
+      alt='ciao'
+      src={image.src}
+      onError={(img) => img.currentTarget.classList.add('display-none')}
+    />
+  ));
+
+  const imageArray2 = filteredGallery2.map((image, index) => (
+    <Image
+      key={`${index}-${image.src}`}
+      width={300}
+      height={350}
+      alt='ciao'
+      src={image.src}
+      onError={(img) => img.currentTarget.classList.add('display-none')}
+      onClick={() => handleClick(index)}
+    />
+  ));
+
+  const slides = filteredGallery2.map((image, index) => ({
     src: image.src,
     width: 800,
     height: 650,
+    key: `${index}-${image.src}`,
   }));
 
-  // Pripremamo slike za react-slick
-  const slickImages = galleryImages.gallery4.map((image, index) => (
+  const slickImages = filteredGallery4.map((image, index) => (
     <Image
+      key={`${index}-${image.src}`}
       width={300}
       height={350}
       src={image.src}
@@ -60,8 +107,9 @@ const PageContent = () => {
     />
   ));
 
-  const slickImagesInfi = galleryImages.gallery5.map((image, index) => (
+  const slickImagesInfi = filteredGallery5.map((image, index) => (
     <Image
+      key={`${index}-${image.src}`}
       width={300}
       height={350}
       src={image.src}
@@ -71,10 +119,10 @@ const PageContent = () => {
     />
   ));
 
-  // Slike za Masonry galeriju
-  const masonryImages = galleryImages.gallery6.map((image, index) => ({
+  const masonryImages = filteredGallery6.map((image, index) => ({
     src: image.src,
     alt: `gallery 6 image ${index}`,
+    key: `${index}-${image.src}`,
   }));
 
   return (
@@ -107,14 +155,6 @@ const PageContent = () => {
 
       <div className='mb-8'>
         <div className='flex flex-col gap-2 items-center justify-center'>
-          <h2 className='font-bold mb-4 text-center text-4xl'>Galerija karuzel u 2 reda</h2>
-          <p>Koristi slike iz gallery 4 mape</p>
-        </div>
-        <Slider {...multipleRows}>{slickImages}</Slider>
-      </div>
-
-      <div className='mb-8'>
-        <div className='flex flex-col gap-2 items-center justify-center'>
           <h2 className='font-bold mb-4 text-center text-4xl'>Galerija karuzel autoplay</h2>
           <p>Koristi slike iz gallery 5 mape</p>
         </div>
@@ -141,7 +181,6 @@ const PageContent = () => {
                 breakInside: 'avoid', // Sprečava da se slika razdvoji između stupaca
               }}
             >
-              {/* <picture> */}
               <Image
                 width={300}
                 height={350}
@@ -154,73 +193,8 @@ const PageContent = () => {
                   borderRadius: '8px', // Zaokruživanje rubova
                 }}
               />
-              {/* </picture> */}
             </div>
           ))}
-        </div>
-      </div>
-
-      <div className='mb-8'>
-        <div className='flex flex-col gap-2 items-center justify-center'>
-          <h2 className='font-bold mb-4 text-center text-4xl'>Flowbite Masonry galerija</h2>
-          <p>Koristi slike iz gallery 6 mape</p>
-        </div>
-        <div className='grid grid-cols-2 md:grid-cols-4 gap-4'>
-          {/* Mapiranje slika umjesto ručnog renderiranja */}
-          {masonryImages.map((image, index) => (
-            <div className='grid gap-4' key={index}>
-              <div>
-                <picture>
-                  <img className='h-auto max-w-full rounded-lg' src={image.src} alt={`masonry image ${index}`} />
-                </picture>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className='mb-8'>
-        <div className='flex flex-col gap-2 items-center justify-center'>
-          <h2 className='font-bold mb-4 text-center text-4xl'>Tailwindblocks Masonry galerija</h2>
-          <p>Koristi slike iz gallery 5 mape</p>
-        </div>
-        <div className='container px-5 py-24 mx-auto flex flex-wrap'>
-          <div className='flex w-full mb-20 flex-wrap'>
-            <h1 className='sm:text-3xl text-2xl font-medium title-font text-gray-900 lg:w-1/3 lg:mb-0 mb-4'>
-              Master Cleanse Reliac Heirloom
-            </h1>
-            <p className='lg:pl-6 lg:w-2/3 mx-auto leading-relaxed text-base'>
-              Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table.
-            </p>
-          </div>
-          <div className='flex flex-wrap md:-m-2 -m-1'>
-            <div className='flex flex-wrap w-1/2'>
-              {galleryImages.gallery5.slice(0, 3).map((image, index) => (
-                <div className={`md:p-2 p-1 ${index < 2 ? 'w-1/2' : 'w-full'}`} key={index}>
-                  <picture>
-                    <img
-                      alt={`gallery ${index}`}
-                      className='w-full object-cover h-full object-center block'
-                      src={image.src}
-                    />
-                  </picture>
-                </div>
-              ))}
-            </div>
-            <div className='flex flex-wrap w-1/2'>
-              {galleryImages.gallery5.slice(3, 6).map((image, index) => (
-                <div className={`md:p-2 p-1 ${index === 0 ? 'w-full' : 'w-1/2'}`} key={index + 3}>
-                  <picture>
-                    <img
-                      alt={`gallery ${index + 3}`}
-                      className='w-full object-cover h-full object-center block'
-                      src={image.src}
-                    />
-                  </picture>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </div>
