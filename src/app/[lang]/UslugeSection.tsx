@@ -40,7 +40,7 @@ function generateServicesSchemaOrg(pageContent: any, lang: string) {
   // Vraćamo cijeli schema.org objekt
   const schemaOrgData = {
     '@context': 'https://schema.org',
-    '@type': 'ServiceCatalog',
+    '@type': 'Service',
     name: 'Our Services',
     description: 'A catalog of the services we offer.',
     service: services,
