@@ -25,14 +25,14 @@ interface ClientTestimonials {
 function generateTestimonialsSchemaOrg(pageContent: any, lang: string) {
   const l = getSuffixFromLang(lang);
 
-  // Izračunajte prosječnu ocjenu
+  // Izračunaj prosječnu ocjenu
   const ratings = pageContent.map((cont: any) => {
     const ratingValue = cont.node.iskustvaklijenataUvod.ocijenaIliBrojZvjezdicaTestimonials;
     return parseFloat(ratingValue) || 0;
   });
   const averageRating = ratings.length ? ratings.reduce((a: any, b: any) => a + b, 0) / ratings.length : 0;
 
-  // Generirajte recenzije
+  // Generiranje recenzija
   const testimonials = pageContent.map((cont: any) => {
     const introContent = cont.node.iskustvaklijenataUvod;
     const mainContent = {
@@ -53,27 +53,28 @@ function generateTestimonialsSchemaOrg(pageContent: any, lang: string) {
         bestRating: '5',
       },
       itemReviewed: {
-        '@type': 'Service', // Možete prilagoditi tip, npr. 'Product' ako je primjereno
-        name: 'Your Service Name', // Zamijenite s imenom usluge ili proizvoda
-        aggregateRating: {
-          '@type': 'AggregateRating',
-          ratingValue: averageRating.toFixed(1),
-          reviewCount: pageContent.length,
-          bestRating: '5',
-        },
+        '@type': 'Service', // Ovdje koristi odgovarajući tip, npr. "Product" ako recenzirate proizvode
+        name: introContent.imeTvrtkeZemljaTestimonials ?? 'Your Service Name',
       },
     };
   });
 
+  // Generiranje schema.org podataka
   const schemaOrgData = {
     '@context': 'https://schema.org',
-    '@type': 'ReviewPage',
+    '@type': 'WebPage', // Promijenjeno iz ReviewPage u WebPage
     name: 'Client Testimonials',
     description: 'Testimonials from our clients',
     review: testimonials,
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: averageRating.toFixed(1),
+      reviewCount: pageContent.length,
+      bestRating: '5',
+    },
   };
 
-  return JSON.stringify(schemaOrgData); // Ako treba u JSON obliku za <script> tag
+  return JSON.stringify(schemaOrgData);
 }
 
 const TestimonialsSection = ({ pageContent, lang }: ClientTestimonials) => {
