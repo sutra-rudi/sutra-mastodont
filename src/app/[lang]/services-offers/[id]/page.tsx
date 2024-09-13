@@ -6,22 +6,26 @@ import Script from 'next/script';
 function generateServiceSchemaOrg(serviceData: any, lang: string) {
   const l = getSuffixFromLang(lang);
 
+  const name =
+    serviceData[`modulBazeTekstova2Kolumne${l}`]?.[`naslovNadnaslov2KolumneTeksta${l}`]?.naslovIPodnaslovDvaPolja
+      ?.title ?? 'Nema naziva';
+  const description =
+    serviceData[`modulBazeTekstova2Kolumne${l}`]?.[`naslovNadnaslov2KolumneTeksta${l}`]?.naslovIPodnaslovDvaPolja
+      ?.description ?? 'Nema opisa';
+  const imageUrl = serviceData.modulBazeTekstovaUvod.slika1 ?? '';
+
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    name:
-      serviceData[`modulBazeTekstova2Kolumne${l}`]?.[`naslovNadnaslov2KolumneTeksta${l}`]?.naslovIPodnaslovDvaPolja
-        ?.title ?? 'Nema naziva',
-    description:
-      serviceData[`modulBazeTekstova2Kolumne${l}`]?.[`naslovNadnaslov2KolumneTeksta${l}`]?.naslovIPodnaslovDvaPolja
-        ?.description ?? 'Nema opisa',
-    image: serviceData.modulBazeTekstovaUvod.slika1 ?? '',
+    name: name,
+    description: description,
+    image: imageUrl, // Ako koristite samo URL, ovo je ispravno
     additionalType: 'https://schema.org/Service',
     serviceType: serviceData[`tags${l}`]?.[`tagText${l}`] ?? 'Nema vrste usluge',
     offers: {
       '@type': 'Offer',
-      priceCurrency: 'HRK', // Zamijeni s valutom ako je potrebno
-      price: '0.00', // Zamijeni s cijenom ako je dostupna
+      priceCurrency: 'HRK',
+      price: '0.00',
     },
   };
 }
