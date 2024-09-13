@@ -13,12 +13,54 @@ import {
 import ReactPlayer from 'react-player';
 import Loading from '../loading';
 import Image from 'next/image';
+import Script from 'next/script';
 
 const ReactPlayerDy = dynamic(() => import('react-player'), { ssr: false });
 
 interface ClientTestimonials {
   pageContent: any;
   lang: any;
+}
+
+function generateTestimonialsSchemaOrg(pageContent: any, lang: string) {
+  const l = getSuffixFromLang(lang);
+
+  // Generiraj listu testemonijala
+  const testimonials = pageContent.map((cont: any) => {
+    const introContent = cont.node.iskustvaklijenataUvod;
+    const mainContent = {
+      clientPosition: cont.node[`testimonials${l}`]?.[`pozicijaUkolikoPostoji${l}`],
+      clientContent: cont.node[`testimonials${l}`]?.[`tekstTestimoniala${l}`],
+    };
+
+    return {
+      '@type': 'Review',
+      reviewBody: mainContent.clientContent ? mainContent.clientContent.replace(/<\/?[^>]+(>|$)/g, '') : 'No content', // Uklanjanje HTML tagova
+      author: {
+        '@type': 'Person',
+        name: introContent.imeKlijentaTestimonials ?? 'Unknown Client',
+      },
+      reviewRating: {
+        '@type': 'Rating',
+        ratingValue: introContent.ocijenaIliBrojZvjezdicaTestimonials ?? '0',
+        bestRating: '5',
+      },
+      itemReviewed: {
+        '@type': 'Service',
+        name: 'Your Service Name', // Zamijeni s imenom usluge ako je dostupno
+      },
+    };
+  });
+
+  const schemaOrgData = {
+    '@context': 'https://schema.org',
+    '@type': 'ReviewPage',
+    name: 'Client Testimonials',
+    description: 'Testimonials from our clients',
+    review: testimonials,
+  };
+
+  return JSON.stringify(schemaOrgData); // Ako treba u JSON obliku za <script> tag
 }
 
 const TestimonialsSection = ({ pageContent, lang }: ClientTestimonials) => {
@@ -42,6 +84,9 @@ const TestimonialsSection = ({ pageContent, lang }: ClientTestimonials) => {
       setIsReady(true);
     }
   }, [isReady]);
+
+  const schemaOrgData = generateTestimonialsSchemaOrg(pageContent, lang);
+
   return (
     <section>
       <h2 className='w-full text-center text-7xl font-semibold pt-8'>Iskustva klijenata</h2>
@@ -129,6 +174,8 @@ const TestimonialsSection = ({ pageContent, lang }: ClientTestimonials) => {
           );
         })}
       </div>
+
+      <Script id='schema-org' type='application/ld+json' dangerouslySetInnerHTML={{ __html: schemaOrgData }} />
     </section>
   );
 };

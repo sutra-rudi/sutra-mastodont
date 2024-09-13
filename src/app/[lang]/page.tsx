@@ -12,7 +12,6 @@ import { getDokumentikataloziQuery } from '../queries/getAllDocumentsQuery';
 import { getCategoriesQuery } from '../queries/getAllBlogCategoriesQuery';
 import { getTagsQuery } from '../queries/getAllTagsQuery';
 import { getAdminCtaSelectionQuery } from '../queries/getAdminCtaSelectionQuery';
-import CookieConsentNotification from '../components/CookiesNotification';
 
 // Lazy loading komponenti
 const BlogSection = lazy(() => import('./BlogSection'));
