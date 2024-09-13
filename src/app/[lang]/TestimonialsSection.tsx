@@ -32,6 +32,7 @@ function generateTestimonialsSchemaOrg(pageContent: any, lang: string) {
   });
   const averageRating = ratings.length ? ratings.reduce((a: any, b: any) => a + b, 0) / ratings.length : 0;
 
+  // Generirajte recenzije
   const testimonials = pageContent.map((cont: any) => {
     const introContent = cont.node.iskustvaklijenataUvod;
     const mainContent = {
@@ -52,24 +53,25 @@ function generateTestimonialsSchemaOrg(pageContent: any, lang: string) {
         bestRating: '5',
       },
       itemReviewed: {
-        '@type': 'Service', // Koristimo 'Service' kao ispravan tip objekta
+        '@type': 'Service', // Ako su recenzije vezane za usluge, koristimo 'Service'
         name: 'Your Service Name', // Zamijenite s imenom usluge ili proizvoda
-        aggregateRating: {
-          '@type': 'AggregateRating',
-          ratingValue: averageRating.toFixed(1),
-          reviewCount: pageContent.length,
-          bestRating: '5',
-        },
       },
     };
   });
 
   const schemaOrgData = {
     '@context': 'https://schema.org',
-    '@type': 'WebPage',
+    '@type': 'ReviewPage',
     name: 'Client Testimonials',
     description: 'Testimonials from our clients',
     review: testimonials,
+    // Ako želite agregiranu ocjenu samo ako imate dovoljno recenzija za to
+    // aggregateRating: {
+    //   '@type': 'AggregateRating',
+    //   ratingValue: averageRating.toFixed(1),
+    //   reviewCount: pageContent.length,
+    //   bestRating: '5',
+    // },
   };
 
   return JSON.stringify(schemaOrgData); // Ako treba u JSON obliku za <script> tag
