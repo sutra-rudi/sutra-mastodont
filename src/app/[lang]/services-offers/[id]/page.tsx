@@ -82,7 +82,7 @@ export default async function SingleServiceOfferPage({
         attributes={prepareAttributes}
       />
       <Script
-        id='schema-org-service'
+        id='schema-org-single-service'
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrgData) }}
       />
