@@ -52,24 +52,24 @@ function generateTestimonialsSchemaOrg(pageContent: any, lang: string) {
         bestRating: '5',
       },
       itemReviewed: {
-        '@type': 'Organization', // Promijenjeno iz 'Service' u 'Organization'
-        name: 'Your Organization Name', // Zamijenite s imenom vaše organizacije ili usluge
+        '@type': 'Service', // Koristimo 'Service' kao ispravan tip objekta
+        name: 'Your Service Name', // Zamijenite s imenom usluge ili proizvoda
+        aggregateRating: {
+          '@type': 'AggregateRating',
+          ratingValue: averageRating.toFixed(1),
+          reviewCount: pageContent.length,
+          bestRating: '5',
+        },
       },
     };
   });
 
   const schemaOrgData = {
     '@context': 'https://schema.org',
-    '@type': 'WebPage', // Promijenjeno u 'WebPage'
+    '@type': 'WebPage',
     name: 'Client Testimonials',
     description: 'Testimonials from our clients',
     review: testimonials,
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: averageRating.toFixed(1),
-      reviewCount: pageContent.length,
-      bestRating: '5',
-    },
   };
 
   return JSON.stringify(schemaOrgData); // Ako treba u JSON obliku za <script> tag
