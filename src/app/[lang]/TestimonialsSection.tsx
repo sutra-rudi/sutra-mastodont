@@ -25,6 +25,13 @@ interface ClientTestimonials {
 function generateTestimonialsSchemaOrg(pageContent: any, lang: string) {
   const l = getSuffixFromLang(lang);
 
+  // Izračunajte prosječnu ocjenu
+  const ratings = pageContent.map((cont: any) => {
+    const ratingValue = cont.node.iskustvaklijenataUvod.ocijenaIliBrojZvjezdicaTestimonials;
+    return parseFloat(ratingValue) || 0;
+  });
+  const averageRating = ratings.length ? ratings.reduce((a: any, b: any) => a + b, 0) / ratings.length : 0;
+
   const testimonials = pageContent.map((cont: any) => {
     const introContent = cont.node.iskustvaklijenataUvod;
     const mainContent = {
@@ -57,6 +64,12 @@ function generateTestimonialsSchemaOrg(pageContent: any, lang: string) {
     name: 'Client Testimonials',
     description: 'Testimonials from our clients',
     review: testimonials,
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: averageRating.toFixed(1),
+      reviewCount: pageContent.length,
+      bestRating: '5',
+    },
   };
 
   return JSON.stringify(schemaOrgData); // Ako treba u JSON obliku za <script> tag
