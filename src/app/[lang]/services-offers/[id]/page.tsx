@@ -12,7 +12,7 @@ function generateServiceSchemaOrg(serviceData: any, lang: string) {
   const description =
     serviceData[`modulBazeTekstova2Kolumne${l}`]?.[`naslovNadnaslov2KolumneTeksta${l}`]?.naslovIPodnaslovDvaPolja
       ?.description ?? 'Nema opisa';
-  const imageUrl = serviceData.modulBazeTekstovaUvod.slika1 ?? '';
+  const imageUrl = serviceData.modulBazeTekstovaUvod.slika1.node.sourceUrl ?? '';
 
   return {
     '@context': 'https://schema.org',
