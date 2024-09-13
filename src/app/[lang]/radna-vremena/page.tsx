@@ -7,7 +7,7 @@ import parse from 'html-react-parser';
 import dayjs from 'dayjs';
 import Script from 'next/script';
 
-export function generateSchemaOrg(lang: string, pageContent: any, defaultRadno: any, tjedniRaspored: any) {
+function generateSchemaOrg(lang: string, pageContent: any, defaultRadno: any, tjedniRaspored: any) {
   const l = getSuffixFromLang(lang);
   const masterField = `radnoVrijeme${l}`;
   const displayField = pageContent[masterField][`textBox${l}`];
