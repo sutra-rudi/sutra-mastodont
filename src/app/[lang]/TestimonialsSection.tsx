@@ -25,7 +25,6 @@ interface ClientTestimonials {
 function generateTestimonialsSchemaOrg(pageContent: any, lang: string) {
   const l = getSuffixFromLang(lang);
 
-  // Generiraj listu testemonijala
   const testimonials = pageContent.map((cont: any) => {
     const introContent = cont.node.iskustvaklijenataUvod;
     const mainContent = {
@@ -35,7 +34,7 @@ function generateTestimonialsSchemaOrg(pageContent: any, lang: string) {
 
     return {
       '@type': 'Review',
-      reviewBody: mainContent.clientContent ? mainContent.clientContent.replace(/<\/?[^>]+(>|$)/g, '') : 'No content', // Uklanjanje HTML tagova
+      reviewBody: mainContent.clientContent ? mainContent.clientContent.replace(/<\/?[^>]+(>|$)/g, '') : 'No content',
       author: {
         '@type': 'Person',
         name: introContent.imeKlijentaTestimonials ?? 'Unknown Client',
@@ -47,14 +46,14 @@ function generateTestimonialsSchemaOrg(pageContent: any, lang: string) {
       },
       itemReviewed: {
         '@type': 'Service',
-        name: 'Your Service Name', // Zamijeni s imenom usluge ako je dostupno
+        name: 'Your Service Name',
       },
     };
   });
 
   const schemaOrgData = {
     '@context': 'https://schema.org',
-    '@type': 'ReviewPage',
+    '@type': 'WebPage',
     name: 'Client Testimonials',
     description: 'Testimonials from our clients',
     review: testimonials,
