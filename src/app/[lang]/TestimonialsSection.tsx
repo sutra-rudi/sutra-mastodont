@@ -175,7 +175,11 @@ const TestimonialsSection = ({ pageContent, lang }: ClientTestimonials) => {
         })}
       </div>
 
-      <Script id='schema-org' type='application/ld+json' dangerouslySetInnerHTML={{ __html: schemaOrgData }} />
+      <Script
+        id='schema-org-testimonials'
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: schemaOrgData }}
+      />
     </section>
   );
 };
