@@ -82,7 +82,7 @@ const UslugeSection = ({ pageContent, lang }: UslugeSectionInterface) => {
       </div>
 
       <Script
-        id='services-schema'
+        id='schema-org-services'
         type='application/ld+json'
         dangerouslySetInnerHTML={{
           __html: schemaOrgData,
