@@ -52,15 +52,15 @@ function generateTestimonialsSchemaOrg(pageContent: any, lang: string) {
         bestRating: '5',
       },
       itemReviewed: {
-        '@type': 'Service',
-        name: 'Your Service Name',
+        '@type': 'Organization', // Promijenjeno iz 'Service' u 'Organization'
+        name: 'Your Organization Name', // Zamijenite s imenom vaše organizacije ili usluge
       },
     };
   });
 
   const schemaOrgData = {
     '@context': 'https://schema.org',
-    '@type': 'WebPage',
+    '@type': 'WebPage', // Promijenjeno u 'WebPage'
     name: 'Client Testimonials',
     description: 'Testimonials from our clients',
     review: testimonials,
