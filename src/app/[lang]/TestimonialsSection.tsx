@@ -53,8 +53,14 @@ function generateTestimonialsSchemaOrg(pageContent: any, lang: string) {
         bestRating: '5',
       },
       itemReviewed: {
-        '@type': 'Service', // Ako su recenzije vezane za usluge, koristimo 'Service'
+        '@type': 'Service', // Možete prilagoditi tip, npr. 'Product' ako je primjereno
         name: 'Your Service Name', // Zamijenite s imenom usluge ili proizvoda
+        aggregateRating: {
+          '@type': 'AggregateRating',
+          ratingValue: averageRating.toFixed(1),
+          reviewCount: pageContent.length,
+          bestRating: '5',
+        },
       },
     };
   });
@@ -65,13 +71,6 @@ function generateTestimonialsSchemaOrg(pageContent: any, lang: string) {
     name: 'Client Testimonials',
     description: 'Testimonials from our clients',
     review: testimonials,
-    // Ako želite agregiranu ocjenu samo ako imate dovoljno recenzija za to
-    // aggregateRating: {
-    //   '@type': 'AggregateRating',
-    //   ratingValue: averageRating.toFixed(1),
-    //   reviewCount: pageContent.length,
-    //   bestRating: '5',
-    // },
   };
 
   return JSON.stringify(schemaOrgData); // Ako treba u JSON obliku za <script> tag
