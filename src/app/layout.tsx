@@ -27,7 +27,7 @@ import { getAdminTekstoviManjihKomponentiQuery } from './queries/getAdminTekstov
 
 const poppins = Poppins({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700'] });
 
-import { getCookies } from 'cookies-next';
+import { getBasicSchemaOrgProjectQuery } from './queries/getBasicSchemaOrgProjectQuery';
 
 export const metadata: Metadata = {
   title: 'Sutra mastodont',
@@ -108,6 +108,66 @@ export const metadata: Metadata = {
   ],
 };
 
+function generateSeoSchemaOrg(data: any) {
+  // console.log('SCHEMA DATA', data.data?.seoSchemaOrg?.edges[0]);
+
+  const companyInfo = data?.data?.seoSchemaOrg?.edges[0]?.node?.osnovneInformacijeOWebstraniciNapredniSeo;
+  const contactInfo = companyInfo?.kontaktInformacijeContactPoint;
+  const offerings = companyInfo?.offerings;
+  const companyDetails = companyInfo?.opceniteInformacijeOTvrtkiCompanyInformation;
+
+  if (!companyInfo || !contactInfo || !companyDetails) {
+    throw new Error('Nedostaju podaci za generiranje schema.org.');
+  }
+
+  // Generiraj schema.org objekt
+  const schemaOrgData = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: companyDetails.nazivTvrtke,
+    legalName: companyDetails.legalName,
+    description: companyDetails.opisTvrtke,
+    foundingDate: companyDetails.datumOsnivanja,
+    awards: companyDetails.nagradePriznanja,
+    taxID: contactInfo.porezniBroj,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: contactInfo.adresa,
+      addressLocality: 'Zagreb',
+      postalCode: '10000',
+      addressCountry: 'HR',
+    },
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: contactInfo.telefon,
+      faxNumber: contactInfo.fax,
+      email: contactInfo.email,
+      contactType: 'Customer Service',
+      availableLanguage: contactInfo.jeziciNaKojimaJeDostupnaUsluga.split(', ').map((lang: string) => lang.trim()),
+    },
+    url: contactInfo.urlWebStranice,
+    sameAs: contactInfo.druptveneMrezeLinkoviNaProfil,
+    makesOffer: {
+      '@type': 'Offer',
+      description: offerings.akcije,
+      availability: offerings.dostupnost,
+      priceCurrency: 'USD', // pretpostavka, može se prilagoditi
+      price: offerings.cjenovniRaspon,
+      itemOffered: {
+        '@type': 'Product',
+        name: offerings.product,
+        description: `Features: ${offerings.amenityFeature}`,
+      },
+    },
+    brand: companyDetails.brendovi.split(', ').map((brand: string) => ({ '@type': 'Brand', name: brand })),
+    areaServed: companyDetails.podrucjaEkspertize,
+    logo: 'https://www.example.com/logo.png', // Može se dodati logo ako postoji
+    additionalType: companyDetails.licenca,
+  };
+
+  return JSON.stringify(schemaOrgData, null, 2);
+}
+
 export default async function RootLayout({
   children,
 }: Readonly<{
@@ -153,12 +213,26 @@ export default async function RootLayout({
 
   const userEnabledAllCookies = getUserCookieConsent === 'true';
 
+  const getBasicSchemaOrg = await fetch(`${process.env.CMS_BASE_URL}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      query: getBasicSchemaOrgProjectQuery(),
+    }),
+  });
+
+  const parseSchemaData = await getBasicSchemaOrg.json();
+
+  const schemaBasicData = generateSeoSchemaOrg(parseSchemaData);
+
   return (
     <html
       lang='en'
       className='scrollbar scrollbar-thumb-primary-light dark:scrollbar-thumb-primary-dark  scrollbar-track-primary-dark dark:scrollbar-track-primary-light'
     >
-      <body className={`${poppins.className}`}>
+      <body className={`${poppins.className} min-h-screen`}>
         <CookieConsentNotification pageContent={adminTekstoviShorthand} />
         {adminTokenDataShorthand.kodoviAdminApi.googleAnalytics && userEnabledAllCookies && (
           <GoogleAnalytics gaId={adminTokenDataShorthand.kodoviAdminApi.googleAnalytics} />
@@ -173,6 +247,9 @@ export default async function RootLayout({
 
           <AppFooter />
         </Suspense>
+        {parseSchemaData && (
+          <Script id='schema-org' type='application/ld+json' dangerouslySetInnerHTML={{ __html: schemaBasicData }} />
+        )}
         {adminTokenDataShorthand.kodoviAdminApi.microsoftClarity && userEnabledAllCookies && (
           <Script id='clarity-script' strategy='afterInteractive'>
             {`

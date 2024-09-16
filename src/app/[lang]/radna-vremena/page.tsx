@@ -55,17 +55,6 @@ function generateSchemaOrg(
         : []),
     ],
     description: isSeasonal ? dodatnaNapomenaSezonsko : dodatnaNapomenaDefault,
-    // Dodatni podaci o sezonskom radnom vremenu (ako postoji)
-    seasonalOpeningHours: isSeasonal
-      ? {
-          validFrom: seasonalValidFrom,
-          validThrough: seasonalValidTo,
-          note: dodatnaNapomenaSezonsko,
-        }
-      : null,
-    defaultOpeningHours: {
-      note: dodatnaNapomenaDefault,
-    },
     // Dodatni kontakt podaci
     contactPoint: {
       '@type': 'ContactPoint',
