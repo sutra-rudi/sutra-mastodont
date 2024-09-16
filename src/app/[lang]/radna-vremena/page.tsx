@@ -35,9 +35,9 @@ function generateSchemaOrg(
 
   // Generiranje datuma za sezonsko radno vrijeme
   const seasonalValidFrom = isSeasonal
-    ? dayjs(aktivatorDatuma.vrijediOdSezonskoRadnoVrijeme).format('YYYY-MM-DD')
+    ? dayjs(aktivatorDatuma.vrijediOdSezonskoRadnoVrijeme).format('DD.MM.YYYY')
     : null;
-  const seasonalValidTo = isSeasonal ? dayjs(aktivatorDatuma.vrijediDoSezonskoRadnoVrijeme).format('YYYY-MM-DD') : null;
+  const seasonalValidTo = isSeasonal ? dayjs(aktivatorDatuma.vrijediDoSezonskoRadnoVrijeme).format('DD.MM.YYYY') : null;
 
   // Generiranje schema.org objekta
   const schemaOrgData = {
