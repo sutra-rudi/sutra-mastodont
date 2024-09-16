@@ -40,13 +40,13 @@ function generateServicesSchemaOrg(pageContent: any, lang: string) {
   // Vraćamo cijeli schema.org objekt
   const schemaOrgData = {
     '@context': 'https://schema.org',
-    '@type': 'ServiceCatalog', // Promijenjeno na ServiceCatalog
+    '@type': 'ServiceCatalog',
     name: 'Our Services',
     description: 'A catalog of the services we offer.',
-    service: services,
+    hasOffer: services, // Promijenjeno na hasOffer
   };
 
-  return JSON.stringify(schemaOrgData); // Ako treba u JSON obliku za <script> tag
+  return JSON.stringify(schemaOrgData, null, 2); // Dodano formatiranje za preglednost
 }
 
 const UslugeSection = ({ pageContent, lang }: UslugeSectionInterface) => {
