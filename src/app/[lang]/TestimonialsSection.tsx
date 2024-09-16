@@ -53,8 +53,8 @@ function generateTestimonialsSchemaOrg(pageContent: any, lang: string) {
         bestRating: '5',
       },
       itemReviewed: {
-        '@type': 'Service', // Ako koristite usluge, ovo je ispravno; u suprotnom, koristite 'Product'
-        name: introContent.imeTvrtkeZemljaTestimonials ?? 'Your Service Name',
+        '@type': 'Product', // Promijenjeno iz 'Service' u 'Product'
+        name: introContent.imeTvrtkeZemljaTestimonials ?? 'Your Product Name', // Zamijenite ako je potrebno
       },
     };
   });
