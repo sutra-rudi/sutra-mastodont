@@ -17,7 +17,7 @@ import { Toaster } from 'react-hot-toast';
 import { Suspense } from 'react';
 import Loading from './loading';
 import { Providers } from './providers';
-import { appleTouchIcons, favicons } from './pathsUtils/mediaImportsDynamic';
+import { appleTouchIcons, favicons, videoResources } from './pathsUtils/mediaImportsDynamic';
 import { getAdminTokensQuery } from './queries/getAdminTokens';
 import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google';
 
@@ -157,6 +157,7 @@ function generateSeoSchemaOrg(data: any) {
         '@type': 'Product',
         name: offerings.product,
         description: `Features: ${offerings.amenityFeature}`,
+        image: videoResources.amenities.placeholder,
         offers: {
           '@type': 'Offer',
           priceCurrency: 'USD', // Pretpostavka, može se prilagoditi
