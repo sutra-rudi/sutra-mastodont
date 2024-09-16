@@ -72,6 +72,17 @@ function generateTestimonialsSchemaOrg(pageContent: any, lang: string) {
       reviewCount: pageContent.length,
       bestRating: '5',
     },
+    offers: {
+      '@type': 'Offer',
+      priceCurrency: 'USD', // Staticka valuta, prilagodite ako je potrebno
+      price: '100.00', // Staticka cijena, prilagodite ako je potrebno
+      itemOffered: {
+        '@type': 'Product',
+        name: 'Sample Product', // Staticki naziv proizvoda, prilagodite ako je potrebno
+        description: 'Description of the sample product.',
+        image: 'https://example.com/sample-product.jpg', // Staticki URL slike, prilagodite ako je potrebno
+      },
+    },
   };
 
   return JSON.stringify(schemaOrgData, null, 2); // U JSON obliku za <script> tag
