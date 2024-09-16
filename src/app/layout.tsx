@@ -152,7 +152,7 @@ function generateSeoSchemaOrg(data: any) {
       description: offerings.akcije,
       availability: offerings.dostupnost,
       priceCurrency: 'USD', // pretpostavka, može se prilagoditi
-      price: offerings.cjenovniRaspon,
+      price: parseFloat(offerings.cjenovniRaspon.replace(/[^0-9.]/g, '')).toFixed(2), // Uklanjanje valute i formatiranje cijene
       itemOffered: {
         '@type': 'Product',
         name: offerings.product,
