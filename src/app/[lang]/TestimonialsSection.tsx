@@ -55,6 +55,17 @@ function generateTestimonialsSchemaOrg(pageContent: any, lang: string) {
       itemReviewed: {
         '@type': 'Product', // Promijenjeno iz 'Service' u 'Product'
         name: introContent.imeTvrtkeZemljaTestimonials ?? 'Your Product Name', // Zamijenite ako je potrebno
+        offers: {
+          '@type': 'Offer',
+          priceCurrency: 'USD', // Staticka valuta, prilagodite ako je potrebno
+          price: '100.00', // Staticka cijena, prilagodite ako je potrebno
+          itemOffered: {
+            '@type': 'Product',
+            name: 'Sample Product', // Staticki naziv proizvoda, prilagodite ako je potrebno
+            description: 'Description of the sample product.',
+            image: 'https://example.com/sample-product.jpg', // Staticki URL slike, prilagodite ako je potrebno
+          },
+        },
       },
     };
   });
