@@ -170,14 +170,15 @@ export default async function RadnaVremena({
           tjedniRaspored={dataShorthandTjedni}
         />
       )}
-
-      <Script
-        id='opening-hours-schema'
-        type='application/ld+json'
-        dangerouslySetInnerHTML={{
-          __html: schemaOrgData,
-        }}
-      />
+      {schemaShorthand && (
+        <Script
+          id='opening-hours-schema'
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{
+            __html: schemaOrgData,
+          }}
+        />
+      )}
     </main>
   );
 }
