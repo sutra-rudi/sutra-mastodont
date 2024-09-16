@@ -53,7 +53,7 @@ function generateTestimonialsSchemaOrg(pageContent: any, lang: string) {
         bestRating: '5',
       },
       itemReviewed: {
-        '@type': 'Service', // Ovdje koristi odgovarajući tip, npr. "Product" ako recenzirate proizvode
+        '@type': 'Service', // Ako koristite usluge, ovo je ispravno; u suprotnom, koristite 'Product'
         name: introContent.imeTvrtkeZemljaTestimonials ?? 'Your Service Name',
       },
     };
@@ -74,7 +74,7 @@ function generateTestimonialsSchemaOrg(pageContent: any, lang: string) {
     },
   };
 
-  return JSON.stringify(schemaOrgData);
+  return JSON.stringify(schemaOrgData, null, 2); // U JSON obliku za <script> tag
 }
 
 const TestimonialsSection = ({ pageContent, lang }: ClientTestimonials) => {
