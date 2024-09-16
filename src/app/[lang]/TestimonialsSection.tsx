@@ -53,19 +53,8 @@ function generateTestimonialsSchemaOrg(pageContent: any, lang: string) {
         bestRating: '5',
       },
       itemReviewed: {
-        '@type': 'Product', // Promijenjeno iz 'Service' u 'Product'
-        name: introContent.imeTvrtkeZemljaTestimonials ?? 'Your Product Name', // Zamijenite ako je potrebno
-        offers: {
-          '@type': 'Offer',
-          priceCurrency: 'USD', // Staticka valuta, prilagodite ako je potrebno
-          price: '100.00', // Staticka cijena, prilagodite ako je potrebno
-          itemOffered: {
-            '@type': 'Product',
-            name: 'Sample Product', // Staticki naziv proizvoda, prilagodite ako je potrebno
-            description: 'Description of the sample product.',
-            image: 'https://example.com/sample-product.jpg', // Staticki URL slike, prilagodite ako je potrebno
-          },
-        },
+        '@type': 'Service', // Ovdje možete koristiti 'Service' ili 'Product' ovisno o tome što recenzirate
+        name: introContent.imeTvrtkeZemljaTestimonials ?? 'Your Service Name', // Zamijenite ako je potrebno
       },
     };
   });
@@ -73,25 +62,26 @@ function generateTestimonialsSchemaOrg(pageContent: any, lang: string) {
   // Generiranje schema.org podataka
   const schemaOrgData = {
     '@context': 'https://schema.org',
-    '@type': 'WebPage', // Promijenjeno iz ReviewPage u WebPage
+    '@type': 'WebPage', // Možete koristiti 'ReviewPage' ako je specifično za recenzije
     name: 'Client Testimonials',
     description: 'Testimonials from our clients',
     review: testimonials,
-    // aggregateRating: {
-    //   '@type': 'AggregateRating',
-    //   ratingValue: averageRating.toFixed(1),
-    //   reviewCount: pageContent.length,
-    //   bestRating: '5',
-    // },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: averageRating.toFixed(1),
+      reviewCount: pageContent.length,
+      bestRating: '5',
+    },
+    // Dodavanje statičkih podataka za 'offers' kao primjer
     offers: {
       '@type': 'Offer',
       priceCurrency: 'USD', // Staticka valuta, prilagodite ako je potrebno
       price: '100.00', // Staticka cijena, prilagodite ako je potrebno
       itemOffered: {
-        '@type': 'Product',
-        name: 'Sample Product', // Staticki naziv proizvoda, prilagodite ako je potrebno
-        description: 'Description of the sample product.',
-        image: 'https://example.com/sample-product.jpg', // Staticki URL slike, prilagodite ako je potrebno
+        '@type': 'Service', // Promijenjeno iz 'Product' u 'Service' ako recenzirate usluge
+        name: 'Sample Service', // Staticki naziv usluge, prilagodite ako je potrebno
+        description: 'Description of the sample service.',
+        image: 'https://example.com/sample-service.jpg', // Staticki URL slike, prilagodite ako je potrebno
       },
     },
   };
