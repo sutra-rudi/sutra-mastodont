@@ -66,12 +66,12 @@ function generateTestimonialsSchemaOrg(pageContent: any, lang: string) {
     name: 'Client Testimonials',
     description: 'Testimonials from our clients',
     review: testimonials,
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: averageRating.toFixed(1),
-      reviewCount: pageContent.length,
-      bestRating: '5',
-    },
+    // aggregateRating: {
+    //   '@type': 'AggregateRating',
+    //   ratingValue: averageRating.toFixed(1),
+    //   reviewCount: pageContent.length,
+    //   bestRating: '5',
+    // },
     offers: {
       '@type': 'Offer',
       priceCurrency: 'USD', // Staticka valuta, prilagodite ako je potrebno
