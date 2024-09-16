@@ -1,10 +1,10 @@
 import { getSezonskoRadnoVrijemeQuery } from '@/app/queries/getAllSezonskoRadnoVrijemeQuery';
-import PageContent from './PageContent';
 import { getAllRadnoVrijemeQuery } from '@/app/queries/getDefaultRadnoVrijeme';
 import { getTjedniRasporedQuery } from '@/app/queries/getAllTjedniRasporedQuery';
 import dayjs from 'dayjs';
 import Script from 'next/script';
 import { getWorkingHoursSchemaQuery } from '@/app/queries/getWorkingHoursSchema';
+import dynamic from 'next/dynamic';
 
 function generateSchemaOrg(
   aktivatorDatuma: any,
@@ -160,10 +160,12 @@ export default async function RadnaVremena({
       .noteDodatnaNapomenaTjedniRasporedSezonskoRadnoVrijemeGoogleSeo
   );
 
+  const LazyContent = dynamic(() => import('./PageContent'));
+
   return (
-    <main className='w-full min-h-dvh pb-12 dark:bg-primary-dark'>
+    <main className='w-full min-h-screen pb-12 dark:bg-primary-dark'>
       {dataShorthandSezonsko && (
-        <PageContent
+        <LazyContent
           defaultRadno={defaultShorthand}
           lang={lang}
           pageContent={dataShorthandSezonsko}
