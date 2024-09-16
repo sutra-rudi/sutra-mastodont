@@ -157,6 +157,13 @@ function generateSeoSchemaOrg(data: any) {
         '@type': 'Product',
         name: offerings.product,
         description: `Features: ${offerings.amenityFeature}`,
+        offers: {
+          '@type': 'Offer',
+          priceCurrency: 'USD', // Pretpostavka, može se prilagoditi
+          price: offerings.cjenovniRaspon,
+          itemCondition: 'https://schema.org/NewCondition', // Pretpostavka, može se prilagoditi
+          availability: 'https://schema.org/InStock', // Pretpostavka, može se prilagoditi
+        },
       },
     },
     brand: companyDetails.brendovi.split(', ').map((brand: string) => ({ '@type': 'Brand', name: brand })),
