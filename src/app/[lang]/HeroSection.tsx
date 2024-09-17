@@ -86,9 +86,13 @@ const HeroSection = () => {
           </div>
         </div>
         <div className='hidden lg:mt-0 lg:col-span-5 lg:flex'>
-          <picture>
-            <img src='https://cms.sutra.hr/wp-content/uploads/2024/06/Sutra-profilna-slika-1.jpg' alt='mockup' />
-          </picture>
+          <Image
+            src='https://cms.sutra.hr/wp-content/uploads/2024/06/Sutra-profilna-slika-1.jpg'
+            alt='mockup'
+            width={1000}
+            height={1000}
+            className='object-cover object-center block aspect-square'
+          />
         </div>
       </div>
     </section>
