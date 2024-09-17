@@ -27,7 +27,7 @@ const HeroSection = () => {
     }
   }, [isReady]);
 
-  // const cooks = getCookies();
+  console.log('IS READY', isReady);
 
   return (
     <section
@@ -41,7 +41,7 @@ const HeroSection = () => {
             playsinline
             pip
             muted
-            loop
+            loop={isReady}
             volume={0}
             width={'100%'}
             height={'100%'}
@@ -51,7 +51,15 @@ const HeroSection = () => {
             config={{
               file: {
                 attributes: {
-                  poster: <Image src={videoResources.homePage.placeholder} alt='poster for video' />,
+                  poster: (
+                    <Image
+                      src={videoResources.homePage.placeholder}
+                      width={1600}
+                      height={1200}
+                      alt='poster for video'
+                      className='object-cover object-center block aspect-video'
+                    />
+                  ),
                 },
               },
             }}
@@ -92,6 +100,7 @@ const HeroSection = () => {
             width={1000}
             height={1000}
             className='object-cover object-center block aspect-square'
+            priority
           />
         </div>
       </div>
