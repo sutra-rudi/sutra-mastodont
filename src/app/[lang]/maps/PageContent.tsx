@@ -2,6 +2,7 @@
 import React from 'react';
 import mapboxgl from 'mapbox-gl';
 import Loading from '@/app/loading';
+import 'mapbox-gl/dist/mapbox-gl.css';
 interface MapsPageContent {
   pageContent: any;
 }

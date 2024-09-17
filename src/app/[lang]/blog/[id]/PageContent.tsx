@@ -8,7 +8,8 @@ import { FaFacebookF as FacebookIcon, FaTwitter as TwitterIcon, FaRedditAlien as
 import { FaRegFileLines as FileIcon } from 'react-icons/fa6';
 import { BsCloudDownload as DownloadIcon } from 'react-icons/bs';
 import Slider from 'react-slick';
-
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import { FacebookShareButton, RedditShareButton, TwitterShareButton } from 'react-share';
 import toast from 'react-hot-toast';
 import { useReactToPrint } from 'react-to-print';

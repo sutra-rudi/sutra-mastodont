@@ -1,15 +1,8 @@
 import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 import './globals.scss';
-import 'mapbox-gl/dist/mapbox-gl.css';
-import 'react-phone-number-input/style.css';
-import 'react-datepicker/dist/react-datepicker.css';
-import '@uploadcare/react-uploader/core.css';
-import '@uploadcare/blocks/web/lr-file-uploader-regular.min.css';
-import 'yet-another-react-lightbox/styles.css';
-import { cookies, headers } from 'next/headers';
+
+import { cookies } from 'next/headers';
 import { UserLanguage } from './enums/LangEnum';
 import AppFooter from './globalComponents/AppFooter';
 import { Toaster } from 'react-hot-toast';

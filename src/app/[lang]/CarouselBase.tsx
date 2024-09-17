@@ -4,7 +4,8 @@ import Image from 'next/image';
 import Slider from 'react-slick';
 import { LayoutGrid } from '../aceternityComponents/LayoutGrid';
 import { defaultMultiple, infiScrollSettings, multipleRows } from '../scriptSettings/slickOptions';
-
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 interface CarouselBase {
   imageArray: any;
 }

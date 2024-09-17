@@ -4,11 +4,12 @@ import React, { useState, useEffect } from 'react';
 import Lightbox from 'yet-another-react-lightbox';
 import Slider from 'react-slick';
 import Image from 'next/image';
-
+import 'yet-another-react-lightbox/styles.css';
 import { galleryImages } from '@/app/pathsUtils/mediaImportsDynamic';
 import { infiScrollSettings, multipleRows } from '@/app/scriptSettings/slickOptions';
 import Loading from '@/app/loading';
-
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 interface ImageData {
   src: string;
   class?: string;

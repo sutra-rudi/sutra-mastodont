@@ -1,7 +1,8 @@
 import React from 'react';
 import parse from 'html-react-parser';
 import Slider from 'react-slick';
-
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 interface LocationsSectionInterface {
   pageContent: any;
 }

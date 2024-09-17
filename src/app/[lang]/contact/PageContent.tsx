@@ -9,6 +9,11 @@ import DatePicker from 'react-datepicker';
 import { useFormspark } from '@formspark/use-formspark';
 import { useRouter } from 'next/navigation';
 import { BiSolidPhoneCall as PhoneIcon } from 'react-icons/bi';
+import 'react-phone-number-input/style.css';
+import 'react-datepicker/dist/react-datepicker.css';
+
+import '@uploadcare/react-uploader/core.css';
+import '@uploadcare/blocks/web/lr-file-uploader-regular.min.css';
 import {
   IoMailSharp as MailIcon,
   IoLogoTwitter as TwitterIcon,
