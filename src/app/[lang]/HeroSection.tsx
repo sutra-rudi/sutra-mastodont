@@ -29,7 +29,6 @@ const HeroSection = () => {
   const [isVideoValid, setIsVideoValid] = useState<boolean>(false);
   const playerRef = useRef<any>(null);
 
-  // Funkcija koja će se pozvati kada video bude spreman
   const onReady = useCallback(() => {
     if (!isReady) {
       playerRef.current && playerRef.current.seekTo(0, 'seconds');
@@ -37,7 +36,6 @@ const HeroSection = () => {
     }
   }, [isReady]);
 
-  // Provjera valjanosti video URL-a
   useEffect(() => {
     const validateVideo = async () => {
       const isValid = await checkImageUrl(videoResources.homePage.video);
@@ -53,9 +51,6 @@ const HeroSection = () => {
   return (
     <section className='bg-white dark:bg-gray-900 min-h-screen w-full'>
       <div className='relative w-full h-screen'>
-        {/* Preload za video */}
-        <link rel='preload' as='video' href={videoResources.homePage.video} type='video/mp4' />
-
         {isVideoValid && videoSource ? (
           <ReactPlayerDy
             ref={playerRef}
