@@ -84,7 +84,17 @@ const AppHeader = () => {
       : document.documentElement.classList.remove('overflow-hidden');
   }, [isMobileMenuOpen]);
 
-  const handleLangSwitch = (where: string) => router.push(where);
+  const handleLangSwitch = (lang: string) => {
+    // Postavi kolačić na odabrani jezik
+    document.cookie = `@sutra-user-lang=${lang}; path=/; max-age=31536000`; // 1 godina
+
+    // Preusmjeri na novu putanju
+    router.push(
+      `/${lang}${currentPath.replace(`/${currentLang}`, '')}${
+        searchParams.toString() ? '?' + searchParams.toString() : ''
+      }`
+    );
+  };
 
   return (
     <nav className='bg-white dark:bg-gray-800 antialiased relative'>
@@ -145,13 +155,7 @@ const AppHeader = () => {
                 disabled={currentLang === language.lang}
                 key={language.lang}
                 className='text-sm font-medium text-gray-900 dark:text-white flex place-items-center gap-2 transition-all ease-out hover:-translate-y-1 hover:scale-110'
-                onClick={() =>
-                  handleLangSwitch(
-                    `/${language.lang}${currentPath.replace(`/${currentLang}`, '')}${
-                      searchParams.toString() ? '?' + searchParams.toString() : ''
-                    }`
-                  )
-                }
+                onClick={() => handleLangSwitch(language.lang)}
               >
                 {language.flag}
               </button>
