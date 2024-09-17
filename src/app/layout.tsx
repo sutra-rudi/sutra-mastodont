@@ -9,8 +9,8 @@ import 'react-datepicker/dist/react-datepicker.css';
 import '@uploadcare/react-uploader/core.css';
 import '@uploadcare/blocks/web/lr-file-uploader-regular.min.css';
 import 'yet-another-react-lightbox/styles.css';
-import { cookies } from 'next/headers';
-
+import { cookies, headers } from 'next/headers';
+import { UserLanguage } from './enums/LangEnum';
 import AppFooter from './globalComponents/AppFooter';
 import { Toaster } from 'react-hot-toast';
 import { Suspense } from 'react';
@@ -237,9 +237,16 @@ export default async function RootLayout({
 
   const ClientHeader = dynamic(() => import('./globalComponents/AppHeader'), { ssr: false });
 
+  // Dohvati kolačić 'lang'
+  const cookieStore = cookies();
+  const lang = (cookieStore.get('@sutra-user-lang')?.value as UserLanguage) || 'hr'; // Zadani jezik ako nema kolačića
+
+  console.log('LANG', lang);
+  console.log('COOKIE STORE', cookieStore.get('@sutra-user-lang'));
+
   return (
     <html
-      lang='en'
+      lang={lang}
       className='scrollbar scrollbar-thumb-primary-light dark:scrollbar-thumb-primary-dark  scrollbar-track-primary-dark dark:scrollbar-track-primary-light'
     >
       <body className={`${poppins.className} min-h-screen`}>

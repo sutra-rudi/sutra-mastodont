@@ -76,7 +76,7 @@ const AppHeader = () => {
     theme === 'dark'
       ? document.documentElement.classList.add('dark')
       : document.documentElement.classList.remove('dark');
-  }, [theme]);
+  }, [theme, getThemeIfAny]);
 
   React.useEffect(() => {
     isMobileMenuOpen
