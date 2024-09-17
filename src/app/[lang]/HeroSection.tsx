@@ -1,25 +1,20 @@
 'use client';
-import React from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { SutraButtonOutlined, SutraButtonWithIcon } from '../components/SutraButton';
 import { BsArrowRightShort as RightIcon } from 'react-icons/bs';
-import ReactPlayer from 'react-player';
-import { heroImagesHomePage, videoResources } from '../pathsUtils/mediaImportsDynamic';
-import { useWindowSize } from '@uidotdev/usehooks';
-import Image from 'next/image';
-import Loading from '../loading';
 import dynamic from 'next/dynamic';
+import Image from 'next/image';
+import { useWindowSize } from '@uidotdev/usehooks';
+import { heroImagesHomePage, videoResources } from '../pathsUtils/mediaImportsDynamic';
+import Loading from '../loading';
 
-// Dinamički učitavanje ReactPlayer-a
 const ReactPlayerDy = dynamic(() => import('react-player'), { ssr: false });
 
-// Funkcija za provjeru valjanosti URL-a
 const checkImageUrl = async (url: string): Promise<boolean> => {
   try {
     const response = await fetch(url, {
       method: 'HEAD',
-      next: {
-        revalidate: 3600, // Keširanje na jedan sat
-      },
+      next: { revalidate: 3600 },
     });
     return response.ok;
   } catch (error) {
@@ -29,21 +24,21 @@ const checkImageUrl = async (url: string): Promise<boolean> => {
 
 const HeroSection = () => {
   const clientSize = useWindowSize();
-  const [isReady, setIsReady] = React.useState(false);
-  const [videoSource, setVideoSource] = React.useState<string | null>(null);
-  const [isVideoValid, setIsVideoValid] = React.useState<boolean>(false);
-  const playerRef = React.useRef<ReactPlayer>(null);
+  const [isReady, setIsReady] = useState(false);
+  const [videoSource, setVideoSource] = useState<string | null>(null);
+  const [isVideoValid, setIsVideoValid] = useState<boolean>(false);
+  const playerRef = useRef<any>(null);
 
   // Funkcija koja će se pozvati kada video bude spreman
-  const onReady = React.useCallback(() => {
+  const onReady = useCallback(() => {
     if (!isReady) {
       playerRef.current && playerRef.current.seekTo(0, 'seconds');
       setIsReady(true);
     }
   }, [isReady]);
 
-  // Provjera video URL-a prilikom mountanja komponente
-  React.useEffect(() => {
+  // Provjera valjanosti video URL-a
+  useEffect(() => {
     const validateVideo = async () => {
       const isValid = await checkImageUrl(videoResources.homePage.video);
       setIsVideoValid(isValid);
@@ -58,6 +53,9 @@ const HeroSection = () => {
   return (
     <section className='bg-white dark:bg-gray-900 min-h-screen w-full'>
       <div className='relative w-full h-screen'>
+        {/* Preload za video */}
+        <link rel='preload' as='video' href={videoResources.homePage.video} type='video/mp4' />
+
         {isVideoValid && videoSource ? (
           <ReactPlayerDy
             ref={playerRef}

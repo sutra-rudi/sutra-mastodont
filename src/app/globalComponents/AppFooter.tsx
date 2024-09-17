@@ -1,5 +1,6 @@
 import React from 'react';
 import { getAllSocialLinksQuery } from '../queries/getAllSocialLinksQuery';
+import Image from 'next/image';
 
 export default async function AppFooter() {
   const getAllSocialLinks = await fetch(`${process.env.CMS_BASE_URL}`, {
@@ -10,7 +11,6 @@ export default async function AppFooter() {
     body: JSON.stringify({
       query: getAllSocialLinksQuery(),
     }),
-    // cache: 'no-cache',
   });
 
   const parseDataSocialLinks = await getAllSocialLinks.json();
@@ -25,13 +25,14 @@ export default async function AppFooter() {
         <div className='md:flex md:justify-between'>
           <div className='mb-6 md:mb-0'>
             <a href='https://flowbite.com' className='flex items-center'>
-              <picture>
-                <img
-                  src='https://cms.sutra.hr/wp-content/uploads/Portfolio%20Usluge%20Proizvodi%20slike%20(thumbnail)/cropped-Studio-sutra-favicon.png'
-                  className='mr-3 h-8'
-                  alt='Studio Sutra Logo'
-                />
-              </picture>
+              <Image
+                src='https://cms.sutra.hr/wp-content/uploads/Portfolio%20Usluge%20Proizvodi%20slike%20(thumbnail)/cropped-Studio-sutra-favicon.png'
+                className='mr-3 h-8 object-cover object-center block aspect-square'
+                alt='Studio Sutra Logo'
+                width={32}
+                height={32}
+              />
+
               <span className='self-center text-2xl font-semibold whitespace-nowrap dark:text-white'>Studio Sutra</span>
             </a>
           </div>
