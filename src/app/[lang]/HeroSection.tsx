@@ -9,17 +9,16 @@ import Image from 'next/image';
 import Loading from '../loading';
 import dynamic from 'next/dynamic';
 
-// import { getCookies } from 'cookies-next';
-
+// Dinamički učitavanje ReactPlayer-a
 const ReactPlayerDy = dynamic(() => import('react-player'), { ssr: false });
 
+// Funkcija za provjeru valjanosti URL-a
 const checkImageUrl = async (url: string): Promise<boolean> => {
   try {
     const response = await fetch(url, {
       method: 'HEAD',
-      // cache: 'force-cache',
       next: {
-        revalidate: 3600,
+        revalidate: 3600, // Keširanje na jedan sat
       },
     });
     return response.ok;
@@ -27,44 +26,41 @@ const checkImageUrl = async (url: string): Promise<boolean> => {
     return false;
   }
 };
+
 const HeroSection = () => {
   const clientSize = useWindowSize();
-
   const [isReady, setIsReady] = React.useState(false);
+  const [videoSource, setVideoSource] = React.useState<string | null>(null);
+  const [isVideoValid, setIsVideoValid] = React.useState<boolean>(false);
   const playerRef = React.useRef<ReactPlayer>(null);
-  const [videoSource, setVideoSource] = React.useState<any>(null);
 
+  // Funkcija koja će se pozvati kada video bude spreman
   const onReady = React.useCallback(() => {
     if (!isReady) {
-      // const timeToStart = 7 * 60 + 12.6;
       playerRef.current && playerRef.current.seekTo(0, 'seconds');
       setIsReady(true);
     }
   }, [isReady]);
 
+  // Provjera video URL-a prilikom mountanja komponente
   React.useEffect(() => {
-    const isValidVideo = async () => {
-      const check = await checkImageUrl(videoResources.homePage.video).then((r) => r);
-
-      return check;
+    const validateVideo = async () => {
+      const isValid = await checkImageUrl(videoResources.homePage.video);
+      setIsVideoValid(isValid);
+      if (isValid) {
+        setVideoSource(videoResources.homePage.video);
+      }
     };
 
-    const checkBeforeClient = isValidVideo();
-
-    console.log('IS VALID VIDEO', checkBeforeClient);
-    if (videoResources.homePage.video) {
-      setVideoSource(videoResources.homePage.video);
-    }
+    validateVideo();
   }, []);
 
   return (
-    <section
-      className='bg-white dark:bg-gray-900 min-h-screen w-full
-    '
-    >
+    <section className='bg-white dark:bg-gray-900 min-h-screen w-full'>
       <div className='relative w-full h-screen'>
-        {videoSource ? (
+        {isVideoValid && videoSource ? (
           <ReactPlayerDy
+            ref={playerRef}
             url={videoSource}
             playsinline
             pip
