@@ -18,6 +18,7 @@ const HeroSection = () => {
 
   const [isReady, setIsReady] = React.useState(false);
   const playerRef = React.useRef<ReactPlayer>(null);
+  const [videoSource, setVideoSource] = React.useState<any>(null);
 
   const onReady = React.useCallback(() => {
     if (!isReady) {
@@ -27,7 +28,11 @@ const HeroSection = () => {
     }
   }, [isReady]);
 
-  console.log('IS READY', isReady);
+  React.useEffect(() => {
+    if (videoResources.homePage.video) {
+      setVideoSource(videoResources.homePage.video);
+    }
+  }, []);
 
   return (
     <section
@@ -35,9 +40,9 @@ const HeroSection = () => {
     '
     >
       <div className='relative w-full h-screen'>
-        {videoResources.homePage.video ? (
+        {videoSource ? (
           <ReactPlayerDy
-            url={videoResources.homePage.video}
+            url={videoSource}
             playsinline
             pip
             muted
