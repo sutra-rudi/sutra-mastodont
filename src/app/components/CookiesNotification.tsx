@@ -51,8 +51,6 @@ const CookieConsentNotification = ({ pageContent }: CookieInt) => {
   React.useEffect(() => {
     const checkCookie = getCookie('@sutra-cookies-consent');
 
-    console.log('CHECK', checkCookie);
-
     if (checkCookie) {
       setUserHasCookies(true);
     }

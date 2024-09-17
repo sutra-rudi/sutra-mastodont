@@ -241,9 +241,6 @@ export default async function RootLayout({
   const cookieStore = cookies();
   const lang = (cookieStore.get('@sutra-user-lang')?.value as UserLanguage) || 'hr'; // Zadani jezik ako nema kolačića
 
-  console.log('LANG', lang);
-  console.log('COOKIE STORE', cookieStore.get('@sutra-user-lang'));
-
   return (
     <html
       lang={lang}
