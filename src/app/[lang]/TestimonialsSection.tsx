@@ -42,19 +42,15 @@ function generateTestimonialsSchemaOrg(pageContent: any, lang: string) {
 
     return {
       '@type': 'Review',
+      author: introContent.imeKlijentaTestimonials ?? 'Unknown Client',
+      datePublished: introContent.datumObjaveTestimonials ?? '2024-01-01', // Dodano statičko polje datuma objave
       reviewBody: mainContent.clientContent ? mainContent.clientContent.replace(/<\/?[^>]+(>|$)/g, '') : 'No content',
-      author: {
-        '@type': 'Person',
-        name: introContent.imeKlijentaTestimonials ?? 'Unknown Client',
-      },
+      name: introContent.nazivRecenzijeTestimonials ?? 'Unnamed Review', // Dodano statičko polje za naziv recenzije
       reviewRating: {
         '@type': 'Rating',
-        ratingValue: introContent.ocijenaIliBrojZvjezdicaTestimonials ?? '0',
         bestRating: '5',
-      },
-      itemReviewed: {
-        '@type': 'Service', // Ovdje možete koristiti 'Service' ili 'Product' ovisno o tome što recenzirate
-        name: introContent.imeTvrtkeZemljaTestimonials ?? 'Your Service Name', // Zamijenite ako je potrebno
+        ratingValue: introContent.ocijenaIliBrojZvjezdicaTestimonials ?? '0',
+        worstRating: '1', // Dodano statičko polje za najgoru ocjenu
       },
     };
   });
@@ -62,31 +58,25 @@ function generateTestimonialsSchemaOrg(pageContent: any, lang: string) {
   // Generiranje schema.org podataka
   const schemaOrgData = {
     '@context': 'https://schema.org',
-    '@type': 'WebPage', // Možete koristiti 'ReviewPage' ako je specifično za recenzije
-    name: 'Client Testimonials',
-    description: 'Testimonials from our clients',
-    review: testimonials,
+    '@type': 'Product', // Postavljeno na 'Product' da bude u skladu s primjerom
+    name: 'Testimonial Product', // Dodano statičko ime proizvoda/usluge
+    description: 'This product has received various reviews from customers.', // Dodano statičko polje opisa
+    image: 'https://example.com/product.jpg', // Placeholder slika
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: averageRating.toFixed(1),
       reviewCount: pageContent.length,
-      bestRating: '5',
     },
-    // Dodavanje statičkih podataka za 'offers' kao primjer
     offers: {
       '@type': 'Offer',
-      priceCurrency: 'USD', // Staticka valuta, prilagodite ako je potrebno
-      price: '100.00', // Staticka cijena, prilagodite ako je potrebno
-      itemOffered: {
-        '@type': 'Service', // Promijenjeno iz 'Product' u 'Service' ako recenzirate usluge
-        name: 'Sample Service', // Staticki naziv usluge, prilagodite ako je potrebno
-        description: 'Description of the sample service.',
-        image: 'https://example.com/sample-service.jpg', // Staticki URL slike, prilagodite ako je potrebno
-      },
+      price: '100.00', // Placeholder cijena
+      priceCurrency: 'USD',
+      availability: 'https://schema.org/InStock', // Dodana statička dostupnost
     },
+    review: testimonials,
   };
 
-  return JSON.stringify(schemaOrgData, null, 2); // U JSON obliku za <script> tag
+  return JSON.stringify(schemaOrgData);
 }
 
 const TestimonialsSection = ({ pageContent, lang }: ClientTestimonials) => {
