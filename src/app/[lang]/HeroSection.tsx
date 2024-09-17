@@ -13,6 +13,20 @@ import dynamic from 'next/dynamic';
 
 const ReactPlayerDy = dynamic(() => import('react-player'), { ssr: false });
 
+const checkImageUrl = async (url: string): Promise<boolean> => {
+  try {
+    const response = await fetch(url, {
+      method: 'HEAD',
+      // cache: 'force-cache',
+      next: {
+        revalidate: 3600,
+      },
+    });
+    return response.ok;
+  } catch (error) {
+    return false;
+  }
+};
 const HeroSection = () => {
   const clientSize = useWindowSize();
 
@@ -29,6 +43,15 @@ const HeroSection = () => {
   }, [isReady]);
 
   React.useEffect(() => {
+    const isValidVideo = async () => {
+      const check = await checkImageUrl(videoResources.homePage.video).then((r) => r);
+
+      return check;
+    };
+
+    const checkBeforeClient = isValidVideo();
+
+    console.log('IS VALID VIDEO', checkBeforeClient);
     if (videoResources.homePage.video) {
       setVideoSource(videoResources.homePage.video);
     }
