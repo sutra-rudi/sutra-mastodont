@@ -107,16 +107,16 @@ const AppHeader = () => {
                   className='dark:hidden block w-full h-full'
                   src='https://cms.sutra.hr/wp-content/uploads/2024/06/Sutra-profilna-slika-1.jpg'
                   alt=''
-                  width={32}
-                  height={32}
+                  width={128}
+                  height={128}
                 />
 
                 <Image
                   className='hidden dark:block w-full h-full'
                   src='https://cms.sutra.hr/wp-content/uploads/2024/06/Sutra-profilna-slika-1.jpg'
                   alt=''
-                  width={32}
-                  height={32}
+                  width={128}
+                  height={128}
                 />
               </a>
             </div>
