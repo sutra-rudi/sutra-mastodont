@@ -2,19 +2,21 @@
 
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import React from 'react';
-
 import { Twirl as Hamburger } from 'hamburger-react';
 import { LuSun as SunIcon, LuMoon as MoonIcon } from 'react-icons/lu';
 import { Hr, Gb, It, De } from 'react-flags-select';
 import Image from 'next/image';
+import { useLocalStorage } from '@uidotdev/usehooks';
 
 const AppHeader = () => {
   const currentPath = usePathname();
   const searchParams = useSearchParams();
-
+  const router = useRouter();
+  const [getThemeIfAny, setThemeToStorage] = useLocalStorage('@sutra-user-crl-scheme', 'light');
   const splitPath = currentPath.split('/');
   const currentLang = splitPath[1];
 
+  const [theme, setTheme] = React.useState(getThemeIfAny);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState<boolean>(false);
 
   const langs = [
@@ -61,32 +63,28 @@ const AppHeader = () => {
     visuals: [{ url: `/${currentLang}/textures-bg`, title: 'Teksture pozadine' }],
   };
 
-  const [theme, setTheme] = React.useState('light');
   const handleTheme = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark');
+    setThemeToStorage(theme === 'dark' ? 'light' : 'dark');
   };
 
-  const router = useRouter();
-
   React.useEffect(() => {
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
+    getThemeIfAny === 'light'
+      ? document.documentElement.classList.remove('dark')
+      : document.documentElement.classList.add('dark');
+
+    theme === 'dark'
+      ? document.documentElement.classList.add('dark')
+      : document.documentElement.classList.remove('dark');
   }, [theme]);
 
   React.useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.documentElement.classList.add('overflow-hidden');
-    } else {
-      document.documentElement.classList.remove('overflow-hidden');
-    }
+    isMobileMenuOpen
+      ? document.documentElement.classList.add('overflow-hidden')
+      : document.documentElement.classList.remove('overflow-hidden');
   }, [isMobileMenuOpen]);
 
-  const handleLangSwitch = (where: string) => {
-    router.push(where);
-  };
+  const handleLangSwitch = (where: string) => router.push(where);
 
   return (
     <nav className='bg-white dark:bg-gray-800 antialiased relative'>

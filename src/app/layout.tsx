@@ -11,7 +11,6 @@ import '@uploadcare/blocks/web/lr-file-uploader-regular.min.css';
 import 'yet-another-react-lightbox/styles.css';
 import { cookies } from 'next/headers';
 
-import AppHeader from './globalComponents/AppHeader';
 import AppFooter from './globalComponents/AppFooter';
 import { Toaster } from 'react-hot-toast';
 import { Suspense } from 'react';
@@ -28,6 +27,7 @@ import { getAdminTekstoviManjihKomponentiQuery } from './queries/getAdminTekstov
 const poppins = Poppins({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700'] });
 
 import { getBasicSchemaOrgProjectQuery } from './queries/getBasicSchemaOrgProjectQuery';
+import dynamic from 'next/dynamic';
 
 export const metadata: Metadata = {
   title: 'Sutra mastodont',
@@ -235,6 +235,8 @@ export default async function RootLayout({
 
   const schemaBasicData = generateSeoSchemaOrg(parseSchemaData);
 
+  const ClientHeader = dynamic(() => import('./globalComponents/AppHeader'), { ssr: false });
+
   return (
     <html
       lang='en'
@@ -249,7 +251,7 @@ export default async function RootLayout({
           <GoogleTagManager gtmId={adminTokenDataShorthand.kodoviAdminApi.googleTagManager} />
         )}
         <Suspense fallback={<Loading />}>
-          <AppHeader />
+          <ClientHeader />
           <Toaster />
           <Providers>{children}</Providers>
 
