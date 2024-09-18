@@ -1,3 +1,6 @@
+export const maxDuration = 60;
+// export const revalidate = 3600; // revalidate at most every hour
+
 import { Suspense } from 'react';
 
 import { getAllBlogsQuery } from '../queries/getAllBlogsQuery';
@@ -26,9 +29,6 @@ const WhyUsSection = dynamic(() => import('./WhyUsSection'), { loading: () => <L
 const DocumentsCatalogsSection = dynamic(() => import('./DocumentsCatalogsSection'), { loading: () => <Loading /> });
 const HeroSection = dynamic(() => import('./HeroSection'), { ssr: false });
 const NewsTrack = dynamic(() => import('../components/NewsTrack'), { loading: () => <Loading /> });
-
-export const maxDuration = 60;
-// export const revalidate = 3600; // revalidate at most every hour
 
 async function fetchData(query: any) {
   try {
