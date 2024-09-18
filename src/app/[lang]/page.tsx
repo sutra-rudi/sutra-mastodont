@@ -41,13 +41,10 @@ async function fetchData(query: any) {
     });
 
     if (!response.ok) {
-      const errorText = await response.text();
-      console.error('Response error:', errorText);
       throw new Error(`Fetch error: ${response.statusText}`);
     }
 
     const data = await response.text(); // Get raw response text
-    // console.log('Raw response:', data); // Log raw response for debugging
 
     try {
       return JSON.parse(data); // Attempt to parse JSON
