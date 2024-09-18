@@ -1,4 +1,4 @@
-import { Suspense, lazy } from 'react';
+import { Suspense } from 'react';
 
 import { getAllBlogsQuery } from '../queries/getAllBlogsQuery';
 import { getAllBrojcaniciQuery } from '../queries/getAllBrojcaniciQuery';
@@ -12,18 +12,19 @@ import { getDokumentikataloziQuery } from '../queries/getAllDocumentsQuery';
 import { getCategoriesQuery } from '../queries/getAllBlogCategoriesQuery';
 import { getTagsQuery } from '../queries/getAllTagsQuery';
 import { getAdminCtaSelectionQuery } from '../queries/getAdminCtaSelectionQuery';
+import dynamic from 'next/dynamic';
 
-// Lazy loading komponenti
-const BlogSection = lazy(() => import('./BlogSection'));
-const BrojcaniciSection = lazy(() => import('./BrojcaniciSection'));
-const UslugeSection = lazy(() => import('./UslugeSection'));
-const PartnersSection = lazy(() => import('./PartnersSection'));
-const CarouselBase = lazy(() => import('./CarouselBase'));
-const TestimonialsSection = lazy(() => import('./TestimonialsSection'));
-const WhyUsSection = lazy(() => import('./WhyUsSection'));
-const DocumentsCatalogsSection = lazy(() => import('./DocumentsCatalogsSection'));
-const HeroSection = lazy(() => import('./HeroSection'));
-const NewsTrack = lazy(() => import('../components/NewsTrack'));
+// dynamic loading komponenti
+const BlogSection = dynamic(() => import('./BlogSection'));
+const BrojcaniciSection = dynamic(() => import('./BrojcaniciSection'));
+const UslugeSection = dynamic(() => import('./UslugeSection'));
+const PartnersSection = dynamic(() => import('./PartnersSection'));
+const CarouselBase = dynamic(() => import('./CarouselBase'));
+const TestimonialsSection = dynamic(() => import('./TestimonialsSection'));
+const WhyUsSection = dynamic(() => import('./WhyUsSection'));
+const DocumentsCatalogsSection = dynamic(() => import('./DocumentsCatalogsSection'));
+const HeroSection = dynamic(() => import('./HeroSection'), { ssr: false });
+const NewsTrack = dynamic(() => import('../components/NewsTrack'));
 
 export const maxDuration = 60;
 // export const revalidate = 3600; // revalidate at most every hour
