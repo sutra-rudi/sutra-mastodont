@@ -2,6 +2,8 @@ export const maxDuration = 60;
 // export const revalidate = 3600; // revalidate at most every hour
 
 import { Suspense } from 'react';
+import dynamic from 'next/dynamic';
+import Loading from '../loading';
 
 import { getAllBlogsQuery } from '../queries/getAllBlogsQuery';
 import { getAllBrojcaniciQuery } from '../queries/getAllBrojcaniciQuery';
@@ -15,10 +17,8 @@ import { getDokumentikataloziQuery } from '../queries/getAllDocumentsQuery';
 import { getCategoriesQuery } from '../queries/getAllBlogCategoriesQuery';
 import { getTagsQuery } from '../queries/getAllTagsQuery';
 import { getAdminCtaSelectionQuery } from '../queries/getAdminCtaSelectionQuery';
-import dynamic from 'next/dynamic';
-import Loading from '../loading';
 
-// dynamic loading komponenti
+// Dynamic loading components
 const BlogSection = dynamic(() => import('./BlogSection'), { loading: () => <Loading /> });
 const BrojcaniciSection = dynamic(() => import('./BrojcaniciSection'), { loading: () => <Loading /> });
 const UslugeSection = dynamic(() => import('./UslugeSection'), { loading: () => <Loading /> });
@@ -36,7 +36,7 @@ async function fetchData(query: any) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Cache-Control': 's-maxage=3600, stale-while-revalidate', // Keširaj API odgovore na sat vremena
+        'Cache-Control': 's-maxage=3600, stale-while-revalidate', // Cache API responses for an hour
       },
       body: JSON.stringify({ query }),
     });
@@ -45,14 +45,8 @@ async function fetchData(query: any) {
       throw new Error(`Fetch error: ${response.statusText}`);
     }
 
-    const data = await response.text(); // Get raw response text
-
-    try {
-      return JSON.parse(data); // Attempt to parse JSON
-    } catch (jsonError) {
-      console.error('Invalid JSON response:', data);
-      return null;
-    }
+    const data = await response.json(); // Directly parse JSON
+    return data;
   } catch (error) {
     console.error('Fetch data error:', error);
     return null;
@@ -61,6 +55,23 @@ async function fetchData(query: any) {
 
 export default async function Landing({ params: { lang } }: { params: { lang: string } }) {
   try {
+    const queries = [
+      getAllBlogsQuery(lang),
+      getAllBrojcaniciQuery(lang),
+      getAllUslugeQuery(lang),
+      getAllLogotipiPartneraQuery(),
+      getAllCarouselBaseQuery(),
+      getAllIskustvaKlijenataQuery(lang),
+      getWhyUsQuery(lang),
+      getObavijestiNaStraniciQuery(lang),
+      getDokumentikataloziQuery(lang),
+      getCategoriesQuery(lang),
+      getTagsQuery(lang),
+      getAdminCtaSelectionQuery(),
+    ];
+
+    const results = await Promise.all(queries.map((query) => fetchData(query)));
+
     const [
       getAllBlogs,
       getAllBrojcanici,
@@ -74,42 +85,27 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       getAllCategories,
       getAllTags,
       getAllAdminCtaSelection,
-    ] = await Promise.all([
-      fetchData(getAllBlogsQuery(lang)),
-      fetchData(getAllBrojcaniciQuery(lang)),
-      fetchData(getAllUslugeQuery(lang)),
-      fetchData(getAllLogotipiPartneraQuery()),
-      fetchData(getAllCarouselBaseQuery()),
-      fetchData(getAllIskustvaKlijenataQuery(lang)),
-      fetchData(getWhyUsQuery(lang)),
-      fetchData(getObavijestiNaStraniciQuery(lang)),
-      fetchData(getDokumentikataloziQuery(lang)),
-      fetchData(getCategoriesQuery(lang)),
-      fetchData(getTagsQuery(lang)),
-      fetchData(getAdminCtaSelectionQuery()),
-    ]);
+    ] = results;
 
-    const blogDataArrayShorthand = getAllBlogs?.data?.allBlog?.edges || null;
-
-    const brojcaniciDataArrayShorthand = getAllBrojcanici?.data?.allBrojcanici?.edges || null;
-
-    const uslugeDataArrayShorthand = getAllUsluge?.data?.allUsluge?.edges || null;
-    const logotipiPartneraDataArrayShorthand = getAllPartnersLogos?.data?.logotipiPartneraKlijenata?.edges || null;
+    const blogDataArrayShorthand = getAllBlogs?.data?.allBlog?.edges || [];
+    const brojcaniciDataArrayShorthand = getAllBrojcanici?.data?.allBrojcanici?.edges || [];
+    const uslugeDataArrayShorthand = getAllUsluge?.data?.allUsluge?.edges || [];
+    const logotipiPartneraDataArrayShorthand = getAllPartnersLogos?.data?.logotipiPartneraKlijenata?.edges || [];
     const baseCarouselDataShorthand = getAllCarouselBase?.data?.karuselNaslovnica?.edges[0]?.node || null;
-    const iskustvaKlijenataShorthand = getAllIskustvaKlijenata?.data?.allIskustvaKlijenata?.edges || null;
-    const whyUsDataShorthand = getAllWhyUs?.data?.allWhyus?.edges || null;
-    const obavijestiNaStraniciDataShorthand = getAllObavijesti?.data?.allObavijestiNaStranici?.edges || null;
-    const dokumentiKataloziDataShorthand = getAllDocuments?.data?.dokumentikatalozi?.edges || null;
-    const kategorijeDataShorthand = getAllCategories?.data?.categories?.edges || null;
-    const tagsDataShorthand = getAllTags?.data?.tags?.edges || null;
-    const adminCtaSelection = getAllAdminCtaSelection?.data?.adminSetupArea.edges[0].node || null;
+    const iskustvaKlijenataShorthand = getAllIskustvaKlijenata?.data?.allIskustvaKlijenata?.edges || [];
+    const whyUsDataShorthand = getAllWhyUs?.data?.allWhyus?.edges || [];
+    const obavijestiNaStraniciDataShorthand = getAllObavijesti?.data?.allObavijestiNaStranici?.edges || [];
+    const dokumentiKataloziDataShorthand = getAllDocuments?.data?.dokumentikatalozi?.edges || [];
+    const kategorijeDataShorthand = getAllCategories?.data?.categories?.edges || [];
+    const tagsDataShorthand = getAllTags?.data?.tags?.edges || [];
+    const adminCtaSelection = getAllAdminCtaSelection?.data?.adminSetupArea.edges[0]?.node || null;
 
     return (
-      <Suspense>
-        <main className='relative w-full  dark:bg-primary-dark min-h-screen'>
+      <Suspense fallback={<Loading />}>
+        <main className='relative w-full dark:bg-primary-dark min-h-screen'>
           <HeroSection />
 
-          {blogDataArrayShorthand && (
+          {blogDataArrayShorthand.length > 0 && (
             <BlogSection
               pageContent={blogDataArrayShorthand}
               lang={lang}
@@ -120,19 +116,25 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
             />
           )}
 
-          {brojcaniciDataArrayShorthand && <BrojcaniciSection pageContent={brojcaniciDataArrayShorthand} lang={lang} />}
-
-          {uslugeDataArrayShorthand && <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />}
-          {logotipiPartneraDataArrayShorthand && <PartnersSection pageContent={logotipiPartneraDataArrayShorthand} />}
-          {baseCarouselDataShorthand && <CarouselBase imageArray={baseCarouselDataShorthand} />}
-          {iskustvaKlijenataShorthand && <TestimonialsSection pageContent={iskustvaKlijenataShorthand} lang={lang} />}
-          {whyUsDataShorthand && <WhyUsSection pageContent={whyUsDataShorthand} lang={lang} />}
-
-          {dokumentiKataloziDataShorthand && (
-            <DocumentsCatalogsSection pageContent={dokumentiKataloziDataShorthand} lang={lang} />
+          {brojcaniciDataArrayShorthand.length > 0 && (
+            <BrojcaniciSection pageContent={brojcaniciDataArrayShorthand} lang={lang} />
           )}
 
-          <NewsTrack pageContent={obavijestiNaStraniciDataShorthand} lang={lang} />
+          {uslugeDataArrayShorthand.length > 0 && <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />}
+          {logotipiPartneraDataArrayShorthand.length > 0 && (
+            <PartnersSection pageContent={logotipiPartneraDataArrayShorthand} />
+          )}
+          {baseCarouselDataShorthand && <CarouselBase imageArray={baseCarouselDataShorthand} />}
+          {iskustvaKlijenataShorthand.length > 0 && (
+            <TestimonialsSection pageContent={iskustvaKlijenataShorthand} lang={lang} />
+          )}
+          {whyUsDataShorthand.length > 0 && <WhyUsSection pageContent={whyUsDataShorthand} lang={lang} />}
+          {dokumentiKataloziDataShorthand.length > 0 && (
+            <DocumentsCatalogsSection pageContent={dokumentiKataloziDataShorthand} lang={lang} />
+          )}
+          {obavijestiNaStraniciDataShorthand.length > 0 && (
+            <NewsTrack pageContent={obavijestiNaStraniciDataShorthand} lang={lang} />
+          )}
         </main>
       </Suspense>
     );
