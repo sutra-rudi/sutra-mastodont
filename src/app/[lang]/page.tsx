@@ -34,6 +34,7 @@ async function fetchData(query: any) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Cache-Control': 's-maxage=3600, stale-while-revalidate', // Keširaj API odgovore na sat vremena
       },
       body: JSON.stringify({ query }),
     });
@@ -110,58 +111,29 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
           <HeroSection />
 
           {blogDataArrayShorthand && (
-            <Suspense>
-              <BlogSection
-                pageContent={blogDataArrayShorthand}
-                lang={lang}
-                categoriesList={kategorijeDataShorthand}
-                tagsList={tagsDataShorthand}
-                blogCtaKey={adminCtaSelection ? adminCtaSelection.adminGlobalniSelektorCta.blogSekcijaCta[0] : ''}
-                blogTableKey={process.env.BLOG_AIRTABLE_CTA_ID!}
-              />
-            </Suspense>
+            <BlogSection
+              pageContent={blogDataArrayShorthand}
+              lang={lang}
+              categoriesList={kategorijeDataShorthand}
+              tagsList={tagsDataShorthand}
+              blogCtaKey={adminCtaSelection ? adminCtaSelection.adminGlobalniSelektorCta.blogSekcijaCta[0] : ''}
+              blogTableKey={process.env.BLOG_AIRTABLE_CTA_ID!}
+            />
           )}
 
-          {brojcaniciDataArrayShorthand && (
-            <Suspense>
-              <BrojcaniciSection pageContent={brojcaniciDataArrayShorthand} lang={lang} />
-            </Suspense>
-          )}
+          {brojcaniciDataArrayShorthand && <BrojcaniciSection pageContent={brojcaniciDataArrayShorthand} lang={lang} />}
 
-          {uslugeDataArrayShorthand && (
-            <Suspense>
-              <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />
-            </Suspense>
-          )}
-          {logotipiPartneraDataArrayShorthand && (
-            <Suspense>
-              <PartnersSection pageContent={logotipiPartneraDataArrayShorthand} />
-            </Suspense>
-          )}
-          {baseCarouselDataShorthand && (
-            <Suspense>
-              <CarouselBase imageArray={baseCarouselDataShorthand} />
-            </Suspense>
-          )}
-          {iskustvaKlijenataShorthand && (
-            <Suspense>
-              <TestimonialsSection pageContent={iskustvaKlijenataShorthand} lang={lang} />
-            </Suspense>
-          )}
-          {whyUsDataShorthand && (
-            <Suspense>
-              <WhyUsSection pageContent={whyUsDataShorthand} lang={lang} />
-            </Suspense>
-          )}
+          {uslugeDataArrayShorthand && <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />}
+          {logotipiPartneraDataArrayShorthand && <PartnersSection pageContent={logotipiPartneraDataArrayShorthand} />}
+          {baseCarouselDataShorthand && <CarouselBase imageArray={baseCarouselDataShorthand} />}
+          {iskustvaKlijenataShorthand && <TestimonialsSection pageContent={iskustvaKlijenataShorthand} lang={lang} />}
+          {whyUsDataShorthand && <WhyUsSection pageContent={whyUsDataShorthand} lang={lang} />}
 
           {dokumentiKataloziDataShorthand && (
-            <Suspense>
-              <DocumentsCatalogsSection pageContent={dokumentiKataloziDataShorthand} lang={lang} />
-            </Suspense>
+            <DocumentsCatalogsSection pageContent={dokumentiKataloziDataShorthand} lang={lang} />
           )}
-          <Suspense>
-            <NewsTrack pageContent={obavijestiNaStraniciDataShorthand} lang={lang} />
-          </Suspense>
+
+          <NewsTrack pageContent={obavijestiNaStraniciDataShorthand} lang={lang} />
         </main>
       </Suspense>
     );
