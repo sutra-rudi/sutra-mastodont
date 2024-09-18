@@ -9,6 +9,9 @@ const nextConfig = {
       {
         hostname: 'placehold.co',
       },
+      {
+        hostname: 'lavender-loris-843955.hostingersite.com',
+      },
     ],
   },
 };
