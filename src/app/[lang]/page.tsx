@@ -13,18 +13,19 @@ import { getCategoriesQuery } from '../queries/getAllBlogCategoriesQuery';
 import { getTagsQuery } from '../queries/getAllTagsQuery';
 import { getAdminCtaSelectionQuery } from '../queries/getAdminCtaSelectionQuery';
 import dynamic from 'next/dynamic';
+import Loading from '../loading';
 
 // dynamic loading komponenti
-const BlogSection = dynamic(() => import('./BlogSection'));
-const BrojcaniciSection = dynamic(() => import('./BrojcaniciSection'));
-const UslugeSection = dynamic(() => import('./UslugeSection'));
-const PartnersSection = dynamic(() => import('./PartnersSection'));
-const CarouselBase = dynamic(() => import('./CarouselBase'));
-const TestimonialsSection = dynamic(() => import('./TestimonialsSection'));
-const WhyUsSection = dynamic(() => import('./WhyUsSection'));
-const DocumentsCatalogsSection = dynamic(() => import('./DocumentsCatalogsSection'));
+const BlogSection = dynamic(() => import('./BlogSection'), { loading: () => <Loading /> });
+const BrojcaniciSection = dynamic(() => import('./BrojcaniciSection'), { loading: () => <Loading /> });
+const UslugeSection = dynamic(() => import('./UslugeSection'), { loading: () => <Loading /> });
+const PartnersSection = dynamic(() => import('./PartnersSection'), { loading: () => <Loading /> });
+const CarouselBase = dynamic(() => import('./CarouselBase'), { loading: () => <Loading /> });
+const TestimonialsSection = dynamic(() => import('./TestimonialsSection'), { loading: () => <Loading /> });
+const WhyUsSection = dynamic(() => import('./WhyUsSection'), { loading: () => <Loading /> });
+const DocumentsCatalogsSection = dynamic(() => import('./DocumentsCatalogsSection'), { loading: () => <Loading /> });
 const HeroSection = dynamic(() => import('./HeroSection'), { ssr: false });
-const NewsTrack = dynamic(() => import('../components/NewsTrack'));
+const NewsTrack = dynamic(() => import('../components/NewsTrack'), { loading: () => <Loading /> });
 
 export const maxDuration = 60;
 // export const revalidate = 3600; // revalidate at most every hour
