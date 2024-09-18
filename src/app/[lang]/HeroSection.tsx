@@ -93,6 +93,7 @@ const HeroSection = () => {
             alt='hero image'
             fill
             className='w-full h-full object-cover object-center block'
+            priority
           />
         )}
       </div>

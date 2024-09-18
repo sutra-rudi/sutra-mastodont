@@ -86,7 +86,7 @@ export const HeroSectionOne = () => {
         </div>
 
         <div className='hidden lg:mt-0 lg:col-span-5 lg:flex'>
-          <img src='https://demo.themesberg.com/landwind/images/hero.png' alt='hero image' />
+          {/* <img src='https://demo.themesberg.com/landwind/images/hero.png' alt='hero image' /> */}
         </div>
       </div>
     </section>
