@@ -103,7 +103,7 @@ export const metadata: Metadata = {
 
 function generateSeoSchemaOrg(data: any) {
   // console.log('SCHEMA DATA', data.data?.seoSchemaOrg?.edges[0]);
-
+  //
   const companyInfo = data?.data?.seoSchemaOrg?.edges[0]?.node?.osnovneInformacijeOWebstraniciNapredniSeo;
   const contactInfo = companyInfo?.kontaktInformacijeContactPoint;
   const offerings = companyInfo?.offerings;
