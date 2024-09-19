@@ -52,7 +52,7 @@ const HeroSection = () => {
   useEffect(() => {
     const handleLoad = () => {
       if (videoSource && isVideoValid) {
-        console.log('Page load event fired');
+        // console.log('Page load event fired');
         setIsVideoReady(true);
       }
     };
