@@ -237,9 +237,9 @@ export default async function RootLayout({
   return (
     <html
       lang={lang}
-      className='scrollbar scrollbar-thumb-primary-light dark:scrollbar-thumb-primary-dark  scrollbar-track-primary-dark dark:scrollbar-track-primary-light'
+      className='scrollbar scrollbar-thumb-primary-light dark:scrollbar-thumb-primary-dark  scrollbar-track-primary-dark dark:scrollbar-track-primary-light min-h-screen w-full h-full'
     >
-      <body className={`${poppins.className} min-h-screen`}>
+      <body className={`${poppins.className} w-full h-full`}>
         <CookieConsentNotification pageContent={adminTekstoviShorthand} />
         {adminTokenDataShorthand.kodoviAdminApi.googleAnalytics && userEnabledAllCookies && (
           <GoogleAnalytics gaId={adminTokenDataShorthand.kodoviAdminApi.googleAnalytics} />

@@ -18,15 +18,17 @@ const checkImageUrl = async (url: string): Promise<boolean> => {
     });
     return response.ok;
   } catch (error) {
+    console.error('Error checking image URL:', error);
     return false;
   }
 };
 
 const HeroSection = () => {
   const clientSize = useWindowSize();
-  const [isVideoReady, setIsVideoReady] = useState(false);
   const [videoSource, setVideoSource] = useState<string | null>(null);
   const [isVideoValid, setIsVideoValid] = useState<boolean>(false);
+  const [isVideoReady, setIsVideoReady] = useState<boolean>(false);
+  const [isVideoLoading, setIsVideoLoading] = useState<boolean>(false); // New state for video loading
   const playerRef = useRef<any>(null);
 
   const onReady = useCallback(() => {
@@ -39,11 +41,13 @@ const HeroSection = () => {
 
   useEffect(() => {
     const validateVideo = async () => {
+      setIsVideoLoading(true); // Set loading to true when starting validation
       const isValid = await checkImageUrl(videoResources.homePage.video);
       setIsVideoValid(isValid);
       if (isValid) {
         setVideoSource(videoResources.homePage.video);
       }
+      setIsVideoLoading(false); // Set loading to false after validation
     };
 
     validateVideo();
@@ -51,23 +55,21 @@ const HeroSection = () => {
 
   useEffect(() => {
     const handleLoad = () => {
+      console.log('VIDEO LOAD EVENT FIRED');
       if (videoSource && isVideoValid) {
-        // console.log('Page load event fired');
         setIsVideoReady(true);
       }
     };
 
     window.addEventListener('load', handleLoad);
 
-    return () => {
-      window.removeEventListener('load', handleLoad);
-    };
+    return () => window.removeEventListener('load', handleLoad);
   }, [videoSource, isVideoValid]);
 
   return (
     <section className='bg-white dark:bg-gray-900 min-h-screen w-full'>
       <div className='relative w-full h-screen'>
-        {isVideoReady && isVideoValid && videoSource ? (
+        {isVideoReady && videoSource && isVideoValid ? (
           <ReactPlayerDy
             ref={playerRef}
             url={videoSource}
@@ -97,6 +99,8 @@ const HeroSection = () => {
               },
             }}
           />
+        ) : isVideoLoading ? (
+          <Loading />
         ) : (
           <Image
             src={
