@@ -8,7 +8,6 @@ import { useWindowSize } from '@uidotdev/usehooks';
 import { heroImagesHomePage, videoResources } from '../pathsUtils/mediaImportsDynamic';
 import Loading from '../loading';
 
-// Dinamičko učitavanje ReactPlayer
 const ReactPlayerDy = dynamic(() => import('react-player/lazy'), { ssr: false, loading: () => <Loading /> });
 
 const checkImageUrl = async (url: string): Promise<boolean> => {
@@ -31,7 +30,11 @@ const HeroSection = () => {
   const playerRef = useRef<any>(null);
 
   const onReady = useCallback(() => {
-    setIsVideoReady(true);
+    console.log('onReady called');
+    if (playerRef.current) {
+      playerRef.current.seekTo(0, 'seconds');
+      setIsVideoReady(true);
+    }
   }, []);
 
   useEffect(() => {
@@ -49,7 +52,7 @@ const HeroSection = () => {
   useEffect(() => {
     const handleLoad = () => {
       if (videoSource && isVideoValid) {
-        // Delay video loading until page load is complete
+        console.log('Page load event fired');
         setIsVideoReady(true);
       }
     };
