@@ -16,6 +16,7 @@ import { useReactToPrint } from 'react-to-print';
 import { ParallaxBanner } from 'react-scroll-parallax';
 import SpeedDial from '@/app/components/SpeedDial';
 import { TracingBeam } from '@/app/aceternityComponents/TracingBeam';
+import { heroImagesHomePage } from '@/app/pathsUtils/mediaImportsDynamic';
 
 interface BlogPageContent {
   content: any;
@@ -112,12 +113,15 @@ const PageContent = ({ content, global, gallery, files, tags, author, intro, cat
             })}
           </div>
 
-          {global.naslovnaSlika && (
-            <ParallaxBanner
-              layers={[{ image: global.naslovnaSlika.node.sourceUrl, speed: -15 }]}
-              className='block object-cover object-center aspect-video h-[250px] max-w-[1140px] mx-auto my-0 min-h-[640px]'
-            />
-          )}
+          <ParallaxBanner
+            layers={[
+              {
+                image: global.naslovnaSlika ? global.naslovnaSlika.node.sourceUrl : heroImagesHomePage.desktop,
+                speed: -15,
+              },
+            ]}
+            className='block object-cover object-center aspect-video h-[250px] max-w-[1140px] mx-auto my-0 min-h-[640px]'
+          />
 
           <div className='mt-8 prose max-w-sutraBlogTestMaxWidth mx-auto my-0 '>
             <div className=' prose-p:text-secondary-dark prose-p:font-medium prose-p:text-xl line-clamp-4 w-full my-4 mx-0'>
