@@ -7,12 +7,15 @@ import Image from 'next/image';
 import { useWindowSize } from '@uidotdev/usehooks';
 import { heroImagesHomePage, videoResources } from '../pathsUtils/mediaImportsDynamic';
 import Loading from '../loading';
+
+// Dinamičko učitavanje ReactPlayer
 const ReactPlayerDy = dynamic(() => import('react-player/lazy'), { ssr: false, loading: () => <Loading /> });
 
 const checkImageUrl = async (url: string): Promise<boolean> => {
   try {
     const response = await fetch(url, {
       method: 'HEAD',
+      next: { revalidate: 3600 },
     });
     return response.ok;
   } catch (error) {
@@ -22,17 +25,14 @@ const checkImageUrl = async (url: string): Promise<boolean> => {
 
 const HeroSection = () => {
   const clientSize = useWindowSize();
-  const [isReady, setIsReady] = useState(false);
+  const [isVideoReady, setIsVideoReady] = useState(false);
   const [videoSource, setVideoSource] = useState<string | null>(null);
   const [isVideoValid, setIsVideoValid] = useState<boolean>(false);
   const playerRef = useRef<any>(null);
 
   const onReady = useCallback(() => {
-    if (!isReady) {
-      playerRef.current && playerRef.current.seekTo(0, 'seconds');
-      setIsReady(true);
-    }
-  }, [isReady]);
+    setIsVideoReady(true);
+  }, []);
 
   useEffect(() => {
     const validateVideo = async () => {
@@ -46,21 +46,36 @@ const HeroSection = () => {
     validateVideo();
   }, []);
 
+  useEffect(() => {
+    const handleLoad = () => {
+      if (videoSource && isVideoValid) {
+        // Delay video loading until page load is complete
+        setIsVideoReady(true);
+      }
+    };
+
+    window.addEventListener('load', handleLoad);
+
+    return () => {
+      window.removeEventListener('load', handleLoad);
+    };
+  }, [videoSource, isVideoValid]);
+
   return (
     <section className='bg-white dark:bg-gray-900 min-h-screen w-full'>
       <div className='relative w-full h-screen'>
-        {isVideoValid && videoSource ? (
+        {isVideoReady && isVideoValid && videoSource ? (
           <ReactPlayerDy
             ref={playerRef}
             url={videoSource}
             playsinline
             pip
             muted
-            loop={isReady}
+            loop
             volume={0}
             width={'100%'}
             height={'100%'}
-            playing={isReady}
+            playing={true}
             onReady={onReady}
             fallback={<Loading />}
             config={{
