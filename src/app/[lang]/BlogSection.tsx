@@ -11,7 +11,7 @@ import { readingTime } from 'reading-time-estimator';
 import { FaTag as TagIcon } from 'react-icons/fa6';
 import { getRecords } from '../lib/airtable';
 import { useRouter } from 'next/navigation';
-import { heroImagesArchiveBlog } from '../pathsUtils/mediaImportsDynamic';
+// import { heroImagesArchiveBlog } from '../pathsUtils/mediaImportsDynamic';
 import { SutraTagWithIcon } from '../components/SutraTag';
 
 interface BlogSection {
@@ -25,10 +25,26 @@ interface BlogSection {
 
 const BlogSection = ({ pageContent, lang, categoriesList, tagsList, blogCtaKey, blogTableKey }: BlogSection) => {
   const [blogCta, setBlogCta] = React.useState<string>('');
-
+  const [mediaPaths, setMediaPaths] = React.useState<any>(null);
   const l = getSuffixFromLang(lang);
 
   const router = useRouter();
+
+  React.useEffect(() => {
+    const fetchMediaPaths = async () => {
+      try {
+        const response = await fetch('/api/mediaPaths');
+        const data = await response.json();
+
+        console.log('Fetched media paths:', data);
+        setMediaPaths(data);
+      } catch (error) {
+        console.error('Error fetching media paths:', error);
+      }
+    };
+
+    fetchMediaPaths();
+  }, []);
 
   React.useEffect(() => {
     const getRecordsDemo = async () => {
@@ -110,7 +126,7 @@ const BlogSection = ({ pageContent, lang, categoriesList, tagsList, blogCtaKey, 
       </div>
     );
   };
-
+  console.log('MEDIA PATQHS', mediaPaths);
   return (
     <section className='min-h-screen'>
       <h2 className='w-full text-center text-7xl font-semibold pt-8'>Blogovi</h2>
@@ -125,6 +141,7 @@ const BlogSection = ({ pageContent, lang, categoriesList, tagsList, blogCtaKey, 
       {/* TAKSONOMIJA */}
       <div className='max-w-[1740px] mx-auto my-8 flex flex-wrap gap-4 items-start justify-center min-h-dvh'>
         {pageContent &&
+          mediaPaths &&
           pageContent.map((blogContent: any, index: number) => {
             const contentShorthand = blogContent.node;
             const contentCardShorthand = contentShorthand.introBlog;
@@ -156,13 +173,13 @@ const BlogSection = ({ pageContent, lang, categoriesList, tagsList, blogCtaKey, 
               ? contentCardShorthand.thumbnail.node.sourceUrl
               : contentCardShorthand.naslovnaSlika
               ? contentCardShorthand.naslovnaSlika.node.sourceUrl
-              : heroImagesArchiveBlog.desktop;
+              : mediaPaths.heroImagesArchiveBlog.desktop;
 
             const hoverImgSource = contentCardShorthand.naslovnaSlika
               ? contentCardShorthand.naslovnaSlika.node.sourceUrl
               : contentCardShorthand.naslovnaSlika
               ? contentCardShorthand.naslovnaSlika.node.sourceUrl
-              : heroImagesArchiveBlog.desktop;
+              : mediaPaths.heroImagesArchiveBlog.desktop;
 
             const readTime = readingTime(contentField);
 
@@ -203,6 +220,7 @@ const BlogSection = ({ pageContent, lang, categoriesList, tagsList, blogCtaKey, 
 
         <div className='max-w-[1740px] mx-auto my-8 flex flex-wrap gap-4 items-start justify-center min-h-dvh'>
           {pageContent &&
+            mediaPaths &&
             clientDisplayData.map((blogContent: any, index: number) => {
               const contentShorthand = blogContent.node;
               const contentCardShorthand = contentShorthand.introBlog;
@@ -236,13 +254,13 @@ const BlogSection = ({ pageContent, lang, categoriesList, tagsList, blogCtaKey, 
                 ? contentCardShorthand.thumbnail.node.sourceUrl
                 : contentCardShorthand.naslovnaSlika
                 ? contentCardShorthand.naslovnaSlika.node.sourceUrl
-                : heroImagesArchiveBlog.desktop;
+                : mediaPaths.heroImagesArchiveBlog.desktop;
 
               const hoverImgSource = contentCardShorthand.naslovnaSlika
                 ? contentCardShorthand.naslovnaSlika.node.sourceUrl
                 : contentCardShorthand.naslovnaSlika
                 ? contentCardShorthand.naslovnaSlika.node.sourceUrl
-                : heroImagesArchiveBlog.desktop;
+                : mediaPaths.heroImagesArchiveBlog.desktop;
               const readTime = readingTime(contentField);
 
               const isActivatedOnLang: boolean = contentShorthand.statusAtivacijePoJezicima[`aktivator${l}`];
