@@ -1,6 +1,6 @@
 import { getTjedniRasporedQuery } from '@/app/queries/getAllTjedniRasporedQuery';
-import PageContent from './PageContent';
-
+import dynamic from 'next/dynamic';
+const LazyContent = dynamic(() => import('./PageContent'));
 export default async function SchedulePage({ params: { lang, id } }: { params: { lang: string; id: string } }) {
   const getAllSchedule = await fetch(`${process.env.CMS_BASE_URL}`, {
     method: 'POST',
@@ -10,7 +10,6 @@ export default async function SchedulePage({ params: { lang, id } }: { params: {
     body: JSON.stringify({
       query: getTjedniRasporedQuery(lang),
     }),
-    // cache: 'no-cache',
   });
 
   const parseData = await getAllSchedule.json();
@@ -19,7 +18,7 @@ export default async function SchedulePage({ params: { lang, id } }: { params: {
 
   return (
     <main className='min-h-dvh'>
-      <PageContent content={prepareDataForClient} lang={lang} />
+      <LazyContent content={prepareDataForClient} lang={lang} />
     </main>
   );
 }

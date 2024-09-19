@@ -1,6 +1,6 @@
 import { getObavijestiNaStraniciQuery } from '@/app/queries/getAllObavijestiQuery';
-import PageContent from './PageContent';
-
+import dynamic from 'next/dynamic';
+const LazyContent = dynamic(() => import('./PageContent'));
 export default async function ObavijestiPage({ params: { lang } }: { params: { lang: string } }) {
   const getAllObavijesti = await fetch(`${process.env.CMS_BASE_URL}`, {
     method: 'POST',
@@ -10,7 +10,6 @@ export default async function ObavijestiPage({ params: { lang } }: { params: { l
     body: JSON.stringify({
       query: getObavijestiNaStraniciQuery(lang),
     }),
-    // cache: 'no-cache',
   });
 
   const getObavijestiData = await getAllObavijesti.json();
@@ -19,7 +18,7 @@ export default async function ObavijestiPage({ params: { lang } }: { params: { l
 
   return (
     <main>
-      <PageContent pageContent={obavijestiNaStraniciDataShorthand} lang={lang} />
+      <LazyContent pageContent={obavijestiNaStraniciDataShorthand} lang={lang} />
     </main>
   );
 }

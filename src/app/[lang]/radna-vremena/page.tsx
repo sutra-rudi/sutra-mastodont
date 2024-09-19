@@ -5,7 +5,7 @@ import dayjs from 'dayjs';
 import Script from 'next/script';
 import { getWorkingHoursSchemaQuery } from '@/app/queries/getWorkingHoursSchema';
 import dynamic from 'next/dynamic';
-
+const LazyContent = dynamic(() => import('./PageContent'));
 function generateSchemaOrg(
   aktivatorDatuma: any,
   sezonskoRadno: any,
@@ -148,8 +148,6 @@ export default async function RadnaVremena({
     schemaShorthand.tjedniRasporedSezonskoRadnoVrijemeGoogleSeo
       .noteDodatnaNapomenaTjedniRasporedSezonskoRadnoVrijemeGoogleSeo
   );
-
-  const LazyContent = dynamic(() => import('./PageContent'));
 
   return (
     <main className='w-full min-h-screen pb-12 dark:bg-primary-dark'>

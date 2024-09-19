@@ -8,8 +8,6 @@ import { FaFacebookF as FacebookIcon, FaTwitter as TwitterIcon, FaRedditAlien as
 import { FaRegFileLines as FileIcon } from 'react-icons/fa6';
 import { BsCloudDownload as DownloadIcon } from 'react-icons/bs';
 import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 import { FacebookShareButton, RedditShareButton, TwitterShareButton } from 'react-share';
 import toast from 'react-hot-toast';
 import { useReactToPrint } from 'react-to-print';
@@ -17,7 +15,8 @@ import { ParallaxBanner } from 'react-scroll-parallax';
 import SpeedDial from '@/app/components/SpeedDial';
 import { TracingBeam } from '@/app/aceternityComponents/TracingBeam';
 import { heroImagesHomePage } from '@/app/pathsUtils/mediaImportsDynamic';
-
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 interface BlogPageContent {
   content: any;
   global: any;

@@ -1,4 +1,5 @@
-import PageContent from './PageContent';
+import dynamic from 'next/dynamic';
+const LazyContent = dynamic(() => import('./PageContent'));
 
 export default async function VirtualTours({ params: { lang } }: { params: { lang: string } }) {
   const fetchSites = async () => {
@@ -25,7 +26,7 @@ export default async function VirtualTours({ params: { lang } }: { params: { lan
         <div className='w-full mx-auto flex items-center justify-center'>
           <h2 className='text-4xl font-medium'>Šetnje</h2>
         </div>
-        {sites && <PageContent toursList={sites} lang={lang} />}
+        {sites && <LazyContent toursList={sites} lang={lang} />}
       </div>
     </main>
   );

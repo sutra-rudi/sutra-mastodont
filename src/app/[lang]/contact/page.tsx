@@ -1,8 +1,9 @@
 import { getKontaktiOsobeQuery } from '@/app/queries/getAllKontaktOsobeQuery';
 import { getKontaktiSektorQuery } from '@/app/queries/getAllKontaktSektorQuery';
-import PageContent from './PageContent';
 import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 import { getAdminContactFormSemanticsQuery } from '@/app/queries/getContactFormSemantics';
+import dynamic from 'next/dynamic';
+const LazyContent = dynamic(() => import('./PageContent'));
 
 export default async function ContactPage({ params: { lang } }: { params: { lang: string } }) {
   const getAllContactPersons = await fetch(`${process.env.CMS_BASE_URL}`, {
@@ -13,7 +14,6 @@ export default async function ContactPage({ params: { lang } }: { params: { lang
     body: JSON.stringify({
       query: getKontaktiOsobeQuery(lang),
     }),
-    // cache: 'no-cache',
   });
 
   const parseDataPersons = await getAllContactPersons.json();
@@ -59,9 +59,10 @@ export default async function ContactPage({ params: { lang } }: { params: { lang
     contactSemanticsShorthand[`adminKontaktFormaTekstovi${l}`]?.[`kontaktiBazaTekstova${l}`].tekstoviStavkiUKontaktima;
 
   const contactFormGlobalIntro = contactSemanticsShorthand.kontaktFormaUvod;
+
   return (
     <main className='min-h-svh bg-sutraContactUsTempBg dark:bg-almost-black'>
-      <PageContent
+      <LazyContent
         personsData={dataShorthandPersons}
         sectorsData={dataShorthandSectors}
         contactSemantics={contactSemanticsShorthand}

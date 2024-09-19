@@ -1,12 +1,11 @@
 import { getSingleBlogQuery } from '@/app/queries/getSingleBlogQuery';
 import { blogLanguageFields } from '@/app/pathsUtils/blogLanguageFields';
 import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
-
 import { htmlToText } from 'html-to-text';
 import { UserLanguage } from '@/app/enums/LangEnum';
 import { ogImagesArchiveBlog } from '@/app/pathsUtils/mediaImportsDynamic';
 import dynamic from 'next/dynamic';
-
+const LazyContent = dynamic(() => import('./PageContent'));
 export async function generateMetadata({ params: { lang, id } }: { params: { lang: string; id: string } }) {
   const getIdFromSlug = (slug: string): string => {
     const parts = slug.split('-');
@@ -153,8 +152,6 @@ export default async function SingleBlogPage({ params: { lang, id } }: { params:
         catColor: noda.node.informacijeKategorije ? noda.node.informacijeKategorije.bojaKategorije : 'No color',
       };
     }) ?? [];
-
-  const LazyContent = dynamic(() => import('./PageContent'));
 
   return (
     <main>

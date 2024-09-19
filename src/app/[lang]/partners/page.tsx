@@ -1,6 +1,6 @@
 import { getAllLogotipiPartneraQuery } from '@/app/queries/getAllLogotipiPartnera';
-import PageContent from './PageContent';
-
+import dynamic from 'next/dynamic';
+const LazyContent = dynamic(() => import('./PageContent'));
 export default async function PartnersPage() {
   const getAllPartners = await fetch(`${process.env.CMS_BASE_URL}`, {
     method: 'POST',
@@ -10,7 +10,6 @@ export default async function PartnersPage() {
     body: JSON.stringify({
       query: getAllLogotipiPartneraQuery(),
     }),
-    // cache: 'no-cache',
   });
 
   const getAllPartnersLogos = await getAllPartners.json();
@@ -19,7 +18,7 @@ export default async function PartnersPage() {
 
   return (
     <main>
-      <PageContent pageContent={logotipiPartneraDataArrayShorthand} />
+      <LazyContent pageContent={logotipiPartneraDataArrayShorthand} />
     </main>
   );
 }

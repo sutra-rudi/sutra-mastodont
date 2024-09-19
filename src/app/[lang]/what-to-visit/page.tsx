@@ -1,7 +1,8 @@
 import { getOkolicaQuery } from '@/app/queries/getAllWhatToVisit';
-import PageContent from './PageContent';
-import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 
+import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
+import dynamic from 'next/dynamic';
+const LazyContent = dynamic(() => import('./PageContent'));
 export default async function WhatToVisit({ params: { lang } }: { params: { lang: string } }) {
   const getWhatToVisit = await fetch(`${process.env.CMS_BASE_URL}`, {
     method: 'POST',
@@ -11,7 +12,6 @@ export default async function WhatToVisit({ params: { lang } }: { params: { lang
     body: JSON.stringify({
       query: getOkolicaQuery(lang),
     }),
-    // cache: 'no-cache',
   });
 
   const parseData = await getWhatToVisit.json();
@@ -22,7 +22,7 @@ export default async function WhatToVisit({ params: { lang } }: { params: { lang
 
   return (
     <main>
-      <PageContent content={whatToVisitDataShorthand} lang={l} />
+      <LazyContent content={whatToVisitDataShorthand} lang={l} />
     </main>
   );
 }

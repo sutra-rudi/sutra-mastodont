@@ -1,6 +1,6 @@
 import { getAllBlogsQuery } from '@/app/queries/getAllBlogsQuery';
-import PageContent from './PageContent';
-
+import dynamic from 'next/dynamic';
+const LazyContent = dynamic(() => import('./PageContent'));
 export default async function BlogAndNewsCards({ params: { lang } }: { params: { lang: string } }) {
   const getAllBlogs = await fetch(`${process.env.CMS_BASE_URL}`, {
     method: 'POST',
@@ -10,7 +10,6 @@ export default async function BlogAndNewsCards({ params: { lang } }: { params: {
     body: JSON.stringify({
       query: getAllBlogsQuery(lang),
     }),
-    // cache: 'no-cache',
   });
 
   const res = await getAllBlogs.json();
@@ -19,7 +18,7 @@ export default async function BlogAndNewsCards({ params: { lang } }: { params: {
 
   return (
     <main>
-      <PageContent pageContent={dataShorthand} lang={lang} />
+      <LazyContent pageContent={dataShorthand} lang={lang} />
     </main>
   );
 }

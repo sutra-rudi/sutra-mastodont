@@ -1,7 +1,7 @@
 import { getSingleNewsQuery } from '@/app/queries/getSingleNewsQuery';
-import PageContent from './PageContent';
 import { blogLanguageFields } from '@/app/pathsUtils/blogLanguageFields';
-
+import dynamic from 'next/dynamic';
+const LazyContent = dynamic(() => import('./PageContent'));
 export default async function SingleNewsPage({ params: { lang, id } }: { params: { lang: string; id: string } }) {
   const getIdFromSlug = (slug: string): string => {
     const parts = slug.split('-');
@@ -18,7 +18,6 @@ export default async function SingleNewsPage({ params: { lang, id } }: { params:
     body: JSON.stringify({
       query: getSingleNewsQuery(slugId, lang),
     }),
-    // cache: 'no-cache',
   });
 
   const parseData = await getSingleNews.json();
@@ -38,7 +37,7 @@ export default async function SingleNewsPage({ params: { lang, id } }: { params:
 
   return (
     <main>
-      <PageContent
+      <LazyContent
         content={prepareDataForClient[languageField]}
         global={prepareDataForClient.introNews}
         gallery={prepareDataForClient.photoGallery.fotogalerija}

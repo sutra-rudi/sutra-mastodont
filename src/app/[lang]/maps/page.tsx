@@ -1,7 +1,7 @@
 import { getAllMapsQuery } from '@/app/queries/getAllMapsQuery';
-
-import { lazy, Suspense } from 'react';
-
+import dynamic from 'next/dynamic';
+import { Suspense } from 'react';
+const LazyContent = dynamic(() => import('./PageContent'));
 export default async function Maps() {
   const getAllMaps = await fetch(`${process.env.CMS_BASE_URL}`, {
     method: 'POST',
@@ -11,17 +11,11 @@ export default async function Maps() {
     body: JSON.stringify({
       query: getAllMapsQuery(),
     }),
-    next: {
-      revalidate: 60 * 30,
-    },
-    // cache: 'no-cache',
   });
 
   const parseMapsData = await getAllMaps.json();
 
   const prepareDataMaps = parseMapsData.data.bazaMapsKarte.edges;
-
-  const LazyContent = lazy(() => import('./PageContent'));
 
   return (
     <main>

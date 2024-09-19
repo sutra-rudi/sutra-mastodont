@@ -1,9 +1,9 @@
 import { getAllFaqOnePagerQuery } from '@/app/queries/getAllFaqOnePagerQuery';
-import PageContent from './PageContent';
 import { getAllFaqSinglesQuery } from '@/app/queries/getAllFaqSingles';
 import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 import Script from 'next/script';
-
+import dynamic from 'next/dynamic';
+const LazyContent = dynamic(() => import('./PageContent'));
 // generateMetadata za meta tagove
 export async function generateMetadata({ params: { lang } }: { params: { lang: string } }) {
   return {
@@ -60,7 +60,7 @@ export default async function FaqPage({ params: { lang } }: { params: { lang: st
 
   return (
     <main>
-      <PageContent
+      <LazyContent
         pageContent={faqOnePagerDataArrayShorthand}
         lang={lang}
         singlePageCont={faqSingleDataArrayShorthand}

@@ -1,7 +1,7 @@
 import { getAllONamaQuery } from '@/app/queries/getAllONamaQuery';
-import PageContent from './PageContent';
 import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
-
+import dynamic from 'next/dynamic';
+const LazyContent = dynamic(() => import('./PageContent'));
 export async function generateMetadata({ params: { lang } }: { params: { lang: string } }) {
   const getAboutUs = await fetch(`${process.env.CMS_BASE_URL}`, {
     method: 'POST',
@@ -11,7 +11,6 @@ export async function generateMetadata({ params: { lang } }: { params: { lang: s
     body: JSON.stringify({
       query: getAllONamaQuery(lang),
     }),
-    // cache: 'no-cache',
   });
 
   const parseData = await getAboutUs.json();
@@ -60,7 +59,7 @@ export default async function AboutUsPage({ params: { lang } }: { params: { lang
 
   return (
     <main>
-      <PageContent
+      <LazyContent
         content={pageContent.textualContent}
         title={pageContent.title}
         gallery={pageContent.photoGallery}

@@ -7,15 +7,12 @@ import Image from 'next/image';
 import { useWindowSize } from '@uidotdev/usehooks';
 import { heroImagesHomePage, videoResources } from '../pathsUtils/mediaImportsDynamic';
 import Loading from '../loading';
-
-// Dinamičko učitavanje ReactPlayer
 const ReactPlayerDy = dynamic(() => import('react-player/lazy'), { ssr: false, loading: () => <Loading /> });
 
 const checkImageUrl = async (url: string): Promise<boolean> => {
   try {
     const response = await fetch(url, {
       method: 'HEAD',
-      next: { revalidate: 3600 },
     });
     return response.ok;
   } catch (error) {
@@ -28,7 +25,6 @@ const HeroSection = () => {
   const [isReady, setIsReady] = useState(false);
   const [videoSource, setVideoSource] = useState<string | null>(null);
   const [isVideoValid, setIsVideoValid] = useState<boolean>(false);
-  const [videoLoaded, setVideoLoaded] = useState(false);
   const playerRef = useRef<any>(null);
 
   const onReady = useCallback(() => {
@@ -43,11 +39,7 @@ const HeroSection = () => {
       const isValid = await checkImageUrl(videoResources.homePage.video);
       setIsVideoValid(isValid);
       if (isValid) {
-        // Kašnjenje učitavanja videa
-        setTimeout(() => {
-          setVideoSource(videoResources.homePage.video);
-          setVideoLoaded(true);
-        }, 2000); // 2 sekunde kašnjenja
+        setVideoSource(videoResources.homePage.video);
       }
     };
 
@@ -57,7 +49,7 @@ const HeroSection = () => {
   return (
     <section className='bg-white dark:bg-gray-900 min-h-screen w-full'>
       <div className='relative w-full h-screen'>
-        {videoLoaded && isVideoValid && videoSource ? (
+        {isVideoValid && videoSource ? (
           <ReactPlayerDy
             ref={playerRef}
             url={videoSource}

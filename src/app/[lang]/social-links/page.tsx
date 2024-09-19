@@ -10,7 +10,6 @@ export default async function SocialLinksPage() {
     body: JSON.stringify({
       query: getAllSocialLinksQuery(),
     }),
-    // cache: 'no-cache',
   });
 
   const parseDataSocialLinks = await getAllSocialLinks.json();
@@ -18,6 +17,7 @@ export default async function SocialLinksPage() {
   const dataShorthand = parseDataSocialLinks.data.allDrustveneMrezeLinkovi.edges[0].node;
 
   //   const socialLinks: [string, string][] = Object.entries(dataShorthand.povezniceDrustvene);
+
   return (
     <main>
       <PageContent pageContent={dataShorthand} />

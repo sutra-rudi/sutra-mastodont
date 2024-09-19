@@ -1,7 +1,7 @@
 import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 import { getAllLegalneInformacijeQuery } from '@/app/queries/getAllLegalInfoQuery';
-import PageContent from './PageContent';
-
+import dynamic from 'next/dynamic';
+const LazyContent = dynamic(() => import('./PageContent'));
 export default async function LegalInfo({ params: { lang } }: { params: { lang: string } }) {
   const getAllLegal = await fetch(`${process.env.CMS_BASE_URL}`, {
     method: 'POST',
@@ -11,10 +11,6 @@ export default async function LegalInfo({ params: { lang } }: { params: { lang: 
     body: JSON.stringify({
       query: getAllLegalneInformacijeQuery(lang),
     }),
-    // cache: 'no-cache',
-    next: {
-      revalidate: 3600,
-    },
   });
 
   const parseData = await getAllLegal.json();
@@ -30,9 +26,10 @@ export default async function LegalInfo({ params: { lang } }: { params: { lang: 
       content: dataShorthand[`modulBazeTekstova${l}`]?.[`tekstBazaTekstova${l}`],
     },
   };
+
   return (
     <main>
-      <PageContent intro={prepareData.intro} pageContent={prepareData.pageContent} lang={lang} />
+      <LazyContent intro={prepareData.intro} pageContent={prepareData.pageContent} lang={lang} />
     </main>
   );
 }

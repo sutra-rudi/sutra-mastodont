@@ -1,8 +1,9 @@
 import { getSingleServicesOfferQuery } from '@/app/queries/getSingleUslugeQuery';
-import PageContent from './PageContent';
+
 import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 import Script from 'next/script';
-
+import dynamic from 'next/dynamic';
+const LazyContent = dynamic(() => import('./PageContent'));
 function generateServiceSchemaOrg(serviceData: any, lang: string) {
   const l = getSuffixFromLang(lang);
 
@@ -78,7 +79,7 @@ export default async function SingleServiceOfferPage({
 
   return (
     <main>
-      <PageContent
+      <LazyContent
         textContent={prepareIntroText}
         introImages={prepareIntroImages}
         gallery={prepareGallery}

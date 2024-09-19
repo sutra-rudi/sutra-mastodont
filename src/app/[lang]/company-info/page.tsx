@@ -1,6 +1,7 @@
 import { getAllCompanyInfoQuery } from '@/app/queries/getAllCompanyInfoQuery';
-import PageContent from './PageContent';
 import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
+import dynamic from 'next/dynamic';
+const LazyContent = dynamic(() => import('./PageContent'));
 
 export default async function CompanyInfo({ params: { lang } }: { params: { lang: string } }) {
   const getAllCompanyInfo = await fetch(`${process.env.CMS_BASE_URL}`, {
@@ -11,7 +12,6 @@ export default async function CompanyInfo({ params: { lang } }: { params: { lang
     body: JSON.stringify({
       query: getAllCompanyInfoQuery(lang),
     }),
-    // cache: 'no-cache',
   });
 
   const parseData = await getAllCompanyInfo.json();
@@ -30,7 +30,7 @@ export default async function CompanyInfo({ params: { lang } }: { params: { lang
 
   return (
     <main>
-      <PageContent content={prepareData} />
+      <LazyContent content={prepareData} />
     </main>
   );
 }

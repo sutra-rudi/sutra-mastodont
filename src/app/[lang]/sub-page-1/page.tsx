@@ -1,7 +1,8 @@
 import { getBazaTekstaPodstranice1ModulQuery } from '@/app/queries/getAllSubPage1Query';
 import PageContent from './PageContent';
 import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
-
+import dynamic from 'next/dynamic';
+const LazyContent = dynamic(() => import('./PageContent'));
 export async function generateMetadata({ params: { lang } }: { params: { lang: string } }) {
   const getSubPageOne = await fetch(`${process.env.CMS_BASE_URL}`, {
     method: 'POST',
@@ -11,7 +12,6 @@ export async function generateMetadata({ params: { lang } }: { params: { lang: s
     body: JSON.stringify({
       query: getBazaTekstaPodstranice1ModulQuery(lang),
     }),
-    // cache: 'no-cache',
   });
 
   const parseData = await getSubPageOne.json();
@@ -38,7 +38,6 @@ export default async function SubPageOne({ params: { lang } }: { params: { lang:
     body: JSON.stringify({
       query: getBazaTekstaPodstranice1ModulQuery(lang),
     }),
-    // cache: 'no-cache',
   });
 
   const parseData = await getSubPageOne.json();
@@ -59,7 +58,7 @@ export default async function SubPageOne({ params: { lang } }: { params: { lang:
 
   return (
     <main>
-      <PageContent content={prepareDataForClient} />
+      <LazyContent content={prepareDataForClient} />
     </main>
   );
 }

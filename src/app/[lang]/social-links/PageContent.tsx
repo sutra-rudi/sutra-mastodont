@@ -66,4 +66,3 @@ export const PageContent = ({ pageContent }: SocialLinksPageContent) => {
     </section>
   );
 };
-``;

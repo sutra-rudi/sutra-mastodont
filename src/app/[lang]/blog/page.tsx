@@ -1,8 +1,8 @@
 import { getAllBlogsQuery } from '@/app/queries/getAllBlogsQuery';
-import PageContent from './PageContent';
 import { getAdminBlogArchiveSettingsQuery } from '@/app/queries/getAdminBlogArchiveSettings';
 import { getCategoriesQuery } from '@/app/queries/getAllBlogCategoriesQuery';
-
+import dynamic from 'next/dynamic';
+const LazyContent = dynamic(() => import('./PageContent'));
 export default async function BlogPage({
   params: { lang },
   searchParams: { tag },
@@ -81,7 +81,7 @@ export default async function BlogPage({
 
   return (
     <main>
-      <PageContent
+      <LazyContent
         pageContent={dataShorthand}
         totalPosts={dataShorthand.length}
         adminSetup={settingsDataShorthand}

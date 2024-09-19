@@ -1,6 +1,6 @@
 import { getAdminBazaListaQuery, getListeQuery } from '@/app/queries/getAllListsQuery';
-import PageContent from './PageContent';
-
+import dynamic from 'next/dynamic';
+const LazyContent = dynamic(() => import('./PageContent'));
 export default async function ListePage({
   params: { lang },
   searchParams: { tag },
@@ -31,7 +31,6 @@ export default async function ListePage({
     body: JSON.stringify({
       query: getAdminBazaListaQuery(lang),
     }),
-    // cache: 'no-cache',
   });
 
   const adminListeRes = await getAllAdminListe.json();
@@ -39,9 +38,10 @@ export default async function ListePage({
   const adminListDataShorthand = adminListeRes.data.adminBazaLista.edges;
 
   const baseURL = process.env.CMS_PUBLIC_MEDIA_URL;
+
   return (
     <main className='w-full min-h-dvh dark:bg-primary-dark'>
-      <PageContent adminLists={adminListDataShorthand} pageContent={dataShorthand} lang={lang} baseURL={baseURL!} />
+      <LazyContent adminLists={adminListDataShorthand} pageContent={dataShorthand} lang={lang} baseURL={baseURL!} />
     </main>
   );
 }

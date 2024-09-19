@@ -1,7 +1,7 @@
 import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 import { getPojedinacnePoruketekstoviZaPrikazQuery } from '@/app/queries/getAllPojedinacnePorukeQuery';
-import PageContent from './PageContent';
-
+import dynamic from 'next/dynamic';
+const LazyContent = dynamic(() => import('./PageContent'));
 export default async function MessageSingles({ params: { lang } }: { params: { lang: string } }) {
   const getMessageSingles = await fetch(`${process.env.CMS_BASE_URL}`, {
     method: 'POST',
@@ -11,7 +11,6 @@ export default async function MessageSingles({ params: { lang } }: { params: { l
     body: JSON.stringify({
       query: getPojedinacnePoruketekstoviZaPrikazQuery(lang),
     }),
-    // cache: 'no-cache',
   });
 
   const parseData = await getMessageSingles.json();
@@ -31,7 +30,7 @@ export default async function MessageSingles({ params: { lang } }: { params: { l
 
   return (
     <main>
-      <PageContent content={prepareData} />
+      <LazyContent content={prepareData} />
     </main>
   );
 }
