@@ -11,7 +11,6 @@ import ReactPaginate from 'react-paginate';
 import { readingTime } from 'reading-time-estimator';
 import slugify from 'slugify';
 import { FaChevronLeft as PrevIcon, FaChevronRight as NextIcon } from 'react-icons/fa6';
-import { heroImagesArchiveBlog } from '@/app/pathsUtils/mediaImportsDynamic';
 import { FaTag as TagIcon } from 'react-icons/fa6';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion'; // Import framer-motion
@@ -33,13 +32,29 @@ const PageContent = ({ pageContent, adminSetup, lang, catList, currentLandingTag
   const [searchQuery, setSearchQuery] = React.useState('');
   const [sortAlphabetically, setSortAlphabetically] = React.useState<string>('');
   const [sortByDate, setSortByDate] = React.useState<string>('');
-
+  const [heroImagesArchiveBlog, setHeroImagesArchiveBlog] = React.useState<any>(null);
   const [currentActiveTag, setCurrentActiveTag] = React.useState<string | null>(currentLandingTag);
   const postsPerPage = Number(adminSetup.archiveItemsNumberOnSinglePage[0]);
   const offset = currentPage * postsPerPage;
 
   const l = getSuffixFromLang(lang);
   const router = useRouter();
+
+  React.useEffect(() => {
+    const fetchMediaPaths = async () => {
+      try {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_APP_URL}/api/mediaPaths`);
+        const data = await response.json();
+
+        console.log('Fetched media paths:', data.heroImagesArchiveBlog);
+        setHeroImagesArchiveBlog(data.heroImagesArchiveBlog);
+      } catch (error) {
+        console.error('Error fetching media paths:', error);
+      }
+    };
+
+    fetchMediaPaths();
+  }, []);
   // Filtriranje i sortiranje postova
   const processedPosts = React.useMemo(() => {
     let posts = [...pageContent];
@@ -169,17 +184,19 @@ const PageContent = ({ pageContent, adminSetup, lang, catList, currentLandingTag
   return (
     <section>
       <div className='w-full relative fill h-56'>
-        <Image
-          src={heroImagesArchiveBlog.desktop}
-          alt=''
-          fill
-          className='w-full h-full object-cover object-center'
-          onError={(e) => {
-            const target = e.target as HTMLImageElement;
-            target.src = 'https://placehold.co/400.png';
-            target.onerror = null;
-          }}
-        />
+        {heroImagesArchiveBlog && (
+          <Image
+            src={heroImagesArchiveBlog.desktop}
+            alt=''
+            fill
+            className='w-full h-full object-cover object-center'
+            onError={(e) => {
+              const target = e.target as HTMLImageElement;
+              target.src = 'https://placehold.co/400.png';
+              target.onerror = null;
+            }}
+          />
+        )}
       </div>
       <div className='max-w-[1440px] mx-auto my-4'>
         <CategoryTaxonomy />

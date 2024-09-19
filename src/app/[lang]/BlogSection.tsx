@@ -11,7 +11,6 @@ import { readingTime } from 'reading-time-estimator';
 import { FaTag as TagIcon } from 'react-icons/fa6';
 import { getRecords } from '../lib/airtable';
 import { useRouter } from 'next/navigation';
-// import { heroImagesArchiveBlog } from '../pathsUtils/mediaImportsDynamic';
 import { SutraTagWithIcon } from '../components/SutraTag';
 
 interface BlogSection {
@@ -33,7 +32,7 @@ const BlogSection = ({ pageContent, lang, categoriesList, tagsList, blogCtaKey, 
   React.useEffect(() => {
     const fetchMediaPaths = async () => {
       try {
-        const response = await fetch('/api/mediaPaths');
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_APP_URL}/api/mediaPaths`);
         const data = await response.json();
 
         console.log('Fetched media paths:', data);

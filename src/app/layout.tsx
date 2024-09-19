@@ -174,6 +174,24 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const fetchMediaPaths = async () => {
+    try {
+      const response = await fetch('/api/mediaPaths');
+      const data = await response.json();
+
+      console.log('Fetched media paths:', data);
+      return data;
+    } catch (error) {
+      console.error('Error fetching media paths:', error);
+    }
+  };
+
+  const mediaPaths = await fetch(`https://sutra-mastodont.vercel.app/api/mediaPaths`);
+  const parseMedia = await mediaPaths.json();
+
+  console.log('MEDIJA', parseMedia);
+
+  // fetchMediaPaths();
   const getAllTokens = await fetch(`${process.env.CMS_BASE_URL}`, {
     method: 'POST',
     headers: {

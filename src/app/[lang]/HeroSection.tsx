@@ -5,7 +5,7 @@ import { BsArrowRightShort as RightIcon } from 'react-icons/bs';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { useWindowSize } from '@uidotdev/usehooks';
-import { heroImagesHomePage, videoResources } from '../pathsUtils/mediaImportsDynamic';
+import { heroImagesHomePage } from '../pathsUtils/mediaImportsDynamic';
 import Loading from '../loading';
 
 const ReactPlayerDy = dynamic(() => import('react-player/lazy'), { ssr: false, loading: () => <Loading /> });
@@ -25,7 +25,7 @@ const checkImageUrl = async (url: string): Promise<boolean> => {
 
 const HeroSection = () => {
   const clientSize = useWindowSize();
-  const [videoSource, setVideoSource] = useState<string | null>(null);
+  const [videoSource, setVideoSource] = useState<any>(null);
   const [isVideoValid, setIsVideoValid] = useState<boolean>(false);
   const [isVideoReady, setIsVideoReady] = useState<boolean>(false);
   const [isVideoLoading, setIsVideoLoading] = useState<boolean>(false); // New state for video loading
@@ -41,11 +41,15 @@ const HeroSection = () => {
 
   useEffect(() => {
     const validateVideo = async () => {
+      const videoRes = await fetch(`${process.env.NEXT_PUBLIC_BASE_APP_URL}/api/mediaPaths`);
+      const videoResData = await videoRes.json();
       setIsVideoLoading(true); // Set loading to true when starting validation
-      const isValid = await checkImageUrl(videoResources.homePage.video);
+
+      console.log('VIDEO RES DATA', videoResData.videoResources);
+      const isValid = await checkImageUrl(videoResData.videoResources.homePage.video);
       setIsVideoValid(isValid);
       if (isValid) {
-        setVideoSource(videoResources.homePage.video);
+        setVideoSource(videoResData.videoResources.homePage);
       }
       setIsVideoLoading(false); // Set loading to false after validation
     };
@@ -72,7 +76,7 @@ const HeroSection = () => {
         {isVideoReady && videoSource && isVideoValid ? (
           <ReactPlayerDy
             ref={playerRef}
-            url={videoSource}
+            url={videoSource.video}
             playsinline
             pip
             muted
@@ -88,7 +92,7 @@ const HeroSection = () => {
                 attributes: {
                   poster: (
                     <Image
-                      src={videoResources.homePage.placeholder}
+                      src={videoSource.placeholder}
                       width={1600}
                       height={1200}
                       alt='poster for video'
