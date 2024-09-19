@@ -36,7 +36,6 @@ async function fetchData(query: any) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Cache-Control': 's-maxage=3600, stale-while-revalidate', // Cache API responses for an hour
       },
       body: JSON.stringify({ query }),
     });
