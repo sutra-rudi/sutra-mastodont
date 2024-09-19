@@ -1,5 +1,6 @@
 import { getLokacijeQuery } from '@/app/queries/getAllLocationsQuery';
-import PageContent from './PageContent';
+
+import dynamic from 'next/dynamic';
 
 export default async function LokacijePage({ params: { lang } }: { params: { lang: string } }) {
   const getAllLokacije = await fetch(`${process.env.CMS_BASE_URL}`, {
@@ -17,9 +18,11 @@ export default async function LokacijePage({ params: { lang } }: { params: { lan
 
   const locationsDataArrayShorthand = getAllLocations?.data?.lokacije?.edges || null;
 
+  const LazyContent = dynamic(() => import('./PageContent'));
+
   return (
     <main>
-      <PageContent pageContent={locationsDataArrayShorthand} />
+      <LazyContent pageContent={locationsDataArrayShorthand} />
     </main>
   );
 }

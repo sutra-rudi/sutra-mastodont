@@ -1,11 +1,11 @@
 import { getSingleBlogQuery } from '@/app/queries/getSingleBlogQuery';
-import PageContent from './PageContent';
 import { blogLanguageFields } from '@/app/pathsUtils/blogLanguageFields';
 import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 
 import { htmlToText } from 'html-to-text';
 import { UserLanguage } from '@/app/enums/LangEnum';
 import { ogImagesArchiveBlog } from '@/app/pathsUtils/mediaImportsDynamic';
+import dynamic from 'next/dynamic';
 
 export async function generateMetadata({ params: { lang, id } }: { params: { lang: string; id: string } }) {
   const getIdFromSlug = (slug: string): string => {
@@ -154,9 +154,11 @@ export default async function SingleBlogPage({ params: { lang, id } }: { params:
       };
     }) ?? [];
 
+  const LazyContent = dynamic(() => import('./PageContent'));
+
   return (
     <main>
-      <PageContent
+      <LazyContent
         content={prepareDataForClient.blog[languageField]}
         global={prepareDataForClient.blog.introBlog}
         gallery={prepareDataForClient.blog.photoGallery.fotogalerija}
