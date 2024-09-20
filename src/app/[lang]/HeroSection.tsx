@@ -6,6 +6,7 @@ import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { videoResources } from '../pathsUtils/mediaImportsDynamic';
 
+// Lazy loading the ReactPlayer component with SSR disabled
 const ReactPlayerDy = dynamic(() => import('react-player/lazy'), {
   ssr: false,
   loading: () => (
@@ -20,6 +21,7 @@ const ReactPlayerDy = dynamic(() => import('react-player/lazy'), {
   ),
 });
 
+// Function to check if the video URL is valid
 const checkImageUrl = async (url: string): Promise<boolean> => {
   try {
     const response = await fetch(url, {
@@ -36,7 +38,8 @@ const checkImageUrl = async (url: string): Promise<boolean> => {
 const HeroSection = () => {
   const [videoSource, setVideoSource] = useState<any>(null);
   const [isVideoReady, setIsVideoReady] = useState<boolean>(false);
-  const [isVideoLoading, setIsVideoLoading] = useState<boolean>(false); // New state for video loading
+  const [isVideoLoading, setIsVideoLoading] = useState<boolean>(false);
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
 
   useEffect(() => {
     setIsVideoLoading(true);
@@ -44,7 +47,10 @@ const HeroSection = () => {
       const videoRes = await checkImageUrl(videoResources.homePage.video);
 
       if (videoRes) {
-        setVideoSource({ source: videoResources.homePage.video, placeholdr: videoResources.homePage.placeholder });
+        setVideoSource({
+          source: videoResources.homePage.video,
+          placeholder: videoResources.homePage.placeholder,
+        });
         setIsVideoLoading(false);
         setIsVideoReady(true);
       }
@@ -53,7 +59,15 @@ const HeroSection = () => {
     validateVideo();
   }, []);
 
-  console.log('IS VIDEO RDY / SOURCE / VALID', isVideoReady, videoSource);
+  useEffect(() => {
+    if (isVideoReady) {
+      const timer = setTimeout(() => {
+        setIsPlaying(true); // Start the video after 2 seconds
+      }, 2000); // Adjust the delay time as needed
+
+      return () => clearTimeout(timer); // Cleanup the timer when component unmounts or dependencies change
+    }
+  }, [isVideoReady]);
 
   return (
     <section className='bg-white dark:bg-gray-900 min-h-screen w-full'>
@@ -66,9 +80,9 @@ const HeroSection = () => {
             muted
             loop
             volume={0}
-            width={'100%'}
-            height={'100%'}
-            playing={true}
+            width='100%'
+            height='100%'
+            playing={isPlaying}
             fallback={
               <Image
                 src={videoSource.placeholder}
@@ -82,16 +96,8 @@ const HeroSection = () => {
             config={{
               file: {
                 attributes: {
-                  poster: (
-                    <Image
-                      src={videoSource.placeholder}
-                      width={1600}
-                      height={1200}
-                      alt='poster for video'
-                      className='object-cover object-center block aspect-video'
-                      priority
-                    />
-                  ),
+                  preload: 'none', // Ensure video doesn't load until play
+                  poster: videoSource.placeholder, // Proper use of poster attribute
                 },
               },
             }}
