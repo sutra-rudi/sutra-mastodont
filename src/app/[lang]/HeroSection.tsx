@@ -5,7 +5,7 @@ import { BsArrowRightShort as RightIcon } from 'react-icons/bs';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { useWindowSize } from '@uidotdev/usehooks';
-import { heroImagesHomePage } from '../pathsUtils/mediaImportsDynamic';
+import { heroImagesHomePage, videoResources } from '../pathsUtils/mediaImportsDynamic';
 import Loading from '../loading';
 
 const ReactPlayerDy = dynamic(() => import('react-player/lazy'), { ssr: false, loading: () => <Loading /> });
@@ -40,35 +40,22 @@ const HeroSection = () => {
   }, []);
 
   useEffect(() => {
+    setIsVideoLoading(true);
     const validateVideo = async () => {
-      const videoRes = await fetch(`${process.env.NEXT_PUBLIC_BASE_APP_URL}/api/mediaPaths`);
-      const videoResData = await videoRes.json();
-      setIsVideoLoading(true); // Set loading to true when starting validation
+      const videoRes = await checkImageUrl(videoResources.homePage.video);
 
-      console.log('VIDEO RES DATA', videoResData.videoResources);
-      const isValid = await checkImageUrl(videoResData.videoResources.homePage.video);
-      setIsVideoValid(isValid);
-      if (isValid) {
-        setVideoSource(videoResData.videoResources.homePage);
+      if (videoRes) {
+        setIsVideoValid(videoRes);
+        setVideoSource({ source: videoResources.homePage.video, placeholdr: videoResources.homePage.placeholder });
+        setIsVideoLoading(false);
+        setIsVideoReady(true);
       }
-      setIsVideoLoading(false); // Set loading to false after validation
     };
 
     validateVideo();
   }, []);
 
-  useEffect(() => {
-    const handleLoad = () => {
-      console.log('VIDEO LOAD EVENT FIRED');
-      if (videoSource && isVideoValid) {
-        setIsVideoReady(true);
-      }
-    };
-
-    window.addEventListener('load', handleLoad);
-
-    return () => window.removeEventListener('load', handleLoad);
-  }, [videoSource, isVideoValid]);
+  console.log('IS VIDEO RDY / SOURCE / VALID', isVideoReady, videoSource, isVideoValid);
 
   return (
     <section className='bg-white dark:bg-gray-900 min-h-screen w-full'>
@@ -76,7 +63,7 @@ const HeroSection = () => {
         {isVideoReady && videoSource && isVideoValid ? (
           <ReactPlayerDy
             ref={playerRef}
-            url={videoSource.video}
+            url={videoSource.source}
             playsinline
             pip
             muted
@@ -85,38 +72,36 @@ const HeroSection = () => {
             width={'100%'}
             height={'100%'}
             playing={true}
-            onReady={onReady}
             fallback={<Loading />}
             config={{
               file: {
                 attributes: {
                   poster: (
                     <Image
-                      src={videoSource.placeholder}
+                      src={videoResources.homePage.placeholder}
                       width={1600}
                       height={1200}
                       alt='poster for video'
                       className='object-cover object-center block aspect-video'
+                      priority
                     />
                   ),
                 },
               },
             }}
           />
-        ) : isVideoLoading ? (
-          <Loading />
         ) : (
           <Image
             src={
               clientSize.width! > 1536
-                ? heroImagesHomePage.desktop
+                ? videoResources.homePage.placeholder
                 : clientSize.width! > 1024
-                ? heroImagesHomePage.desktopMiddle
-                : heroImagesHomePage.mobile
+                ? videoResources.homePage.placeholder
+                : videoResources.homePage.placeholder
             }
             alt='hero image'
             fill
-            className='w-full h-full object-cover object-center block'
+            className='object-cover object-center block aspect-video'
             priority
           />
         )}
