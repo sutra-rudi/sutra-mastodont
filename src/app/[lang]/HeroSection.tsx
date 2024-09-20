@@ -1,14 +1,24 @@
 'use client';
-import { useEffect, useState, useRef, useCallback } from 'react';
+import { useEffect, useState } from 'react';
 import { SutraButtonOutlined, SutraButtonWithIcon } from '../components/SutraButton';
 import { BsArrowRightShort as RightIcon } from 'react-icons/bs';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
-import { useWindowSize } from '@uidotdev/usehooks';
-import { heroImagesHomePage, videoResources } from '../pathsUtils/mediaImportsDynamic';
-import Loading from '../loading';
+import { videoResources } from '../pathsUtils/mediaImportsDynamic';
 
-const ReactPlayerDy = dynamic(() => import('react-player/lazy'), { ssr: false, loading: () => <Loading /> });
+const ReactPlayerDy = dynamic(() => import('react-player/lazy'), {
+  ssr: false,
+  loading: () => (
+    <Image
+      src={videoResources.homePage.placeholder}
+      width={1600}
+      height={1200}
+      alt='poster for video'
+      className='object-cover object-center block aspect-video w-full h-full mx-auto my-0'
+      priority
+    />
+  ),
+});
 
 const checkImageUrl = async (url: string): Promise<boolean> => {
   try {
@@ -24,20 +34,9 @@ const checkImageUrl = async (url: string): Promise<boolean> => {
 };
 
 const HeroSection = () => {
-  const clientSize = useWindowSize();
   const [videoSource, setVideoSource] = useState<any>(null);
-  const [isVideoValid, setIsVideoValid] = useState<boolean>(false);
   const [isVideoReady, setIsVideoReady] = useState<boolean>(false);
   const [isVideoLoading, setIsVideoLoading] = useState<boolean>(false); // New state for video loading
-  const playerRef = useRef<any>(null);
-
-  const onReady = useCallback(() => {
-    console.log('onReady called');
-    if (playerRef.current) {
-      playerRef.current.seekTo(0, 'seconds');
-      setIsVideoReady(true);
-    }
-  }, []);
 
   useEffect(() => {
     setIsVideoLoading(true);
@@ -45,7 +44,6 @@ const HeroSection = () => {
       const videoRes = await checkImageUrl(videoResources.homePage.video);
 
       if (videoRes) {
-        setIsVideoValid(videoRes);
         setVideoSource({ source: videoResources.homePage.video, placeholdr: videoResources.homePage.placeholder });
         setIsVideoLoading(false);
         setIsVideoReady(true);
@@ -55,14 +53,13 @@ const HeroSection = () => {
     validateVideo();
   }, []);
 
-  console.log('IS VIDEO RDY / SOURCE / VALID', isVideoReady, videoSource, isVideoValid);
+  console.log('IS VIDEO RDY / SOURCE / VALID', isVideoReady, videoSource);
 
   return (
     <section className='bg-white dark:bg-gray-900 min-h-screen w-full'>
-      <div className='relative w-full h-screen'>
-        {isVideoReady && videoSource && isVideoValid ? (
+      <div className='relative w-full h-full'>
+        {isVideoReady && videoSource && !isVideoLoading && (
           <ReactPlayerDy
-            ref={playerRef}
             url={videoSource.source}
             playsinline
             pip
@@ -72,13 +69,22 @@ const HeroSection = () => {
             width={'100%'}
             height={'100%'}
             playing={true}
-            fallback={<Loading />}
+            fallback={
+              <Image
+                src={videoSource.placeholder}
+                alt='hero image'
+                width={1600}
+                height={1200}
+                className='object-cover object-center block aspect-video'
+                priority
+              />
+            }
             config={{
               file: {
                 attributes: {
                   poster: (
                     <Image
-                      src={videoResources.homePage.placeholder}
+                      src={videoSource.placeholder}
                       width={1600}
                       height={1200}
                       alt='poster for video'
@@ -89,20 +95,6 @@ const HeroSection = () => {
                 },
               },
             }}
-          />
-        ) : (
-          <Image
-            src={
-              clientSize.width! > 1536
-                ? videoResources.homePage.placeholder
-                : clientSize.width! > 1024
-                ? videoResources.homePage.placeholder
-                : videoResources.homePage.placeholder
-            }
-            alt='hero image'
-            fill
-            className='object-cover object-center block aspect-video'
-            priority
           />
         )}
       </div>
