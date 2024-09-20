@@ -71,12 +71,12 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
     ];
 
     const results = await Promise.all([
-      fetchData(queries[0], true), // Blog data - no cache
+      fetchData(queries[0]),
       fetchData(queries[1]),
       fetchData(queries[2]),
       fetchData(queries[3]),
       fetchData(queries[4]),
-      fetchData(queries[5], true), // Testimonials - no cache
+      fetchData(queries[5]),
       fetchData(queries[6]),
       fetchData(queries[7]),
       fetchData(queries[8]),
