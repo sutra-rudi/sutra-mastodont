@@ -30,7 +30,7 @@ const DocumentsCatalogsSection = dynamic(() => import('./DocumentsCatalogsSectio
 const HeroSection = dynamic(() => import('./HeroSection'), { ssr: false });
 const NewsTrack = dynamic(() => import('../components/NewsTrack'), { loading: () => <Loading /> });
 
-async function fetchData(query: any) {
+async function fetchData(query: any, noCache: boolean = false) {
   try {
     const response = await fetch(`${process.env.CMS_BASE_URL}`, {
       method: 'POST',
@@ -38,6 +38,7 @@ async function fetchData(query: any) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ query }),
+      cache: noCache ? 'no-store' : 'default', // Add cache control
     });
 
     if (!response.ok) {
@@ -69,7 +70,20 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       getAdminCtaSelectionQuery(),
     ];
 
-    const results = await Promise.all(queries.map((query) => fetchData(query)));
+    const results = await Promise.all([
+      fetchData(queries[0], true), // Blog data - no cache
+      fetchData(queries[1]),
+      fetchData(queries[2]),
+      fetchData(queries[3]),
+      fetchData(queries[4]),
+      fetchData(queries[5], true), // Testimonials - no cache
+      fetchData(queries[6]),
+      fetchData(queries[7]),
+      fetchData(queries[8]),
+      fetchData(queries[9]),
+      fetchData(queries[10]),
+      fetchData(queries[11]),
+    ]);
 
     const [
       getAllBlogs,
