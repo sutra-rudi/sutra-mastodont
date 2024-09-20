@@ -58,7 +58,7 @@ const HeroSection = () => {
   return (
     <section className='bg-white dark:bg-gray-900 min-h-screen w-full'>
       <div className='relative w-full h-full'>
-        {isVideoReady && videoSource && !isVideoLoading && (
+        {isVideoReady && videoSource && !isVideoLoading ? (
           <ReactPlayerDy
             url={videoSource.source}
             playsinline
@@ -96,10 +96,19 @@ const HeroSection = () => {
               },
             }}
           />
+        ) : (
+          <Image
+            src={videoResources.homePage.placeholder}
+            width={1600}
+            height={1200}
+            alt='poster for video'
+            className='object-cover object-center block aspect-video w-full h-full mx-auto my-0'
+            priority
+          />
         )}
       </div>
 
-      <div className='grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12'>
+      <div className='grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 w-full h-full'>
         <div className='mr-auto place-self-center lg:col-span-7'>
           <h1 className='max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white'>
             Studio Sutra Mastodont
