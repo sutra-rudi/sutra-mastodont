@@ -46,7 +46,6 @@ const PageContent = ({ pageContent, adminSetup, lang, catList, currentLandingTag
         const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_APP_URL}/api/mediaPaths`);
         const data = await response.json();
 
-        console.log('Fetched media paths:', data.heroImagesArchiveBlog);
         setHeroImagesArchiveBlog(data.heroImagesArchiveBlog);
       } catch (error) {
         console.error('Error fetching media paths:', error);

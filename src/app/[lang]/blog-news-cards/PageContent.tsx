@@ -50,8 +50,6 @@ const PageContent = ({ pageContent, lang }: BlogSection) => {
                 };
               });
 
-              // console.log('KARTICE', contentCardShorthand);
-
               const imgSource = contentCardShorthand.thumbnail
                 ? contentCardShorthand.thumbnail.node.sourceUrl
                 : contentCardShorthand.naslovnaSlika

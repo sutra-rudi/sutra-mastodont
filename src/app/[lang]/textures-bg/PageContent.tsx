@@ -1,5 +1,4 @@
 import Image from 'next/image';
-// import { bgTextures } from '@/app/pathsUtils/mediaImportsDynamic';
 
 interface BgTexturesContent {
   bgTextures: any;

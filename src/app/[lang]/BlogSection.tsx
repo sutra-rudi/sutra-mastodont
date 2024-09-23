@@ -35,7 +35,6 @@ const BlogSection = ({ pageContent, lang, categoriesList, tagsList, blogCtaKey, 
         const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_APP_URL}/api/mediaPaths`);
         const data = await response.json();
 
-        console.log('Fetched media paths:', data);
         setMediaPaths(data);
       } catch (error) {
         console.error('Error fetching media paths:', error);
