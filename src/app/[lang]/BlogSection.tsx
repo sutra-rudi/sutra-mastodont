@@ -26,7 +26,7 @@ const BlogSection = ({ pageContent, lang, categoriesList, tagsList, blogCtaKey, 
   const [blogCta, setBlogCta] = React.useState<string>('');
   const [mediaPaths, setMediaPaths] = React.useState<any>(null);
   const l = getSuffixFromLang(lang);
-
+  //commit
   const router = useRouter();
 
   React.useEffect(() => {
