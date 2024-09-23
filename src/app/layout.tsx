@@ -200,7 +200,6 @@ export default async function RootLayout({
     }
   }
 
-  // Poziv funkcije
   const adminTokenDataShorthand = await fetchAdminTokens();
 
   async function fetchAdminTekstoviManjihKomponenti() {
@@ -231,7 +230,6 @@ export default async function RootLayout({
     }
   }
 
-  // Poziv funkcije
   const adminTekstoviShorthand = await fetchAdminTekstoviManjihKomponenti();
 
   const getUserCookieConsent = cookies().get('@sutra-cookies-consent')?.value;
@@ -264,16 +262,14 @@ export default async function RootLayout({
     }
   }
 
-  // Poziv funkcije
   const parseSchemaData = await fetchBasicSchemaOrg();
 
   const schemaBasicData = generateSeoSchemaOrg(parseSchemaData);
 
   const ClientHeader = dynamic(() => import('./globalComponents/AppHeader'), { ssr: false });
 
-  // Dohvati kolačić 'lang'
   const cookieStore = cookies();
-  const lang = (cookieStore.get('@sutra-user-lang')?.value as UserLanguage) || 'hr'; // Zadani jezik ako nema kolačića
+  const lang = (cookieStore.get('@sutra-user-lang')?.value as UserLanguage) || 'hr';
 
   return (
     <html

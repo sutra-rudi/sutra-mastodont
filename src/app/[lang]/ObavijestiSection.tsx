@@ -29,7 +29,6 @@ const ObavijestiSection = ({ pageContent, lang }: ObavijestiNaStraniciInterface)
                 key={cont.node.id}
                 id='default-modal'
                 tabIndex={-1}
-                // aria-hidden='true'
                 className='overflow-y-auto overflow-x-hidden  z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full'
               >
                 <div className='relative p-4 w-full max-w-2xl max-h-full'>

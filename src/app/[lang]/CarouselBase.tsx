@@ -47,7 +47,6 @@ const CarouselBase = ({ imageArray }: CarouselBase) => {
                     src={gal.node.sourceUrl}
                     alt={gal.node.alt ?? 'Some image'}
                     className='object-cover object-center aspect-video block'
-                    // loading='lazy'
                   />
                 </div>
               );

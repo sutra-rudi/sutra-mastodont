@@ -61,8 +61,6 @@ const WhyUsSection = ({ pageContent, lang }: WhyUsSectionInterface) => {
           })}
         </div>
 
-        {/* /////////////// */}
-
         <div className='-mx-4 flex flex-wrap p-8'>
           {pageContent.map((cont: any) => {
             const shorthandTitle = cont.node[`text${l}`];
@@ -105,8 +103,6 @@ const WhyUsSection = ({ pageContent, lang }: WhyUsSectionInterface) => {
             );
           })}
         </div>
-
-        {/* ////////////// */}
 
         <div className='max-w-4xl mx-auto px-5 mt-16'>
           <div className='text-center'>

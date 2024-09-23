@@ -31,6 +31,7 @@ import '@uploadcare/blocks/web/lr-file-uploader-regular.min.css';
 LR.registerBlocks(LR);
 
 import 'dayjs/locale/hr';
+import Image from 'next/image';
 
 interface ContactPageInterface {
   personsData: any;
@@ -760,17 +761,15 @@ const PageContent = ({
               )}
               {files.map((file) => (
                 <div key={file.uuid} className='mt-6 flex items-start gap-1 flex-wrap justify-between'>
-                  <picture>
-                    <img
-                      key={file.uuid}
-                      src={`${file.cdnUrl}/-/preview/-/resize/x400/`}
-                      width='200'
-                      height='200'
-                      alt={`Original: ${file.fileInfo.originalFilename || 'Nema imena'}`}
-                      title={file.fileInfo.originalFilename || ''}
-                      className='text-secondary-dark dark:text-secondary-light'
-                    />
-                  </picture>
+                  <Image
+                    key={file.uuid}
+                    src={`${file.cdnUrl}/-/preview/-/resize/x400/`}
+                    width='200'
+                    height='200'
+                    alt={`Original: ${file.fileInfo.originalFilename || 'Nema imena'}`}
+                    title={file.fileInfo.originalFilename || ''}
+                    className='text-secondary-dark dark:text-secondary-light'
+                  />
 
                   <p className='text-secondary-dark dark:text-secondary-light text-sm flex items-center gap-2'>
                     <FileIcon /> <span>Ime: {file.fileInfo.originalFilename}</span>

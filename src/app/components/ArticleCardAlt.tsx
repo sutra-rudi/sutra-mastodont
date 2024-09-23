@@ -128,13 +128,13 @@ export const ArticleCardHorizontal = ({
               {author && (
                 <div className='flex gap-3 items-center '>
                   {author.avatar && (
-                    <picture>
-                      <img
-                        src={author.avatar.url}
-                        alt='profile pic of author'
-                        className='w-10 h-10 object-cover object-center block aspect-square'
-                      />
-                    </picture>
+                    <Image
+                      src={author.avatar.url}
+                      alt='profile pic of author'
+                      width={40}
+                      height={40}
+                      className='object-cover object-center block aspect-square'
+                    />
                   )}
 
                   <p className='text-xs font-medium text-secondary-dark dark:text-secondary-light'>{`${author.firstName} ${author.lastName}`}</p>

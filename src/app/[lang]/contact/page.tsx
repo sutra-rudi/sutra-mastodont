@@ -26,7 +26,6 @@ export default async function ContactPage({ params: { lang } }: { params: { lang
     body: JSON.stringify({
       query: getKontaktiSektorQuery(lang),
     }),
-    // cache: 'no-cache',
   });
 
   const getAllContactSemantics = await fetch(`${process.env.CMS_BASE_URL}`, {
@@ -37,7 +36,6 @@ export default async function ContactPage({ params: { lang } }: { params: { lang
     body: JSON.stringify({
       query: getAdminContactFormSemanticsQuery(lang),
     }),
-    // cache: 'no-cache',
   });
 
   const parseDataSectors = await getAllContactSectors.json();

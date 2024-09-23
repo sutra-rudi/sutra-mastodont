@@ -6,7 +6,6 @@ import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { videoResources } from '../pathsUtils/mediaImportsDynamic';
 
-// Lazy loading the ReactPlayer component with SSR disabled
 const ReactPlayerDy = dynamic(() => import('react-player/lazy'), {
   ssr: false,
   loading: () => (
@@ -21,7 +20,6 @@ const ReactPlayerDy = dynamic(() => import('react-player/lazy'), {
   ),
 });
 
-// Function to check if the video URL is valid
 const checkImageUrl = async (url: string): Promise<boolean> => {
   try {
     const response = await fetch(url, {
@@ -62,10 +60,10 @@ const HeroSection = () => {
   useEffect(() => {
     if (isVideoReady) {
       const timer = setTimeout(() => {
-        setIsPlaying(true); // Start the video after 2 seconds
-      }, 2000); // Adjust the delay time as needed
+        setIsPlaying(true);
+      }, 2000);
 
-      return () => clearTimeout(timer); // Cleanup the timer when component unmounts or dependencies change
+      return () => clearTimeout(timer);
     }
   }, [isVideoReady]);
 

@@ -1,5 +1,4 @@
 export const maxDuration = 60;
-// export const revalidate = 3600; // revalidate at most every hour
 
 import { Suspense } from 'react';
 import dynamic from 'next/dynamic';

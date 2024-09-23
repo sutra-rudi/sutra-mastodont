@@ -37,7 +37,6 @@ export default async function AboutUsPage({ params: { lang } }: { params: { lang
     body: JSON.stringify({
       query: getAllONamaQuery(lang),
     }),
-    // cache: 'no-cache',
   });
 
   const parseData = await getAboutUs.json();

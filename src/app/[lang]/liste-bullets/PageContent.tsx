@@ -1,6 +1,7 @@
 'use client';
 
 import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
+import Image from 'next/image';
 import React from 'react';
 import slugify from 'slugify';
 
@@ -104,18 +105,23 @@ const PageContent = ({ pageContent, lang, baseURL, adminLists }: ListePageConten
                               <span className='absolute left-1/2 -translate-x-1/2 text-primary-dark dark:text-primary-light z-20'>
                                 {index + 1}
                               </span>
-                              <picture>
-                                <img src={fullURL} className='w-6 h-6 object-cover object-center' alt='' />
-                              </picture>
+
+                              <Image
+                                src={fullURL}
+                                width={24}
+                                height={24}
+                                className='object-cover object-center'
+                                alt='list custom tag'
+                              />
                             </div>
                           ) : (
-                            <picture>
-                              <img
-                                src={fullURL}
-                                alt='image for list item'
-                                className='w-6 h-6 object-cover object-center'
-                              />
-                            </picture>
+                            <Image
+                              src={fullURL}
+                              width={24}
+                              height={24}
+                              className='object-cover object-center'
+                              alt='list custom tag'
+                            />
                           )}
                           <span className='text-base font-normal dark:text-primary-light'>{list}</span>
                         </li>
