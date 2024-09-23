@@ -54,7 +54,7 @@ export default async function GalleryPage() {
       filterImages(media.galleryImages.gallery6),
     ]);
 
-  console.log('deploy');
+  // console.log('deploy');
 
   return (
     <main className='w-full min-h-screen bg-almost-white dark:bg-almost-black'>
