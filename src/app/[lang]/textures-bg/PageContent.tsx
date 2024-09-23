@@ -1,7 +1,11 @@
 import Image from 'next/image';
-import { bgTextures } from '@/app/pathsUtils/mediaImportsDynamic';
+// import { bgTextures } from '@/app/pathsUtils/mediaImportsDynamic';
 
-const PageContent = () => {
+interface BgTexturesContent {
+  bgTextures: any;
+}
+
+const PageContent = ({ bgTextures }: BgTexturesContent) => {
   return (
     <div className='p-4'>
       {Object.keys(bgTextures).map((key) => (

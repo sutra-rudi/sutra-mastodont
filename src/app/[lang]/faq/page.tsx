@@ -59,7 +59,7 @@ export default async function FaqPage({ params: { lang } }: { params: { lang: st
   };
 
   return (
-    <main>
+    <main className='min-h-screen w-full'>
       <LazyContent
         pageContent={faqOnePagerDataArrayShorthand}
         lang={lang}

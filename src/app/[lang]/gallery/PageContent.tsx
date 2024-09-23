@@ -36,7 +36,6 @@ const PageContent = ({
 
   const handleClick = (index: number) => setIndex(index);
 
-  // Priprema za prikaz galerija
   const imageArray1 = filteredGallery1.map((image, index) => (
     <Image
       key={`${index}-${image.src}`}
@@ -101,7 +100,6 @@ const PageContent = ({
 
   return (
     <div className='p-4'>
-      {/* Osnovni prikaz slika */}
       <div className='flex flex-col gap-2 items-center justify-center'>
         <h2 className='font-bold mb-4 text-center text-4xl text-primary-dark dark:text-primary-light'>
           Basic galerija
@@ -116,7 +114,6 @@ const PageContent = ({
         </div>
       )}
 
-      {/* React Grid Gallery s Lightbox funkcionalnošću */}
       <div className='mb-8'>
         <div className='flex flex-col gap-2 items-center justify-center'>
           <h2 className='font-bold mb-4 text-center text-4xl text-primary-dark dark:text-primary-light'>
@@ -145,7 +142,6 @@ const PageContent = ({
         )}
       </div>
 
-      {/* React Slick Carousel */}
       <div className='mb-8'>
         <div className='flex flex-col gap-2 items-center justify-center'>
           <h2 className='font-bold mb-4 text-center text-4xl text-primary-dark dark:text-primary-light'>
@@ -178,7 +174,6 @@ const PageContent = ({
         )}
       </div>
 
-      {/* Masonry Galerija */}
       <div className='mb-8'>
         <div className='flex flex-col gap-2 items-center justify-center'>
           <h2 className='font-bold mb-4 text-center text-4xl text-primary-dark dark:text-primary-light'>
@@ -189,16 +184,16 @@ const PageContent = ({
         {filteredGallery6.length > 0 ? (
           <div
             style={{
-              columnCount: 3, // Broj stupaca
-              columnGap: '15px', // Razmak između stupaca
+              columnCount: 3,
+              columnGap: '15px',
             }}
           >
             {masonryImages.map((image, index) => (
               <div
                 key={index}
                 style={{
-                  marginBottom: '15px', // Razmak između slika
-                  breakInside: 'avoid', // Sprečava da se slika razdvoji između stupaca
+                  marginBottom: '15px',
+                  breakInside: 'avoid',
                 }}
               >
                 <Image
@@ -210,7 +205,7 @@ const PageContent = ({
                   style={{
                     width: '100%',
                     display: 'block',
-                    borderRadius: '8px', // Zaokruživanje rubova
+                    borderRadius: '8px',
                   }}
                   className='w-full h-auto object-cover object-center aspect-video'
                 />

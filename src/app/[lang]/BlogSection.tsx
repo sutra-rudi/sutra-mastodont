@@ -125,7 +125,7 @@ const BlogSection = ({ pageContent, lang, categoriesList, tagsList, blogCtaKey, 
       </div>
     );
   };
-  console.log('MEDIA PATQHS', mediaPaths);
+
   return (
     <section className='min-h-screen'>
       <h2 className='w-full text-center text-7xl font-semibold pt-8'>Blogovi</h2>
