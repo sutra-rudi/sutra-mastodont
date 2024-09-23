@@ -102,8 +102,6 @@ export const metadata: Metadata = {
 };
 
 function generateSeoSchemaOrg(data: any) {
-  // console.log('SCHEMA DATA', data.data?.seoSchemaOrg?.edges[0]);
-  //
   const companyInfo = data?.data?.seoSchemaOrg?.edges[0]?.node?.osnovneInformacijeOWebstraniciNapredniSeo;
   const contactInfo = companyInfo?.kontaktInformacijeContactPoint;
   const offerings = companyInfo?.offerings;
@@ -174,75 +172,100 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const fetchMediaPaths = async () => {
+  async function fetchAdminTokens() {
     try {
-      const response = await fetch('/api/mediaPaths');
+      const response = await fetch(`${process.env.CMS_BASE_URL}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          query: getAdminTokensQuery(),
+        }),
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('Response error:', errorText);
+        throw new Error(`Fetch error: ${response.statusText}`);
+      }
+
       const data = await response.json();
+      const adminTokenDataShorthand = data?.data?.kodoviApitokenStylebox?.edges[0]?.node;
 
-      console.log('Fetched media paths:', data);
-      return data;
-    } catch (error) {
-      console.error('Error fetching media paths:', error);
+      return adminTokenDataShorthand;
+    } catch (error: any) {
+      console.error('Fetch error:', error.message);
+      throw error;
     }
-  };
-
-  const mediaPaths = await fetch(`https://sutra-mastodont.vercel.app/api/mediaPaths`);
-  const parseMedia = await mediaPaths.json();
-
-  console.log('MEDIJA', parseMedia);
-
-  // fetchMediaPaths();
-  const getAllTokens = await fetch(`${process.env.CMS_BASE_URL}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      query: getAdminTokensQuery(),
-    }),
-    // cache: 'no-cache',
-  });
-
-  if (!getAllTokens.ok) {
-    const errorText = await getAllTokens.text();
-    console.error('Response error:', errorText);
-    throw new Error(`Fetch error: ${getAllTokens.statusText}`);
   }
 
-  const adminTokenData = await getAllTokens.json();
+  // Poziv funkcije
+  const adminTokenDataShorthand = await fetchAdminTokens();
 
-  const adminTokenDataShorthand = adminTokenData.data.kodoviApitokenStylebox.edges[0].node;
+  async function fetchAdminTekstoviManjihKomponenti() {
+    try {
+      const response = await fetch(`${process.env.CMS_BASE_URL}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          query: getAdminTekstoviManjihKomponentiQuery(),
+        }),
+      });
 
-  const getAllCookies = await fetch(`${process.env.CMS_BASE_URL}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      query: getAdminTekstoviManjihKomponentiQuery(),
-    }),
-    // cache: 'no-cache',
-  });
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('Response error:', errorText);
+        throw new Error(`Fetch error: ${response.statusText}`);
+      }
 
-  const adminTekstoviManjihKomponenti = await getAllCookies.json();
+      const data = await response.json();
+      const adminTekstoviShorthand = data?.data?.allAdminTekstoviManjihKomponenti?.edges[0]?.node;
 
-  const adminTekstoviShorthand = adminTekstoviManjihKomponenti.data.allAdminTekstoviManjihKomponenti.edges[0].node;
+      return adminTekstoviShorthand;
+    } catch (error: any) {
+      console.error('Fetch error:', error.message);
+      throw error;
+    }
+  }
+
+  // Poziv funkcije
+  const adminTekstoviShorthand = await fetchAdminTekstoviManjihKomponenti();
 
   const getUserCookieConsent = cookies().get('@sutra-cookies-consent')?.value;
 
   const userEnabledAllCookies = getUserCookieConsent === 'true';
 
-  const getBasicSchemaOrg = await fetch(`${process.env.CMS_BASE_URL}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      query: getBasicSchemaOrgProjectQuery(),
-    }),
-  });
+  async function fetchBasicSchemaOrg() {
+    try {
+      const response = await fetch(`${process.env.CMS_BASE_URL}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          query: getBasicSchemaOrgProjectQuery(),
+        }),
+      });
 
-  const parseSchemaData = await getBasicSchemaOrg.json();
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('Response error:', errorText);
+        throw new Error(`Fetch error: ${response.statusText}`);
+      }
+
+      const data = await response.json();
+      return data;
+    } catch (error: any) {
+      console.error('Fetch error:', error.message);
+      throw error;
+    }
+  }
+
+  // Poziv funkcije
+  const parseSchemaData = await fetchBasicSchemaOrg();
 
   const schemaBasicData = generateSeoSchemaOrg(parseSchemaData);
 
