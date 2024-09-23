@@ -17,7 +17,6 @@ import { getCategoriesQuery } from '../queries/getAllBlogCategoriesQuery';
 import { getTagsQuery } from '../queries/getAllTagsQuery';
 import { getAdminCtaSelectionQuery } from '../queries/getAdminCtaSelectionQuery';
 
-// Dynamic loading components
 const BlogSection = dynamic(() => import('./BlogSection'), { loading: () => <Loading /> });
 const BrojcaniciSection = dynamic(() => import('./BrojcaniciSection'), { loading: () => <Loading /> });
 const UslugeSection = dynamic(() => import('./UslugeSection'), { loading: () => <Loading /> });
