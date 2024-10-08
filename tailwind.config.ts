@@ -10,10 +10,6 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'brand-clr': '#4E4848',
-        'primary-light': '#C3C6B6',
-        'secondary-light': '#DDDFD6',
-        'primary-dark': '#192E29',
         'secondary-dark': '#11201D',
         error: '#FF7A00',
         success: '#C6FF00',

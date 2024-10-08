@@ -37,14 +37,16 @@ const PageContent = ({ pageContent, lang, defaultRadno, tjedniRaspored }: RadnaV
     <section className='w-full min-h-dvh px-4'>
       <div className='w-full max-w-[1440px] mx-auto my-0 border-b border-accent/25'>
         <div className='w-full mx-auto flex flex-col place-items-center gap-4 py-6'>
-          <h1 className='text-3xl font-bold dark:text-primary-light'>Radna vremena prijatelju moj</h1>
-          <p className='italic text-xl text-primary-dark/25 dark:text-primary-light'>...Đavo ih odnio...</p>
+          <h1 className='text-3xl font-bold dark:text-primarna-svijetla'>Radna vremena prijatelju moj</h1>
+          <p className='italic text-xl text-primarna-tamna/25 dark:text-primarna-svijetla'>...Đavo ih odnio...</p>
         </div>
         <div className='w-full grid grid-cols-1 place-items-center gap-4 my-12'>
-          <h2 className='max-w-prose text-2xl font-semibold dark:text-primary-light'>{displayField ?? 'Nema polja'}</h2>
+          <h2 className='max-w-prose text-2xl font-semibold dark:text-primarna-svijetla'>
+            {displayField ?? 'Nema polja'}
+          </h2>
 
           <div className=''>
-            <p className='underline dark:text-primary-light'>
+            <p className='underline dark:text-primarna-svijetla'>
               Vrijedi od: <span>{dayjs(vrijediOdSez).format('DD.MM.YYYY')}</span> do:{' '}
               {dayjs(vrijediDoSez).format('DD.MM.YYYY')}
             </p>
@@ -54,11 +56,11 @@ const PageContent = ({ pageContent, lang, defaultRadno, tjedniRaspored }: RadnaV
 
       <div className='w-full max-w-[1440px] mx-auto my-0 border-b border-accent/25'>
         <div className='w-full mx-auto flex flex-col place-items-center gap-4 py-6'>
-          <h1 className='text-3xl font-bold dark:text-primary-light'>Radna vremena default prijatelju moj</h1>
-          <p className='italic text-xl text-primary-dark/25 dark:text-primary-light'>...Đavo ih donio...</p>
+          <h1 className='text-3xl font-bold dark:text-primarna-svijetla'>Radna vremena default prijatelju moj</h1>
+          <p className='italic text-xl text-primarna-tamna/25 dark:text-primarna-svijetla'>...Đavo ih donio...</p>
         </div>
         <div className='w-full grid grid-cols-1 place-items-center gap-4 my-12'>
-          <h2 className='max-w-prose text-2xl font-semibold dark:text-primary-light'>
+          <h2 className='max-w-prose text-2xl font-semibold dark:text-primarna-svijetla'>
             {parse(displayFieldDefault) ?? 'Nema polja'}
           </h2>
         </div>
@@ -68,17 +70,17 @@ const PageContent = ({ pageContent, lang, defaultRadno, tjedniRaspored }: RadnaV
         <div className='py-4'>
           <div className='w-full mx-auto flex flex-col place-items-center gap-4 py-6'>
             <h4 className='font-medium text-accent-boja text-lg '>Sezonsko radno vrijeme prijatelju moj</h4>
-            <p className='italic text-xl text-primary-dark/25 dark:text-primary-light'>...Đavo ga donio...</p>
+            <p className='italic text-xl text-primarna-tamna/25 dark:text-primarna-svijetla'>...Đavo ga donio...</p>
           </div>
 
           <div className='w-full flex items-center justify-start'>
-            <p className='flex items-center justify-start gap-1 dark:text-primary-light'>
-              <span className='font-medium dark:text-primary-light'>Vrijedi od:</span>
-              <span className='italic underline px-1 dark:text-primary-light'>
+            <p className='flex items-center justify-start gap-1 dark:text-primarna-svijetla'>
+              <span className='font-medium dark:text-primarna-svijetla'>Vrijedi od:</span>
+              <span className='italic underline px-1 dark:text-primarna-svijetla'>
                 {dayjs(uvodShorthand.vrijediOd).format('DD.MM.YYYY')}
               </span>
-              <span className='font-medium dark:text-primary-light'>do:</span>
-              <span className='italic underline px-1 dark:text-primary-light'>
+              <span className='font-medium dark:text-primarna-svijetla'>do:</span>
+              <span className='italic underline px-1 dark:text-primarna-svijetla'>
                 {dayjs(uvodShorthand.vrijediDo).format('DD.MM.YYYY')}
               </span>
             </p>
@@ -87,10 +89,10 @@ const PageContent = ({ pageContent, lang, defaultRadno, tjedniRaspored }: RadnaV
       )}
 
       <div className='w-full mx-auto flex flex-col place-items-center gap-4 py-6'>
-        <h1 className='text-3xl font-bold dark:text-primary-light'>Tjedni raspored prijatelju moj</h1>
-        <p className='italic text-xl text-primary-dark/25 dark:text-primary-light'>...Đavo ga odnio...</p>
+        <h1 className='text-3xl font-bold dark:text-primarna-svijetla'>Tjedni raspored prijatelju moj</h1>
+        <p className='italic text-xl text-primarna-tamna/25 dark:text-primarna-svijetla'>...Đavo ga odnio...</p>
         {notifyShort && (
-          <div className='prose prose-p:text-base prose-p:text-balance dark:prose-p:text-primary-light dark:prose-strong:text-primary-light text-center'>
+          <div className='prose prose-p:text-base prose-p:text-balance dark:prose-p:text-primarna-svijetla dark:prose-strong:text-primarna-svijetla text-center'>
             {parse(notifyShort)}
           </div>
         )}

@@ -39,7 +39,7 @@ const PageContent = ({ pageContent }: PartnersSectionInterface) => {
           })}
         </Marquee>
 
-        <div className='w-full flex items-center justify-start gap-6 bg-primary-dark dark:bg-primary-light mt-16 overflow-hidden'>
+        <div className='w-full flex items-center justify-start gap-6 bg-primarna-tamna dark:bg-primarna-svijetla mt-16 overflow-hidden'>
           <Marquee direction='right'>
             {duplicatedContent.map((cont: any) => {
               const imageSourcesShorthand = cont.node.logotipiPartnera.logoPNG.node;
@@ -72,7 +72,7 @@ const PageContent = ({ pageContent }: PartnersSectionInterface) => {
               cont.node.logotipiPartnera.prikaziNaNaslovnici && (
                 <Link
                   key={cont.node.id}
-                  className=' mx-4 flex-shrink-0 w-full px-12 py-10 border border-secondary-light flex items-center justify-center'
+                  className=' mx-4 flex-shrink-0 w-full px-12 py-10 border border-sekundarna-svijetla flex items-center justify-center'
                   href={cont.node.logotipiPartnera.linkNaStranicuKlijentapartnera}
                 >
                   <Image

@@ -113,7 +113,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
     return (
       <Suspense fallback={<Loading />}>
-        <main className='relative w-full dark:bg-primary-dark '>
+        <main className='relative w-full dark:bg-primarna-tamna '>
           <HeroSection />
 
           {blogDataArrayShorthand.length > 0 && (

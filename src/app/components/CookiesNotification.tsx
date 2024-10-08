@@ -85,13 +85,13 @@ const CookieConsentNotification = ({ pageContent }: CookieInt) => {
           hideOnDecline
         >
           <div className='w-full h-full flex flex-col items-start gap-2'>
-            <h3 className='text-lg font-bold text-primary-light flex items-center justify-start gap-2'>
+            <h3 className='text-lg font-bold text-primarna-svijetla flex items-center justify-start gap-2'>
               <CookieIcon />
               <span>{contentShorthand.naslov}</span>
             </h3>
-            <p className='text-primary-light text-sm'>{contentShorthand.tekst}</p>
+            <p className='text-primarna-svijetla text-sm'>{contentShorthand.tekst}</p>
 
-            <p className='text-primary-light italic text-xs'>{contentShorthand.napomena}</p>
+            <p className='text-primarna-svijetla italic text-xs'>{contentShorthand.napomena}</p>
 
             <Link
               href={`/${currentLang}/legal-info`}

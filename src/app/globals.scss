@@ -75,7 +75,7 @@ body {
 
     &:is(.dark *) {
       background-color: transparent;
-      outline: 1px solid theme('colors.secondary-light');
+      outline: 1px solid theme('colors.sekundarna-svijetla');
 
       @apply ring-0;
     }
@@ -84,7 +84,7 @@ body {
     @apply text-secondary-dark;
 
     &:is(.dark *) {
-      @apply text-secondary-light;
+      @apply text-sekundarna-svijetla;
       @apply ring-0 outline-none;
       background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 12l2 2l4 -4" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
     }

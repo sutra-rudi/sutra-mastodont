@@ -212,7 +212,7 @@ const PageContent = ({ pageContent, adminSetup, lang, catList, currentLandingTag
               setCurrentPage(0);
             }}
             placeholder='Pretraži blogove...'
-            className='w-full px-4 py-2 border border-accent/15 rounded max-w-lg transition-all ease-in-out focus:border-accent focus:ring-1 focus:ring-accent focus:outline-none placeholder:text-secondary-light active:placeholder:text-secondary-dark focus:placeholder:text-secondary-dark'
+            className='w-full px-4 py-2 border border-accent/15 rounded max-w-lg transition-all ease-in-out focus:border-accent focus:ring-1 focus:ring-accent focus:outline-none placeholder:text-sekundarna-svijetla active:placeholder:text-secondary-dark focus:placeholder:text-secondary-dark'
           />
         </div>
       )}

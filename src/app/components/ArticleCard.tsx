@@ -146,7 +146,7 @@ const ArticleCard = ({
             )}
 
             {categories.length > 0 && (
-              <div className='text-sm font-semibold py-[10px]  text-secondary-dark dark:text-secondary-light uppercase text-nowrap'>
+              <div className='text-sm font-semibold py-[10px]  text-secondary-dark dark:text-sekundarna-svijetla uppercase text-nowrap'>
                 {categories.map((kata) => {
                   return <span key={kata.catName}>{kata.catName}</span>;
                 })}
@@ -160,14 +160,14 @@ const ArticleCard = ({
             <h5 className='mb-2 text-2xl font-bold tracking-tight text-accent-boja leading-sutraCardTitleLineHeight flex items-start gap-2'>
               <span>{title}</span>
               <ArrowIcon
-                className={`shrink-0 text-secondary-dark dark:text-secondary-light mt-1 ${'group-hover:rotate-45 origin-center transition-all duration-200 ease-out group-hover:translate-x-4'}`}
+                className={`shrink-0 text-secondary-dark dark:text-sekundarna-svijetla mt-1 ${'group-hover:rotate-45 origin-center transition-all duration-200 ease-out group-hover:translate-x-4'}`}
               />
             </h5>
           </a>
 
           {introContent && (
             <div
-              className={`prose prose-p:text-secondary-dark dark:prose-p:text-secondary-light prose-p:text-base my-3 line-clamp-4 ${
+              className={`prose prose-p:text-secondary-dark dark:prose-p:text-sekundarna-svijetla prose-p:text-base my-3 line-clamp-4 ${
                 isHorizontal ? '' : 'prose-p:leading-[24px]'
               }`}
             >
@@ -186,7 +186,7 @@ const ArticleCard = ({
           {boolSwitches.isWithAuthor && <div className='w-full bg-sutraCardDivider h-px'></div>}
 
           {date && (
-            <div className='text-xs text-primary-light font-medium py-6'>
+            <div className='text-xs text-primarna-svijetla font-medium py-6'>
               <span>{date}</span>
             </div>
           )}
@@ -205,16 +205,16 @@ const ArticleCard = ({
                       </picture>
                     )}
 
-                    <p className='text-xs font-medium text-secondary-dark dark:text-secondary-light'>{`${author.firstName} ${author.lastName}`}</p>
+                    <p className='text-xs font-medium text-secondary-dark dark:text-sekundarna-svijetla'>{`${author.firstName} ${author.lastName}`}</p>
                   </div>
                 )}
 
                 {author && (
                   <div className='flex gap-3 items-center'>
-                    <p className='text-xs font-medium text-primary-dark dark:text-secondary-light'>{`${author.firstName} ${author.lastName}`}</p>
+                    <p className='text-xs font-medium text-primarna-tamna dark:text-sekundarna-svijetla'>{`${author.firstName} ${author.lastName}`}</p>
                     <div className='w-[3px] h-[3px] bg-secondary-dark rounded-full'></div>
                     {date && (
-                      <div className='text-xs text-secondary-dark dark:text-secondary-light font-medium'>
+                      <div className='text-xs text-secondary-dark dark:text-sekundarna-svijetla font-medium'>
                         <span>{date}</span>
                       </div>
                     )}
@@ -223,12 +223,12 @@ const ArticleCard = ({
 
                 {author && (
                   <div className='flex gap-3 items-center'>
-                    <p className='text-xs font-medium text-primary-dark dark:text-secondary-light'>
+                    <p className='text-xs font-medium text-primarna-tamna dark:text-sekundarna-svijetla'>
                       Autor: {`${author.firstName} ${author.lastName}`}
                     </p>
                     <div className='w-[3px] h-[3px] bg-secondary-dark rounded-full'></div>
                     {date && (
-                      <div className='text-xs text-secondary-dark font-medium dark:text-secondary-light'>
+                      <div className='text-xs text-secondary-dark font-medium dark:text-sekundarna-svijetla'>
                         <span>{date}</span>
                       </div>
                     )}
@@ -247,10 +247,10 @@ const ArticleCard = ({
                       </picture>
                     )}
 
-                    <p className='text-xs font-medium text-secondary-dark dark:text-secondary-light'>{`${author.firstName} ${author.lastName}`}</p>
+                    <p className='text-xs font-medium text-secondary-dark dark:text-sekundarna-svijetla'>{`${author.firstName} ${author.lastName}`}</p>
 
                     {date && (
-                      <div className='text-xs text-secondary-dark dark:text-secondary-light font-medium flex items-center gap-2'>
+                      <div className='text-xs text-secondary-dark dark:text-sekundarna-svijetla font-medium flex items-center gap-2'>
                         <CalendarIcon /> <span>{date}</span>
                       </div>
                     )}
@@ -258,7 +258,7 @@ const ArticleCard = ({
                 )}
 
                 {readTime && (
-                  <div className='text-xs text-secondary-dark dark:text-secondary-light flex items-center gap-1 text-nowrap font-medium pb-12'>
+                  <div className='text-xs text-secondary-dark dark:text-sekundarna-svijetla flex items-center gap-1 text-nowrap font-medium pb-12'>
                     <ClockIcon />
                     <span>{readTime.text}</span>
                   </div>

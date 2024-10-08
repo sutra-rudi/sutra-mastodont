@@ -150,7 +150,7 @@ export default async function RadnaVremena({
   );
 
   return (
-    <main className='w-full min-h-screen pb-12 dark:bg-primary-dark'>
+    <main className='w-full min-h-screen pb-12 dark:bg-primarna-tamna'>
       {dataShorthandSezonsko && (
         <LazyContent
           defaultRadno={defaultShorthand}

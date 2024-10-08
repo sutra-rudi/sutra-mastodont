@@ -22,8 +22,8 @@ export const SutraButtonBase = ({ innerText, size, isAccentButton, onClickAction
           : ''
       } transition-all ease-in-out py-[0.75rem] px-[1.125rem]  hover:scale-105 active:outline active:outline-sutraButtonOutline ${
         isAccentButton
-          ? 'bg-accent text-sutraButtonText hover:text-accent-boja hover:bg-primary-dark active:outline-accent'
-          : 'bg-primary-dark text-sutraButtonText  dark:bg-primary-light dark:text-primary-dark hover:bg-primary-light hover:text-primary-dark active:outline-accent dark:hover:bg-primary-dark dark:hover:text-secondary-light'
+          ? 'bg-accent text-sutraButtonText hover:text-accent-boja hover:bg-primarna-tamna active:outline-accent'
+          : 'bg-primarna-tamna text-sutraButtonText  dark:bg-primarna-svijetla dark:text-primarna-tamna hover:bg-primarna-svijetla hover:text-primarna-tamna active:outline-accent dark:hover:bg-primarna-tamna dark:hover:text-sekundarna-svijetla'
       }  `}
     >
       {innerText}
@@ -62,7 +62,7 @@ export const SutraButtonOutlined = ({ innerText, size }: SutraButtonBaseInterfac
           : size === 'large'
           ? 'text-lg rounded-sutraButtonBorderRadiusLarge'
           : ''
-      } transition-all ease-in-out py-[0.75rem] px-[1.125rem]  hover:scale-105 outline outline-sutraButtonOutlineAsPrim outline-primary-dark text-primary-dark hover:text-accent-boja hover:outline-sutraButtonOutlineAsPrimHover active:outline-sutraButtonOutlineAsPrimHover dark:outline-primary-light dark:text-primary-light `}
+      } transition-all ease-in-out py-[0.75rem] px-[1.125rem]  hover:scale-105 outline outline-sutraButtonOutlineAsPrim outline-primarna-tamna text-primarna-tamna hover:text-accent-boja hover:outline-sutraButtonOutlineAsPrimHover active:outline-sutraButtonOutlineAsPrimHover dark:outline-primarna-svijetla dark:text-primarna-svijetla `}
     >
       {innerText}
     </button>
@@ -81,7 +81,7 @@ export const SutraButtonGhost = ({ innerText, size }: SutraButtonBaseInterface) 
           : size === 'large'
           ? 'text-lg rounded-sutraButtonBorderRadiusLarge'
           : ''
-      } transition-all ease-in-out py-[0.75rem] px-[1.125rem]  hover:scale-105 outline outline-sutraButtonOutlineAsPrim outline-primary-dark text-primary-dark  active:outline-sutraButtonOutlineAsPrimHover dark:outline-primary-light dark:text-accent-boja opacity-ghostButtonOpacity`}
+      } transition-all ease-in-out py-[0.75rem] px-[1.125rem]  hover:scale-105 outline outline-sutraButtonOutlineAsPrim outline-primarna-tamna text-primarna-tamna  active:outline-sutraButtonOutlineAsPrimHover dark:outline-primarna-svijetla dark:text-accent-boja opacity-ghostButtonOpacity`}
     >
       {innerText}
     </button>
@@ -102,8 +102,8 @@ export const SutraButtonLink = ({ innerText, size, isAccentButton }: SutraButton
           : ''
       } transition-all ease-in-out py-[0.75rem] px-[1.125rem] ${
         isAccentButton
-          ? 'text-accent-boja dark:text-accent-boja hover:text-primary-dark dark:hover:text-primary-light active:text-primary-dark dark:active:text-primary-light'
-          : ' text-primary-dark hover:text-accent-boja dark:hover:text-accent-boja active:text-primary-dark dark:text-primary-light dark:active:text-primary-light'
+          ? 'text-accent-boja dark:text-accent-boja hover:text-primarna-tamna dark:hover:text-primarna-svijetla active:text-primarna-tamna dark:active:text-primarna-svijetla'
+          : ' text-primarna-tamna hover:text-accent-boja dark:hover:text-accent-boja active:text-primarna-tamna dark:text-primarna-svijetla dark:active:text-primarna-svijetla'
       }`}
     >
       {innerText}
@@ -129,7 +129,7 @@ export const SutraButtonWithIcon = ({
           : size === 'large'
           ? 'text-lg rounded-sutraButtonBorderRadiusLarge'
           : ''
-      } transition-all ease-in-out py-[0.75rem] px-[1.125rem] flex items-center gap-2 bg-accent text-sutraButtonText hover:text-accent-boja hover:bg-primary-dark active:outline-accent`}
+      } transition-all ease-in-out py-[0.75rem] px-[1.125rem] flex items-center gap-2 bg-accent text-sutraButtonText hover:text-accent-boja hover:bg-primarna-tamna active:outline-accent`}
     >
       {FrontIcon && <FrontIcon className='shrink-0' />}
       <span>{innerText}</span>

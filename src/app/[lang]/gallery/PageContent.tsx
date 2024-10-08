@@ -101,10 +101,10 @@ const PageContent = ({
   return (
     <div className='p-4'>
       <div className='flex flex-col gap-2 items-center justify-center'>
-        <h2 className='font-bold mb-4 text-center text-4xl text-primary-dark dark:text-primary-light'>
+        <h2 className='font-bold mb-4 text-center text-4xl text-primarna-tamna dark:text-primarna-svijetla'>
           Basic galerija
         </h2>
-        <p className='text-primary-dark dark:text-primary-light'>Koristi slike iz gallery 1 mape</p>
+        <p className='text-primarna-tamna dark:text-primarna-svijetla'>Koristi slike iz gallery 1 mape</p>
       </div>
       {filteredGallery1.length > 0 ? (
         <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8'>{imageArray1}</div>
@@ -116,10 +116,10 @@ const PageContent = ({
 
       <div className='mb-8'>
         <div className='flex flex-col gap-2 items-center justify-center'>
-          <h2 className='font-bold mb-4 text-center text-4xl text-primary-dark dark:text-primary-light'>
+          <h2 className='font-bold mb-4 text-center text-4xl text-primarna-tamna dark:text-primarna-svijetla'>
             Galerija sa lightboxom
           </h2>
-          <p className='text-primary-dark dark:text-primary-light'>Koristi slike iz gallery 2 mape</p>
+          <p className='text-primarna-tamna dark:text-primarna-svijetla'>Koristi slike iz gallery 2 mape</p>
         </div>
         {imageArray2.length > 0 ? (
           <>
@@ -144,10 +144,10 @@ const PageContent = ({
 
       <div className='mb-8'>
         <div className='flex flex-col gap-2 items-center justify-center'>
-          <h2 className='font-bold mb-4 text-center text-4xl text-primary-dark dark:text-primary-light'>
+          <h2 className='font-bold mb-4 text-center text-4xl text-primarna-tamna dark:text-primarna-svijetla'>
             Galerija karuzel
           </h2>
-          <p className='text-primary-dark dark:text-primary-light'>Koristi slike iz gallery 4 mape</p>
+          <p className='text-primarna-tamna dark:text-primarna-svijetla'>Koristi slike iz gallery 4 mape</p>
         </div>
         {filteredGallery4.length > 0 ? (
           <Slider {...multipleRows}>{slickImages}</Slider>
@@ -160,10 +160,10 @@ const PageContent = ({
 
       <div className='mb-8'>
         <div className='flex flex-col gap-2 items-center justify-center'>
-          <h2 className='font-bold mb-4 text-center text-4xl text-primary-dark dark:text-primary-light'>
+          <h2 className='font-bold mb-4 text-center text-4xl text-primarna-tamna dark:text-primarna-svijetla'>
             Galerija karuzel autoplay
           </h2>
-          <p className='text-primary-dark dark:text-primary-light'>Koristi slike iz gallery 5 mape</p>
+          <p className='text-primarna-tamna dark:text-primarna-svijetla'>Koristi slike iz gallery 5 mape</p>
         </div>
         {filteredGallery5.length > 0 ? (
           <Slider {...infiScrollSettings}>{slickImagesInfi}</Slider>
@@ -176,10 +176,10 @@ const PageContent = ({
 
       <div className='mb-8'>
         <div className='flex flex-col gap-2 items-center justify-center'>
-          <h2 className='font-bold mb-4 text-center text-4xl text-primary-dark dark:text-primary-light'>
+          <h2 className='font-bold mb-4 text-center text-4xl text-primarna-tamna dark:text-primarna-svijetla'>
             Masonry galerija
           </h2>
-          <p className='text-primary-dark dark:text-primary-light'>Koristi slike iz gallery 6 mape</p>
+          <p className='text-primarna-tamna dark:text-primarna-svijetla'>Koristi slike iz gallery 6 mape</p>
         </div>
         {filteredGallery6.length > 0 ? (
           <div
@@ -221,10 +221,10 @@ const PageContent = ({
 
       <div className='mb-8'>
         <div className='flex flex-col gap-2 items-center justify-center'>
-          <h2 className='font-bold mb-4 text-center text-4xl text-primary-dark dark:text-primary-light'>
+          <h2 className='font-bold mb-4 text-center text-4xl text-primarna-tamna dark:text-primarna-svijetla'>
             Tailwindblocks Masonry galerija
           </h2>
-          <p className='text-primary-dark dark:text-primary-light'>
+          <p className='text-primarna-tamna dark:text-primarna-svijetla'>
             Koristi slike iz gallery 5 mape i iz gallery 3 mape
           </p>
         </div>

@@ -80,7 +80,7 @@ export const ArticleCardHorizontal = ({
             )}
 
             {categories.length > 0 && (
-              <div className='text-sm font-semibold py-[10px]  text-secondary-dark dark:text-secondary-light uppercase text-nowrap'>
+              <div className='text-sm font-semibold py-[10px]  text-secondary-dark dark:text-sekundarna-svijetla uppercase text-nowrap'>
                 {categories.map((kata) => {
                   return <span key={kata.catName}>{kata.catName}</span>;
                 })}
@@ -98,12 +98,12 @@ export const ArticleCardHorizontal = ({
             <a href={url}>
               <h5 className='mb-2 text-2xl font-bold tracking-tight text-accent-boja leading-sutraCardTitleLineHeight  flex'>
                 <span>{title}</span>
-                <ArrowIcon className='shrink-0 text-secondary-dark dark:text-secondary-light' />
+                <ArrowIcon className='shrink-0 text-secondary-dark dark:text-sekundarna-svijetla' />
               </h5>
             </a>
 
             {introContent && (
-              <div className='prose prose-p:text-secondary-dark dark:prose-p:text-secondary-light prose-p:text-base  my-3 line-clamp-4'>
+              <div className='prose prose-p:text-secondary-dark dark:prose-p:text-sekundarna-svijetla prose-p:text-base  my-3 line-clamp-4'>
                 {parse(introContent)}
               </div>
             )}
@@ -119,7 +119,7 @@ export const ArticleCardHorizontal = ({
             <div className='w-full bg-sutraCardDivider h-px'></div>
 
             {date && (
-              <div className='text-xs  text-primary-light font-medium py-6'>
+              <div className='text-xs  text-primarna-svijetla font-medium py-6'>
                 <span>{date}</span>
               </div>
             )}
@@ -137,16 +137,16 @@ export const ArticleCardHorizontal = ({
                     />
                   )}
 
-                  <p className='text-xs font-medium text-secondary-dark dark:text-secondary-light'>{`${author.firstName} ${author.lastName}`}</p>
+                  <p className='text-xs font-medium text-secondary-dark dark:text-sekundarna-svijetla'>{`${author.firstName} ${author.lastName}`}</p>
                 </div>
               )}
 
               {author && (
                 <div className='flex gap-3 items-center'>
-                  <p className='text-xs font-medium text-primary-dark dark:text-secondary-light'>{`${author.firstName} ${author.lastName}`}</p>
+                  <p className='text-xs font-medium text-primarna-tamna dark:text-sekundarna-svijetla'>{`${author.firstName} ${author.lastName}`}</p>
                   <div className='w-[3px] h-[3px] bg-secondary-dark rounded-full'></div>
                   {date && (
-                    <div className='text-xs  text-secondary-dark dark:text-secondary-light font-medium'>
+                    <div className='text-xs  text-secondary-dark dark:text-sekundarna-svijetla font-medium'>
                       <span>{date}</span>
                     </div>
                   )}
@@ -155,12 +155,12 @@ export const ArticleCardHorizontal = ({
 
               {author && (
                 <div className='flex gap-3 items-center'>
-                  <p className='text-xs font-medium text-primary-dark dark:text-secondary-light'>
+                  <p className='text-xs font-medium text-primarna-tamna dark:text-sekundarna-svijetla'>
                     Autor: {`${author.firstName} ${author.lastName}`}
                   </p>
                   <div className='w-[3px] h-[3px] bg-secondary-dark rounded-full'></div>
                   {date && (
-                    <div className='text-xs  text-secondary-dark font-medium dark:text-secondary-light'>
+                    <div className='text-xs  text-secondary-dark font-medium dark:text-sekundarna-svijetla'>
                       <span>{date}</span>
                     </div>
                   )}
@@ -179,10 +179,10 @@ export const ArticleCardHorizontal = ({
                     </picture>
                   )}
 
-                  <p className='text-xs font-medium text-secondary-dark dark:text-secondary-light'>{`${author.firstName} ${author.lastName}`}</p>
+                  <p className='text-xs font-medium text-secondary-dark dark:text-sekundarna-svijetla'>{`${author.firstName} ${author.lastName}`}</p>
 
                   {date && (
-                    <div className='text-xs  text-secondary-dark dark:text-secondary-light font-medium flex items-center gap-2 '>
+                    <div className='text-xs  text-secondary-dark dark:text-sekundarna-svijetla font-medium flex items-center gap-2 '>
                       <CalendarIcon /> <span>{date}</span>
                     </div>
                   )}
@@ -190,7 +190,7 @@ export const ArticleCardHorizontal = ({
               )}
 
               {readTime && (
-                <div className='text-xs text-secondary-dark dark:text-secondary-light flex items-center gap-1 text-nowrap font-medium pb-12'>
+                <div className='text-xs text-secondary-dark dark:text-sekundarna-svijetla flex items-center gap-1 text-nowrap font-medium pb-12'>
                   <ClockIcon />
                   <span>{readTime.text}</span>
                 </div>
@@ -231,7 +231,7 @@ export const ArticleCardFullImage = ({
 
       <div className='absolute top-0 right-0 flex flex-col items-end justify-end'>
         {categories.length > 0 && (
-          <div className='text-xs font-medium py-1 px-2 text-secondary-light bg-almost-black/70   text-nowrap'>
+          <div className='text-xs font-medium py-1 px-2 text-sekundarna-svijetla bg-almost-black/70   text-nowrap'>
             {categories.map((kata) => {
               return <span key={kata.catName}>{kata.catName}</span>;
             })}
@@ -310,7 +310,7 @@ export const ArticleCardTextCard = ({
         <div className='absolute top-0 w-full h-4 bg-accent'></div>
         <div className='px-11 py-8 w-full'>
           {date && (
-            <div className='text-xs  font-medium flex items-center gap-2 text-primary-light'>
+            <div className='text-xs  font-medium flex items-center gap-2 text-primarna-svijetla'>
               <span>{date}</span>
             </div>
           )}
@@ -386,13 +386,13 @@ export const ArticleCardMiniCard = ({
           )}
 
           <a href={url}>
-            <h5 className='mb-2 mt-2 text-sm font-semibold tracking-tight text-primary-dark leading-[20px]'>
+            <h5 className='mb-2 mt-2 text-sm font-semibold tracking-tight text-primarna-tamna leading-[20px]'>
               <span>{title}</span>
             </h5>
           </a>
 
           {readTime && (
-            <div className='text-xs text-primary-light flex items-center gap-1 text-nowrap font-medium '>
+            <div className='text-xs text-primarna-svijetla flex items-center gap-1 text-nowrap font-medium '>
               <ClockIcon />
               <span>{readTime.text}</span>
             </div>

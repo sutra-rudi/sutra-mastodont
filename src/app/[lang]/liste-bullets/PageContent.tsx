@@ -38,7 +38,7 @@ const PageContent = ({ pageContent, lang, baseURL, adminLists }: ListePageConten
 
   return (
     <section className='w-full px-12 py-16'>
-      <h2 className='w-full text-3xl font-medium text-center py-8 text-primary-dark dark:text-primary-light'>
+      <h2 className='w-full text-3xl font-medium text-center py-8 text-primarna-tamna dark:text-primarna-svijetla'>
         Admin liste
       </h2>
       <div className='w-full max-w-[1440px] mx-auto my-0 grid grid-cols-2 gap-4 gap-y-8 place-items-start'>
@@ -53,15 +53,15 @@ const PageContent = ({ pageContent, lang, baseURL, adminLists }: ListePageConten
             const introField = nodeCont.node[contentFieldMaster][`listaUvod${l}`];
             return (
               <div key={nodeCont.node.title}>
-                {/* <h2 className='text-2xl font-medium py-4 dark:text-primary-light'>{nodeCont.node.title}</h2> */}
+                {/* <h2 className='text-2xl font-medium py-4 dark:text-primarna-svijetla'>{nodeCont.node.title}</h2> */}
                 {introField.naslov && (
                   <div className='pt-4'>
-                    <h3 className='text-2xl font-medium  dark:text-primary-light'>{introField.naslov}</h3>
+                    <h3 className='text-2xl font-medium  dark:text-primarna-svijetla'>{introField.naslov}</h3>
                   </div>
                 )}
                 {introField.nadnaslovpodnaslovOpcionalno && (
                   <div className='pt-1'>
-                    <h5 className='text-lg font-medium  dark:text-primary-light'>
+                    <h5 className='text-lg font-medium  dark:text-primarna-svijetla'>
                       {introField.nadnaslovpodnaslovOpcionalno}
                     </h5>
                   </div>
@@ -69,7 +69,7 @@ const PageContent = ({ pageContent, lang, baseURL, adminLists }: ListePageConten
 
                 {introField.uvodnaRecenica && (
                   <div className='pt-1'>
-                    <p className='text-base font-medium  dark:text-primary-light'>{introField.uvodnaRecenica}</p>
+                    <p className='text-base font-medium  dark:text-primarna-svijetla'>{introField.uvodnaRecenica}</p>
                   </div>
                 )}
                 {triageOfIcons !== 'Brojevi' ? (
@@ -102,7 +102,7 @@ const PageContent = ({ pageContent, lang, baseURL, adminLists }: ListePageConten
                             </picture>
                           ) : checkIfNumber === 'Broj' ? (
                             <div className='relative'>
-                              <span className='absolute left-1/2 -translate-x-1/2 text-primary-dark dark:text-primary-light z-20'>
+                              <span className='absolute left-1/2 -translate-x-1/2 text-primarna-tamna dark:text-primarna-svijetla z-20'>
                                 {index + 1}
                               </span>
 
@@ -123,7 +123,7 @@ const PageContent = ({ pageContent, lang, baseURL, adminLists }: ListePageConten
                               alt='list custom tag'
                             />
                           )}
-                          <span className='text-base font-normal dark:text-primary-light'>{list}</span>
+                          <span className='text-base font-normal dark:text-primarna-svijetla'>{list}</span>
                         </li>
                       );
                     })}
@@ -141,19 +141,19 @@ const PageContent = ({ pageContent, lang, baseURL, adminLists }: ListePageConten
                             return 'accent';
                           }
                           if (clr === 'Primarna tamna') {
-                            return 'primary-dark';
+                            return 'primarna-tamna';
                           }
                           if (clr === 'Primarna svijetla') {
-                            return 'primary-light';
+                            return 'primarna-svijetla';
                           }
                         }
                       };
 
                       return (
-                        <li key={index} className='flex items-center justify-start gap-3 dark:text-primary-light'>
+                        <li key={index} className='flex items-center justify-start gap-3 dark:text-primarna-svijetla'>
                           <span
                             className={`bg-${clrPathDict()} rounded-full w-6 h-6  flex items-center justify-center ${
-                              clrPathDict() === 'primary-dark' && 'text-primary-light dark:text-primary-dark'
+                              clrPathDict() === 'primarna-tamna' && 'text-primarna-svijetla dark:text-primarna-tamna'
                             }`}
                           >
                             {index + 1}
@@ -168,7 +168,7 @@ const PageContent = ({ pageContent, lang, baseURL, adminLists }: ListePageConten
             );
           })}
       </div>
-      <h2 className='w-full text-3xl font-medium text-center py-8 text-primary-dark dark:text-primary-light'>
+      <h2 className='w-full text-3xl font-medium text-center py-8 text-primarna-tamna dark:text-primarna-svijetla'>
         Ostale liste
       </h2>
       <div className='w-full max-w-[1440px] mx-auto my-0 grid grid-cols-2 gap-4 gap-y-8 place-items-start'>
@@ -183,15 +183,15 @@ const PageContent = ({ pageContent, lang, baseURL, adminLists }: ListePageConten
             const introField = nodeCont.node[contentFieldMaster][`listaUvod${l}`];
             return (
               <div key={nodeCont.node.title}>
-                {/* <h2 className='text-2xl font-medium py-4 dark:text-primary-light'>{nodeCont.node.title}</h2> */}
+                {/* <h2 className='text-2xl font-medium py-4 dark:text-primarna-svijetla'>{nodeCont.node.title}</h2> */}
                 {introField.naslov && (
                   <div className='pt-4'>
-                    <h3 className='text-2xl font-medium  dark:text-primary-light'>{introField.naslov}</h3>
+                    <h3 className='text-2xl font-medium  dark:text-primarna-svijetla'>{introField.naslov}</h3>
                   </div>
                 )}
                 {introField.nadnaslovpodnaslovOpcionalno && (
                   <div className='pt-1'>
-                    <h5 className='text-lg font-medium  dark:text-primary-light'>
+                    <h5 className='text-lg font-medium  dark:text-primarna-svijetla'>
                       {introField.nadnaslovpodnaslovOpcionalno}
                     </h5>
                   </div>
@@ -199,7 +199,7 @@ const PageContent = ({ pageContent, lang, baseURL, adminLists }: ListePageConten
 
                 {introField.uvodnaRecenica && (
                   <div className='pt-1'>
-                    <p className='text-base font-medium  dark:text-primary-light'>{introField.uvodnaRecenica}</p>
+                    <p className='text-base font-medium  dark:text-primarna-svijetla'>{introField.uvodnaRecenica}</p>
                   </div>
                 )}
                 {triageOfIcons !== 'Brojevi' ? (
@@ -232,7 +232,7 @@ const PageContent = ({ pageContent, lang, baseURL, adminLists }: ListePageConten
                             </picture>
                           ) : checkIfNumber === 'Broj' ? (
                             <div className='relative'>
-                              <span className='absolute left-1/2 -translate-x-1/2 text-primary-dark dark:text-primary-light z-20'>
+                              <span className='absolute left-1/2 -translate-x-1/2 text-primarna-tamna dark:text-primarna-svijetla z-20'>
                                 {index + 1}
                               </span>
                               <picture>
@@ -248,7 +248,7 @@ const PageContent = ({ pageContent, lang, baseURL, adminLists }: ListePageConten
                               />
                             </picture>
                           )}
-                          <span className='text-base font-normal dark:text-primary-light'>{list}</span>
+                          <span className='text-base font-normal dark:text-primarna-svijetla'>{list}</span>
                         </li>
                       );
                     })}
@@ -266,19 +266,19 @@ const PageContent = ({ pageContent, lang, baseURL, adminLists }: ListePageConten
                             return 'accent';
                           }
                           if (clr === 'Primarna tamna') {
-                            return 'primary-dark';
+                            return 'primarna-tamna';
                           }
                           if (clr === 'Primarna svijetla') {
-                            return 'primary-light';
+                            return 'primarna-svijetla';
                           }
                         }
                       };
 
                       return (
-                        <li key={index} className='flex items-center justify-start gap-3 dark:text-primary-light'>
+                        <li key={index} className='flex items-center justify-start gap-3 dark:text-primarna-svijetla'>
                           <span
                             className={`bg-${clrPathDict()} rounded-full w-6 h-6  flex items-center justify-center ${
-                              clrPathDict() === 'primary-dark' && 'text-primary-light dark:text-primary-dark'
+                              clrPathDict() === 'primarna-tamna' && 'text-primarna-svijetla dark:text-primarna-tamna'
                             }`}
                           >
                             {index + 1}

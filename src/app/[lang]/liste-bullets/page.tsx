@@ -40,7 +40,7 @@ export default async function ListePage({
   const baseURL = process.env.CMS_PUBLIC_MEDIA_URL;
 
   return (
-    <main className='w-full min-h-dvh dark:bg-primary-dark'>
+    <main className='w-full min-h-dvh dark:bg-primarna-tamna'>
       <LazyContent adminLists={adminListDataShorthand} pageContent={dataShorthand} lang={lang} baseURL={baseURL!} />
     </main>
   );

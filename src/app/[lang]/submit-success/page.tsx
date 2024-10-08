@@ -12,7 +12,7 @@ export default async function SubmitSuccess({
   return (
     <main className='w-full h-full min-h-svh'>
       <div className='flex flex-col items-start gap-8 max-w-sutraBlogTestMaxWidth mx-auto'>
-        <h2 className='text-2xl leading-normal text-primary-dark font-bold'>
+        <h2 className='text-2xl leading-normal text-primarna-tamna font-bold'>
           Pozdrav, uspili smo, pišem ovu poruku jer u cms nema poruke za ovu stranicu, ali nije bitno, mozemo dodat bilo
           sta
         </h2>
