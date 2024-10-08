@@ -80,7 +80,7 @@ export const ArticleCardHorizontal = ({
             )}
 
             {categories.length > 0 && (
-              <div className='text-sm font-semibold py-[10px]  text-secondary-dark dark:text-sekundarna-svijetla uppercase text-nowrap'>
+              <div className='text-sm font-semibold py-[10px]  text-sekundarna-tamna dark:text-sekundarna-svijetla uppercase text-nowrap'>
                 {categories.map((kata) => {
                   return <span key={kata.catName}>{kata.catName}</span>;
                 })}
@@ -98,17 +98,17 @@ export const ArticleCardHorizontal = ({
             <a href={url}>
               <h5 className='mb-2 text-2xl font-bold tracking-tight text-accent-boja leading-sutraCardTitleLineHeight  flex'>
                 <span>{title}</span>
-                <ArrowIcon className='shrink-0 text-secondary-dark dark:text-sekundarna-svijetla' />
+                <ArrowIcon className='shrink-0 text-sekundarna-tamna dark:text-sekundarna-svijetla' />
               </h5>
             </a>
 
             {introContent && (
-              <div className='prose prose-p:text-secondary-dark dark:prose-p:text-sekundarna-svijetla prose-p:text-base  my-3 line-clamp-4'>
+              <div className='prose prose-p:text-sekundarna-tamna dark:prose-p:text-sekundarna-svijetla prose-p:text-base  my-3 line-clamp-4'>
                 {parse(introContent)}
               </div>
             )}
 
-            <div className='w-full bg-sutraCardDivider h-px'></div>
+            <div className='w-full bg-kartice-divider-light-mode h-px'></div>
 
             <div className='w-full flex items-center justify-end py-6'>
               <a href={url} className=''>
@@ -116,7 +116,7 @@ export const ArticleCardHorizontal = ({
               </a>
             </div>
 
-            <div className='w-full bg-sutraCardDivider h-px'></div>
+            <div className='w-full bg-kartice-divider-light-mode h-px'></div>
 
             {date && (
               <div className='text-xs  text-primarna-svijetla font-medium py-6'>
@@ -137,16 +137,16 @@ export const ArticleCardHorizontal = ({
                     />
                   )}
 
-                  <p className='text-xs font-medium text-secondary-dark dark:text-sekundarna-svijetla'>{`${author.firstName} ${author.lastName}`}</p>
+                  <p className='text-xs font-medium text-sekundarna-tamna dark:text-sekundarna-svijetla'>{`${author.firstName} ${author.lastName}`}</p>
                 </div>
               )}
 
               {author && (
                 <div className='flex gap-3 items-center'>
                   <p className='text-xs font-medium text-primarna-tamna dark:text-sekundarna-svijetla'>{`${author.firstName} ${author.lastName}`}</p>
-                  <div className='w-[3px] h-[3px] bg-secondary-dark rounded-full'></div>
+                  <div className='w-[3px] h-[3px] bg-sekundarna-tamna rounded-full'></div>
                   {date && (
-                    <div className='text-xs  text-secondary-dark dark:text-sekundarna-svijetla font-medium'>
+                    <div className='text-xs  text-sekundarna-tamna dark:text-sekundarna-svijetla font-medium'>
                       <span>{date}</span>
                     </div>
                   )}
@@ -158,9 +158,9 @@ export const ArticleCardHorizontal = ({
                   <p className='text-xs font-medium text-primarna-tamna dark:text-sekundarna-svijetla'>
                     Autor: {`${author.firstName} ${author.lastName}`}
                   </p>
-                  <div className='w-[3px] h-[3px] bg-secondary-dark rounded-full'></div>
+                  <div className='w-[3px] h-[3px] bg-sekundarna-tamna rounded-full'></div>
                   {date && (
-                    <div className='text-xs  text-secondary-dark font-medium dark:text-sekundarna-svijetla'>
+                    <div className='text-xs  text-sekundarna-tamna font-medium dark:text-sekundarna-svijetla'>
                       <span>{date}</span>
                     </div>
                   )}
@@ -179,10 +179,10 @@ export const ArticleCardHorizontal = ({
                     </picture>
                   )}
 
-                  <p className='text-xs font-medium text-secondary-dark dark:text-sekundarna-svijetla'>{`${author.firstName} ${author.lastName}`}</p>
+                  <p className='text-xs font-medium text-sekundarna-tamna dark:text-sekundarna-svijetla'>{`${author.firstName} ${author.lastName}`}</p>
 
                   {date && (
-                    <div className='text-xs  text-secondary-dark dark:text-sekundarna-svijetla font-medium flex items-center gap-2 '>
+                    <div className='text-xs  text-sekundarna-tamna dark:text-sekundarna-svijetla font-medium flex items-center gap-2 '>
                       <CalendarIcon /> <span>{date}</span>
                     </div>
                   )}
@@ -190,7 +190,7 @@ export const ArticleCardHorizontal = ({
               )}
 
               {readTime && (
-                <div className='text-xs text-secondary-dark dark:text-sekundarna-svijetla flex items-center gap-1 text-nowrap font-medium pb-12'>
+                <div className='text-xs text-sekundarna-tamna dark:text-sekundarna-svijetla flex items-center gap-1 text-nowrap font-medium pb-12'>
                   <ClockIcon />
                   <span>{readTime.text}</span>
                 </div>
@@ -330,15 +330,15 @@ export const ArticleCardTextCard = ({
           </a>
 
           {introContent && (
-            <div className='prose prose-p:text-secondary-dark  prose-p:text-base line-clamp-4 mt-2'>
+            <div className='prose prose-p:text-sekundarna-tamna  prose-p:text-base line-clamp-4 mt-2'>
               {parse(introContent)}
             </div>
           )}
 
-          <div className='w-full h-px bg-sutraCardDivider my-6 shrink-0'></div>
+          <div className='w-full h-px bg-kartice-divider-light-mode my-6 shrink-0'></div>
 
           <div className='w-full flex items-center justify-end'>
-            <a href={url} className='flex items-center gap-1 text-secondary-dark text-base'>
+            <a href={url} className='flex items-center gap-1 text-sekundarna-tamna text-base'>
               <span>{cta}</span> <ArrowIcon />
             </a>
           </div>

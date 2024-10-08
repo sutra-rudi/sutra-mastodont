@@ -137,9 +137,9 @@ const PageContent = ({
           <div key={ind} className='relative z-0 w-full mb-5 group'>
             <input
               type='text'
-              className={`form-input block py-2.5 px-0 w-full text-sm text-secondary-dark dark:text-sekundarna-svijetla bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0  peer  ${
+              className={`form-input block py-2.5 px-0 w-full text-sm text-sekundarna-tamna dark:text-sekundarna-svijetla bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0  peer  ${
                 //@ts-ignore
-                errors[`optionalField${ind}`] ? 'border-error' : 'border-sutraPlaceholderClr'
+                errors[`optionalField${ind}`] ? 'border-error-boja' : 'border-sutraPlaceholderClr'
               } `}
               placeholder={optionalField.bonusPoljeUnosaPlaceholder ?? 'Bonus polje '}
               {...register(`optionalField${ind}` as any, {
@@ -160,7 +160,7 @@ const PageContent = ({
             {
               //@ts-ignore
               errors[`optionalField${ind}`] && ( //@ts-ignore
-                <p className='text-error text-xs italic'>{errors[`optionalField${ind}`].message}</p>
+                <p className='text-error-boja text-xs italic'>{errors[`optionalField${ind}`].message}</p>
               )
             }
           </div>
@@ -192,7 +192,7 @@ const PageContent = ({
           return (
             <div key={index}>
               <fieldset className='flex w-full items-center justify-between'>
-                <legend className='text-sm text-secondary-dark dark:text-sekundarna-svijetla font-semibold mb-4 text-balance leading-normal'>
+                <legend className='text-sm text-sekundarna-tamna dark:text-sekundarna-svijetla font-semibold mb-4 text-balance leading-normal'>
                   {optionalSelector.odabirNazivStavke}
                 </legend>
                 {fields.map((field) => (
@@ -212,14 +212,14 @@ const PageContent = ({
                     />
                     <label
                       htmlFor={`${field}_${index}`}
-                      className='text-xs text-secondary-dark dark:text-sekundarna-svijetla'
+                      className='text-xs text-sekundarna-tamna dark:text-sekundarna-svijetla'
                     >
                       {field}
                     </label>
                   </div>
                 ))}
               </fieldset>
-              {errorMessage && <p className='text-error text-xs italic mt-2'>{errorMessage}</p>}
+              {errorMessage && <p className='text-error-boja text-xs italic mt-2'>{errorMessage}</p>}
             </div>
           );
         }
@@ -233,7 +233,7 @@ const PageContent = ({
           return (
             <div key={index} className='flex flex-col gap-2 items-start'>
               <label
-                className='text-sm font-semibold text-secondary-dark dark:text-sekundarna-svijetla mb-1'
+                className='text-sm font-semibold text-sekundarna-tamna dark:text-sekundarna-svijetla mb-1'
                 htmlFor={`selektor${index + 1}`}
               >
                 {optionalSelector.odabirNazivStavke}
@@ -257,7 +257,7 @@ const PageContent = ({
                   </option>
                 ))}
               </select>
-              {errorMessage && <p className='text-error text-xs italic mt-2'>{errorMessage}</p>}
+              {errorMessage && <p className='text-error-boja text-xs italic mt-2'>{errorMessage}</p>}
             </div>
           );
         }
@@ -272,7 +272,7 @@ const PageContent = ({
             // Komponenta
             <div key={index}>
               <fieldset className='flex items-center w-full justify-between'>
-                <legend className='text-sm font-semibold text-secondary-dark dark:text-sekundarna-svijetla  mb-4'>
+                <legend className='text-sm font-semibold text-sekundarna-tamna dark:text-sekundarna-svijetla  mb-4'>
                   {optionalSelector.odabirNazivStavke}
                 </legend>
                 <div className='flex items-center justify-between w-full'>
@@ -293,7 +293,7 @@ const PageContent = ({
                       />
                       <label
                         htmlFor={`${field}_${index}`}
-                        className='text-xs text-secondary-dark dark:text-sekundarna-svijetla'
+                        className='text-xs text-sekundarna-tamna dark:text-sekundarna-svijetla'
                       >
                         {field}
                       </label>
@@ -301,7 +301,7 @@ const PageContent = ({
                   ))}
                 </div>
               </fieldset>
-              {errorMessage && <p className='text-error text-xs italic mt-2'>{errorMessage}</p>}
+              {errorMessage && <p className='text-error-boja text-xs italic mt-2'>{errorMessage}</p>}
             </div>
           );
         }
@@ -418,14 +418,14 @@ const PageContent = ({
         </p>
       </div>
 
-      <div className='flex mx-auto max-w-sutraContactUsTempFormWidth w-full justify-between items-start lg:flex-nowrap flex-wrap lg:px-0 px-3 bg-white dark:bg-secondary-dark lg:gap-12 lg:pr-12 mt-12'>
+      <div className='flex mx-auto max-w-sutraContactUsTempFormWidth w-full justify-between items-start lg:flex-nowrap flex-wrap lg:px-0 px-3 bg-white dark:bg-sekundarna-tamna lg:gap-12 lg:pr-12 mt-12'>
         <StickyBox
           offsetBottom={20}
           offsetTop={20}
           className='w-full h-full p-3 lg:max-w-lg self-stretch max-lg:!relative max-lg:!top-0'
         >
           <div className='w-full h-full lg:p-3 lg:max-w-lg self-stretch'>
-            <div className='bg-secondary-dark dark:bg-primarna-tamna w-full h-full rounded-sutraContactCardBorderRadius relative overflow-hidden'>
+            <div className='bg-sekundarna-tamna dark:bg-primarna-tamna w-full h-full rounded-sutraContactCardBorderRadius relative overflow-hidden'>
               {/* KRUGOVI */}
               <div className='absolute -bottom-12 w-64 h-64 rounded-full bg-accent opacity-20 -right-24'></div>
               <div className='absolute bottom-24 w-32 h-32 rounded-full bg-accent opacity-10 right-12'></div>
@@ -461,17 +461,17 @@ const PageContent = ({
                 <div className='flex items-center gap-6'>
                   <div className='group cursor-pointer'>
                     <div className='w-8 h-8 bg-accent rounded-full flex items-center justify-center transition-all duration-300 ease-linear group-hover:bg-white'>
-                      <TwitterIcon className='shrink-0 text-base text-white transition-all ease-linear duration-200 group-hover:text-secondary-dark' />
+                      <TwitterIcon className='shrink-0 text-base text-white transition-all ease-linear duration-200 group-hover:text-sekundarna-tamna' />
                     </div>
                   </div>
                   <div className='group cursor-pointer'>
                     <div className='w-8 h-8 bg-accent rounded-full flex items-center justify-center transition-all duration-300 ease-linear group-hover:bg-white'>
-                      <InstagramIcon className='shrink-0 text-base text-white transition-all ease-linear duration-200 group-hover:text-secondary-dark' />
+                      <InstagramIcon className='shrink-0 text-base text-white transition-all ease-linear duration-200 group-hover:text-sekundarna-tamna' />
                     </div>
                   </div>
                   <div className='group cursor-pointer'>
                     <div className='w-8 h-8 bg-accent rounded-full flex items-center justify-center transition-all duration-300 ease-linear group-hover:bg-white'>
-                      <DiscordIcon className='shrink-0 text-base text-white transition-all ease-linear duration-200 group-hover:text-secondary-dark' />
+                      <DiscordIcon className='shrink-0 text-base text-white transition-all ease-linear duration-200 group-hover:text-sekundarna-tamna' />
                     </div>
                   </div>
                 </div>
@@ -488,8 +488,8 @@ const PageContent = ({
               <input
                 type='text'
                 id='firstName'
-                className={`form-input block py-2.5 px-0 w-full text-sm text-secondary-dark dark:text-sekundarna-svijetla bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0  peer ${
-                  errors.firstName ? 'border-error' : 'border-sutraPlaceholderClr'
+                className={`form-input block py-2.5 px-0 w-full text-sm text-sekundarna-tamna dark:text-sekundarna-svijetla bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0  peer ${
+                  errors.firstName ? 'border-error-boja' : 'border-sutraPlaceholderClr'
                 }`}
                 placeholder={contactSemanticFormContent.imePlaceholderTekst ?? 'Ime osobe'}
                 {...register('firstName', {
@@ -509,15 +509,15 @@ const PageContent = ({
               >
                 {contactSemanticFormContent.imeNazivStavke ?? 'First name'}
               </label>
-              {errors.firstName && <p className='text-error text-xs italic'>{errors.firstName.message}</p>}
+              {errors.firstName && <p className='text-error-boja text-xs italic'>{errors.firstName.message}</p>}
             </div>
 
             <div className='relative z-0 w-full mb-5 group'>
               <input
                 type='text'
                 id='lastName'
-                className={`form-input block py-2.5 px-0 w-full text-sm text-secondary-dark dark:text-sekundarna-svijetla bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0  peer  ${
-                  errors.lastName ? 'border-error' : 'border-sutraPlaceholderClr'
+                className={`form-input block py-2.5 px-0 w-full text-sm text-sekundarna-tamna dark:text-sekundarna-svijetla bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0  peer  ${
+                  errors.lastName ? 'border-error-boja' : 'border-sutraPlaceholderClr'
                 } `}
                 placeholder={contactSemanticFormContent.prezimePlaceholderTekst ?? 'Prezime'}
                 {...register('lastName', {
@@ -537,7 +537,7 @@ const PageContent = ({
               >
                 {contactSemanticFormContent.prezimeNazivStavke ?? 'Last name'}
               </label>
-              {errors.lastName && <p className='text-error text-xs italic'>{errors.lastName.message}</p>}
+              {errors.lastName && <p className='text-error-boja text-xs italic'>{errors.lastName.message}</p>}
             </div>
           </div>
 
@@ -546,8 +546,8 @@ const PageContent = ({
             <div className='relative z-0 w-full mb-5 group'>
               <input
                 id='email'
-                className={`form-input block py-2.5 px-0 w-full text-sm text-secondary-dark dark:text-sekundarna-svijetla bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0  peer ${
-                  errors.email ? 'border-error' : 'border-sutraPlaceholderClr'
+                className={`form-input block py-2.5 px-0 w-full text-sm text-sekundarna-tamna dark:text-sekundarna-svijetla bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0  peer ${
+                  errors.email ? 'border-error-boja' : 'border-sutraPlaceholderClr'
                 } `}
                 placeholder={contactSemanticFormContent.emailPlaceholderTekst ?? 'Email'}
                 {...register('email', {
@@ -571,7 +571,7 @@ const PageContent = ({
               >
                 {contactSemanticFormContent.emailNazivStavke ?? 'Email'}
               </label>
-              {errors.email && <p className='text-error text-xs italic'>{errors.email.message}</p>}
+              {errors.email && <p className='text-error-boja text-xs italic'>{errors.email.message}</p>}
             </div>
 
             {/* Phone Input */}
@@ -595,8 +595,8 @@ const PageContent = ({
                     defaultCountry='HR'
                     international
                     numberInputProps={{
-                      className: `form-input block py-2.5 px-0 w-full text-sm text-secondary-dark dark:text-sekundarna-svijetla bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0  peer  flex items-center justify-start ${
-                        errors.phone ? 'border-error' : 'border-sutraPlaceholderClr'
+                      className: `form-input block py-2.5 px-0 w-full text-sm text-sekundarna-tamna dark:text-sekundarna-svijetla bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0  peer  flex items-center justify-start ${
+                        errors.phone ? 'border-error-boja' : 'border-sutraPlaceholderClr'
                       } `,
                       placeholder: contactSemanticFormContent.telefonPlaceholderTekst ?? 'Phone number',
                     }}
@@ -610,7 +610,7 @@ const PageContent = ({
                   >
                     Phone number
                   </label>
-                  {errors.phone && <p className='text-error text-xs italic'>{errors.phone.message}</p>}
+                  {errors.phone && <p className='text-error-boja text-xs italic'>{errors.phone.message}</p>}
                 </div>
               )}
             />
@@ -634,7 +634,7 @@ const PageContent = ({
                   required: 'Naslov poruke je obavezan',
                 })}
                 placeholder='Naslov poruke'
-                className='form-input block py-2.5 px-0 w-full text-sm text-secondary-dark dark:text-sekundarna-svijetla bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0  peer'
+                className='form-input block py-2.5 px-0 w-full text-sm text-sekundarna-tamna dark:text-sekundarna-svijetla bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0  peer'
               />
 
               <label
@@ -643,7 +643,9 @@ const PageContent = ({
               >
                 Naslov poruke
               </label>
-              {errors.messageTitle && <p className='text-error text-xs italic mt-2'>{errors.messageTitle.message}</p>}
+              {errors.messageTitle && (
+                <p className='text-error-boja text-xs italic mt-2'>{errors.messageTitle.message}</p>
+              )}
             </div>
 
             {/* Tekst poruke */}
@@ -655,7 +657,7 @@ const PageContent = ({
                 })}
                 rows={4}
                 placeholder='ciao'
-                className='form-input block py-2.5 px-0 w-full text-sm text-secondary-dark dark:text-sekundarna-svijetla bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0  peer'
+                className='form-input block py-2.5 px-0 w-full text-sm text-sekundarna-tamna dark:text-sekundarna-svijetla bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0  peer'
               />
               <label
                 htmlFor='messageBody'
@@ -663,7 +665,9 @@ const PageContent = ({
               >
                 Tekst poruke
               </label>
-              {errors.messageBody && <p className='text-error text-xs italic mt-2'>{errors.messageBody.message}</p>}
+              {errors.messageBody && (
+                <p className='text-error-boja text-xs italic mt-2'>{errors.messageBody.message}</p>
+              )}
             </div>
 
             {/* First DatePicker Input */}
@@ -686,8 +690,8 @@ const PageContent = ({
                         placeholderText={
                           contactSemanticFormContent.datepicker1.datePickerPlaceholderTekst ?? 'Odaberi datum'
                         }
-                        className={`block py-2.5 px-0 w-full text-sm text-secondary-dark dark:text-sekundarna-svijetla bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0 relative peer ${
-                          errors.visitDate ? 'border-error' : 'border-sutraPlaceholderClr'
+                        className={`block py-2.5 px-0 w-full text-sm text-sekundarna-tamna dark:text-sekundarna-svijetla bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0 relative peer ${
+                          errors.visitDate ? 'border-error-boja' : 'border-sutraPlaceholderClr'
                         } `}
                       />
                       <label
@@ -699,7 +703,7 @@ const PageContent = ({
                     </div>
                   )}
                 />
-                {errors.visitDate && <p className='text-error text-xs italic'>{errors.visitDate.message}</p>}
+                {errors.visitDate && <p className='text-error-boja text-xs italic'>{errors.visitDate.message}</p>}
               </div>
 
               {/* Second DatePicker Input */}
@@ -721,8 +725,8 @@ const PageContent = ({
                         placeholderText={
                           contactSemanticFormContent.datepicker2.datePickerPlaceholderTekst ?? 'Odaberi datum'
                         }
-                        className={`block py-2.5 px-0 w-full text-sm text-secondary-dark dark:text-sekundarna-svijetla bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0 relative peer ${
-                          errors.endDate ? 'border-error' : 'border-sutraPlaceholderClr'
+                        className={`block py-2.5 px-0 w-full text-sm text-sekundarna-tamna dark:text-sekundarna-svijetla bg-transparent border-0 border-b-[1px] border-sutraPlaceholderClr focus:border-accent appearance-none placeholder:opacity-0 focus:placeholder:opacity-100 focus:outline-none placeholder:text-sutraPlaceholderClr placeholder:font-medium active:ring-0 focus:ring-0 relative peer ${
+                          errors.endDate ? 'border-error-boja' : 'border-sutraPlaceholderClr'
                         } `}
                       />
                       <label
@@ -735,7 +739,7 @@ const PageContent = ({
                   )}
                 />
 
-                {errors.endDate && <p className='text-error text-xs italic'>{errors.endDate.message}</p>}
+                {errors.endDate && <p className='text-error-boja text-xs italic'>{errors.endDate.message}</p>}
               </div>
             </div>
 
@@ -768,10 +772,10 @@ const PageContent = ({
                     height='200'
                     alt={`Original: ${file.fileInfo.originalFilename || 'Nema imena'}`}
                     title={file.fileInfo.originalFilename || ''}
-                    className='text-secondary-dark dark:text-sekundarna-svijetla'
+                    className='text-sekundarna-tamna dark:text-sekundarna-svijetla'
                   />
 
-                  <p className='text-secondary-dark dark:text-sekundarna-svijetla text-sm flex items-center gap-2'>
+                  <p className='text-sekundarna-tamna dark:text-sekundarna-svijetla text-sm flex items-center gap-2'>
                     <FileIcon /> <span>Ime: {file.fileInfo.originalFilename}</span>
                   </p>
                   {/* <p className={"st.previewData"}>{formatSize(file.fileInfo.size)}</p> */}
@@ -798,11 +802,11 @@ const PageContent = ({
                       />
                     )}
                   />
-                  <span className='ml-2 text-xs text-secondary-dark dark:text-sekundarna-svijetla'>
+                  <span className='ml-2 text-xs text-sekundarna-tamna dark:text-sekundarna-svijetla'>
                     {contactSemanticFormContent.uvjetiCheckmark ?? 'Slažem se sa uvjetima'}
                   </span>
                 </label>
-                {errors.terms && <p className='text-error text-xs italic'>{errors.terms.message}</p>}
+                {errors.terms && <p className='text-error-boja text-xs italic'>{errors.terms.message}</p>}
               </div>
 
               <div className='relative z-0 w-full group'>
@@ -822,11 +826,11 @@ const PageContent = ({
                       />
                     )}
                   />
-                  <span className='ml-2 text-xs text-secondary-dark dark:text-sekundarna-svijetla'>
+                  <span className='ml-2 text-xs text-sekundarna-tamna dark:text-sekundarna-svijetla'>
                     {contactSemanticFormContent.checkmarkBonusPolje ?? 'Slažem se sa uvjetima'}
                   </span>
                 </label>
-                {errors.contactTerms && <p className='text-error text-xs italic'>{errors.contactTerms.message}</p>}
+                {errors.contactTerms && <p className='text-error-boja text-xs italic'>{errors.contactTerms.message}</p>}
               </div>
             </div>
           </div>
@@ -834,7 +838,7 @@ const PageContent = ({
           {/* Submit Button */}
           <button
             type='submit'
-            className='mt-4 bg-secondary-dark py-2 px-12 text-base text-white rounded-sutraContactFormButton hover:bg-blue-700'
+            className='mt-4 bg-sekundarna-tamna py-2 px-12 text-base text-white rounded-sutraContactFormButton hover:bg-blue-700'
           >
             {contactSemanticFormContent.submitButtonText ?? 'Send message'}
           </button>

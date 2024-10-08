@@ -68,7 +68,7 @@ body {
 
 @layer components {
   .custom-radio {
-    @apply form-radio bg-sutraRadioBgUnchecked;
+    @apply form-radio;
 
     outline: none;
     border: none;
@@ -81,7 +81,7 @@ body {
     }
   }
   .custom-radio:checked {
-    @apply text-secondary-dark;
+    @apply text-sekundarna-tamna;
 
     &:is(.dark *) {
       @apply text-sekundarna-svijetla;

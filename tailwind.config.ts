@@ -10,20 +10,6 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'secondary-dark': '#11201D',
-        error: '#FF7A00',
-        success: '#C6FF00',
-        info: '#8C946F',
-        sutraCardDivider: '#D9D9D9',
-        sutraButtonTextColor: '#2E363E',
-        sutraContactUsTempBg: '#FBFBFB',
-        sutraPlaceholderClr: '#8D8D8D',
-        sutraRadioBgUnchecked: '#E0E0E0',
-        ///
-        sutraButtonText: '#F0FDF4',
-
-        /// MASTODONT UPDATE
-
         'almost-black': '#171715',
         'sekundarna-tamna': '#11201D',
         'primarna-tamna': '#192E29',

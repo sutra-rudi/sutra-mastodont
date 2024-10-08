@@ -123,7 +123,7 @@ const PageContent = ({ content, global, gallery, files, tags, author, intro, cat
           />
 
           <div className='mt-8 prose max-w-sutraBlogTestMaxWidth mx-auto my-0 '>
-            <div className=' prose-p:text-secondary-dark prose-p:font-medium prose-p:text-xl line-clamp-4 w-full my-4 mx-0'>
+            <div className=' prose-p:text-sekundarna-tamna prose-p:font-medium prose-p:text-xl line-clamp-4 w-full my-4 mx-0'>
               {parse(intro)}
             </div>
             <div className='w-full bg-almost-black/5 h-px my-8'></div>
