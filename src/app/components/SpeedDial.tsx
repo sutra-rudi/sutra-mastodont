@@ -41,42 +41,42 @@ const SpeedDial = ({ handlePrint }: SpeedDialInterface) => {
         url={currentLocation}
         className='flex justify-center items-center group w-12 h-12  bg-almost-white rounded-full  shadow-sm  group cursor-pointer transition-all ease-in-out hover:shadow'
       >
-        <FacebookIcon className='text-almost-black group-hover:text-accent transition-all ' />
+        <FacebookIcon className='text-almost-black group-hover:text-accent-boja transition-all ' />
       </FacebookShareButton>
 
       <FacebookShareButton
         url={currentLocation}
         className='flex justify-center items-center group w-12 h-12  bg-almost-white rounded-full  shadow-sm  group cursor-pointer transition-all ease-in-out hover:shadow'
       >
-        <MsgIcon className='text-almost-black group-hover:text-accent transition-all ' />
+        <MsgIcon className='text-almost-black group-hover:text-accent-boja transition-all ' />
       </FacebookShareButton>
 
       <TwitterShareButton
         url={currentLocation}
         className='flex justify-center items-center group w-12 h-12  bg-almost-white rounded-full  shadow-sm  group cursor-pointer transition-all ease-in-out hover:shadow'
       >
-        <TwitterIcon className='text-almost-black group-hover:text-accent transition-all ' />
+        <TwitterIcon className='text-almost-black group-hover:text-accent-boja transition-all ' />
       </TwitterShareButton>
 
       <RedditShareButton
         url={currentLocation}
         className='flex justify-center items-center group w-12 h-12  bg-almost-white rounded-full  shadow-sm  group cursor-pointer transition-all ease-in-out hover:shadow'
       >
-        <RedditIcon className='text-almost-black group-hover:text-accent transition-all ' />
+        <RedditIcon className='text-almost-black group-hover:text-accent-boja transition-all ' />
       </RedditShareButton>
 
       <div
         className='flex justify-center items-center group w-12 h-12  bg-almost-white rounded-full  shadow-sm  group cursor-pointer transition-all ease-in-out hover:shadow border-none bg-transparent'
         onClick={handlePrint}
       >
-        <PrintIcon className='text-almost-black group-hover:text-accent transition-all ' />
+        <PrintIcon className='text-almost-black group-hover:text-accent-boja transition-all ' />
       </div>
 
       <div
         onClick={copyToClip}
         className='flex justify-center items-center group w-12 h-12  bg-almost-white rounded-full  shadow-sm  group cursor-pointer transition-all ease-in-out hover:shadow border-none bg-transparent'
       >
-        <CopyIcon className='text-almost-black group-hover:text-accent transition-all ' />
+        <CopyIcon className='text-almost-black group-hover:text-accent-boja transition-all ' />
       </div>
     </div>
   );

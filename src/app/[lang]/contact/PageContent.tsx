@@ -152,7 +152,7 @@ const PageContent = ({
             />
             <label
               htmlFor={`optionalField${ind}`}
-              className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-secondary-light duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
+              className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-secondary-light duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent-boja peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
             >
               {`Bonus polje ${ind}`}
             </label>
@@ -505,7 +505,7 @@ const PageContent = ({
               />
               <label
                 htmlFor='firstName'
-                className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-secondary-light duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
+                className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-secondary-light duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent-boja  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
               >
                 {contactSemanticFormContent.imeNazivStavke ?? 'First name'}
               </label>
@@ -533,7 +533,7 @@ const PageContent = ({
               />
               <label
                 htmlFor='lastName'
-                className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-secondary-light duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
+                className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-secondary-light duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent-boja  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
               >
                 {contactSemanticFormContent.prezimeNazivStavke ?? 'Last name'}
               </label>
@@ -567,7 +567,7 @@ const PageContent = ({
               />
               <label
                 htmlFor='email'
-                className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-secondary-light duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
+                className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-secondary-light duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent-boja  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
               >
                 {contactSemanticFormContent.emailNazivStavke ?? 'Email'}
               </label>
@@ -606,7 +606,7 @@ const PageContent = ({
                   />
                   <label
                     htmlFor='phone'
-                    className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-secondary-light duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
+                    className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-secondary-light duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent-boja  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
                   >
                     Phone number
                   </label>
@@ -639,7 +639,7 @@ const PageContent = ({
 
               <label
                 htmlFor='messageTitle'
-                className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-secondary-light duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
+                className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-secondary-light duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent-boja  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
               >
                 Naslov poruke
               </label>
@@ -659,7 +659,7 @@ const PageContent = ({
               />
               <label
                 htmlFor='messageBody'
-                className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-secondary-light duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
+                className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-secondary-light duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent-boja  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
               >
                 Tekst poruke
               </label>
@@ -692,7 +692,7 @@ const PageContent = ({
                       />
                       <label
                         htmlFor='visitDate'
-                        className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-secondary-light duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 transition-all ease-linear'
+                        className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-secondary-light duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent-boja  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 transition-all ease-linear'
                       >
                         {contactSemanticFormContent.datepicker1.datePickerNazivStavke ?? 'Visit date'}
                       </label>
@@ -727,7 +727,7 @@ const PageContent = ({
                       />
                       <label
                         htmlFor='endDate'
-                        className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-secondary-light duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
+                        className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-secondary-light duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent-boja  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
                       >
                         {contactSemanticFormContent.datepicker2.datePickerNazivStavke ?? 'End date'}
                       </label>
@@ -753,7 +753,7 @@ const PageContent = ({
 
                   <label
                     htmlFor='fileUpload'
-                    className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
+                    className='peer-focus:font-medium absolute text-xs text-almost-black dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-accent-boja peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
                   >
                     Upload File (optional)
                   </label>

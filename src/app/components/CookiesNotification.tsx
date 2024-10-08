@@ -95,7 +95,7 @@ const CookieConsentNotification = ({ pageContent }: CookieInt) => {
 
             <Link
               href={`/${currentLang}/legal-info`}
-              className='flex items-center justify-start gap-2 text-sm mb-4 text-accent border-b border-b-accent'
+              className='flex items-center justify-start gap-2 text-sm mb-4 text-accent-boja border-b border-b-accent'
             >
               <span>Postavke privatnosti</span>
               <ArrowIcon />

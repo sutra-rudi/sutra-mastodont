@@ -67,7 +67,7 @@ const PageContent = ({ pageContent, lang, defaultRadno, tjedniRaspored }: RadnaV
       {isSeasonal && (
         <div className='py-4'>
           <div className='w-full mx-auto flex flex-col place-items-center gap-4 py-6'>
-            <h4 className='font-medium text-accent text-lg '>Sezonsko radno vrijeme prijatelju moj</h4>
+            <h4 className='font-medium text-accent-boja text-lg '>Sezonsko radno vrijeme prijatelju moj</h4>
             <p className='italic text-xl text-primary-dark/25 dark:text-primary-light'>...Đavo ga donio...</p>
           </div>
 

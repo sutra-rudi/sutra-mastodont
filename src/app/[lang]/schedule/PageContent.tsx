@@ -28,7 +28,7 @@ const PageContent = ({ content, lang }: ScheduleInterface) => {
 
       {isSeasonal && (
         <div className='py-4'>
-          <h4 className='font-medium text-accent text-lg'>Sezonsko radno vrijeme</h4>
+          <h4 className='font-medium text-accent-boja text-lg'>Sezonsko radno vrijeme</h4>
 
           <div className='w-full flex items-center justify-start'>
             <p className='flex items-center justify-start gap-1'>

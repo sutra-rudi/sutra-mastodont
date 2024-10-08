@@ -90,7 +90,7 @@ const PageContent = ({ content, global, gallery, files, tags, author, intro, cat
         {/* @ts-ignore */}
         <div className='' ref={componentRef}>
           <div className='w-full max-w-[1140px] mx-auto my-0 text-center'>
-            <p className='text-base text-accent font-medium flex items-center justify-center gap-1'>
+            <p className='text-base text-accent-boja font-medium flex items-center justify-center gap-1'>
               <span>{author.node.name}</span>
               <span className='w-1 h-1 bg-accent rounded-full block'></span>
               <span>{dayjs(global.datum).format('DD.MM.YYYY')}</span>
@@ -105,7 +105,7 @@ const PageContent = ({ content, global, gallery, files, tags, author, intro, cat
           <div className='w-full max-w-[1140px] mx-auto my-0 text-center pt-6 pb-12'>
             {category.map((cat) => {
               return (
-                <span className=' bg-accent/10 text-accent px-3 py-1 rounded-[36px]' key={cat.catName}>
+                <span className=' bg-accent/10 text-accent-boja px-3 py-1 rounded-[36px]' key={cat.catName}>
                   {cat.catName}
                 </span>
               );
@@ -155,7 +155,7 @@ const PageContent = ({ content, global, gallery, files, tags, author, intro, cat
             {files.file && (
               <button
                 onClick={() => downloadFile(files.file.node.mediaItemUrl, files.fileName)}
-                className='flex items-center border rounded-sutraCardTagBorderRadius border-accent/50 px-2 py-1 text-accent/70  hover:text-accent transition-all ease-in-out gap-2'
+                className='flex items-center border rounded-sutraCardTagBorderRadius border-accent/50 px-2 py-1 text-accent-boja/70  hover:text-accent-boja transition-all ease-in-out gap-2'
               >
                 <DownloadIcon /> <span>Preuzmi {files.fileName}</span>
               </button>
@@ -166,7 +166,7 @@ const PageContent = ({ content, global, gallery, files, tags, author, intro, cat
               prepareTags.map((singTag: string) => {
                 return (
                   <span
-                    className='border rounded-sutraCardTagBorderRadius border-accent/50 px-2 py-1 text-accent/70 cursor-pointer hover:text-accent transition-all ease-in-out'
+                    className='border rounded-sutraCardTagBorderRadius border-accent/50 px-2 py-1 text-accent-boja/70 cursor-pointer hover:text-accent-boja transition-all ease-in-out'
                     key={singTag}
                   >
                     {singTag}

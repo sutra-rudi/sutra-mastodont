@@ -328,8 +328,8 @@ const PageContent = ({ pageContent, adminSetup, lang, catList, currentLandingTag
 
       {processedPosts.length > 0 && (
         <ReactPaginate
-          previousLabel={<PrevIcon className='transition-all ease-in-out group-hover:text-accent' />}
-          nextLabel={<NextIcon className='transition-all ease-in-out group-hover:text-accent' />}
+          previousLabel={<PrevIcon className='transition-all ease-in-out group-hover:text-accent-boja' />}
+          nextLabel={<NextIcon className='transition-all ease-in-out group-hover:text-accent-boja' />}
           breakLabel={'...'}
           pageCount={Math.ceil(processedPosts.length / postsPerPage)}
           onPageChange={handlePageClick}

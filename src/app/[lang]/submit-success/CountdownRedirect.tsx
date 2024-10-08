@@ -29,7 +29,7 @@ const CountdownRedirect: React.FC<CountdownRedirectProps> = ({ seconds, redirect
   return (
     <div className='w-full h-full grid grid-cols-1 gap-8 items-start'>
       <p>
-        Vraćam vas na naslovnu stranicu za <span className='font-bold text-accent underline'>{countdown}</span>{' '}
+        Vraćam vas na naslovnu stranicu za <span className='font-bold text-accent-boja underline'>{countdown}</span>{' '}
         sekundi...
       </p>
 

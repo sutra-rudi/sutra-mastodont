@@ -70,7 +70,7 @@ export const ArticleCardHorizontal = ({
               <div className='flex items-center gap-1 text-xs flex-wrap font-medium'>
                 {tags.map((singleTag) => (
                   <span
-                    className='uppercase text-accent border border-accent rounded-sutraCardTagBorderRadius px-2 py-px'
+                    className='uppercase text-accent-boja border border-accent rounded-sutraCardTagBorderRadius px-2 py-px'
                     key={singleTag}
                   >
                     {singleTag}
@@ -90,13 +90,13 @@ export const ArticleCardHorizontal = ({
 
           <div className='px-11'>
             <a href={url}>
-              <h5 className='mb-2 text-2xl font-bold tracking-tight text-accent leading-sutraCardTitleLineHeight'>
+              <h5 className='mb-2 text-2xl font-bold tracking-tight text-accent-boja leading-sutraCardTitleLineHeight'>
                 {title}
               </h5>
             </a>
 
             <a href={url}>
-              <h5 className='mb-2 text-2xl font-bold tracking-tight text-accent leading-sutraCardTitleLineHeight  flex'>
+              <h5 className='mb-2 text-2xl font-bold tracking-tight text-accent-boja leading-sutraCardTitleLineHeight  flex'>
                 <span>{title}</span>
                 <ArrowIcon className='shrink-0 text-secondary-dark dark:text-secondary-light' />
               </h5>
@@ -316,7 +316,7 @@ export const ArticleCardTextCard = ({
           )}
 
           {categories.length > 0 && (
-            <div className='text-xs font-medium text-accent border w-max uppercase border-accent rounded-sutraCardTagBorderRadius px-2 py-px mt-6 text-nowrap'>
+            <div className='text-xs font-medium text-accent-boja border w-max uppercase border-accent rounded-sutraCardTagBorderRadius px-2 py-px mt-6 text-nowrap'>
               {categories.map((kata) => {
                 return <span key={kata.catName}>{kata.catName}</span>;
               })}
@@ -324,7 +324,7 @@ export const ArticleCardTextCard = ({
           )}
 
           <a href={url}>
-            <h5 className='mb-2 mt-2 text-2xl font-bold tracking-tight text-accent leading-sutraCardTitleLineHeight'>
+            <h5 className='mb-2 mt-2 text-2xl font-bold tracking-tight text-accent-boja leading-sutraCardTitleLineHeight'>
               <span>{title}</span>
             </h5>
           </a>
@@ -377,7 +377,7 @@ export const ArticleCardMiniCard = ({
             <div className='w-full leading-none'>
               {categories.map((kata) => {
                 return (
-                  <span className='text-accent text-xs font-semibold uppercase leading-none' key={kata.catName}>
+                  <span className='text-accent-boja text-xs font-semibold uppercase leading-none' key={kata.catName}>
                     {kata.catName}
                   </span>
                 );

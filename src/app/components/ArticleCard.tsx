@@ -121,7 +121,7 @@ const ArticleCard = ({
               <div className='flex items-center gap-1 text-xs flex-wrap font-medium mb-2'>
                 {tags.map((singleTag) => (
                   <span
-                    className='uppercase text-accent border border-accent rounded-sutraCardTagBorderRadius px-2 py-px'
+                    className='uppercase text-accent-boja border border-accent rounded-sutraCardTagBorderRadius px-2 py-px'
                     key={singleTag}
                   >
                     {singleTag}
@@ -135,7 +135,7 @@ const ArticleCard = ({
                 {categories.map((kata) => {
                   return (
                     <span
-                      className='uppercase text-accent border border-accent rounded-sutraCardTagBorderRadius px-2 py-px text-xs font-medium'
+                      className='uppercase text-accent-boja border border-accent rounded-sutraCardTagBorderRadius px-2 py-px text-xs font-medium'
                       key={kata.catName}
                     >
                       {kata.catName}
@@ -157,7 +157,7 @@ const ArticleCard = ({
 
         <div className={`${isHorizontal ? 'px-6 pt-6' : 'px-11 pt-12'}`}>
           <a href={url}>
-            <h5 className='mb-2 text-2xl font-bold tracking-tight text-accent leading-sutraCardTitleLineHeight flex items-start gap-2'>
+            <h5 className='mb-2 text-2xl font-bold tracking-tight text-accent-boja leading-sutraCardTitleLineHeight flex items-start gap-2'>
               <span>{title}</span>
               <ArrowIcon
                 className={`shrink-0 text-secondary-dark dark:text-secondary-light mt-1 ${'group-hover:rotate-45 origin-center transition-all duration-200 ease-out group-hover:translate-x-4'}`}
