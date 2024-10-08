@@ -1,4 +1,4 @@
-import { BrandClrButton } from '@/app/components/SutraButton';
+import { BrandClrButton, PrimaryDarkButton } from '@/app/components/SutraButton';
 import { FaArrowRight as RightIcon, FaPlus as PlusIcon } from 'react-icons/fa6';
 
 import { BsCartPlusFill as CartIcon } from 'react-icons/bs';
@@ -9,7 +9,7 @@ const PageContent = () => {
       <h2 className='w-full text-h0_2xl font-medium text-center dark:text-primarna-svijetla'>BOTUNI</h2>
       <div className='grid grid-cols-1 gap-8 place-items-start mt-6 pb-24'>
         <div className='w-full flex items-center gap-10 flex-col'>
-          <h3 className='text-h3_md dark:text-primarna-svijetla'>Brand color button</h3>
+          <h3 className='text-h3_md dark:text-primarna-svijetla w-full text-center bg-red-400'>Brand color button</h3>
           <div className='flex items-center justify-start gap-4'>
             <BrandClrButton size='xs' innerText='extra small' />
             <BrandClrButton size='sm' innerText='small small' />
@@ -32,6 +32,35 @@ const PageContent = () => {
             <BrandClrButton size='base' isSingleIconButton singleIconSource={PlusIcon} />
             <BrandClrButton size='lg' isSingleIconButton singleIconSource={PlusIcon} />
             <BrandClrButton size='xl' isSingleIconButton singleIconSource={PlusIcon} />
+          </div>
+        </div>
+
+        <div className='w-full flex items-center gap-10 flex-col'>
+          <h3 className='text-h3_md dark:text-primarna-svijetla w-full text-center bg-red-400'>
+            Primary dark color button
+          </h3>
+          <div className='flex items-center justify-start gap-4'>
+            <PrimaryDarkButton size='xs' innerText='extra small' />
+            <PrimaryDarkButton size='sm' innerText='small small' />
+            <PrimaryDarkButton size='base' innerText='base base' />
+            <PrimaryDarkButton size='lg' innerText='large large' />
+            <PrimaryDarkButton size='xl' innerText='extralarge extralarge' />
+          </div>
+
+          <div className='flex items-center justify-start gap-4'>
+            <PrimaryDarkButton size='xs' innerText='extra small' backIcon={CartIcon} frontIcon={RightIcon} />
+            <PrimaryDarkButton size='sm' innerText='small small' backIcon={CartIcon} frontIcon={RightIcon} />
+            <PrimaryDarkButton size='base' innerText='base base' backIcon={CartIcon} frontIcon={RightIcon} />
+            <PrimaryDarkButton size='lg' innerText='large large' backIcon={CartIcon} frontIcon={RightIcon} />
+            <PrimaryDarkButton size='xl' innerText='extralarge extralarge' backIcon={CartIcon} frontIcon={RightIcon} />
+          </div>
+
+          <div className='flex items-center justify-start gap-4'>
+            <PrimaryDarkButton size='xs' isSingleIconButton singleIconSource={PlusIcon} />
+            <PrimaryDarkButton size='sm' isSingleIconButton singleIconSource={PlusIcon} />
+            <PrimaryDarkButton size='base' isSingleIconButton singleIconSource={PlusIcon} />
+            <PrimaryDarkButton size='lg' isSingleIconButton singleIconSource={PlusIcon} />
+            <PrimaryDarkButton size='xl' isSingleIconButton singleIconSource={PlusIcon} />
           </div>
         </div>
       </div>
