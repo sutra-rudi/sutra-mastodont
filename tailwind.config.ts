@@ -50,7 +50,7 @@ const config: Config = {
         'gray-base': '#827D7D',
         'gray-light': '#C1BABA',
         black: '#000000',
-        'brand-color-main': '#00FFFF',
+        'brand-color-main': '#FF0000',
         'brand-color-secondary': '#F5D76F',
         white: '#FFFFFF',
       },
