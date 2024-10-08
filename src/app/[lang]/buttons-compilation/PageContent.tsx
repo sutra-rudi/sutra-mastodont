@@ -1,4 +1,4 @@
-import { BrandClrButton, PrimaryDarkButton } from '@/app/components/SutraButton';
+import { BrandClrButton, PrimaryDarkButton, PrimaryLightButton } from '@/app/components/SutraButton';
 import { FaArrowRight as RightIcon, FaPlus as PlusIcon } from 'react-icons/fa6';
 
 import { BsCartPlusFill as CartIcon } from 'react-icons/bs';
@@ -61,6 +61,35 @@ const PageContent = () => {
             <PrimaryDarkButton size='base' isSingleIconButton singleIconSource={PlusIcon} />
             <PrimaryDarkButton size='lg' isSingleIconButton singleIconSource={PlusIcon} />
             <PrimaryDarkButton size='xl' isSingleIconButton singleIconSource={PlusIcon} />
+          </div>
+        </div>
+
+        <div className='w-full flex items-center gap-10 flex-col'>
+          <h3 className='text-h3_md dark:text-primarna-svijetla w-full text-center bg-red-400'>
+            Primary light color button
+          </h3>
+          <div className='flex items-center justify-start gap-4'>
+            <PrimaryLightButton size='xs' innerText='extra small' />
+            <PrimaryLightButton size='sm' innerText='small small' />
+            <PrimaryLightButton size='base' innerText='base base' />
+            <PrimaryLightButton size='lg' innerText='large large' />
+            <PrimaryLightButton size='xl' innerText='extralarge extralarge' />
+          </div>
+
+          <div className='flex items-center justify-start gap-4'>
+            <PrimaryLightButton size='xs' innerText='extra small' backIcon={CartIcon} frontIcon={RightIcon} />
+            <PrimaryLightButton size='sm' innerText='small small' backIcon={CartIcon} frontIcon={RightIcon} />
+            <PrimaryLightButton size='base' innerText='base base' backIcon={CartIcon} frontIcon={RightIcon} />
+            <PrimaryLightButton size='lg' innerText='large large' backIcon={CartIcon} frontIcon={RightIcon} />
+            <PrimaryLightButton size='xl' innerText='extralarge extralarge' backIcon={CartIcon} frontIcon={RightIcon} />
+          </div>
+
+          <div className='flex items-center justify-start gap-4'>
+            <PrimaryLightButton size='xs' isSingleIconButton singleIconSource={PlusIcon} />
+            <PrimaryLightButton size='sm' isSingleIconButton singleIconSource={PlusIcon} />
+            <PrimaryLightButton size='base' isSingleIconButton singleIconSource={PlusIcon} />
+            <PrimaryLightButton size='lg' isSingleIconButton singleIconSource={PlusIcon} />
+            <PrimaryLightButton size='xl' isSingleIconButton singleIconSource={PlusIcon} />
           </div>
         </div>
       </div>
