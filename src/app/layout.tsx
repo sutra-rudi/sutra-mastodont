@@ -284,13 +284,14 @@ export default async function RootLayout({
         {adminTokenDataShorthand.kodoviAdminApi.googleTagManager && userEnabledAllCookies && (
           <GoogleTagManager gtmId={adminTokenDataShorthand.kodoviAdminApi.googleTagManager} />
         )}
-        <Suspense fallback={<Loading />}>
-          <ClientHeader />
-          <Toaster />
-          <Providers>{children}</Providers>
 
-          <AppFooter />
+        <ClientHeader />
+        <Toaster />
+        <Suspense fallback={<Loading />}>
+          <Providers>{children}</Providers>
         </Suspense>
+        <AppFooter />
+
         {parseSchemaData && (
           <Script id='schema-org' type='application/ld+json' dangerouslySetInnerHTML={{ __html: schemaBasicData }} />
         )}

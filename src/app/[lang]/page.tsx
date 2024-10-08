@@ -1,6 +1,5 @@
 export const maxDuration = 60;
 
-import { Suspense } from 'react';
 import dynamic from 'next/dynamic';
 import Loading from '../loading';
 
@@ -112,42 +111,40 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
     const adminCtaSelection = getAllAdminCtaSelection?.data?.adminSetupArea.edges[0]?.node || null;
 
     return (
-      <Suspense fallback={<Loading />}>
-        <main className='relative w-full dark:bg-primarna-tamna '>
-          <HeroSection />
+      <main className='relative w-full dark:bg-primarna-tamna '>
+        <HeroSection />
 
-          {blogDataArrayShorthand.length > 0 && (
-            <BlogSection
-              pageContent={blogDataArrayShorthand}
-              lang={lang}
-              categoriesList={kategorijeDataShorthand}
-              tagsList={tagsDataShorthand}
-              blogCtaKey={adminCtaSelection ? adminCtaSelection.adminGlobalniSelektorCta.blogSekcijaCta[0] : ''}
-              blogTableKey={process.env.BLOG_AIRTABLE_CTA_ID!}
-            />
-          )}
+        {blogDataArrayShorthand.length > 0 && (
+          <BlogSection
+            pageContent={blogDataArrayShorthand}
+            lang={lang}
+            categoriesList={kategorijeDataShorthand}
+            tagsList={tagsDataShorthand}
+            blogCtaKey={adminCtaSelection ? adminCtaSelection.adminGlobalniSelektorCta.blogSekcijaCta[0] : ''}
+            blogTableKey={process.env.BLOG_AIRTABLE_CTA_ID!}
+          />
+        )}
 
-          {brojcaniciDataArrayShorthand.length > 0 && (
-            <BrojcaniciSection pageContent={brojcaniciDataArrayShorthand} lang={lang} />
-          )}
+        {brojcaniciDataArrayShorthand.length > 0 && (
+          <BrojcaniciSection pageContent={brojcaniciDataArrayShorthand} lang={lang} />
+        )}
 
-          {uslugeDataArrayShorthand.length > 0 && <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />}
-          {logotipiPartneraDataArrayShorthand.length > 0 && (
-            <PartnersSection pageContent={logotipiPartneraDataArrayShorthand} />
-          )}
-          {baseCarouselDataShorthand && <CarouselBase imageArray={baseCarouselDataShorthand} />}
-          {iskustvaKlijenataShorthand.length > 0 && (
-            <TestimonialsSection pageContent={iskustvaKlijenataShorthand} lang={lang} />
-          )}
-          {whyUsDataShorthand.length > 0 && <WhyUsSection pageContent={whyUsDataShorthand} lang={lang} />}
-          {dokumentiKataloziDataShorthand.length > 0 && (
-            <DocumentsCatalogsSection pageContent={dokumentiKataloziDataShorthand} lang={lang} />
-          )}
-          {obavijestiNaStraniciDataShorthand.length > 0 && (
-            <NewsTrack pageContent={obavijestiNaStraniciDataShorthand} lang={lang} />
-          )}
-        </main>
-      </Suspense>
+        {uslugeDataArrayShorthand.length > 0 && <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />}
+        {logotipiPartneraDataArrayShorthand.length > 0 && (
+          <PartnersSection pageContent={logotipiPartneraDataArrayShorthand} />
+        )}
+        {baseCarouselDataShorthand && <CarouselBase imageArray={baseCarouselDataShorthand} />}
+        {iskustvaKlijenataShorthand.length > 0 && (
+          <TestimonialsSection pageContent={iskustvaKlijenataShorthand} lang={lang} />
+        )}
+        {whyUsDataShorthand.length > 0 && <WhyUsSection pageContent={whyUsDataShorthand} lang={lang} />}
+        {dokumentiKataloziDataShorthand.length > 0 && (
+          <DocumentsCatalogsSection pageContent={dokumentiKataloziDataShorthand} lang={lang} />
+        )}
+        {obavijestiNaStraniciDataShorthand.length > 0 && (
+          <NewsTrack pageContent={obavijestiNaStraniciDataShorthand} lang={lang} />
+        )}
+      </main>
     );
   } catch (error) {
     console.error('Error loading page content:', error);
