@@ -401,6 +401,70 @@ export const LightGradientButton = ({
     </button>
   );
 };
+
+export const ButtonOutlinePrimaryLight = ({
+  size,
+  frontIcon: FrontIcon,
+  backIcon: BackIcon,
+  onClickAction,
+  innerText,
+  type,
+  isSingleIconButton,
+  singleIconSource: SingleIconSource,
+}: SutraButtonInterface) => {
+  const calcSizes = () => {
+    if (size === 'xs') return 'px-botun-xs-lr py-botun-xs-td text-button-xs rounded-botun-xs';
+    if (size === 'sm') return 'px-botun-s-lr py-botun-s-td text-button-small rounded-botun-s';
+    if (size === 'base') return 'px-botun-base-lr py-botun-base-td text-button-base rounded-botun-base';
+    if (size === 'lg') return 'px-botun-l-lr py-botun-l-td text-button-l rounded-botun-l';
+    if (size === 'xl') return 'px-botun-xl-lr py-botun-xl-td text-button-xl rounded-botun-xl';
+  };
+
+  const calcRadius = () => {
+    if (size === 'xs') return 'rounded-single-icon-xs  p-1';
+    if (size === 'sm') return 'rounded-single-icon-s  p-2';
+    if (size === 'base') return 'rounded-single-icon-base  p-2.5';
+    if (size === 'lg') return 'rounded-single-icon-l p-3';
+    if (size === 'xl') return 'rounded-single-icon-xl p-3.5';
+  };
+  if (FrontIcon || BackIcon) {
+    return (
+      <button
+        className={`${calcSizes()} flex items-center justify-start transition-all ease-in-out bg-transparent outline outline-offset-0 outline-2 outline-primarna-tamna border-none cursor-pointer text-primarna-tamna hover:text-sekundarna-tamna  hover:outline-sekundarna-tamna hover:bg-black/10 active:outline-accent-boja active:bg-black/15 active:outline-[3px] active:text-accent-boja ${
+          size === 'xl' || size === 'lg'
+            ? 'gap-element-inside-btn-l'
+            : size === 'base'
+            ? 'gap-element-inside-btn-m'
+            : 'gap-element-inside-btn-s'
+        }`}
+      >
+        {BackIcon && <BackIcon className='shrink-0' />}
+        <span>{innerText}</span>
+        {FrontIcon && <FrontIcon className='shrink-0' />}
+      </button>
+    );
+  }
+
+  if (isSingleIconButton && SingleIconSource) {
+    return (
+      <button
+        className={`${calcRadius()} text-[24px] flex items-center justify-center transition-all ease-in-out  bg-transparent outline outline-offset-0 outline-2 outline-primarna-tamna border-none cursor-pointer text-primarna-tamna hover:text-sekundarna-tamna  hover:outline-sekundarna-tamna hover:bg-black/10 active:outline-accent-boja active:bg-black/15 active:outline-[3px] active:text-accent-boja`}
+      >
+        <SingleIconSource />
+      </button>
+    );
+  }
+
+  return (
+    <button
+      onClick={onClickAction}
+      type={type}
+      className={`${calcSizes()} transition-all ease-in-out bg-transparent outline outline-offset-0 outline-2 outline-primarna-tamna border-none cursor-pointer text-primarna-tamna hover:text-sekundarna-tamna  hover:outline-sekundarna-tamna hover:bg-black/10 active:outline-accent-boja active:bg-black/15 active:outline-[3px] active:text-accent-boja`}
+    >
+      <span>{innerText}</span>
+    </button>
+  );
+};
 //////////////////////////////////// STARO ////////////////////////////////////
 //////////////////////////////////// STARO ////////////////////////////////////
 //////////////////////////////////// STARO ////////////////////////////////////
@@ -432,25 +496,6 @@ export const SutraButtonBase = ({ innerText, size, isAccentButton, onClickAction
   );
 };
 
-export const SutraButtonGradient = ({ innerText, size }: SutraButtonBaseInterface) => {
-  return (
-    <button
-      role='button'
-      className={`${
-        size === 'small'
-          ? 'text-sm rounded-sutraButtonBorderRadiusSmall'
-          : size === 'normal'
-          ? 'text-base rounded-sutraButtonBorderRadiusBase'
-          : size === 'large'
-          ? 'text-lg rounded-sutraButtonBorderRadiusLarge'
-          : ''
-      } transition-all ease-in-out py-[0.75rem] px-[1.125rem]  hover:scale-105 active:outline active:outline-sutraButtonOutline bg-sutraGradientButton text-sutraButtonText  dark:bg-sutraGradientButtonDark active:outline-accent hover:bg-sutraGradientButtonDark dark:hover:bg-sutraGradientButton dark:text-almost-black dark:hover:text-almost-white`}
-    >
-      {innerText}
-    </button>
-  );
-};
-
 export const SutraButtonOutlined = ({ innerText, size }: SutraButtonBaseInterface) => {
   return (
     <button
@@ -464,48 +509,6 @@ export const SutraButtonOutlined = ({ innerText, size }: SutraButtonBaseInterfac
           ? 'text-lg rounded-sutraButtonBorderRadiusLarge'
           : ''
       } transition-all ease-in-out py-[0.75rem] px-[1.125rem]  hover:scale-105 outline outline-sutraButtonOutlineAsPrim outline-primarna-tamna text-primarna-tamna hover:text-accent-boja hover:outline-sutraButtonOutlineAsPrimHover active:outline-sutraButtonOutlineAsPrimHover dark:outline-primarna-svijetla dark:text-primarna-svijetla `}
-    >
-      {innerText}
-    </button>
-  );
-};
-
-export const SutraButtonGhost = ({ innerText, size }: SutraButtonBaseInterface) => {
-  return (
-    <button
-      role='button'
-      className={`${
-        size === 'small'
-          ? 'text-sm rounded-sutraButtonBorderRadiusSmall'
-          : size === 'normal'
-          ? 'text-base rounded-sutraButtonBorderRadiusBase'
-          : size === 'large'
-          ? 'text-lg rounded-sutraButtonBorderRadiusLarge'
-          : ''
-      } transition-all ease-in-out py-[0.75rem] px-[1.125rem]  hover:scale-105 outline outline-sutraButtonOutlineAsPrim outline-primarna-tamna text-primarna-tamna  active:outline-sutraButtonOutlineAsPrimHover dark:outline-primarna-svijetla dark:text-accent-boja opacity-ghostButtonOpacity`}
-    >
-      {innerText}
-    </button>
-  );
-};
-
-export const SutraButtonLink = ({ innerText, size, isAccentButton }: SutraButtonBaseInterface) => {
-  return (
-    <button
-      role='button'
-      className={`${
-        size === 'small'
-          ? 'text-sm rounded-sutraButtonBorderRadiusSmall'
-          : size === 'normal'
-          ? 'text-base rounded-sutraButtonBorderRadiusBase'
-          : size === 'large'
-          ? 'text-lg rounded-sutraButtonBorderRadiusLarge'
-          : ''
-      } transition-all ease-in-out py-[0.75rem] px-[1.125rem] ${
-        isAccentButton
-          ? 'text-accent-boja dark:text-accent-boja hover:text-primarna-tamna dark:hover:text-primarna-svijetla active:text-primarna-tamna dark:active:text-primarna-svijetla'
-          : ' text-primarna-tamna hover:text-accent-boja dark:hover:text-accent-boja active:text-primarna-tamna dark:text-primarna-svijetla dark:active:text-primarna-svijetla'
-      }`}
     >
       {innerText}
     </button>

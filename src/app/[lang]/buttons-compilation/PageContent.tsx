@@ -1,6 +1,7 @@
 import {
   AccentButton,
   BrandClrButton,
+  ButtonOutlinePrimaryLight,
   DarkGradientButton,
   LightGradientButton,
   PrimaryDarkButton,
@@ -185,6 +186,40 @@ const PageContent = () => {
             <LightGradientButton size='base' isSingleIconButton singleIconSource={PlusIcon} />
             <LightGradientButton size='lg' isSingleIconButton singleIconSource={PlusIcon} />
             <LightGradientButton size='xl' isSingleIconButton singleIconSource={PlusIcon} />
+          </div>
+        </div>
+
+        <div className='w-full flex items-center gap-10 flex-col'>
+          <h3 className='text-h3_md dark:text-primarna-svijetla w-full text-center bg-red-400'>
+            Outline light primary button
+          </h3>
+          <div className='flex items-center justify-start gap-4'>
+            <ButtonOutlinePrimaryLight size='xs' innerText='extra small' />
+            <ButtonOutlinePrimaryLight size='sm' innerText='small small' />
+            <ButtonOutlinePrimaryLight size='base' innerText='base base' />
+            <ButtonOutlinePrimaryLight size='lg' innerText='large large' />
+            <ButtonOutlinePrimaryLight size='xl' innerText='extralarge extralarge' />
+          </div>
+
+          <div className='flex items-center justify-start gap-4'>
+            <ButtonOutlinePrimaryLight size='xs' innerText='extra small' backIcon={CartIcon} frontIcon={RightIcon} />
+            <ButtonOutlinePrimaryLight size='sm' innerText='small small' backIcon={CartIcon} frontIcon={RightIcon} />
+            <ButtonOutlinePrimaryLight size='base' innerText='base base' backIcon={CartIcon} frontIcon={RightIcon} />
+            <ButtonOutlinePrimaryLight size='lg' innerText='large large' backIcon={CartIcon} frontIcon={RightIcon} />
+            <ButtonOutlinePrimaryLight
+              size='xl'
+              innerText='extralarge extralarge'
+              backIcon={CartIcon}
+              frontIcon={RightIcon}
+            />
+          </div>
+
+          <div className='flex items-center justify-start gap-4'>
+            <ButtonOutlinePrimaryLight size='xs' isSingleIconButton singleIconSource={PlusIcon} />
+            <ButtonOutlinePrimaryLight size='sm' isSingleIconButton singleIconSource={PlusIcon} />
+            <ButtonOutlinePrimaryLight size='base' isSingleIconButton singleIconSource={PlusIcon} />
+            <ButtonOutlinePrimaryLight size='lg' isSingleIconButton singleIconSource={PlusIcon} />
+            <ButtonOutlinePrimaryLight size='xl' isSingleIconButton singleIconSource={PlusIcon} />
           </div>
         </div>
       </div>
