@@ -2,6 +2,7 @@ import {
   AccentButton,
   BrandClrButton,
   DarkGradientButton,
+  LightGradientButton,
   PrimaryDarkButton,
   PrimaryLightButton,
 } from '@/app/components/SutraButton';
@@ -150,6 +151,40 @@ const PageContent = () => {
             <DarkGradientButton size='base' isSingleIconButton singleIconSource={PlusIcon} />
             <DarkGradientButton size='lg' isSingleIconButton singleIconSource={PlusIcon} />
             <DarkGradientButton size='xl' isSingleIconButton singleIconSource={PlusIcon} />
+          </div>
+        </div>
+
+        <div className='w-full flex items-center gap-10 flex-col'>
+          <h3 className='text-h3_md dark:text-primarna-svijetla w-full text-center bg-red-400'>
+            Light gradient button
+          </h3>
+          <div className='flex items-center justify-start gap-4'>
+            <LightGradientButton size='xs' innerText='extra small' />
+            <LightGradientButton size='sm' innerText='small small' />
+            <LightGradientButton size='base' innerText='base base' />
+            <LightGradientButton size='lg' innerText='large large' />
+            <LightGradientButton size='xl' innerText='extralarge extralarge' />
+          </div>
+
+          <div className='flex items-center justify-start gap-4'>
+            <LightGradientButton size='xs' innerText='extra small' backIcon={CartIcon} frontIcon={RightIcon} />
+            <LightGradientButton size='sm' innerText='small small' backIcon={CartIcon} frontIcon={RightIcon} />
+            <LightGradientButton size='base' innerText='base base' backIcon={CartIcon} frontIcon={RightIcon} />
+            <LightGradientButton size='lg' innerText='large large' backIcon={CartIcon} frontIcon={RightIcon} />
+            <LightGradientButton
+              size='xl'
+              innerText='extralarge extralarge'
+              backIcon={CartIcon}
+              frontIcon={RightIcon}
+            />
+          </div>
+
+          <div className='flex items-center justify-start gap-4'>
+            <LightGradientButton size='xs' isSingleIconButton singleIconSource={PlusIcon} />
+            <LightGradientButton size='sm' isSingleIconButton singleIconSource={PlusIcon} />
+            <LightGradientButton size='base' isSingleIconButton singleIconSource={PlusIcon} />
+            <LightGradientButton size='lg' isSingleIconButton singleIconSource={PlusIcon} />
+            <LightGradientButton size='xl' isSingleIconButton singleIconSource={PlusIcon} />
           </div>
         </div>
       </div>
