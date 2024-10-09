@@ -9,6 +9,7 @@ import {
   ButtonOutlinePrimaryLight,
   DarkGradientButton,
   LightGradientButton,
+  LinkButtonAccent,
   LinkButtonPrimaryDark,
   LinkButtonPrimaryLight,
   PrimaryDarkButton,
@@ -451,6 +452,33 @@ const PageContent = () => {
             <LinkButtonPrimaryDark size='base' isSingleIconButton singleIconSource={PlusIcon} />
             <LinkButtonPrimaryDark size='lg' isSingleIconButton singleIconSource={PlusIcon} />
             <LinkButtonPrimaryDark size='xl' isSingleIconButton singleIconSource={PlusIcon} />
+          </div>
+        </div>
+
+        <div className='w-full flex items-center gap-10 flex-col '>
+          <h3 className='text-h3_md dark:text-primarna-svijetla w-full text-center bg-red-400'>Link button accent</h3>
+          <div className='flex items-center justify-start gap-4'>
+            <LinkButtonAccent size='xs' innerText='extra small' />
+            <LinkButtonAccent size='sm' innerText='small small' />
+            <LinkButtonAccent size='base' innerText='base base' />
+            <LinkButtonAccent size='lg' innerText='large large' />
+            <LinkButtonAccent size='xl' innerText='extralarge extralarge' />
+          </div>
+
+          <div className='flex items-center justify-start gap-4'>
+            <LinkButtonAccent size='xs' innerText='extra small' backIcon={CartIcon} frontIcon={RightIcon} />
+            <LinkButtonAccent size='sm' innerText='small small' backIcon={CartIcon} frontIcon={RightIcon} />
+            <LinkButtonAccent size='base' innerText='base base' backIcon={CartIcon} frontIcon={RightIcon} />
+            <LinkButtonAccent size='lg' innerText='large large' backIcon={CartIcon} frontIcon={RightIcon} />
+            <LinkButtonAccent size='xl' innerText='extralarge extralarge' backIcon={CartIcon} frontIcon={RightIcon} />
+          </div>
+
+          <div className='flex items-center justify-start gap-4'>
+            <LinkButtonAccent size='xs' isSingleIconButton singleIconSource={PlusIcon} />
+            <LinkButtonAccent size='sm' isSingleIconButton singleIconSource={PlusIcon} />
+            <LinkButtonAccent size='base' isSingleIconButton singleIconSource={PlusIcon} />
+            <LinkButtonAccent size='lg' isSingleIconButton singleIconSource={PlusIcon} />
+            <LinkButtonAccent size='xl' isSingleIconButton singleIconSource={PlusIcon} />
           </div>
         </div>
       </div>
