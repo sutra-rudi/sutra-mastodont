@@ -9,6 +9,7 @@ import {
   ButtonOutlinePrimaryLight,
   DarkGradientButton,
   LightGradientButton,
+  LinkButtonPrimaryLight,
   PrimaryDarkButton,
   PrimaryLightButton,
 } from '@/app/components/SutraButton';
@@ -381,6 +382,40 @@ const PageContent = () => {
             <AlmostWhiteButton size='base' isSingleIconButton singleIconSource={PlusIcon} />
             <AlmostWhiteButton size='lg' isSingleIconButton singleIconSource={PlusIcon} />
             <AlmostWhiteButton size='xl' isSingleIconButton singleIconSource={PlusIcon} />
+          </div>
+        </div>
+
+        <div className='w-full flex items-center gap-10 flex-col'>
+          <h3 className='text-h3_md dark:text-primarna-svijetla w-full text-center bg-red-400'>
+            Link button primary light
+          </h3>
+          <div className='flex items-center justify-start gap-4'>
+            <LinkButtonPrimaryLight size='xs' innerText='extra small' />
+            <LinkButtonPrimaryLight size='sm' innerText='small small' />
+            <LinkButtonPrimaryLight size='base' innerText='base base' />
+            <LinkButtonPrimaryLight size='lg' innerText='large large' />
+            <LinkButtonPrimaryLight size='xl' innerText='extralarge extralarge' />
+          </div>
+
+          <div className='flex items-center justify-start gap-4'>
+            <LinkButtonPrimaryLight size='xs' innerText='extra small' backIcon={CartIcon} frontIcon={RightIcon} />
+            <LinkButtonPrimaryLight size='sm' innerText='small small' backIcon={CartIcon} frontIcon={RightIcon} />
+            <LinkButtonPrimaryLight size='base' innerText='base base' backIcon={CartIcon} frontIcon={RightIcon} />
+            <LinkButtonPrimaryLight size='lg' innerText='large large' backIcon={CartIcon} frontIcon={RightIcon} />
+            <LinkButtonPrimaryLight
+              size='xl'
+              innerText='extralarge extralarge'
+              backIcon={CartIcon}
+              frontIcon={RightIcon}
+            />
+          </div>
+
+          <div className='flex items-center justify-start gap-4'>
+            <LinkButtonPrimaryLight size='xs' isSingleIconButton singleIconSource={PlusIcon} />
+            <LinkButtonPrimaryLight size='sm' isSingleIconButton singleIconSource={PlusIcon} />
+            <LinkButtonPrimaryLight size='base' isSingleIconButton singleIconSource={PlusIcon} />
+            <LinkButtonPrimaryLight size='lg' isSingleIconButton singleIconSource={PlusIcon} />
+            <LinkButtonPrimaryLight size='xl' isSingleIconButton singleIconSource={PlusIcon} />
           </div>
         </div>
       </div>
