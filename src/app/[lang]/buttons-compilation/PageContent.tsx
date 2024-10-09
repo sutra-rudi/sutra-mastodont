@@ -9,6 +9,7 @@ import {
   ButtonOutlinePrimaryLight,
   DarkGradientButton,
   LightGradientButton,
+  LinkButtonPrimaryDark,
   LinkButtonPrimaryLight,
   PrimaryDarkButton,
   PrimaryLightButton,
@@ -416,6 +417,40 @@ const PageContent = () => {
             <LinkButtonPrimaryLight size='base' isSingleIconButton singleIconSource={PlusIcon} />
             <LinkButtonPrimaryLight size='lg' isSingleIconButton singleIconSource={PlusIcon} />
             <LinkButtonPrimaryLight size='xl' isSingleIconButton singleIconSource={PlusIcon} />
+          </div>
+        </div>
+
+        <div className='w-full flex items-center gap-10 flex-col bg-almost-black pb-10'>
+          <h3 className='text-h3_md dark:text-primarna-svijetla w-full text-center bg-red-400'>
+            Link button primary dark
+          </h3>
+          <div className='flex items-center justify-start gap-4'>
+            <LinkButtonPrimaryDark size='xs' innerText='extra small' />
+            <LinkButtonPrimaryDark size='sm' innerText='small small' />
+            <LinkButtonPrimaryDark size='base' innerText='base base' />
+            <LinkButtonPrimaryDark size='lg' innerText='large large' />
+            <LinkButtonPrimaryDark size='xl' innerText='extralarge extralarge' />
+          </div>
+
+          <div className='flex items-center justify-start gap-4'>
+            <LinkButtonPrimaryDark size='xs' innerText='extra small' backIcon={CartIcon} frontIcon={RightIcon} />
+            <LinkButtonPrimaryDark size='sm' innerText='small small' backIcon={CartIcon} frontIcon={RightIcon} />
+            <LinkButtonPrimaryDark size='base' innerText='base base' backIcon={CartIcon} frontIcon={RightIcon} />
+            <LinkButtonPrimaryDark size='lg' innerText='large large' backIcon={CartIcon} frontIcon={RightIcon} />
+            <LinkButtonPrimaryDark
+              size='xl'
+              innerText='extralarge extralarge'
+              backIcon={CartIcon}
+              frontIcon={RightIcon}
+            />
+          </div>
+
+          <div className='flex items-center justify-start gap-4'>
+            <LinkButtonPrimaryDark size='xs' isSingleIconButton singleIconSource={PlusIcon} />
+            <LinkButtonPrimaryDark size='sm' isSingleIconButton singleIconSource={PlusIcon} />
+            <LinkButtonPrimaryDark size='base' isSingleIconButton singleIconSource={PlusIcon} />
+            <LinkButtonPrimaryDark size='lg' isSingleIconButton singleIconSource={PlusIcon} />
+            <LinkButtonPrimaryDark size='xl' isSingleIconButton singleIconSource={PlusIcon} />
           </div>
         </div>
       </div>

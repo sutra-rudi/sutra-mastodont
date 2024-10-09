@@ -850,6 +850,70 @@ export const LinkButtonPrimaryLight = ({
   );
 };
 
+export const LinkButtonPrimaryDark = ({
+  size,
+  frontIcon: FrontIcon,
+  backIcon: BackIcon,
+  onClickAction,
+  innerText,
+  type,
+  isSingleIconButton,
+  singleIconSource: SingleIconSource,
+}: SutraButtonInterface) => {
+  const calcSizes = () => {
+    if (size === 'xs') return 'px-botun-xs-lr py-botun-xs-td text-button-xs rounded-botun-xs';
+    if (size === 'sm') return 'px-botun-s-lr py-botun-s-td text-button-small rounded-botun-s';
+    if (size === 'base') return 'px-botun-base-lr py-botun-base-td text-button-base rounded-botun-base';
+    if (size === 'lg') return 'px-botun-l-lr py-botun-l-td text-button-l rounded-botun-l';
+    if (size === 'xl') return 'px-botun-xl-lr py-botun-xl-td text-button-xl rounded-botun-xl';
+  };
+
+  const calcRadius = () => {
+    if (size === 'xs') return 'rounded-single-icon-xs  p-1';
+    if (size === 'sm') return 'rounded-single-icon-s  p-2';
+    if (size === 'base') return 'rounded-single-icon-base  p-2.5';
+    if (size === 'lg') return 'rounded-single-icon-l p-3';
+    if (size === 'xl') return 'rounded-single-icon-xl p-3.5';
+  };
+  if (FrontIcon || BackIcon) {
+    return (
+      <button
+        className={`${calcSizes()} flex items-center justify-start transition-all ease-in-out bg-transparent outline-none border-none cursor-pointer text-primarna-svijetla active:text-accent-boja ${
+          size === 'xl' || size === 'lg'
+            ? 'gap-element-inside-btn-l'
+            : size === 'base'
+            ? 'gap-element-inside-btn-m'
+            : 'gap-element-inside-btn-s'
+        }`}
+      >
+        {BackIcon && <BackIcon className='shrink-0' />}
+        <span>{innerText}</span>
+        {FrontIcon && <FrontIcon className='shrink-0' />}
+      </button>
+    );
+  }
+
+  if (isSingleIconButton && SingleIconSource) {
+    return (
+      <button
+        className={`${calcRadius()} text-[24px] flex items-center justify-center transition-all ease-in-out   bg-transparent outline-none border-none cursor-pointer text-primarna-svijetla active:text-accent-boja`}
+      >
+        <SingleIconSource />
+      </button>
+    );
+  }
+
+  return (
+    <button
+      onClick={onClickAction}
+      type={type}
+      className={`${calcSizes()} transition-all ease-in-out  bg-transparent outline-none border-none cursor-pointer text-primarna-svijetla active:text-accent-boja`}
+    >
+      <span>{innerText}</span>
+    </button>
+  );
+};
+
 //////////////////////////////////// STARO ////////////////////////////////////
 //////////////////////////////////// STARO ////////////////////////////////////
 //////////////////////////////////// STARO ////////////////////////////////////
