@@ -1,5 +1,6 @@
 import {
   AccentButton,
+  AlmostBlackButton,
   BrandClrButton,
   ButtonOutlineAlmostBlack,
   ButtonOutlineAlmostWhite,
@@ -325,6 +326,33 @@ const PageContent = () => {
             <ButtonOutlineAlmostWhite size='base' isSingleIconButton singleIconSource={PlusIcon} />
             <ButtonOutlineAlmostWhite size='lg' isSingleIconButton singleIconSource={PlusIcon} />
             <ButtonOutlineAlmostWhite size='xl' isSingleIconButton singleIconSource={PlusIcon} />
+          </div>
+        </div>
+
+        <div className='w-full flex items-center gap-10 flex-col'>
+          <h3 className='text-h3_md dark:text-primarna-svijetla w-full text-center bg-red-400'>Almost black button</h3>
+          <div className='flex items-center justify-start gap-4'>
+            <AlmostBlackButton size='xs' innerText='extra small' />
+            <AlmostBlackButton size='sm' innerText='small small' />
+            <AlmostBlackButton size='base' innerText='base base' />
+            <AlmostBlackButton size='lg' innerText='large large' />
+            <AlmostBlackButton size='xl' innerText='extralarge extralarge' />
+          </div>
+
+          <div className='flex items-center justify-start gap-4'>
+            <AlmostBlackButton size='xs' innerText='extra small' backIcon={CartIcon} frontIcon={RightIcon} />
+            <AlmostBlackButton size='sm' innerText='small small' backIcon={CartIcon} frontIcon={RightIcon} />
+            <AlmostBlackButton size='base' innerText='base base' backIcon={CartIcon} frontIcon={RightIcon} />
+            <AlmostBlackButton size='lg' innerText='large large' backIcon={CartIcon} frontIcon={RightIcon} />
+            <AlmostBlackButton size='xl' innerText='extralarge extralarge' backIcon={CartIcon} frontIcon={RightIcon} />
+          </div>
+
+          <div className='flex items-center justify-start gap-4'>
+            <AlmostBlackButton size='xs' isSingleIconButton singleIconSource={PlusIcon} />
+            <AlmostBlackButton size='sm' isSingleIconButton singleIconSource={PlusIcon} />
+            <AlmostBlackButton size='base' isSingleIconButton singleIconSource={PlusIcon} />
+            <AlmostBlackButton size='lg' isSingleIconButton singleIconSource={PlusIcon} />
+            <AlmostBlackButton size='xl' isSingleIconButton singleIconSource={PlusIcon} />
           </div>
         </div>
       </div>
