@@ -1,4 +1,10 @@
-import { AccentButton, BrandClrButton, PrimaryDarkButton, PrimaryLightButton } from '@/app/components/SutraButton';
+import {
+  AccentButton,
+  BrandClrButton,
+  DarkGradientButton,
+  PrimaryDarkButton,
+  PrimaryLightButton,
+} from '@/app/components/SutraButton';
 import { FaArrowRight as RightIcon, FaPlus as PlusIcon } from 'react-icons/fa6';
 
 import { BsCartPlusFill as CartIcon } from 'react-icons/bs';
@@ -117,6 +123,33 @@ const PageContent = () => {
             <AccentButton size='base' isSingleIconButton singleIconSource={PlusIcon} />
             <AccentButton size='lg' isSingleIconButton singleIconSource={PlusIcon} />
             <AccentButton size='xl' isSingleIconButton singleIconSource={PlusIcon} />
+          </div>
+        </div>
+
+        <div className='w-full flex items-center gap-10 flex-col'>
+          <h3 className='text-h3_md dark:text-primarna-svijetla w-full text-center bg-red-400'>Dark gradient button</h3>
+          <div className='flex items-center justify-start gap-4'>
+            <DarkGradientButton size='xs' innerText='extra small' />
+            <DarkGradientButton size='sm' innerText='small small' />
+            <DarkGradientButton size='base' innerText='base base' />
+            <DarkGradientButton size='lg' innerText='large large' />
+            <DarkGradientButton size='xl' innerText='extralarge extralarge' />
+          </div>
+
+          <div className='flex items-center justify-start gap-4'>
+            <DarkGradientButton size='xs' innerText='extra small' backIcon={CartIcon} frontIcon={RightIcon} />
+            <DarkGradientButton size='sm' innerText='small small' backIcon={CartIcon} frontIcon={RightIcon} />
+            <DarkGradientButton size='base' innerText='base base' backIcon={CartIcon} frontIcon={RightIcon} />
+            <DarkGradientButton size='lg' innerText='large large' backIcon={CartIcon} frontIcon={RightIcon} />
+            <DarkGradientButton size='xl' innerText='extralarge extralarge' backIcon={CartIcon} frontIcon={RightIcon} />
+          </div>
+
+          <div className='flex items-center justify-start gap-4'>
+            <DarkGradientButton size='xs' isSingleIconButton singleIconSource={PlusIcon} />
+            <DarkGradientButton size='sm' isSingleIconButton singleIconSource={PlusIcon} />
+            <DarkGradientButton size='base' isSingleIconButton singleIconSource={PlusIcon} />
+            <DarkGradientButton size='lg' isSingleIconButton singleIconSource={PlusIcon} />
+            <DarkGradientButton size='xl' isSingleIconButton singleIconSource={PlusIcon} />
           </div>
         </div>
       </div>

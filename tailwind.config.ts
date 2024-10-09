@@ -59,6 +59,12 @@ const config: Config = {
       backgroundImage: {
         sutraGradientButton: 'linear-gradient(180deg, rgba(90,93,82,1) 0%, rgba(36,41,40,1) 100%)',
         sutraGradientButtonDark: 'linear-gradient(180deg, rgba(188,192,175,1) 0%, rgba(178,182,137,1) 100%)',
+        'gradient-light': 'linear-gradient(#fffbf6ff 0%, #dcc39dff 100%)',
+        'gradient-dark': 'linear-gradient(#5a5d52ff 0%, #242928ff 100%)',
+        'gradient-ferlauftamni': 'linear-gradient(#000000ff 0%, #00000000 100%)',
+        'gradient-ferlaufbijeli': 'linear-gradient(#ffffffff 0%, #ffffffff 100%)',
+        'gradient-light-radial': 'radial-gradient(circle, #fffbf6ff, #dcc39dff)', // Pretpostavljeni radijalni gradijent
+        'gradient-dark-radial': 'radial-gradient(circle, #5a5d52ff, #242928ff)', // Pretpostavljeni radijalni gradijent
       },
       //OUTLINE
       outlineWidth: {
