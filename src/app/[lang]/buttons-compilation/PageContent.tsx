@@ -1,6 +1,7 @@
 import {
   AccentButton,
   BrandClrButton,
+  ButtonOutlineAlmostBlack,
   ButtonOutlinePrimaryDark,
   ButtonOutlinePrimaryLight,
   DarkGradientButton,
@@ -255,6 +256,40 @@ const PageContent = () => {
             <ButtonOutlinePrimaryDark size='base' isSingleIconButton singleIconSource={PlusIcon} />
             <ButtonOutlinePrimaryDark size='lg' isSingleIconButton singleIconSource={PlusIcon} />
             <ButtonOutlinePrimaryDark size='xl' isSingleIconButton singleIconSource={PlusIcon} />
+          </div>
+        </div>
+
+        <div className='w-full flex items-center gap-10 flex-col'>
+          <h3 className='text-h3_md dark:text-primarna-svijetla w-full text-center bg-red-400'>
+            Outline button almost black
+          </h3>
+          <div className='flex items-center justify-start gap-4'>
+            <ButtonOutlineAlmostBlack size='xs' innerText='extra small' />
+            <ButtonOutlineAlmostBlack size='sm' innerText='small small' />
+            <ButtonOutlineAlmostBlack size='base' innerText='base base' />
+            <ButtonOutlineAlmostBlack size='lg' innerText='large large' />
+            <ButtonOutlineAlmostBlack size='xl' innerText='extralarge extralarge' />
+          </div>
+
+          <div className='flex items-center justify-start gap-4'>
+            <ButtonOutlineAlmostBlack size='xs' innerText='extra small' backIcon={CartIcon} frontIcon={RightIcon} />
+            <ButtonOutlineAlmostBlack size='sm' innerText='small small' backIcon={CartIcon} frontIcon={RightIcon} />
+            <ButtonOutlineAlmostBlack size='base' innerText='base base' backIcon={CartIcon} frontIcon={RightIcon} />
+            <ButtonOutlineAlmostBlack size='lg' innerText='large large' backIcon={CartIcon} frontIcon={RightIcon} />
+            <ButtonOutlineAlmostBlack
+              size='xl'
+              innerText='extralarge extralarge'
+              backIcon={CartIcon}
+              frontIcon={RightIcon}
+            />
+          </div>
+
+          <div className='flex items-center justify-start gap-4'>
+            <ButtonOutlineAlmostBlack size='xs' isSingleIconButton singleIconSource={PlusIcon} />
+            <ButtonOutlineAlmostBlack size='sm' isSingleIconButton singleIconSource={PlusIcon} />
+            <ButtonOutlineAlmostBlack size='base' isSingleIconButton singleIconSource={PlusIcon} />
+            <ButtonOutlineAlmostBlack size='lg' isSingleIconButton singleIconSource={PlusIcon} />
+            <ButtonOutlineAlmostBlack size='xl' isSingleIconButton singleIconSource={PlusIcon} />
           </div>
         </div>
       </div>
