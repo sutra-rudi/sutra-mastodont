@@ -1,4 +1,4 @@
-import { BrandClrButton, PrimaryDarkButton, PrimaryLightButton } from '@/app/components/SutraButton';
+import { AccentButton, BrandClrButton, PrimaryDarkButton, PrimaryLightButton } from '@/app/components/SutraButton';
 import { FaArrowRight as RightIcon, FaPlus as PlusIcon } from 'react-icons/fa6';
 
 import { BsCartPlusFill as CartIcon } from 'react-icons/bs';
@@ -90,6 +90,33 @@ const PageContent = () => {
             <PrimaryLightButton size='base' isSingleIconButton singleIconSource={PlusIcon} />
             <PrimaryLightButton size='lg' isSingleIconButton singleIconSource={PlusIcon} />
             <PrimaryLightButton size='xl' isSingleIconButton singleIconSource={PlusIcon} />
+          </div>
+        </div>
+
+        <div className='w-full flex items-center gap-10 flex-col'>
+          <h3 className='text-h3_md dark:text-primarna-svijetla w-full text-center bg-red-400'>Accent button</h3>
+          <div className='flex items-center justify-start gap-4'>
+            <AccentButton size='xs' innerText='extra small' />
+            <AccentButton size='sm' innerText='small small' />
+            <AccentButton size='base' innerText='base base' />
+            <AccentButton size='lg' innerText='large large' />
+            <AccentButton size='xl' innerText='extralarge extralarge' />
+          </div>
+
+          <div className='flex items-center justify-start gap-4'>
+            <AccentButton size='xs' innerText='extra small' backIcon={CartIcon} frontIcon={RightIcon} />
+            <AccentButton size='sm' innerText='small small' backIcon={CartIcon} frontIcon={RightIcon} />
+            <AccentButton size='base' innerText='base base' backIcon={CartIcon} frontIcon={RightIcon} />
+            <AccentButton size='lg' innerText='large large' backIcon={CartIcon} frontIcon={RightIcon} />
+            <AccentButton size='xl' innerText='extralarge extralarge' backIcon={CartIcon} frontIcon={RightIcon} />
+          </div>
+
+          <div className='flex items-center justify-start gap-4'>
+            <AccentButton size='xs' isSingleIconButton singleIconSource={PlusIcon} />
+            <AccentButton size='sm' isSingleIconButton singleIconSource={PlusIcon} />
+            <AccentButton size='base' isSingleIconButton singleIconSource={PlusIcon} />
+            <AccentButton size='lg' isSingleIconButton singleIconSource={PlusIcon} />
+            <AccentButton size='xl' isSingleIconButton singleIconSource={PlusIcon} />
           </div>
         </div>
       </div>
