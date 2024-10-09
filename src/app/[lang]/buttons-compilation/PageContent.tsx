@@ -1,6 +1,7 @@
 import {
   AccentButton,
   BrandClrButton,
+  ButtonOutlinePrimaryDark,
   ButtonOutlinePrimaryLight,
   DarkGradientButton,
   LightGradientButton,
@@ -72,7 +73,7 @@ const PageContent = () => {
           </div>
         </div>
 
-        <div className='w-full flex items-center gap-10 flex-col'>
+        <div className='w-full flex items-center gap-10 flex-col bg-almost-black pb-10'>
           <h3 className='text-h3_md dark:text-primarna-svijetla w-full text-center bg-red-400'>
             Primary light color button
           </h3>
@@ -155,7 +156,7 @@ const PageContent = () => {
           </div>
         </div>
 
-        <div className='w-full flex items-center gap-10 flex-col'>
+        <div className='w-full flex items-center gap-10 flex-col bg-almost-black pb-10'>
           <h3 className='text-h3_md dark:text-primarna-svijetla w-full text-center bg-red-400'>
             Light gradient button
           </h3>
@@ -220,6 +221,40 @@ const PageContent = () => {
             <ButtonOutlinePrimaryLight size='base' isSingleIconButton singleIconSource={PlusIcon} />
             <ButtonOutlinePrimaryLight size='lg' isSingleIconButton singleIconSource={PlusIcon} />
             <ButtonOutlinePrimaryLight size='xl' isSingleIconButton singleIconSource={PlusIcon} />
+          </div>
+        </div>
+
+        <div className='w-full flex items-center gap-10 flex-col bg-almost-black pb-10'>
+          <h3 className='text-h3_md dark:text-primarna-svijetla w-full text-center bg-red-400'>
+            Outline dark primary button
+          </h3>
+          <div className='flex items-center justify-start gap-4'>
+            <ButtonOutlinePrimaryDark size='xs' innerText='extra small' />
+            <ButtonOutlinePrimaryDark size='sm' innerText='small small' />
+            <ButtonOutlinePrimaryDark size='base' innerText='base base' />
+            <ButtonOutlinePrimaryDark size='lg' innerText='large large' />
+            <ButtonOutlinePrimaryDark size='xl' innerText='extralarge extralarge' />
+          </div>
+
+          <div className='flex items-center justify-start gap-4'>
+            <ButtonOutlinePrimaryDark size='xs' innerText='extra small' backIcon={CartIcon} frontIcon={RightIcon} />
+            <ButtonOutlinePrimaryDark size='sm' innerText='small small' backIcon={CartIcon} frontIcon={RightIcon} />
+            <ButtonOutlinePrimaryDark size='base' innerText='base base' backIcon={CartIcon} frontIcon={RightIcon} />
+            <ButtonOutlinePrimaryDark size='lg' innerText='large large' backIcon={CartIcon} frontIcon={RightIcon} />
+            <ButtonOutlinePrimaryDark
+              size='xl'
+              innerText='extralarge extralarge'
+              backIcon={CartIcon}
+              frontIcon={RightIcon}
+            />
+          </div>
+
+          <div className='flex items-center justify-start gap-4'>
+            <ButtonOutlinePrimaryDark size='xs' isSingleIconButton singleIconSource={PlusIcon} />
+            <ButtonOutlinePrimaryDark size='sm' isSingleIconButton singleIconSource={PlusIcon} />
+            <ButtonOutlinePrimaryDark size='base' isSingleIconButton singleIconSource={PlusIcon} />
+            <ButtonOutlinePrimaryDark size='lg' isSingleIconButton singleIconSource={PlusIcon} />
+            <ButtonOutlinePrimaryDark size='xl' isSingleIconButton singleIconSource={PlusIcon} />
           </div>
         </div>
       </div>
