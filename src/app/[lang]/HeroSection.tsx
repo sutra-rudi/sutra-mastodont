@@ -1,6 +1,11 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { SutraButtonOutlined, SutraButtonWithIcon } from '../components/SutraButton';
+import {
+  BrandClrButton,
+  ButtonOutlineAlmostBlack,
+  SutraButtonOutlined,
+  SutraButtonWithIcon,
+} from '../components/SutraButton';
 import { BsArrowRightShort as RightIcon } from 'react-icons/bs';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
@@ -119,8 +124,8 @@ const HeroSection = () => {
             One repository to rule them all
           </p>
           <div className='w-full flex items-center justify-start gap-4'>
-            <SutraButtonWithIcon innerText='Call to action prvi' size='normal' backIcon={RightIcon} />
-            <SutraButtonOutlined size='normal' innerText='Call to action drugi' />
+            <BrandClrButton innerText='Call to action prvi' size='base' backIcon={RightIcon} />
+            <ButtonOutlineAlmostBlack size='base' innerText='Call to action drugi' />
           </div>
         </div>
         <div className='hidden lg:mt-0 lg:col-span-5 lg:flex'>

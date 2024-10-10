@@ -2,7 +2,7 @@ import dayjs from 'dayjs';
 import Image from 'next/image';
 import parse from 'html-react-parser';
 import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
-import { SutraButtonBase } from '@/app/components/SutraButton';
+import { BrandClrButton } from '@/app/components/SutraButton';
 
 interface ObavijestiNaStraniciInterface {
   pageContent: any;
@@ -93,7 +93,7 @@ const PageContent = ({ pageContent, lang }: ObavijestiNaStraniciInterface) => {
                     </div>
 
                     <div className='flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600'>
-                      <SutraButtonBase innerText='Okay' size='normal' />
+                      <BrandClrButton innerText='Okay' size='base' />
                     </div>
                   </div>
                 </div>

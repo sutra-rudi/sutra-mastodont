@@ -4,7 +4,7 @@ import React from 'react';
 import CookieConsent from 'react-cookie-consent';
 // import { getSuffixFromLang } from '../langUtils/getSuffixFromLang';
 import { FaCookieBite as CookieIcon } from 'react-icons/fa';
-import { SutraButtonBase } from './SutraButton';
+import { AccentButton, PrimaryLightButton } from './SutraButton';
 import toast from 'react-hot-toast';
 import { motion } from 'framer-motion';
 import { setCookie, getCookie } from 'cookies-next';
@@ -103,13 +103,8 @@ const CookieConsentNotification = ({ pageContent }: CookieInt) => {
           </div>
 
           <div className='w-full flex items-center justify-start gap-4'>
-            <SutraButtonBase innerText='Prihvačam sve' size='small' onClickAction={handleAccept} isAccentButton />
-            <SutraButtonBase
-              innerText='Prihvačam samo nužne'
-              size='small'
-              onClickAction={handleDecline}
-              isAccentButton
-            />
+            <AccentButton innerText='Prihvačam sve' size='sm' onClickAction={handleAccept} />
+            <PrimaryLightButton innerText='Prihvačam samo nužne' size='sm' onClickAction={handleDecline} />
           </div>
         </CookieConsent>
       </motion.div>

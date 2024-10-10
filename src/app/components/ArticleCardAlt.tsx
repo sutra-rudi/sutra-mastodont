@@ -3,7 +3,7 @@ import { FiClock as ClockIcon } from 'react-icons/fi';
 import { GoArrowUpRight as ArrowIcon } from 'react-icons/go';
 import { LuCalendarDays as CalendarIcon } from 'react-icons/lu';
 import { FaChevronRight as RightIcon } from 'react-icons/fa';
-import { SutraButtonBase } from './SutraButton';
+import { BrandClrButton } from './SutraButton';
 import Image from 'next/image';
 
 interface DefaultArticleCard {
@@ -112,7 +112,7 @@ export const ArticleCardHorizontal = ({
 
             <div className='w-full flex items-center justify-end py-6'>
               <a href={url} className=''>
-                <SutraButtonBase backIcon={RightIcon} innerText={cta} size='normal' />
+                <BrandClrButton backIcon={RightIcon} innerText={cta} size='base' />
               </a>
             </div>
 

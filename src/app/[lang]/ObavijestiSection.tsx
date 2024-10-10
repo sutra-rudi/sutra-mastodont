@@ -4,7 +4,7 @@ import React from 'react';
 import { getSuffixFromLang } from '../langUtils/getSuffixFromLang';
 import parse from 'html-react-parser';
 
-import { SutraButtonBase } from '../components/SutraButton';
+import { BrandClrButton } from '../components/SutraButton';
 
 interface ObavijestiNaStraniciInterface {
   pageContent: any;
@@ -94,7 +94,7 @@ const ObavijestiSection = ({ pageContent, lang }: ObavijestiNaStraniciInterface)
                     </div>
 
                     <div className='flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600'>
-                      <SutraButtonBase innerText='Okay' size='normal' />
+                      <BrandClrButton innerText='Okay' size='base' />
                     </div>
                   </div>
                 </div>
