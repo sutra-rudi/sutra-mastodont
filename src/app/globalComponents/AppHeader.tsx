@@ -52,6 +52,7 @@ const AppHeader = () => {
     other: [
       { url: `/${currentLang}/360-tours`, title: 'Šetnje' },
       { url: `/${currentLang}/buttons-compilation`, title: 'Botuni' },
+      { url: `/${currentLang}/tags-compilation`, title: 'Tagovi' },
       { url: `/${currentLang}/radna-vremena`, title: 'Radna vremena' },
       { url: `/${currentLang}/social-links`, title: 'Društvene mreže' },
       { url: `/${currentLang}/gallery`, title: 'Galerija' },

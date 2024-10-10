@@ -1,131 +1,64 @@
 interface SutraTagInterface {
-  size: 'small' | 'normal' | 'large';
-  innerText: string;
-  isAccentButton?: boolean;
+  size: 'mobile' | 'tablet' | 'desktop' | 'xl';
   frontIcon?: React.ElementType;
   backIcon?: React.ElementType;
+  onClickAction?: () => any;
+  innerText?: string;
+  isResponsive?: boolean;
 }
 
-export const SutraTagBase = ({ innerText, size, isAccentButton }: SutraTagInterface) => {
-  return (
-    <div
-      className={`${
-        size === 'small'
-          ? 'text-sm rounded-sutraButtonBorderRadiusSmall'
-          : size === 'normal'
-          ? 'text-base rounded-sutraButtonBorderRadiusBase'
-          : size === 'large'
-          ? 'text-lg rounded-sutraButtonBorderRadiusLarge'
-          : ''
-      } transition-all ease-in-out py-[0.75rem] px-[1.125rem]  hover:scale-105 active:outline active:outline-sutraButtonOutline ${
-        isAccentButton
-          ? 'bg-accent text-sutraButtonText hover:text-accent-boja hover:bg-primarna-tamna active:outline-accent'
-          : 'bg-primarna-tamna text-sutraButtonText  dark:bg-primarna-svijetla dark:text-primarna-tamna hover:bg-primarna-svijetla hover:text-primarna-tamna active:outline-accent dark:hover:bg-primarna-tamna dark:hover:text-sekundarna-svijetla'
-      }  `}
-    >
-      {innerText}
-    </div>
-  );
-};
-
-export const SutraButtonGradient = ({ innerText, size }: SutraTagInterface) => {
-  return (
-    <div
-      className={`${
-        size === 'small'
-          ? 'text-sm rounded-sutraButtonBorderRadiusSmall'
-          : size === 'normal'
-          ? 'text-base rounded-sutraButtonBorderRadiusBase'
-          : size === 'large'
-          ? 'text-lg rounded-sutraButtonBorderRadiusLarge'
-          : ''
-      } transition-all ease-in-out py-[0.75rem] px-[1.125rem]  hover:scale-105 active:outline active:outline-sutraButtonOutline bg-sutraGradientButton text-sutraButtonText  dark:bg-sutraGradientButtonDark active:outline-accent hover:bg-sutraGradientButtonDark dark:hover:bg-sutraGradientButton dark:text-almost-black dark:hover:text-almost-white`}
-    >
-      {innerText}
-    </div>
-  );
-};
-
-export const SutraButtonOutlined = ({ innerText, size }: SutraTagInterface) => {
-  return (
-    <div
-      className={`${
-        size === 'small'
-          ? 'text-sm rounded-sutraButtonBorderRadiusSmall'
-          : size === 'normal'
-          ? 'text-base rounded-sutraButtonBorderRadiusBase'
-          : size === 'large'
-          ? 'text-lg rounded-sutraButtonBorderRadiusLarge'
-          : ''
-      } transition-all ease-in-out py-[0.75rem] px-[1.125rem]  hover:scale-105 outline outline-sutraButtonOutlineAsPrim outline-primarna-tamna text-primarna-tamna hover:text-accent-boja hover:outline-sutraButtonOutlineAsPrimHover active:outline-sutraButtonOutlineAsPrimHover dark:outline-primarna-svijetla dark:text-primarna-svijetla `}
-    >
-      {innerText}
-    </div>
-  );
-};
-
-export const SutraButtonGhost = ({ innerText, size }: SutraTagInterface) => {
-  return (
-    <div
-      className={`${
-        size === 'small'
-          ? 'text-sm rounded-sutraButtonBorderRadiusSmall'
-          : size === 'normal'
-          ? 'text-base rounded-sutraButtonBorderRadiusBase'
-          : size === 'large'
-          ? 'text-lg rounded-sutraButtonBorderRadiusLarge'
-          : ''
-      } transition-all ease-in-out py-[0.75rem] px-[1.125rem]  hover:scale-105 outline outline-sutraButtonOutlineAsPrim outline-primarna-tamna text-primarna-tamna  active:outline-sutraButtonOutlineAsPrimHover dark:outline-primarna-svijetla dark:text-accent-boja opacity-ghostButtonOpacity`}
-    >
-      {innerText}
-    </div>
-  );
-};
-
-export const SutraButtonLink = ({ innerText, size, isAccentButton }: SutraTagInterface) => {
-  return (
-    <div
-      className={`${
-        size === 'small'
-          ? 'text-sm rounded-sutraButtonBorderRadiusSmall'
-          : size === 'normal'
-          ? 'text-base rounded-sutraButtonBorderRadiusBase'
-          : size === 'large'
-          ? 'text-lg rounded-sutraButtonBorderRadiusLarge'
-          : ''
-      } transition-all ease-in-out py-[0.75rem] px-[1.125rem] ${
-        isAccentButton
-          ? 'text-accent-boja dark:text-accent-boja hover:text-primarna-tamna dark:hover:text-primarna-svijetla active:text-primarna-tamna dark:active:text-primarna-svijetla'
-          : ' text-primarna-tamna hover:text-accent-boja dark:hover:text-accent-boja active:text-primarna-tamna dark:text-primarna-svijetla dark:active:text-primarna-svijetla'
-      }`}
-    >
-      {innerText}
-    </div>
-  );
-};
-
-export const SutraTagWithIcon = ({
-  innerText,
-  size,
-  isAccentButton,
+export const BrandClrTag = ({
   frontIcon: FrontIcon,
   backIcon: BackIcon,
+  size,
+  onClickAction,
+  innerText,
+  isResponsive,
 }: SutraTagInterface) => {
+  const calcSizes = () => {
+    if (size === 'mobile') return 'px-tag-mobile-lr py-tag-mobile-td text-tag-mobile rounded-tag-mobile';
+    if (size === 'tablet') return 'px-tag-tablet-lr py-tag-tablet-td text-tag-tablet rounded-tag-tablet';
+    if (size === 'desktop') return 'px-tag-desktop-lr py-tag-desktop-td text-tag-desktop rounded-tag-desktop';
+    if (size === 'xl') return 'px-tag-xl-lr py-tag-xl-td text-tag-xl rounded-tag-xl';
+  };
+
+  if (isResponsive) {
+    return (
+      <div
+        className={` xl:px-tag-xl-lr xl:py-tag-xl-td xl:text-tag-xl xl:rounded-tag-xl lg:px-tag-desktop-lr lg:py-tag-desktop-td lg:text-tag-desktop lg:rounded-tag-desktop md:px-tag-tablet-lr md:py-tag-tablet-td md:text-tag-tablet md:rounded-tag-tablet px-tag-mobile-lr py-tag-mobile-td text-tag-mobile rounded-tag-mobile xl:gap-tag-element-inside-xl lg:gap-tag-element-inside-desktop md:gap-tag-element-inside-tablet gap-tag-element-inside-mobile flex items-center justify-start transition-all ease-in-out cursor-pointer bg-brand-color-main text-almost-white hover:bg-brand-color-secondary hover:outline hover:outline-1 hover:outline-offset-0 hover:outline-accent-boja active:outline-[3px] active:outline-sekundarna-svijetla active:bg-accent-boja active:text-sekundarna-tamna`}
+      >
+        {BackIcon && <BackIcon className='shrink-0' />}
+        <span>{innerText}</span>
+        {FrontIcon && <FrontIcon className='shrink-0' />}
+      </div>
+    );
+  }
+
+  if (FrontIcon || BackIcon) {
+    return (
+      <div
+        className={`${calcSizes()} ${
+          size === 'mobile'
+            ? 'gap-tag-element-inside-mobile'
+            : size === 'tablet'
+            ? 'gap-tag-element-inside-tablet'
+            : size === 'desktop'
+            ? 'gap-tag-element-inside-desktop'
+            : 'gap-tag-element-inside-xl'
+        } flex items-center justify-start transition-all ease-in-out cursor-pointer bg-brand-color-main text-almost-white hover:bg-brand-color-secondary hover:outline hover:outline-1 hover:outline-offset-0 hover:outline-accent-boja active:outline-[3px] active:outline-sekundarna-svijetla active:bg-accent-boja active:text-sekundarna-tamna`}
+      >
+        {BackIcon && <BackIcon className='shrink-0' />}
+        <span>{innerText}</span>
+        {FrontIcon && <FrontIcon className='shrink-0' />}
+      </div>
+    );
+  }
+
   return (
     <div
-      className={`${
-        size === 'small'
-          ? 'text-sm rounded-sutraButtonBorderRadiusSmall'
-          : size === 'normal'
-          ? 'text-base rounded-sutraButtonBorderRadiusBase'
-          : size === 'large'
-          ? 'text-lg rounded-sutraButtonBorderRadiusLarge'
-          : ''
-      } transition-all ease-in-out py-[0.75rem] px-[1.125rem] flex items-center gap-2 bg-accent text-sutraButtonText hover:text-accent-boja hover:bg-primarna-tamna active:outline-accent`}
+      className={`${calcSizes()} transition-all ease-in-out cursor-pointer bg-brand-color-main text-almost-white hover:bg-brand-color-secondary hover:outline hover:outline-1 hover:outline-offset-0 hover:outline-accent-boja active:outline-[3px] active:outline-sekundarna-svijetla active:bg-accent-boja active:text-sekundarna-tamna`}
     >
-      {FrontIcon && <FrontIcon className='shrink-0' />}
       <span>{innerText}</span>
-      {BackIcon && <BackIcon className='shrink-0' />}
     </div>
   );
 };

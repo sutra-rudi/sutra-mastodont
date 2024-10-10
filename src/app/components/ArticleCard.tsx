@@ -4,7 +4,6 @@ import { GoArrowUpRight as ArrowIcon } from 'react-icons/go';
 import { FaChevronRight as RightIcon } from 'react-icons/fa';
 import { BrandClrButton } from './SutraButton';
 import Image from 'next/image';
-// import Image from 'next/image';
 
 interface DefaultArticleCard {
   cta: string;
