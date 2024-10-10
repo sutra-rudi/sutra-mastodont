@@ -1,5 +1,6 @@
 import {
   AccentTag,
+  BlackWhiteTagFull,
   BlackWhiteTagOutline,
   BrandClrTag,
   GradientTag,
@@ -280,6 +281,67 @@ const PageContent = () => {
             <BlackWhiteTagOutline size='tablet' innerText='small small' isResponsive />
             <BlackWhiteTagOutline size='desktop' innerText='base base' isResponsive />
             <BlackWhiteTagOutline size='xl' innerText='large large' isResponsive />
+          </div>
+        </div>
+
+        <div className='w-full flex items-center gap-10 flex-col'>
+          <h3 className='text-h3-desktop dark:text-primarna-svijetla w-full text-center bg-red-400'>
+            Almost black and white color tag full
+          </h3>
+          <div className='flex items-center justify-start gap-4'>
+            <BlackWhiteTagFull size='mobile' innerText='extra small' />
+            <BlackWhiteTagFull size='tablet' innerText='small small' />
+            <BlackWhiteTagFull size='desktop' innerText='base base' />
+            <BlackWhiteTagFull size='xl' innerText='large large' />
+          </div>
+
+          <div className='flex items-center justify-start gap-4'>
+            <BlackWhiteTagFull size='mobile' innerText='extra small' backIcon={CartIcon} frontIcon={RightIcon} />
+            <BlackWhiteTagFull size='tablet' innerText='small small' backIcon={CartIcon} frontIcon={RightIcon} />
+            <BlackWhiteTagFull size='desktop' innerText='base base' backIcon={CartIcon} frontIcon={RightIcon} />
+            <BlackWhiteTagFull size='xl' innerText='large large' backIcon={CartIcon} frontIcon={RightIcon} />
+          </div>
+
+          <h3 className='text-h3-desktop dark:text-primarna-svijetla w-full text-center bg-red-200'>
+            Almost black and white color tag full responzivni
+          </h3>
+
+          <div className='flex items-center justify-start gap-4'>
+            <BlackWhiteTagFull
+              size='mobile'
+              innerText='extra small'
+              backIcon={CartIcon}
+              frontIcon={RightIcon}
+              isResponsive
+            />
+            <BlackWhiteTagFull
+              size='tablet'
+              innerText='small small'
+              backIcon={CartIcon}
+              frontIcon={RightIcon}
+              isResponsive
+            />
+            <BlackWhiteTagFull
+              size='desktop'
+              innerText='base base'
+              backIcon={CartIcon}
+              frontIcon={RightIcon}
+              isResponsive
+            />
+            <BlackWhiteTagFull
+              size='xl'
+              innerText='large large'
+              backIcon={CartIcon}
+              frontIcon={RightIcon}
+              isResponsive
+            />
+          </div>
+
+          <div className='flex items-center justify-start gap-4'>
+            <BlackWhiteTagFull size='mobile' innerText='extra small' isResponsive />
+            <BlackWhiteTagFull size='tablet' innerText='small small' isResponsive />
+            <BlackWhiteTagFull size='desktop' innerText='base base' isResponsive />
+            <BlackWhiteTagFull size='xl' innerText='large large' isResponsive />
           </div>
         </div>
       </div>
