@@ -4,6 +4,7 @@ import {
   BlackWhiteTagOutline,
   BrandClrTag,
   GradientTag,
+  LinkTag,
   PrimaryTag,
   PrimaryTagOutline,
 } from '@/app/components/SutraTag';
@@ -342,6 +343,41 @@ const PageContent = () => {
             <BlackWhiteTagFull size='tablet' innerText='small small' isResponsive />
             <BlackWhiteTagFull size='desktop' innerText='base base' isResponsive />
             <BlackWhiteTagFull size='xl' innerText='large large' isResponsive />
+          </div>
+        </div>
+
+        <div className='w-full flex items-center gap-10 flex-col'>
+          <h3 className='text-h3-desktop dark:text-primarna-svijetla w-full text-center bg-red-400'>Link tag</h3>
+          <div className='flex items-center justify-start gap-4'>
+            <LinkTag size='mobile' innerText='extra small' />
+            <LinkTag size='tablet' innerText='small small' />
+            <LinkTag size='desktop' innerText='base base' />
+            <LinkTag size='xl' innerText='large large' />
+          </div>
+
+          <div className='flex items-center justify-start gap-4'>
+            <LinkTag size='mobile' innerText='extra small' backIcon={CartIcon} frontIcon={RightIcon} />
+            <LinkTag size='tablet' innerText='small small' backIcon={CartIcon} frontIcon={RightIcon} />
+            <LinkTag size='desktop' innerText='base base' backIcon={CartIcon} frontIcon={RightIcon} />
+            <LinkTag size='xl' innerText='large large' backIcon={CartIcon} frontIcon={RightIcon} />
+          </div>
+
+          <h3 className='text-h3-desktop dark:text-primarna-svijetla w-full text-center bg-red-200'>
+            Link tag responzivni
+          </h3>
+
+          <div className='flex items-center justify-start gap-4'>
+            <LinkTag size='mobile' innerText='extra small' backIcon={CartIcon} frontIcon={RightIcon} isResponsive />
+            <LinkTag size='tablet' innerText='small small' backIcon={CartIcon} frontIcon={RightIcon} isResponsive />
+            <LinkTag size='desktop' innerText='base base' backIcon={CartIcon} frontIcon={RightIcon} isResponsive />
+            <LinkTag size='xl' innerText='large large' backIcon={CartIcon} frontIcon={RightIcon} isResponsive />
+          </div>
+
+          <div className='flex items-center justify-start gap-4'>
+            <LinkTag size='mobile' innerText='extra small' isResponsive />
+            <LinkTag size='tablet' innerText='small small' isResponsive />
+            <LinkTag size='desktop' innerText='base base' isResponsive />
+            <LinkTag size='xl' innerText='large large' isResponsive />
           </div>
         </div>
       </div>
