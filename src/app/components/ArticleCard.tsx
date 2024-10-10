@@ -2,7 +2,7 @@ import parse from 'html-react-parser';
 import { FiClock as ClockIcon } from 'react-icons/fi';
 import { GoArrowUpRight as ArrowIcon } from 'react-icons/go';
 import { FaChevronRight as RightIcon } from 'react-icons/fa';
-import { BrandClrButton, SutraButtonWithIcon } from './SutraButton';
+import { BrandClrButton } from './SutraButton';
 import Image from 'next/image';
 // import Image from 'next/image';
 

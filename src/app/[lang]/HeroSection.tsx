@@ -1,11 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
-import {
-  BrandClrButton,
-  ButtonOutlineAlmostBlack,
-  SutraButtonOutlined,
-  SutraButtonWithIcon,
-} from '../components/SutraButton';
+import { BrandClrButton, ButtonOutlineAlmostBlack } from '../components/SutraButton';
 import { BsArrowRightShort as RightIcon } from 'react-icons/bs';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
