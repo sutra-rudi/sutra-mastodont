@@ -1,10 +1,10 @@
-import { BrandClrTag } from '@/app/components/SutraTag';
+import { BrandClrTag, PrimaryTag } from '@/app/components/SutraTag';
 import React from 'react';
 import { FaArrowRight as RightIcon } from 'react-icons/fa6';
 import { BsCartPlusFill as CartIcon } from 'react-icons/bs';
 const PageContent = () => {
   return (
-    <section className='w-full min-h-screen'>
+    <section className='w-full min-h-screen dark:bg-primarna-tamna'>
       <h2 className='w-full text-h0_2xl font-medium text-center dark:text-primarna-svijetla'>Tagovi</h2>
 
       <div className='grid grid-cols-1 gap-8 place-items-start mt-6 pb-24'>
@@ -40,6 +40,43 @@ const PageContent = () => {
             <BrandClrTag size='tablet' innerText='small small' isResponsive />
             <BrandClrTag size='desktop' innerText='base base' isResponsive />
             <BrandClrTag size='xl' innerText='large large' isResponsive />
+          </div>
+        </div>
+
+        <div className='w-full flex items-center gap-10 flex-col'>
+          <h3 className='text-h3-desktop dark:text-primarna-svijetla w-full text-center bg-red-400'>
+            Primary color tag
+          </h3>
+          <div className='flex items-center justify-start gap-4'>
+            <PrimaryTag size='mobile' innerText='extra small' />
+            <PrimaryTag size='tablet' innerText='small small' />
+            <PrimaryTag size='desktop' innerText='base base' />
+            <PrimaryTag size='xl' innerText='large large' />
+          </div>
+
+          <div className='flex items-center justify-start gap-4'>
+            <PrimaryTag size='mobile' innerText='extra small' backIcon={CartIcon} frontIcon={RightIcon} />
+            <PrimaryTag size='tablet' innerText='small small' backIcon={CartIcon} frontIcon={RightIcon} />
+            <PrimaryTag size='desktop' innerText='base base' backIcon={CartIcon} frontIcon={RightIcon} />
+            <PrimaryTag size='xl' innerText='large large' backIcon={CartIcon} frontIcon={RightIcon} />
+          </div>
+
+          <h3 className='text-h3-desktop dark:text-primarna-svijetla w-full text-center bg-red-200'>
+            Primary color tag responzivni
+          </h3>
+
+          <div className='flex items-center justify-start gap-4'>
+            <PrimaryTag size='mobile' innerText='extra small' backIcon={CartIcon} frontIcon={RightIcon} isResponsive />
+            <PrimaryTag size='tablet' innerText='small small' backIcon={CartIcon} frontIcon={RightIcon} isResponsive />
+            <PrimaryTag size='desktop' innerText='base base' backIcon={CartIcon} frontIcon={RightIcon} isResponsive />
+            <PrimaryTag size='xl' innerText='large large' backIcon={CartIcon} frontIcon={RightIcon} isResponsive />
+          </div>
+
+          <div className='flex items-center justify-start gap-4'>
+            <PrimaryTag size='mobile' innerText='extra small' isResponsive />
+            <PrimaryTag size='tablet' innerText='small small' isResponsive />
+            <PrimaryTag size='desktop' innerText='base base' isResponsive />
+            <PrimaryTag size='xl' innerText='large large' isResponsive />
           </div>
         </div>
       </div>
