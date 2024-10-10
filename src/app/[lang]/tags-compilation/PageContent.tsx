@@ -1,4 +1,4 @@
-import { AccentTag, BrandClrTag, PrimaryTag } from '@/app/components/SutraTag';
+import { AccentTag, BrandClrTag, GradientTag, PrimaryTag } from '@/app/components/SutraTag';
 import React from 'react';
 import { FaArrowRight as RightIcon } from 'react-icons/fa6';
 import { BsCartPlusFill as CartIcon } from 'react-icons/bs';
@@ -114,6 +114,43 @@ const PageContent = () => {
             <AccentTag size='tablet' innerText='small small' isResponsive />
             <AccentTag size='desktop' innerText='base base' isResponsive />
             <AccentTag size='xl' innerText='large large' isResponsive />
+          </div>
+        </div>
+
+        <div className='w-full flex items-center gap-10 flex-col'>
+          <h3 className='text-h3-desktop dark:text-primarna-svijetla w-full text-center bg-red-400'>
+            Gradient color tag
+          </h3>
+          <div className='flex items-center justify-start gap-4'>
+            <GradientTag size='mobile' innerText='extra small' />
+            <GradientTag size='tablet' innerText='small small' />
+            <GradientTag size='desktop' innerText='base base' />
+            <GradientTag size='xl' innerText='large large' />
+          </div>
+
+          <div className='flex items-center justify-start gap-4'>
+            <GradientTag size='mobile' innerText='extra small' backIcon={CartIcon} frontIcon={RightIcon} />
+            <GradientTag size='tablet' innerText='small small' backIcon={CartIcon} frontIcon={RightIcon} />
+            <GradientTag size='desktop' innerText='base base' backIcon={CartIcon} frontIcon={RightIcon} />
+            <GradientTag size='xl' innerText='large large' backIcon={CartIcon} frontIcon={RightIcon} />
+          </div>
+
+          <h3 className='text-h3-desktop dark:text-primarna-svijetla w-full text-center bg-red-200'>
+            Gradient color tag responzivni
+          </h3>
+
+          <div className='flex items-center justify-start gap-4'>
+            <GradientTag size='mobile' innerText='extra small' backIcon={CartIcon} frontIcon={RightIcon} isResponsive />
+            <GradientTag size='tablet' innerText='small small' backIcon={CartIcon} frontIcon={RightIcon} isResponsive />
+            <GradientTag size='desktop' innerText='base base' backIcon={CartIcon} frontIcon={RightIcon} isResponsive />
+            <GradientTag size='xl' innerText='large large' backIcon={CartIcon} frontIcon={RightIcon} isResponsive />
+          </div>
+
+          <div className='flex items-center justify-start gap-4'>
+            <GradientTag size='mobile' innerText='extra small' isResponsive />
+            <GradientTag size='tablet' innerText='small small' isResponsive />
+            <GradientTag size='desktop' innerText='base base' isResponsive />
+            <GradientTag size='xl' innerText='large large' isResponsive />
           </div>
         </div>
       </div>
