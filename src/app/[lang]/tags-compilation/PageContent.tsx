@@ -1,4 +1,11 @@
-import { AccentTag, BrandClrTag, GradientTag, PrimaryTag, PrimaryTagOutline } from '@/app/components/SutraTag';
+import {
+  AccentTag,
+  BlackWhiteTagOutline,
+  BrandClrTag,
+  GradientTag,
+  PrimaryTag,
+  PrimaryTagOutline,
+} from '@/app/components/SutraTag';
 import React from 'react';
 import { FaArrowRight as RightIcon } from 'react-icons/fa6';
 import { BsCartPlusFill as CartIcon } from 'react-icons/bs';
@@ -212,6 +219,67 @@ const PageContent = () => {
             <PrimaryTagOutline size='tablet' innerText='small small' isResponsive />
             <PrimaryTagOutline size='desktop' innerText='base base' isResponsive />
             <PrimaryTagOutline size='xl' innerText='large large' isResponsive />
+          </div>
+        </div>
+
+        <div className='w-full flex items-center gap-10 flex-col'>
+          <h3 className='text-h3-desktop dark:text-primarna-svijetla w-full text-center bg-red-400'>
+            Almost black and white color tag
+          </h3>
+          <div className='flex items-center justify-start gap-4'>
+            <BlackWhiteTagOutline size='mobile' innerText='extra small' />
+            <BlackWhiteTagOutline size='tablet' innerText='small small' />
+            <BlackWhiteTagOutline size='desktop' innerText='base base' />
+            <BlackWhiteTagOutline size='xl' innerText='large large' />
+          </div>
+
+          <div className='flex items-center justify-start gap-4'>
+            <BlackWhiteTagOutline size='mobile' innerText='extra small' backIcon={CartIcon} frontIcon={RightIcon} />
+            <BlackWhiteTagOutline size='tablet' innerText='small small' backIcon={CartIcon} frontIcon={RightIcon} />
+            <BlackWhiteTagOutline size='desktop' innerText='base base' backIcon={CartIcon} frontIcon={RightIcon} />
+            <BlackWhiteTagOutline size='xl' innerText='large large' backIcon={CartIcon} frontIcon={RightIcon} />
+          </div>
+
+          <h3 className='text-h3-desktop dark:text-primarna-svijetla w-full text-center bg-red-200'>
+            Almost black and white color tag responzivni
+          </h3>
+
+          <div className='flex items-center justify-start gap-4'>
+            <BlackWhiteTagOutline
+              size='mobile'
+              innerText='extra small'
+              backIcon={CartIcon}
+              frontIcon={RightIcon}
+              isResponsive
+            />
+            <BlackWhiteTagOutline
+              size='tablet'
+              innerText='small small'
+              backIcon={CartIcon}
+              frontIcon={RightIcon}
+              isResponsive
+            />
+            <BlackWhiteTagOutline
+              size='desktop'
+              innerText='base base'
+              backIcon={CartIcon}
+              frontIcon={RightIcon}
+              isResponsive
+            />
+            <BlackWhiteTagOutline
+              size='xl'
+              innerText='large large'
+              backIcon={CartIcon}
+              frontIcon={RightIcon}
+              isResponsive
+            />
+          </div>
+
+          <div className='flex items-center justify-start gap-4'>
+            <BlackWhiteTagOutline size='mobile' innerText='extra small' isResponsive />
+            <BlackWhiteTagOutline size='tablet' innerText='small small' isResponsive />
+            <BlackWhiteTagOutline size='desktop' innerText='base base' isResponsive />
+            <BlackWhiteTagOutline size='xl' innerText='large large' isResponsive />
           </div>
         </div>
       </div>
