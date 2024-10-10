@@ -11,7 +11,6 @@ import { readingTime } from 'reading-time-estimator';
 import { FaTag as TagIcon } from 'react-icons/fa6';
 import { getRecords } from '../lib/airtable';
 import { useRouter } from 'next/navigation';
-import { SutraTagWithIcon } from '../components/SutraTag';
 
 interface BlogSection {
   pageContent: any;
@@ -117,7 +116,7 @@ const BlogSection = ({ pageContent, lang, categoriesList, tagsList, blogCtaKey, 
                 }}
                 className='cursor-pointer'
               >
-                <SutraTagWithIcon frontIcon={TagIcon} innerText={tagNaming} size='small' />
+                {/* <SutraTagWithIcon frontIcon={TagIcon} innerText={tagNaming} size='small' /> */}
               </div>
             );
           })}
