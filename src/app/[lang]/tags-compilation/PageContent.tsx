@@ -5,6 +5,7 @@ import {
   BrandClrTag,
   GradientTag,
   LinkTag,
+  LinkTagAccent,
   PrimaryTag,
   PrimaryTagOutline,
 } from '@/app/components/SutraTag';
@@ -378,6 +379,59 @@ const PageContent = () => {
             <LinkTag size='tablet' innerText='small small' isResponsive />
             <LinkTag size='desktop' innerText='base base' isResponsive />
             <LinkTag size='xl' innerText='large large' isResponsive />
+          </div>
+        </div>
+
+        <div className='w-full flex items-center gap-10 flex-col'>
+          <h3 className='text-h3-desktop dark:text-primarna-svijetla w-full text-center bg-red-400'>Link tag accent</h3>
+          <div className='flex items-center justify-start gap-4'>
+            <LinkTagAccent size='mobile' innerText='extra small' />
+            <LinkTagAccent size='tablet' innerText='small small' />
+            <LinkTagAccent size='desktop' innerText='base base' />
+            <LinkTagAccent size='xl' innerText='large large' />
+          </div>
+
+          <div className='flex items-center justify-start gap-4'>
+            <LinkTagAccent size='mobile' innerText='extra small' backIcon={CartIcon} frontIcon={RightIcon} />
+            <LinkTagAccent size='tablet' innerText='small small' backIcon={CartIcon} frontIcon={RightIcon} />
+            <LinkTagAccent size='desktop' innerText='base base' backIcon={CartIcon} frontIcon={RightIcon} />
+            <LinkTagAccent size='xl' innerText='large large' backIcon={CartIcon} frontIcon={RightIcon} />
+          </div>
+
+          <h3 className='text-h3-desktop dark:text-primarna-svijetla w-full text-center bg-red-200'>
+            Link tag accent responzivni
+          </h3>
+
+          <div className='flex items-center justify-start gap-4'>
+            <LinkTagAccent
+              size='mobile'
+              innerText='extra small'
+              backIcon={CartIcon}
+              frontIcon={RightIcon}
+              isResponsive
+            />
+            <LinkTagAccent
+              size='tablet'
+              innerText='small small'
+              backIcon={CartIcon}
+              frontIcon={RightIcon}
+              isResponsive
+            />
+            <LinkTagAccent
+              size='desktop'
+              innerText='base base'
+              backIcon={CartIcon}
+              frontIcon={RightIcon}
+              isResponsive
+            />
+            <LinkTagAccent size='xl' innerText='large large' backIcon={CartIcon} frontIcon={RightIcon} isResponsive />
+          </div>
+
+          <div className='flex items-center justify-start gap-4'>
+            <LinkTagAccent size='mobile' innerText='extra small' isResponsive />
+            <LinkTagAccent size='tablet' innerText='small small' isResponsive />
+            <LinkTagAccent size='desktop' innerText='base base' isResponsive />
+            <LinkTagAccent size='xl' innerText='large large' isResponsive />
           </div>
         </div>
       </div>
