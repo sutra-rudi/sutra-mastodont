@@ -48,6 +48,7 @@ const AppHeader = () => {
       { url: `/${currentLang}/maps`, title: 'Mape kompilacija' },
       { url: `/${currentLang}/schedule`, title: 'Rasporedi' },
       { url: `/${currentLang}/liste-bullets`, title: 'Liste' },
+      { url: `/${currentLang}/cards-compilation`, title: 'Kartice' },
     ],
     other: [
       { url: `/${currentLang}/360-tours`, title: 'Šetnje' },

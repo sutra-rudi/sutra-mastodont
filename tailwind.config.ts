@@ -298,6 +298,10 @@ const config: Config = {
         'veličina-kruga-avatar-desktop': '24px',
         'veličina-kruga-avatar-tablet': '22px',
         'veličina-kruga-avatar-mobile': '18px',
+        'divider-xl': '4px',
+        'divider-desktop': '2px',
+        'divider-tablet': '2px',
+        'divider-mobile': '1px',
       },
       height: {
         'veličina-kruga-avatar-xl': '26px',
