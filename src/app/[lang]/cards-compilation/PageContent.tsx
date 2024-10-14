@@ -11,27 +11,35 @@ const PageContent = () => {
         <SutraCard
           authorName={'Jurica Pađen'}
           date={dayjs('07-16-1992').format('DD/MM/YYYY')}
-          subTitle={'Primjer kartice'}
+          //     date={null}
+          textContent={
+            'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est.'
+          }
+          subTitle={'Sed ut perspiciatis natpis'}
           tagText={'Neka kategorija'}
+          title={'Sed ut perspiciatis testing dva reda tri reda test kjasdhkjhd'}
           readTime={'6min'}
-          lineInfo='top'
+          lineInfoPos='top'
+          textContentPos='top'
           hasBackgroundShadows={true}
-          hasBottomTextContent={true}
           hasCardImage={true}
-          hasTopTextContent={true}
         />
 
         <SutraCard
           authorName={'Jurica Pađen'}
           date={dayjs('07-16-1992').format('DD/MM/YYYY')}
-          subTitle={'Primjer kartice'}
+          //     date={null}
+          textContent={
+            'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est.'
+          }
+          subTitle={'Sed ut perspiciatis natpis'}
+          title={'Sed ut perspiciatis testing dva reda tri reda test kjasdhkjhd'}
           tagText={'Neka kategorija'}
           readTime={'6min'}
-          lineInfo='bottom'
+          lineInfoPos='bottom'
+          textContentPos='bottom'
           hasBackgroundShadows={true}
-          hasBottomTextContent={true}
           hasCardImage={true}
-          hasTopTextContent={true}
         />
       </div>
     </section>

@@ -67,6 +67,7 @@ const config: Config = {
         'gradient-ferlaufbijeli': 'linear-gradient(#ffffffff 0%, #ffffffff 100%)',
         'gradient-light-radial': 'radial-gradient(circle, #fffbf6ff, #dcc39dff)', // Pretpostavljeni radijalni gradijent
         'gradient-dark-radial': 'radial-gradient(circle, #5a5d52ff, #242928ff)', // Pretpostavljeni radijalni gradijent
+        'gradient-dark-card': 'radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%)',
       },
       //OUTLINE
       outlineWidth: {

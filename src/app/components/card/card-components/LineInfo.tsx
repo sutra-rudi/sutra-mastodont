@@ -6,7 +6,7 @@ import Image from 'next/image';
 import avatarDemo from '../../../imageMaterials/slika-autora-demo.jpg';
 import { FiClock as ClockIcon } from 'react-icons/fi';
 
-interface BottomLineInfo {
+interface LineInfo {
   alignement: 'left' | 'right' | 'center';
   tagText: string | null;
   authorName: string | null;
@@ -15,7 +15,7 @@ interface BottomLineInfo {
   subTitle: string | null;
 }
 
-const BottomLineInfo = ({ alignement, tagText, subTitle, readTime, date, authorName }: BottomLineInfo) => {
+const LineInfo = ({ alignement, tagText, subTitle, readTime, date, authorName }: LineInfo) => {
   const ContentDivider = () => (
     <div className='xl:w-divider-xl lg:w-divider-desktop md:w-divider-tablet w-divider-mobile xl:h-divider-xl lg:h-divider-desktop md:h-divider-tablet h-divider-mobile bg-kartice-divider-light-mode rounded-full lg:block hidden'></div>
   );
@@ -24,9 +24,9 @@ const BottomLineInfo = ({ alignement, tagText, subTitle, readTime, date, authorN
     <div
       className={`z-10 relative w-full flex ${
         alignement === 'left' ? 'justify-start' : alignement === 'center' ? 'justify-center' : 'justify-end'
-      } items-center xl:gap-xl-unutarnji-elementi-slike lg:gap-desktop-unutarnji-elementi-slike md:gap-tablet-unutarnji-elementi-slike gap-mobile-unutarnji-elementi-slike xl:px-xl-teksta-unutar-slike-lr lg:px-desktop-teksta-unutar-slike-lr md:px-tablet-teksta-unutar-slike-lr px-mobile-teksta-unutar-slike-lr xl:py-xl-teksta-unutar-slike-tb lg:py-desktop-teksta-unutar-slike-tb md:py-tablet-teksta-unutar-slike-tb py-mobile-teksta-unutar-slike-tb text-primarna-svijetla`}
+      } items-center xl:gap-xl-unutarnji-elementi-slike lg:gap-desktop-unutarnji-elementi-slike md:gap-tablet-unutarnji-elementi-slike gap-mobile-unutarnji-elementi-slike xl:px-xl-teksta-unutar-slike-lr lg:px-desktop-teksta-unutar-slike-lr md:px-tablet-teksta-unutar-slike-lr px-mobile-teksta-unutar-slike-lr xl:py-xl-teksta-unutar-slike-tb lg:py-desktop-teksta-unutar-slike-tb md:py-tablet-teksta-unutar-slike-tb py-mobile-teksta-unutar-slike-tb text-primarna-svijetla z-20`}
     >
-      {tagText && <PrimaryTagOutline innerText={`#${tagText}`} isResponsive size='desktop' />}
+      {tagText && <PrimaryTagOutline innerText={`#${tagText}`} isResponsive size='desktop' isInsideCard />}
       {subTitle && (
         <>
           <ContentDivider />
@@ -75,4 +75,4 @@ const BottomLineInfo = ({ alignement, tagText, subTitle, readTime, date, authorN
   );
 };
 
-export default BottomLineInfo;
+export default LineInfo;
