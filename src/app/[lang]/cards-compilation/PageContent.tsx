@@ -19,8 +19,8 @@ const PageContent = () => {
           tagText={'Neka kategorija'}
           title={'Sed ut perspiciatis testing dva reda tri reda test kjasdhkjhd'}
           readTime={'6min'}
-          lineInfoPos='top'
-          textContentPos='top'
+          lineInfoPos='bottom'
+          textContentPos='hidden'
           hasBackgroundShadows={true}
           hasCardImage={true}
         />
@@ -36,7 +36,7 @@ const PageContent = () => {
           title={'Sed ut perspiciatis testing dva reda tri reda test kjasdhkjhd'}
           tagText={'Neka kategorija'}
           readTime={'6min'}
-          lineInfoPos='bottom'
+          lineInfoPos='top'
           textContentPos='bottom'
           hasBackgroundShadows={true}
           hasCardImage={true}

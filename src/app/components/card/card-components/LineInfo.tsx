@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { PrimaryTagOutline } from '../../SutraTag';
+import { PrimaryTagOutline, SutraCardTag } from '../../SutraTag';
 import Image from 'next/image';
 import avatarDemo from '../../../imageMaterials/slika-autora-demo.jpg';
 import { FiClock as ClockIcon } from 'react-icons/fi';
@@ -26,7 +26,7 @@ const LineInfo = ({ alignement, tagText, subTitle, readTime, date, authorName }:
         alignement === 'left' ? 'justify-start' : alignement === 'center' ? 'justify-center' : 'justify-end'
       } items-center xl:gap-xl-unutarnji-elementi-slike lg:gap-desktop-unutarnji-elementi-slike md:gap-tablet-unutarnji-elementi-slike gap-mobile-unutarnji-elementi-slike xl:px-xl-teksta-unutar-slike-lr lg:px-desktop-teksta-unutar-slike-lr md:px-tablet-teksta-unutar-slike-lr px-mobile-teksta-unutar-slike-lr xl:py-xl-teksta-unutar-slike-tb lg:py-desktop-teksta-unutar-slike-tb md:py-tablet-teksta-unutar-slike-tb py-mobile-teksta-unutar-slike-tb text-primarna-svijetla z-20`}
     >
-      {tagText && <PrimaryTagOutline innerText={`#${tagText}`} isResponsive size='desktop' isInsideCard />}
+      {tagText && <SutraCardTag innerText={`#${tagText}`} isResponsive size='desktop' />}
       {subTitle && (
         <>
           <ContentDivider />

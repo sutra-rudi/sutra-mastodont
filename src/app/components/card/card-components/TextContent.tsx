@@ -1,5 +1,5 @@
 import React from 'react';
-import { PrimaryTagOutline } from '../../SutraTag';
+import { PrimaryTagOutline, SutraCardTag } from '../../SutraTag';
 import { FiClock as ClockIcon } from 'react-icons/fi';
 import { Poltawski_Nowy } from 'next/font/google';
 
@@ -15,7 +15,7 @@ const TextContent = ({ title, subTitle, tagText, readTime, textContent }: TextCo
   return (
     <div className='z-20  xl:px-xl-teksta-unutar-slike-lr lg:px-desktop-teksta-unutar-slike-lr md:px-tablet-teksta-unutar-slike-lr px-mobile-teksta-unutar-slike-lr flex flex-col justify-start items-start xl:gap-xl-tekst-naslov lg:gap-desktop-tekst-naslov md:gap-tablet-tekst-naslov gap-mobile-tekst-naslov'>
       <div className='flex flex-col items-start justify-start gap-1'>
-        {tagText && <PrimaryTagOutline innerText={tagText} size='xl' isResponsive isInsideCard />}
+        {tagText && <SutraCardTag innerText={tagText} size='xl' isResponsive />}
         {subTitle && (
           <h3 className='xl:text-nadnaslov-xl lg:text-nadnaslov-desktop md:text-nadnaslov-tablet text-nadnaslov-mobile text-accent-boja'>
             {subTitle}
@@ -32,7 +32,7 @@ const TextContent = ({ title, subTitle, tagText, readTime, textContent }: TextCo
       <div className='w-full flex flex-col items-start justify-start xl:gap-xl-tekst-naslov lg:gap-desktop-naslov-nadnaslov md:gap-tablet-naslov-nadnaslov gap-mobile-naslov-nadnaslov '>
         {title && (
           <h4
-            className={`${POT.className} xl:text-h4-xl lg:text-h4-desktop md:text-h4-tablet text-h4-mobile text-heading-color-dark-mode`}
+            className={`${POT.className} xl:text-h4-xl lg:text-h4-desktop md:text-h4-tablet text-h4-mobile text-heading-color-dark-mode line-clamp-2 text-ellipsis'`}
           >
             {title}
           </h4>

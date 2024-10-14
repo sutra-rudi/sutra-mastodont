@@ -8,8 +8,8 @@ import LineInfo from './card-components/LineInfo';
 import TextContent from './card-components/TextContent';
 
 interface SutraCardInterface {
-  textContentPos: 'top' | 'bottom' | 'hidden';
-  lineInfoPos: 'top' | 'bottom' | 'hidden';
+  textContentPos: 'top' | 'bottom' | 'hidden' | 'center';
+  lineInfoPos: 'top' | 'bottom' | 'hidden' | 'center';
   hasCardImage: boolean;
   hasBackgroundShadows: boolean;
   tagText: string | null;
@@ -47,10 +47,22 @@ const SutraCard = ({
     if (lineInfoPos === 'bottom' && textContentPos === 'bottom') {
       return 'justify-end';
     }
+    if (lineInfoPos === 'hidden' && textContentPos === 'bottom') {
+      return 'justify-end';
+    }
+    if (lineInfoPos === 'hidden' && textContentPos === 'top') {
+      return 'justify-start xl:pt-xl-sadržaj-kartice lg:pt-desktop-sadržaj-kartice md:pt-tablet-sadržaj-kartice pt-mobile-sadržaj-kartice';
+    }
+    if (lineInfoPos === 'top' && textContentPos === 'hidden') {
+      return 'justify-start xl:pt-xl-sadržaj-kartice lg:pt-desktop-sadržaj-kartice md:pt-tablet-sadržaj-kartice pt-mobile-sadržaj-kartice';
+    }
+    if (lineInfoPos === 'bottom' && textContentPos === 'hidden') {
+      return 'justify-end';
+    }
   };
   return (
     <article
-      className={`xl:max-w-[75%] md:max-w-[65%] w-full xl:h-[540px] lg:h-[440px] md:min-h-[340px] min-h-[240px] border border-primarna-tamna rounded-xl-vanjski-okvir-total relative flex flex-col overflow-hidden ${generateClassName()} pb-xl-opticki`}
+      className={`xl:max-w-[75%] md:max-w-[65%] w-full xl:h-[540px] lg:h-[440px] md:min-h-[340px] min-h-[240px] border border-primarna-tamna rounded-xl-vanjski-okvir-total relative flex flex-col overflow-hidden ${generateClassName()}  xl:pb-xl-sadržaj-kartice lg:pb-desktop-sadržaj-kartice md:pb-tablet-sadržaj-kartice pb-mobile-sadržaj-kartice`}
     >
       {lineInfoPos !== 'hidden' && (
         <LineInfo
@@ -73,7 +85,9 @@ const SutraCard = ({
         />
       )}
 
-      {hasBackgroundShadows && <BackgroundShadow />}
+      {hasBackgroundShadows && (
+        <BackgroundShadow topRight={true} topLeft={false} bottomLeft={true} bottomRight={false} />
+      )}
 
       {hasCardImage && <CardImage imageSource={cardDemoImage.src} isOverlay={true} />}
     </article>
