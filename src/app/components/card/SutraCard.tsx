@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import TopLineInfo from './card-components/TopLineInfo';
 import BottomLineInfo from './card-components/BottomLineInfo';
@@ -10,22 +11,20 @@ import cardDemoImage from '../../imageMaterials/sutra-card-demo.png';
 interface SutraCardInterface {
   hasTopTextContent: boolean;
   hasBottomTextContent: boolean;
-  hasTopLineInfo: boolean;
-  hasBottomLineInfo: boolean;
+  lineInfo: 'top' | 'bottom';
   hasCardImage: boolean;
   hasBackgroundShadows: boolean;
   tagText: string | null;
   authorName: string | null;
-  date: Date | null;
+  date: string | any;
   readTime: string | null;
   subTitle: string | null;
 }
 
 const SutraCard = ({
   hasTopTextContent,
-  hasTopLineInfo,
+  lineInfo,
   hasBottomTextContent,
-  hasBottomLineInfo,
   hasBackgroundShadows,
   hasCardImage,
   date,
@@ -35,8 +34,8 @@ const SutraCard = ({
   subTitle,
 }: SutraCardInterface) => {
   return (
-    <article className='w-[814px] h-[740px] border border-primarna-tamna rounded-xl-vanjski-okvir-total relative'>
-      {hasTopLineInfo && (
+    <article className='xl:max-w-[65%] md:max-w-[55%] w-full xl:h-[540px] lg:h-[440px] md:min-h-[340px] min-h-[240px] border border-primarna-tamna rounded-xl-vanjski-okvir-total relative'>
+      {lineInfo === 'top' && (
         <TopLineInfo
           alignement='center'
           readTime={readTime}
@@ -46,11 +45,12 @@ const SutraCard = ({
           date={date}
         />
       )}
-      {hasBottomLineInfo && <BottomLineInfo />}
+
       {hasTopTextContent && <TopTextContent />}
       {hasBottomTextContent && <BottomTextContent />}
       {hasBackgroundShadows && <BackgroundShadow />}
       {hasCardImage && <CardImage imageSource={cardDemoImage.src} isOverlay={true} />}
+      {lineInfo === 'bottom' && <BottomLineInfo />}
     </article>
   );
 };
