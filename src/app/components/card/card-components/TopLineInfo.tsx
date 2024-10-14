@@ -17,14 +17,14 @@ interface TopLineInfo {
 
 const TopLineInfo = ({ alignement, tagText, subTitle, readTime, date, authorName }: TopLineInfo) => {
   const ContentDivider = () => (
-    <div className='xl:w-divider-xl lg:w-divider-desktop md:w-divider-tablet w-divider-mobile xl:h-divider-xl lg:h-divider-desktop md:h-divider-tablet h-divider-mobile bg-kartice-divider-dark-mode rounded-full lg:block hidden'></div>
+    <div className='xl:w-divider-xl lg:w-divider-desktop md:w-divider-tablet w-divider-mobile xl:h-divider-xl lg:h-divider-desktop md:h-divider-tablet h-divider-mobile bg-kartice-divider-light-mode rounded-full lg:block hidden'></div>
   );
 
   return (
     <div
       className={`z-10 relative w-full flex ${
         alignement === 'left' ? 'justify-start' : alignement === 'center' ? 'justify-center' : 'justify-end'
-      } items-center xl:gap-xl-unutarnji-elementi-slike lg:gap-desktop-unutarnji-elementi-slike md:gap-tablet-unutarnji-elementi-slike gap-mobile-unutarnji-elementi-slike xl:px-xl-teksta-unutar-slike-lr lg:px-desktop-teksta-unutar-slike-lr md:px-tablet-teksta-unutar-slike-lr px-mobile-teksta-unutar-slike-lr xl:py-xl-teksta-unutar-slike-tb lg:py-desktop-teksta-unutar-slike-tb md:py-tablet-teksta-unutar-slike-tb py-mobile-teksta-unutar-slike-tb text-primarna-tamna`}
+      } items-center xl:gap-xl-unutarnji-elementi-slike lg:gap-desktop-unutarnji-elementi-slike md:gap-tablet-unutarnji-elementi-slike gap-mobile-unutarnji-elementi-slike xl:px-xl-teksta-unutar-slike-lr lg:px-desktop-teksta-unutar-slike-lr md:px-tablet-teksta-unutar-slike-lr px-mobile-teksta-unutar-slike-lr xl:py-xl-teksta-unutar-slike-tb lg:py-desktop-teksta-unutar-slike-tb md:py-tablet-teksta-unutar-slike-tb py-mobile-teksta-unutar-slike-tb text-primarna-svijetla`}
     >
       {tagText && <PrimaryTagOutline innerText={`#${tagText}`} isResponsive size='desktop' />}
       {subTitle && (

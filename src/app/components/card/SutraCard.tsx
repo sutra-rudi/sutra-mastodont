@@ -34,10 +34,10 @@ const SutraCard = ({
   subTitle,
 }: SutraCardInterface) => {
   return (
-    <article className='xl:max-w-[65%] md:max-w-[55%] w-full xl:h-[540px] lg:h-[440px] md:min-h-[340px] min-h-[240px] border border-primarna-tamna rounded-xl-vanjski-okvir-total relative'>
+    <article className='xl:max-w-[65%] md:max-w-[55%] w-full xl:h-[540px] lg:h-[440px] md:min-h-[340px] min-h-[240px] border border-primarna-tamna rounded-xl-vanjski-okvir-total relative flex flex-col justify-between after:absolute after:w-full after:h-full after:inset-0 after:bg-black/50'>
       {lineInfo === 'top' && (
         <TopLineInfo
-          alignement='center'
+          alignement='left'
           readTime={readTime}
           authorName={authorName}
           subTitle={subTitle}
@@ -49,8 +49,17 @@ const SutraCard = ({
       {hasTopTextContent && <TopTextContent />}
       {hasBottomTextContent && <BottomTextContent />}
       {hasBackgroundShadows && <BackgroundShadow />}
+      {lineInfo === 'bottom' && (
+        <BottomLineInfo
+          alignement='right'
+          readTime={readTime}
+          authorName={authorName}
+          subTitle={subTitle}
+          tagText={tagText}
+          date={date}
+        />
+      )}
       {hasCardImage && <CardImage imageSource={cardDemoImage.src} isOverlay={true} />}
-      {lineInfo === 'bottom' && <BottomLineInfo />}
     </article>
   );
 };

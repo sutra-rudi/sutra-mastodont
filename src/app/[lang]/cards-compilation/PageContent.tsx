@@ -27,7 +27,7 @@ const PageContent = () => {
           subTitle={'Primjer kartice'}
           tagText={'Neka kategorija'}
           readTime={'6min'}
-          lineInfo='top'
+          lineInfo='bottom'
           hasBackgroundShadows={true}
           hasBottomTextContent={true}
           hasCardImage={true}
