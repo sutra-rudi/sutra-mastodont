@@ -38,7 +38,7 @@ const TextContent = ({ title, subTitle, tagText, readTime, textContent }: TextCo
           </h4>
         )}
         {textContent && (
-          <p className='xl:text-text-base-base-xl lg:text-text-base-base-desktop text-text-base-base-mobiletablet text-text-dark-mode'>
+          <p className='xl:text-text-base-base-xl lg:text-text-base-base-desktop text-text-base-base-mobiletablet text-text-dark-mode line-clamp-2 text-ellipsis'>
             {textContent}
           </p>
         )}

@@ -225,7 +225,7 @@ const config: Config = {
         'tag-desktop-lr': '10px',
         'tag-tablet-td': '7px',
         'tag-tablet-lr': '10px',
-        'tag-mobile-td': 'px',
+        'tag-mobile-td': '3px',
         'tag-mobile-lr': '6px',
         'xl-horizontal-teksta': '24px',
         'xl-vertical-teksta': '24px',
