@@ -10,11 +10,20 @@ interface TextContent {
   readTime: string | null;
   subTitle: string | null;
   textContent: string | null;
+  aligment: 'default' | 'center';
 }
-const TextContent = ({ title, subTitle, tagText, readTime, textContent }: TextContent) => {
+const TextContent = ({ title, subTitle, tagText, readTime, textContent, aligment }: TextContent) => {
   return (
-    <div className='z-20  xl:px-xl-teksta-unutar-slike-lr lg:px-desktop-teksta-unutar-slike-lr md:px-tablet-teksta-unutar-slike-lr px-mobile-teksta-unutar-slike-lr flex flex-col justify-start items-start xl:gap-xl-tekst-naslov lg:gap-desktop-tekst-naslov md:gap-tablet-tekst-naslov gap-mobile-tekst-naslov'>
-      <div className='flex flex-col items-start justify-start gap-1'>
+    <div
+      className={`z-20  xl:px-xl-teksta-unutar-slike-lr lg:px-desktop-teksta-unutar-slike-lr md:px-tablet-teksta-unutar-slike-lr px-mobile-teksta-unutar-slike-lr flex flex-col ${
+        aligment === 'center' ? 'justify-center' : 'justify-start'
+      } items-start xl:gap-xl-tekst-naslov lg:gap-desktop-tekst-naslov md:gap-tablet-tekst-naslov gap-mobile-tekst-naslov`}
+    >
+      <div
+        className={`flex flex-col  ${
+          aligment === 'center' ? 'justify-center items-center text-center' : 'justify-start items-start'
+        } gap-1 w-full`}
+      >
         {tagText && <SutraCardTag innerText={tagText} size='xl' isResponsive />}
         {subTitle && (
           <h3 className='xl:text-nadnaslov-xl lg:text-nadnaslov-desktop md:text-nadnaslov-tablet text-nadnaslov-mobile text-accent-boja'>
@@ -29,7 +38,11 @@ const TextContent = ({ title, subTitle, tagText, readTime, textContent }: TextCo
         )}
       </div>
 
-      <div className='w-full flex flex-col items-start justify-start xl:gap-xl-tekst-naslov lg:gap-desktop-naslov-nadnaslov md:gap-tablet-naslov-nadnaslov gap-mobile-naslov-nadnaslov '>
+      <div
+        className={`w-full flex flex-col  ${
+          aligment === 'center' ? 'justify-center items-center text-center' : 'justify-start items-start'
+        } xl:gap-xl-tekst-naslov lg:gap-desktop-naslov-nadnaslov md:gap-tablet-naslov-nadnaslov gap-mobile-naslov-nadnaslov`}
+      >
         {title && (
           <h4
             className={`${POT.className} xl:text-h4-xl lg:text-h4-desktop md:text-h4-tablet text-h4-mobile text-heading-color-dark-mode line-clamp-2 text-ellipsis'`}

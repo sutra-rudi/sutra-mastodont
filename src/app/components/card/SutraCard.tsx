@@ -35,6 +35,9 @@ const SutraCard = ({
   textContent,
 }: SutraCardInterface) => {
   const generateClassName = () => {
+    if (lineInfoPos === 'center' || textContentPos === 'center') {
+      return 'justify-center';
+    }
     if (lineInfoPos === 'top' && textContentPos === 'bottom') {
       return 'justify-between';
     }
@@ -66,7 +69,7 @@ const SutraCard = ({
     >
       {lineInfoPos !== 'hidden' && (
         <LineInfo
-          alignement='left'
+          alignement={lineInfoPos === 'center' ? 'center' : textContentPos === 'center' ? 'center' : 'left'}
           readTime={readTime}
           authorName={authorName}
           subTitle={subTitle}
@@ -82,6 +85,7 @@ const SutraCard = ({
           title={title}
           readTime={readTime}
           textContent={textContent}
+          aligment={lineInfoPos === 'center' ? 'center' : textContentPos === 'center' ? 'center' : 'default'}
         />
       )}
 

@@ -20,7 +20,7 @@ const PageContent = () => {
           title={'Sed ut perspiciatis testing dva reda tri reda test kjasdhkjhd'}
           readTime={'6min'}
           lineInfoPos='bottom'
-          textContentPos='hidden'
+          textContentPos='center'
           hasBackgroundShadows={true}
           hasCardImage={true}
         />
