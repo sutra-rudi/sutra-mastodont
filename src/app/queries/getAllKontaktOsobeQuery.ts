@@ -6,12 +6,18 @@ export const getKontaktiOsobeQuery = (lang: string) => {
         pozicijaDodatnogKontaktaHr
         sektorDodatniKontaktiHr
       }
+      statusAtivacijePoJezicima {
+        aktivatorHr
+      }
     `,
     eng: `
       imePrezimePozicijaDodatnogKontaktaEng {
         bonusLinkTekstEng
         pozicijaDodatnogKontaktaEng
         sektorDodatniKontaktiEng
+      }
+      statusAtivacijePoJezicima {
+        aktivatorEng
       }
     `,
     ger: `
@@ -20,12 +26,18 @@ export const getKontaktiOsobeQuery = (lang: string) => {
         pozicijaDodatnogKontaktaGer
         sektorDodatniKontaktiGer
       }
+      statusAtivacijePoJezicima {
+        aktivatorGer
+      }
     `,
     ita: `
       imePrezimePozicijaDodatnogKontaktaIta {
         bonusLinkTekstIta
         pozicijaDodatnogKontaktaIta
         sektorDodatniKontaktiIta
+      }
+      statusAtivacijePoJezicima {
+        aktivatorIta
       }
     `,
   };
@@ -38,22 +50,14 @@ export const getKontaktiOsobeQuery = (lang: string) => {
             id
             ${languageFieldsMap[lang] || ''}
             kontaktiDodatniEmailKontakti {
-              slikaDodatniDodatniKontakti {
-                node {
-                  sourceUrl
-                  srcSet
-                }
-              }
               slikaDodatniKontaktOsobe {
                 node {
                   sourceUrl
-                  srcSet
                 }
               }
               slikaKontaktOsobeHover {
                 node {
                   sourceUrl
-                  srcSet
                 }
               }
               vcardKontaktOsobe
