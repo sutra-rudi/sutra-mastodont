@@ -65,13 +65,20 @@ const SutraCard = ({
 
   const CardAlt = () => {
     return (
-      <article className='flex max-w-[702px] w-full bg-primarna-svijetla dark:bg-primarna-tamna md:flex-nowrap flex-wrap'>
-        <div className='w-full p-xl-sadržaj-kartice shrink-0 xl:max-w-[290px] md:max-w-[380px]'>
-          <div className='relative  w-full h-[384px] '>
-            {hasCardImage && <CardImage imageSource={cardDemoImage.src} isOverlay={true} />}
+      <article className='flex justify-start items-start max-w-[702px] w-full bg-primarna-svijetla dark:bg-primarna-tamna md:flex-nowrap flex-wrap xl:rounded-t-xl-vanjski-okvir-top lg:rounded-t-desktop-vanjski-okvir-top md:rounded-t-tablet-vanjski-okvir-top rounded-t-mobile-vanjski-okvir-top rounded-b-xl-vanjski-okvir-bottom md:pb-0 pb-20'>
+        <div className='w-full p-xl-sadržaj-kartice shrink-0 md:max-w-[380px]'>
+          <div className='relative  w-full h-[384px]'>
+            {hasCardImage && (
+              <CardImage
+                imageSource={cardDemoImage.src}
+                isOverlay={true}
+                roundedTl='rounded-tl-xl-unutarnja-slika-tl'
+                roundedTr='rounded-tr-xl-unutarnja-slika-tl'
+              />
+            )}
           </div>
         </div>
-        <div className='px-xl-sadržaj-kartice'>
+        <div className='md:py-xl-sadržaj-kartice md:px-0 px-xl-sadržaj-kartice md:max-w-[290px]'>
           {textContentPos !== 'hidden' && (
             <TextContent
               isOnBaseCard

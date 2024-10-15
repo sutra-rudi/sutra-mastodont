@@ -7,9 +7,23 @@ interface CardImage {
   width?: number;
   height?: number;
   isOverlay: boolean;
+  roundedTl?: string;
+  roundedTr?: string;
+  roundedBl?: string;
+  roundedBr?: string;
 }
 
-const CardImage = ({ imageSource, altText, width, height, isOverlay }: CardImage) => {
+const CardImage = ({
+  imageSource,
+  altText,
+  width,
+  height,
+  isOverlay,
+  roundedBl,
+  roundedBr,
+  roundedTl,
+  roundedTr,
+}: CardImage) => {
   if (width || height) {
     return (
       <Image
@@ -26,7 +40,9 @@ const CardImage = ({ imageSource, altText, width, height, isOverlay }: CardImage
       fill
       src={imageSource}
       alt={altText ?? 'Default alt text'}
-      className={`object-cover object-center block w-full h-full ${isOverlay && 'rounded-xl-vanjski-okvir-total'}`}
+      className={`object-cover object-center block w-full h-full ${roundedBl && roundedBl} ${roundedBr && roundedBr} ${
+        roundedTl && roundedTl
+      } ${roundedTr && roundedTr}`}
     />
   );
 };

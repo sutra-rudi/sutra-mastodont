@@ -29,7 +29,9 @@ const TextContent = ({ title, subTitle, tagText, readTime, textContent, aligment
           aligment === 'center' ? 'justify-center items-center text-center' : 'justify-start items-start'
         } gap-1 w-full`}
       >
-        {tagText && <SutraCardTag innerText={tagText} size='xl' isResponsive />}
+        {tagText && isOnBaseCard && <SutraCardTag innerText={tagText} size='xl' isResponsive isOnCard />}
+        {tagText && !isOnBaseCard && <SutraCardTag innerText={tagText} size='xl' isResponsive />}
+
         {subTitle && (
           <h3 className='xl:text-nadnaslov-xl lg:text-nadnaslov-desktop md:text-nadnaslov-tablet text-nadnaslov-mobile text-accent-boja'>
             {subTitle}
