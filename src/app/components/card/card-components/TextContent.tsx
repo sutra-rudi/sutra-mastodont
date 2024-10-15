@@ -16,7 +16,11 @@ interface TextContent {
 const TextContent = ({ title, subTitle, tagText, readTime, textContent, aligment, isOnBaseCard }: TextContent) => {
   return (
     <div
-      className={`z-20  xl:px-xl-teksta-unutar-slike-lr lg:px-desktop-teksta-unutar-slike-lr md:px-tablet-teksta-unutar-slike-lr px-mobile-teksta-unutar-slike-lr flex flex-col ${
+      className={`z-20 ${
+        isOnBaseCard
+          ? ''
+          : ' xl:px-xl-teksta-unutar-slike-lr lg:px-desktop-teksta-unutar-slike-lr md:px-tablet-teksta-unutar-slike-lr px-mobile-teksta-unutar-slike-lr'
+      } flex flex-col ${
         aligment === 'center' ? 'justify-center' : 'justify-start'
       } items-start xl:gap-xl-tekst-naslov lg:gap-desktop-tekst-naslov md:gap-tablet-tekst-naslov gap-mobile-tekst-naslov`}
     >

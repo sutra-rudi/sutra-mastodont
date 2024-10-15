@@ -65,13 +65,13 @@ const SutraCard = ({
 
   const CardAlt = () => {
     return (
-      <article className='flex max-w-[702px] w-full bg-primarna-svijetla dark:bg-primarna-tamna'>
-        <div className='w-full p-xl-sadržaj-kartice shrink-0 xl:max-w-[290px]'>
+      <article className='flex max-w-[702px] w-full bg-primarna-svijetla dark:bg-primarna-tamna md:flex-nowrap flex-wrap'>
+        <div className='w-full p-xl-sadržaj-kartice shrink-0 xl:max-w-[290px] md:max-w-[380px]'>
           <div className='relative  w-full h-[384px] '>
             {hasCardImage && <CardImage imageSource={cardDemoImage.src} isOverlay={true} />}
           </div>
         </div>
-        <div className=''>
+        <div className='px-xl-sadržaj-kartice'>
           {textContentPos !== 'hidden' && (
             <TextContent
               isOnBaseCard
