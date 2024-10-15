@@ -274,7 +274,7 @@ export default async function RootLayout({
   return (
     <html
       lang={lang}
-      className='scrollbar scrollbar-thumb-primarna-svijetla dark:scrollbar-thumb-primarna-tamna  scrollbar-track-primarna-tamna dark:scrollbar-track-primarna-svijetla min-h-screen w-full h-full'
+      className='scrollbar scrollbar-thumb-primarna-svijetla dark:scrollbar-thumb-primarna-tamna  scrollbar-track-primarna-tamna dark:scrollbar-track-primarna-svijetla min-h-screen'
     >
       <body className={`${poppins.className} w-full h-full`}>
         <CookieConsentNotification pageContent={adminTekstoviShorthand} />

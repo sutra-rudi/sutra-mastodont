@@ -106,7 +106,7 @@ const SutraCard = ({
             <TextContent
               isOnBaseCard
               subTitle={subTitle}
-              tagText={tagText}
+              tagText={'#ciaos'}
               title={title}
               readTime={readTime}
               textContent={textContent}

@@ -533,8 +533,8 @@ export const SutraCardTag = ({
       <div
         className={` xl:px-tag-xl-lr xl:py-tag-xl-td xl:text-tag-xl xl:rounded-tag-xl lg:px-tag-desktop-lr lg:py-tag-desktop-td lg:text-tag-desktop lg:rounded-tag-desktop md:px-tag-tablet-lr md:py-tag-tablet-td md:text-tag-tablet md:rounded-tag-tablet px-tag-mobile-lr py-tag-mobile-td text-tag-mobile rounded-tag-mobile xl:gap-tag-element-inside-xl lg:gap-tag-element-inside-desktop md:gap-tag-element-inside-tablet gap-tag-element-inside-mobile flex items-center justify-start transition-all ease-in-out cursor-pointer   bg-transparent  outline outline-1 outline-offset-0 active:outline-[3px] ${
           isOnCard
-            ? 'text-text-light-mode  dark:text-text-dark-mode hover:bg-black/10 hover:outline-sekundarna-svijetla hover:text-sekundarna-svijetla hover:dark:outline-sekundarna-svijetla hover:dark:bg-white/10 hover:dark:text-primarna-svijetla active:text-accent-boja dark:active:text-accent-boja active:bg-black/15 dark:active:bg-white/20 active:outline-accent-boja dark:active:outline-accent-boja'
-            : 'text-primarna-svijetla  dark:text-primarna-tamna hover:bg-black/10 hover:outline-sekundarna-svijetla hover:text-sekundarna-svijetla hover:dark:outline-sekundarna-svijetla hover:dark:bg-white/10 hover:dark:text-primarna-svijetla active:text-accent-boja dark:active:text-accent-boja active:bg-black/15 dark:active:bg-white/20 active:outline-accent-boja dark:active:outline-accent-boja'
+            ? 'text-text-light-mode dark:text-text-dark-mode hover:bg-black/10 hover:outline-sekundarna-svijetla hover:text-sekundarna-svijetla hover:dark:outline-sekundarna-svijetla hover:dark:bg-white/10 hover:dark:text-primarna-svijetla   active:bg-black/15 dark:active:bg-white/20 active:outline-accent-boja dark:active:outline-accent-boja'
+            : 'text-text-dark-mode   hover:bg-black/10 hover:outline-sekundarna-svijetla hover:text-sekundarna-svijetla    active:text-accent-boja  active:bg-black/15  active:outline-accent-boja'
         }`}
       >
         {BackIcon && <BackIcon className='shrink-0' />}
