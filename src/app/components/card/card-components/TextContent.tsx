@@ -1,5 +1,5 @@
 import React from 'react';
-import { PrimaryTagOutline, SutraCardTag } from '../../SutraTag';
+import { SutraCardTag } from '../../SutraTag';
 import { FiClock as ClockIcon } from 'react-icons/fi';
 import { Poltawski_Nowy } from 'next/font/google';
 
@@ -11,8 +11,9 @@ interface TextContent {
   subTitle: string | null;
   textContent: string | null;
   aligment: 'default' | 'center';
+  isOnBaseCard?: boolean;
 }
-const TextContent = ({ title, subTitle, tagText, readTime, textContent, aligment }: TextContent) => {
+const TextContent = ({ title, subTitle, tagText, readTime, textContent, aligment, isOnBaseCard }: TextContent) => {
   return (
     <div
       className={`z-20  xl:px-xl-teksta-unutar-slike-lr lg:px-desktop-teksta-unutar-slike-lr md:px-tablet-teksta-unutar-slike-lr px-mobile-teksta-unutar-slike-lr flex flex-col ${
@@ -45,13 +46,23 @@ const TextContent = ({ title, subTitle, tagText, readTime, textContent, aligment
       >
         {title && (
           <h4
-            className={`${POT.className} xl:text-h4-xl lg:text-h4-desktop md:text-h4-tablet text-h4-mobile text-heading-color-dark-mode line-clamp-2 text-ellipsis'`}
+            className={`${POT.className} ${
+              isOnBaseCard
+                ? 'xl:text-h4-xl lg:text-h4-desktop md:text-h4-tablet text-h4-mobile text-heading-color-light-mode dark:text-heading-color-dark-mode line-clamp-3 text-ellipsis'
+                : 'xl:text-h4-xl lg:text-h4-desktop md:text-h4-tablet text-h4-mobile text-heading-color-dark-mode line-clamp-2 text-ellipsis'
+            }`}
           >
             {title}
           </h4>
         )}
         {textContent && (
-          <p className='xl:text-text-base-base-xl lg:text-text-base-base-desktop text-text-base-base-mobiletablet text-text-dark-mode line-clamp-2 text-ellipsis'>
+          <p
+            className={`${
+              isOnBaseCard
+                ? 'xl:text-text-base-l-xl md:text-text-base-l-desktop text-text-base-l-mobiletablet text-text-light-mode dark:text-text-dark-mode'
+                : 'xl:text-text-base-base-xl lg:text-text-base-base-desktop text-text-base-base-mobiletablet text-text-dark-mode line-clamp-2 text-ellipsis'
+            }`}
+          >
             {textContent}
           </p>
         )}

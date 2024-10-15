@@ -23,6 +23,7 @@ const PageContent = () => {
           textContentPos='center'
           hasBackgroundShadows={true}
           hasCardImage={true}
+          isBaseCard={true}
         />
 
         <SutraCard
@@ -40,6 +41,7 @@ const PageContent = () => {
           textContentPos='bottom'
           hasBackgroundShadows={true}
           hasCardImage={true}
+          isBaseCard={false}
         />
       </div>
     </section>

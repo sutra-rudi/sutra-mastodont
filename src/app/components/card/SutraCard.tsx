@@ -1,6 +1,3 @@
-'use client';
-import React from 'react';
-
 import BackgroundShadow from './card-components/BackgroundShadow';
 import CardImage from './card-components/CardImage';
 import cardDemoImage from '../../imageMaterials/sutra-card-demo.png';
@@ -19,6 +16,7 @@ interface SutraCardInterface {
   subTitle: string | null;
   title: string | null;
   textContent: string | null;
+  isBaseCard: boolean;
 }
 
 const SutraCard = ({
@@ -33,6 +31,7 @@ const SutraCard = ({
   subTitle,
   title,
   textContent,
+  isBaseCard,
 }: SutraCardInterface) => {
   const generateClassName = () => {
     if (lineInfoPos === 'center' || textContentPos === 'center') {
@@ -63,6 +62,34 @@ const SutraCard = ({
       return 'justify-end';
     }
   };
+
+  const CardAlt = () => {
+    return (
+      <article className='flex max-w-[702px] w-full bg-primarna-svijetla dark:bg-primarna-tamna'>
+        <div className='w-full p-xl-sadržaj-kartice shrink-0 xl:max-w-[290px]'>
+          <div className='relative  w-full h-[384px] '>
+            {hasCardImage && <CardImage imageSource={cardDemoImage.src} isOverlay={true} />}
+          </div>
+        </div>
+        <div className=''>
+          {textContentPos !== 'hidden' && (
+            <TextContent
+              isOnBaseCard
+              subTitle={subTitle}
+              tagText={tagText}
+              title={title}
+              readTime={readTime}
+              textContent={textContent}
+              aligment={'default'}
+            />
+          )}
+        </div>
+      </article>
+    );
+  };
+
+  if (isBaseCard) return <CardAlt />;
+
   return (
     <article
       className={`xl:max-w-[75%] md:max-w-[65%] w-full xl:h-[540px] lg:h-[440px] md:min-h-[340px] min-h-[240px] border border-primarna-tamna rounded-xl-vanjski-okvir-total relative flex flex-col overflow-hidden ${generateClassName()}  xl:pb-xl-sadržaj-kartice lg:pb-desktop-sadržaj-kartice md:pb-tablet-sadržaj-kartice pb-mobile-sadržaj-kartice`}
