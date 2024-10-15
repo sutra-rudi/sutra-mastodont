@@ -12,6 +12,7 @@ interface TextContent {
   textContent: string | null;
   aligment: 'default' | 'center';
   isOnBaseCard?: boolean;
+  showTag?: boolean;
 }
 const TextContent = ({ title, subTitle, tagText, readTime, textContent, aligment, isOnBaseCard }: TextContent) => {
   return (
@@ -39,7 +40,11 @@ const TextContent = ({ title, subTitle, tagText, readTime, textContent, aligment
         )}
 
         {readTime && (
-          <div className='flex items-center justify-start xl:gap-element-inside-btn-l lg:gap-element-inside-btn-m gap-element-inside-btn-s xl:text-text-base-small-xl lg:text-text-base-small-desktop text-text-base-small-mobiletablet text-heading-color-dark-mode'>
+          <div
+            className={`flex items-center justify-start xl:gap-element-inside-btn-l lg:gap-element-inside-btn-m gap-element-inside-btn-s xl:text-text-base-small-xl lg:text-text-base-small-desktop text-text-base-small-mobiletablet ${
+              isOnBaseCard ? 'text-text-light-mode dark:text-text-dark-mode' : 'text-heading-color-dark-mode'
+            }`}
+          >
             <ClockIcon /> <span>{`${readTime} read time`}</span>
           </div>
         )}

@@ -3,7 +3,8 @@ import CardImage from './card-components/CardImage';
 import cardDemoImage from '../../imageMaterials/sutra-card-demo.png';
 import LineInfo from './card-components/LineInfo';
 import TextContent from './card-components/TextContent';
-
+import ferlaufTop from '../../imageMaterials/card-ferlauf-top.svg';
+import Image from 'next/image';
 interface SutraCardInterface {
   textContentPos: 'top' | 'bottom' | 'hidden' | 'center';
   lineInfoPos: 'top' | 'bottom' | 'hidden' | 'center';
@@ -65,16 +66,38 @@ const SutraCard = ({
 
   const CardAlt = () => {
     return (
-      <article className='flex justify-start items-start max-w-[702px] w-full bg-primarna-svijetla dark:bg-primarna-tamna md:flex-nowrap flex-wrap xl:rounded-t-xl-vanjski-okvir-top lg:rounded-t-desktop-vanjski-okvir-top md:rounded-t-tablet-vanjski-okvir-top rounded-t-mobile-vanjski-okvir-top rounded-b-xl-vanjski-okvir-bottom md:pb-0 pb-20'>
+      <article className='flex justify-start items-start max-w-[702px] w-full bg-primarna-svijetla dark:bg-primarna-tamna md:flex-nowrap flex-wrap xl:rounded-t-xl-vanjski-okvir-top lg:rounded-t-desktop-vanjski-okvir-top md:rounded-t-tablet-vanjski-okvir-top rounded-t-mobile-vanjski-okvir-top rounded-b-xl-vanjski-okvir-bottom md:pb-0 pb-12'>
         <div className='w-full p-xl-sadržaj-kartice shrink-0 md:max-w-[380px]'>
-          <div className='relative  w-full h-[384px]'>
+          <div className='relative  w-full md:h-[384px] h-[297px] flex flex-col items-start overflow-hidden rounded-tr-xl-unutarnja-slika-tl rounded-tl-xl-unutarnja-slika-tl'>
+            <Image
+              src={ferlaufTop}
+              width={1100}
+              height={123}
+              alt='shadow top'
+              className='object-cover object-center absolute top-0 left-0 w-full h-1/3'
+            />
+            {lineInfoPos !== 'hidden' && (
+              <div className='w-full'>
+                <LineInfo
+                  alignement='right'
+                  readTime={null}
+                  authorName={null}
+                  subTitle={null}
+                  tagText={tagText}
+                  date={null}
+                />
+              </div>
+            )}
             {hasCardImage && (
               <CardImage
                 imageSource={cardDemoImage.src}
                 isOverlay={true}
-                roundedTl='rounded-tl-xl-unutarnja-slika-tl'
-                roundedTr='rounded-tr-xl-unutarnja-slika-tl'
+                //     roundedTl='rounded-tl-xl-unutarnja-slika-tl'
+                //     roundedTr='rounded-tr-xl-unutarnja-slika-tl'
               />
+            )}
+            {hasBackgroundShadows && (
+              <BackgroundShadow topRight={false} topLeft={false} bottomLeft={false} bottomRight={false} />
             )}
           </div>
         </div>
