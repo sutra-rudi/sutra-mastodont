@@ -55,6 +55,7 @@ const config: Config = {
         white: '#FFFFFF',
         'divider-lightmode': 'var(--setup_glavnih_boja-primarna-svijetla)',
         'divider-darkmode': 'var(--setup_glavnih_boja-primarna-tamna)',
+        'blog-pozadina-light-mode': '#F8F7F2',
       },
 
       //BG-COLORS-BUTTON
