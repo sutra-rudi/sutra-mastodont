@@ -146,16 +146,12 @@ const PageContent = ({ content, global, gallery, files, tags, author, intro, cat
       />
 
       <div className='xl:max-w-screen-xl mx-auto'>
-        <div className='prose prose-p:text-xl  prose-p:text-almost-black line-clamp-1 w-full   my-4 '>
-          {parse(intro)}
-        </div>
-
-        <div className='mt-8 prose  mx-auto my-0 max-w-full '>
-          <div className=' prose-p:text-sekundarna-tamna prose-p:font-medium prose-p:text-xl line-clamp-4 w-full my-4 mx-0'>
+        <div className='prose  mx-auto my-0 max-w-full '>
+          <div className=' prose-p:text-primarna-tamna  w-full xl:prose-p:text-text-base-l-xl lg:prose-p:text-text-base-l-desktop prose-p:text-text-base-l-mobiletablet prose-p:italic prose-p:my-12'>
             {parse(intro)}
           </div>
           <div className='w-full bg-almost-black/5 h-px my-8'></div>
-          <div className='proza-custom-blog w-full  prose-blockquote:border-accent prose-blockquote:text-2xl prose-blockquote:font-medium prose-img:mb-0 prose-figcaption:mt-1 prose-figcaption:italic lg:prose-base prose-sm  prose-strong:font-semibold'>
+          <div className='proza-custom-blog w-full xl:prose-p:text-text-base-base-xl lg:prose-p:text-text-base-base-desktop prose-p:text-text-base-base-mobiletablet  prose-blockquote:border-accent prose-blockquote:text-2xl prose-blockquote:font-medium prose-img:mb-0 prose-figcaption:mt-1 prose-figcaption:italic lg:prose-base prose-sm  prose-strong:font-semibold '>
             {parse(prepareContent[2])}
           </div>
         </div>
