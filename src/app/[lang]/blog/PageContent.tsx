@@ -308,20 +308,27 @@ const PageContent = ({ pageContent, adminSetup, lang, catList, currentLandingTag
               transition={{ duration: 0.6, delay: index * 0.15 }}
               className='max-w-[702px] w-full'
             >
-              <SutraCard
-                title={contentShorthand[languageField]?.[las]}
-                date={dayjs(contentCardShorthand.datum).format('DD.MM.YYYY') ?? 'Nema datuma'}
-                hasBackgroundShadows
-                hasCardImage
-                readTime={readTime.text}
-                tagText={categoryField}
-                textContent={introField}
-                authorName={authorField}
-                isBaseCard={true}
-                subTitle={null}
-                textContentPos='top'
-                lineInfoPos='top'
-              />
+              <a
+                href={`/${lang}/blog/${
+                  slugify(`${contentShorthand[languageField]?.[las]}`, slugifyOptions) + `-${contentShorthand.id}`
+                }`}
+              >
+                <SutraCard
+                  title={contentShorthand[languageField]?.[las]}
+                  date={dayjs(contentCardShorthand.datum).format('DD.MM.YYYY') ?? 'Nema datuma'}
+                  hasBackgroundShadows
+                  hasCardImage
+                  readTime={readTime.text}
+                  tagText={tagsField}
+                  textContent={introField}
+                  authorName={authorField}
+                  isBaseCard={false}
+                  subTitle={null}
+                  textContentPos='top'
+                  lineInfoPos='top'
+                  cardImageSource={imgSource}
+                />
+              </a>
               {/* <ArticleCardFullImage
                 title={contentShorthand[languageField]?.[las]}
                 url={`/${lang}/blog/${

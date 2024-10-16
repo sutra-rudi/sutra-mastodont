@@ -27,7 +27,7 @@ const PageContent = () => {
           }
           //     subTitle={'Sed ut perspiciatis natpis'}
           subTitle={'neki subtitle'}
-          tagText={[{ catName: 'Neka kategorija' }, { catName: 'Druga isto' }]}
+          tagText={['Neka cata, Jos jedna']}
           title={'Sed ut perspiciatis testing dva reda tri reda test kjasdhkjhd'}
           readTime={'6min'}
           lineInfoPos='bottom'
@@ -54,7 +54,7 @@ const PageContent = () => {
           }
           subTitle={'Sed ut perspiciatis natpis'}
           title={'Sed ut perspiciatis testing dva reda tri reda test kjasdhkjhd'}
-          tagText={[{ catName: 'Neka kategorija' }, { catName: 'Druga isto' }]}
+          tagText={['Neka cata, Jos jedna']}
           readTime={'6min'}
           lineInfoPos='top'
           textContentPos='bottom'

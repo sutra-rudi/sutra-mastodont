@@ -28,6 +28,7 @@ interface SutraCardInterface {
   title: string | null;
   textContent: string | null;
   isBaseCard: boolean;
+  cardImageSource?: string;
 }
 
 const SutraCard = ({
@@ -43,6 +44,7 @@ const SutraCard = ({
   title,
   textContent,
   isBaseCard,
+  cardImageSource,
 }: SutraCardInterface) => {
   const generateClassName = () => {
     if (lineInfoPos === 'center' || textContentPos === 'center') {
@@ -100,7 +102,7 @@ const SutraCard = ({
             )}
             {hasCardImage && (
               <CardImage
-                imageSource={cardDemoImage.src}
+                imageSource={cardImageSource!}
                 isOverlay={true}
                 //     roundedTl='rounded-tl-xl-unutarnja-slika-tl'
                 //     roundedTr='rounded-tr-xl-unutarnja-slika-tl'
@@ -160,7 +162,7 @@ const SutraCard = ({
         <BackgroundShadow topRight={true} topLeft={false} bottomLeft={true} bottomRight={false} />
       )}
 
-      {hasCardImage && <CardImage imageSource={cardDemoImage.src} isOverlay={true} />}
+      {hasCardImage && <CardImage imageSource={cardImageSource!} isOverlay={true} />}
     </article>
   );
 };

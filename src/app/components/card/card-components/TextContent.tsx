@@ -34,13 +34,11 @@ const TextContent = ({ title, subTitle, tagText, readTime, textContent, aligment
         {tagText &&
           isOnBaseCard &&
           tagText.map((t: any, index: number) => (
-            <SutraCardTag key={index} innerText={t.catName} size='xl' isResponsive isOnCard />
+            <SutraCardTag key={index} innerText={t} size='xl' isResponsive isOnCard />
           ))}
         {tagText &&
           !isOnBaseCard &&
-          tagText.map((t: any, index: number) => (
-            <SutraCardTag key={index} innerText={t.catName} size='xl' isResponsive />
-          ))}
+          tagText.map((t: any, index: number) => <SutraCardTag key={index} innerText={t} size='xl' isResponsive />)}
 
         {subTitle && (
           <h3 className='xl:text-nadnaslov-xl lg:text-nadnaslov-desktop md:text-nadnaslov-tablet text-nadnaslov-mobile text-accent-boja'>
