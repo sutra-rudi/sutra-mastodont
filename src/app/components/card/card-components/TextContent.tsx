@@ -112,7 +112,7 @@ const TextContent = ({
           <div
             className={`${
               isOnBaseCard
-                ? 'xl:text-text-base-l-xl md:text-text-base-l-desktop text-text-base-l-mobiletablet text-text-light-mode dark:text-text-dark-mode'
+                ? 'xl:text-text-base-l-xl md:text-text-base-l-desktop text-text-base-l-mobiletablet text-text-light-mode dark:text-text-dark-mode line-clamp-3 text-ellipsis'
                 : 'xl:text-text-base-base-xl lg:text-text-base-base-desktop text-text-base-base-mobiletablet text-text-dark-mode line-clamp-2 text-ellipsis'
             }`}
           >
