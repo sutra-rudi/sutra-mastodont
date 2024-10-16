@@ -10,7 +10,7 @@ interface SutraCardInterface {
   lineInfoPos: 'top' | 'bottom' | 'hidden' | 'center';
   hasCardImage: boolean;
   hasBackgroundShadows: boolean;
-  tagText: string | null;
+  tagText: any;
   authorName: string | null;
   date: string | null;
   readTime: string | null;
@@ -106,7 +106,7 @@ const SutraCard = ({
             <TextContent
               isOnBaseCard
               subTitle={subTitle}
-              tagText={'#ciaos'}
+              tagText={tagText}
               title={title}
               readTime={readTime}
               textContent={textContent}

@@ -15,6 +15,7 @@ import { FaTag as TagIcon } from 'react-icons/fa6';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion'; // Import framer-motion
 import Image from 'next/image';
+import SutraCard from '@/app/components/card/SutraCard';
 
 interface BlogArchivePage {
   pageContent: any[];
@@ -265,7 +266,7 @@ const PageContent = ({ pageContent, adminSetup, lang, catList, currentLandingTag
         </div>
       )}
 
-      <div className='max-w-[1440px] mx-auto my-8 grid grid-cols-4 gap-4'>
+      <div className='max-w-[1440px] mx-auto my-8 flex flex-wrap items-stretch justify-stretch gap-4'>
         {currentPosts.map((blogContent: any, index: number) => {
           const contentShorthand = blogContent.node;
           const contentCardShorthand = contentShorthand.introBlog;
@@ -277,17 +278,19 @@ const PageContent = ({ pageContent, adminSetup, lang, catList, currentLandingTag
           const tags = contentShorthand[`tags${l}`]?.[`tagText${l}`];
           const tagsField = tags ? tags.split(', ') : [];
           const contentField = contentShorthand[languageField]?.[`sadrzajSadrzaj${l}`];
-          const categoryField = contentCardShorthand.kategorija.edges.map((noda: any) => {
-            return {
-              catName: noda.node.informacijeKategorije
-                ? noda.node.informacijeKategorije[`imeKategorije${l}`]
-                : 'No category',
-              catDesc: noda.node.informacijeKategorije
-                ? noda.node.informacijeKategorije[`opisKategorije${l}`]
-                : 'No category',
-              catColor: noda.node.informacijeKategorije ? noda.node.informacijeKategorije.bojaKategorije : 'No color',
-            };
-          });
+          const categoryField = contentCardShorthand.kategorija.edges
+            .map((noda: any) => {
+              return {
+                catName: noda.node.informacijeKategorije
+                  ? noda.node.informacijeKategorije[`imeKategorije${l}`]
+                  : 'No category',
+                catDesc: noda.node.informacijeKategorije
+                  ? noda.node.informacijeKategorije[`opisKategorije${l}`]
+                  : 'No category',
+                catColor: noda.node.informacijeKategorije ? noda.node.informacijeKategorije.bojaKategorije : 'No color',
+              };
+            })
+            .filter((cat: any) => cat.catName !== null);
 
           const imgSource = contentCardShorthand.thumbnail
             ? contentCardShorthand.thumbnail.node.sourceUrl
@@ -305,7 +308,21 @@ const PageContent = ({ pageContent, adminSetup, lang, catList, currentLandingTag
               exit={{ opacity: 0, y: 10 }}
               transition={{ duration: 0.6, delay: index * 0.15 }}
             >
-              <ArticleCardFullImage
+              <SutraCard
+                title={contentShorthand[languageField]?.[las]}
+                date={dayjs(contentCardShorthand.datum).format('DD.MM.YYYY') ?? 'Nema datuma'}
+                hasBackgroundShadows
+                hasCardImage
+                readTime={readTime.text}
+                tagText={categoryField}
+                textContent={introField}
+                authorName={authorField}
+                isBaseCard
+                subTitle={null}
+                textContentPos='top'
+                lineInfoPos='top'
+              />
+              {/* <ArticleCardFullImage
                 title={contentShorthand[languageField]?.[las]}
                 url={`/${lang}/blog/${
                   slugify(`${contentShorthand[languageField]?.[las]}`, slugifyOptions) + `-${contentShorthand.id}`
@@ -320,7 +337,7 @@ const PageContent = ({ pageContent, adminSetup, lang, catList, currentLandingTag
                 readTime={readTime}
                 categories={categoryField}
                 isArchive
-              />
+              /> */}
             </motion.div>
           );
         })}

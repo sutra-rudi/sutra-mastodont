@@ -6,7 +6,7 @@ import { Poltawski_Nowy } from 'next/font/google';
 const POT = Poltawski_Nowy({ subsets: ['latin'], weight: '700' });
 interface TextContent {
   title: string | null;
-  tagText: string | null;
+  tagText: any;
   readTime: string | null;
   subTitle: string | null;
   textContent: string | null;
@@ -15,6 +15,7 @@ interface TextContent {
   showTag?: boolean;
 }
 const TextContent = ({ title, subTitle, tagText, readTime, textContent, aligment, isOnBaseCard }: TextContent) => {
+  console.log('TTT', tagText);
   return (
     <div
       className={`z-20 ${
@@ -30,8 +31,16 @@ const TextContent = ({ title, subTitle, tagText, readTime, textContent, aligment
           aligment === 'center' ? 'justify-center items-center text-center' : 'justify-start items-start'
         } gap-1 w-full`}
       >
-        {tagText && isOnBaseCard && <SutraCardTag innerText={tagText} size='xl' isResponsive isOnCard />}
-        {tagText && !isOnBaseCard && <SutraCardTag innerText={tagText} size='xl' isResponsive />}
+        {tagText &&
+          isOnBaseCard &&
+          tagText.map((t: any, index: number) => (
+            <SutraCardTag key={index} innerText={t.catName} size='xl' isResponsive isOnCard />
+          ))}
+        {tagText &&
+          !isOnBaseCard &&
+          tagText.map((t: any, index: number) => (
+            <SutraCardTag key={index} innerText={t.catName} size='xl' isResponsive />
+          ))}
 
         {subTitle && (
           <h3 className='xl:text-nadnaslov-xl lg:text-nadnaslov-desktop md:text-nadnaslov-tablet text-nadnaslov-mobile text-accent-boja'>
@@ -45,7 +54,7 @@ const TextContent = ({ title, subTitle, tagText, readTime, textContent, aligment
               isOnBaseCard ? 'text-text-light-mode dark:text-text-dark-mode' : 'text-heading-color-dark-mode'
             }`}
           >
-            <ClockIcon /> <span>{`${readTime} read time`}</span>
+            <ClockIcon /> <span>{readTime}</span>
           </div>
         )}
       </div>
