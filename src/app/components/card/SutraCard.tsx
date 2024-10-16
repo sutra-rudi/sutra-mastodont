@@ -77,8 +77,8 @@ const SutraCard = ({
 
   const CardAlt = () => {
     return (
-      <article className='flex justify-start items-stretch max-w-[702px] w-full bg-primarna-svijetla dark:bg-primarna-tamna md:flex-nowrap flex-wrap xl:rounded-t-xl-vanjski-okvir-top lg:rounded-t-desktop-vanjski-okvir-top md:rounded-t-tablet-vanjski-okvir-top rounded-t-mobile-vanjski-okvir-top rounded-b-xl-vanjski-okvir-bottom md:pb-0 pb-12'>
-        <div className='w-full p-xl-sadržaj-kartice shrink-0 grow md:max-w-[380px] h-auto md:min-h-[384px] min-h-[297px]'>
+      <article className='xl:p-xl-sadržaj-kartice lg:p-desktop-sadržaj-kartice md:p-tablet-sadržaj-kartice p-mobile-sadržaj-kartice flex justify-start items-stretch max-w-[702px] w-full bg-primarna-svijetla dark:bg-primarna-tamna md:flex-nowrap flex-wrap xl:gap-xl-slika-sadržaj lg:gap-desktop-slika-sadržaj md:gap-tablet-slika-sadržaj gap-mobile-slika-sadržaj xl:rounded-t-xl-vanjski-okvir-top lg:rounded-t-desktop-vanjski-okvir-top md:rounded-t-tablet-vanjski-okvir-top rounded-t-mobile-vanjski-okvir-top rounded-b-xl-vanjski-okvir-bottom md:pb-0 pb-12'>
+        <div className='w-full shrink-0 grow md:max-w-[380px] h-auto md:min-h-[384px] min-h-[297px]'>
           <div className='relative  w-full h-full  flex flex-col items-start overflow-hidden rounded-tr-xl-unutarnja-slika-tl rounded-tl-xl-unutarnja-slika-tl'>
             <Image
               src={ferlaufTop}
@@ -112,7 +112,7 @@ const SutraCard = ({
             )}
           </div>
         </div>
-        <div className='md:py-xl-sadržaj-kartice md:px-0 px-xl-sadržaj-kartice md:max-w-[290px]'>
+        <div className=' md:max-w-[290px]'>
           {textContentPos !== 'hidden' && (
             <TextContent
               isOnBaseCard
