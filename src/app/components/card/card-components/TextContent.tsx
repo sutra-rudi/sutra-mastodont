@@ -3,6 +3,7 @@ import { SutraCardTag } from '../../SutraTag';
 import { FiClock as ClockIcon } from 'react-icons/fi';
 import { Poltawski_Nowy } from 'next/font/google';
 import parse from 'html-react-parser';
+import Image from 'next/image';
 const POT = Poltawski_Nowy({ subsets: ['latin'], weight: '700' });
 interface TextContent {
   title: string | null;
@@ -13,8 +14,28 @@ interface TextContent {
   aligment: 'default' | 'center';
   isOnBaseCard?: boolean;
   showTag?: boolean;
+  authorName: {
+    avatar: {
+      url: string | null;
+    };
+    firstName: string | null;
+    lastName: string | null;
+    name: string | null;
+    nicename: string | null;
+    nickname: string | null;
+    username: string | null;
+  } | null;
 }
-const TextContent = ({ title, subTitle, tagText, readTime, textContent, aligment, isOnBaseCard }: TextContent) => {
+const TextContent = ({
+  title,
+  subTitle,
+  tagText,
+  readTime,
+  textContent,
+  aligment,
+  isOnBaseCard,
+  authorName,
+}: TextContent) => {
   // console.log('TTT', tagText);
   return (
     <div
@@ -37,6 +58,22 @@ const TextContent = ({ title, subTitle, tagText, readTime, textContent, aligment
         {tagText &&
           !isOnBaseCard &&
           tagText.map((t: any, index: number) => <SutraCardTag key={index} innerText={t} size='xl' isResponsive />)}
+
+        {authorName && (
+          <div className='flex items-center justify-start xl:gap-element-inside-btn-l lg:gap-element-inside-btn-m gap-element-inside-btn-s'>
+            <div className='relative xl:w-veličina-kruga-avatar-xl xl:h-veličina-kruga-avatar-xl lg:w-veličina-kruga-avatar-desktop lg:h-veličina-kruga-avatar-desktop md:w-veličina-kruga-avatar-tablet md:h-veličina-kruga-avatar-tablet w-veličina-kruga-avatar-mobile h-veličina-kruga-avatar-mobile rounded-full shrink-0'>
+              <Image
+                alt='Picture of article author'
+                fill
+                src={authorName.avatar.url!}
+                className='object-cover object-center block w-full h-full rounded-full'
+              />
+            </div>
+            <span className='xl:text-text-base-small-xl lg:text-text-base-small-desktop text-text-base-small-mobiletablet'>
+              {authorName.firstName} {authorName.lastName}
+            </span>
+          </div>
+        )}
 
         {subTitle && (
           <h3 className='xl:text-nadnaslov-xl lg:text-nadnaslov-desktop md:text-nadnaslov-tablet text-nadnaslov-mobile text-accent-boja'>

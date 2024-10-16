@@ -35,6 +35,7 @@ const PageContent = ({ pageContent, adminSetup, lang, catList, currentLandingTag
   const [heroImagesArchiveBlog, setHeroImagesArchiveBlog] = React.useState<any>(null);
   const [currentActiveTag, setCurrentActiveTag] = React.useState<string | null>(currentLandingTag);
   const postsPerPage = Number(adminSetup.archiveItemsNumberOnSinglePage[0]);
+  // const postsPerPage = 3;
   const offset = currentPage * postsPerPage;
 
   const l = getSuffixFromLang(lang);
@@ -329,22 +330,6 @@ const PageContent = ({ pageContent, adminSetup, lang, catList, currentLandingTag
                   cardImageSource={imgSource}
                 />
               </a>
-              {/* <ArticleCardFullImage
-                title={contentShorthand[languageField]?.[las]}
-                url={`/${lang}/blog/${
-                  slugify(`${contentShorthand[languageField]?.[las]}`, slugifyOptions) + `-${contentShorthand.id}`
-                }`}
-                date={dayjs(contentCardShorthand.datum).format('DD.MM.YYYY') ?? 'Nema datuma'}
-                cta='Read more'
-                imgSource={imgSource}
-                introContent={introField}
-                author={authorField}
-                key={uniqueKey}
-                tags={tagsField}
-                readTime={readTime}
-                categories={categoryField}
-                isArchive
-              /> */}
             </motion.div>
           );
         })}

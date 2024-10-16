@@ -1,6 +1,5 @@
 import BackgroundShadow from './card-components/BackgroundShadow';
 import CardImage from './card-components/CardImage';
-import cardDemoImage from '../../imageMaterials/sutra-card-demo.png';
 import LineInfo from './card-components/LineInfo';
 import TextContent from './card-components/TextContent';
 import ferlaufTop from '../../imageMaterials/card-ferlauf-top.svg';
@@ -79,8 +78,8 @@ const SutraCard = ({
   const CardAlt = () => {
     return (
       <article className='flex justify-start items-stretch max-w-[702px] w-full bg-primarna-svijetla dark:bg-primarna-tamna md:flex-nowrap flex-wrap xl:rounded-t-xl-vanjski-okvir-top lg:rounded-t-desktop-vanjski-okvir-top md:rounded-t-tablet-vanjski-okvir-top rounded-t-mobile-vanjski-okvir-top rounded-b-xl-vanjski-okvir-bottom md:pb-0 pb-12'>
-        <div className='w-full p-xl-sadržaj-kartice shrink-0 md:max-w-[380px] h-full'>
-          <div className='relative  w-full h-full md:min-h-[384px] min-h-[297px] flex flex-col items-start overflow-hidden rounded-tr-xl-unutarnja-slika-tl rounded-tl-xl-unutarnja-slika-tl'>
+        <div className='w-full p-xl-sadržaj-kartice shrink-0 grow md:max-w-[380px] h-auto md:min-h-[384px] min-h-[297px]'>
+          <div className='relative  w-full h-full  flex flex-col items-start overflow-hidden rounded-tr-xl-unutarnja-slika-tl rounded-tl-xl-unutarnja-slika-tl'>
             <Image
               src={ferlaufTop}
               width={1100}
@@ -118,11 +117,12 @@ const SutraCard = ({
             <TextContent
               isOnBaseCard
               subTitle={subTitle}
-              tagText={tagText}
+              tagText={null}
               title={title}
               readTime={readTime}
               textContent={textContent}
               aligment={'default'}
+              authorName={authorName}
             />
           )}
         </div>
@@ -139,11 +139,11 @@ const SutraCard = ({
       {lineInfoPos !== 'hidden' && (
         <LineInfo
           alignement={lineInfoPos === 'center' ? 'center' : textContentPos === 'center' ? 'center' : 'left'}
-          readTime={readTime}
-          authorName={authorName}
-          subTitle={subTitle}
           tagText={tagText}
           date={date}
+          readTime={null}
+          authorName={null}
+          subTitle={null}
         />
       )}
 
@@ -154,6 +154,7 @@ const SutraCard = ({
           title={title}
           readTime={readTime}
           textContent={textContent}
+          authorName={null}
           aligment={lineInfoPos === 'center' ? 'center' : textContentPos === 'center' ? 'center' : 'default'}
         />
       )}
