@@ -33,9 +33,7 @@ const TextContent = ({ title, subTitle, tagText, readTime, textContent, aligment
       >
         {tagText &&
           isOnBaseCard &&
-          tagText.map((t: any, index: number) => (
-            <SutraCardTag key={index} innerText={t} size='xl' isResponsive isOnCard />
-          ))}
+          tagText.map((t: any, index: number) => <SutraCardTag key={index} innerText={t} size='mobile' isOnCard />)}
         {tagText &&
           !isOnBaseCard &&
           tagText.map((t: any, index: number) => <SutraCardTag key={index} innerText={t} size='xl' isResponsive />)}

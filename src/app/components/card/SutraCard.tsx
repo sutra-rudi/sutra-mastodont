@@ -78,9 +78,9 @@ const SutraCard = ({
 
   const CardAlt = () => {
     return (
-      <article className='flex justify-start items-start max-w-[702px] w-full bg-primarna-svijetla dark:bg-primarna-tamna md:flex-nowrap flex-wrap xl:rounded-t-xl-vanjski-okvir-top lg:rounded-t-desktop-vanjski-okvir-top md:rounded-t-tablet-vanjski-okvir-top rounded-t-mobile-vanjski-okvir-top rounded-b-xl-vanjski-okvir-bottom md:pb-0 pb-12'>
-        <div className='w-full p-xl-sadržaj-kartice shrink-0 md:max-w-[380px]'>
-          <div className='relative  w-full md:h-[384px] h-[297px] flex flex-col items-start overflow-hidden rounded-tr-xl-unutarnja-slika-tl rounded-tl-xl-unutarnja-slika-tl'>
+      <article className='flex justify-start items-stretch max-w-[702px] w-full bg-primarna-svijetla dark:bg-primarna-tamna md:flex-nowrap flex-wrap xl:rounded-t-xl-vanjski-okvir-top lg:rounded-t-desktop-vanjski-okvir-top md:rounded-t-tablet-vanjski-okvir-top rounded-t-mobile-vanjski-okvir-top rounded-b-xl-vanjski-okvir-bottom md:pb-0 pb-12'>
+        <div className='w-full p-xl-sadržaj-kartice shrink-0 md:max-w-[380px] h-full'>
+          <div className='relative  w-full h-full md:min-h-[384px] min-h-[297px] flex flex-col items-start overflow-hidden rounded-tr-xl-unutarnja-slika-tl rounded-tl-xl-unutarnja-slika-tl'>
             <Image
               src={ferlaufTop}
               width={1100}
@@ -93,7 +93,7 @@ const SutraCard = ({
                 <LineInfo
                   alignement='right'
                   readTime={null}
-                  authorName={authorName}
+                  authorName={null}
                   subTitle={null}
                   tagText={tagText}
                   date={null}
