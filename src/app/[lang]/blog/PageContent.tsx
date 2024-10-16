@@ -1,6 +1,5 @@
 'use client';
 
-import { ArticleCardFullImage } from '@/app/components/ArticleCardAlt';
 import { UserLanguage } from '@/app/enums/LangEnum';
 import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 import { blogLanguageFields } from '@/app/pathsUtils/blogLanguageFields';
@@ -266,7 +265,7 @@ const PageContent = ({ pageContent, adminSetup, lang, catList, currentLandingTag
         </div>
       )}
 
-      <div className='max-w-[1440px] mx-auto my-8 flex flex-wrap items-stretch justify-stretch gap-4'>
+      <div className='max-w-[1440px] mx-auto my-8 flex flex-wrap items-stretch gap-4'>
         {currentPosts.map((blogContent: any, index: number) => {
           const contentShorthand = blogContent.node;
           const contentCardShorthand = contentShorthand.introBlog;
@@ -299,7 +298,7 @@ const PageContent = ({ pageContent, adminSetup, lang, catList, currentLandingTag
           const readTime = readingTime(contentField);
 
           const uniqueKey = `${selectedCategory || 'all'}-${searchQuery}-${sortAlphabetically}-${sortByDate}-${index}`;
-
+          console.log('tags FIELD', tagsField);
           return (
             <motion.div
               key={uniqueKey}
@@ -307,6 +306,7 @@ const PageContent = ({ pageContent, adminSetup, lang, catList, currentLandingTag
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 10 }}
               transition={{ duration: 0.6, delay: index * 0.15 }}
+              className='max-w-[702px] w-full'
             >
               <SutraCard
                 title={contentShorthand[languageField]?.[las]}
@@ -317,7 +317,7 @@ const PageContent = ({ pageContent, adminSetup, lang, catList, currentLandingTag
                 tagText={categoryField}
                 textContent={introField}
                 authorName={authorField}
-                isBaseCard
+                isBaseCard={true}
                 subTitle={null}
                 textContentPos='top'
                 lineInfoPos='top'

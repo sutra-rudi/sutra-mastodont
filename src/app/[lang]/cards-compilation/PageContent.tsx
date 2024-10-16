@@ -11,7 +11,15 @@ const PageContent = () => {
 
       <div className='max-w-screen-2xl mx-auto flex items-start justify-start gap-10 py-5 flex-wrap xl:px-10 lg:px-8 md:px-6 px-4'>
         <SutraCard
-          authorName={'Jurica Pađen'}
+          authorName={{
+            name: 'Jurica',
+            lastName: 'Pađen',
+            avatar: { url: '' },
+            firstName: null,
+            nicename: null,
+            username: null,
+            nickname: null,
+          }}
           date={dayjs('07-16-1992').format('DD/MM/YYYY')}
           //     date={null}
           textContent={
@@ -19,7 +27,7 @@ const PageContent = () => {
           }
           //     subTitle={'Sed ut perspiciatis natpis'}
           subTitle={'neki subtitle'}
-          tagText={'Neka kategorija'}
+          tagText={[{ catName: 'Neka kategorija' }, { catName: 'Druga isto' }]}
           title={'Sed ut perspiciatis testing dva reda tri reda test kjasdhkjhd'}
           readTime={'6min'}
           lineInfoPos='bottom'
@@ -30,7 +38,15 @@ const PageContent = () => {
         />
 
         <SutraCard
-          authorName={'Jurica Pađen'}
+          authorName={{
+            name: 'Jurica',
+            lastName: 'Pađen',
+            avatar: { url: '' },
+            firstName: null,
+            nicename: null,
+            username: null,
+            nickname: null,
+          }}
           date={dayjs('07-16-1992').format('DD/MM/YYYY')}
           //     date={null}
           textContent={
@@ -38,7 +54,7 @@ const PageContent = () => {
           }
           subTitle={'Sed ut perspiciatis natpis'}
           title={'Sed ut perspiciatis testing dva reda tri reda test kjasdhkjhd'}
-          tagText={'Neka kategorija'}
+          tagText={[{ catName: 'Neka kategorija' }, { catName: 'Druga isto' }]}
           readTime={'6min'}
           lineInfoPos='top'
           textContentPos='bottom'

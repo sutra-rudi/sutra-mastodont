@@ -2,7 +2,7 @@ import React from 'react';
 import { SutraCardTag } from '../../SutraTag';
 import { FiClock as ClockIcon } from 'react-icons/fi';
 import { Poltawski_Nowy } from 'next/font/google';
-
+import parse from 'html-react-parser';
 const POT = Poltawski_Nowy({ subsets: ['latin'], weight: '700' });
 interface TextContent {
   title: string | null;
@@ -15,7 +15,7 @@ interface TextContent {
   showTag?: boolean;
 }
 const TextContent = ({ title, subTitle, tagText, readTime, textContent, aligment, isOnBaseCard }: TextContent) => {
-  console.log('TTT', tagText);
+  // console.log('TTT', tagText);
   return (
     <div
       className={`z-20 ${
@@ -76,15 +76,15 @@ const TextContent = ({ title, subTitle, tagText, readTime, textContent, aligment
           </h4>
         )}
         {textContent && (
-          <p
+          <div
             className={`${
               isOnBaseCard
                 ? 'xl:text-text-base-l-xl md:text-text-base-l-desktop text-text-base-l-mobiletablet text-text-light-mode dark:text-text-dark-mode'
                 : 'xl:text-text-base-base-xl lg:text-text-base-base-desktop text-text-base-base-mobiletablet text-text-dark-mode line-clamp-2 text-ellipsis'
             }`}
           >
-            {textContent}
-          </p>
+            {parse(textContent)}
+          </div>
         )}
       </div>
     </div>

@@ -9,7 +9,17 @@ import { FiClock as ClockIcon } from 'react-icons/fi';
 interface LineInfo {
   alignement: 'left' | 'right' | 'center';
   tagText: any;
-  authorName: string | null;
+  authorName: {
+    avatar: {
+      url: string | null;
+    };
+    firstName: string | null;
+    lastName: string | null;
+    name: string | null;
+    nicename: string | null;
+    nickname: string | null;
+    username: string | null;
+  };
   date: string | any;
   readTime: string | null;
   subTitle: string | null;
@@ -56,12 +66,12 @@ const LineInfo = ({ alignement, tagText, subTitle, readTime, date, authorName }:
               <Image
                 alt='Picture of article author'
                 fill
-                src={avatarDemo}
+                src={authorName.avatar.url!}
                 className='object-cover object-center block w-full h-full rounded-full'
               />
             </div>
             <span className='xl:text-text-base-small-xl lg:text-text-base-small-desktop text-text-base-small-mobiletablet'>
-              {authorName}
+              {authorName.firstName} {authorName.lastName}
             </span>
           </div>
         </>

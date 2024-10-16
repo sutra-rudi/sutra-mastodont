@@ -42,8 +42,6 @@ export default async function ContactPage({ params: { lang } }: { params: { lang
 
   const parseDataContactSemantics = await getAllContactSemantics.json();
 
-  console.log('PERSONS', parseDataPersons);
-
   const dataShorthandPersons = parseDataPersons.data.kontaktiOsobe.edges;
 
   const dataShorthandSectors = parseDataSectors.data.kontaktiSektor.edges;

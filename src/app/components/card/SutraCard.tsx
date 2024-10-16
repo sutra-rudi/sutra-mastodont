@@ -11,7 +11,17 @@ interface SutraCardInterface {
   hasCardImage: boolean;
   hasBackgroundShadows: boolean;
   tagText: any;
-  authorName: string | null;
+  authorName: {
+    avatar: {
+      url: string | null;
+    };
+    firstName: string | null;
+    lastName: string | null;
+    name: string | null;
+    nicename: string | null;
+    nickname: string | null;
+    username: string | null;
+  };
   date: string | null;
   readTime: string | null;
   subTitle: string | null;
@@ -81,7 +91,7 @@ const SutraCard = ({
                 <LineInfo
                   alignement='right'
                   readTime={null}
-                  authorName={null}
+                  authorName={authorName}
                   subTitle={null}
                   tagText={tagText}
                   date={null}
