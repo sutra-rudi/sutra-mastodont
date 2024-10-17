@@ -127,6 +127,13 @@ body {
       font-weight: 700;
     }
   }
+
+  p {
+    strong {
+      color: theme('colors.accent-boja');
+      font-weight: 400;
+    }
+  }
 }
 
 // SLIDER
