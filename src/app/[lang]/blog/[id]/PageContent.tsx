@@ -180,7 +180,7 @@ const PageContent = ({ content, global, gallery, files, tags, author, intro, cat
             </div>
           </div>
         )}
-        <div className='w-full flex items-center justify-start max-w-sutraBlogTestMaxWidth mx-auto mt-4 mb-6 gap-1 text-base text-almost-black font-normal cursor-pointer '>
+        <div className='w-full flex items-center justify-start max-w-sutraBlogTestMaxWidth mx-auto mt-4 mb-6 gap-1 text-base text-text-light-mode dark:text-text-dark-mode font-normal cursor-pointer '>
           {files.file && (
             <button
               onClick={() => downloadFile(files.file.node.mediaItemUrl, files.fileName)}
@@ -195,7 +195,7 @@ const PageContent = ({ content, global, gallery, files, tags, author, intro, cat
             prepareTags.map((singTag: string) => {
               return (
                 <span
-                  className='border rounded-sutraCardTagBorderRadius border-accent/50 px-2 py-1 text-accent-boja/70 cursor-pointer hover:text-accent-boja transition-all ease-in-out'
+                  className='border rounded-sutraCardTagBorderRadius border-accent/50 px-2 py-1 text-text-light-mode dark:text-text-dark-modecursor-pointer hover:text-accent-boja transition-all ease-in-out'
                   key={singTag}
                 >
                   {singTag}
@@ -208,24 +208,24 @@ const PageContent = ({ content, global, gallery, files, tags, author, intro, cat
         {
           <div className='w-full max-w-sutraBlogTestMaxWidth mx-auto flex items-center gap-4 justify-center'>
             <div
-              className='flex items-center gap-1 rounded-sutraCardTagBorderRadius border border-almost-black/10 text-almost-black/40 hover:text-almost-black transition-all ease-in-out hover:border-almost-black px-4 py-2 cursor-pointer'
+              className='flex items-center gap-1 rounded-sutraCardTagBorderRadius border border-almost-black/10 text-text-light-mode dark:text-text-dark-mode transition-all ease-in-out  px-4 py-2 cursor-pointer'
               onClick={copyToClip}
             >
               <FileIcon /> <span>Copy link</span>
             </div>
             <div className='flex items-center gap-2'>
-              <div className='rounded-sutraCardTagBorderRadius border cursor-pointer border-almost-black/10 text-almost-black/40 hover:text-almost-black transition-all ease-in-out hover:border-almost-black flex items-center justify-center w-9 h-9'>
+              <div className='rounded-sutraCardTagBorderRadius border cursor-pointer border-almost-black/10 text-text-light-mode dark:text-text-dark-mode hover:text-almost-black transition-all ease-in-out hover:border-almost-black flex items-center justify-center w-9 h-9'>
                 <FacebookShareButton url={currentLocation} className=''>
                   <FacebookIcon />
                 </FacebookShareButton>
               </div>
-              <div className='rounded-sutraCardTagBorderRadius border cursor-pointer border-almost-black/10 text-almost-black/40 hover:text-almost-black transition-all ease-in-out hover:border-almost-black flex items-center justify-center w-9 h-9'>
+              <div className='rounded-sutraCardTagBorderRadius border cursor-pointer border-almost-black/10 text-text-light-mode dark:text-text-dark-mode hover:text-almost-black transition-all ease-in-out hover:border-almost-black flex items-center justify-center w-9 h-9'>
                 <TwitterShareButton url={currentLocation}>
                   <TwitterIcon />
                 </TwitterShareButton>
               </div>
 
-              <div className='rounded-sutraCardTagBorderRadius border cursor-pointer border-almost-black/10 text-almost-black/40 hover:text-almost-black transition-all ease-in-out hover:border-almost-black flex items-center justify-center w-9 h-9'>
+              <div className='rounded-sutraCardTagBorderRadius border cursor-pointer border-almost-black/10 text-text-light-mode dark:text-text-dark-mode hover:text-almost-black transition-all ease-in-out hover:border-almost-black flex items-center justify-center w-9 h-9'>
                 <RedditShareButton url={currentLocation} className=''>
                   <RedditIcon />
                 </RedditShareButton>
