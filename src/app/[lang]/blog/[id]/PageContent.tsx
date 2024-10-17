@@ -92,9 +92,9 @@ const PageContent = ({ content, global, gallery, files, tags, author, intro, cat
     <article
       /*@ts-ignore*/
       ref={componentRef}
-      className='mx-auto  w-full bg-blog-pozadina-light-mode dark:bg-blog-pozadina-dark-mode my-0 xl:py-32 lg:py-28 py-24'
+      className='mx-auto  w-full bg-blog-pozadina-light-mode dark:bg-blog-pozadina-dark-mode xl:-py--xl---5xl lg:-py--desktop---5xl md:-py--tablet---5xl -py--mobile---5xl'
     >
-      <div className='w-full xl:max-w-[1080px] mx-auto pb-4 xl:px-0 md:px-4 px-2 '>
+      <div className='w-full xl:max-w-[1080px] mx-auto xl:-pb--xl---s lg:-pb--desktop---s md:-pb--tablet---s -pb--mobile---s xl:px-0 md:px-4 px-2 '>
         {category.map((cat) => {
           return (
             <span
@@ -106,13 +106,13 @@ const PageContent = ({ content, global, gallery, files, tags, author, intro, cat
           );
         })}
       </div>
-      <div className='w-full mx-auto xl:max-w-[1080px] pb-4 xl:px-0 md:px-4 px-2 '>
+      <div className='w-full mx-auto xl:max-w-[1080px] xl:px-0 md:px-4 px-2 '>
         <h1
-          className={`${POT.className} xl:text-h1-xl lg:text-h1-desktop md:text-h1-tablet text-h1-mobile35 font-bold  mx-auto text-heading-color-light-mode dark:text-heading-color-dark-mode`}
+          className={`${POT.className} xl:text-h1-xl lg:text-h1-desktop md:text-h1-tablet text-h1-mobile35 font-bold  mx-auto text-heading-color-light-mode dark:text-heading-color-dark-mode xl:-pb--xl---m lg:-pb--desktop---m md:-pb--tablet---m -pb--mobile---m`}
         >
           {prepareContent[1]}
         </h1>
-        <div className='w-full  mx-auto'>
+        <div className='w-full  mx-auto xl:-pb--xl---2xl lg:-pb--desktop---2xl md:-pb--tablet---2xl -pb--mobile---2xl'>
           <div className='flex items-center justify-start gap-2'>
             <div className='flex items-center justify-start gap-2'>
               {author.node.avatar ? (
@@ -145,7 +145,7 @@ const PageContent = ({ content, global, gallery, files, tags, author, intro, cat
             speed: -15,
           },
         ]}
-        className='block object-cover object-center aspect-video h-[250px] w-full mx-auto mt-12 xl:min-h-[650px] lg:min-h-[580px] md:min-h-[460px] min-h-[300px]'
+        className='block object-cover object-center aspect-video h-[250px] w-full mx-auto xl:min-h-[650px] lg:min-h-[580px] md:min-h-[460px] min-h-[300px]'
       />
 
       <div className='xl:max-w-[1080px] xl:px-0 md:px-4 px-2 mx-auto'>
