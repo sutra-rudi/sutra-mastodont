@@ -12,8 +12,6 @@ import {
   FaFacebookMessenger as MsgIcon,
   FaCopy as CopyIcon,
 } from 'react-icons/fa';
-// import { FaRegFileLines as FileIcon } from 'react-icons/fa6';
-// import { BsCloudDownload as DownloadIcon } from 'react-icons/bs';
 
 interface SpeedDialInterface {
   // pageContentForPrint: any;
@@ -37,46 +35,34 @@ const SpeedDial = ({ handlePrint }: SpeedDialInterface) => {
 
   return (
     <div className='fixed xl:end-12 lg:end-10 md:end-8 end-6 bottom-16  z-30 flex flex-col items-start xl:gap-3 lg:gap-4 md:gap-5 gap-6'>
-      <FacebookShareButton
-        url={currentLocation}
-        className='flex justify-center items-center group xl:w-veličina-kruga-avatar-xl lg:w-veličina-kruga-avatar-desktop md:w-veličina-kruga-avatar-tablet w-veličina-kruga-avatar-mobile xl:h-veličina-kruga-avatar-xl lg:h-veličina-kruga-avatar-desktop md:h-veličina-kruga-avatar-tablet h-veličina-kruga-avatar-mobile  bg-almost-white rounded-full  shadow-sm  group cursor-pointer transition-all ease-in-out hover:shadow'
-      >
-        <FacebookIcon className='text-text-light-mode dark:text-text-dark-mode group-hover:text-accent-boja transition-all ' />
+      <FacebookShareButton url={currentLocation} className='flex justify-center items-center group'>
+        <FacebookIcon className='text-text-light-mode dark:text-text-dark-mode group-hover:text-accent-boja transition-all xl:w-veličina-kruga-avatar-xl lg:w-veličina-kruga-avatar-desktop md:w-veličina-kruga-avatar-tablet w-veličina-kruga-avatar-mobile xl:h-veličina-kruga-avatar-xl lg:h-veličina-kruga-avatar-desktop md:h-veličina-kruga-avatar-tablet h-veličina-kruga-avatar-mobile' />
       </FacebookShareButton>
 
-      <FacebookShareButton
-        url={currentLocation}
-        className='flex justify-center items-center group xl:w-veličina-kruga-avatar-xl lg:w-veličina-kruga-avatar-desktop md:w-veličina-kruga-avatar-tablet w-veličina-kruga-avatar-mobile xl:h-veličina-kruga-avatar-xl lg:h-veličina-kruga-avatar-desktop md:h-veličina-kruga-avatar-tablet h-veličina-kruga-avatar-mobile  bg-almost-white rounded-full  shadow-sm  group cursor-pointer transition-all ease-in-out hover:shadow'
-      >
-        <MsgIcon className='text-text-light-mode dark:text-text-dark-mode group-hover:text-accent-boja transition-all ' />
+      <FacebookShareButton url={currentLocation} className='flex justify-center items-center group'>
+        <MsgIcon className='text-text-light-mode dark:text-text-dark-mode group-hover:text-accent-boja transition-all xl:w-veličina-kruga-avatar-xl lg:w-veličina-kruga-avatar-desktop md:w-veličina-kruga-avatar-tablet w-veličina-kruga-avatar-mobile xl:h-veličina-kruga-avatar-xl lg:h-veličina-kruga-avatar-desktop md:h-veličina-kruga-avatar-tablet h-veličina-kruga-avatar-mobile' />
       </FacebookShareButton>
 
-      <TwitterShareButton
-        url={currentLocation}
-        className='flex justify-center items-center group xl:w-veličina-kruga-avatar-xl lg:w-veličina-kruga-avatar-desktop md:w-veličina-kruga-avatar-tablet w-veličina-kruga-avatar-mobile xl:h-veličina-kruga-avatar-xl lg:h-veličina-kruga-avatar-desktop md:h-veličina-kruga-avatar-tablet h-veličina-kruga-avatar-mobile  bg-almost-white rounded-full  shadow-sm  group cursor-pointer transition-all ease-in-out hover:shadow'
-      >
-        <TwitterIcon className='text-text-light-mode dark:text-text-dark-mode group-hover:text-accent-boja transition-all ' />
+      <TwitterShareButton url={currentLocation} className='flex justify-center items-center group'>
+        <TwitterIcon className='text-text-light-mode dark:text-text-dark-mode group-hover:text-accent-boja transition-all xl:w-veličina-kruga-avatar-xl lg:w-veličina-kruga-avatar-desktop md:w-veličina-kruga-avatar-tablet w-veličina-kruga-avatar-mobile xl:h-veličina-kruga-avatar-xl lg:h-veličina-kruga-avatar-desktop md:h-veličina-kruga-avatar-tablet h-veličina-kruga-avatar-mobile' />
       </TwitterShareButton>
 
-      <RedditShareButton
-        url={currentLocation}
-        className='flex justify-center items-center group xl:w-veličina-kruga-avatar-xl lg:w-veličina-kruga-avatar-desktop md:w-veličina-kruga-avatar-tablet w-veličina-kruga-avatar-mobile xl:h-veličina-kruga-avatar-xl lg:h-veličina-kruga-avatar-desktop md:h-veličina-kruga-avatar-tablet h-veličina-kruga-avatar-mobile  bg-almost-white rounded-full  shadow-sm  group cursor-pointer transition-all ease-in-out hover:shadow'
-      >
-        <RedditIcon className='text-text-light-mode dark:text-text-dark-mode group-hover:text-accent-boja transition-all ' />
+      <RedditShareButton url={currentLocation} className='flex justify-center items-center group'>
+        <RedditIcon className='text-text-light-mode dark:text-text-dark-mode group-hover:text-accent-boja transition-all xl:w-veličina-kruga-avatar-xl lg:w-veličina-kruga-avatar-desktop md:w-veličina-kruga-avatar-tablet w-veličina-kruga-avatar-mobile xl:h-veličina-kruga-avatar-xl lg:h-veličina-kruga-avatar-desktop md:h-veličina-kruga-avatar-tablet h-veličina-kruga-avatar-mobile' />
       </RedditShareButton>
 
       <div
-        className='flex justify-center items-center group xl:w-veličina-kruga-avatar-xl lg:w-veličina-kruga-avatar-desktop md:w-veličina-kruga-avatar-tablet w-veličina-kruga-avatar-mobile xl:h-veličina-kruga-avatar-xl lg:h-veličina-kruga-avatar-desktop md:h-veličina-kruga-avatar-tablet h-veličina-kruga-avatar-mobile  bg-almost-white rounded-full  shadow-sm  group cursor-pointer transition-all ease-in-out hover:shadow border-none bg-transparent'
+        className='flex justify-center items-center group p-2 rounded-full bg-blog-pozadina-light-mode dark:bg-blog-pozadina-dark-mode'
         onClick={handlePrint}
       >
-        <PrintIcon className='text-text-light-mode dark:text-text-dark-mode group-hover:text-accent-boja transition-all ' />
+        <PrintIcon className='text-text-light-mode dark:text-text-dark-mode group-hover:text-accent-boja transition-all xl:w-veličina-kruga-avatar-xl lg:w-veličina-kruga-avatar-desktop md:w-veličina-kruga-avatar-tablet w-veličina-kruga-avatar-mobile xl:h-veličina-kruga-avatar-xl lg:h-veličina-kruga-avatar-desktop md:h-veličina-kruga-avatar-tablet h-veličina-kruga-avatar-mobile' />
       </div>
 
       <div
         onClick={copyToClip}
-        className='flex justify-center items-center group xl:w-veličina-kruga-avatar-xl lg:w-veličina-kruga-avatar-desktop md:w-veličina-kruga-avatar-tablet w-veličina-kruga-avatar-mobile xl:h-veličina-kruga-avatar-xl lg:h-veličina-kruga-avatar-desktop md:h-veličina-kruga-avatar-tablet h-veličina-kruga-avatar-mobile  bg-almost-white rounded-full  shadow-sm  group cursor-pointer transition-all ease-in-out hover:shadow border-none bg-transparent'
+        className='flex justify-center items-center group p-2 rounded-full  bg-blog-pozadina-light-mode dark:bg-blog-pozadina-dark-mode'
       >
-        <CopyIcon className='text-text-light-mode dark:text-text-dark-mode group-hover:text-accent-boja transition-all ' />
+        <CopyIcon className='text-text-light-mode dark:text-text-dark-mode group-hover:text-accent-boja transition-all xl:w-veličina-kruga-avatar-xl lg:w-veličina-kruga-avatar-desktop md:w-veličina-kruga-avatar-tablet w-veličina-kruga-avatar-mobile xl:h-veličina-kruga-avatar-xl lg:h-veličina-kruga-avatar-desktop md:h-veličina-kruga-avatar-tablet h-veličina-kruga-avatar-mobile' />
       </div>
     </div>
   );

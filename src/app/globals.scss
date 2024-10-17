@@ -138,6 +138,16 @@ body {
   // }
 }
 
+.react-share__ShareButton {
+  background-color: theme('colors.blog-pozadina-light-mode') !important;
+  padding: 0.5rem !important;
+  border-radius: 9999px;
+
+  &:is(.dark *) {
+    background-color: theme('colors.blog-pozadina-dark-mode') !important;
+  }
+}
+
 // SLIDER
 
 .slider-container {
@@ -151,21 +161,6 @@ body {
 
 .react-datepicker-popper {
   z-index: 9999 !important;
-}
-
-.test-kartica {
-  a {
-    h5 {
-      span {
-        font-size: 50px;
-        line-height: 1.2;
-      }
-    }
-  }
-}
-
-.test-kartica-demo-fallback {
-  box-shadow: 1px 1px 1px rebeccapurple;
 }
 
 /// COOKIES ///
