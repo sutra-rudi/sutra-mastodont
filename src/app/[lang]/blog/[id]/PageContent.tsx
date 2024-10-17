@@ -149,14 +149,16 @@ const PageContent = ({ content, global, gallery, files, tags, author, intro, cat
       />
 
       <div className='xl:max-w-[1080px] xl:px-0 md:px-4 px-2 mx-auto'>
-        <div className='prose  mx-auto my-0 max-w-full '>
-          <div className=' prose-p:text-text-light-mode dark:prose-p:text-text-dark-mode  w-full xl:prose-p:text-text-base-l-xl lg:prose-p:text-text-base-l-desktop prose-p:text-text-base-l-mobiletablet prose-p:italic prose-p:my-12'>
-            {parse(intro)}
-          </div>
-          <div className='xl:w-4 w-3'></div>
-          <div className='proza-custom-blog prose-headings:font-SERIF prose-headings:text-heading-color-light-mode dark:prose-headings:text-heading-color-dark-mode prose-blockquote:text-text-light-mode dark:prose-blockquote:text-hero-text-dark-mode prose-p:text-text-light-mode dark:prose-p:text-text-dark-mode  prose-figcaption:text-text-light-mode dark:prose-figcaption:text-text-dark-mode xl:prose-h1:text-h3-xl lg:prose-h1:text-h3-desktop md:prose-h1:text-h3-tablet prose-h1:text-h3-mobile xl:prose-h2:text-h4-xl lg:prose-h2:text-h4-desktop md:prose-h2:text-h4-tablet prose-h2:text-h4-mobile w-full xl:prose-p:text-text-base-base-xl lg:prose-p:text-text-base-base-desktop prose-p:text-text-base-base-mobiletablet  prose-blockquote:border-accent-boja prose-blockquote:border-l-4 xl:prose-blockquote:text-quote-xl lg:prose-blockquote:text-quote-desktop md:prose-blockquote:text-quote-tablet prose-blockquote:text-quote-mobile xl:prose-figcaption:text-captions-xl lg:prose-figcaption:text-captions-desktop md:prose-figcaption:text-captions-tablet prose-figcaption:text-captions-mobile prose-figcaption:italic prose-figcaption:font-light prose-figcaption:mt-3 prose-img:mb-0'>
-            {parse(prepareContent[2])}
-          </div>
+        <div className='prose  mx-auto my-0 max-w-full relative'>
+          <TracingBeam>
+            <div className=' prose-p:text-text-light-mode dark:prose-p:text-text-dark-mode  w-full xl:prose-p:text-text-base-l-xl lg:prose-p:text-text-base-l-desktop prose-p:text-text-base-l-mobiletablet prose-p:italic prose-p:my-12'>
+              {parse(intro)}
+            </div>
+            <div className='xl:w-4 w-3'></div>
+            <div className='proza-custom-blog prose-headings:font-SERIF prose-headings:text-heading-color-light-mode dark:prose-headings:text-heading-color-dark-mode prose-blockquote:text-text-light-mode dark:prose-blockquote:text-hero-text-dark-mode prose-p:text-text-light-mode dark:prose-p:text-text-dark-mode  prose-figcaption:text-text-light-mode dark:prose-figcaption:text-text-dark-mode xl:prose-h1:text-h3-xl lg:prose-h1:text-h3-desktop md:prose-h1:text-h3-tablet prose-h1:text-h3-mobile xl:prose-h2:text-h4-xl lg:prose-h2:text-h4-desktop md:prose-h2:text-h4-tablet prose-h2:text-h4-mobile w-full xl:prose-p:text-text-base-base-xl lg:prose-p:text-text-base-base-desktop prose-p:text-text-base-base-mobiletablet  prose-blockquote:border-accent-boja prose-blockquote:border-l-4 xl:prose-blockquote:text-quote-xl lg:prose-blockquote:text-quote-desktop md:prose-blockquote:text-quote-tablet prose-blockquote:text-quote-mobile xl:prose-figcaption:text-captions-xl lg:prose-figcaption:text-captions-desktop md:prose-figcaption:text-captions-tablet prose-figcaption:text-captions-mobile prose-figcaption:italic prose-figcaption:font-light prose-figcaption:mt-3 prose-img:mb-0'>
+              {parse(prepareContent[2])}
+            </div>
+          </TracingBeam>
         </div>
         {prepareGallery.every((item) => item !== null) && (
           <div className='w-full mx-auto py-6 overflow-x-hidden'>
