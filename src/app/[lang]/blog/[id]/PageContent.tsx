@@ -210,25 +210,25 @@ const PageContent = ({ content, global, gallery, files, tags, author, intro, cat
         {
           <div className='w-full max-w-sutraBlogTestMaxWidth mx-auto flex items-center gap-4 justify-center'>
             <div
-              className='flex items-center gap-1 rounded-sutraCardTagBorderRadius border border-almost-black/10 text-text-light-mode dark:text-text-dark-mode transition-all ease-in-out  px-4 py-2 cursor-pointer'
+              className='px-botun-base-lr py-botun-base-td text-button-base gap-element-inside-btn-m flex items-center justify-start transition-all ease-in-out cursor-pointer   bg-transparent  text-text-light-mode dark:text-text-dark-mode  outline outline-1 outline-offset-0 active:outline-[3px] xl:rounded-botun-l lg:rounded-botun-base md:rounded-botun-s rounded-botun-xs'
               onClick={copyToClip}
             >
               <FileIcon /> <span>Copy link</span>
             </div>
             <div className='flex items-center gap-2'>
-              <div className='rounded-sutraCardTagBorderRadius border cursor-pointer border-almost-black/10 text-text-light-mode dark:text-text-dark-mode hover:text-almost-black transition-all ease-in-out hover:border-almost-black flex items-center justify-center w-9 h-9'>
+              <div className='transition-all ease-in-out cursor-pointer   bg-transparent  text-text-light-mode dark:text-text-dark-mode  outline outline-1 outline-offset-0 active:outline-[3px] xl:rounded-botun-l lg:rounded-botun-base md:rounded-botun-s rounded-botun-xs'>
                 <FacebookShareButton url={currentLocation} className=''>
                   <FacebookIcon />
                 </FacebookShareButton>
               </div>
-              <div className='rounded-sutraCardTagBorderRadius border cursor-pointer border-almost-black/10 text-text-light-mode dark:text-text-dark-mode hover:text-almost-black transition-all ease-in-out hover:border-almost-black flex items-center justify-center w-9 h-9'>
+              <div className='transition-all ease-in-out cursor-pointer   bg-transparent  text-text-light-mode dark:text-text-dark-mode  outline outline-1 outline-offset-0 active:outline-[3px] xl:rounded-botun-l lg:rounded-botun-base md:rounded-botun-s rounded-botun-xs'>
                 <TwitterShareButton url={currentLocation}>
                   <TwitterIcon />
                 </TwitterShareButton>
               </div>
 
-              <div className='rounded-sutraCardTagBorderRadius border cursor-pointer border-almost-black/10 text-text-light-mode dark:text-text-dark-mode hover:text-almost-black transition-all ease-in-out hover:border-almost-black flex items-center justify-center w-9 h-9'>
-                <RedditShareButton url={currentLocation} className=''>
+              <div className='transition-all ease-in-out cursor-pointer   bg-transparent  text-text-light-mode dark:text-text-dark-mode  outline outline-1 outline-offset-0 active:outline-[3px] xl:rounded-botun-l lg:rounded-botun-base md:rounded-botun-s rounded-botun-xs text-button-base'>
+                <RedditShareButton url={currentLocation} className='px-botun-base-lr py-botun-base-td'>
                   <RedditIcon />
                 </RedditShareButton>
               </div>
