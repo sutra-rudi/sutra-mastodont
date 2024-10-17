@@ -90,8 +90,8 @@ const PageContent = ({ content, global, gallery, files, tags, author, intro, cat
   console.log('AUTORCINA', prepareGallery);
   return (
     /*@ts-ignore*/
-    <article ref={componentRef} className='mx-auto  w-full bg-blog-pozadina-light-mode my-0 py-8 lg:px-0 px-4 '>
-      <div className='w-full xl:max-w-screen-xl mx-auto'>
+    <article ref={componentRef} className='mx-auto  w-full bg-blog-pozadina-light-mode my-0 xl:py-32 lg:py-28 py-24'>
+      <div className='w-full xl:max-w-screen-xl mx-auto pb-4'>
         {category.map((cat) => {
           return (
             <span
@@ -103,7 +103,7 @@ const PageContent = ({ content, global, gallery, files, tags, author, intro, cat
           );
         })}
       </div>
-      <div className='w-full mx-auto xl:max-w-screen-xl'>
+      <div className='w-full mx-auto xl:max-w-screen-xl pb-4'>
         <h1
           className={`${POT.className} xl:text-h1-xl lg:text-h1-desktop md:text-h1-tablet text-h1-mobile35 font-bold  mx-auto text-almost-black text-balance`}
         >
@@ -142,7 +142,7 @@ const PageContent = ({ content, global, gallery, files, tags, author, intro, cat
             speed: -15,
           },
         ]}
-        className='block object-cover object-center aspect-video h-[250px] w-full mx-auto my-0 min-h-[640px]'
+        className='block object-cover object-center aspect-video h-[250px] w-full mx-auto mt-12 min-h-[640px]'
       />
 
       <div className='xl:max-w-[1080px] xl:px-0 md:px-4 px-2 mx-auto'>
