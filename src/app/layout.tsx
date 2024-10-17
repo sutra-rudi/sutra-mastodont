@@ -251,7 +251,7 @@ export default async function RootLayout({
       if (!response.ok) {
         const errorText = await response.text();
         console.error('Response error:', errorText);
-        throw new Error(`Fetch error: ${response.statusText}`);
+        // throw new Error(`Fetch error: ${response.statusText}`);
       }
 
       const data = await response.json();
@@ -272,10 +272,7 @@ export default async function RootLayout({
   const lang = (cookieStore.get('@sutra-user-lang')?.value as UserLanguage) || 'hr';
 
   return (
-    <html
-      lang={lang}
-      className='scrollbar scrollbar-thumb-primarna-svijetla dark:scrollbar-thumb-primarna-tamna  scrollbar-track-primarna-tamna dark:scrollbar-track-primarna-svijetla min-h-screen'
-    >
+    <html lang={lang} className='scrollbar scrollbar-thumb-accent-boja scrollbar-track-primarna-tamna'>
       <body className={`${poppins.className} w-full h-full`}>
         <CookieConsentNotification pageContent={adminTekstoviShorthand} />
         {adminTokenDataShorthand.kodoviAdminApi.googleAnalytics && userEnabledAllCookies && (

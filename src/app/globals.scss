@@ -117,6 +117,16 @@ body {
       flex-wrap: wrap;
     }
   }
+
+  img {
+    width: 100%;
+  }
+
+  blockquote {
+    p {
+      font-weight: 700;
+    }
+  }
 }
 
 // SLIDER

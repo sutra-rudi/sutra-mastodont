@@ -9,6 +9,11 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        md: '640px',
+        lg: '1000px',
+        xl: '1440px',
+      },
       colors: {
         'almost-black': '#171715',
         'sekundarna-tamna': '#11201D',
@@ -327,6 +332,9 @@ const config: Config = {
       maxWidth: {
         sutraBlogTestMaxWidth: '750px',
         sutraContactUsTempFormWidth: '1200px',
+      },
+      fontFamily: {
+        SERIF: ['Poltawski Nowy', 'serif'],
       },
     },
   },
