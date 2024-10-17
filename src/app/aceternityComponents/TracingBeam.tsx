@@ -19,13 +19,14 @@ export const TracingBeam = ({ children, className }: { children: React.ReactNode
     }
   }, []);
 
+  // Usporiti punjenje crte
   const y1 = useSpring(useTransform(scrollYProgress, [0, 0.8], [0, svgHeight]), {
-    stiffness: 500,
-    damping: 90,
+    stiffness: 200, // Smanjite stiffness
+    damping: 100, // Povećajte damping
   });
   const y2 = useSpring(useTransform(scrollYProgress, [0, 1], [0, svgHeight]), {
-    stiffness: 500,
-    damping: 90,
+    stiffness: 200, // Smanjite stiffness
+    damping: 100, // Povećajte damping
   });
 
   return (
