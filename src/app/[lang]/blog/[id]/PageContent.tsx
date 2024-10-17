@@ -94,7 +94,7 @@ const PageContent = ({ content, global, gallery, files, tags, author, intro, cat
       ref={componentRef}
       className='mx-auto  w-full bg-blog-pozadina-light-mode dark:bg-blog-pozadina-dark-mode my-0 xl:py-32 lg:py-28 py-24'
     >
-      <div className='w-full xl:max-w-screen-xl mx-auto pb-4 xl:px-0 md:px-4 px-2 '>
+      <div className='w-full xl:max-w-[1080px] mx-auto pb-4 xl:px-0 md:px-4 px-2 '>
         {category.map((cat) => {
           return (
             <span
@@ -106,9 +106,9 @@ const PageContent = ({ content, global, gallery, files, tags, author, intro, cat
           );
         })}
       </div>
-      <div className='w-full mx-auto xl:max-w-screen-xl pb-4 xl:px-0 md:px-4 px-2 '>
+      <div className='w-full mx-auto xl:max-w-[1080px] pb-4 xl:px-0 md:px-4 px-2 '>
         <h1
-          className={`${POT.className} xl:text-h1-xl lg:text-h1-desktop md:text-h1-tablet text-h1-mobile35 font-bold  mx-auto text-heading-color-light-mode dark:text-heading-color-dark-mode text-balance`}
+          className={`${POT.className} xl:text-h1-xl lg:text-h1-desktop md:text-h1-tablet text-h1-mobile35 font-bold  mx-auto text-heading-color-light-mode dark:text-heading-color-dark-mode`}
         >
           {prepareContent[1]}
         </h1>
