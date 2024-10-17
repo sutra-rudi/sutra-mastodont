@@ -100,7 +100,7 @@ const AppHeader = () => {
 
   return (
     <nav className='bg-white dark:bg-gray-800 antialiased relative'>
-      <div className='max-w-screen-xl px-4 mx-auto 2xl:px-0 py-4'>
+      <div className='max-w-screen-xl mx-auto xl:px-0 md:px-4 px-2  py-4'>
         <div className='flex items-center justify-between'>
           <div className='flex items-center'>
             <div className='shrink-0'>

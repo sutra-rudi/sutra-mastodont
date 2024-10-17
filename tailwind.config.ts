@@ -61,6 +61,8 @@ const config: Config = {
         'divider-lightmode': 'var(--setup_glavnih_boja-primarna-svijetla)',
         'divider-darkmode': 'var(--setup_glavnih_boja-primarna-tamna)',
         'blog-pozadina-light-mode': '#F8F7F2',
+        'blog-pozadina-dark-mode': '#11201D',
+        'blog-datum': '#696A75',
       },
 
       //BG-COLORS-BUTTON

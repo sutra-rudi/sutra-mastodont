@@ -89,13 +89,16 @@ const PageContent = ({ content, global, gallery, files, tags, author, intro, cat
 
   console.log('AUTORCINA', prepareGallery);
   return (
-    /*@ts-ignore*/
-    <article ref={componentRef} className='mx-auto  w-full bg-blog-pozadina-light-mode my-0 xl:py-32 lg:py-28 py-24'>
-      <div className='w-full xl:max-w-screen-xl mx-auto pb-4'>
+    <article
+      /*@ts-ignore*/
+      ref={componentRef}
+      className='mx-auto  w-full bg-blog-pozadina-light-mode dark:bg-blog-pozadina-dark-mode my-0 xl:py-32 lg:py-28 py-24'
+    >
+      <div className='w-full xl:max-w-screen-xl mx-auto pb-4 xl:px-0 md:px-4 px-2 '>
         {category.map((cat) => {
           return (
             <span
-              className='xl:text-captions-xl lg:text-captions-desktop md:text-captions-tablet text-captions-mobile font-light italic uppercase'
+              className='xl:text-captions-xl lg:text-captions-desktop md:text-captions-tablet text-captions-mobile font-light italic uppercase text-heading-color-light-mode dark:text-heading-color-dark-mode'
               key={cat.catName}
             >
               {cat.catName}
@@ -103,9 +106,9 @@ const PageContent = ({ content, global, gallery, files, tags, author, intro, cat
           );
         })}
       </div>
-      <div className='w-full mx-auto xl:max-w-screen-xl pb-4'>
+      <div className='w-full mx-auto xl:max-w-screen-xl pb-4 xl:px-0 md:px-4 px-2 '>
         <h1
-          className={`${POT.className} xl:text-h1-xl lg:text-h1-desktop md:text-h1-tablet text-h1-mobile35 font-bold  mx-auto text-almost-black text-balance`}
+          className={`${POT.className} xl:text-h1-xl lg:text-h1-desktop md:text-h1-tablet text-h1-mobile35 font-bold  mx-auto text-heading-color-light-mode dark:text-heading-color-dark-mode text-balance`}
         >
           {prepareContent[1]}
         </h1>
@@ -123,13 +126,13 @@ const PageContent = ({ content, global, gallery, files, tags, author, intro, cat
               ) : (
                 <div></div>
               )}
-              <p className='flex items-center justify-start gap-1 xl:text-text-base-base-xl lg:text-text-base-base-desktop text-text-base-base-mobiletablet'>
+              <p className='flex items-center justify-start gap-1 xl:text-text-base-base-xl lg:text-text-base-base-desktop text-text-base-base-mobiletablet text-heading-color-light-mode dark:text-heading-color-dark-mode'>
                 <span>{author.node.firstName}</span>
                 <span>{author.node.lastName}</span>
               </p>
             </div>
-            <span className=''>/</span>
-            <p className='xl:text-captions-xl lg:text-captions-desktop md:text-captions-tablet text-captions-mobile text-sekundarna-tamna'>
+            <span className='text-blog-datum'>/</span>
+            <p className='xl:text-captions-xl lg:text-captions-desktop md:text-captions-tablet text-captions-mobile text-blog-datum'>
               {dayjs(global.datum).format('DD.MM.YYYY')}
             </p>
           </div>
@@ -142,16 +145,16 @@ const PageContent = ({ content, global, gallery, files, tags, author, intro, cat
             speed: -15,
           },
         ]}
-        className='block object-cover object-center aspect-video h-[250px] w-full mx-auto mt-12 min-h-[640px]'
+        className='block object-cover object-center aspect-video h-[250px] w-full mx-auto mt-12 xl:min-h-[650px] lg:min-h-[580px] md:min-h-[460px] min-h-[300px]'
       />
 
       <div className='xl:max-w-[1080px] xl:px-0 md:px-4 px-2 mx-auto'>
         <div className='prose  mx-auto my-0 max-w-full '>
-          <div className=' prose-p:text-primarna-tamna  w-full xl:prose-p:text-text-base-l-xl lg:prose-p:text-text-base-l-desktop prose-p:text-text-base-l-mobiletablet prose-p:italic prose-p:my-12'>
+          <div className=' prose-p:text-text-light-mode dark:prose-p:text-text-dark-mode  w-full xl:prose-p:text-text-base-l-xl lg:prose-p:text-text-base-l-desktop prose-p:text-text-base-l-mobiletablet prose-p:italic prose-p:my-12'>
             {parse(intro)}
           </div>
           <div className='xl:w-4 w-3'></div>
-          <div className='proza-custom-blog prose-headings:font-SERIF prose-headings:text-heading-color-light-mode dark:prose-headings:text-heading-color-dark-mode xl:prose-h1:text-h3-xl lg:prose-h1:text-h3-desktop md:prose-h1:text-h3-tablet prose-h1:text-h3-mobile xl:prose-h2:text-h4-xl lg:prose-h2:text-h4-desktop md:prose-h2:text-h4-tablet prose-h2:text-h4-mobile w-full xl:prose-p:text-text-base-base-xl lg:prose-p:text-text-base-base-desktop prose-p:text-text-base-base-mobiletablet  prose-blockquote:border-accent-boja prose-blockquote:border-l-4 xl:prose-blockquote:text-quote-xl lg:prose-blockquote:text-quote-desktop md:prose-blockquote:text-quote-tablet prose-blockquote:text-quote-mobile xl:prose-figcaption:text-captions-xl lg:prose-figcaption:text-captions-desktop md:prose-figcaption:text-captions-tablet prose-figcaption:text-captions-mobile prose-figcaption:italic prose-figcaption:font-light prose-figcaption:mt-3 prose-img:mb-0'>
+          <div className='proza-custom-blog prose-headings:font-SERIF prose-headings:text-heading-color-light-mode dark:prose-headings:text-heading-color-dark-mode prose-blockquote:text-text-light-mode dark:prose-blockquote:text-hero-text-dark-mode prose-p:text-text-light-mode dark:prose-p:text-text-dark-mode prose-strong:text-accent-boja prose-figcaption:text-text-light-mode dark:prose-figcaption:text-text-dark-mode xl:prose-h1:text-h3-xl lg:prose-h1:text-h3-desktop md:prose-h1:text-h3-tablet prose-h1:text-h3-mobile xl:prose-h2:text-h4-xl lg:prose-h2:text-h4-desktop md:prose-h2:text-h4-tablet prose-h2:text-h4-mobile w-full xl:prose-p:text-text-base-base-xl lg:prose-p:text-text-base-base-desktop prose-p:text-text-base-base-mobiletablet  prose-blockquote:border-accent-boja prose-blockquote:border-l-4 xl:prose-blockquote:text-quote-xl lg:prose-blockquote:text-quote-desktop md:prose-blockquote:text-quote-tablet prose-blockquote:text-quote-mobile xl:prose-figcaption:text-captions-xl lg:prose-figcaption:text-captions-desktop md:prose-figcaption:text-captions-tablet prose-figcaption:text-captions-mobile prose-figcaption:italic prose-figcaption:font-light prose-figcaption:mt-3 prose-img:mb-0'>
             {parse(prepareContent[2])}
           </div>
         </div>
