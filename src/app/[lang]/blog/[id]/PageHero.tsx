@@ -17,7 +17,7 @@ interface PageHero {
 const PageHero = ({ global, content, category, author }: PageHero) => {
   const prepareContent: any[] = Object.values(content);
   return (
-    <div className='xl:-pt--xl---5xl lg:-pt--desktop---5xl md:-pt--tablet---5xl -pt--mobile---5xl'>
+    <div className='xl:-pt--xl---3xl lg:-pt--desktop---3xl md:-pt--tablet---3xl -pt--mobile---3xl'>
       <div className='w-full max-w-[1080px] mx-auto  xl:-pb--xl---s lg:-pb--desktop---s md:-pb--tablet---s -pb--mobile---s xl:px-0 md:px-4 px-2 '>
         {category.map((cat) => {
           return (
@@ -68,6 +68,7 @@ const PageHero = ({ global, content, category, author }: PageHero) => {
           {
             image: global.naslovnaSlika ? global.naslovnaSlika.node.sourceUrl : heroImagesHomePage.desktop,
             speed: -15,
+            // scale: [1, 1.25],
           },
         ]}
         className='block object-cover object-center aspect-video h-[250px] w-full mx-auto xl:min-h-[650px] lg:min-h-[580px] md:min-h-[460px] min-h-[300px]'

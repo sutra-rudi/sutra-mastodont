@@ -157,6 +157,8 @@ export default async function SingleBlogPage({ params: { lang, id } }: { params:
       };
     }) ?? [];
 
+  const isGloria: boolean = false;
+
   return (
     <main className=' bg-blog-pozadina-light-mode dark:bg-blog-pozadina-dark-mode w-full xl:-pb--xl---5xl lg:-pb--desktop---5xl md:-pb--tablet---5xl -pb--mobile---5xl'>
       <PageHero
@@ -165,10 +167,28 @@ export default async function SingleBlogPage({ params: { lang, id } }: { params:
         category={categoryField}
         author={authorField}
       />
-      <div className=''>
-        {/* <div className='bg-hero-nadnaslov-color-light-mode block'>
-          <SocialContent />
-        </div> */}
+      {isGloria ? (
+        <div className='flex items-stretch justify-center max-w-[1440px] mx-auto gap-12'>
+          <div className='block flex-grow-0'>
+            <SocialContent />
+          </div>
+          <LazyContent
+            content={prepareDataForClient.blog[languageField]}
+            global={prepareDataForClient.blog.introBlog}
+            gallery={prepareDataForClient.blog.photoGallery.fotogalerija}
+            files={documentsField}
+            tags={tagsField}
+            author={authorField}
+            intro={introField}
+            category={categoryField}
+            // isGloria
+          />
+
+          <div className='block max-w-[350px]'>
+            <AsideContent />
+          </div>
+        </div>
+      ) : (
         <LazyContent
           content={prepareDataForClient.blog[languageField]}
           global={prepareDataForClient.blog.introBlog}
@@ -179,11 +199,7 @@ export default async function SingleBlogPage({ params: { lang, id } }: { params:
           intro={introField}
           category={categoryField}
         />
-
-        {/* <div className='bg-red-400 block'>
-        <AsideContent />
-      </div> */}
-      </div>
+      )}
     </main>
   );
 }
