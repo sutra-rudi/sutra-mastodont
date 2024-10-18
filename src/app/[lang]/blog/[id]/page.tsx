@@ -6,6 +6,7 @@ import { UserLanguage } from '@/app/enums/LangEnum';
 import { ogImagesArchiveBlog } from '@/app/pathsUtils/mediaImportsDynamic';
 import dynamic from 'next/dynamic';
 import SocialContent from './SocialContent';
+import PageHero from './PageHero';
 
 const LazyContent = dynamic(() => import('./PageContent'));
 const AsideContent = dynamic(() => import('./AsideContent'), { ssr: false });
@@ -157,24 +158,32 @@ export default async function SingleBlogPage({ params: { lang, id } }: { params:
     }) ?? [];
 
   return (
-    <main className=' bg-blog-pozadina-light-mode dark:bg-blog-pozadina-dark-mode w-full'>
-      {/* <div className='bg-hero-nadnaslov-color-light-mode block'>
+    <main className=' bg-blog-pozadina-light-mode dark:bg-blog-pozadina-dark-mode w-full xl:-pb--xl---5xl lg:-pb--desktop---5xl md:-pb--tablet---5xl -pb--mobile---5xl'>
+      <PageHero
+        global={prepareDataForClient.blog.introBlog}
+        content={prepareDataForClient.blog[languageField]}
+        category={categoryField}
+        author={authorField}
+      />
+      <div className=''>
+        {/* <div className='bg-hero-nadnaslov-color-light-mode block'>
           <SocialContent />
         </div> */}
-      <LazyContent
-        content={prepareDataForClient.blog[languageField]}
-        global={prepareDataForClient.blog.introBlog}
-        gallery={prepareDataForClient.blog.photoGallery.fotogalerija}
-        files={documentsField}
-        tags={tagsField}
-        author={authorField}
-        intro={introField}
-        category={categoryField}
-      />
+        <LazyContent
+          content={prepareDataForClient.blog[languageField]}
+          global={prepareDataForClient.blog.introBlog}
+          gallery={prepareDataForClient.blog.photoGallery.fotogalerija}
+          files={documentsField}
+          tags={tagsField}
+          author={authorField}
+          intro={introField}
+          category={categoryField}
+        />
 
-      {/* <div className='bg-red-400 block'>
-          <AsideContent />
-        </div> */}
+        {/* <div className='bg-red-400 block'>
+        <AsideContent />
+      </div> */}
+      </div>
     </main>
   );
 }
