@@ -76,7 +76,6 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
     return (
       <main className='relative w-full dark:bg-primarna-tamna'>
-        <Loading />
         <HeroSection />
 
         {blogDataArrayShorthand.length > 0 && (
