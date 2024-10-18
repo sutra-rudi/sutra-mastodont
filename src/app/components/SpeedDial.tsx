@@ -34,7 +34,7 @@ const SpeedDial = ({ handlePrint }: SpeedDialInterface) => {
   }
 
   return (
-    <div className='fixed xl:end-12 lg:end-10 md:end-8 end-6 bottom-16  z-30 flex flex-col items-start xl:gap-3 lg:gap-4 md:gap-5 gap-6'>
+    <div className=' xl:end-12 lg:end-10 md:end-8 end-6 bottom-16  z-30 flex flex-col items-start xl:gap-3 lg:gap-4 md:gap-5 gap-6'>
       <FacebookShareButton url={currentLocation} className='flex justify-center items-center group'>
         <FacebookIcon className='text-text-light-mode dark:text-text-dark-mode group-hover:text-accent-boja transition-all xl:w-veličina-kruga-avatar-xl lg:w-veličina-kruga-avatar-desktop md:w-veličina-kruga-avatar-tablet w-veličina-kruga-avatar-mobile xl:h-veličina-kruga-avatar-xl lg:h-veličina-kruga-avatar-desktop md:h-veličina-kruga-avatar-tablet h-veličina-kruga-avatar-mobile' />
       </FacebookShareButton>

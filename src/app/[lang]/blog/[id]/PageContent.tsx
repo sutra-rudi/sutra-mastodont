@@ -87,14 +87,13 @@ const PageContent = ({ content, global, gallery, files, tags, author, intro, cat
     }
   };
 
-  console.log('AUTORCINA', prepareGallery);
   return (
     <article
       /*@ts-ignore*/
       ref={componentRef}
-      className='mx-auto  w-full bg-blog-pozadina-light-mode dark:bg-blog-pozadina-dark-mode xl:-py--xl---5xl lg:-py--desktop---5xl md:-py--tablet---5xl -py--mobile---5xl'
+      className='w-full  xl:-py--xl---5xl lg:-py--desktop---5xl md:-py--tablet---5xl -py--mobile---5xl'
     >
-      <div className='w-full xl:max-w-[1080px] mx-auto xl:-pb--xl---s lg:-pb--desktop---s md:-pb--tablet---s -pb--mobile---s xl:px-0 md:px-4 px-2 '>
+      <div className='w-full  mx-auto xl:-pb--xl---s lg:-pb--desktop---s md:-pb--tablet---s -pb--mobile---s xl:px-0 md:px-4 px-2 '>
         {category.map((cat) => {
           return (
             <span
@@ -236,7 +235,6 @@ const PageContent = ({ content, global, gallery, files, tags, author, intro, cat
           </div>
         }
       </div>
-      <SpeedDial handlePrint={handlePrint} />
     </article>
   );
 };

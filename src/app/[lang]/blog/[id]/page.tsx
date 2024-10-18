@@ -5,7 +5,10 @@ import { htmlToText } from 'html-to-text';
 import { UserLanguage } from '@/app/enums/LangEnum';
 import { ogImagesArchiveBlog } from '@/app/pathsUtils/mediaImportsDynamic';
 import dynamic from 'next/dynamic';
+import SocialContent from './SocialContent';
+
 const LazyContent = dynamic(() => import('./PageContent'));
+const AsideContent = dynamic(() => import('./AsideContent'), { ssr: false });
 export async function generateMetadata({ params: { lang, id } }: { params: { lang: string; id: string } }) {
   const getIdFromSlug = (slug: string): string => {
     const parts = slug.split('-');
@@ -154,17 +157,26 @@ export default async function SingleBlogPage({ params: { lang, id } }: { params:
     }) ?? [];
 
   return (
-    <main>
-      <LazyContent
-        content={prepareDataForClient.blog[languageField]}
-        global={prepareDataForClient.blog.introBlog}
-        gallery={prepareDataForClient.blog.photoGallery.fotogalerija}
-        files={documentsField}
-        tags={tagsField}
-        author={authorField}
-        intro={introField}
-        category={categoryField}
-      />
+    <main className=' bg-blog-pozadina-light-mode dark:bg-blog-pozadina-dark-mode w-full'>
+      <div className='xl:max-w-screen-2xl  flex relative h-full items-stretch justify-center'>
+        <div className='bg-hero-nadnaslov-color-light-mode block'>
+          <SocialContent />
+        </div>
+        <LazyContent
+          content={prepareDataForClient.blog[languageField]}
+          global={prepareDataForClient.blog.introBlog}
+          gallery={prepareDataForClient.blog.photoGallery.fotogalerija}
+          files={documentsField}
+          tags={tagsField}
+          author={authorField}
+          intro={introField}
+          category={categoryField}
+        />
+
+        <div className='bg-red-400 block'>
+          <AsideContent />
+        </div>
+      </div>
     </main>
   );
 }
