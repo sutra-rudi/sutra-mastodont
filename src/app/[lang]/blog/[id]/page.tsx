@@ -158,25 +158,23 @@ export default async function SingleBlogPage({ params: { lang, id } }: { params:
 
   return (
     <main className=' bg-blog-pozadina-light-mode dark:bg-blog-pozadina-dark-mode w-full'>
-      <div className=' flex relative h-full items-stretch justify-center mx-auto w-full'>
-        <div className='bg-hero-nadnaslov-color-light-mode block'>
+      {/* <div className='bg-hero-nadnaslov-color-light-mode block'>
           <SocialContent />
-        </div>
-        <LazyContent
-          content={prepareDataForClient.blog[languageField]}
-          global={prepareDataForClient.blog.introBlog}
-          gallery={prepareDataForClient.blog.photoGallery.fotogalerija}
-          files={documentsField}
-          tags={tagsField}
-          author={authorField}
-          intro={introField}
-          category={categoryField}
-        />
+        </div> */}
+      <LazyContent
+        content={prepareDataForClient.blog[languageField]}
+        global={prepareDataForClient.blog.introBlog}
+        gallery={prepareDataForClient.blog.photoGallery.fotogalerija}
+        files={documentsField}
+        tags={tagsField}
+        author={authorField}
+        intro={introField}
+        category={categoryField}
+      />
 
-        <div className='bg-red-400 block'>
+      {/* <div className='bg-red-400 block'>
           <AsideContent />
-        </div>
-      </div>
+        </div> */}
     </main>
   );
 }

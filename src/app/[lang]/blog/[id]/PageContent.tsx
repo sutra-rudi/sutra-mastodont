@@ -91,9 +91,9 @@ const PageContent = ({ content, global, gallery, files, tags, author, intro, cat
     <article
       /*@ts-ignore*/
       ref={componentRef}
-      className='w-full max-w-screen-lg  xl:-py--xl---5xl lg:-py--desktop---5xl md:-py--tablet---5xl -py--mobile---5xl'
+      className='w-full   xl:-py--xl---5xl lg:-py--desktop---5xl md:-py--tablet---5xl -py--mobile---5xl'
     >
-      <div className='w-full  mx-auto xl:-pb--xl---s lg:-pb--desktop---s md:-pb--tablet---s -pb--mobile---s xl:px-0 md:px-4 px-2 '>
+      <div className='w-full max-w-[1080px] mx-auto  xl:-pb--xl---s lg:-pb--desktop---s md:-pb--tablet---s -pb--mobile---s xl:px-0 md:px-4 px-2 '>
         {category.map((cat) => {
           return (
             <span
@@ -105,7 +105,7 @@ const PageContent = ({ content, global, gallery, files, tags, author, intro, cat
           );
         })}
       </div>
-      <div className='w-full mx-auto xl:max-w-[1080px] xl:px-0 md:px-4 px-2 '>
+      <div className='w-full mx-auto max-w-[1080px] xl:px-0 md:px-4 px-2 '>
         <h1
           className={`${POT.className} xl:text-h1-xl lg:text-h1-desktop md:text-h1-tablet text-h1-mobile35 font-bold  mx-auto text-heading-color-light-mode dark:text-heading-color-dark-mode xl:-pb--xl---m lg:-pb--desktop---m md:-pb--tablet---m -pb--mobile---m`}
         >
