@@ -189,3 +189,37 @@ body {
 }
 
 //UTILS
+
+//LOADER
+
+.loader-sutra {
+  width: 124px;
+  height: 124px;
+  display: inline-block;
+  position: relative;
+}
+.loader-sutra::after,
+.loader-sutra::before {
+  content: '';
+  width: 124px;
+  height: 124px;
+  border: 4px solid theme('colors.brand-color-main');
+  position: absolute;
+  left: 0;
+  top: 0;
+  box-sizing: border-box;
+  animation: rotation 2s ease-in-out infinite;
+}
+.loader-sutra::after {
+  border-color: theme('colors.accent-boja');
+  animation-delay: 1s;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

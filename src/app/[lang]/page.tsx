@@ -2,19 +2,8 @@ export const maxDuration = 60;
 
 import dynamic from 'next/dynamic';
 import Loading from '../loading';
-
-import { getAllBlogsQuery } from '../queries/getAllBlogsQuery';
-import { getAllBrojcaniciQuery } from '../queries/getAllBrojcaniciQuery';
-import { getAllUslugeQuery } from '../queries/getAllUslugeQuery';
-import { getAllLogotipiPartneraQuery } from '../queries/getAllLogotipiPartnera';
-import { getAllCarouselBaseQuery } from '../queries/getAllCarouselBase';
-import { getAllIskustvaKlijenataQuery } from '../queries/getAllIskustvaKlijenataQuery';
-import { getWhyUsQuery } from '../queries/getAllWhyUsQuery';
-import { getObavijestiNaStraniciQuery } from '../queries/getAllObavijestiQuery';
-import { getDokumentikataloziQuery } from '../queries/getAllDocumentsQuery';
-import { getCategoriesQuery } from '../queries/getAllBlogCategoriesQuery';
-import { getTagsQuery } from '../queries/getAllTagsQuery';
-import { getAdminCtaSelectionQuery } from '../queries/getAdminCtaSelectionQuery';
+import { allQueries } from '../queries';
+import { fetchData } from '../utils/callApi';
 
 const BlogSection = dynamic(() => import('./BlogSection'), { loading: () => <Loading /> });
 const BrojcaniciSection = dynamic(() => import('./BrojcaniciSection'), { loading: () => <Loading /> });
@@ -27,60 +16,21 @@ const DocumentsCatalogsSection = dynamic(() => import('./DocumentsCatalogsSectio
 const HeroSection = dynamic(() => import('./HeroSection'), { ssr: false });
 const NewsTrack = dynamic(() => import('../components/NewsTrack'), { loading: () => <Loading /> });
 
-async function fetchData(query: any, noCache: boolean = false) {
-  try {
-    const response = await fetch(`${process.env.CMS_BASE_URL}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ query }),
-      cache: noCache ? 'no-store' : 'default', // Add cache control
-    });
-
-    if (!response.ok) {
-      throw new Error(`Fetch error: ${response.statusText}`);
-    }
-
-    const data = await response.json(); // Directly parse JSON
-    return data;
-  } catch (error) {
-    console.error('Fetch data error:', error);
-    return null;
-  }
-}
-
 export default async function Landing({ params: { lang } }: { params: { lang: string } }) {
   try {
-    const queries = [
-      getAllBlogsQuery(lang),
-      getAllBrojcaniciQuery(lang),
-      getAllUslugeQuery(lang),
-      getAllLogotipiPartneraQuery(),
-      getAllCarouselBaseQuery(),
-      getAllIskustvaKlijenataQuery(lang),
-      getWhyUsQuery(lang),
-      getObavijestiNaStraniciQuery(lang),
-      getDokumentikataloziQuery(lang),
-      getCategoriesQuery(lang),
-      getTagsQuery(lang),
-      getAdminCtaSelectionQuery(),
-    ];
+    const queryConfigs = allQueries(lang);
 
-    const results = await Promise.all([
-      fetchData(queries[0]),
-      fetchData(queries[1]),
-      fetchData(queries[2]),
-      fetchData(queries[3]),
-      fetchData(queries[4]),
-      fetchData(queries[5]),
-      fetchData(queries[6]),
-      fetchData(queries[7]),
-      fetchData(queries[8]),
-      fetchData(queries[9]),
-      fetchData(queries[10]),
-      fetchData(queries[11]),
-    ]);
+    const results = await Promise.all(
+      queryConfigs.map(async ({ query, noCache }) => {
+        try {
+          const data = await fetchData(query, noCache);
+          return data;
+        } catch (error) {
+          console.error(`Error fetching query: ${query}`, error);
+          return { error: true };
+        }
+      })
+    );
 
     const [
       getAllBlogs,
@@ -97,21 +47,36 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       getAllAdminCtaSelection,
     ] = results;
 
-    const blogDataArrayShorthand = getAllBlogs?.data?.allBlog?.edges || [];
-    const brojcaniciDataArrayShorthand = getAllBrojcanici?.data?.allBrojcanici?.edges || [];
-    const uslugeDataArrayShorthand = getAllUsluge?.data?.allUsluge?.edges || [];
-    const logotipiPartneraDataArrayShorthand = getAllPartnersLogos?.data?.logotipiPartneraKlijenata?.edges || [];
-    const baseCarouselDataShorthand = getAllCarouselBase?.data?.karuselNaslovnica?.edges[0]?.node || null;
-    const iskustvaKlijenataShorthand = getAllIskustvaKlijenata?.data?.allIskustvaKlijenata?.edges || [];
-    const whyUsDataShorthand = getAllWhyUs?.data?.allWhyus?.edges || [];
-    const obavijestiNaStraniciDataShorthand = getAllObavijesti?.data?.allObavijestiNaStranici?.edges || [];
-    const dokumentiKataloziDataShorthand = getAllDocuments?.data?.dokumentikatalozi?.edges || [];
-    const kategorijeDataShorthand = getAllCategories?.data?.categories?.edges || [];
-    const tagsDataShorthand = getAllTags?.data?.tags?.edges || [];
-    const adminCtaSelection = getAllAdminCtaSelection?.data?.adminSetupArea.edges[0]?.node || null;
+    const blogDataArrayShorthand = !getAllBlogs.error ? getAllBlogs?.data?.allBlog?.edges || [] : [];
+    const brojcaniciDataArrayShorthand = !getAllBrojcanici.error
+      ? getAllBrojcanici?.data?.allBrojcanici?.edges || []
+      : [];
+    const uslugeDataArrayShorthand = !getAllUsluge.error ? getAllUsluge?.data?.allUsluge?.edges || [] : [];
+    const logotipiPartneraDataArrayShorthand = !getAllPartnersLogos.error
+      ? getAllPartnersLogos?.data?.logotipiPartneraKlijenata?.edges || []
+      : [];
+    const baseCarouselDataShorthand = !getAllCarouselBase.error
+      ? getAllCarouselBase?.data?.karuselNaslovnica?.edges[0]?.node || null
+      : null;
+    const iskustvaKlijenataShorthand = !getAllIskustvaKlijenata.error
+      ? getAllIskustvaKlijenata?.data?.allIskustvaKlijenata?.edges || []
+      : [];
+    const whyUsDataShorthand = !getAllWhyUs.error ? getAllWhyUs?.data?.allWhyus?.edges || [] : [];
+    const obavijestiNaStraniciDataShorthand = !getAllObavijesti.error
+      ? getAllObavijesti?.data?.allObavijestiNaStranici?.edges || []
+      : [];
+    const dokumentiKataloziDataShorthand = !getAllDocuments.error
+      ? getAllDocuments?.data?.dokumentikatalozi?.edges || []
+      : [];
+    const kategorijeDataShorthand = !getAllCategories.error ? getAllCategories?.data?.categories?.edges || [] : [];
+    const tagsDataShorthand = !getAllTags.error ? getAllTags?.data?.tags?.edges || [] : [];
+    const adminCtaSelection = !getAllAdminCtaSelection.error
+      ? getAllAdminCtaSelection?.data?.adminSetupArea.edges[0]?.node || null
+      : null;
 
     return (
-      <main className='relative w-full dark:bg-primarna-tamna '>
+      <main className='relative w-full dark:bg-primarna-tamna'>
+        <Loading />
         <HeroSection />
 
         {blogDataArrayShorthand.length > 0 && (
