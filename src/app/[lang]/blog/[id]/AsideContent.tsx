@@ -22,8 +22,10 @@ const AsideContent = () => {
   }, []);
 
   return (
-    <div className='bg-blue-400 h-full relative'>
-      <div className='sticky top-0' style={{ backgroundColor: showContent ? 'green' : 'red' }}>
+    <div className='bg-blue-400 h-full relative w-full'>
+      <div
+        className={`sticky transition-all ease-in-out duration-200 top-0 ${showContent ? 'opacity-100' : 'opacity-0'}`}
+      >
         <p>aside content</p>
         <p>aside content</p>
         <p>aside content</p>

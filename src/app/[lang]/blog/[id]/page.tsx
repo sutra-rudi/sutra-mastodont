@@ -158,7 +158,7 @@ export default async function SingleBlogPage({ params: { lang, id } }: { params:
 
   return (
     <main className=' bg-blog-pozadina-light-mode dark:bg-blog-pozadina-dark-mode w-full'>
-      <div className='xl:max-w-screen-2xl  flex relative h-full items-stretch justify-center'>
+      <div className=' flex relative h-full items-stretch justify-center mx-auto w-full'>
         <div className='bg-hero-nadnaslov-color-light-mode block'>
           <SocialContent />
         </div>
