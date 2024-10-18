@@ -157,7 +157,7 @@ export default async function SingleBlogPage({ params: { lang, id } }: { params:
       };
     }) ?? [];
 
-  const isGloria: boolean = false;
+  const isGloria: boolean = true;
 
   return (
     <main className=' bg-blog-pozadina-light-mode dark:bg-blog-pozadina-dark-mode w-full xl:-pb--xl---5xl lg:-pb--desktop---5xl md:-pb--tablet---5xl -pb--mobile---5xl'>
