@@ -5,11 +5,15 @@ import { htmlToText } from 'html-to-text';
 import { UserLanguage } from '@/app/enums/LangEnum';
 import { ogImagesArchiveBlog } from '@/app/pathsUtils/mediaImportsDynamic';
 import dynamic from 'next/dynamic';
-import SocialContent from './SocialContent';
-import PageHero from './PageHero';
+import { fetchData } from '@/app/utils/callApi';
 
 const LazyContent = dynamic(() => import('./PageContent'));
-const AsideContent = dynamic(() => import('./AsideContent'), { ssr: false });
+const AsideContent = dynamic(() => import('./AsideContent'));
+const SocialContent = dynamic(() => import('./SocialContent'));
+const PageHero = dynamic(() => import('./PageHero'));
+
+const isGloria: boolean = true;
+
 export async function generateMetadata({ params: { lang, id } }: { params: { lang: string; id: string } }) {
   const getIdFromSlug = (slug: string): string => {
     const parts = slug.split('-');
@@ -111,20 +115,9 @@ export default async function SingleBlogPage({ params: { lang, id } }: { params:
 
   const slugId = getIdFromSlug(id);
 
-  const getSingleBlog = await fetch(`${process.env.CMS_BASE_URL}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      query: getSingleBlogQuery(slugId, lang),
-    }),
-    // cache: 'no-cache',
-  });
+  const getBlog = await fetchData(getSingleBlogQuery(slugId, lang));
 
-  const parseData = await getSingleBlog.json();
-
-  const prepareDataForClient = parseData.data;
+  const prepareDataForClient = getBlog.data;
 
   const languageField = blogLanguageFields[lang];
 
@@ -157,8 +150,6 @@ export default async function SingleBlogPage({ params: { lang, id } }: { params:
       };
     }) ?? [];
 
-  const isGloria: boolean = true;
-
   return (
     <main className=' bg-blog-pozadina-light-mode dark:bg-blog-pozadina-dark-mode w-full xl:-pb--xl---5xl lg:-pb--desktop---5xl md:-pb--tablet---5xl -pb--mobile---5xl'>
       <PageHero
@@ -167,11 +158,17 @@ export default async function SingleBlogPage({ params: { lang, id } }: { params:
         category={categoryField}
         author={authorField}
       />
+      {isGloria && (
+        <div className='lg:hidden block'>
+          <SocialContent layout='ver' />
+        </div>
+      )}
       {isGloria ? (
-        <div className='flex items-stretch justify-center max-w-[1440px] mx-auto gap-12'>
-          <div className='block flex-grow-0'>
-            <SocialContent />
+        <div className='flex items-stretch justify-center max-w-[1440px] mx-auto gap-12 lg:px-4'>
+          <div className='lg:block hidden'>
+            <SocialContent layout='hor' />
           </div>
+
           <LazyContent
             content={prepareDataForClient.blog[languageField]}
             global={prepareDataForClient.blog.introBlog}
@@ -181,11 +178,10 @@ export default async function SingleBlogPage({ params: { lang, id } }: { params:
             author={authorField}
             intro={introField}
             category={categoryField}
-            // isGloria
           />
 
-          <div className='block max-w-[350px]'>
-            <AsideContent />
+          <div className='lg:block max-w-[350px] hidden'>
+            <AsideContent layout='hor' />
           </div>
         </div>
       ) : (
@@ -199,6 +195,11 @@ export default async function SingleBlogPage({ params: { lang, id } }: { params:
           intro={introField}
           category={categoryField}
         />
+      )}
+      {isGloria && (
+        <div className='lg:hidden  block'>
+          <AsideContent layout='ver' />
+        </div>
       )}
     </main>
   );

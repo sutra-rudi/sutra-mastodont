@@ -3,11 +3,15 @@
 import SpeedDial from '@/app/components/SpeedDial';
 import React from 'react';
 
-const SocialContent = () => {
+interface SocialContent {
+  layout: 'ver' | 'hor';
+}
+
+const SocialContent = ({ layout }: SocialContent) => {
   const handlePrint = () => null;
   return (
     <div className='h-full w-full  block relative'>
-      <SpeedDial handlePrint={handlePrint} />
+      <SpeedDial layout={layout} handlePrint={handlePrint} />
     </div>
   );
 };

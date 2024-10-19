@@ -86,7 +86,7 @@ const PageContent = ({ content, gallery, files, tags, intro }: BlogPageContent) 
       ref={componentRef}
       className='w-full'
     >
-      <div className='xl:max-w-[1080px] xl:px-0 md:px-4 px-2 mx-auto'>
+      <div className='xl:max-w-[1080px] xl:px-0 md:px-4 px-2 mx-auto xl:-pb--xl---2xl lg:-pb--desktop---2xl md:-pb--tablet---2xl -pb--mobile---2xl'>
         <div className='prose  mx-auto my-0 max-w-full relative'>
           <TracingBeam>
             <div className=' prose-p:text-text-light-mode dark:prose-p:text-text-dark-mode  w-full xl:prose-p:text-text-base-l-xl lg:prose-p:text-text-base-l-desktop prose-p:text-text-base-l-mobiletablet prose-p:italic xl:prose-p:-py--xl---2xl lg:prose-p:-py--desktop---2xl md:prose-p:-py--tablet---2xl prose-p:-py--mobile---2xl prose-p:my-0'>
