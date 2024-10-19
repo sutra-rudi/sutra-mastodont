@@ -1,23 +1,13 @@
 import React from 'react';
 import { getAllSocialLinksQuery } from '../queries/getAllSocialLinksQuery';
 import Image from 'next/image';
+import { fetchData } from '../utils/callApi';
 
 export default async function AppFooter() {
-  const getAllSocialLinks = await fetch(`${process.env.CMS_BASE_URL}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      query: getAllSocialLinksQuery(),
-    }),
-  });
+  const getAllSocialLinks = await fetchData(getAllSocialLinksQuery());
 
-  const parseDataSocialLinks = await getAllSocialLinks.json();
-
-  const dataShorthand = parseDataSocialLinks.data.allDrustveneMrezeLinkovi.edges[0].node;
-
-  const socialLinks: [string, string][] = Object.entries(dataShorthand.povezniceDrustvene);
+  const dataShorthand = !getAllSocialLinks.error ? getAllSocialLinks.data.allDrustveneMrezeLinkovi.edges[0].node : null;
+  const socialLinks: [string, string][] = dataShorthand ? Object.entries(dataShorthand.povezniceDrustvene) : [];
 
   return (
     <footer className='p-4 bg-white sm:p-6 dark:bg-gray-800'>
@@ -40,18 +30,19 @@ export default async function AppFooter() {
             <div>
               <h2 className='mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white'>Social links</h2>
               <ul className='text-gray-600 dark:text-gray-400'>
-                {socialLinks.map(([network, url], index) => {
-                  return (
-                    url && (
-                      <li key={network ?? index}>
-                        <span>
-                          <span>{network === 'imeProfilaDrustvene' && url} </span>{' '}
-                          <a href={url}>{network ?? 'Default social media name'}</a>
-                        </span>
-                      </li>
-                    )
-                  );
-                })}
+                {socialLinks.length > 0 &&
+                  socialLinks.map(([network, url], index) => {
+                    return (
+                      url && (
+                        <li key={network ?? index}>
+                          <span>
+                            <span>{network === 'imeProfilaDrustvene' && url} </span>{' '}
+                            <a href={url}>{network ?? 'Default social media name'}</a>
+                          </span>
+                        </li>
+                      )
+                    );
+                  })}
               </ul>
             </div>
             <div>
