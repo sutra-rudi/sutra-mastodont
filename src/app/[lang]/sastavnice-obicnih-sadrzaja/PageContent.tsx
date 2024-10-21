@@ -163,6 +163,44 @@ const PageContent = ({ content, lang }: AdminBazeTekstova) => {
           </div>
         </div>
       </article>
+
+      <article className='w-full mx-auto border-2  relative -py--xl---5xl flex items-center justify-center'>
+        <div className='absolute bg-accent-boja w-full h-1/2 z-10 top-0'></div>
+        <div className='absolute bg-photo-bg-kartica w-full h-1/2 z-10 bottom-0 bg-cover bg-center bg-no-repeat block'></div>
+
+        <div className='w-full max-w-[1650px] grid md:grid-cols-2 grid-cols-1 items-stretch relative bg-blog-pozadina-light-mode z-20 dark:bg-blog-pozadina-dark-mode md:rounded-[64px] rounded-[32px]'>
+          <div className='xl:-py--xl---2xl lg:-py--desktop---2xl md:-py--tablet---2xl py-0 xl:-pl--xl---2xl lg:-pl--desktop---2xl md:-pl--tablet---2xl pl-0  '>
+            <Image
+              alt='article image'
+              src={singleBlock.modulBazeTekstovaUvod.slika1.node.sourceUrl}
+              width={825}
+              height={930}
+              className='object-cover object-center block w-full h-full md:rounded-[32px] rounded-[18px]'
+            />
+          </div>
+
+          <div className='w-full xl:-py--xl---5xl lg:-py--desktop---5xl md:-py--tablet---5xl -py--mobile---5xl xl:-px--xl---3xl lg:-px--desktop---3xl md:-px--tablet---3xl -px--mobile---3xl'>
+            <p className='xl:text-nadnaslov-xl lg:text-nadnaslov-desktop md:text-nadnaslov-tablet text-nadnaslov-mobile text-nadnaslov-color-light-mode dark:text-nadnaslov-color-dark-mode xl:-pb--xl-h1-2---naslov-nadnaslov lg:-pb--desktop-h1-2---naslov-nadnaslov md:-pb--tablet-h1-2---naslov-nadnaslov -pb--mobile-h1-2---naslov-nadnaslov'>
+              {subTitle}
+            </p>
+            <h2
+              className={`${POT.className} xl:text-h2-xl lg:text-h2-desktop md:text-h2-tablet text-h2-mobile xl:-pb--xl-h1-2---naslov-tekst lg:-pb--desktop-h1-2---naslov-tekst md:-pb--tablet-h1-2---naslov-tekst -pb--mobile-h1-2---naslov-tekst text-heading-color-light-mode dark:text-heading-color-dark-mode`}
+            >
+              {title}
+            </h2>
+            <h4
+              className={`${POT.className} xl:text-h4-xl lg:text-h4-desktop md:text-h4-tablet text-h4-mobile text-text-light-mode dark:text-text-dark-mode`}
+            >
+              {bodyTxt}
+            </h4>
+
+            <div className='xl:-pt--xl-h1-2---sadrzaj-cta lg:-pt--desktop-h1-2---sadrzaj-cta md:-pt--tablet-h1-2---sadrzaj-cta -pt--mobile-h1-2---sadrzaj-cta flex items-center xl:-gap--xl-cta-group lg:-gap--desktop-cta-group md:-gap--tablet-cta-group -gap--mobile-cta-group'>
+              <MainSutraButton innerText='Button text' isResponsive size='base' frontIcon={RightIcon} />
+              <OutlineSutraButton innerText='Button text' isResponsive size='base' frontIcon={RightIcon} />
+            </div>
+          </div>
+        </div>
+      </article>
     </div>
   );
 };
