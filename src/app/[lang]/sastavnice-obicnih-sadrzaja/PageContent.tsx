@@ -25,7 +25,7 @@ const PageContent = ({ content, lang }: AdminBazeTekstova) => {
   const bodyTxt = parse(textContentShort[`tekstBazaTekstova${l}`]);
   return (
     <div className='w-full'>
-      <article className='w-full max-w-[1650px] mx-auto grid grid-cols-2 items-stretch'>
+      <article className='w-full max-w-[1650px] mx-auto grid lg:grid-cols-2 grid-cols-1 items-stretch bg-blog-pozadina-light-mode dark:bg-blog-pozadina-dark-mode'>
         <Image
           alt='article image'
           src={singleBlock.modulBazeTekstovaUvod.slika1.node.sourceUrl}
@@ -39,11 +39,13 @@ const PageContent = ({ content, lang }: AdminBazeTekstova) => {
             {subTitle}
           </p>
           <h2
-            className={`${POT.className} xl:text-h2-xl lg:text-h2-desktop md:text-h2-tablet text-h2-mobile xl:-pb--xl-h1-2---naslov-tekst lg:-pb--desktop-h1-2---naslov-tekst md:-pb--tablet-h1-2---naslov-tekst -pb--mobile-h1-2---naslov-tekst`}
+            className={`${POT.className} xl:text-h2-xl lg:text-h2-desktop md:text-h2-tablet text-h2-mobile xl:-pb--xl-h1-2---naslov-tekst lg:-pb--desktop-h1-2---naslov-tekst md:-pb--tablet-h1-2---naslov-tekst -pb--mobile-h1-2---naslov-tekst text-heading-color-light-mode dark:text-heading-color-dark-mode`}
           >
             {title}
           </h2>
-          <h4 className={`${POT.className} xl:text-h4-xl lg:text-h4-desktop md:text-h4-tablet text-h4-mobile`}>
+          <h4
+            className={`${POT.className} xl:text-h4-xl lg:text-h4-desktop md:text-h4-tablet text-h4-mobile text-text-light-mode dark:text-text-dark-mode`}
+          >
             {bodyTxt}
           </h4>
         </div>
