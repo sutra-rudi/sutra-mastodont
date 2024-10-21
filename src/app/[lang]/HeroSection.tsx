@@ -1,7 +1,5 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { BrandClrButton, ButtonOutlineAlmostBlack } from '../components/SutraButton';
-import { BsArrowRightShort as RightIcon } from 'react-icons/bs';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { videoResources } from '../pathsUtils/mediaImportsDynamic';
@@ -110,29 +108,6 @@ const HeroSection = () => {
             priority
           />
         )}
-      </div>
-
-      <div className='grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 w-full h-full'>
-        <div className='mr-auto place-self-center lg:col-span-7'>
-          <h1 className='max-w-2xl mb-4 text-h1-xl  dark:text-white'>Studio Sutra Mastodont</h1>
-          <p className='max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400'>
-            One repository to rule them all
-          </p>
-          <div className='w-full flex items-center justify-start gap-4'>
-            <BrandClrButton innerText='Call to action prvi' size='base' backIcon={RightIcon} />
-            <ButtonOutlineAlmostBlack size='base' innerText='Call to action drugi' />
-          </div>
-        </div>
-        <div className='hidden lg:mt-0 lg:col-span-5 lg:flex'>
-          <Image
-            src='https://cms.sutra.hr/wp-content/uploads/2024/06/Sutra-profilna-slika-1.jpg'
-            alt='mockup'
-            width={1000}
-            height={1000}
-            className='object-cover object-center block aspect-square'
-            priority
-          />
-        </div>
       </div>
     </section>
   );
