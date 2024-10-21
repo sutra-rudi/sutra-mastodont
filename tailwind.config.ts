@@ -332,6 +332,11 @@ const config: Config = {
         '--mobile-liste-udaljenost-u-listama-big': '12px',
         '--mobile-liste-udaljenost-u-listama-small': '6px',
 
+        '--xl-cta-group': '28px',
+        '--desktop-cta-group': '18px',
+        '--tablet-cta-group': '12px',
+        '--mobile-cta-group': '10px',
+
         'mobile-maxwidth-naslov': '580px',
         'mobile-maxwidth-blokispodnaslova': '600px',
       },
