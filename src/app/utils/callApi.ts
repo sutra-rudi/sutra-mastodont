@@ -11,16 +11,23 @@ export async function fetchData(
   noCache: boolean = false
 ): Promise<FetchDataResponse | { error: boolean }> {
   const url = process.env.CMS_BASE_URL;
+  const apiKey = process.env.API_KEY_SUTRA;
 
   if (!url) {
     console.error('CMS_BASE_URL is not defined in environment variables.');
     return { error: true }; // Return an error object if URL is missing
   }
 
+  if (!apiKey) {
+    console.error('API_KEY is not defined in enviorment variables');
+    return { error: true };
+  }
+
   const fetchOptions: RequestInit = {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
+      'X-API-KEY': apiKey,
     },
     body: JSON.stringify({ query }),
     cache: noCache ? 'no-store' : 'default', // Cache control based on flag
