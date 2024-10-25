@@ -4,7 +4,7 @@ import './globals.scss';
 
 import { cookies } from 'next/headers';
 import { UserLanguage } from './enums/LangEnum';
-import AppFooter from './globalComponents/AppFooter';
+// import AppFooter from ;
 import { Toaster } from 'react-hot-toast';
 import { Suspense } from 'react';
 import Loading from './loading';
@@ -22,7 +22,8 @@ const poppins = Poppins({ subsets: ['latin'], weight: ['400', '500', '700'], dis
 import { getBasicSchemaOrgProjectQuery } from './queries/getBasicSchemaOrgProjectQuery';
 import dynamic from 'next/dynamic';
 
-const ClientHeader = dynamic(() => import('./globalComponents/AppHeader'), { ssr: false });
+const AppHeader = dynamic(() => import('./globalComponents/AppHeader'), { ssr: false });
+const AppFooter = dynamic(() => import('./globalComponents/AppFooter'));
 import { fetchData } from './utils/callApi';
 import { generateSeoSchemaOrg } from './utils/generateSchemaGlobal';
 
@@ -138,7 +139,7 @@ export default async function RootLayout({
           <GoogleTagManager gtmId={adminTokensDataShorthand.kodoviAdminApi.googleTagManager} />
         )}
 
-        <ClientHeader />
+        <AppHeader />
         <Toaster />
         <Suspense fallback={<Loading />}>
           <Providers>{children}</Providers>

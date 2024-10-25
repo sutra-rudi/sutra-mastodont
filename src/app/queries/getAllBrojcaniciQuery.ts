@@ -1,46 +1,69 @@
 export const getAllBrojcaniciQuery = (lang: string) => {
   const languageFieldsMap: Record<string, string> = {
     hr: `
-      tekstBoxHr {
-        tekstBoxHr
+      metricsHr {
+        companyInNumbersHr {
+          prikaziDodatneOpcijeSwitcher
+          tekstBrojcanikaGlavni
+          tekstBrojcanikaSekundarniTekst
+          znakIliNatpisUzBroj
+        }
       }
     `,
     eng: `
-      tekstBoxEng {
-        tekstBoxEng
+      metricsEng {
+        companyInNumbersEng {
+          prikaziDodatneOpcije
+          tekstBrojcanikaGlavni
+          tekstBrojcanikaSekundarniTekst
+          znakIliNatpisUzBroj
+        }
       }
     `,
     ger: `
-      tekstBoxGer {
-        tekstBoxGer
+      metricsGer {
+        companyInNumbersGer {
+          prikaziDodatneOpcijeSwitcher
+          tekstBrojcanikaGlavni
+          tekstBrojcanikaSekundarniTekst
+          znakIliNatpisUzBroj
+        }
       }
     `,
     ita: `
-      tekstBoxIta {
-        tekstBoxIta
+      metricsIta {
+        companyInNumbersIta {
+          prikaziDodatneOpcijeSwitcher
+          tekstBrojcanikaGlavni
+          tekstBrojcanikaSekundarniTekst
+          znakIliNatpisUzBroj
+        }
       }
     `,
   };
 
   return `query newQuery {
-      allBrojcanici {
-        edges {
-          node {
-            id
-            brojcanikCompanyInNumbersUvod {
-              slikaPNGSVG {
+    allBrojcanici {
+      edges {
+        node {
+          id
+          brojcanikCompanyInNumbersUvod {
+            brojcaniciUvod {
+              slikaPngSvg {
                 node {
                   sourceUrl
-                  srcSet
                 }
               }
+              znakIliNatpisUzBroj
               broj
+              pozicijaUNizuUBrojcaniku
+              prikaziDodatneOpcijeSlikaIkona
               reactIconsImportCode
             }
-            ${languageFieldsMap[lang] || ''}
           }
+          ${languageFieldsMap[lang] || ''}
         }
       }
     }
-  `;
+  }`;
 };

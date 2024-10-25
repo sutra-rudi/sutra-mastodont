@@ -43,6 +43,8 @@ export async function fetchData(
     }
 
     const data = await response.json(); // Parse response JSON
+
+    // console.log('DATA RETURNED', data);
     return data;
   } catch (error) {
     console.error('Error during fetch operation:', error);

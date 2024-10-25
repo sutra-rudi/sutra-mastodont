@@ -1,10 +1,9 @@
 'use client';
 
-import parse from 'html-react-parser';
 import { getSuffixFromLang } from '../langUtils/getSuffixFromLang';
-
+import { Poltawski_Nowy } from 'next/font/google';
+const POT = Poltawski_Nowy({ subsets: ['latin'], weight: ['700'] });
 import CountUp from 'react-countup';
-import Image from 'next/image';
 
 interface BrojcaniciSectionInterface {
   pageContent: any;
@@ -13,48 +12,52 @@ interface BrojcaniciSectionInterface {
 const BrojcaniciSection = ({ pageContent, lang }: BrojcaniciSectionInterface) => {
   const l = getSuffixFromLang(lang);
 
-  const constructKey = `tekstBox${l}`;
-
   return (
     <section>
       <h2 className='w-full text-center text-7xl font-semibold pt-8'>Brojcanici</h2>
 
       <div className='max-w-[1225px] mx-auto my-8'>
-        <div className='flex items-center gap-4 justify-center'>
-          {pageContent.map((brojcanik: any, index: number) => {
+        <div className='flex items-start justify-center xl:-gap--xl---xl lg:-gap--desktop---xl md:-gap--tablet---xl -gap--mobile---xl'>
+          {pageContent.map((brojcanik: any) => {
             const shortHand = brojcanik.node;
-
-            const imgSource =
-              shortHand.brojcanikCompanyInNumbersUvod.slikaPNGSVG &&
-              shortHand.brojcanikCompanyInNumbersUvod.slikaPNGSVG.sourceUrl
-                ? shortHand.brojcanikCompanyInNumbersUvod.slikaPNGSVG.node.sourceUrl
-                : 'https://placehold.co/400.png';
+            const shortHandRender = shortHand.brojcanikCompanyInNumbersUvod.brojcaniciUvod;
+            const textualContent = shortHand[`metrics${l}`]?.[`companyInNumbers${l}`];
 
             return (
-              shortHand.brojcanikCompanyInNumbersUvod.broj && (
-                <div
-                  className='grid grid-cols-1 gap-3 py-4 border border-dashed rounded-lg border-slate-400'
-                  key={`${brojcanik.id}+${index}`}
-                >
-                  <Image width={96} height={96} src={imgSource} alt='some company img' />
-
-                  <h3 className=' max-w-[15ch] prose relative mb-0 text-transparent z-1 bg-clip-text bg-gradient-to-tl from-purple-700 to-pink-500'>
-                    {parse(shortHand[constructKey]?.[constructKey] ?? 'Default naziv')}
-                  </h3>
-                  <h2 className='text-red-400 font-bold dark:text-white'>
-                    {shortHand.brojcanikCompanyInNumbersUvod.broj && (
-                      <CountUp
-                        start={0}
-                        end={Number(shortHand.brojcanikCompanyInNumbersUvod.broj)}
-                        enableScrollSpy
-                        scrollSpyDelay={250}
-                        duration={3}
-                        scrollSpyOnce
-                      />
-                    )}
-                  </h2>
+              <div
+                key={shortHand.id}
+                className='grid grid-cols-1 items-start xl:-gap--xl---l lg:-gap--desktop---l md:-gap--tablet---l -gap--mobile---l max-w-[440px] bg-sekundarna-svijetla xl:p-10 lg:p-8 md:p-6 p-4 xl:rounded-xl-vanjski-okvir-total lg:rounded-desktop-vanjski-okvir-total md:rounded-tablet-vanjski-okvir-total rounded-mobile-vanjski-okvir-total'
+              >
+                <div className='flex items-center justify-start xl:text-brojcanik-xl lg:text-brojcanik-desktop md:text-brojcanik-tablet text-brojcanik-mobile xl:-gap--xl---xs lg:-gap--desktop---xs md:-gap--tablet---xs -gap--mobile---xs text-heading-color-light-mode'>
+                  <CountUp
+                    start={0}
+                    end={shortHandRender.broj}
+                    enableScrollSpy
+                    scrollSpyOnce
+                    scrollSpyDelay={500}
+                    duration={5}
+                    className=''
+                  />
+                  <p className=''>{shortHandRender.znakIliNatpisUzBroj}</p>
                 </div>
-              )
+
+                {textualContent.tekstBrojcanikaGlavni && (
+                  <div className='grid grid-cols-1 items-start xl:-gap--xl---s lg:-gap--desktop---s md:-gap--tablet---s -gap--mobile---s'>
+                    {textualContent.tekstBrojcanikaGlavni && (
+                      <h4
+                        className={`${POT.className} xl:text-h4-xl lg:text-h4-desktop md:text-h4-tablet text-h4-mobile text-accent-boja`}
+                      >
+                        {textualContent.tekstBrojcanikaGlavni}
+                      </h4>
+                    )}
+                    {textualContent.tekstBrojcanikaSekundarniTekst && (
+                      <p className='xl:text-text-base-base-xl lg:text-text-base-base-desktop text-text-base-base-mobiletablet text-accent-boja'>
+                        {textualContent.tekstBrojcanikaSekundarniTekst}
+                      </p>
+                    )}
+                  </div>
+                )}
+              </div>
             );
           })}
         </div>
