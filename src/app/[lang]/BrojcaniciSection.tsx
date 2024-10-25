@@ -38,7 +38,11 @@ const BrojcaniciSection = ({ pageContent, lang }: BrojcaniciSectionInterface) =>
                     duration={5}
                     className=''
                   />
-                  <p className=''>{shortHandRender.znakIliNatpisUzBroj}</p>
+                  {textualContent.znakIliNatpisUzBroj ? (
+                    <p className=''>{textualContent.znakIliNatpisUzBroj}</p>
+                  ) : (
+                    <p className=''>{shortHandRender.znakIliNatpisUzBroj}</p>
+                  )}
                 </div>
 
                 {textualContent.tekstBrojcanikaGlavni && (

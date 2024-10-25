@@ -23,7 +23,7 @@ import { getBasicSchemaOrgProjectQuery } from './queries/getBasicSchemaOrgProjec
 import dynamic from 'next/dynamic';
 
 const AppHeader = dynamic(() => import('./globalComponents/AppHeader'), { ssr: false });
-const AppFooter = dynamic(() => import('./globalComponents/AppFooter'));
+const AppFooter = dynamic(() => import('./globalComponents/AppFooter'), { ssr: false });
 import { fetchData } from './utils/callApi';
 import { generateSeoSchemaOrg } from './utils/generateSchemaGlobal';
 
