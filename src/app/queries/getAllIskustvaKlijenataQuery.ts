@@ -12,59 +12,67 @@ export const getAllIskustvaKlijenataQuery = (lang: string) => {
         tekstTestimonialaEng
       }
     `,
-    ita: `
-      testimonialsIta {
-        pozicijaUkolikoPostojiIta
-        tekstTestimonialaIta
-      }
-    `,
     ger: `
       testimonialsGer {
         pozicijaUkolikoPostojiGer
         tekstTestimonialaGer
       }
     `,
+    ita: `
+      testimonialsIta {
+        pozicijaUkolikoPostojiIta
+        tekstTestimonialaIta
+      }
+    `,
   };
 
-  return `
-    query NewQuery {
-      allIskustvaKlijenata {
-        edges {
-          node {
-            id
-            iskustvaklijenataUvod {
-              imeKlijentaTestimonials
-              imeTvrtkeZemljaTestimonials
-              ocijenaIliBrojZvjezdicaTestimonials
-              prikaziDodatneOpcijeVideoLogoLinkYoutube
-              vanjskaPoveznicaTestimonials
-              vanjskiLinkNaVideoYoutube
-              logotipTestimonials {
-                node {
-                  id
-                  sourceUrl
-                  srcSet
-                }
+  return `query newQuery {
+    allIskustvaKlijenata {
+      edges {
+        node {
+          id
+          iskustvaklijenataUvod {
+            datumTestimoniala
+            imeKlijentaTestimonials
+            imeTvrtkeTestimonials
+            izvorRecenzije
+            ocijenaIliBrojZvjezdicaTestimonials
+            prikaziDodatneOpcijeVideoLogoLinkYoutube
+            vanjskaPoveznicaTestimonials
+            vanjskiLinkNaVideoYoutube
+            prilozenaSlikaTestimonials {
+              node {
+                id
+                sourceUrl
               }
-              uploadVideo {
-                node {
-                  id
-                  mediaType
-                  mediaItemUrl
-                }
+            }
+            uploadVideo {
+              node {
+                id
+                mediaItemUrl
               }
-              prilozenaSlikaTestimonials {
+            }
+            logotipIliSlikaOsobe {
+              node {
+                id
+                sourceUrl
+              }
+            }
+            kategorijaNaKojuSeOdnosiTestimonial {
+              edges {
                 node {
                   id
-                  srcSet
-                  sourceUrl
+                  ... on Category {
+                    id
+                    name
+                  }
                 }
               }
             }
-            ${languageFieldsMap[lang] || ''}
           }
+          ${languageFieldsMap[lang] || ''}
         }
       }
     }
-  `;
+  }`;
 };

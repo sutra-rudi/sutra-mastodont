@@ -13,8 +13,6 @@ interface AdminBazeTekstova {
 }
 
 const PageContent = ({ content, lang }: AdminBazeTekstova) => {
-  console.log('CONTENT', content);
-
   const l = getSuffixFromLang(lang);
 
   const singleBlock = content[0].node;
