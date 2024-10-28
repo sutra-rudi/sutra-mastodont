@@ -5,8 +5,6 @@ import parse from 'html-react-parser';
 import Image from 'next/image';
 import Script from 'next/script';
 
-// const ReactPlayerDy = dynamic(() => import('react-player'), { ssr: false });
-
 interface ClientTestimonials {
   pageContent: any;
   lang: any;
@@ -71,7 +69,6 @@ function generateTestimonialsSchemaOrg(pageContent: any, lang: string) {
 
 const TestimonialsSection = ({ pageContent, lang }: ClientTestimonials) => {
   const schemaOrgData = generateTestimonialsSchemaOrg(pageContent, lang);
-  console.log('PAGE CONT', pageContent);
 
   const l = getSuffixFromLang(lang);
   const prepareData = pageContent.map((cont: any) => {
