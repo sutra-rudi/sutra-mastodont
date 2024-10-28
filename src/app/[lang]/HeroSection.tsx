@@ -66,7 +66,7 @@ const HeroSection = () => {
   }, [isVideoReady]);
 
   return (
-    <section className='bg-white dark:bg-gray-900 min-h-screen w-full'>
+    <section className='w-full'>
       <div className='relative w-full h-full'>
         {isVideoReady && videoSource && !isVideoLoading ? (
           <ReactPlayerDy

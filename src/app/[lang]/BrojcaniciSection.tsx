@@ -14,7 +14,9 @@ const BrojcaniciSection = ({ pageContent, lang }: BrojcaniciSectionInterface) =>
 
   return (
     <section>
-      <h2 className='w-full text-center text-7xl font-semibold pt-8'>Brojcanici</h2>
+      <h2 className='w-full text-center xl:text-h2-xl lg:text-h2-desktop md:text-h2-tablet text-h2-mobile font-semibold pt-8 text-primarna-tamna dark:text-primarna-svijetla'>
+        Brojcanici
+      </h2>
 
       <div className='max-w-[1225px] mx-auto my-8'>
         <div className='flex items-start justify-center xl:-gap--xl---xl lg:-gap--desktop---xl md:-gap--tablet---xl -gap--mobile---xl'>

@@ -28,9 +28,11 @@ const DocumentsCatalogsSection = ({ pageContent, lang }: DokumentiKataloziInterf
   return (
     <section>
       <div className='max-w-[1225px] mx-auto my-8'>
-        <h2 className='w-full text-center text-7xl font-semibold pt-8'>DokumentiKatalozi</h2>
+        <h2 className='w-full text-center xl:text-h2-xl lg:text-h2-desktop md:text-h2-tablet text-h2-mobile font-semibold pt-8 text-primarna-tamna dark:text-primarna-svijetla'>
+          DokumentiKatalozi
+        </h2>
 
-        <div className='py-4 flex items-center gap-8'>
+        <div className='py-4 flex items-center gap-8 justify-start flex-wrap'>
           {pageContent &&
             pageContent.map((cont: any) => {
               const sh = cont.node[`docsUpload${l}`];

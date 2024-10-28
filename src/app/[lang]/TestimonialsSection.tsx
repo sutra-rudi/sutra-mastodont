@@ -87,16 +87,18 @@ const TestimonialsSection = ({ pageContent, lang }: ClientTestimonials) => {
 
   return (
     <section>
-      <h2 className='w-full text-center text-7xl font-semibold pt-8'>Iskustva klijenata</h2>
+      <h2 className='w-full text-center xl:text-h2-xl lg:text-h2-desktop md:text-h2-tablet text-h2-mobile font-semibold pt-8 text-primarna-tamna dark:text-primarna-svijetla'>
+        Iskustva klijenata
+      </h2>
 
       <div className='max-w-[1225px] mx-auto my-8 flex items-center justify-start gap-8 flex-wrap'>
         {prepareData.map((singleExp: any) => {
           const shorthand = singleExp.introContent;
 
           return (
-            <article key={singleExp.id} className='max-w-[534px] shrink-0'>
+            <article key={singleExp.id} className='w-full max-w-[534px] shrink-0'>
               <div className='xl:-pb--xl---m lg:-pb--desktop---m md:-pb--tablet---m -pb--mobile---m w-full flex items-center justify-center'>
-                <div className='relative w-[350px] h-[193px]'>
+                <div className='relative w-full max-w-[350px] h-[193px]'>
                   <Image
                     src={shorthand.prilozenaSlikaTestimonials.node.sourceUrl}
                     alt='Priložena slika testimoniala'
