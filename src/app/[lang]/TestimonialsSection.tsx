@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { getSuffixFromLang } from '../langUtils/getSuffixFromLang';
 import parse from 'html-react-parser';
@@ -91,29 +89,46 @@ const TestimonialsSection = ({ pageContent, lang }: ClientTestimonials) => {
     <section>
       <h2 className='w-full text-center text-7xl font-semibold pt-8'>Iskustva klijenata</h2>
 
-      <div className='max-w-[1225px] mx-auto my-8 grid grid-cols-1 gap-6'>
-        {prepareData.map((singleExp: any, index: number) => {
+      <div className='max-w-[1225px] mx-auto my-8 flex items-center justify-start gap-8 flex-wrap'>
+        {prepareData.map((singleExp: any) => {
           const shorthand = singleExp.introContent;
 
           return (
-            <article key={singleExp.id}>
-              <Image
-                src={shorthand.prilozenaSlikaTestimonials.node.sourceUrl}
-                alt='Priložena slika testimoniala'
-                width={350}
-                height={193}
-              />
-
-              <div className=''>{parse(singleExp.mainContent.clientContent)}</div>
-
-              <div className=''>
-                <div className='w-14 h-14 relative'>
-                  <Image src={shorthand.logotipIliSlikaOsobe.node.sourceUrl} alt='Logo ili slika osobe' fill />
+            <article key={singleExp.id} className='max-w-[534px] shrink-0'>
+              <div className='xl:-pb--xl---m lg:-pb--desktop---m md:-pb--tablet---m -pb--mobile---m w-full flex items-center justify-center'>
+                <div className='relative w-[350px] h-[193px]'>
+                  <Image
+                    src={shorthand.prilozenaSlikaTestimonials.node.sourceUrl}
+                    alt='Priložena slika testimoniala'
+                    fill
+                    className='block object-cover object-center aspect-auto'
+                  />
                 </div>
+              </div>
 
-                <div className=''>
-                  <p>{shorthand.imeKlijentaTestimonials}</p>
-                  <p>{singleExp.mainContent.clientPosition}</p>
+              <div className='xl:text-text-base-l-xl lg:text-text-base-l-desktop text-text-base-l-mobiletablet text-almost-black text-center max-w-[534px] xl:-mt--xl---s lg:-mt--desktop---s md:-mt--tablet---s -mt--mobile---s xl:-pb--xl---m lg:-pb--desktop---m md:-pb--tablet---m -pb--mobile---m'>
+                {parse(singleExp.mainContent.clientContent)}
+              </div>
+
+              <div className='w-full flex items-center justify-center'>
+                <div className='xl:-mt--xl---s lg:-mt--desktop---s md:-mt--tablet---s -mt--mobile---s flex items-center justify-start xl:-gap--xl---s lg:-gap--desktop---s md:-gap--tablet---s -gap--mobile---s'>
+                  <div className='w-14 h-14 relative'>
+                    <Image
+                      src={shorthand.logotipIliSlikaOsobe.node.sourceUrl}
+                      alt='Logo ili slika osobe'
+                      fill
+                      className='object-cover object-center rounded-full block'
+                    />
+                  </div>
+
+                  <div className=''>
+                    <p className='xl:text-all-caps-xl lg:text-all-caps-large md:text-all-caps-medium text-all-caps-small uppercase'>
+                      {shorthand.imeKlijentaTestimonials}
+                    </p>
+                    <p className='xl:text-text-base-small-xl lg:text-text-base-small-desktop text-text-base-small-mobiletablet text-almost-black'>
+                      {singleExp.mainContent.clientPosition}
+                    </p>
+                  </div>
                 </div>
               </div>
             </article>
