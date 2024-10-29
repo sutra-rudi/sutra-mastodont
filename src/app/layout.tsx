@@ -4,7 +4,6 @@ import './globals.scss';
 
 import { cookies } from 'next/headers';
 import { UserLanguage } from './enums/LangEnum';
-// import AppFooter from ;
 import { Toaster } from 'react-hot-toast';
 import { Suspense } from 'react';
 import Loading from './loading';
