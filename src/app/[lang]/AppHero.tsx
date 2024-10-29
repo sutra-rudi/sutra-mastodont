@@ -6,6 +6,7 @@ import TL_SHADOW from '../imageMaterials/t-l-shadow.svg';
 import { Poltawski_Nowy } from 'next/font/google';
 import { ButtonOutlinePrimaryDark, PrimaryLightButton } from '../components/SutraButton';
 import { FaArrowRight } from 'react-icons/fa6';
+import { TbArrowsVertical as ArrowsIcon } from 'react-icons/tb';
 
 const POT = Poltawski_Nowy({ subsets: ['latin'], weight: '700' });
 
@@ -40,7 +41,7 @@ export default async function AppHero({ heroContent, lang }: AppHero) {
     lang === UserLanguage.hr ? heroDataShorthand.slide1Hero : heroDataShorthand[`slide1Hero${l}`];
   return (
     <div>
-      <div className='w-full min-h-screen relative'>
+      <div className='w-full min-h-[calc(100vh-5rem)] relative'>
         <Image
           fill
           alt='hero image mastodont @sutra'
@@ -71,6 +72,12 @@ export default async function AppHero({ heroContent, lang }: AppHero) {
 
               <ButtonOutlinePrimaryDark isResponsive innerText='Button text' size='base' frontIcon={FaArrowRight} />
             </div>
+          </div>
+        </div>
+
+        <div className='absolute z-20 w-full bg-red-400 h-[100px] bottom-0 flex items-center justify-center'>
+          <div className='xl:w-[46px] lg:w-[40px] md:w-[36px] w-[32px] xl:h-[62px] lg:h-[58px] md:h-[54px] h-[50px] outline outline-2 outline-almost-white rounded-full flex items-center justify-center'>
+            <ArrowsIcon className='animate-bounce xl:text-button-xl lg:text-button-l md:text-button-base text-button-small shrink-0 text-almost-white' />
           </div>
         </div>
       </div>
