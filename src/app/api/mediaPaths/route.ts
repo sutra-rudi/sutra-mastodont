@@ -3,6 +3,7 @@
 import { NextResponse } from 'next/server';
 import { NextRequest } from 'next/server';
 const basePath = 'https://lavender-loris-843955.hostingersite.com/cms_sutra/';
+
 // Sve putanje, možeš dodati sve potrebne objekte ovdje
 const mediaPaths = {
   // const basePath : 'https://cms.sutra.hr/cms_sutra/'
@@ -311,6 +312,18 @@ const mediaPaths = {
     mobileMiddle: `${basePath}/Hero_images_database/CMS_HomePage__Middle_section_image-mobile.jpg`,
     desktop: `${basePath}/Hero_images_database/CMS_HomePage_Hero_Image.jpg`,
     desktopMiddle: `${basePath}/Hero_images_database/CMS_HomePage_Middle_section_Image.jpg`,
+  },
+
+  heroImagesHomePageMultiple: {
+    img1: `${basePath}/Hero_images_database/Multiple_pictures_hero/Hero_image_(multiple)_1.jpg`,
+    img2: `${basePath}/Hero_images_database/Multiple_pictures_hero/Hero_image_(multiple)_2.jpg`,
+    img3: `${basePath}/Hero_images_database/Multiple_pictures_hero/Hero_image_(multiple)_3.jpg`,
+    img4: `${basePath}/Hero_images_database/Multiple_pictures_hero/Hero_image_(multiple)_4.jpg`,
+    img5: `${basePath}/Hero_images_database/Multiple_pictures_hero/Hero_image_(multiple)_5.jpg`,
+    img6: `${basePath}/Hero_images_database/Multiple_pictures_hero/Hero_image_(multiple)_6.jpg`,
+    img7: `${basePath}/Hero_images_database/Multiple_pictures_hero/Hero_image_(multiple)_7.jpg`,
+    img8: `${basePath}/Hero_images_database/Multiple_pictures_hero/Hero_image_(multiple)_8.jpg`,
+    img9: `${basePath}/Hero_images_database/Multiple_pictures_hero/Hero_image_(multiple)_9.jpg`,
   },
 
   heroImagesLocations: {

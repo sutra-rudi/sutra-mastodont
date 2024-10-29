@@ -10,8 +10,10 @@ import { getDokumentikataloziQuery } from './getAllDocumentsQuery';
 import { getCategoriesQuery } from './getAllBlogCategoriesQuery';
 import { getTagsQuery } from './getAllTagsQuery';
 import { getAdminCtaSelectionQuery } from './getAdminCtaSelectionQuery';
+import { getHeroContentQuery } from './getAllHeroContent';
 
 export const allQueries = (lang: string) => [
+  { query: getHeroContentQuery(lang), noCache: false },
   { query: getAllBlogsQuery(lang), noCache: false },
   { query: getAllBrojcaniciQuery(lang), noCache: false },
   { query: getAllUslugeQuery(lang), noCache: false },

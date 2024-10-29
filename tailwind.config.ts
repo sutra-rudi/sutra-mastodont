@@ -12,7 +12,7 @@ const config: Config = {
       screens: {
         md: '640px',
         lg: '1000px',
-        xl: '1440px',
+        xl: '1550px',
       },
       colors: {
         'almost-black': '#171715',

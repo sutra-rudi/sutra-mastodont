@@ -60,6 +60,7 @@ export const getHeroContentQuery = (lang: string) => {
         slide1Hero {
           tekst
           naslov
+          nadnaslov
         }
         slide2Hero {
           tekst
@@ -83,6 +84,7 @@ export const getHeroContentQuery = (lang: string) => {
         slide1HeroEng {
           naslov
           tekst
+          nadnaslov
         }
         slide2HeroEng {
           naslov
@@ -106,6 +108,7 @@ export const getHeroContentQuery = (lang: string) => {
         slide1HeroGer {
           tekst
           naslov
+          nadnaslov
         }
         slide2HeroGer {
           tekst
@@ -129,6 +132,7 @@ export const getHeroContentQuery = (lang: string) => {
         slide1HeroIta {
           tekst
           naslov
+          nadnaslov
         }
         slide2HeroIta {
           tekst

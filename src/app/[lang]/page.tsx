@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 import Loading from '../loading';
 import { allQueries } from '../queries';
 import { fetchData } from '../utils/callApi';
+import AppHero from './AppHero';
 
 const BlogSection = dynamic(() => import('./BlogSection'), { loading: () => <Loading /> });
 const BrojcaniciSection = dynamic(() => import('./BrojcaniciSection'), { loading: () => <Loading /> });
@@ -13,7 +14,7 @@ const CarouselBase = dynamic(() => import('./CarouselBase'), { loading: () => <L
 const TestimonialsSection = dynamic(() => import('./TestimonialsSection'), { loading: () => <Loading /> });
 const WhyUsSection = dynamic(() => import('./WhyUsSection'), { loading: () => <Loading /> });
 const DocumentsCatalogsSection = dynamic(() => import('./DocumentsCatalogsSection'), { loading: () => <Loading /> });
-const HeroSection = dynamic(() => import('./HeroSection'), { loading: () => <Loading /> });
+
 const NewsTrack = dynamic(() => import('../components/NewsTrack'), { loading: () => <Loading /> });
 
 export default async function Landing({ params: { lang } }: { params: { lang: string } }) {
@@ -33,6 +34,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
     );
 
     const [
+      getAllHeroContent,
       getAllBlogs,
       getAllBrojcanici,
       getAllUsluge,
@@ -46,6 +48,10 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       getAllTags,
       getAllAdminCtaSelection,
     ] = results;
+
+    const heroDataShorthand = !getAllHeroContent.error ? getAllHeroContent.data.allHeroSekcija.edges[0] || null : null;
+
+    console.log('GET ALL HERO CONTENT', heroDataShorthand);
 
     const blogDataArrayShorthand = !getAllBlogs.error ? getAllBlogs?.data?.allBlog?.edges || [] : [];
     const brojcaniciDataArrayShorthand = !getAllBrojcanici.error
@@ -76,7 +82,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
     return (
       <main className='relative w-full dark:bg-primarna-tamna'>
-        <HeroSection />
+        <AppHero heroContent={heroDataShorthand} lang={lang} />
 
         {blogDataArrayShorthand.length > 0 && (
           <BlogSection
