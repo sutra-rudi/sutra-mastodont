@@ -4,6 +4,8 @@ import { UserLanguage } from '../enums/LangEnum';
 import Image from 'next/image';
 import TL_SHADOW from '../imageMaterials/t-l-shadow.svg';
 import { Poltawski_Nowy } from 'next/font/google';
+import { ButtonOutlinePrimaryDark, PrimaryLightButton } from '../components/SutraButton';
+import { FaArrowRight } from 'react-icons/fa6';
 
 const POT = Poltawski_Nowy({ subsets: ['latin'], weight: '700' });
 
@@ -31,8 +33,6 @@ export default async function AppHero({ heroContent, lang }: AppHero) {
 
   const media = await fetchMediaPaths();
 
-  console.log('MEDIA', media);
-
   const l = getSuffixFromLang(lang);
   const heroDataShorthand = heroContent.node[`tekstHero${l}`];
 
@@ -50,7 +50,7 @@ export default async function AppHero({ heroContent, lang }: AppHero) {
         <div className='absolute w-full h-full inset-0 pointer-events-none select-none z-10 bg-overlay-dark/25 overflow-hidden'>
           <Image alt='shadow' src={TL_SHADOW} fill className='w-full h-full object-cover' />
         </div>
-        <div className='w-full absolute left-0 top-1/3  z-20 xl:px-24'>
+        <div className='w-full absolute left-0 top-1/3  z-20 xl:px-24 lg:px-20 md:px-12 px-4'>
           <div className='max-w-[758px]'>
             <p className='xl:text-nadnaslov-xl lg:text-nadnaslov-desktop md:text-nadnaslov-tablet text-nadnaslov-mobile text-accent-boja xl:-pb--xl-h1-2---naslov-nadnaslov lg:-pb--desktop-h1-2---naslov-nadnaslov md:-pb--tablet-h1-2---naslov-nadnaslov -pb--mobile-h1-2---naslov-nadnaslov'>
               {parseTextContent.nadnaslov}
@@ -65,6 +65,12 @@ export default async function AppHero({ heroContent, lang }: AppHero) {
             >
               {parseTextContent.tekst}
             </h4>
+
+            <div className='flex items-center justify-start xl:-gap--xl-cta-group lg:-gap--desktop-cta-group md:-gap--tablet-cta-group -gap--mobile-cta-group xl:-pt--xl-h1-2---cta-udaljenost lg:-pt--desktop-h1-2---cta-udaljenost md:-pt--tablet-h1-2---cta-udaljenost -pt--mobile-h1-2---cta-udaljenost'>
+              <PrimaryLightButton isResponsive innerText='Button text' size='base' frontIcon={FaArrowRight} />
+
+              <ButtonOutlinePrimaryDark isResponsive innerText='Button text' size='base' frontIcon={FaArrowRight} />
+            </div>
           </div>
         </div>
       </div>

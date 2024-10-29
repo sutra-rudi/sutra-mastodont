@@ -121,8 +121,6 @@ export const OutlineSutraButton = ({
     if (size === 'xl') return 'rounded-single-icon-xl p-3.5';
   };
 
-  /**outline-primarna-tamna dark:outline-primarna-svijetla border-none cursor-pointer text-primarna-tamna dark:text-primarna-svijetla dark:hover:text-accent-boja dark:hover:outline-accent-boja hover:text-sekundarna-tamna  hover:outline-sekundarna-tamna hover:bg-black/10 active:outline-accent-boja active:bg-black/15 active:text-accent-boja */
-
   if (isResponsive) {
     return (
       <button
@@ -316,6 +314,7 @@ export const PrimaryLightButton = ({
   type,
   isSingleIconButton,
   singleIconSource: SingleIconSource,
+  isResponsive,
 }: SutraButtonInterface) => {
   const calcSizes = () => {
     if (size === 'xs') return 'px-botun-xs-lr py-botun-xs-td text-button-xs rounded-botun-xs';
@@ -332,6 +331,19 @@ export const PrimaryLightButton = ({
     if (size === 'lg') return 'rounded-single-icon-l p-3';
     if (size === 'xl') return 'rounded-single-icon-xl p-3.5';
   };
+
+  if (isResponsive) {
+    return (
+      <button
+        className={`flex items-center justify-start transition-all ease-in-out bg-primarna-svijetla outline-none border-none outline outline-2 outline-primarna-svijetla outline-offset-0 cursor-pointer text-primarna-tamna hover:text-sekundarna-tamna hover:outline hover:outline-offset-0 hover:outline-accent-boja hover:bg-sekundarna-svijetla active:outline active:outline-offset-0 active:outline-accent-boja active:bg-sekundarna-svijetla active:outline-[3px] xl:px-botun-xl-lr xl:py-botun-xl-td xl:text-button-xl xl:rounded-botun-xl lg:px-botun-l-lr lg:py-botun-l-td lg:text-button-l lg:rounded-botun-l md:px-botun-base-lr md:py-botun-base-td md:text-button-base md:rounded-botun-base px-botun-s-lr py-botun-s-td text-button-small rounded-botun-s xl:gap-element-inside-btn-l md:gap-element-inside-btn-m gap-element-inside-btn-s`}
+      >
+        {BackIcon && <BackIcon className='shrink-0' />}
+        <span>{innerText}</span>
+        {FrontIcon && <FrontIcon className='shrink-0' />}
+      </button>
+    );
+  }
+
   if (FrontIcon || BackIcon) {
     return (
       <button
@@ -571,6 +583,7 @@ export const ButtonOutlinePrimaryLight = ({
   innerText,
   type,
   isSingleIconButton,
+
   singleIconSource: SingleIconSource,
 }: SutraButtonInterface) => {
   const calcSizes = () => {
@@ -588,6 +601,7 @@ export const ButtonOutlinePrimaryLight = ({
     if (size === 'lg') return 'rounded-single-icon-l p-3';
     if (size === 'xl') return 'rounded-single-icon-xl p-3.5';
   };
+
   if (FrontIcon || BackIcon) {
     return (
       <button
@@ -636,6 +650,7 @@ export const ButtonOutlinePrimaryDark = ({
   type,
   isSingleIconButton,
   singleIconSource: SingleIconSource,
+  isResponsive,
 }: SutraButtonInterface) => {
   const calcSizes = () => {
     if (size === 'xs') return 'px-botun-xs-lr py-botun-xs-td text-button-xs rounded-botun-xs';
@@ -652,6 +667,21 @@ export const ButtonOutlinePrimaryDark = ({
     if (size === 'lg') return 'rounded-single-icon-l p-3';
     if (size === 'xl') return 'rounded-single-icon-xl p-3.5';
   };
+
+  if (isResponsive) {
+    return (
+      <button
+        onClick={onClickAction}
+        type={type}
+        className={`flex items-center justify-start transition-all ease-in-out bg-transparent outline outline-offset-0 outline-2 outline-primarna-svijetla border-none cursor-pointer text-primarna-svijetla  hover:outline-sekundarna-svijetla  active:outline-accent-boja active:bg-white/20 active:outline-[3px] active:text-accent-boja xl:px-botun-xl-lr xl:py-botun-xl-td xl:text-button-xl xl:rounded-botun-xl lg:px-botun-l-lr lg:py-botun-l-td lg:text-button-l lg:rounded-botun-l md:px-botun-base-lr md:py-botun-base-td md:text-button-base md:rounded-botun-base px-botun-s-lr py-botun-s-td text-button-small rounded-botun-s xl:gap-element-inside-btn-l md:gap-element-inside-btn-m gap-element-inside-btn-s`}
+      >
+        {BackIcon && <BackIcon className='shrink-0' />}
+        <span>{innerText}</span>
+        {FrontIcon && <FrontIcon className='shrink-0' />}
+      </button>
+    );
+  }
+
   if (FrontIcon || BackIcon) {
     return (
       <button
