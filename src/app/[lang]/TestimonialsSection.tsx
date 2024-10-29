@@ -4,6 +4,10 @@ import parse from 'html-react-parser';
 
 import Image from 'next/image';
 import Script from 'next/script';
+import QUOTE_ICON from '../imageMaterials/quote-icon.svg';
+import { Poltawski_Nowy } from 'next/font/google';
+
+const POT = Poltawski_Nowy({ subsets: ['latin'], weight: '700' });
 
 interface ClientTestimonials {
   pageContent: any;
@@ -95,23 +99,20 @@ const TestimonialsSection = ({ pageContent, lang }: ClientTestimonials) => {
           return (
             <article key={singleExp.id} className='w-full max-w-[534px] shrink-0'>
               <div className='xl:-pb--xl---m lg:-pb--desktop---m md:-pb--tablet---m -pb--mobile---m w-full flex items-center justify-center'>
-                <div className='relative w-full max-w-[350px] h-[193px]'>
-                  <Image
-                    src={shorthand.prilozenaSlikaTestimonials.node.sourceUrl}
-                    alt='Priložena slika testimoniala'
-                    fill
-                    className='block object-cover object-center aspect-auto'
-                  />
+                <div className=''>
+                  <Image alt='quote icon' src={QUOTE_ICON} width={50} height={50} />
                 </div>
               </div>
 
-              <div className='xl:text-text-base-l-xl lg:text-text-base-l-desktop text-text-base-l-mobiletablet text-almost-black text-center max-w-[534px] xl:-mt--xl---s lg:-mt--desktop---s md:-mt--tablet---s -mt--mobile---s xl:-pb--xl---m lg:-pb--desktop---m md:-pb--tablet---m -pb--mobile---m'>
+              <div
+                className={`${POT.className} xl:text-h4-xl lg:text-h4-desktop md:text-h4-tablet text-h4-mobile text-almost-black text-center max-w-[534px] xl:-pt--xl---m lg:-pt--desktop---m md:-pt--tablet---m -pt--mobile---m xl:-pb--xl---s lg:-pb--desktop---s md:-pb--tablet---s -pb--mobile---s`}
+              >
                 {parse(singleExp.mainContent.clientContent)}
               </div>
 
               <div className='w-full flex items-center justify-center'>
                 <div className='xl:-mt--xl---s lg:-mt--desktop---s md:-mt--tablet---s -mt--mobile---s flex items-center justify-start xl:-gap--xl---s lg:-gap--desktop---s md:-gap--tablet---s -gap--mobile---s'>
-                  <div className='w-14 h-14 relative'>
+                  <div className='xl:w-[50px] lg:w-11 md:w-9 w-7 xl:h-[50px] lg:h-11 md:h-9 h-7 relative'>
                     <Image
                       src={shorthand.logotipIliSlikaOsobe.node.sourceUrl}
                       alt='Logo ili slika osobe'

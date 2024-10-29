@@ -75,7 +75,7 @@ export default async function AppHero({ heroContent, lang }: AppHero) {
           </div>
         </div>
 
-        <div className='absolute z-20 w-full bg-red-400 h-[100px] bottom-0 flex items-center justify-center'>
+        <div className='absolute z-20 w-full bottom-8 flex items-center justify-center'>
           <div className='xl:w-[46px] lg:w-[40px] md:w-[36px] w-[32px] xl:h-[62px] lg:h-[58px] md:h-[54px] h-[50px] outline outline-2 outline-almost-white rounded-full flex items-center justify-center'>
             <ArrowsIcon className='animate-bounce xl:text-button-xl lg:text-button-l md:text-button-base text-button-small shrink-0 text-almost-white' />
           </div>

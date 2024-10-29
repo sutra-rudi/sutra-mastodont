@@ -172,10 +172,10 @@ const config: Config = {
         'tag-desktop': ['0.875rem', { fontWeight: '400' }],
         'tag-tablet': ['0.75rem', { fontWeight: '400' }],
         'tag-mobile': ['0.625rem', { fontWeight: '400' }],
-        'brojcanik-xl': ['1.875rem', { fontWeight: '900' }],
-        'brojcanik-desktop': ['1.5rem', { fontWeight: '900' }],
-        'brojcanik-tablet': ['1.25rem', { fontWeight: '900' }],
-        'brojcanik-mobile': ['1.125rem', { fontWeight: '900' }],
+        'brojcanik-xl': ['3.625rem', { fontWeight: '900' }],
+        'brojcanik-desktop': ['3rem', { fontWeight: '900' }],
+        'brojcanik-tablet': ['2.5rem', { fontWeight: '900' }],
+        'brojcanik-mobile': ['2.25rem', { fontWeight: '900' }],
       },
 
       spacing: {
