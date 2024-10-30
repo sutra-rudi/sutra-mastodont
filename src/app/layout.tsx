@@ -132,11 +132,14 @@ export default async function RootLayout({
       <body className={`${poppins.className} w-full h-full`}>
         {adminTekstoviShorthand && <CookieConsentNotification pageContent={adminTekstoviShorthand} />}
         {adminTokensDataShorthand &&
+          adminTokensDataShorthand.kodoviAdminApi &&
           adminTokensDataShorthand.kodoviAdminApi.googleAnalytics &&
           userEnabledAllCookies && <GoogleAnalytics gaId={adminTokensDataShorthand.kodoviAdminApi.googleAnalytics} />}
-        {adminTokensDataShorthand.kodoviAdminApi.googleTagManager && userEnabledAllCookies && (
-          <GoogleTagManager gtmId={adminTokensDataShorthand.kodoviAdminApi.googleTagManager} />
-        )}
+        {adminTokensDataShorthand.kodoviAdminApi &&
+          adminTokensDataShorthand.kodoviAdminApi.googleTagManager &&
+          userEnabledAllCookies && (
+            <GoogleTagManager gtmId={adminTokensDataShorthand.kodoviAdminApi.googleTagManager} />
+          )}
 
         <AppHeader />
         <Toaster />
