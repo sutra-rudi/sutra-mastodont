@@ -1,5 +1,3 @@
-export const maxDuration = 60;
-
 import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 import './globals.scss';

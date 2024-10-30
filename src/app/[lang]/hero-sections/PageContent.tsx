@@ -14,7 +14,19 @@ export const HeroVersionOne = ({ pathsToMasks, pathsToHeroBg }: HeroVersion) => 
     <section>
       <div className='relative w-full h-full min-h-[calc(100vh-5rem)]'>
         <Image
+          src={pathsToMasks['1680v1']}
+          alt='background svg'
+          fill
+          className='w-full h-full block object-cover object-center z-20'
+        />
+        <Image
           src={pathsToMasks['1280v1']}
+          alt='background svg'
+          fill
+          className='w-full h-full block object-cover object-center z-20'
+        />
+        <Image
+          src={pathsToMasks['mobilev1']}
           alt='background svg'
           fill
           className='w-full h-full block object-cover object-center z-20'
