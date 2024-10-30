@@ -1,5 +1,3 @@
-export const runtime = 'edge';
-
 import { NextResponse } from 'next/server';
 import { NextRequest } from 'next/server';
 const basePath = 'https://lavender-loris-843955.hostingersite.com/cms_sutra/';
