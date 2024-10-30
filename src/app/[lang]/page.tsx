@@ -1,5 +1,3 @@
-export const maxDuration = 60;
-
 import dynamic from 'next/dynamic';
 import Loading from '../loading';
 import { allQueries } from '../queries';
