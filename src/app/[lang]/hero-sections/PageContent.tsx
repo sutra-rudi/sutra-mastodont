@@ -179,26 +179,6 @@ export const HeroVersionThree = ({ pathsToMasks, pathsToHeroBg, heroContent, lan
             </div>
           </div>
         </div>
-        <Image
-          src={pathsToMasks['1680v2']}
-          alt='background svg'
-          fill
-          className='w-full h-full object-cover object-center z-20 hidden lg:block aspect-auto'
-        />
-
-        <Image
-          src={pathsToMasks['1280v2']}
-          alt='background svg'
-          fill
-          className='w-full h-full object-cover object-center z-20 hidden md:block lg:hidden aspect-auto'
-        />
-
-        <Image
-          src={pathsToMasks['mobilev2']}
-          alt='background svg'
-          fill
-          className='w-full h-full object-cover object-center z-20 block md:hidden aspect-auto'
-        />
 
         <Image
           src={pathsToHeroBg.img2}

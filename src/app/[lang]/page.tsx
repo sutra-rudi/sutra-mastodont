@@ -14,7 +14,6 @@ const CarouselBase = dynamic(() => import('./CarouselBase'), { loading: () => <L
 const TestimonialsSection = dynamic(() => import('./TestimonialsSection'), { loading: () => <Loading /> });
 const WhyUsSection = dynamic(() => import('./WhyUsSection'), { loading: () => <Loading /> });
 const DocumentsCatalogsSection = dynamic(() => import('./DocumentsCatalogsSection'), { loading: () => <Loading /> });
-
 const NewsTrack = dynamic(() => import('../components/NewsTrack'), { loading: () => <Loading /> });
 
 export default async function Landing({ params: { lang } }: { params: { lang: string } }) {
