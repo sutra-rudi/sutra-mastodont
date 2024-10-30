@@ -51,8 +51,6 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
     const heroDataShorthand = !getAllHeroContent.error ? getAllHeroContent.data.allHeroSekcija.edges[0] || null : null;
 
-    console.log('GET ALL HERO CONTENT', heroDataShorthand);
-
     const blogDataArrayShorthand = !getAllBlogs.error ? getAllBlogs?.data?.allBlog?.edges || [] : [];
     const brojcaniciDataArrayShorthand = !getAllBrojcanici.error
       ? getAllBrojcanici?.data?.allBrojcanici?.edges || []
