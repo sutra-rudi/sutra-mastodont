@@ -1,5 +1,5 @@
 import { fetchMediaPaths } from '@/app/utils/callMediaPaths';
-import { HeroVersionOne, HeroVersionThree, HeroVersionTwo } from './PageContent';
+import { HeroVersionFour, HeroVersionOne, HeroVersionThree, HeroVersionTwo } from './PageContent';
 import { fetchData } from '@/app/utils/callApi';
 import { getHeroContentQuery } from '@/app/queries/getAllHeroContent';
 
@@ -26,6 +26,13 @@ export default async function HeroCompilation({ params: { lang } }: { params: { 
       />
 
       <HeroVersionThree
+        pathsToMasks={IMG_PATHS.heroMasks}
+        pathsToHeroBg={IMG_PATHS.heroImagesHomePageMultiple}
+        heroContent={heroDataShorthand}
+        lang={lang}
+      />
+
+      <HeroVersionFour
         pathsToMasks={IMG_PATHS.heroMasks}
         pathsToHeroBg={IMG_PATHS.heroImagesHomePageMultiple}
         heroContent={heroDataShorthand}
