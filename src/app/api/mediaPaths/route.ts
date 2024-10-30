@@ -736,5 +736,9 @@ const mediaPaths = {
 };
 
 export async function GET(request: NextRequest) {
-  return NextResponse.json(mediaPaths);
+  const response = NextResponse.json(mediaPaths);
+
+  // Postavljamo Cache-Control zaglavlja za keširanje na CDN-u
+  response.headers.set('Cache-Control', 'public, s-maxage=86400, stale-while-revalidate=3600');
+  return response;
 }

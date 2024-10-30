@@ -2,7 +2,7 @@ type FetchDataResponse = any;
 
 export async function fetchMediaPaths(): Promise<FetchDataResponse | { error: boolean }> {
   try {
-    const response = await fetch(`${process.env.BASE_APP_URL}/api/mediaPaths`, { cache: 'no-cache' });
+    const response = await fetch(`${process.env.BASE_APP_URL}/api/mediaPaths`);
 
     if (!response.ok) {
       throw new Error('Neuspješno dohvaćanje putanja medija');
