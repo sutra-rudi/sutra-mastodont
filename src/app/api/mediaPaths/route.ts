@@ -326,6 +326,15 @@ const mediaPaths = {
     img9: `${basePath}/Hero_images_database/Multiple_pictures_hero/Hero_image_(multiple)_9.jpg`,
   },
 
+  heroMasks: {
+    '1280v1': `${basePath}/Hero_images_database/Hero_mask/Hero_mask1280px-v1.svg`,
+    '1280v2': `${basePath}/Hero_images_database/Hero_mask/Hero_mask1280px-v2.svg`,
+    '1680v1': `${basePath}/Hero_images_database/Hero_mask/Hero_mask1680px-v1.svg`,
+    '1680v2': `${basePath}/Hero_images_database/Hero_mask/Hero_mask1680px-v2.svg`,
+    mobilev1: `${basePath}/Hero_images_database/Hero_mask/Hero_mask_Mobile-v1.svg`,
+    mobilev2: `${basePath}/Hero_images_database/Hero_mask/Hero_mask_Mobile-v2.svg`,
+  },
+
   heroImagesLocations: {
     mobile: `${basePath}/Hero_images_database/CMS_Locations__Hero_image-mobile.jpg`,
     desktop: `${basePath}/Hero_images_database/CMS_Locations_Hero_Image.jpg`,
