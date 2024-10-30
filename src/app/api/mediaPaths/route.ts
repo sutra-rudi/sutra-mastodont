@@ -1,4 +1,6 @@
-// app/api/mediaPaths/route.ts
+export const config = {
+  runtime: 'edge',
+};
 
 import { NextResponse } from 'next/server';
 import { NextRequest } from 'next/server';
