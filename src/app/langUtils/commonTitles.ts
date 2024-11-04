@@ -5,8 +5,8 @@ const commonTitles = {
   [UserLanguage.hr]: 'Kategorija',
   [UserLanguage.ita]: 'Categoria',
   [UserLanguage.ger]: 'Kategorie',
-  [UserLanguage.esp]: 'EspCat',
-  [UserLanguage.fra]: 'FraCat',
+  // [UserLanguage.esp]: 'EspCat',
+  // [UserLanguage.fra]: 'FraCat',
 };
 
 export const generateCommonTitles = (lang: UserLanguage): string => {
