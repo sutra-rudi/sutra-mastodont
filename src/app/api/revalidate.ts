@@ -1,22 +1,28 @@
-import { revalidatePath } from 'next/cache';
 import { NextRequest, NextResponse } from 'next/server';
+import { revalidatePath } from 'next/cache';
+import { UserLanguage } from '../enums/LangEnum';
 
 export async function POST(req: NextRequest) {
-  // Provjeri tajni token u tijelu zahtjeva
-  const { slug, secret } = await req.json();
+  const { id, secret } = await req.json();
 
+  // Provjeri tajni token za sigurnost
   if (secret !== process.env.REVALIDATE_SECRET) {
     return NextResponse.json({ message: 'Invalid token' }, { status: 401 });
   }
 
-  if (!slug) {
-    return NextResponse.json({ message: 'Missing slug in request' }, { status: 400 });
+  if (!id) {
+    return NextResponse.json({ message: 'Missing id in request' }, { status: 400 });
   }
 
   try {
-    // Koristi revalidatePath za specifični slug (stranicu) bloga
-    await revalidatePath(`/blog/${slug}`);
-    return NextResponse.json({ revalidated: true, slug });
+    // Prođi kroz sve jezike u enumu i revalidiraj rutu za svaki jezik
+    const languages = Object.values(UserLanguage);
+    for (const lang of languages) {
+      const localizedPath = `/${lang}/blog/${id}`;
+      await revalidatePath(localizedPath);
+    }
+
+    return NextResponse.json({ revalidated: true, id });
   } catch (error: any) {
     return NextResponse.json({ message: 'Error revalidating', error: error.message }, { status: 500 });
   }
