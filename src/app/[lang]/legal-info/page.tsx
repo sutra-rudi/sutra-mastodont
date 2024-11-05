@@ -19,7 +19,7 @@ export default async function LegalInfo({ params: { lang } }: { params: { lang: 
     body: JSON.stringify({
       query: getAllLegalneInformacijeQuery(lang),
     }),
-    cache: 'force-cache', // Dugotrajno keširanje na CDN-u
+    // cache: 'force-cache', // Dugotrajno keširanje na CDN-u
   });
 
   if (!getAllLegal.ok) {
