@@ -21,17 +21,23 @@ export default async function LegalInfo({ params: { lang } }: { params: { lang: 
   });
 
   if (!getAllLegal.ok) {
-    console.error('Greška pri dohvaćanju legal info podataka');
-    return (
-      <main>
-        <h1>Greška u dohvaćanju podataka</h1>
-      </main>
-    ); // Alternativni sadržaj
+    console.error('Fetch failed for legal info');
+    return <h1>Error fetching data</h1>;
   }
 
   const parseData = await getAllLegal.json();
 
-  const dataShorthand = parseData.data.allLegalneInformacije.edges[0].node;
+  if (!parseData || !parseData.data) {
+    console.error('Data structure is undefined:', parseData);
+    return <h1>Data is unavailable</h1>;
+  }
+
+  const dataShorthand = parseData.data.allLegalneInformacije?.edges[0]?.node;
+
+  if (!dataShorthand) {
+    console.error('Specific data for allLegalneInformacije not found');
+    return <h1>Content not found</h1>;
+  }
   const l = getSuffixFromLang(lang);
 
   const prepareData = {
