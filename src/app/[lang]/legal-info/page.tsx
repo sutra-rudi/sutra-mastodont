@@ -13,7 +13,7 @@ export default async function LegalInfo({ params: { lang } }: { params: { lang: 
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Cache-Control': 'public, max-age=31536000', // Keširaj za godinu dana
+      'Cache-Control': 'public, max-age=31536000, immutable',
     },
     body: JSON.stringify({
       query: getAllLegalneInformacijeQuery(lang),

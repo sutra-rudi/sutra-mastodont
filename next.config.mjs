@@ -14,6 +14,9 @@ const nextConfig = {
       },
     ],
   },
+  experimental: {
+    revalidate: 31536000,
+  },
 };
 
 export default nextConfig;
