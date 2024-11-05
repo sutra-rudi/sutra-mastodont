@@ -20,6 +20,15 @@ export default async function LegalInfo({ params: { lang } }: { params: { lang: 
     cache: 'force-cache',
   });
 
+  if (!getAllLegal.ok) {
+    console.error('Greška pri dohvaćanju legal info podataka');
+    return (
+      <main>
+        <h1>Greška u dohvaćanju podataka</h1>
+      </main>
+    ); // Alternativni sadržaj
+  }
+
   const parseData = await getAllLegal.json();
 
   const dataShorthand = parseData.data.allLegalneInformacije.edges[0].node;
