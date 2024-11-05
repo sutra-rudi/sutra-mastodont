@@ -11,6 +11,7 @@ export default async function LegalInfo({ params: { lang } }: { params: { lang: 
     body: JSON.stringify({
       query: getAllLegalneInformacijeQuery(lang),
     }),
+    cache: 'force-cache',
   });
 
   const parseData = await getAllLegal.json();

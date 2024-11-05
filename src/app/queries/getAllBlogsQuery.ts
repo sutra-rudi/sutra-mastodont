@@ -120,18 +120,3 @@ export const getAllBlogsQuery = (lang: string) => {
     }
   `;
 };
-
-function generatePhotoGalleryFields() {
-  let fields = '';
-  for (let i = 1; i <= 10; i++) {
-    fields += `
-      galSlika${String(i).padStart(2, '0')} {
-        node {
-          sourceUrl
-          srcSet
-        }
-      }
-    `;
-  }
-  return fields;
-}
