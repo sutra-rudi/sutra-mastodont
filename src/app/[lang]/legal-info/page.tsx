@@ -1,5 +1,4 @@
-'use seerver';
-
+export const revalidate = false;
 import { UserLanguage } from '@/app/enums/LangEnum';
 import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 import { getAllLegalneInformacijeQuery } from '@/app/queries/getAllLegalInfoQuery';
