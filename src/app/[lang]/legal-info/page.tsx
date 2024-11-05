@@ -1,7 +1,13 @@
+import { UserLanguage } from '@/app/enums/LangEnum';
 import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 import { getAllLegalneInformacijeQuery } from '@/app/queries/getAllLegalInfoQuery';
 import dynamic from 'next/dynamic';
 const LazyContent = dynamic(() => import('./PageContent'));
+
+export async function generateStaticParams() {
+  return Object.values(UserLanguage).map((lang) => ({ lang }));
+}
+
 export default async function LegalInfo({ params: { lang } }: { params: { lang: string } }) {
   const getAllLegal = await fetch(`${process.env.CMS_BASE_URL}`, {
     method: 'POST',
