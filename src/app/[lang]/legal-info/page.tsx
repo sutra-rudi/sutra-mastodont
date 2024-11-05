@@ -1,3 +1,5 @@
+'use seerver';
+
 import { UserLanguage } from '@/app/enums/LangEnum';
 import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 import { getAllLegalneInformacijeQuery } from '@/app/queries/getAllLegalInfoQuery';
@@ -28,10 +30,12 @@ export default async function LegalInfo({ params: { lang } }: { params: { lang: 
 
   const parseData = await getAllLegal.json();
 
-  // Provjeri da su podaci kompletni
   if (!parseData || !parseData.data) {
     console.error('Data structure is undefined:', parseData);
-    return <h1>Data is unavailable</h1>;
+
+    const errorMsg = parseData.errors[0].message;
+
+    return <h1>{`Error: ${errorMsg}`}</h1>;
   }
 
   const dataShorthand = parseData.data.allLegalneInformacije?.edges[0]?.node;
