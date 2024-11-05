@@ -1,7 +1,5 @@
-export const revalidate = false; // Nema revalidacije
-
+export const revalidate = false;
 import { UserLanguage } from '@/app/enums/LangEnum';
-import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 import dynamic from 'next/dynamic';
 const LazyContent = dynamic(() => import('./PageContent'));
 
@@ -10,26 +8,30 @@ export async function generateStaticParams() {
 }
 
 export default async function LegalInfo({ params: { lang } }: { params: { lang: string } }) {
-  const response = await fetch(`${process.env.BASE_APP_URL}/api/legal-info?lang=${lang}`, {
-    cache: 'force-cache', // Dugotrajno keširanje na CDN-u
+  const getAllLegal = await fetch(`${process.env.BASE_APP_URL}/api/legal-info?lang=${lang}`, {
+    headers: { 'Cache-Control': 'no-cache' }, // S obzirom da podaci stižu sa CDN-a, ovdje nije potrebno dodatno keširanje
   });
 
-  const data = await response.json();
-  const dataShorthand = data?.data?.allLegalneInformacije?.edges[0]?.node;
+  if (!getAllLegal.ok) {
+    console.error('Fetch failed for legal info');
+    return <h1>Error fetching data</h1>;
+  }
+
+  const parseData = await getAllLegal.json();
+  const dataShorthand = parseData.data.allLegalneInformacije?.edges[0]?.node;
 
   if (!dataShorthand) {
     console.error('Specific data for allLegalneInformacije not found');
     return <h1>Content not found</h1>;
   }
 
-  const l = getSuffixFromLang(lang);
   const prepareData = {
     intro: { ...dataShorthand.legalneUvod },
     pageContent: {
-      title: dataShorthand[`modulBazeTekstova${l}`]?.[`naslovBazaTekstova${l}`] || 'No title available',
+      title: dataShorthand[`modulBazeTekstova${lang}`]?.[`naslovBazaTekstova${lang}`] || 'No title available',
       subtitle:
-        dataShorthand[`modulBazeTekstova${l}`]?.[`nadnaslovPodnaslovBazaTekstova${l}`] || 'No subtitle available',
-      content: dataShorthand[`modulBazeTekstova${l}`]?.[`tekstBazaTekstova${l}`] || 'No content available',
+        dataShorthand[`modulBazeTekstova${lang}`]?.[`nadnaslovPodnaslovBazaTekstova${lang}`] || 'No subtitle available',
+      content: dataShorthand[`modulBazeTekstova${lang}`]?.[`tekstBazaTekstova${lang}`] || 'No content available',
     },
   };
 
