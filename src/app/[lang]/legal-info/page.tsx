@@ -8,7 +8,7 @@ export async function generateStaticParams() {
 }
 
 export default async function LegalInfo({ params: { lang } }: { params: { lang: string } }) {
-  const getAllLegal = await fetch(`${process.env.BASE_APP_URL}/api/legal-info?lang=${lang}`, {
+  const getAllLegal = await fetch(`${process.env.BASE_APP_URL}/api/legalInfo?lang=${lang}`, {
     headers: { 'Cache-Control': 'no-cache' }, // S obzirom da podaci stižu sa CDN-a, ovdje nije potrebno dodatno keširanje
   });
 
@@ -19,11 +19,6 @@ export default async function LegalInfo({ params: { lang } }: { params: { lang: 
 
   const parseData = await getAllLegal.json();
   const dataShorthand = parseData.data.allLegalneInformacije?.edges[0]?.node;
-
-  if (!dataShorthand) {
-    console.error('Specific data for allLegalneInformacije not found');
-    return <h1>Content not found</h1>;
-  }
 
   const prepareData = {
     intro: { ...dataShorthand.legalneUvod },
