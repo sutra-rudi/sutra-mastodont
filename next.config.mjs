@@ -3,7 +3,7 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: '/legal-info',
+        source: '/[lang]/legal-info',
         headers: [
           {
             key: 'Cache-Control',
