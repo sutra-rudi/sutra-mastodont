@@ -13,11 +13,12 @@ export default async function LegalInfo({ params: { lang } }: { params: { lang: 
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
+      'Cache-Control': 'public, max-age=31536000', // Keširaj za godinu dana
     },
     body: JSON.stringify({
       query: getAllLegalneInformacijeQuery(lang),
     }),
-    cache: 'force-cache',
+    cache: 'force-cache', // Dugotrajno keširanje na CDN-u
   });
 
   if (!getAllLegal.ok) {
@@ -27,6 +28,7 @@ export default async function LegalInfo({ params: { lang } }: { params: { lang: 
 
   const parseData = await getAllLegal.json();
 
+  // Provjeri da su podaci kompletni
   if (!parseData || !parseData.data) {
     console.error('Data structure is undefined:', parseData);
     return <h1>Data is unavailable</h1>;
@@ -34,18 +36,21 @@ export default async function LegalInfo({ params: { lang } }: { params: { lang: 
 
   const dataShorthand = parseData.data.allLegalneInformacije?.edges[0]?.node;
 
+  // Fallback ako specifični podaci nisu dostupni
   if (!dataShorthand) {
     console.error('Specific data for allLegalneInformacije not found');
     return <h1>Content not found</h1>;
   }
-  const l = getSuffixFromLang(lang);
 
+  // Priprema podataka za prikaz
+  const l = getSuffixFromLang(lang);
   const prepareData = {
     intro: { ...dataShorthand.legalneUvod },
     pageContent: {
-      title: dataShorthand[`modulBazeTekstova${l}`]?.[`naslovBazaTekstova${l}`],
-      subtitle: dataShorthand[`modulBazeTekstova${l}`]?.[`nadnaslovPodnaslovBazaTekstova${l}`],
-      content: dataShorthand[`modulBazeTekstova${l}`]?.[`tekstBazaTekstova${l}`],
+      title: dataShorthand[`modulBazeTekstova${l}`]?.[`naslovBazaTekstova${l}`] || 'No title available',
+      subtitle:
+        dataShorthand[`modulBazeTekstova${l}`]?.[`nadnaslovPodnaslovBazaTekstova${l}`] || 'No subtitle available',
+      content: dataShorthand[`modulBazeTekstova${l}`]?.[`tekstBazaTekstova${l}`] || 'No content available',
     },
   };
 
