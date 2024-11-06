@@ -6,15 +6,11 @@ import { UserLanguage } from '@/app/enums/LangEnum';
 import { ogImagesArchiveBlog } from '@/app/pathsUtils/mediaImportsDynamic';
 import dynamic from 'next/dynamic';
 import { fetchData } from '@/app/utils/callApi';
-import PageHero from './PageHero';
-import SocialContent from './SocialContent';
-import PageContent from './PageContent';
-import AsideContent from './AsideContent';
 
-// const LazyContent = dynamic(() => import('./PageContent'));
-// const AsideContent = dynamic(() => import('./AsideContent'));
-// const SocialContent = dynamic(() => import('./SocialContent'));
-// const PageHero = dynamic(() => import('./PageHero'));
+const LazyContent = dynamic(() => import('./PageContent'));
+const AsideContent = dynamic(() => import('./AsideContent'));
+const SocialContent = dynamic(() => import('./SocialContent'));
+const PageHero = dynamic(() => import('./PageHero'));
 
 const isGloria: boolean = true;
 
@@ -173,7 +169,7 @@ export default async function SingleBlogPage({ params: { lang, id } }: { params:
             <SocialContent layout='hor' />
           </div>
 
-          <PageContent
+          <LazyContent
             content={prepareDataForClient.blog[languageField]}
             global={prepareDataForClient.blog.introBlog}
             gallery={prepareDataForClient.blog.photoGallery.fotogalerija}
@@ -189,7 +185,7 @@ export default async function SingleBlogPage({ params: { lang, id } }: { params:
           </div>
         </div>
       ) : (
-        <PageContent
+        <LazyContent
           content={prepareDataForClient.blog[languageField]}
           global={prepareDataForClient.blog.introBlog}
           gallery={prepareDataForClient.blog.photoGallery.fotogalerija}
