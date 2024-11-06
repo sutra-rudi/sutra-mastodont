@@ -89,7 +89,7 @@ const AppHeader = () => {
 
   const handleLangSwitch = (lang: string) => {
     // Postavi kolačić na odabrani jezik
-    document.cookie = `@sutra-user-lang=${lang}; path=/; max-age=31536000`; // 1 godina
+    document.cookie = `@sutra-mastodont-user-lang=${lang}; path=/; max-age=31536000`; // 1 godina
 
     // Preusmjeri na novu putanju
     router.push(

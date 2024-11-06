@@ -4,58 +4,49 @@ import { UserLanguage } from './app/enums/LangEnum';
 
 export function middleware(request: NextRequest) {
   const SUPPORTED_LANGUAGES = Object.values(UserLanguage);
+  const userLangFromCookie = request.cookies.get('@sutra-mastodont-user-lang')?.value;
+  const url = request.nextUrl;
 
-  // Izuzmi sitemap.xml iz middleware-a
-  if (request.nextUrl.pathname === '/sitemap.xml' || request.nextUrl.pathname.startsWith('/hr/sitemap.xml')) {
+  // Funkcija za preusmjeravanje s postavljanjem jezika u kolačić
+  const redirectToLanguage = (lang: string) => {
+    const response = NextResponse.redirect(new URL(`/${lang}`, url));
+    response.cookies.set('@sutra-mastodont-user-lang', lang, { maxAge: 60 * 60 * 24 * 30 }); // 30 dana trajanja
+    return response;
+  };
+
+  // Izuzetak za sitemap.xml
+  if (url.pathname === '/sitemap.xml' || url.pathname.startsWith('/hr/sitemap.xml')) {
     return NextResponse.next();
   }
 
-  // Ako je URL osnovni ("/")
-  if (request.nextUrl.pathname === '/') {
-    const userLangFromCookie = request.cookies.get('@sutra-user-lang')?.value;
-
-    // Provjeri postoji li kolačić s jezikom
+  // Ako korisnik posjećuje osnovnu stranicu "/"
+  if (url.pathname === '/') {
     if (userLangFromCookie && SUPPORTED_LANGUAGES.includes(userLangFromCookie as UserLanguage)) {
-      return NextResponse.redirect(new URL(`/${userLangFromCookie}`, request.url));
+      return redirectToLanguage(userLangFromCookie);
     }
 
-    // Ako nema kolačića, provjeri Accept-Language header
-    const acceptLanguage = request.headers.get('accept-language');
+    const acceptLanguage = request.headers.get('accept-language')?.split(',')[0].split('-')[0];
     if (acceptLanguage) {
-      const preferredLang = acceptLanguage.split(',')[0].split('-')[0]; // uzmi prvi preferirani jezik
-      const mappedLang = SUPPORTED_LANGUAGES.find((lang) => lang.startsWith(preferredLang));
-
-      // Ako je pronađen preferirani jezik, preusmjeri na odgovarajući URL
-      if (mappedLang) {
-        return NextResponse.redirect(new URL(`/${mappedLang}`, request.url));
-      }
+      const langMatch = SUPPORTED_LANGUAGES.find((lang) => lang.startsWith(acceptLanguage));
+      if (langMatch) return redirectToLanguage(langMatch);
     }
-
-    // Ako ništa nije pronađeno, preusmjeri na 'hr'
-    return NextResponse.redirect(new URL('/hr', request.url));
+    return redirectToLanguage('hr');
   }
 
-  // Ako nije osnovna putanja, provjeri validnost jezika u putanji
-  const pathSegments = request.nextUrl.pathname.split('/');
-  const lang = pathSegments[1];
+  // Pročitaj jezik iz putanje ("/lang/...")
+  const lang = url.pathname.split('/')[1];
+  if (!SUPPORTED_LANGUAGES.includes(lang as UserLanguage)) return redirectToLanguage('hr');
 
-  // Ako jezik nije podržan, preusmjeri na 'hr'
-  if (!SUPPORTED_LANGUAGES.includes(lang as UserLanguage)) {
-    return NextResponse.redirect(new URL('/hr', request.url));
-  }
-
-  // Postavi jezik u kolačić samo ako još nije postavljen
-  const userLangFromCookie = request.cookies.get('@sutra-user-lang')?.value;
+  // Ako kolačić nije postavljen, postavi ga
   if (!userLangFromCookie) {
     const response = NextResponse.next();
-    response.cookies.set('@sutra-user-lang', lang);
+    response.cookies.set('@sutra-mastodont-user-lang', lang, { maxAge: 60 * 60 * 24 * 30 });
     return response;
   }
 
   return NextResponse.next();
 }
 
-// Konfigurirajte middleware da presreće osnovni URL ("/")
 export const config = {
   matcher: '/((?!api|_next|static|favicon.ico|sitemap.xml).*)',
 };
