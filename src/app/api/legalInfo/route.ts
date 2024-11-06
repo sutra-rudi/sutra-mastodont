@@ -1,24 +1,27 @@
 import { NextResponse } from 'next/server';
 import { getAllLegalneInformacijeQuery } from '@/app/queries/getAllLegalInfoQuery';
+import { UserLanguage } from '@/app/enums/LangEnum';
 
 export async function GET(request: Request) {
-  console.log('DATA', request);
-  const lang = new URL(request.url).searchParams.get('lang') || 'hr';
-  const cmsResponse = await fetch(`${process.env.CMS_BASE_URL}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      query: getAllLegalneInformacijeQuery(lang),
-    }),
-  });
+  const allLanguagesData = {};
 
-  const data = await cmsResponse.json();
+  // Iteriramo kroz sve podržane jezike i dohvaćamo podatke
+  for (const lang of Object.values(UserLanguage)) {
+    const cmsResponse = await fetch(`${process.env.CMS_BASE_URL}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ query: getAllLegalneInformacijeQuery(lang) }),
+      cache: 'force-cache', // Dugotrajno keširanje za sve jezike
+    });
 
-  return NextResponse.json(data, {
+    const data = await cmsResponse.json();
+    //@ts-ignore
+    allLanguagesData[lang] = data;
+  }
+
+  return NextResponse.json(allLanguagesData, {
     headers: {
-      'Cache-Control': 'public, max-age=31536000, immutable',
+      'Cache-Control': 'public, max-age=31536000, immutable', // Postavke dugotrajnog keširanja
     },
   });
 }

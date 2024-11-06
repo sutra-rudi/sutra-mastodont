@@ -1,6 +1,7 @@
-export const revalidate = false;
-import { UserLanguage } from '@/app/enums/LangEnum';
+export const revalidate = false; // Isključuje automatsku revalidaciju
 import dynamic from 'next/dynamic';
+import { UserLanguage } from '@/app/enums/LangEnum';
+
 const LazyContent = dynamic(() => import('./PageContent'));
 
 export async function generateStaticParams() {
@@ -9,24 +10,24 @@ export async function generateStaticParams() {
 
 export default async function LegalInfo({ params: { lang } }: { params: { lang: string } }) {
   const getAllLegal = await fetch(`${process.env.BASE_APP_URL}/api/legalInfo?lang=${lang}`, {
-    headers: { 'Cache-Control': 'no-cache' }, // S obzirom da podaci stižu sa CDN-a, ovdje nije potrebno dodatno keširanje
+    cache: 'force-cache',
   });
 
   if (!getAllLegal.ok) {
-    console.error('Fetch failed for legal info');
-    return <h1>Error fetching data</h1>;
+    console.error('Greška pri dohvatu podataka');
+    return <h1>Podaci nisu dostupni</h1>;
   }
 
   const parseData = await getAllLegal.json();
-  const dataShorthand = parseData.data.allLegalneInformacije?.edges[0]?.node;
+  const dataShorthand = parseData[lang]?.data.allLegalneInformacije?.edges[0]?.node;
 
   const prepareData = {
     intro: { ...dataShorthand.legalneUvod },
     pageContent: {
-      title: dataShorthand[`modulBazeTekstova${lang}`]?.[`naslovBazaTekstova${lang}`] || 'No title available',
+      title: dataShorthand[`modulBazeTekstova${lang}`]?.[`naslovBazaTekstova${lang}`] || 'Nema dostupnog naslova',
       subtitle:
-        dataShorthand[`modulBazeTekstova${lang}`]?.[`nadnaslovPodnaslovBazaTekstova${lang}`] || 'No subtitle available',
-      content: dataShorthand[`modulBazeTekstova${lang}`]?.[`tekstBazaTekstova${lang}`] || 'No content available',
+        dataShorthand[`modulBazeTekstova${lang}`]?.[`nadnaslovPodnaslovBazaTekstova${lang}`] || 'Nema podnaslova',
+      content: dataShorthand[`modulBazeTekstova${lang}`]?.[`tekstBazaTekstova${lang}`] || 'Nema sadržaja',
     },
   };
 
