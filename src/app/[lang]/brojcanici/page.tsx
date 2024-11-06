@@ -121,6 +121,61 @@ export default async function BrojcaniciPage({ params: { lang } }: { params: { l
               );
             })}
         </div>
+
+        <h2 className='w-full text-center xl:text-h2-xl lg:text-h2-desktop md:text-h2-tablet text-h2-mobile font-semibold pt-8 text-primarna-tamna dark:text-primarna-svijetla py-8'>
+          Verzija tri
+        </h2>
+
+        <div className='grid grid-cols-1 w-full '>
+          {pageData &&
+            pageData.map((brojcanik: any) => {
+              const shortHand = brojcanik.node;
+              const shortHandRender = shortHand.brojcanikCompanyInNumbersUvod.brojcaniciUvod;
+              const textualContent = shortHand[`metrics${l}`]?.[`companyInNumbers${l}`];
+
+              return (
+                <div
+                  key={shortHand.id}
+                  className='flex mx-auto w-full items-center justify-between  max-w-[656px] border-b border-divider-lightmode dark:border-divider-darkmode xl:-py--xl---m lg:-py--desktop---m md:-py--tablet---m -py--mobile---m'
+                >
+                  <div className='flex items-center xl:text-brojcanik-xl lg:text-brojcanik-desktop md:text-brojcanik-tablet text-brojcanik-mobile xl:-gap--xl---xs lg:-gap--desktop---xs md:-gap--tablet---xs -gap--mobile---xs text-heading-color-light-mode '>
+                    {/* <CountUp
+                     start={0}
+                     end={shortHandRender.broj}
+                     enableScrollSpy
+                     scrollSpyOnce
+                     scrollSpyDelay={500}
+                     duration={5}
+                     className=''
+                   /> */}
+                    <p>{shortHandRender.broj}</p>
+                    {textualContent.znakIliNatpisUzBroj ? (
+                      <p className=''>{textualContent.znakIliNatpisUzBroj}</p>
+                    ) : (
+                      <p className=''>{shortHandRender.znakIliNatpisUzBroj}</p>
+                    )}
+                  </div>
+
+                  {textualContent.tekstBrojcanikaGlavni && (
+                    <div className='grid grid-cols-1 xl:-gap--xl---s lg:-gap--desktop---s md:-gap--tablet---s -gap--mobile---s max-w-[404px]'>
+                      {textualContent.tekstBrojcanikaGlavni && (
+                        <h4
+                          className={`${POT.className} xl:text-h4-xl lg:text-h4-desktop md:text-h4-tablet text-h4-mobile text-accent-boja  `}
+                        >
+                          {textualContent.tekstBrojcanikaGlavni}
+                        </h4>
+                      )}
+                      {textualContent.tekstBrojcanikaSekundarniTekst && (
+                        <p className='xl:text-text-base-base-xl lg:text-text-base-base-desktop text-text-base-base-mobiletablet text-accent-boja'>
+                          {textualContent.tekstBrojcanikaSekundarniTekst}
+                        </p>
+                      )}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+        </div>
       </div>
     </main>
   );
