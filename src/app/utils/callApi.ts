@@ -30,7 +30,7 @@ export async function fetchData(
       'X-API-KEY': apiKey,
     },
     body: JSON.stringify({ query }),
-    cache: noCache ? 'no-store' : 'default', // Cache control based on flag
+    cache: noCache ? 'no-store' : 'force-cache',
   };
 
   try {
