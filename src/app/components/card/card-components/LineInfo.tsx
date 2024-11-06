@@ -29,8 +29,6 @@ const LineInfo = ({ alignement, tagText, subTitle, readTime, date, authorName }:
     <div className='xl:w-divider-xl lg:w-divider-desktop md:w-divider-tablet w-divider-mobile xl:h-divider-xl lg:h-divider-desktop md:h-divider-tablet h-divider-mobile bg-kartice-divider-light-mode rounded-full lg:block hidden'></div>
   );
 
-  console.log('LINE INFO TAG TEXT', tagText);
-
   return (
     <div
       className={`z-10 relative w-full flex flex-wrap ${
