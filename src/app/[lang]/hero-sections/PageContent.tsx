@@ -18,8 +18,6 @@ interface HeroVersion {
 }
 
 export const HeroVersionOne = ({ pathsToMasks, pathsToHeroBg, heroContent, lang }: HeroVersion) => {
-  console.log('PATHS TO HERO', pathsToHeroBg);
-
   const l = getSuffixFromLang(lang);
   const heroDataShorthand = heroContent.node[`tekstHero${l}`];
 

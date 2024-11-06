@@ -62,6 +62,7 @@ const AppHeader = () => {
       { url: `/${currentLang}/locations`, title: 'Lokacije' },
       { url: `/${currentLang}/notifications-page`, title: 'Obavijesti' },
       { url: `/${currentLang}/partners`, title: 'Logo partneri' },
+      { url: `/${currentLang}/brojcanici`, title: 'Brojcanici PAGE' },
     ],
     visuals: [{ url: `/${currentLang}/textures-bg`, title: 'Teksture pozadine' }],
   };
