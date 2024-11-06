@@ -7,6 +7,7 @@ import { Poltawski_Nowy } from 'next/font/google';
 import { ButtonOutlinePrimaryDark, PrimaryLightButton } from '../components/SutraButton';
 import { FaArrowRight } from 'react-icons/fa6';
 import { TbArrowsVertical as ArrowsIcon } from 'react-icons/tb';
+import AppHeroVideo from './AppHeroVideo';
 
 const POT = Poltawski_Nowy({ subsets: ['latin'], weight: '700' });
 
@@ -18,21 +19,29 @@ interface AppHero {
 export default async function AppHero({ heroContent, lang }: AppHero) {
   const fetchMediaPaths = async (): Promise<any | { error: boolean }> => {
     try {
-      const response = await fetch(`${process.env.BASE_APP_URL}/api/mediaPaths`, {});
+      const response = await fetch(`${process.env.BASE_APP_URL}/api/mediaPaths`, { cache: 'force-cache' });
 
       if (!response.ok) {
         throw new Error('Neuspješno dohvaćanje putanja medija');
       }
 
       const data = await response.json();
-      return Object.values(data.heroImagesHomePageMultiple);
+
+      const gallery = Object.values(data.heroImagesHomePageMultiple);
+      const videoResources = data.videoResources.homePage;
+
+      const structureData = {
+        videos: videoResources,
+        imageGallery: gallery,
+      };
+      return structureData;
     } catch (error) {
       console.error('Greška prilikom dohvaćanja medija:', error);
       return { error: true };
     }
   };
 
-  const media = await fetchMediaPaths();
+  const { videos, imageGallery } = await fetchMediaPaths();
 
   const l = getSuffixFromLang(lang);
   const heroDataShorthand = heroContent.node[`tekstHero${l}`];
@@ -41,11 +50,12 @@ export default async function AppHero({ heroContent, lang }: AppHero) {
     lang === UserLanguage.hr ? heroDataShorthand.slide1Hero : heroDataShorthand[`slide1Hero${l}`];
   return (
     <div>
+      <AppHeroVideo videoPoster={videos.placeholder} videoUrl={videos.video} />
       <div className='w-full min-h-[calc(100vh-5rem)] relative'>
         <Image
           fill
           alt='hero image mastodont @sutra'
-          src={media[3]}
+          src={imageGallery[3]}
           className='object-cover object-center block aspect-auto'
         />
         <div className='absolute w-full h-full inset-0 pointer-events-none select-none z-10 bg-overlay-dark/25 overflow-hidden'>
