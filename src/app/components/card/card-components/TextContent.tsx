@@ -36,7 +36,6 @@ const TextContent = ({
   isOnBaseCard,
   authorName,
 }: TextContent) => {
-  // console.log('TTT', tagText);
   return (
     <div
       className={`z-20 ${
