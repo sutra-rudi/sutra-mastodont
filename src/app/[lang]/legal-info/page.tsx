@@ -1,4 +1,4 @@
-export const revalidate = false; // Isključuje automatsku revalidaciju
+export const revalidate = false;
 import dynamic from 'next/dynamic';
 import { UserLanguage } from '@/app/enums/LangEnum';
 
