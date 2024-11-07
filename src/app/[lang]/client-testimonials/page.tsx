@@ -127,6 +127,46 @@ export default async function ClientTestimonials({ params: { lang } }: { params:
             );
           })}
       </div>
+
+      <h2 className='w-full text-center xl:text-h2-xl lg:text-h2-desktop md:text-h2-tablet text-h2-mobile font-semibold pt-8 text-primarna-tamna dark:text-primarna-svijetla py-8'>
+        Verzija tri
+      </h2>
+      <div className='w-full flex flex-wrap items-center justify-center gap-8'>
+        {prepareDataForClient &&
+          prepareDataForClient.map((singleExp: any) => {
+            const introContShort = singleExp.introContent;
+            return (
+              <article key={singleExp.id} className='shrink-0 max-w-[492px] w-full'>
+                <div className='w-full relative max-w-[492px] h-[286px]'>
+                  <Image
+                    src={introContShort.logotipIliSlikaOsobe.node.sourceUrl}
+                    alt='Logo ili slika osobe'
+                    fill
+                    className='object-cover object-center block w-full h-full'
+                  />
+                </div>
+
+                <div className='flex justify-between items-center xl:-py--xl---m lg:-py--desktop---m md:-py--tablet---m -py--mobile---m'>
+                  <p className='xl:text-all-caps-xl lg:text-all-caps-large md:text-all-caps-medium text-all-caps-small uppercase'>
+                    {introContShort.imeKlijentaTestimonials}
+                  </p>
+                  <p className='xl:text-text-base-small-xl lg:text-text-base-small-desktop text-text-base-small-mobiletablet text-gray-light'>
+                    {singleExp.mainContent.clientPosition}
+                  </p>
+                </div>
+
+                <div className='lg:text-text-base-l-desktop text-text-base-l-mobiletablet xl:-pb--xl---m lg:-pb--desktop---m md:-pb--tablet---m -pb--mobile---m'>
+                  {parse(singleExp.mainContent.clientContent)}
+                </div>
+
+                <div className='text-text-base-small-mobiletablet flex items-start justify-start flex-col xl:-gap--xl---micro lg:-gap--desktop---micro md:-gap--tablet---micro -gap--mobile---micro'>
+                  <span>{introContShort.ocijenaIliBrojZvjezdicaTestimonials}</span>
+                  <span>{introContShort.izvorRecenzije}</span>
+                </div>
+              </article>
+            );
+          })}
+      </div>
     </main>
   );
 }
