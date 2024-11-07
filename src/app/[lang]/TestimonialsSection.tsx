@@ -75,6 +75,7 @@ const TestimonialsSection = ({ pageContent, lang }: ClientTestimonials) => {
   const schemaOrgData = generateTestimonialsSchemaOrg(pageContent, lang);
 
   const l = getSuffixFromLang(lang);
+
   const prepareData = pageContent.map((cont: any) => {
     return {
       id: cont.node.id,
