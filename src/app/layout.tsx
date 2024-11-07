@@ -133,15 +133,14 @@ export default async function RootLayout({
     <html lang={lang} className='scrollbar scrollbar-thumb-accent-boja scrollbar-track-primarna-tamna'>
       <body className={`${poppins.className} w-full h-full`}>
         {adminTekstoviShorthand && <CookieConsentNotification pageContent={adminTekstoviShorthand} />}
-        {adminTokensDataShorthand &&
-          adminTokensDataShorthand.kodoviAdminApi &&
-          adminTokensDataShorthand.kodoviAdminApi.googleAnalytics &&
-          userEnabledAllCookies && <GoogleAnalytics gaId={adminTokensDataShorthand.kodoviAdminApi.googleAnalytics} />}
-        {adminTokensDataShorthand.kodoviAdminApi &&
-          adminTokensDataShorthand.kodoviAdminApi.googleTagManager &&
-          userEnabledAllCookies && (
-            <GoogleTagManager gtmId={adminTokensDataShorthand.kodoviAdminApi.googleTagManager} />
-          )}
+
+        {adminTokensDataShorthand?.kodoviAdminApi?.googleAnalytics && userEnabledAllCookies && (
+          <GoogleAnalytics gaId={adminTokensDataShorthand.kodoviAdminApi.googleAnalytics} />
+        )}
+
+        {adminTokensDataShorthand?.kodoviAdminApi?.googleTagManager && userEnabledAllCookies && (
+          <GoogleTagManager gtmId={adminTokensDataShorthand.kodoviAdminApi.googleTagManager} />
+        )}
 
         <AppHeader />
         <Toaster />
@@ -153,76 +152,75 @@ export default async function RootLayout({
         {schemaBasicData && (
           <Script id='schema-org' type='application/ld+json' dangerouslySetInnerHTML={{ __html: schemaBasicData }} />
         )}
-        {adminTokensDataShorthand &&
-          adminTokensDataShorthand.kodoviAdminApi.microsoftClarity &&
-          userEnabledAllCookies && (
-            <Script id='clarity-script' strategy='afterInteractive'>
-              {`
-            (function(c,l,a,r,i,t,y){
+
+        {adminTokensDataShorthand?.kodoviAdminApi?.microsoftClarity && userEnabledAllCookies && (
+          <Script id='clarity-script' strategy='afterInteractive'>
+            {`
+              (function(c,l,a,r,i,t,y){
                 c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
                 t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
                 y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", "${adminTokensDataShorthand.kodoviAdminApi.microsoftClarity}");
-          `}
-            </Script>
-          )}
-        {adminTokensDataShorthand && adminTokensDataShorthand.kodoviAdminApi.hotjar && userEnabledAllCookies && (
-          <Script id='hotjar-snippet'>
-            {`
-          (function(h,o,t,j,a,r){
-              h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-              h._hjSettings={hjid:${adminTokensDataShorthand.kodoviAdminApi.hotjar},hjsv:6};
-              a=o.getElementsByTagName('head')[0];
-              r=o.createElement('script');r.async=1;
-              r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-              a.appendChild(r);
-          })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-        `}
+              })(window, document, "clarity", "script", "${adminTokensDataShorthand.kodoviAdminApi.microsoftClarity}");
+            `}
           </Script>
         )}
 
-        {adminTokensDataShorthand &&
-          adminTokensDataShorthand.kodoviAdminApi.plerdySiteHashCode &&
-          adminTokensDataShorthand.kodoviAdminApi.plerdySuidSiteUniqueId &&
+        {adminTokensDataShorthand?.kodoviAdminApi?.hotjar && userEnabledAllCookies && (
+          <Script id='hotjar-snippet'>
+            {`
+              (function(h,o,t,j,a,r){
+                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+                h._hjSettings={hjid:${adminTokensDataShorthand.kodoviAdminApi.hotjar},hjsv:6};
+                a=o.getElementsByTagName('head')[0];
+                r=o.createElement('script');r.async=1;
+                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+                a.appendChild(r);
+              })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+            `}
+          </Script>
+        )}
+
+        {adminTokensDataShorthand?.kodoviAdminApi?.plerdySiteHashCode &&
+          adminTokensDataShorthand?.kodoviAdminApi?.plerdySuidSiteUniqueId &&
           userEnabledAllCookies && (
             <Script id='plerdy-script' strategy='afterInteractive'>
               {`
-              var _protocol="https:"==document.location.protocol?"https://":"http://";
-              var _site_hash_code = "${adminTokensDataShorthand.kodoviAdminApi.plerdySiteHashCode}";
-              var _suid = ${adminTokensDataShorthand.kodoviAdminApi.plerdySuidSiteUniqueId};
-              var plerdyScript=document.createElement("script");
-              plerdyScript.setAttribute("defer","");
-              plerdyScript.dataset.plerdymainscript="plerdymainscript";
-              plerdyScript.src="https://a.plerdy.com/public/js/click/main.js?v="+Math.random();
-              var plerdymainscript=document.querySelector("[data-plerdymainscript='plerdymainscript']");
-              if(plerdymainscript) plerdymainscript.parentNode.removeChild(plerdymainscript);
-              try {
-                document.head.appendChild(plerdyScript);
-              } catch(t) {
-                console.log(t,"unable to add script tag");
-              }
-            `}
+                var _protocol="https:"==document.location.protocol?"https://":"http://";
+                var _site_hash_code = "${adminTokensDataShorthand.kodoviAdminApi.plerdySiteHashCode}";
+                var _suid = ${adminTokensDataShorthand.kodoviAdminApi.plerdySuidSiteUniqueId};
+                var plerdyScript=document.createElement("script");
+                plerdyScript.setAttribute("defer","");
+                plerdyScript.dataset.plerdymainscript="plerdymainscript";
+                plerdyScript.src="https://a.plerdy.com/public/js/click/main.js?v="+Math.random();
+                var plerdymainscript=document.querySelector("[data-plerdymainscript='plerdymainscript']");
+                if(plerdymainscript) plerdymainscript.parentNode.removeChild(plerdymainscript);
+                try {
+                  document.head.appendChild(plerdyScript);
+                } catch(t) {
+                  console.log(t,"unable to add script tag");
+                }
+              `}
             </Script>
           )}
 
-        {adminTokensDataShorthand && adminTokensDataShorthand.kodoviAdminApi.inspectlet && userEnabledAllCookies && (
+        {adminTokensDataShorthand?.kodoviAdminApi?.inspectlet && userEnabledAllCookies && (
           <Script id='inspectlet-script' strategy='afterInteractive'>
             {`
               window.__insp = window.__insp || [];
               __insp.push(['wid', ${adminTokensDataShorthand.kodoviAdminApi.inspectlet}]);
               (function() {
-                  function ldinsp() {
-                      if (typeof window.__inspld != "undefined") return;
-                      window.__inspld = 1;
-                      var insp = document.createElement('script');
-                      insp.type = 'text/javascript';
-                      insp.async = true;
-                      insp.id = "inspsync";
-                      insp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cdn.inspectlet.com/inspectlet.js?wid=${adminTokensDataShorthand.kodoviAdminApi.inspectlet}&r=' + Math.floor(new Date().getTime()/3600000);
-                      var x = document.getElementsByTagName('script')[0];
-                      x.parentNode.insertBefore(insp, x);
-                  }
-                  setTimeout(ldinsp, 0);
+                function ldinsp() {
+                  if (typeof window.__inspld != "undefined") return;
+                  window.__inspld = 1;
+                  var insp = document.createElement('script');
+                  insp.type = 'text/javascript';
+                  insp.async = true;
+                  insp.id = "inspsync";
+                  insp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cdn.inspectlet.com/inspectlet.js?wid=${adminTokensDataShorthand.kodoviAdminApi.inspectlet}&r=' + Math.floor(new Date().getTime()/3600000);
+                  var x = document.getElementsByTagName('script')[0];
+                  x.parentNode.insertBefore(insp, x);
+                }
+                setTimeout(ldinsp, 0);
               })();
             `}
           </Script>
