@@ -1,5 +1,5 @@
 export const getCategoriesQuery = (lang: string) => {
-  const languageFieldsMap: Record<string, string> = {
+  const languageFieldsMapCategories: Record<string, string> = {
     hr: `
       imeKategorijeHr
       opisKategorijeHr
@@ -25,7 +25,7 @@ export const getCategoriesQuery = (lang: string) => {
           node {
             informacijeKategorije {
               bojaKategorije
-              ${languageFieldsMap[lang] || ''}
+              ${languageFieldsMapCategories[lang] || ''}
             }
           }
         }

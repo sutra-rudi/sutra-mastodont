@@ -1,5 +1,5 @@
 export const getTagsQuery = (lang: string) => {
-  const languageFieldsMap: Record<string, string> = {
+  const languageFieldsMapTags: Record<string, string> = {
     hr: `
       imeKategorijeHr
       opisKategorijeHr
@@ -26,7 +26,7 @@ export const getTagsQuery = (lang: string) => {
             id
             informacijeKategorije {
               bojaKategorije
-              ${languageFieldsMap[lang] || ''}
+              ${languageFieldsMapTags[lang] || ''}
             }
             name
           }

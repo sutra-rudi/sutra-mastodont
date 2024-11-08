@@ -1,5 +1,5 @@
 export const getObavijestiNaStraniciQuery = (lang: string) => {
-  const languageFieldsMap: Record<string, string> = {
+  const languageFieldsMapObavijesti: Record<string, string> = {
     hr: `
       textHr {
         naslovHr
@@ -44,7 +44,7 @@ export const getObavijestiNaStraniciQuery = (lang: string) => {
               datumIVrijemeObjave
               datumIVrijemeKrajaObjave
             }
-            ${languageFieldsMap[lang] || ''}
+            ${languageFieldsMapObavijesti[lang] || ''}
             statusAtivacijePoJezicima {
               aktivatorEng
               aktivatorGer
