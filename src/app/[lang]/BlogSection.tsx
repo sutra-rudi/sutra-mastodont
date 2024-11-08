@@ -1,6 +1,4 @@
-'use client';
 import dayjs from 'dayjs';
-import React from 'react';
 import { blogLanguageFields } from '../pathsUtils/blogLanguageFields';
 import slugify from 'slugify';
 import { slugifyOptions } from '../pathsUtils/slugifyOptions';
@@ -18,23 +16,10 @@ interface BlogSection {
   blogTableKey: string;
 }
 
-const BlogSection = ({ pageContent, lang }: BlogSection) => {
-  const [mediaPaths, setMediaPaths] = React.useState<any>(null);
+export default async function BlogSection({ pageContent, lang }: BlogSection) {
+  const mediaData = await fetch(`${process.env.NEXT_PUBLIC_BASE_APP_URL}/api/mediaPaths`);
+  const parseMediaData = await mediaData.json();
   const l = getSuffixFromLang(lang);
-  React.useEffect(() => {
-    const fetchMediaPaths = async () => {
-      try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_APP_URL}/api/mediaPaths`);
-        const data = await response.json();
-
-        setMediaPaths(data);
-      } catch (error) {
-        console.error('Error fetching media paths:', error);
-      }
-    };
-
-    fetchMediaPaths();
-  }, []);
 
   return (
     <section className=''>
@@ -44,7 +29,7 @@ const BlogSection = ({ pageContent, lang }: BlogSection) => {
 
       <div className='max-w-[1740px] mx-auto my-8 flex flex-wrap gap-4 items-start justify-center min-h-dvh'>
         {pageContent &&
-          mediaPaths &&
+          parseMediaData &&
           pageContent.map((blogContent: any, index: number) => {
             const contentShorthand = blogContent.node;
             const contentCardShorthand = contentShorthand.introBlog;
@@ -76,7 +61,7 @@ const BlogSection = ({ pageContent, lang }: BlogSection) => {
               ? contentCardShorthand.thumbnail.node.sourceUrl
               : contentCardShorthand.naslovnaSlika
               ? contentCardShorthand.naslovnaSlika.node.sourceUrl
-              : mediaPaths.heroImagesArchiveBlog.desktop;
+              : parseMediaData.heroImagesArchiveBlog.desktop;
 
             const readTime = readingTime(contentField);
 
@@ -112,6 +97,4 @@ const BlogSection = ({ pageContent, lang }: BlogSection) => {
       </div>
     </section>
   );
-};
-
-export default BlogSection;
+}
