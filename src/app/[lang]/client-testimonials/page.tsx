@@ -167,6 +167,59 @@ export default async function ClientTestimonials({ params: { lang } }: { params:
             );
           })}
       </div>
+
+      <h2 className='w-full text-center xl:text-h2-xl lg:text-h2-desktop md:text-h2-tablet text-h2-mobile font-semibold pt-8 text-primarna-tamna dark:text-primarna-svijetla py-8'>
+        Verzija četiri
+      </h2>
+
+      <div className='w-full flex flex-wrap items-center justify-center gap-8'>
+        {prepareDataForClient &&
+          prepareDataForClient.map((singleExp: any) => {
+            const introContShort = singleExp.introContent;
+            return (
+              <article
+                key={singleExp.id}
+                className='shrink-0  flex xl:-gap--xl---xl lg:-gap--desktop---xl md:-gap--tablet---xl -gap--mobile---xl bg-almost-white xl:-px--xl---s lg:-px--desktop---s md:-px--tablet---s -px--mobile---s'
+              >
+                <Image
+                  src={introContShort.logotipIliSlikaOsobe.node.sourceUrl}
+                  alt='Logo ili slika osobe'
+                  width={185}
+                  height={185}
+                  className='object-cover object-center block rounded-full w-[185px] h-[185px] shrink-0 my-4'
+                />
+
+                <div className='max-w-[420px]'>
+                  <Image
+                    src={QUOTE_ICON}
+                    alt='Quote icon'
+                    width={24}
+                    height={24}
+                    className='object-cover object-center block shrink-0 w-6 h-6'
+                  />
+                  <div className='xl:-py--xl---xs lg:-py--desktop---xs md:-py--tablet---xs -py--mobile---xs'>
+                    <div className='lg:text-text-base-l-desktop text-text-base-l-mobiletablet '>
+                      {parse(singleExp.mainContent.clientContent)}
+                    </div>
+
+                    <div className='flex items-center justify-start gap-4'>
+                      <div className='w-full max-w-[230px] h-[3px] bg-divider-lightmode dark:bg-divider-darkmode'></div>
+
+                      <div className='flex flex-col justify-start items-start'>
+                        <p className='lg:text-all-caps-large md:text-all-caps-medium text-all-caps-small  uppercase'>
+                          {introContShort.imeKlijentaTestimonials}
+                        </p>
+                        <p className='lg:text-text-base-small-desktop text-text-base-small-mobiletablet'>
+                          {singleExp.mainContent.clientPosition}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
+      </div>
     </main>
   );
 }
