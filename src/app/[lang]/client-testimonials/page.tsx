@@ -202,7 +202,7 @@ export default async function ClientTestimonials({ params: { lang } }: { params:
                       {parse(singleExp.mainContent.clientContent)}
                     </div>
 
-                    <div className='flex items-center justify-between'>
+                    <div className='flex items-center justify-start gap-4'>
                       <div className='w-full max-w-[230px] h-[3px] bg-divider-lightmode dark:bg-divider-darkmode'></div>
 
                       <div className='flex flex-col justify-start items-start'>
