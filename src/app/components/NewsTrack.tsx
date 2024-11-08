@@ -53,7 +53,7 @@ const NewsTrack = ({ pageContent, lang }: ObavijestiNaStraniciInterface) => {
   const [isOpen, setIsOpen] = React.useState<boolean>(true);
 
   return (
-    <div className='fixed bottom-4 left-0 right-0 z-40 w-full flex justify-center hidden'>
+    <div className='fixed bottom-4 left-0 right-0 z-40 w-full justify-center hidden'>
       <div className='w-full max-w-screen-lg px-4'>
         {filtriraneObavijesti.map((contentShorthand: any, index: number) => {
           const notificationToShow = contentShorthand.statusAtivacijePoJezicima[`aktivator${l}`];

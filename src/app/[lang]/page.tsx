@@ -2,119 +2,78 @@ export const maxDuration = 60;
 
 import dynamic from 'next/dynamic';
 import Loading from '../loading';
-import { allQueries } from '../queries';
 import { fetchData } from '../utils/callApi';
 import AppHero from './AppHero';
+import { naslovnaQuery } from '../queries/landingPageContentQuery';
 
 const BlogSection = dynamic(() => import('./BlogSection'), { loading: () => <Loading /> });
 const BrojcaniciSection = dynamic(() => import('./BrojcaniciSection'), { loading: () => <Loading /> });
-const UslugeSection = dynamic(() => import('./UslugeSection'), { loading: () => <Loading /> });
 const PartnersSection = dynamic(() => import('./PartnersSection'), { loading: () => <Loading /> });
-const CarouselBase = dynamic(() => import('./CarouselBase'), { loading: () => <Loading /> });
+
 const TestimonialsSection = dynamic(() => import('./TestimonialsSection'), { loading: () => <Loading /> });
-const WhyUsSection = dynamic(() => import('./WhyUsSection'), { loading: () => <Loading /> });
+
 const DocumentsCatalogsSection = dynamic(() => import('./DocumentsCatalogsSection'), { loading: () => <Loading /> });
 const NewsTrack = dynamic(() => import('../components/NewsTrack'), { loading: () => <Loading /> });
 
 export default async function Landing({ params: { lang } }: { params: { lang: string } }) {
-  try {
-    const queryConfigs = allQueries(lang);
+  const datasetLanding = await fetchData(naslovnaQuery(lang));
 
-    const results = await Promise.all(
-      queryConfigs.map(async ({ query, noCache }) => {
-        try {
-          const data = await fetchData(query, noCache);
-          return data;
-        } catch (error) {
-          console.error(`Error fetching query: ${query}`, error);
-          return { error: true };
-        }
-      })
-    );
+  const heroDataShorthand = !datasetLanding.error ? datasetLanding.data.allHeroSekcija.edges[0] || null : null;
 
-    const [
-      getAllHeroContent,
-      getAllBlogs,
-      getAllBrojcanici,
-      getAllUsluge,
-      getAllPartnersLogos,
-      getAllCarouselBase,
-      getAllIskustvaKlijenata,
-      getAllWhyUs,
-      getAllObavijesti,
-      getAllDocuments,
-      getAllCategories,
-      getAllTags,
-      getAllAdminCtaSelection,
-    ] = results;
+  const blogDataArrayShorthand = !datasetLanding.error ? datasetLanding.data.allBlog.edges || [] : [];
+  const brojcaniciDataArrayShorthand = !datasetLanding.error ? datasetLanding?.data?.allBrojcanici?.edges || [] : [];
 
-    const heroDataShorthand = !getAllHeroContent.error ? getAllHeroContent.data.allHeroSekcija.edges[0] || null : null;
+  const logotipiPartneraDataArrayShorthand = !datasetLanding.error
+    ? datasetLanding?.data?.logotipiPartneraKlijenata?.edges || []
+    : [];
 
-    const blogDataArrayShorthand = !getAllBlogs.error ? getAllBlogs?.data?.allBlog?.edges || [] : [];
-    const brojcaniciDataArrayShorthand = !getAllBrojcanici.error
-      ? getAllBrojcanici?.data?.allBrojcanici?.edges || []
-      : [];
-    const uslugeDataArrayShorthand = !getAllUsluge.error ? getAllUsluge?.data?.allUsluge?.edges || [] : [];
-    const logotipiPartneraDataArrayShorthand = !getAllPartnersLogos.error
-      ? getAllPartnersLogos?.data?.logotipiPartneraKlijenata?.edges || []
-      : [];
-    const baseCarouselDataShorthand = !getAllCarouselBase.error
-      ? getAllCarouselBase?.data?.karuselNaslovnica?.edges[0]?.node || null
-      : null;
-    const iskustvaKlijenataShorthand = !getAllIskustvaKlijenata.error
-      ? getAllIskustvaKlijenata?.data?.allIskustvaKlijenata?.edges || []
-      : [];
-    const whyUsDataShorthand = !getAllWhyUs.error ? getAllWhyUs?.data?.allWhyus?.edges || [] : [];
-    const obavijestiNaStraniciDataShorthand = !getAllObavijesti.error
-      ? getAllObavijesti?.data?.allObavijestiNaStranici?.edges || []
-      : [];
-    const dokumentiKataloziDataShorthand = !getAllDocuments.error
-      ? getAllDocuments?.data?.dokumentikatalozi?.edges || []
-      : [];
-    const kategorijeDataShorthand = !getAllCategories.error ? getAllCategories?.data?.categories?.edges || [] : [];
-    const tagsDataShorthand = !getAllTags.error ? getAllTags?.data?.tags?.edges || [] : [];
-    const adminCtaSelection = !getAllAdminCtaSelection.error
-      ? getAllAdminCtaSelection?.data?.adminSetupArea.edges[0]?.node || null
-      : null;
+  const iskustvaKlijenataShorthand = !datasetLanding.error
+    ? datasetLanding?.data?.allIskustvaKlijenata?.edges || []
+    : [];
 
-    return (
-      <main className='relative w-full dark:bg-primarna-tamna'>
-        <AppHero heroContent={heroDataShorthand} lang={lang} />
+  const obavijestiNaStraniciDataShorthand = !datasetLanding.error
+    ? datasetLanding?.data?.allObavijestiNaStranici?.edges || []
+    : [];
+  const dokumentiKataloziDataShorthand = !datasetLanding.error
+    ? datasetLanding?.data?.dokumentikatalozi?.edges || []
+    : [];
+  const kategorijeDataShorthand = !datasetLanding.error ? datasetLanding?.data?.categories?.edges || [] : [];
+  const tagsDataShorthand = !datasetLanding.error ? datasetLanding?.data?.tags?.edges || [] : [];
+  const adminCtaSelection = !datasetLanding.error ? datasetLanding?.data?.adminSetupArea.edges[0]?.node || null : null;
 
-        {blogDataArrayShorthand.length > 0 && (
-          <BlogSection
-            pageContent={blogDataArrayShorthand}
-            lang={lang}
-            categoriesList={kategorijeDataShorthand}
-            tagsList={tagsDataShorthand}
-            blogCtaKey={adminCtaSelection ? adminCtaSelection.adminGlobalniSelektorCta.blogSekcijaCta[0] : ''}
-            blogTableKey={process.env.BLOG_AIRTABLE_CTA_ID!}
-          />
-        )}
+  return (
+    <main className='relative w-full dark:bg-primarna-tamna'>
+      <AppHero heroContent={heroDataShorthand} lang={lang} />
 
-        {brojcaniciDataArrayShorthand.length > 0 && (
-          <BrojcaniciSection pageContent={brojcaniciDataArrayShorthand} lang={lang} />
-        )}
+      {blogDataArrayShorthand.length > 0 && (
+        <BlogSection
+          pageContent={blogDataArrayShorthand}
+          lang={lang}
+          categoriesList={kategorijeDataShorthand}
+          tagsList={tagsDataShorthand}
+          blogCtaKey={adminCtaSelection ? adminCtaSelection.adminGlobalniSelektorCta.blogSekcijaCta[0] : ''}
+          blogTableKey={process.env.BLOG_AIRTABLE_CTA_ID!}
+        />
+      )}
 
-        {uslugeDataArrayShorthand.length > 0 && <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />}
-        {logotipiPartneraDataArrayShorthand.length > 0 && (
-          <PartnersSection pageContent={logotipiPartneraDataArrayShorthand} />
-        )}
-        {baseCarouselDataShorthand && <CarouselBase imageArray={baseCarouselDataShorthand} />}
-        {iskustvaKlijenataShorthand.length > 0 && (
-          <TestimonialsSection pageContent={iskustvaKlijenataShorthand} lang={lang} />
-        )}
-        {whyUsDataShorthand.length > 0 && <WhyUsSection pageContent={whyUsDataShorthand} lang={lang} />}
-        {dokumentiKataloziDataShorthand.length > 0 && (
-          <DocumentsCatalogsSection pageContent={dokumentiKataloziDataShorthand} lang={lang} />
-        )}
-        {obavijestiNaStraniciDataShorthand.length > 0 && (
-          <NewsTrack pageContent={obavijestiNaStraniciDataShorthand} lang={lang} />
-        )}
-      </main>
-    );
-  } catch (error) {
-    console.error('Error loading page content:', error);
-    return <h2>Error loading content. Please try again later. {JSON.stringify(`Error: ${error}`)}</h2>;
-  }
+      {brojcaniciDataArrayShorthand.length > 0 && (
+        <BrojcaniciSection pageContent={brojcaniciDataArrayShorthand} lang={lang} />
+      )}
+
+      {logotipiPartneraDataArrayShorthand.length > 0 && (
+        <PartnersSection pageContent={logotipiPartneraDataArrayShorthand} />
+      )}
+
+      {iskustvaKlijenataShorthand.length > 0 && (
+        <TestimonialsSection pageContent={iskustvaKlijenataShorthand} lang={lang} />
+      )}
+
+      {dokumentiKataloziDataShorthand.length > 0 && (
+        <DocumentsCatalogsSection pageContent={dokumentiKataloziDataShorthand} lang={lang} />
+      )}
+      {obavijestiNaStraniciDataShorthand.length > 0 && (
+        <NewsTrack pageContent={obavijestiNaStraniciDataShorthand} lang={lang} />
+      )}
+    </main>
+  );
 }
