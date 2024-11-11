@@ -130,7 +130,7 @@ const PageContent = ({
             Ja se automatski krećem
           </h4>
 
-          <div className='w-full flex max-w-[840px]'>
+          <div className='w-full flex max-w-[840px] gap-4'>
             <Marquee direction='up'>{imageArray1}</Marquee>
             <Marquee reverse direction='up'>
               {imageArray2}
@@ -144,16 +144,24 @@ const PageContent = ({
         <h4 className='lg:text-text-base-l-xl md:text-text-base-l-desktop text-text-base-l-mobiletablet'>
           Ja reagiram na scroll
         </h4>
-        <div ref={containerRefScroll} className='flex overflow-hidden max-h-[600px]'>
-          <motion.div style={{ y: yTransform1 }} transition={{ ease: 'linear' }} className='flex flex-col'>
+        <div ref={containerRefScroll} className='flex overflow-hidden max-h-[600px] gap-4'>
+          <motion.div style={{ y: yTransform1 }} transition={{ ease: 'linear' }} className='flex flex-col gap-4'>
             {imageArray1}
           </motion.div>
 
-          <motion.div style={{ y: yTransform2 }} transition={{ delay: 100, ease: 'linear' }} className='flex flex-col'>
+          <motion.div
+            style={{ y: yTransform2 }}
+            transition={{ delay: 100, ease: 'linear' }}
+            className='flex flex-col gap-4'
+          >
             {imageArray2}
           </motion.div>
 
-          <motion.div style={{ y: yTransform3 }} transition={{ delay: 150, ease: 'linear' }} className='flex flex-col'>
+          <motion.div
+            style={{ y: yTransform3 }}
+            transition={{ delay: 150, ease: 'linear' }}
+            className='flex flex-col gap-4'
+          >
             {slickImagesInfi}
           </motion.div>
         </div>
