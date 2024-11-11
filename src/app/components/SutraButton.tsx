@@ -1,5 +1,5 @@
 interface SutraButtonInterface {
-  size: 'xs' | 'sm' | 'base' | 'lg' | 'xl';
+  size?: 'xs' | 'sm' | 'base' | 'lg' | 'xl';
   frontIcon?: React.ElementType;
   backIcon?: React.ElementType;
   onClickAction?: () => any;
@@ -1163,6 +1163,66 @@ export const LinkButtonAccent = ({
       onClick={onClickAction}
       type={type}
       className={`${calcSizes()} transition-all ease-in-out  bg-transparent outline-none border-none cursor-pointer text-accent-boja hover:text-primarna-tamna active:text-primarna-svijetla`}
+    >
+      <span>{innerText}</span>
+    </button>
+  );
+};
+
+export const LinkButton = ({
+  size,
+  frontIcon: FrontIcon,
+  backIcon: BackIcon,
+  onClickAction,
+  innerText,
+  type,
+  isSingleIconButton,
+  singleIconSource: SingleIconSource,
+}: SutraButtonInterface) => {
+  const calcRadius = () => {
+    if (size === 'xs') return 'rounded-single-icon-xs  p-1';
+    if (size === 'sm') return 'rounded-single-icon-s  p-2';
+    if (size === 'base') return 'rounded-single-icon-base  p-2.5';
+    if (size === 'lg') return 'rounded-single-icon-l p-3';
+    if (size === 'xl') return 'rounded-single-icon-xl p-3.5';
+  };
+  if (FrontIcon || BackIcon) {
+    return (
+      <button
+        className={`lg:px-botun-l-lr lg:py-botun-l-td lg:text-button-l lg:rounded-botun-l md:px-botun-base-lr md:py-botun-base-td md:text-button-base md:rounded-botun-base px-botun-s-lr py-botun-s-td text-button-small rounded-botun-s lg:gap-element-inside-btn-l md:gap-element-inside-btn-m gap-element-inside-btn-s
+          
+      flex items-center justify-start transition-all ease-in-out bg-transparent outline-none border-none cursor-pointer text-primarna-tamna hover:text-sekundarna-tamna active:text-accent-boja
+        
+      relative after:absolute after:w-0 after:h-px after:transition-all after:duration-300 after:ease-out after:bg-red-600 after:bottom-0 after:right-0 hover:after:w-full hover:after:left-0 hover:after:right-auto
+        `}
+      >
+        {BackIcon && <BackIcon className='shrink-0' />}
+        <span>{innerText}</span>
+        {FrontIcon && <FrontIcon className='shrink-0' />}
+      </button>
+    );
+  }
+
+  if (isSingleIconButton && SingleIconSource) {
+    return (
+      <button
+        className={`${calcRadius()} text-[24px] flex items-center justify-center transition-all ease-in-out   bg-transparent outline-none border-none cursor-pointer text-primarna-tamna hover:text-sekundarna-tamna active:text-accent-boja`}
+      >
+        <SingleIconSource />
+      </button>
+    );
+  }
+
+  return (
+    <button
+      onClick={onClickAction}
+      type={type}
+      className={`lg:px-botun-l-lr lg:py-botun-l-td lg:text-button-l lg:rounded-botun-l md:px-botun-base-lr md:py-botun-base-td md:text-button-base md:rounded-botun-base px-botun-s-lr py-botun-s-td text-button-small rounded-botun-s lg:gap-element-inside-btn-l md:gap-element-inside-btn-m gap-element-inside-btn-s
+          
+      flex items-center justify-start transition-all ease-in-out bg-transparent outline-none border-none cursor-pointer text-primarna-tamna hover:text-sekundarna-tamna active:text-accent-boja
+        
+      relative after:absolute after:w-0 after:h-px after:transition-all after:duration-300 after:ease-out after:bg-red-600 after:bottom-0 after:right-0 hover:after:w-full hover:after:left-0 hover:after:right-auto
+        `}
     >
       <span>{innerText}</span>
     </button>
