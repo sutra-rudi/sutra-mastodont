@@ -1,14 +1,17 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Lightbox from 'yet-another-react-lightbox';
 import Slider from 'react-slick';
 import Image from 'next/image';
 import 'yet-another-react-lightbox/styles.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import '@devnomic/marquee/dist/index.css';
 import Loading from '@/app/loading';
 import { infiScrollSettings, multipleRows } from '@/app/scriptSettings/slickOptions';
+import { Marquee } from '@devnomic/marquee';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 interface ImageData {
   src: string;
@@ -35,6 +38,27 @@ const PageContent = ({
   const [index, setIndex] = useState(-1);
 
   const handleClick = (index: number) => setIndex(index);
+  const containerRefScroll = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRefScroll,
+    offset: ['start end', 'end start'],
+  });
+
+  const yTransform1 = useTransform(scrollYProgress, [0, 1], [0, -300]);
+  const yTransform2 = useTransform(scrollYProgress, [0, 1], [0, -600]);
+  const yTransform3 = useTransform(scrollYProgress, [0, 1], [0, -200]);
+
+  const imageArrayMasonry = filteredGallery3.map((image, index) => (
+    <img
+      key={`${index}-${image.src}`}
+      className={`w-full object-cover object-center break-inside`}
+      alt='ciao'
+      src={image.src}
+      style={{ height: `${Math.floor(Math.random() * 150) + 250}px` }}
+      onError={(img) => img.currentTarget.classList.add('display-none')}
+    />
+  ));
 
   const imageArray1 = filteredGallery1.map((image, index) => (
     <Image
@@ -100,6 +124,48 @@ const PageContent = ({
 
   return (
     <div className='p-4'>
+      {filteredGallery1.length > 0 && (
+        <div className='flex overflow-hidden max-h-screen items-start justify-center gap-12 lg:flex-nowrap flex-wrap mb-8'>
+          <h4 className='lg:text-text-base-l-xl md:text-text-base-l-desktop text-text-base-l-mobiletablet'>
+            Ja se automatski krećem
+          </h4>
+
+          <div className='w-full flex max-w-[840px]'>
+            <Marquee direction='up'>{imageArray1}</Marquee>
+            <Marquee reverse direction='up'>
+              {imageArray2}
+            </Marquee>
+            <Marquee direction='up'>{slickImagesInfi}</Marquee>
+          </div>
+        </div>
+      )}
+
+      <div className='flex justify-center gap-12 lg:flex-nowrap flex-wrap mb-8'>
+        <h4 className='lg:text-text-base-l-xl md:text-text-base-l-desktop text-text-base-l-mobiletablet'>
+          Ja reagiram na scroll
+        </h4>
+        <div ref={containerRefScroll} className='flex overflow-hidden max-h-[600px]'>
+          <motion.div style={{ y: yTransform1 }} transition={{ ease: 'linear' }} className='flex flex-col'>
+            {imageArray1}
+          </motion.div>
+
+          <motion.div style={{ y: yTransform2 }} transition={{ delay: 100, ease: 'linear' }} className='flex flex-col'>
+            {imageArray2}
+          </motion.div>
+
+          <motion.div style={{ y: yTransform3 }} transition={{ delay: 150, ease: 'linear' }} className='flex flex-col'>
+            {slickImagesInfi}
+          </motion.div>
+        </div>
+      </div>
+
+      <div className='flex justify-center gap-12 lg:flex-nowrap flex-wrap mb-8'>
+        <h4 className='lg:text-text-base-l-xl md:text-text-base-l-desktop text-text-base-l-mobiletablet'>
+          Ja sam masonry layout bez librarija :D
+        </h4>
+        <div className='columns-2 md:columns-4 gap-4 space-y-4 max-w-[840px]'>{imageArrayMasonry}</div>
+      </div>
+
       <div className='flex flex-col gap-2 items-center justify-center'>
         <h2 className='font-bold mb-4 text-center text-4xl text-primarna-tamna dark:text-primarna-svijetla'>
           Basic galerija
@@ -107,7 +173,7 @@ const PageContent = ({
         <p className='text-primarna-tamna dark:text-primarna-svijetla'>Koristi slike iz gallery 1 mape</p>
       </div>
       {filteredGallery1.length > 0 ? (
-        <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8'>{imageArray1}</div>
+        <div className='grid grid-cols-2  md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8'>{imageArray1}</div>
       ) : (
         <div className='w-full h-full min-h-56 relative'>
           <Loading />
@@ -123,9 +189,7 @@ const PageContent = ({
         </div>
         {imageArray2.length > 0 ? (
           <>
-            <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8'>
-              {imageArray2}
-            </div>
+            <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8'>{imageArray2}</div>
 
             <Lightbox
               slides={slides}
@@ -217,64 +281,6 @@ const PageContent = ({
             <Loading />
           </div>
         )}
-      </div>
-
-      <div className='mb-8'>
-        <div className='flex flex-col gap-2 items-center justify-center'>
-          <h2 className='font-bold mb-4 text-center text-4xl text-primarna-tamna dark:text-primarna-svijetla'>
-            Tailwindblocks Masonry galerija
-          </h2>
-          <p className='text-primarna-tamna dark:text-primarna-svijetla'>
-            Koristi slike iz gallery 5 mape i iz gallery 3 mape
-          </p>
-        </div>
-        <div className='container px-5 py-24 mx-auto flex flex-wrap'>
-          <div className='flex w-full mb-20 flex-wrap'>
-            <h1 className='sm:text-3xl text-2xl font-medium title-font lg:w-1/3 lg:mb-0 mb-4'>
-              Master Cleanse Reliac Heirloom
-            </h1>
-            <p className='lg:pl-6 lg:w-2/3 mx-auto leading-relaxed text-base'>
-              Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table.
-              Franzen you probably haven&#39;t heard of them.
-            </p>
-          </div>
-          <div className='flex flex-wrap md:-m-2 -m-1'>
-            {filteredGallery3.map((image, index) => (
-              <div key={index} className='flex flex-wrap w-1/2'>
-                <div className='md:p-2 p-1 w-1/2'>
-                  <Image
-                    alt='gallery'
-                    className='w-full object-cover h-full object-center block'
-                    src={image.src}
-                    width={500}
-                    height={300}
-                    onError={(img) => img.currentTarget.classList.add('display-none')}
-                  />
-                </div>
-                <div className='md:p-2 p-1 w-1/2'>
-                  <Image
-                    alt='gallery'
-                    className='w-full object-cover h-full object-center block'
-                    src={image.src}
-                    width={501}
-                    height={300}
-                    onError={(img) => img.currentTarget.classList.add('display-none')}
-                  />
-                </div>
-                <div className='md:p-2 p-1 w-full'>
-                  <Image
-                    alt='gallery'
-                    className='w-full h-full object-cover object-center block'
-                    src={image.src}
-                    width={600}
-                    height={360}
-                    onError={(img) => img.currentTarget.classList.add('display-none')}
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </div>
   );

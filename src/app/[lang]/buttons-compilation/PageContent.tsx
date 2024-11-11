@@ -9,6 +9,7 @@ import {
   ButtonOutlinePrimaryLight,
   DarkGradientButton,
   LightGradientButton,
+  LinkButton,
   LinkButtonAccent,
   LinkButtonPrimaryDark,
   LinkButtonPrimaryLight,
@@ -24,6 +25,9 @@ const PageContent = () => {
     <section className='w-full min-h-screen'>
       <h2 className='w-full text-h0_2xl font-medium text-center dark:text-primarna-svijetla'>BOTUNI</h2>
       <div className='grid grid-cols-1 gap-8 place-items-start mt-6 pb-24'>
+        <div className=''>
+          <LinkButton innerText='Link button' />
+        </div>
         <div className='w-full flex items-center gap-10 flex-col'>
           <h3 className='text-h3_md dark:text-primarna-svijetla w-full text-center bg-red-400'>Brand color button</h3>
           <div className='flex items-center justify-start gap-4'>

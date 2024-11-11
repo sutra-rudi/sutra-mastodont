@@ -6,7 +6,7 @@ const checkImageUrl = async (url: string): Promise<boolean> => {
   try {
     const response = await fetch(url, {
       method: 'HEAD',
-      next: { revalidate: 3600 },
+      cache: 'force-cache',
     });
     return response.ok;
   } catch {
@@ -28,7 +28,7 @@ const filterImages = async (gallery: any[]) => {
 export default async function GalleryPage() {
   const fetchMediaPaths = async () => {
     try {
-      const response = await fetch(`${process.env.BASE_APP_URL}/api/mediaPaths`, {});
+      const response = await fetch(`${process.env.BASE_APP_URL}/api/mediaPaths`, { cache: 'force-cache' });
 
       if (!response.ok) {
         throw new Error('Neuspješno dohvaćanje putanja medija');
