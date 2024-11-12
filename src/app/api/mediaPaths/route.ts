@@ -730,6 +730,15 @@ const mediaPaths = {
     shadowSideShadows: `${basePath}/Shadows/Shadow_Side_Shadows.png`,
   },
 
+  siteLogo: {
+    verticalLight: `${basePath}/SITE-LOGO/SiteLogo-Vertical-Light_Mode.svg`,
+    verticalDark: `${basePath}/SITE-LOGO/SiteLogo-Vertical-Dark_Mode.svg`,
+    horizontalLight: `${basePath}/SITE-LOGO/SiteLogo-horizontal-Dark_Mode.svg`,
+    horizontalDark: `${basePath}/SITE-LOGO/SiteLogo-horizontal-Light_Mode.svg`,
+    logoLight: `${basePath}/SITE-LOGO/SiteLogo-logo-Light_Mode.svg`,
+    logoDark: `${basePath}/SITE-LOGO/SiteLogo-logo-Dark_Mode.svg`,
+  },
+
   // Ostale grupe medijskih putanja
 };
 

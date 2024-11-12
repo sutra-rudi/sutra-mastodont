@@ -65,6 +65,7 @@ const AppHeader = () => {
       { url: `/${currentLang}/brojcanici`, title: 'Brojcanici PAGE' },
       { url: `/${currentLang}/client-testimonials`, title: 'Testimonials PAGE' },
       { url: `/${currentLang}/programerski-test`, title: 'RUDI PAGE' },
+      { url: `/${currentLang}/nav-trake`, title: 'NAVBAR TRAKE' },
     ],
     visuals: [{ url: `/${currentLang}/textures-bg`, title: 'Teksture pozadine' }],
   };
