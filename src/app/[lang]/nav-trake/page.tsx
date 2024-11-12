@@ -6,6 +6,8 @@ export default async function NavbarTrakeKompilacija() {
 
   const { siteLogo } = MEDIA_PATHS;
 
+  console.log('MEDIA', siteLogo);
+
   return (
     <main>
       <PageContent logoPaths={siteLogo} />
