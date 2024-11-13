@@ -4,13 +4,11 @@ import PageContent from './PageContent';
 export default async function NavbarTrakeKompilacija() {
   const MEDIA_PATHS = await fetchMediaPaths();
 
-  const { siteLogo } = MEDIA_PATHS;
-
-  console.log('MEDIA', siteLogo);
+  const { siteLogo, siteIcons } = MEDIA_PATHS;
 
   return (
     <main>
-      <PageContent logoPaths={siteLogo} />
+      <PageContent logoPaths={siteLogo} iconPaths={siteIcons} />
     </main>
   );
 }
