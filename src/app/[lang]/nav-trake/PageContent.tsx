@@ -195,7 +195,7 @@ const PageContent = ({ logoPaths, iconPaths }: NavbarResources) => {
       <nav className='w-full bg-divider-lightmode'>
         <div
           title='glavni nav'
-          className='w-full flex lg:flex-col items-center justify-center -px--xl---m py-5 xl:-gap--xl---m lg:-gap--desktop---m md:-gap--tablet---m -gap--mobile---m'
+          className='w-full flex lg:flex-col items-center justify-center -px--xl---m md:py-5 py-2 xl:-gap--xl---m lg:-gap--desktop---m md:-gap--tablet---m -gap--mobile---m'
         >
           <Image
             src={logoPaths.horizontalLight}
