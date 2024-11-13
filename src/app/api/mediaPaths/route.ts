@@ -739,6 +739,91 @@ const mediaPaths = {
     logoDark: `${basePath}/SITE-LOGO/SiteLogo-logo-Dark_Mode.svg`,
   },
 
+  siteIcons: {
+    langSwitcherLight: `${basePath}/SVG/NAVBAR/GLOBE-ICON/Lang-icon-globe-LIGHT_MODE.svg`,
+    langSwitcherDark: `${basePath}/SVG/NAVBAR/GLOBE-ICON/Lang-icon-globe-DARK_MODE.svg`,
+    nadNavbar: {
+      phoneLight: `${basePath}/SVG/NAVBAR/NADNAVBAR-icon-Phone-light-mode.svg`,
+      phoneDark: `${basePath}/SVG/NAVBAR/NADNAVBAR-icon-Phone-dark-mode.svg`,
+      mailLight: `${basePath}/SVG/NAVBAR/NADNAVBAR-icon-email-light-mode.svg`,
+      mailDark: `${basePath}/SVG/NAVBAR/NADNAVBAR-icon-email-dark-mode.svg`,
+      mailLightAlt: `${basePath}/SVG/NAVBAR/NADNAVBAR-icon-email-light-mode-1.svg`,
+      mailDarkAlt: `${basePath}/SVG/NAVBAR/NADNAVBAR-icon-email-dark-mode-1.svg`,
+    },
+    dropdownArrows: {
+      downPraznaLight: `${basePath}/SVG/ARROWS-DROPDOWN/Down-prazna-Light_mode.svg`,
+      downPraznaDark: `${basePath}/SVG/ARROWS-DROPDOWN/Down-prazna-Dark_mode.svg`,
+      arrow: `${basePath}/SVG/ARROWS-DROPDOWN/dropdown-arrows.svg`,
+      arrowAlt: `${basePath}/SVG/ARROWS-DROPDOWN/dropdown-arrows-1.svg`,
+      rightTrokutLight: `${basePath}/SVG/ARROWS-DROPDOWN/Right-trokut-Light_mode.svg`,
+      rightTrokutDark: `${basePath}/SVG/ARROWS-DROPDOWN/Right-trokut-Dark_mode.svg`,
+      downTrokutLight: `${basePath}/SVG/ARROWS-DROPDOWN/Down-trokut-Light_mode.svg`,
+      downTrokutDark: `${basePath}/SVG/ARROWS-DROPDOWN/Down-trokut-Dark_mode.svg`,
+    },
+
+    arrows: {
+      kruznaLeftLight: `${basePath}/SVG/ARROWS/arrows-carousel-gallery-Kruzna-Left-Light_Mode.svg`,
+      kruznaLeftDark: `${basePath}/SVG/ARROWS/arrows-carousel-gallery-Kruzna-Left-Dark_Mode.svg`,
+      kruznaRightLight: `${basePath}/SVG/ARROWS/arrows-carousel-gallery-Kruzna-Right-Light_Mode.svg`,
+      kruznaRightDark: `${basePath}/SVG/ARROWS/arrows-carousel-gallery-Kruzna-RIGHT-Dark_Mode.svg`,
+      obicnaLeftLight: `${basePath}/SVG/ARROWS/arrows-carousel-gallery-Obicna-LEFT-Light_mode.svg`,
+      obicnaLeftDark: `${basePath}/SVG/ARROWS/arrows-carousel-gallery-Obicna-LEFT-Dark_mode.svg`,
+      obicnaRightLight: `${basePath}/SVG/ARROWS/arrows-carousel-gallery-Obicna-RIGHT-Light_mode.svg`,
+      obicnaRightDark: `${basePath}/SVG/ARROWS/arrows-carousel-gallery-Obicna-RIGHT-Dark_mode.svg`,
+      saPodlogomLeftLight: `${basePath}/SVG/ARROWS/arrows-carousel-gallery-sa_podlogom-Left-Light_Mode.svg`,
+      saPodlogomLeftDark: `${basePath}/SVG/ARROWS/arrows-carousel-gallery-sa_podlogom-Left-Dark_Mode.svg`,
+      saPodlogomRightLight: `${basePath}/SVG/ARROWS/arrows-carousel-gallery-sa_podlogom-RIGHT-Light_Mode.svg`,
+      saPodlogomRightDark: `${basePath}/SVG/ARROWS/arrows-carousel-gallery-sa_podlogom-RIGHT-Dark_Mode.svg`,
+      obicnaStrelicaLeftLight: `${basePath}/SVG/ARROWS/Obicna-strelica-Left-Light_Mode.svg`,
+      obicnaStrelicaLeftDark: `${basePath}/SVG/ARROWS/Obicna-strelica-Left-Dark_Mode.svg`,
+      obicnaStrelicaRightLight: `${basePath}/SVG/ARROWS/Obicna-strelica-RIGHT-Light_Mode.svg`,
+      obicnaStrelicaRightDark: `${basePath}/SVG/ARROWS/Obicna-strelica-RIGHT-Dark_Mode.svg`,
+    },
+
+    countryIcons: {
+      hr: {
+        krug: `${basePath}/SVG/FLAGS/flags-HR--Krug_oblik.svg`,
+        rounded: `${basePath}/SVG/FLAGS/flags-HR--Rounded_oblik.svg`,
+        pravokut: `${basePath}/SVG/FLAGS/flags-HR--Pravokutni_oblik.svg`,
+      },
+      eng: {
+        krug: `${basePath}/SVG/FLAGS/Flags-ENG--Krug_oblik.svg`,
+        rounded: `${basePath}/SVG/FLAGS/Flags-ENG--Rounded_oblik.svg`,
+        pravokut: `${basePath}/SVG/FLAGS/Flags-ENG--Pravokutni_oblik.svg`,
+      },
+      ita: {
+        krug: `${basePath}/SVG/FLAGS/Flags-ITA--Krug_oblik.svg`,
+        rounded: `${basePath}/SVG/FLAGS/Flags-ITA--Rounded_oblik.svg`,
+        pravokut: `${basePath}/SVG/FLAGS/Flags-ITA--Pravokutni_oblik.svg`,
+      },
+      ger: {
+        krug: `${basePath}/SVG/FLAGS/Flags-GER--Krug_oblik.svg`,
+        rounded: `${basePath}/SVG/FLAGS/Flags-GER--Rounded_oblik.svg`,
+        pravokut: `${basePath}/SVG/FLAGS/Flags-GER--Pravokutni_oblik.svg`,
+      },
+      ned: {
+        krug: `${basePath}/SVG/FLAGS/Flags-NED--Krug_oblik.svg`,
+        rounded: `${basePath}/SVG/FLAGS/Flags-NED--Rounded_oblik.svg`,
+        pravokut: `${basePath}/SVG/FLAGS/Flags-NED--Pravokutni_oblik.svg`,
+      },
+      slo: {
+        krug: `${basePath}/SVG/FLAGS/Flags-SLO--Krug_oblik.svg`,
+        rounded: `${basePath}/SVG/FLAGS/Flags-SLO--Rounded_oblik.svg`,
+        pravokut: `${basePath}/SVG/FLAGS/Flags-SLO--Pravokutni_oblik.svg`,
+      },
+      fra: {
+        krug: `${basePath}/SVG/FLAGS/Flags-FRA--Krug_oblik.svg`,
+        rounded: `${basePath}/SVG/FLAGS/Flags-FRA--Rounded_oblik.svg`,
+        pravokut: `${basePath}/SVG/FLAGS/Flags-FRA--Pravokutni_oblik.svg`,
+      },
+      esp: {
+        krug: `${basePath}/SVG/FLAGS/Flags-ESP--Krug_oblik.svg`,
+        rounded: `${basePath}/SVG/FLAGS/Flags-ESP--Rounded_oblik.svg`,
+        pravokut: `${basePath}/SVG/FLAGS/Flags-ESP--Pravokutni_oblik.svg`,
+      },
+    },
+  },
+
   // Ostale grupe medijskih putanja
 };
 

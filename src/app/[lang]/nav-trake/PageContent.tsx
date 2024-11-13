@@ -22,14 +22,15 @@ const PageContent = ({ logoPaths }: NavbarResources) => {
         >
           <div className='flex items-center justify-start -gap--xl---xl'>
             <div className='flex items-center justify-start gap-4'>
-              <div className='w-4 h-4 bg-accent-boja'></div>
-              <div className='w-4 h-4 bg-accent-boja'></div>
-              <div className='w-4 h-4 bg-accent-boja'></div>
+              <div className='w-4 h-4 relative'>{/* <Image src={fb_icon} alt='Facebook icon' fill /> */}</div>
+
+              <div className='w-4 h-4 relative'>{/* <Image src={insta_icon} alt='Instagram icon' fill /> */}</div>
+              <div className='w-4 h-4 relative'>{/* <Image src={yt_icon} alt='Youtube icon' fill /> */}</div>
             </div>
 
             <div className='flex items-center gap-9'>
               <div className='flex items-center justify-start gap-3 text-primarna-svijetla'>
-                <div className='w-4 h-4 bg-accent-boja'></div>
+                <div className=''></div>
                 <span>info@sutra.hr</span>
               </div>
 
