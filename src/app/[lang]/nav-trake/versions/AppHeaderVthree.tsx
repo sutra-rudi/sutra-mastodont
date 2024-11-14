@@ -1,3 +1,5 @@
+'use client';
+
 import { Twirl as Hamburger } from 'hamburger-react';
 import Image from 'next/image';
 

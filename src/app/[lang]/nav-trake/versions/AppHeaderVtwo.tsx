@@ -1,3 +1,5 @@
+'use client';
+
 import { PrimaryDarkButton } from '@/app/components/SutraButton';
 import { FaArrowRight as RightIcon } from 'react-icons/fa6';
 import { Twirl as Hamburger } from 'hamburger-react';

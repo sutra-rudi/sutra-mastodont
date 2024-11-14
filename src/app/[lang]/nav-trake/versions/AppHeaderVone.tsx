@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 import fbIcon from '../../../imageMaterials/facebook-icon.svg';
 import instaIcon from '../../../imageMaterials/instagram-icon.svg';
