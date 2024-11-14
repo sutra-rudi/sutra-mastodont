@@ -93,7 +93,7 @@ const PageContent = ({ logoPaths, iconPaths }: NavbarResources) => {
               ))}
             </div>
             <div className='md:block hidden'>
-              <PrimaryDarkButton innerText='Button text' size='base' frontIcon={RightIcon} />
+              <PrimaryDarkButton innerText='Button text' frontIcon={RightIcon} />
             </div>
             <div className='flex items-center justify-start gap-1'>
               <Image
@@ -120,8 +120,8 @@ const PageContent = ({ logoPaths, iconPaths }: NavbarResources) => {
               <Image
                 alt='Arrow icon'
                 src={iconPaths.dropdownArrows.downPraznaLight}
-                width={7}
-                height={7}
+                width={14}
+                height={14}
                 className='dark:hidden block'
               />
             </div>
@@ -176,8 +176,8 @@ const PageContent = ({ logoPaths, iconPaths }: NavbarResources) => {
               <Image
                 alt='Arrow icon'
                 src={iconPaths.dropdownArrows.downPraznaLight}
-                width={7}
-                height={7}
+                width={14}
+                height={14}
                 className='dark:hidden block'
               />
             </div>
@@ -240,8 +240,8 @@ const PageContent = ({ logoPaths, iconPaths }: NavbarResources) => {
               <Image
                 alt='Arrow icon'
                 src={iconPaths.dropdownArrows.downPraznaLight}
-                width={7}
-                height={7}
+                width={14}
+                height={14}
                 className='dark:hidden block'
               />
             </div>
