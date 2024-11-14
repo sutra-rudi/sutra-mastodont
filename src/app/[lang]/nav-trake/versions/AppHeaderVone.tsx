@@ -23,6 +23,7 @@ export default function AppHeaderVone({ logoPaths, iconPaths }: NavbarResources)
 
   const [isDropdown, setIsDropdown] = React.useState<boolean>(false);
   const [isCountryDropdown, setIsCountryDropdown] = React.useState<boolean>(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState<boolean>(false);
 
   const handleClickOutsideOfContainer = () => setIsDropdown(false);
 
@@ -42,8 +43,102 @@ export default function AppHeaderVone({ logoPaths, iconPaths }: NavbarResources)
       return { [key as any]: item[key as any] };
     });
 
+  React.useEffect(() => {
+    isMobileMenuOpen
+      ? document.documentElement.classList.add('overflow-hidden')
+      : document.documentElement.classList.remove('overflow-hidden');
+  }, [isMobileMenuOpen]);
+
   return (
-    <nav className='w-full bg-divider-lightmode'>
+    <nav className='w-full bg-divider-lightmode '>
+      {/* MOBILE */}
+      <div
+        title='mobile nav'
+        className={`absolute z-40 w-full h-screen bg-primarna-svijetla inset-0 transition-all duration-300 flex items-center lg:justify-center justify-center flex-col gap-6  ${
+          isMobileMenuOpen ? 'opacity-100 pointer-events-auto select-auto' : 'opacity-0 select-none pointer-events-none'
+        }`}
+      >
+        <div className='relative w-[130px] h-[130px]'>
+          <Image src={logoPaths.horizontalLight} alt='site logo' fill className='object-center block aspect-auto' />
+        </div>
+        {StaticDemoLinks.map((lnk) => (
+          <span key={lnk} className='text-menu-tabs-desktop font-semibold'>
+            {lnk}
+          </span>
+        ))}
+
+        <PrimaryDarkButton innerText='Button text' frontIcon={RightIcon} />
+        <PrimaryDarkButton innerText='Button text' frontIcon={RightIcon} />
+
+        <div
+          onMouseOver={() => setIsCountryDropdown(true)}
+          onMouseEnter={() => setIsCountryDropdown(true)}
+          onClick={() => setIsCountryDropdown(true)}
+          ref={countryDropdownRef}
+          className='flex items-center justify-start gap-1 relative cursor-pointer'
+        >
+          <Image
+            alt='Globe icon'
+            src={iconPaths.langSwitcherLight}
+            width={14}
+            height={14}
+            className='block dark:hidden'
+          />
+          <Image
+            alt='Globe icon'
+            src={iconPaths.langSwitcherDark}
+            width={14}
+            height={14}
+            className='dark:block hidden'
+          />
+          <Image
+            alt='Arrow icon'
+            src={iconPaths.dropdownArrows.downPraznaDark}
+            width={14}
+            height={14}
+            className={`dark:block hidden text-xs shrink-0  transition-all ease-in-out duration-300 origin-center ${
+              isCountryDropdown && 'rotate-180'
+            }`}
+          />
+          <Image
+            alt='Arrow icon'
+            src={iconPaths.dropdownArrows.downPraznaLight}
+            width={14}
+            height={14}
+            className={`dark:hidden block text-xs shrink-0  transition-all ease-in-out duration-300 origin-center ${
+              isCountryDropdown && 'rotate-180'
+            }`}
+          />
+
+          <div
+            onMouseLeave={() => setIsCountryDropdown(false)}
+            className={`absolute py-4 transition-all w-full lg:min-w-48 md:min-w-36 min-w-20  duration-300 ease-custom-ease-in-out bg-primarna-svijetla grid grid-cols-1 items-start gap-4  top-[2rem] z-30 -left-4 px-4 ${
+              isCountryDropdown ? 'opacity-1 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none select-none'
+            }`}
+          >
+            {selectedCountries.map((country, index) => {
+              const [key, flagUrls]: any = Object.entries(country)[0];
+              return (
+                <div
+                  key={index}
+                  onClick={() => console.log(`Language selected: ${key}`)}
+                  className='cursor-pointer shrink-0 w-full'
+                >
+                  <Image
+                    src={flagUrls.krug}
+                    alt={`${key} flag`}
+                    width={20}
+                    height={20}
+                    className='rounded-full shrink-0'
+                  />
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+      {/* MOBILE */}
+
       <div
         title='nad nav'
         className='w-full flex items-center justify-between bg-primarna-tamna h-nad-navbar-xl -px--xl---m'
@@ -204,7 +299,7 @@ export default function AppHeaderVone({ logoPaths, iconPaths }: NavbarResources)
 
             <div
               onMouseLeave={() => setIsCountryDropdown(false)}
-              className={`absolute py-4 transition-all w-full min-w-48  duration-300 ease-custom-ease-in-out bg-primarna-svijetla grid grid-cols-1 items-start gap-4  top-[2rem] z-30 -left-4 px-4 ${
+              className={`absolute py-4 transition-all w-full lg:min-w-48 md:min-w-36 min-w-20  duration-300 ease-custom-ease-in-out bg-primarna-svijetla grid grid-cols-1 items-start gap-4  top-[2rem] z-30 -left-4 px-4 ${
                 isCountryDropdown
                   ? 'opacity-1 translate-y-0'
                   : 'opacity-0 translate-y-10 pointer-events-none select-none'
@@ -213,15 +308,25 @@ export default function AppHeaderVone({ logoPaths, iconPaths }: NavbarResources)
               {selectedCountries.map((country, index) => {
                 const [key, flagUrls]: any = Object.entries(country)[0];
                 return (
-                  <div key={index} onClick={() => console.log(`Language selected: ${key}`)} className='cursor-pointer'>
-                    <Image src={flagUrls.krug} alt={`${key} flag`} width={20} height={20} className='rounded-full' />
+                  <div
+                    key={index}
+                    onClick={() => console.log(`Language selected: ${key}`)}
+                    className='cursor-pointer shrink-0 w-full'
+                  >
+                    <Image
+                      src={flagUrls.krug}
+                      alt={`${key} flag`}
+                      width={20}
+                      height={20}
+                      className='rounded-full shrink-0'
+                    />
                   </div>
                 );
               })}
             </div>
           </div>
-          <div className='lg:hidden block'>
-            <Hamburger />
+          <div className='lg:hidden block w-min z-40'>
+            <Hamburger onToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
           </div>
         </div>
       </div>
