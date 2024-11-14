@@ -251,14 +251,6 @@ export const PrimaryDarkButton = ({
   isSingleIconButton,
   singleIconSource: SingleIconSource,
 }: SutraButtonInterface) => {
-  const calcSizes = () => {
-    if (size === 'xs') return 'px-botun-xs-lr py-botun-xs-td text-button-xs rounded-botun-xs';
-    if (size === 'sm') return 'px-botun-s-lr py-botun-s-td text-button-small rounded-botun-s';
-    if (size === 'base') return 'px-botun-base-lr py-botun-base-td text-button-base rounded-botun-base';
-    if (size === 'lg') return 'px-botun-l-lr py-botun-l-td text-button-l rounded-botun-l';
-    if (size === 'xl') return 'px-botun-xl-lr py-botun-xl-td text-button-xl rounded-botun-xl';
-  };
-
   const calcRadius = () => {
     if (size === 'xs') return 'rounded-single-icon-xs  p-1';
     if (size === 'sm') return 'rounded-single-icon-s  p-2';
@@ -269,13 +261,13 @@ export const PrimaryDarkButton = ({
   if (FrontIcon || BackIcon) {
     return (
       <button
-        className={`${calcSizes()} flex items-center justify-start transition-all ease-in-out bg-primarna-tamna outline-none border-none cursor-pointer text-primarna-svijetla hover:outline hover:outline-offset-0 hover:outline-sekundarna-svijetla hover:bg-sekundarna-tamna active:outline active:outline-offset-0 active:outline-accent-boja active:text-accent-boja active:bg-sekundarna-tamna active:outline-[3px] ${
-          size === 'xl' || size === 'lg'
-            ? 'gap-element-inside-btn-l'
-            : size === 'base'
-            ? 'gap-element-inside-btn-m'
-            : 'gap-element-inside-btn-s'
-        }`}
+        className={`xl:px-botun-l-lr xl:py-botun-l-td xl:text-button-l xl:rounded-botun-l md:px-botun-base-lr md:py-botun-base-td md:text-button-base md:rounded-botun-base px-botun-s-lr py-botun-s-td text-button-small rounded-botun-s flex items-center justify-start 
+          
+        lg:gap-element-inside-btn-l md:gap-element-inside-btn-m gap-element-inside-btn-s transition-all ease-in-out 
+        
+        bg-primarna-tamna outline-none border-none cursor-pointer text-primarna-svijetla hover:outline hover:outline-offset-0 hover:outline-sekundarna-svijetla hover:bg-sekundarna-tamna active:outline active:outline-offset-0 active:outline-accent-boja active:text-accent-boja active:bg-sekundarna-tamna active:outline-[3px]
+        
+        dark:bg-primarna-svijetla dark:outline-primarna-svijetla dark:text-primarna-tamna dark:hover:text-sekundarna-tamna dark:hover:outline-accent-boja dark:hover:bg-sekundarna-svijetla dark:active:outline-accent-boja dark:active:bg-sekundarna-svijetla`}
       >
         {BackIcon && <BackIcon className='shrink-0' />}
         <span>{innerText}</span>
@@ -298,7 +290,7 @@ export const PrimaryDarkButton = ({
     <button
       onClick={onClickAction}
       type={type}
-      className={`${calcSizes()} transition-all ease-in-out bg-primarna-tamna outline-none border-none cursor-pointer text-primarna-svijetla hover:outline hover:outline-offset-0 hover:outline-sekundarna-svijetla hover:bg-sekundarna-tamna active:outline active:outline-offset-0 active:outline-accent-boja active:text-accent-boja active:bg-sekundarna-tamna active:outline-[3px]`}
+      className={`xl:px-botun-l-lr xl:py-botun-l-td xl:text-button-l xl:rounded-botun-l md:px-botun-base-lr md:py-botun-base-td md:text-button-base md:rounded-botun-base px-botun-s-lr py-botun-s-td text-button-small rounded-botun-s transition-all ease-in-out bg-primarna-tamna outline-none border-none cursor-pointer text-primarna-svijetla hover:outline hover:outline-offset-0 hover:outline-sekundarna-svijetla hover:bg-sekundarna-tamna active:outline active:outline-offset-0 active:outline-accent-boja active:text-accent-boja active:bg-sekundarna-tamna active:outline-[3px]`}
     >
       <span>{innerText}</span>
     </button>
