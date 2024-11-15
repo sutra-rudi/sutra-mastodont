@@ -116,7 +116,7 @@ export default function AppHeaderVone({ logoPaths, iconPaths }: NavbarResources)
                 >
                   <Image src={flagUrls.krug} alt={`${key} flag`} width={20} height={20} className='rounded-full' />
 
-                  <span>
+                  <span className='text-button-base text-sekundarna-tamna'>
                     {key === 'hr' ? 'Hrvatski' : key === 'eng' ? 'English' : key === 'ita' ? 'Italiano' : 'Deutsch'}
                   </span>
                 </button>
