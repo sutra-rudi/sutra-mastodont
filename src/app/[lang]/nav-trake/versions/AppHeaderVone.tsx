@@ -4,12 +4,13 @@ import Image from 'next/image';
 import fbIcon from '../../../imageMaterials/facebook-icon.svg';
 import instaIcon from '../../../imageMaterials/instagram-icon.svg';
 import ytIcon from '../../../imageMaterials/youtube-icon.svg';
-import { PrimaryDarkButton } from '@/app/components/SutraButton';
+import { ButtonOutlinePrimaryLight, PrimaryDarkButton } from '@/app/components/SutraButton';
 import { FaArrowRight as RightIcon } from 'react-icons/fa6';
 import { Twirl as Hamburger } from 'hamburger-react';
 import React from 'react';
 import { useOnClickOutside } from 'usehooks-ts';
 import { UserLanguage } from '@/app/enums/LangEnum';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 interface NavbarResources {
   logoPaths: Record<string, string>;
@@ -18,11 +19,20 @@ interface NavbarResources {
 
 const StaticDemoLinks = ['O nama', 'Proizvodi', 'Kontakt', 'Usluge', 'Projekti'];
 export default function AppHeaderVone({ logoPaths, iconPaths }: NavbarResources) {
+  const currentPath = usePathname();
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
+  const splitPath = currentPath.split('/');
+  const currentLang = splitPath[1];
+
   const containerRef = React.useRef(null);
   const countryDropdownRef = React.useRef(null);
 
   const [isDropdown, setIsDropdown] = React.useState<boolean>(false);
   const [isCountryDropdown, setIsCountryDropdown] = React.useState<boolean>(false);
+  const [isCountryDropdownMobile, setIsCountryDropdownMobile] = React.useState<boolean>(false);
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState<boolean>(false);
 
   const handleClickOutsideOfContainer = () => setIsDropdown(false);
@@ -31,6 +41,18 @@ export default function AppHeaderVone({ logoPaths, iconPaths }: NavbarResources)
 
   useOnClickOutside(containerRef, handleClickOutsideOfContainer);
   useOnClickOutside(countryDropdownRef, handleClickOutsideOfCountryContainer);
+
+  const handleLangSwitch = (lang: string) => {
+    // Postavi kolačić na odabrani jezik
+    document.cookie = `@sutra-mastodont-user-lang=${lang}; path=/; max-age=31536000`; // 1 godina
+
+    // Preusmjeri na novu putanju
+    router.push(
+      `/${lang}${currentPath.replace(`/${currentLang}`, '')}${
+        searchParams.toString() ? '?' + searchParams.toString() : ''
+      }`
+    );
+  };
 
   const countries = Object.entries(iconPaths.countryIcons).map(([kl, val]) => ({
     [kl]: val,
@@ -54,50 +76,60 @@ export default function AppHeaderVone({ logoPaths, iconPaths }: NavbarResources)
       {/* MOBILE */}
       <div
         title='mobile nav'
-        className={`absolute z-40 w-full h-screen bg-primarna-svijetla inset-0 transition-all duration-300 flex items-center lg:justify-center justify-center flex-col gap-6  ${
+        className={`absolute z-40 w-full h-screen bg-primarna-svijetla inset-0 transition-all duration-300   ${
           isMobileMenuOpen ? 'opacity-100 pointer-events-auto select-auto' : 'opacity-0 select-none pointer-events-none'
         }`}
       >
-        <div className='relative w-[130px] h-[130px]'>
+        <div className='relative w-[130px] h-[130px] -mt--mobile---4xl -mb--mobile---5xl mx-auto'>
           <Image src={logoPaths.horizontalLight} alt='site logo' fill className='object-center block aspect-auto' />
         </div>
-        {StaticDemoLinks.map((lnk) => (
-          <span key={lnk} className='text-menu-tabs-desktop font-semibold'>
-            {lnk}
-          </span>
-        ))}
-
-        <PrimaryDarkButton innerText='Button text' frontIcon={RightIcon} />
-        <PrimaryDarkButton innerText='Button text' frontIcon={RightIcon} />
 
         <div
-          onMouseOver={() => setIsCountryDropdown(true)}
-          onMouseEnter={() => setIsCountryDropdown(true)}
-          onClick={() => setIsCountryDropdown(true)}
-          ref={countryDropdownRef}
-          className='flex items-center justify-start gap-1 relative cursor-pointer'
+          title='container inner mobile nav'
+          className='flex items-center lg:justify-center justify-center flex-col gap-6'
         >
-          <Image
-            alt='Globe icon'
-            src={iconPaths.langSwitcherLight}
-            width={14}
-            height={14}
-            className='block dark:hidden'
-          />
-          <Image
-            alt='Globe icon'
-            src={iconPaths.langSwitcherDark}
-            width={14}
-            height={14}
-            className='dark:block hidden'
-          />
+          {StaticDemoLinks.map((lnk) => (
+            <span key={lnk} className='text-menu-tabs-desktop font-semibold'>
+              {lnk}
+            </span>
+          ))}
+        </div>
+
+        <div className='flex items-center justify-center -gap--mobile---l -mt--mobile---3xl -mb--mobile---5xl mx-auto'>
+          <ButtonOutlinePrimaryLight innerText='Button text' frontIcon={RightIcon} />
+          <PrimaryDarkButton innerText='Button text' frontIcon={RightIcon} />
+        </div>
+
+        <div className='flex items-center justify-center gap-1 relative cursor-pointer'>
+          {selectedCountries
+            .filter((country) => {
+              const [key] = Object.entries(country)[0];
+              return key === currentLang;
+            })
+            .map((country, index) => {
+              const [key, flagUrls]: any = Object.entries(country)[0];
+              return (
+                <button
+                  key={index}
+                  className='cursor-pointer shrink-0 flex items-center gap-[6px]'
+                  onClick={() => setIsCountryDropdownMobile(!isCountryDropdownMobile)}
+                >
+                  <Image src={flagUrls.krug} alt={`${key} flag`} width={20} height={20} className='rounded-full' />
+
+                  <span>
+                    {key === 'hr' ? 'Hrvatski' : key === 'eng' ? 'English' : key === 'ita' ? 'Italiano' : 'Deutsch'}
+                  </span>
+                </button>
+              );
+            })}
+
           <Image
             alt='Arrow icon'
             src={iconPaths.dropdownArrows.downPraznaDark}
             width={14}
             height={14}
             className={`dark:block hidden text-xs shrink-0  transition-all ease-in-out duration-300 origin-center ${
-              isCountryDropdown && 'rotate-180'
+              isCountryDropdownMobile && 'rotate-180'
             }`}
           />
           <Image
@@ -106,23 +138,25 @@ export default function AppHeaderVone({ logoPaths, iconPaths }: NavbarResources)
             width={14}
             height={14}
             className={`dark:hidden block text-xs shrink-0  transition-all ease-in-out duration-300 origin-center ${
-              isCountryDropdown && 'rotate-180'
+              isCountryDropdownMobile && 'rotate-180'
             }`}
           />
 
           <div
-            onMouseLeave={() => setIsCountryDropdown(false)}
-            className={`absolute py-4 transition-all w-full lg:min-w-48 md:min-w-36 min-w-20  duration-300 ease-custom-ease-in-out bg-primarna-svijetla grid grid-cols-1 items-start gap-4  top-[2rem] z-30 -left-4 px-4 ${
-              isCountryDropdown ? 'opacity-1 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none select-none'
+            className={`absolute py-4 transition-all w-full lg:min-w-48 md:min-w-36 min-w-20  duration-300 ease-custom-ease-in-out bg-primarna-svijetla flex items-center justify-center gap-4  top-[2rem] z-30 left-0 px-4 ${
+              isCountryDropdownMobile
+                ? 'opacity-1 translate-y-0'
+                : 'opacity-0 translate-y-10 pointer-events-none select-none'
             }`}
           >
             {selectedCountries.map((country, index) => {
               const [key, flagUrls]: any = Object.entries(country)[0];
               return (
-                <div
+                <button
+                  disabled={currentLang === key}
                   key={index}
-                  onClick={() => console.log(`Language selected: ${key}`)}
-                  className='cursor-pointer shrink-0 w-full'
+                  onClick={() => handleLangSwitch(key)}
+                  className='cursor-pointer shrink-0'
                 >
                   <Image
                     src={flagUrls.krug}
@@ -131,7 +165,7 @@ export default function AppHeaderVone({ logoPaths, iconPaths }: NavbarResources)
                     height={20}
                     className='rounded-full shrink-0'
                   />
-                </div>
+                </button>
               );
             })}
           </div>
@@ -308,9 +342,10 @@ export default function AppHeaderVone({ logoPaths, iconPaths }: NavbarResources)
               {selectedCountries.map((country, index) => {
                 const [key, flagUrls]: any = Object.entries(country)[0];
                 return (
-                  <div
+                  <button
+                    disabled={currentLang === key}
                     key={index}
-                    onClick={() => console.log(`Language selected: ${key}`)}
+                    onClick={() => handleLangSwitch(key)}
                     className='cursor-pointer shrink-0 w-full'
                   >
                     <Image
@@ -320,7 +355,7 @@ export default function AppHeaderVone({ logoPaths, iconPaths }: NavbarResources)
                       height={20}
                       className='rounded-full shrink-0'
                     />
-                  </div>
+                  </button>
                 );
               })}
             </div>
