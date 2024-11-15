@@ -265,7 +265,7 @@ export const PrimaryDarkButton = ({
           
         lg:gap-element-inside-btn-l md:gap-element-inside-btn-m gap-element-inside-btn-s transition-all ease-in-out 
         
-        bg-primarna-tamna outline-none border-none cursor-pointer text-primarna-svijetla hover:outline hover:outline-offset-0 hover:outline-sekundarna-svijetla hover:bg-sekundarna-tamna active:outline active:outline-offset-0 active:outline-accent-boja active:text-accent-boja active:bg-sekundarna-tamna active:outline-[3px]
+        bg-primarna-tamna outline outline-2 outline-primarna-tamna border-none cursor-pointer text-primarna-svijetla hover:outline hover:outline-offset-0 hover:outline-sekundarna-svijetla hover:bg-sekundarna-tamna active:outline active:outline-offset-0 active:outline-accent-boja active:text-accent-boja active:bg-sekundarna-tamna active:outline-[3px]
         
         dark:bg-primarna-svijetla dark:outline-primarna-svijetla dark:text-primarna-tamna dark:hover:text-sekundarna-tamna dark:hover:outline-accent-boja dark:hover:bg-sekundarna-svijetla dark:active:outline-accent-boja dark:active:bg-sekundarna-svijetla`}
       >
@@ -597,13 +597,11 @@ export const ButtonOutlinePrimaryLight = ({
   if (FrontIcon || BackIcon) {
     return (
       <button
-        className={`${calcSizes()} flex items-center justify-start transition-all ease-in-out bg-transparent outline outline-offset-0 outline-2 outline-primarna-tamna border-none cursor-pointer text-primarna-tamna hover:text-sekundarna-tamna  hover:outline-sekundarna-tamna hover:bg-black/10 active:outline-accent-boja active:bg-black/15 active:outline-[3px] active:text-accent-boja ${
-          size === 'xl' || size === 'lg'
-            ? 'gap-element-inside-btn-l'
-            : size === 'base'
-            ? 'gap-element-inside-btn-m'
-            : 'gap-element-inside-btn-s'
-        }`}
+        className={`xl:px-botun-l-lr xl:py-botun-l-td xl:text-button-l xl:rounded-botun-l md:px-botun-base-lr md:py-botun-base-td md:text-button-base md:rounded-botun-base px-botun-s-lr py-botun-s-td text-button-small rounded-botun-s flex items-center justify-start 
+        
+        lg:gap-element-inside-btn-l md:gap-element-inside-btn-m gap-element-inside-btn-s transition-all ease-in-out 
+
+        bg-transparent outline outline-offset-0 outline-2 outline-primarna-tamna border-none cursor-pointer text-primarna-tamna hover:text-sekundarna-tamna  hover:outline-sekundarna-tamna hover:bg-black/10 active:outline-accent-boja active:bg-black/15 active:outline-[3px] active:text-accent-boja`}
       >
         {BackIcon && <BackIcon className='shrink-0' />}
         <span>{innerText}</span>

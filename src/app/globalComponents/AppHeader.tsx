@@ -68,6 +68,7 @@ const AppHeader = () => {
       { url: `/${currentLang}/nav-trake`, title: 'NAVBAR TRAKE' },
     ],
     visuals: [{ url: `/${currentLang}/textures-bg`, title: 'Teksture pozadine' }],
+    mjere: [{ url: `/${currentLang}/widths-paddings`, title: 'Mjere' }],
   };
 
   const handleTheme = () => {
