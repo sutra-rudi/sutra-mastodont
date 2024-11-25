@@ -1,6 +1,7 @@
 import { videoResources } from '../pathsUtils/mediaImportsDynamic';
 
 export function generateSeoSchemaOrg(data: any) {
+  return null;
   if (!data) return null;
   const companyInfo = data?.data?.seoSchemaOrg?.edges[0]?.node?.osnovneInformacijeOWebstraniciNapredniSeo;
   const contactInfo = companyInfo?.kontaktInformacijeContactPoint;
