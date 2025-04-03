@@ -1,11 +1,30 @@
 export const maxDuration = 60;
 
-export default async function Landing({ params: { lang } }: { params: { lang: string } }) {
-  return (
-    <main className='relative w-full dark:bg-primarna-tamna'>
-      <h2 className='w-full text-center text-4xl'>POCETAK</h2>
+import AppHero from '../appComponents/landing/AppHero';
+import BaseCaruselSection from '../appComponents/landing/BaseCaruselSection';
+import BlogSection from '../appComponents/landing/BlogSection';
+import ContentSectionFirst from '../appComponents/landing/ContentSectionFirst';
+import ContentSectionSecond from '../appComponents/landing/ContentSectionSecond';
+import FaqSection from '../appComponents/landing/FaqSection';
+import MapSection from '../appComponents/landing/MapSection';
+import getAllBlogs from '../queries/dynamicQueries/getAllBlogs';
+import { fetchData } from '../utils/callApi';
 
-      <h4 className='w-full text-center text-2xl'>{`Trenutni jezik: ${lang}`}</h4>
+export default async function Landing({ params: { lang } }: { params: { lang: string } }) {
+  const getBlogs = await fetchData(getAllBlogs());
+  const blogsData = !getBlogs.error ? getBlogs.data.allBlog?.edges : null;
+
+  return (
+    <main className='relative w-full dark:bg-primarna-tamna min-h-screen'>
+      <AppHero currentLang={lang} />
+      <ContentSectionFirst />
+      <BaseCaruselSection />
+      <ContentSectionSecond />
+
+      {blogsData && <BlogSection currentLang={lang} blogList={blogsData} />}
+
+      <FaqSection currentLang={lang} />
+      <MapSection />
     </main>
   );
 }

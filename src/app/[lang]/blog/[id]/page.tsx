@@ -22,18 +22,20 @@ export async function generateMetadata({ params: { lang, id } }: { params: { lan
 
   const slugId = getIdFromSlug(id);
 
-  const getSingleBlog = await fetch(`${process.env.CMS_BASE_URL}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      query: getSingleBlogQuery(slugId, lang),
-    }),
-  });
+  // const getSingleBlog = await fetch(`${process.env.CMS_BASE_URL}`, {
+  //   method: 'POST',
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //   },
+  //   body: JSON.stringify({
+  //     query: getSingleBlogQuery(slugId, lang),
+  //   }),
+  // });
 
-  const parseData = await getSingleBlog.json();
-  const prepareDataForClient = parseData.data;
+  const getSingleBlog = await fetchData(getSingleBlogQuery(slugId, lang));
+
+  // const parseData = await getSingleBlog.json();
+  const prepareDataForClient = getSingleBlog.data;
 
   const fallbackOg = prepareDataForClient.blog.introBlog.thumbnail
     ? prepareDataForClient.blog.introBlog.thumbnail.node.sourceUrl
