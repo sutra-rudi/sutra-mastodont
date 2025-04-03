@@ -2,7 +2,7 @@ import React from 'react';
 
 export default async function AppFooter() {
   return (
-    <footer className='bg-[#1A1D2B]'>
+    <footer className='bg-[#1A1D2B] lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl'>
       <div className='container mx-auto p-0 md:p-8 xl:px-0'>
         <div className='mx-auto max-w-7xl px-6 pb-10 pt-16'>
           <div className='xl:grid xl:grid-cols-3 xl:gap-8'>

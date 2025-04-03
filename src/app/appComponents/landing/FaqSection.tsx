@@ -17,8 +17,6 @@ interface FaqSection {
 function AccordionItem({ header, text }: { header: string; text: string }) {
   const [active, setActive] = React.useState<boolean>(false);
 
-  console.log('DATASET', findDataset);
-
   const handleToggle = (e: any) => {
     e.preventDefault();
     setActive(!active);
@@ -67,7 +65,7 @@ export default function FaqSection({ currentLang }: FaqSection) {
   const text = findIntro?.node[`modulBazeTekstova${l}`]?.[`tekstBazaTekstova${l}`];
 
   return (
-    <section className='relative z-20 overflow-hidden bg-white pb-12 pt-20 dark:bg-dark lg:pb-[90px] lg:pt-[120px]'>
+    <section className='relative z-20 overflow-hidden bg-white pb-12  lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl'>
       <div className='container mx-auto'>
         <div className='-mx-4 flex flex-wrap'>
           <div className='w-full px-4'>

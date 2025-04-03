@@ -16,7 +16,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
   return (
     <main className='relative w-full dark:bg-primarna-tamna min-h-screen'>
-      <AppHero lang={lang} heroContent={''} />
+      <AppHero currentLang={lang} />
       <ContentSectionFirst />
       <BaseCaruselSection />
       <ContentSectionSecond />

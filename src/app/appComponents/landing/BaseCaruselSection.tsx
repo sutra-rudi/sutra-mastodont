@@ -8,7 +8,7 @@ const findKaruselData = dataset.data.allSlikeGalerijaKarusel.edges.find(
 const filterImages = Object.values(findKaruselData?.node.photoGallery30pcs!).filter((val) => val);
 export default function BaseCaruselSection() {
   return (
-    <section className='lg:-mt--desktop---4xl md:-mt--tablet---4xl '>
+    <section className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl'>
       <Marquee>
         {filterImages.map((im) => (
           <picture key={im?.node.id}>

@@ -8,7 +8,7 @@ export default function MapSection() {
   return (
     <section
       id='MAP_SECTION'
-      className='lg:-mt--desktop---4xl md:-mt--tablet---4xl -mt--mobile---4xl relative lg:h-[690px] h-[369px]'
+      className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl relative lg:h-[690px] h-[369px]'
     >
       <MapComponent accessToken={findMap?.node.adminMapsField.mapboxTokenAdminMaps!} mapDataset={findMap} />
     </section>

@@ -9,11 +9,13 @@ interface BlogSection {
 }
 
 export default function BlogSection({ currentLang, blogList }: BlogSection) {
-  console.log('BLOG DATA', blogList);
   const l = getSuffixFromLang(currentLang);
   return (
-    <section className='text-gray-600 body-font'>
-      <div className='max-w-[1440px] px-5 py-24 mx-auto'>
+    <section className='text-gray-600 body-font lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl'>
+      <div className='max-w-[1440px] px-4 mx-auto'>
+        <h2 className=' text-3xl font-bold text-dark dark:text-white sm:text-[40px]/[48px] w-full text-center lg:mb-20 mb-[60px]'>
+          Blog
+        </h2>
         <div className='flex flex-wrap items-start justify-center gap-4'>
           {blogList.map((blog) => {
             const isEngMistake = currentLang === UserLanguage.eng;

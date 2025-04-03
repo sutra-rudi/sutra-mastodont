@@ -1,6 +1,6 @@
 export default function ContentSectionFirst() {
   return (
-    <section className='relative isolate  flex justify-center items-center overflow-hidden'>
+    <section className='relative isolate  flex justify-center items-center overflow-hidden lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl'>
       <div className='mx-auto max-w-full md:max-w-5xl px-3 py-3 md:px-6'>
         <div className='grid md:grid-cols-2 place-items-center gap-10 grid-cols-1'>
           <div className='w-full rounded-lg md:rounded-xl'>

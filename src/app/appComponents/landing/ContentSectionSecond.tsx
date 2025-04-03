@@ -1,6 +1,6 @@
 export default function ContentSectionSecond() {
   return (
-    <section className='overflow-hidden pt-20 pb-12 lg:pt-[120px] lg:pb-[90px] bg-white dark:bg-dark'>
+    <section className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl overflow-hidden'>
       <div className='container mx-auto p-4'>
         <div className='flex flex-wrap items-center justify-between -mx-4'>
           <div className='w-full px-4 lg:w-6/12'>
