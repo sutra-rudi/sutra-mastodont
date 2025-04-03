@@ -5,6 +5,7 @@ import BaseCaruselSection from '../appComponents/landing/BaseCaruselSection';
 import BlogSection from '../appComponents/landing/BlogSection';
 import ContentSectionFirst from '../appComponents/landing/ContentSectionFirst';
 import ContentSectionSecond from '../appComponents/landing/ContentSectionSecond';
+import FaqSection from '../appComponents/landing/FaqSection';
 import MapSection from '../appComponents/landing/MapSection';
 import getAllBlogs from '../queries/dynamicQueries/getAllBlogs';
 import { fetchData } from '../utils/callApi';
@@ -21,6 +22,8 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       <ContentSectionSecond />
 
       {blogsData && <BlogSection currentLang={lang} blogList={blogsData} />}
+
+      <FaqSection currentLang={lang} />
       <MapSection />
     </main>
   );
