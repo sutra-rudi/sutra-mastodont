@@ -1,3 +1,5 @@
+export const maxDuration = 60;
+
 import AppHero from '../appComponents/landing/AppHero';
 import BaseCaruselSection from '../appComponents/landing/BaseCaruselSection';
 import BlogSection from '../appComponents/landing/BlogSection';
@@ -6,8 +8,6 @@ import ContentSectionSecond from '../appComponents/landing/ContentSectionSecond'
 import MapSection from '../appComponents/landing/MapSection';
 import getAllBlogs from '../queries/dynamicQueries/getAllBlogs';
 import { fetchData } from '../utils/callApi';
-
-export const maxDuration = 60;
 
 export default async function Landing({ params: { lang } }: { params: { lang: string } }) {
   const getBlogs = await fetchData(getAllBlogs());
