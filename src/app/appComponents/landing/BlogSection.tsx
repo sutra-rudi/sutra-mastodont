@@ -10,6 +10,8 @@ interface BlogSection {
 
 export default function BlogSection({ currentLang, blogList }: BlogSection) {
   const l = getSuffixFromLang(currentLang);
+
+  // console.log('BLOGLIST', blogList);
   return (
     <section className='text-gray-600 body-font lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl'>
       <div className='max-w-[1440px] px-4 mx-auto'>
@@ -24,8 +26,12 @@ export default function BlogSection({ currentLang, blogList }: BlogSection) {
                 <div className='h-full rounded-xl shadow-cla-blue bg-gradient-to-r from-indigo-50 to-blue-50 overflow-hidden'>
                   <picture>
                     <img
-                      className='lg:h-48 md:h-36 w-full object-cover object-center scale-110 transition-all duration-400 hover:scale-100'
-                      src='https://images.unsplash.com/photo-1618172193622-ae2d025f4032?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80'
+                      className='lg:h-48 md:h-36 w-full object-cover object-center scale-110 transition-all duration-400 hover:scale-100 aspect-auto'
+                      src={
+                        blog.node.introBlog.naslovnaSlika
+                          ? blog.node.introBlog.naslovnaSlika.node.sourceUrl
+                          : 'https://images.unsplash.com/photo-1618172193622-ae2d025f4032?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80'
+                      }
                       alt='blog'
                     />
                   </picture>
