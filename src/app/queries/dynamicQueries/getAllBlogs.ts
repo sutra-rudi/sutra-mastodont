@@ -5,6 +5,7 @@ export default function getAllBlogs() {
       node {
         id
         title
+        date
         introBlog {
           datum
           istaknutoNaNaslovnici
