@@ -5,6 +5,7 @@ export default function getAllBlogs() {
       node {
         id
         title
+        slug
         date
         introBlog {
           datum
