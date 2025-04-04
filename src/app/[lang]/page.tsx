@@ -14,6 +14,11 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
   const getBlogs = await fetchData(getAllBlogs());
   const blogsData = !getBlogs.error ? getBlogs.data.allBlog?.edges : null;
 
+  // const filterBlogsForLanding = blogsData.filter(
+  //   (blogItem: any) =>
+  //     blogItem.node.introBlog.istaknutoNaNaslovnici === true && blogItem.node.introBlog.statusBloga === true
+  // );
+
   return (
     <main className='relative w-full dark:bg-primarna-tamna min-h-screen'>
       <AppHero currentLang={lang} />

@@ -6,6 +6,7 @@ import { UserLanguage } from '@/app/enums/LangEnum';
 import { ogImagesArchiveBlog } from '@/app/pathsUtils/mediaImportsDynamic';
 import dynamic from 'next/dynamic';
 import { fetchData } from '@/app/utils/callApi';
+import getSingleBlog from '@/app/queries/dynamicQueries/getSingleBlog';
 
 // const LazyContent = dynamic(() => import('./PageContent'));
 // const AsideContent = dynamic(() => import('./AsideContent'));
@@ -110,14 +111,16 @@ const isGloria: boolean = true;
 // }
 
 export default async function SingleBlogPage({ params: { lang, slug } }: { params: { lang: string; slug: string } }) {
-  // const getIdFromSlug = (slug: string): string => {
-  //   const parts = slug.split('-');
-  //   return parts.pop() || '';
-  // };
+  const getIdFromSlug = (slug: string): string => {
+    const parts = slug.split('-');
+    return parts.pop() || '';
+  };
 
-  // const slugId = getIdFromSlug(id);
+  const slugId = getIdFromSlug(slug);
 
-  // const getBlog = await fetchData(getSingleBlogQuery(slugId, lang));
+  const bData = await fetchData(getSingleBlog(slugId));
+
+  console.log('BBB', bData);
 
   // const prepareDataForClient = getBlog.data;
 
@@ -154,7 +157,9 @@ export default async function SingleBlogPage({ params: { lang, slug } }: { param
 
   return (
     <main className=' bg-blog-pozadina-light-mode dark:bg-blog-pozadina-dark-mode w-full xl:-pb--xl---5xl lg:-pb--desktop---5xl md:-pb--tablet---5xl -pb--mobile---5xl'>
-      <h2>HALO {slug}</h2>
+      <h2>
+        HALO {slug} {slugId}
+      </h2>
       {/* <PageHero
         global={prepareDataForClient.blog.introBlog}
         content={prepareDataForClient.blog[languageField]}
