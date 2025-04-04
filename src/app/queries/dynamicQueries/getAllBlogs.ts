@@ -1,10 +1,12 @@
 export default function getAllBlogs() {
   return `query getAllBlogsDynamic {
-  allBlog {
+  allBlog(first: 20) {
     edges {
       node {
         id
+        databaseId
         title
+        slug
         date
         introBlog {
           datum
@@ -169,7 +171,7 @@ export default function getAllBlogs() {
           }
         }
         docsUploadHr {
-	nazivDokumentaHr
+          nazivDokumentaHr
           hr {
             node {
               id
