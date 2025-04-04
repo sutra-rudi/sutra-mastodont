@@ -13,7 +13,7 @@ interface BlogSection {
 export default function BlogSection({ currentLang, blogList }: BlogSection) {
   const l = getSuffixFromLang(currentLang);
 
-  console.log('BLOGLIST', blogList);
+  // console.log('BLOGLIST', blogList);
 
   return (
     <section className='text-gray-600 body-font lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl'>

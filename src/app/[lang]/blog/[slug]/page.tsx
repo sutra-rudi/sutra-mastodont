@@ -7,6 +7,8 @@ import { ogImagesArchiveBlog } from '@/app/pathsUtils/mediaImportsDynamic';
 import dynamic from 'next/dynamic';
 import { fetchData } from '@/app/utils/callApi';
 import getSingleBlog from '@/app/queries/dynamicQueries/getSingleBlog';
+import parse from 'html-react-parser';
+import dayjs from 'dayjs';
 
 // const LazyContent = dynamic(() => import('./PageContent'));
 // const AsideContent = dynamic(() => import('./AsideContent'));
@@ -111,6 +113,8 @@ const isGloria: boolean = true;
 // }
 
 export default async function SingleBlogPage({ params: { lang, slug } }: { params: { lang: string; slug: string } }) {
+  const l = getSuffixFromLang(lang);
+  const isEngMistake = lang === UserLanguage.eng;
   const getIdFromSlug = (slug: string): string => {
     const parts = slug.split('-');
     return parts.pop() || '';
@@ -120,7 +124,18 @@ export default async function SingleBlogPage({ params: { lang, slug } }: { param
 
   const bData = await fetchData(getSingleBlog(slugId));
 
-  console.log('BBB', bData);
+  const naslovna = bData.data.blog.introBlog.naslovnaSlika.node.sourceUrl;
+  const naslovBloga =
+    bData.data.blog[`sadrzaj${l}Fields`]?.[isEngMistake ? `naslovSadrzajSadrzaj${l}` : `naslovSadrzaj${l}`];
+  const sadrzajBloga = bData.data.blog[`sadrzaj${l}Fields`]?.[`sadrzajSadrzaj${l}`];
+  const introBloga = bData.data.blog[`sadrzaj${l}Fields`]?.[`kratkiUvodniTekstSadrzaj${l}`];
+  const author = bData.data.blog.author;
+
+  const datum = bData.data.blog.introBlog.datum;
+
+  const kategorija = bData.data.blog.introBlog.kategorija.edges[0].node.informacijeKategorije[`imeKategorije${l}`];
+
+  console.log('BBB', author);
 
   // const prepareDataForClient = getBlog.data;
 
@@ -157,9 +172,45 @@ export default async function SingleBlogPage({ params: { lang, slug } }: { param
 
   return (
     <main className=' bg-blog-pozadina-light-mode dark:bg-blog-pozadina-dark-mode w-full xl:-pb--xl---5xl lg:-pb--desktop---5xl md:-pb--tablet---5xl -pb--mobile---5xl'>
-      <h2>
-        HALO {slug} {slugId}
+      <div className='bg-accent-boja/35 text-accent-boja block max-w-max rounded-[36px] text-sm uppercase py-1 px-3'>
+        {kategorija}
+      </div>
+      <p>{`${author.node.firstName} ${author.node.lastName} ${dayjs(datum).format('DD.MM.YYYY')}`}</p>
+      <h2 className='lg:text-h2-desktop md:text-h2-tablet text-h2-mobile !max-w-prose block text-left'>
+        {naslovBloga}
       </h2>
+
+      <div className='text-ellipsis line-clamp-1 max-w-prose'>{parse(introBloga)}</div>
+
+      <div className='flex items-center'>
+        <picture>
+          <img
+            src={author.node.avatar.url}
+            alt='author-avatar'
+            width={64}
+            height={64}
+            className='object-cover object-center aspect-auto block rounded-full'
+          />
+        </picture>
+
+        <div className=''>
+          <p>{`${author.node.firstName} ${author.node.lastName}`}</p>
+          <p>{dayjs(datum).format('DD.MM.YYYY')}</p>
+        </div>
+      </div>
+      <picture>
+        <img
+          src={naslovna}
+          alt={`Blog image, source: ${naslovna}`}
+          width={1920}
+          height={800}
+          className='object-cover object-center block aspect-auto lg:h-[500px] md:h-[400px] h-[250px]'
+        />
+      </picture>
+      <div className='w-full container mx-auto'>
+        <div className='prose mx-auto'>{parse(sadrzajBloga)}</div>
+      </div>
+
       {/* <PageHero
         global={prepareDataForClient.blog.introBlog}
         content={prepareDataForClient.blog[languageField]}
