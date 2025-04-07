@@ -21,7 +21,7 @@ const ClientContent = ({ gallery, files, currentLang }: BlogPageContent) => {
   const l = getSuffixFromLang(currentLang);
   const [emblaRef] = useEmblaCarousel({ loop: false });
   const parseFiles = files[`f${l}`];
-  // console.log('FAJLOV', parseFiles);
+  console.log('FAJLOV', gallery);
   React.useEffect(() => {
     if (window && typeof window !== 'undefined') {
       setCurrentLocation(String(window.location));
@@ -54,27 +54,28 @@ const ClientContent = ({ gallery, files, currentLang }: BlogPageContent) => {
     <article className='w-full max-w-[750px] mx-auto'>
       <div ref={emblaRef} className='w-full embla  lg:-mt--desktop---2xl md:-mt--tablet---2xl -mt--mobile---2xl'>
         <div className='embla__container w-full gap-4'>
-          {gallery.map((galImage: any) => {
-            return (
-              <picture
-                key={galImage.node.sourceUrl}
-                className='embla__slide_blog_gallery relative block w-[350px] h-[250px]'
-              >
-                <img
-                  className='object-cover object-center aspect-auto block w-full h-full'
-                  src={galImage.node.sourceUrl}
-                  alt={`Gallery image - ${galImage.node.sourceUrl}`}
-                  width={350}
-                  height={250}
-                />
-              </picture>
-            );
-          })}
+          {gallery.length > 0 &&
+            gallery.map((galImage: any) => {
+              return (
+                <picture
+                  key={galImage.node.sourceUrl}
+                  className='embla__slide_blog_gallery relative block w-[350px] h-[250px]'
+                >
+                  <img
+                    className='object-cover object-center aspect-auto block w-full h-full'
+                    src={galImage.node.sourceUrl}
+                    alt={`Gallery image - ${galImage.node.sourceUrl}`}
+                    width={350}
+                    height={250}
+                  />
+                </picture>
+              );
+            })}
         </div>
 
         <div className='w-full px-4'>
           <div className='w-full flex items-center justify-start gap-1 text-base text-text-light-mode dark:text-text-dark-mode font-normal cursor-pointer lg:-mt--desktop---xl md:-mt--tablet---xl -mt--mobile---xl '>
-            {parseFiles && (
+            {parseFiles[`${currentLang}`] && (
               <button
                 onClick={() =>
                   downloadFile(parseFiles[`${currentLang}`].node.mediaItemUrl, parseFiles[`nazivDokumenta${l}`])
