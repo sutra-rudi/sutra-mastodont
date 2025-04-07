@@ -1,16 +1,14 @@
 import Marquee from 'react-fast-marquee';
-import dataset from '../../staticData/staticQueryData.json';
 
-const findKaruselData = dataset.data.allSlikeGalerijaKarusel.edges.find(
-  (list) => list.node.title === 'Naslovnica – Karusel slika'
-);
+interface CaruselInterface {
+  dataset: any[];
+}
 
-const filterImages = Object.values(findKaruselData?.node.photoGallery30pcs!).filter((val) => val);
-export default function BaseCaruselSection() {
+export default function BaseCaruselSection({ dataset }: CaruselInterface) {
   return (
     <section className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl'>
       <Marquee>
-        {filterImages.map((im) => (
+        {dataset.map((im) => (
           <picture key={im?.node.id}>
             <img
               src={im?.node.sourceUrl}

@@ -215,3 +215,43 @@ body {
     transform: rotate(360deg);
   }
 }
+
+//EMBLA
+
+/* Embla basic styling */
+.embla {
+  overflow: hidden;
+  width: 100%;
+}
+.embla__container {
+  display: flex;
+}
+.embla__slide_blog_gallery {
+  position: relative;
+  min-width: 100%;
+  text-align: center;
+  flex: 0 0 350px;
+  min-width: 0;
+}
+
+/* Dots */
+.embla__dots {
+  display: flex;
+  justify-content: flex-start;
+}
+.embla__dot {
+  width: 36px;
+  height: 6px;
+
+  background-color: theme('colors.primarna-svijetla');
+  margin: 0 5px;
+  cursor: pointer;
+  border: none;
+}
+.embla__dot.is-selected {
+  background-color: #175fb5;
+}
+
+.dot-gallery {
+  justify-content: center;
+}
