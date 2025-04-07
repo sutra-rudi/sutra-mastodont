@@ -1,27 +1,18 @@
 'use client';
 
-import Image from 'next/image';
 import React from 'react';
-import parse from 'html-react-parser';
 import { FaFacebookF as FacebookIcon, FaTwitter as TwitterIcon, FaRedditAlien as RedditIcon } from 'react-icons/fa';
 import { FaRegFileLines as FileIcon } from 'react-icons/fa6';
 import { BsCloudDownload as DownloadIcon } from 'react-icons/bs';
 import Slider from 'react-slick';
 import { FacebookShareButton, RedditShareButton, TwitterShareButton } from 'react-share';
 import toast from 'react-hot-toast';
-import { TracingBeam } from '@/app/aceternityComponents/TracingBeam';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 interface BlogPageContent {
-  content: any;
-  global: any;
   gallery: any;
   files: any;
-  tags: any;
-  author: any;
-  intro: any;
-  category: any[];
 }
 
 const blogGallerySliderSettings = {
@@ -34,14 +25,8 @@ const blogGallerySliderSettings = {
   dots: true,
 };
 
-const PageContent = ({ content, gallery, files, tags, intro }: BlogPageContent) => {
+const ClientContent = ({ gallery, files }: BlogPageContent) => {
   const [currentLocation, setCurrentLocation] = React.useState<string>('');
-
-  const componentRef = React.useRef();
-  // const handlePrint = useReactToPrint({
-  //   //@ts-ignore
-  //   content: () => componentRef.current,
-  // });
 
   React.useEffect(() => {
     if (window && typeof window !== 'undefined') {
@@ -54,15 +39,6 @@ const PageContent = ({ content, gallery, files, tags, intro }: BlogPageContent) 
 
     toast.success('Poveznica kopirana!');
   }
-  const prepareContent: any[] = Object.values(content);
-
-  const prepareGallery = Object.values(gallery);
-
-  const prepareTags =
-    tags &&
-    tags.split(', ').map((singleTag: string) => {
-      return `#${singleTag.trim()}`;
-    });
 
   const downloadFile = async (url: any, fileName: any) => {
     try {
@@ -81,35 +57,20 @@ const PageContent = ({ content, gallery, files, tags, intro }: BlogPageContent) 
   };
 
   return (
-    <article
-      /*@ts-ignore*/
-      ref={componentRef}
-      className='w-full'
-    >
+    <article className='w-full'>
       <div className='xl:max-w-[1080px] xl:px-0 md:px-4 px-2 mx-auto xl:-pb--xl---2xl lg:-pb--desktop---2xl md:-pb--tablet---2xl -pb--mobile---2xl'>
-        <div className='prose  mx-auto my-0 max-w-full relative'>
-          <TracingBeam>
-            <div className='antialiased prose-p:text-text-light-mode dark:prose-p:text-text-dark-mode  w-full xl:prose-p:text-text-base-l-xl lg:prose-p:text-text-base-l-desktop prose-p:text-text-base-l-mobiletablet prose-p:italic xl:prose-p:-py--xl---2xl lg:prose-p:-py--desktop---2xl md:prose-p:-py--tablet---2xl prose-p:-py--mobile---2xl prose-p:my-0'>
-              {parse(intro)}
-            </div>
-
-            <div className='proza-custom-blog antialiased prose-headings:font-SERIF prose-headings:text-heading-color-light-mode dark:prose-headings:text-heading-color-dark-mode prose-blockquote:text-text-light-mode dark:prose-blockquote:text-hero-text-dark-mode prose-p:text-text-light-mode dark:prose-p:text-text-dark-mode  prose-figcaption:text-text-light-mode dark:prose-figcaption:text-text-dark-mode xl:prose-h1:text-h3-xl lg:prose-h1:text-h3-desktop md:prose-h1:text-h3-tablet prose-h1:text-h3-mobile xl:prose-h2:text-h4-xl lg:prose-h2:text-h4-desktop md:prose-h2:text-h4-tablet prose-h2:text-h4-mobile w-full xl:prose-p:text-text-base-base-xl lg:prose-p:text-text-base-base-desktop prose-p:text-text-base-base-mobiletablet  prose-blockquote:border-accent-boja prose-blockquote:border-l-4 xl:prose-blockquote:text-quote-xl lg:prose-blockquote:text-quote-desktop md:prose-blockquote:text-quote-tablet prose-blockquote:text-quote-mobile xl:prose-figcaption:text-captions-xl lg:prose-figcaption:text-captions-desktop md:prose-figcaption:text-captions-tablet prose-figcaption:text-captions-mobile prose-figcaption:italic prose-figcaption:font-light prose-figcaption:mt-3 prose-img:mb-0 prose-blockquote:my-0 xl:prose-blockquote:-mb--xl---2xl lg:prose-blockquote:-mb--desktop---2xl md:prose-blockquote:-mb--tablet---2xl prose-blockquote:-mb--mobile---2xl prose-p:my-0 xl:prose-p:-pb--xl---xl lg:prose-p:-pb--desktop---xl md:prose-p:-pb--tablet---xl prose-p:-pb--mobile---xl prose-h2:my-0 prose-h1:my-0 xl:prose-headings:-pb--xl---m lg:prose-headings:-pb--desktop---m md:prose-headings:-pb--tablet---m prose-headings:-pb--mobile---m xl:prose-ul:-pb--xl---xl lg:prose-ul:-pb--desktop---xl md:prose-ul:-pb--tablet---xl prose-ul:-pb--mobile---xl prose-ul:text-text-light-mode dark:prose-ul:text-text-dark-mode dark:prose-strong:text-text-dark-mode'>
-              {parse(prepareContent[2])}
-            </div>
-          </TracingBeam>
-        </div>
-        {prepareGallery.every((item) => item !== null) && (
+        {
           <div className='w-full mx-auto py-6 overflow-x-hidden'>
             <div className='slider-container'>
               <Slider {...blogGallerySliderSettings}>
-                {prepareGallery.map((galImage: any) => {
+                {gallery.map((galImage: any) => {
                   return (
                     galImage && (
                       <div key={galImage.node.sourceUrl} className='h-[250px] w-[350px] relative'>
-                        <Image
+                        <img
                           src={galImage.node.sourceUrl ?? 'https://placehold.co/400.png'}
                           alt='gallery image'
-                          fill
+                          // fill
                           className='object-cover object-center aspect-auto block w-full h-full'
                         />
                       </div>
@@ -119,7 +80,7 @@ const PageContent = ({ content, gallery, files, tags, intro }: BlogPageContent) 
               </Slider>
             </div>
           </div>
-        )}
+        }
         <div className='w-full flex items-center justify-start max-w-sutraBlogTestMaxWidth mx-auto mt-4 mb-6 gap-1 text-base text-text-light-mode dark:text-text-dark-mode font-normal cursor-pointer '>
           {files.file && (
             <button
@@ -129,19 +90,6 @@ const PageContent = ({ content, gallery, files, tags, intro }: BlogPageContent) 
               <DownloadIcon /> <span>Preuzmi {files.fileName}</span>
             </button>
           )}
-        </div>
-        <div className='flex gap-1 w-full max-w-sutraBlogTestMaxWidth mx-auto my-4'>
-          {prepareTags &&
-            prepareTags.map((singTag: string) => {
-              return (
-                <span
-                  className='border rounded-sutraCardTagBorderRadius border-accent/50 px-2 py-1 text-text-light-mode dark:text-text-dark-modecursor-pointer hover:text-accent-boja transition-all ease-in-out'
-                  key={singTag}
-                >
-                  {singTag}
-                </span>
-              );
-            })}
         </div>
 
         <div className='w-full max-w-sutraBlogTestMaxWidth mx-auto bg-almost-black/10 h-px my-10'></div>
@@ -178,4 +126,4 @@ const PageContent = ({ content, gallery, files, tags, intro }: BlogPageContent) 
   );
 };
 
-export default PageContent;
+export default ClientContent;
