@@ -1,11 +1,9 @@
 import { NextResponse } from 'next/server';
 import { NextRequest } from 'next/server';
-const basePath = 'https://lavender-loris-843955.hostingersite.com/cms_sutra/';
+const basePath = 'https://dodgerblue-elephant-122364.hostingersite.com/Sutra-ftp';
 
 // Sve putanje, možeš dodati sve potrebne objekte ovdje
 const mediaPaths = {
-  // const basePath : 'https://cms.sutra.hr/cms_sutra/'
-
   favicons: {
     '196x196': `${basePath}Favicon/favicon-196x196.png`,
     '96x96': `${basePath}Favicon/favicon-96x96.png`,
@@ -336,6 +334,8 @@ const mediaPaths = {
   heroImagesLocations: {
     mobile: `${basePath}/Hero_images_database/CMS_Locations__Hero_image-mobile.jpg`,
     desktop: `${basePath}/Hero_images_database/CMS_Locations_Hero_Image.jpg`,
+    desktop2: `${basePath}/Hero_images_database/CMS_Locations_Hero_Image-2.jpg`,
+    mobile2: `${basePath}/Hero_images_database/CMS_Locations__Hero_image-mobile-2.jpg`,
   },
 
   heroImagesMeetOurTeam: {
@@ -713,6 +713,78 @@ const mediaPaths = {
       { src: `${basePath}/Gallery database/gallery 6/img-14.jpg`, class: 'carusel-6-img-14' },
       { src: `${basePath}/Gallery database/gallery 6/img-15.jpg`, class: 'carusel-6-img-15' },
       { src: `${basePath}/Gallery database/gallery 6/img-16.jpg`, class: 'carusel-6-img-16' },
+    ],
+    gallery7: [
+      { src: `${basePath}/Gallery database/gallery 7/img-01.jpg`, class: 'carusel-7-img-1' },
+      { src: `${basePath}/Gallery database/gallery 7/img-02.jpg`, class: 'carusel-7-img-2' },
+      { src: `${basePath}/Gallery database/gallery 7/img-03.jpg`, class: 'carusel-7-img-3' },
+      { src: `${basePath}/Gallery database/gallery 7/img-04.jpg`, class: 'carusel-7-img-4' },
+      { src: `${basePath}/Gallery database/gallery 7/img-05.jpg`, class: 'carusel-7-img-5' },
+      { src: `${basePath}/Gallery database/gallery 7/img-06.jpg`, class: 'carusel-7-img-6' },
+      { src: `${basePath}/Gallery database/gallery 7/img-07.jpg`, class: 'carusel-7-img-7' },
+      { src: `${basePath}/Gallery database/gallery 7/img-08.jpg`, class: 'carusel-7-img-8' },
+      { src: `${basePath}/Gallery database/gallery 7/img-09.jpg`, class: 'carusel-7-img-9' },
+      { src: `${basePath}/Gallery database/gallery 7/img-10.jpg`, class: 'carusel-7-img-10' },
+      { src: `${basePath}/Gallery database/gallery 7/img-11.jpg`, class: 'carusel-7-img-11' },
+      { src: `${basePath}/Gallery database/gallery 7/img-12.jpg`, class: 'carusel-7-img-12' },
+      { src: `${basePath}/Gallery database/gallery 7/img-13.jpg`, class: 'carusel-7-img-13' },
+      { src: `${basePath}/Gallery database/gallery 7/img-14.jpg`, class: 'carusel-7-img-14' },
+      { src: `${basePath}/Gallery database/gallery 7/img-15.jpg`, class: 'carusel-7-img-15' },
+      { src: `${basePath}/Gallery database/gallery 7/img-16.jpg`, class: 'carusel-7-img-16' },
+    ],
+    gallery8: [
+      { src: `${basePath}/Gallery database/gallery 8/img-01.jpg`, class: 'carusel-8-img-1' },
+      { src: `${basePath}/Gallery database/gallery 8/img-02.jpg`, class: 'carusel-8-img-2' },
+      { src: `${basePath}/Gallery database/gallery 8/img-03.jpg`, class: 'carusel-8-img-3' },
+      { src: `${basePath}/Gallery database/gallery 8/img-04.jpg`, class: 'carusel-8-img-4' },
+      { src: `${basePath}/Gallery database/gallery 8/img-05.jpg`, class: 'carusel-8-img-5' },
+      { src: `${basePath}/Gallery database/gallery 8/img-06.jpg`, class: 'carusel-8-img-6' },
+      { src: `${basePath}/Gallery database/gallery 8/img-07.jpg`, class: 'carusel-8-img-7' },
+      { src: `${basePath}/Gallery database/gallery 8/img-08.jpg`, class: 'carusel-8-img-8' },
+      { src: `${basePath}/Gallery database/gallery 8/img-09.jpg`, class: 'carusel-8-img-9' },
+      { src: `${basePath}/Gallery database/gallery 8/img-10.jpg`, class: 'carusel-8-img-10' },
+      { src: `${basePath}/Gallery database/gallery 8/img-11.jpg`, class: 'carusel-8-img-11' },
+      { src: `${basePath}/Gallery database/gallery 8/img-12.jpg`, class: 'carusel-8-img-12' },
+      { src: `${basePath}/Gallery database/gallery 8/img-13.jpg`, class: 'carusel-8-img-13' },
+      { src: `${basePath}/Gallery database/gallery 8/img-14.jpg`, class: 'carusel-8-img-14' },
+      { src: `${basePath}/Gallery database/gallery 8/img-15.jpg`, class: 'carusel-8-img-15' },
+      { src: `${basePath}/Gallery database/gallery 8/img-16.jpg`, class: 'carusel-8-img-16' },
+    ],
+    gallery9: [
+      { src: `${basePath}/Gallery database/gallery 9/img-01.jpg`, class: 'carusel-9-img-1' },
+      { src: `${basePath}/Gallery database/gallery 9/img-02.jpg`, class: 'carusel-9-img-2' },
+      { src: `${basePath}/Gallery database/gallery 9/img-03.jpg`, class: 'carusel-9-img-3' },
+      { src: `${basePath}/Gallery database/gallery 9/img-04.jpg`, class: 'carusel-9-img-4' },
+      { src: `${basePath}/Gallery database/gallery 9/img-05.jpg`, class: 'carusel-9-img-5' },
+      { src: `${basePath}/Gallery database/gallery 9/img-06.jpg`, class: 'carusel-9-img-6' },
+      { src: `${basePath}/Gallery database/gallery 9/img-07.jpg`, class: 'carusel-9-img-7' },
+      { src: `${basePath}/Gallery database/gallery 9/img-08.jpg`, class: 'carusel-9-img-8' },
+      { src: `${basePath}/Gallery database/gallery 9/img-09.jpg`, class: 'carusel-9-img-9' },
+      { src: `${basePath}/Gallery database/gallery 9/img-10.jpg`, class: 'carusel-9-img-10' },
+      { src: `${basePath}/Gallery database/gallery 9/img-11.jpg`, class: 'carusel-9-img-11' },
+      { src: `${basePath}/Gallery database/gallery 9/img-12.jpg`, class: 'carusel-9-img-12' },
+      { src: `${basePath}/Gallery database/gallery 9/img-13.jpg`, class: 'carusel-9-img-13' },
+      { src: `${basePath}/Gallery database/gallery 9/img-14.jpg`, class: 'carusel-9-img-14' },
+      { src: `${basePath}/Gallery database/gallery 9/img-15.jpg`, class: 'carusel-9-img-15' },
+      { src: `${basePath}/Gallery database/gallery 9/img-16.jpg`, class: 'carusel-9-img-16' },
+    ],
+    gallery10: [
+      { src: `${basePath}/Gallery database/gallery 10/img-01.jpg`, class: 'carusel-10-img-1' },
+      { src: `${basePath}/Gallery database/gallery 10/img-02.jpg`, class: 'carusel-10-img-2' },
+      { src: `${basePath}/Gallery database/gallery 10/img-03.jpg`, class: 'carusel-10-img-3' },
+      { src: `${basePath}/Gallery database/gallery 10/img-04.jpg`, class: 'carusel-10-img-4' },
+      { src: `${basePath}/Gallery database/gallery 10/img-05.jpg`, class: 'carusel-10-img-5' },
+      { src: `${basePath}/Gallery database/gallery 10/img-06.jpg`, class: 'carusel-10-img-6' },
+      { src: `${basePath}/Gallery database/gallery 10/img-07.jpg`, class: 'carusel-10-img-7' },
+      { src: `${basePath}/Gallery database/gallery 10/img-08.jpg`, class: 'carusel-10-img-8' },
+      { src: `${basePath}/Gallery database/gallery 10/img-09.jpg`, class: 'carusel-10-img-9' },
+      { src: `${basePath}/Gallery database/gallery 10/img-10.jpg`, class: 'carusel-10-img-10' },
+      { src: `${basePath}/Gallery database/gallery 10/img-11.jpg`, class: 'carusel-10-img-11' },
+      { src: `${basePath}/Gallery database/gallery 10/img-12.jpg`, class: 'carusel-10-img-12' },
+      { src: `${basePath}/Gallery database/gallery 10/img-13.jpg`, class: 'carusel-10-img-13' },
+      { src: `${basePath}/Gallery database/gallery 10/img-14.jpg`, class: 'carusel-10-img-14' },
+      { src: `${basePath}/Gallery database/gallery 10/img-15.jpg`, class: 'carusel-10-img-15' },
+      { src: `${basePath}/Gallery database/gallery 10/img-16.jpg`, class: 'carusel-10-img-16' },
     ],
   },
 
