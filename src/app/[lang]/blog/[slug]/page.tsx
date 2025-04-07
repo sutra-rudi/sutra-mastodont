@@ -174,40 +174,7 @@ export default async function SingleBlogPage({ params: { lang, slug } }: { param
     fGer: bData.data.blog.docsUploadGer,
   };
 
-  // console.log('BBB', bData.data.blog);
-
-  // const prepareDataForClient = getBlog.data;
-
-  // const languageField = blogLanguageFields[lang];
-
-  // const l = getSuffixFromLang(lang);
-  // const constructFieldTags = `tags` + l;
-
-  // const constructDocumentString = () => {
-  //   return `docsUpload${l}`;
-  // };
-
-  // const documentsField = {
-  //   file: prepareDataForClient.blog[constructDocumentString()][lang],
-  //   fileName: prepareDataForClient.blog[constructDocumentString()][`nazivDokumenta${l}`],
-  // };
-
-  // const tagsField = prepareDataForClient.blog[constructFieldTags][`tagText${l}`];
-
-  // const introField = prepareDataForClient.blog[languageField]?.[`kratkiUvodniTekstSadrzaj${l}`] ?? '';
-
-  // const authorField = prepareDataForClient.blog.author ?? '';
-
-  // const categoryField =
-  //   prepareDataForClient.blog.introBlog.kategorija.edges.map((noda: any) => {
-  //     return {
-  //       catName: noda.node.informacijeKategorije ? noda.node.informacijeKategorije[`imeKategorije${l}`] : 'No category',
-  //       catDesc: noda.node.informacijeKategorije
-  //         ? noda.node.informacijeKategorije[`opisKategorije${l}`]
-  //         : 'No category',
-  //       catColor: noda.node.informacijeKategorije ? noda.node.informacijeKategorije.bojaKategorije : 'No color',
-  //     };
-  //   }) ?? [];
+  // console.log('BBB', bData.data.blog.docsUploadHr);
 
   return (
     <main className='w-full xl:-pb--xl---5xl lg:-pb--desktop---5xl md:-pb--tablet---5xl -pb--mobile---5xl '>
@@ -256,7 +223,7 @@ export default async function SingleBlogPage({ params: { lang, slug } }: { param
         {parse(sadrzajBloga)}
       </div>
 
-      <ClientContent gallery={galleryBlog} files={fileList} />
+      <ClientContent gallery={galleryBlog} files={fileList} currentLang={lang} />
     </main>
   );
 }

@@ -112,6 +112,8 @@ export default function getSingleBlog(id: string) {
         node {
           id
           sourceUrl
+            mediaType
+            mediaItemUrl
         }
       }
       nazivDokumentaHr
@@ -121,6 +123,8 @@ export default function getSingleBlog(id: string) {
         node {
           id
           sourceUrl
+            mediaType
+            mediaItemUrl
         }
       }
       nazivDokumentaIta
@@ -131,6 +135,8 @@ export default function getSingleBlog(id: string) {
         node {
           id
           sourceUrl
+            mediaType
+            mediaItemUrl
         }
       }
     }
@@ -140,6 +146,8 @@ export default function getSingleBlog(id: string) {
         node {
           id
           sourceUrl
+            mediaType
+            mediaItemUrl
         }
       }
     }
