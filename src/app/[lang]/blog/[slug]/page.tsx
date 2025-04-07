@@ -1,10 +1,6 @@
-import { getSingleBlogQuery } from '@/app/queries/getSingleBlogQuery';
-import { blogLanguageFields } from '@/app/pathsUtils/blogLanguageFields';
 import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 import { htmlToText } from 'html-to-text';
 import { UserLanguage } from '@/app/enums/LangEnum';
-import { ogImagesArchiveBlog } from '@/app/pathsUtils/mediaImportsDynamic';
-import dynamic from 'next/dynamic';
 import { fetchData } from '@/app/utils/callApi';
 import getSingleBlog from '@/app/queries/dynamicQueries/getSingleBlog';
 import parse from 'html-react-parser';
@@ -32,107 +28,86 @@ dayjs.updateLocale('en', {
   ],
 });
 
-// const LazyContent = dynamic(() => import('./PageContent'));
-// const AsideContent = dynamic(() => import('./AsideContent'));
-// const SocialContent = dynamic(() => import('./SocialContent'));
-// const PageHero = dynamic(() => import('./PageHero'));
+export async function generateMetadata({ params: { lang, slug } }: { params: { lang: string; slug: string } }) {
+  const l = getSuffixFromLang(lang);
+  const isEngMistake = lang === UserLanguage.eng;
+  const getIdFromSlug = (slug: string): string => {
+    const parts = slug.split('-');
+    return parts.pop() || '';
+  };
 
-// const isGloria: boolean = true;
+  const slugId = getIdFromSlug(slug);
 
-// export async function generateMetadata({ params: { lang, slug } }: { params: { lang: string; slug: string } }) {
-//   // const getIdFromSlug = (slug: string): string => {
-//   //   const parts = slug.split('-');
-//   //   return parts.pop() || '';
-//   // };
+  const bData = await fetchData(getSingleBlog(slugId));
 
-//   // const slugId = getIdFromSlug(id);
+  const MP = await fetchMediaPaths();
 
-//   // const getSingleBlog = await fetch(`${process.env.CMS_BASE_URL}`, {
-//   //   method: 'POST',
-//   //   headers: {
-//   //     'Content-Type': 'application/json',
-//   //   },
-//   //   body: JSON.stringify({
-//   //     query: getSingleBlogQuery(slugId, lang),
-//   //   }),
-//   // });
+  const { heroImagesDefault } = MP;
 
-//   // const getSingleBlog = await fetchData(getSingleBlogQuery(slugId, lang));
+  const naslovna = bData.data.blog.introBlog.naslovnaSlika
+    ? bData.data.blog.introBlog.naslovnaSlika.node.sourceUrl
+    : heroImagesDefault.desktop;
+  const naslovBloga =
+    bData.data.blog[`sadrzaj${l}Fields`]?.[isEngMistake ? `naslovSadrzajSadrzaj${l}` : `naslovSadrzaj${l}`];
+  // const sadrzajBloga = bData.data.blog[`sadrzaj${l}Fields`]?.[`sadrzajSadrzaj${l}`];
+  const introBloga = bData.data.blog[`sadrzaj${l}Fields`]?.[`kratkiUvodniTekstSadrzaj${l}`];
+  const author = bData.data.blog.author;
 
-//   // const parseData = await getSingleBlog.json();
-//   // const prepareDataForClient = getSingleBlog.data;
+  const datum = bData.data.blog.introBlog.datum;
 
-//   // const fallbackOg = prepareDataForClient.blog.introBlog.thumbnail
-//   //   ? prepareDataForClient.blog.introBlog.thumbnail.node.sourceUrl
-//   //   : ogImagesArchiveBlog.default;
-//   // const languageField = blogLanguageFields[lang];
+  // const kategorija = bData.data.blog.introBlog.kategorija.edges[0].node.informacijeKategorije[`imeKategorije${l}`];
 
-//   const l = getSuffixFromLang(lang);
-//   const constructFieldTags = `tags` + l;
-//   const las = `naslovSadrzaj${lang === UserLanguage.eng ? `Sadrzaj${l}` : `${l}`}`;
-//   const blogTitle = prepareDataForClient.blog[languageField][las];
+  // const galleryBlog = Object.values(bData.data.blog.photoGallery.fotogalerija).filter(
+  //   (galItem: any) => galItem !== null
+  // );
 
-//   const introField = prepareDataForClient.blog[languageField]?.[`kratkiUvodniTekstSadrzaj${l}`] ?? '';
+  const plainIntroText = htmlToText(introBloga, {
+    wordwrap: 130,
+  });
 
-//   const plainIntroText = htmlToText(introField, {
-//     wordwrap: 130,
-//   });
+  return {
+    title: naslovBloga,
+    description: plainIntroText,
+    // keywords: seoTagPrep,
+    openGraph: {
+      title: naslovBloga,
+      keywords: 'seoTagPrep',
+      description: plainIntroText,
+      // url: `https://yourwebsite.com/blog/${id}`,
+      type: 'article',
+      images: [
+        {
+          url: naslovna,
+          width: 1200,
+          height: 630,
+          alt: 'descriptive image of article',
+          type: 'image/jpeg',
+          secure_url: naslovna,
+        },
+      ],
+      locale: lang,
 
-//   const seoTagField = prepareDataForClient.blog[`seo${l}`]?.[`seoTagovi${l}`];
-//   const seoDescField = prepareDataForClient.blog[`seo${l}`]?.[`seoTekst${l}`];
-//   const seoImageField = prepareDataForClient.blog[`seo${l}`]?.[`ogImage${l}`]
-//     ? prepareDataForClient.blog[`seo${l}`]?.[`ogImage${l}`].node.sourceUrl
-//     : null;
-
-//   const seoTagPrep = seoTagField ? seoTagField.split(', ') : [];
-
-//   const authorField = prepareDataForClient.blog.author.node.name ?? '';
-
-//   const tagsField = prepareDataForClient.blog[constructFieldTags][`tagText${l}`];
-
-//   return {
-//     title: blogTitle,
-//     description: prepareDataForClient.blog.description,
-//     keywords: seoTagPrep,
-//     openGraph: {
-//       title: blogTitle,
-//       keywords: seoTagPrep,
-//       description: seoDescField ?? plainIntroText,
-//       // url: `https://yourwebsite.com/blog/${id}`,
-//       type: 'article',
-//       images: [
-//         {
-//           url: seoImageField ?? fallbackOg,
-//           width: 1200,
-//           height: 630,
-//           alt: 'descriptive image of article',
-//           type: 'image/jpeg',
-//           secure_url: seoImageField ?? fallbackOg,
-//         },
-//       ],
-//       locale: lang,
-
-//       article: {
-//         published_time: prepareDataForClient.blog.introBlog.datum,
-//         // modified_time: prepareDataForClient.blog.modifiedDate,
-//         // expiration_time: prepareDataForClient.blog.expirationDate,
-//         section: 'Blog',
-//         tag: tagsField,
-//         author: authorField,
-//       },
-//     },
-//     twitter: {
-//       card: 'summary_large_image',
-//       // site: '@YourTwitterHandle',
-//       creator: authorField,
-//       title: blogTitle,
-//       keywords: seoTagPrep,
-//       description: seoDescField ?? plainIntroText,
-//       image: seoImageField ?? fallbackOg,
-//       alt: 'descriptive image of article',
-//     },
-//   };
-// }
+      article: {
+        published_time: datum,
+        // modified_time: prepareDataForClient.blog.modifiedDate,
+        // expiration_time: prepareDataForClient.blog.expirationDate,
+        section: 'Blog',
+        // tag: tagsField,
+        author: author.node.firstName,
+      },
+    },
+    twitter: {
+      card: 'summary_large_image',
+      // site: '@YourTwitterHandle',
+      creator: author,
+      title: naslovBloga,
+      keywords: 'seoTagPrep',
+      description: plainIntroText,
+      image: naslovna,
+      alt: 'descriptive image of article',
+    },
+  };
+}
 
 export default async function SingleBlogPage({ params: { lang, slug } }: { params: { lang: string; slug: string } }) {
   const l = getSuffixFromLang(lang);
@@ -174,7 +149,7 @@ export default async function SingleBlogPage({ params: { lang, slug } }: { param
     fGer: bData.data.blog.docsUploadGer,
   };
 
-  // console.log('BBB', bData.data.blog.docsUploadHr);
+  // console.log('BBB', bData.data.blog);
 
   return (
     <main className='w-full xl:-pb--xl---5xl lg:-pb--desktop---5xl md:-pb--tablet---5xl -pb--mobile---5xl '>
