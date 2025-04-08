@@ -2,20 +2,19 @@ import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 import { htmlToText } from 'html-to-text';
 import { UserLanguage } from '@/app/enums/LangEnum';
 import { fetchData } from '@/app/utils/callApi';
-import getSingleBlog from '@/app/queries/dynamicQueries/getSingleBlog';
+
 import parse from 'html-react-parser';
 import dayjs from 'dayjs';
 import { fetchMediaPaths } from '@/app/utils/callMediaPaths';
-
+import getSingleNews from '@/app/queries/dynamicQueries/getSingleNews';
 import updateLocale from 'dayjs/plugin/updateLocale';
 
 import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 import { generateArticleSchema } from '@/app/utils/generateArticleSchema';
 import Script from 'next/script';
-import Head from 'next/head';
-
 const ClientContent = dynamic(() => import('./ClientContent'), { ssr: false });
+
 dayjs.extend(updateLocale);
 
 dayjs.updateLocale('en', {
@@ -45,39 +44,39 @@ export async function generateMetadata({ params: { lang, slug } }: { params: { l
 
   const slugId = getIdFromSlug(slug);
 
-  const bData = await fetchData(getSingleBlog(slugId));
+  const bData = await fetchData(getSingleNews(slugId));
 
   const MP = await fetchMediaPaths();
 
   const { heroImagesDefault } = MP;
 
-  const naslovna = bData.data.blog.introBlog.naslovnaSlika
-    ? bData.data.blog.introBlog.naslovnaSlika.node.sourceUrl
+  const naslovna = bData.data.novosti.introNews.naslovnaSlika
+    ? bData.data.novosti.introNews.naslovnaSlika.node.sourceUrl
     : heroImagesDefault.desktop;
-  const naslovBloga =
-    bData.data.blog[`sadrzaj${l}Fields`]?.[isEngMistake ? `naslovSadrzajSadrzaj${l}` : `naslovSadrzaj${l}`];
-  // const sadrzajBloga = bData.data.blog[`sadrzaj${l}Fields`]?.[`sadrzajSadrzaj${l}`];
-  const introBloga = bData.data.blog[`sadrzaj${l}Fields`]?.[`kratkiUvodniTekstSadrzaj${l}`];
-  const author = bData.data.blog.author;
+  const naslovNovosti =
+    bData.data.novosti[`sadrzaj${l}Fields`]?.[isEngMistake ? `naslovSadrzajSadrzaj${l}` : `naslovSadrzaj${l}`];
+  // const sadrzajNovosti = bData.data.novosti[`sadrzaj${l}Fields`]?.[`sadrzajSadrzaj${l}`];
+  const introNovosti = bData.data.novosti[`sadrzaj${l}Fields`]?.[`kratkiUvodniTekstSadrzaj${l}`];
+  const author = bData.data.novosti.author;
 
-  const datum = bData.data.blog.introBlog.datum;
+  const datum = bData.data.novosti.introNews.datum;
 
-  // const kategorija = bData.data.blog.introBlog.kategorija.edges[0].node.informacijeKategorije[`imeKategorije${l}`];
+  // const kategorija = bData.data.novosti.introNews.kategorija.edges[0].node.informacijeKategorije[`imeKategorije${l}`];
 
-  // const galleryBlog = Object.values(bData.data.blog.photoGallery.fotogalerija).filter(
+  // const galleryNovosti = Object.values(bData.data.novosti.photoGallery.fotogalerija).filter(
   //   (galItem: any) => galItem !== null
   // );
 
-  const plainIntroText = htmlToText(introBloga, {
+  const plainIntroText = htmlToText(introNovosti, {
     wordwrap: 130,
   });
 
   return {
-    title: naslovBloga,
+    title: naslovNovosti,
     description: plainIntroText,
     // keywords: seoTagPrep,
     openGraph: {
-      title: naslovBloga,
+      title: naslovNovosti,
       keywords: 'seoTagPrep',
       description: plainIntroText,
       // url: `https://yourwebsite.com/blog/${id}`,
@@ -107,7 +106,7 @@ export async function generateMetadata({ params: { lang, slug } }: { params: { l
       card: 'summary_large_image',
       // site: '@YourTwitterHandle',
       creator: author,
-      title: naslovBloga,
+      title: naslovNovosti,
       keywords: 'seoTagPrep',
       description: plainIntroText,
       image: naslovna,
@@ -116,7 +115,7 @@ export async function generateMetadata({ params: { lang, slug } }: { params: { l
   };
 }
 
-export default async function SingleBlogPage({ params: { lang, slug } }: { params: { lang: string; slug: string } }) {
+export default async function SingleNewsPage({ params: { lang, slug } }: { params: { lang: string; slug: string } }) {
   const l = getSuffixFromLang(lang);
   const isEngMistake = lang === UserLanguage.eng;
   const getIdFromSlug = (slug: string): string => {
@@ -126,44 +125,40 @@ export default async function SingleBlogPage({ params: { lang, slug } }: { param
 
   const slugId = getIdFromSlug(slug);
 
-  const bData = await fetchData(getSingleBlog(slugId));
+  const bData = await fetchData(getSingleNews(slugId));
 
   const MP = await fetchMediaPaths();
 
   const { heroImagesDefault } = MP;
 
-  const naslovna = bData.data.blog.introBlog.naslovnaSlika
-    ? bData.data.blog.introBlog.naslovnaSlika.node.sourceUrl
+  const naslovna = bData.data.novosti.introNews.naslovnaSlika
+    ? bData.data.novosti.introNews.naslovnaSlika.node.sourceUrl
     : heroImagesDefault.desktop;
-  const naslovBloga =
-    bData.data.blog[`sadrzaj${l}Fields`]?.[isEngMistake ? `naslovSadrzajSadrzaj${l}` : `naslovSadrzaj${l}`];
-  const sadrzajBloga = bData.data.blog[`sadrzaj${l}Fields`]?.[`sadrzajSadrzaj${l}`];
-  const introBloga = bData.data.blog[`sadrzaj${l}Fields`]?.[`kratkiUvodniTekstSadrzaj${l}`];
-  const author = bData.data.blog.author;
+  const naslovNovosti =
+    bData.data.novosti[`sadrzaj${l}Fields`]?.[isEngMistake ? `naslovSadrzajSadrzaj${l}` : `naslovSadrzaj${l}`];
+  const sadrzajNovosti = bData.data.novosti[`sadrzaj${l}Fields`]?.[`sadrzajSadrzaj${l}`];
+  const introNovosti = bData.data.novosti[`sadrzaj${l}Fields`]?.[`kratkiUvodniTekstSadrzaj${l}`];
+  const author = bData.data.novosti.author;
 
-  const datum = bData.data.blog.introBlog.datum;
+  const datum = bData.data.novosti.introNews.datum;
 
-  const kategorija = bData.data.blog.introBlog.kategorija.edges[0].node.informacijeKategorije[`imeKategorije${l}`];
+  const kategorija = bData.data.novosti.introNews.kategorija.edges[0].node.informacijeKategorije[`imeKategorije${l}`];
 
-  const galleryBlog = Object.values(bData.data.blog.photoGallery.fotogalerija).filter(
+  const galleryNovosti = Object.values(bData.data.novosti.photoGallery.fotogalerija).filter(
     (galItem: any) => galItem !== null
   );
 
   const fileList = {
-    fHr: bData.data.blog.docsUploadHr,
-    fEng: bData.data.blog.docsUploadEng,
-    fIta: bData.data.blog.docsUploadIta,
-    fGer: bData.data.blog.docsUploadGer,
+    fHr: bData.data.novosti.docsUploadHr,
+    fEng: bData.data.novosti.docsUploadEng,
+    fIta: bData.data.novosti.docsUploadIta,
+    fGer: bData.data.novosti.docsUploadGer,
   };
 
-  // Kreiranje schema objekta pomoću generateArticleSchema funkcije.
-  // Obrati pozornost da su imena polja usklađena s onima koje očekuje naša funkcija.
   const schemaObj = generateArticleSchema({
-    headline: naslovBloga,
-    description: htmlToText(introBloga, { wordwrap: 130 }),
+    headline: naslovNovosti,
+    description: htmlToText(introNovosti, { wordwrap: 130 }),
     datePublished: datum,
-    // Ako imaš datum izmjene, možeš ga dodati:
-    // dateModified: dayjs(bData.data.blog.introBlog.modifiedDate).toISOString(),
     image: naslovna,
     author: {
       firstName: author.node.firstName,
@@ -171,19 +166,8 @@ export default async function SingleBlogPage({ params: { lang, slug } }: { param
       image: author.node.avatar.url,
     },
     articleSection: kategorija,
-    // Ako želiš dodati puni tekst članka:
-    articleBody: sadrzajBloga,
-    // Opcionalno, ako imaš podatke o izdavaču:
-    // publisher: {
-    //   name: 'Naziv Izdavača',
-    //   logoUrl: 'https://link.do/logo.png',
-    // },
-    // Ako želiš dodati ključne riječi:
-    // keywords: 'ključna, riječ',
-    // Ako želiš postaviti glavnu entitetu stranice:
-    // mainEntityOfPage: `https://tvoja-web-stranica/blog/${slugId}`,
-    // Ako želiš dodati URL članka:
-    // url: `https://tvoja-web-stranica/blog/${slugId}`,
+    articleBody: sadrzajNovosti,
+    // Opcionalno: publisher, keywords, mainEntityOfPage, url, itd.
   });
 
   return (
@@ -198,11 +182,11 @@ export default async function SingleBlogPage({ params: { lang, slug } }: { param
           <span>{dayjs(datum).format('DD.MM.YYYY')}</span>
         </p>
         <h2 className='lg:text-h2-desktop md:text-h2-tablet text-h2-mobile max-w-max block text-center mx-auto relative px-4'>
-          {naslovBloga}
+          {naslovNovosti}
         </h2>
 
         <div className='text-ellipsis line-clamp-1 max-w-prose mx-auto text-center relative lg:-mt--desktop-h1-2---naslov-nadnaslov md:-mt--tablet-h1-2---naslov-nadnaslov -mt--mobile-h1-2---naslov-nadnaslov lg:text-nadnaslov-desktop md:text-nadnaslov-tablet text-nadnaslov-mobile px-4'>
-          {parse(introBloga)}
+          {parse(introNovosti)}
         </div>
 
         <div className='flex items-center relative mx-auto lg:mt-10 md:mt-7 mt-4 max-w-max gap-4'>
@@ -231,10 +215,10 @@ export default async function SingleBlogPage({ params: { lang, slug } }: { param
           />
         </picture>
         <div className='lg:prose-lg prose max-w-[750px] w-full mx-auto lg:mt-xl-slika-sadrzaj md:mt-desktop-slika-sadrzaj mt-tablet-slika-sadrzaj px-4'>
-          {parse(sadrzajBloga)}
+          {parse(sadrzajNovosti)}
         </div>
 
-        <ClientContent gallery={galleryBlog} files={fileList} currentLang={lang} />
+        <ClientContent gallery={galleryNovosti} files={fileList} currentLang={lang} />
       </Suspense>
 
       <Script
