@@ -11,6 +11,8 @@ import updateLocale from 'dayjs/plugin/updateLocale';
 
 import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
+import { generateArticleSchema } from '@/app/utils/generateArticleSchema';
+import Script from 'next/script';
 const ClientContent = dynamic(() => import('./ClientContent'), { ssr: false });
 
 dayjs.extend(updateLocale);
@@ -153,7 +155,20 @@ export default async function SingleNewsPage({ params: { lang, slug } }: { param
     fGer: bData.data.novosti.docsUploadGer,
   };
 
-  // console.log('LALALALAL', naslovna);
+  const schemaObj = generateArticleSchema({
+    headline: naslovNovosti,
+    description: htmlToText(introNovosti, { wordwrap: 130 }),
+    datePublished: datum,
+    image: naslovna,
+    author: {
+      firstName: author.node.firstName,
+      lastName: author.node.lastName,
+      image: author.node.avatar.url,
+    },
+    articleSection: kategorija,
+    articleBody: sadrzajNovosti,
+    // Opcionalno: publisher, keywords, mainEntityOfPage, url, itd.
+  });
 
   return (
     <main className='w-full xl:-pb--xl---5xl lg:-pb--desktop---5xl md:-pb--tablet---5xl -pb--mobile---5xl min-h-screen'>
@@ -205,6 +220,12 @@ export default async function SingleNewsPage({ params: { lang, slug } }: { param
 
         <ClientContent gallery={galleryNovosti} files={fileList} currentLang={lang} />
       </Suspense>
+
+      <Script
+        id='schema-org-article'
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaObj) }}
+      />
     </main>
   );
 }
