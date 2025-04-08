@@ -32,6 +32,87 @@ dayjs.updateLocale('en', {
   ],
 });
 
+export async function generateMetadata({ params: { lang, slug } }: { params: { lang: string; slug: string } }) {
+  const l = getSuffixFromLang(lang);
+  const isEngMistake = lang === UserLanguage.eng;
+  const getIdFromSlug = (slug: string): string => {
+    const parts = slug.split('-');
+    return parts.pop() || '';
+  };
+
+  const slugId = getIdFromSlug(slug);
+
+  const bData = await fetchData(getSingleNews(slugId));
+
+  const MP = await fetchMediaPaths();
+
+  const { heroImagesDefault } = MP;
+
+  const naslovna = bData.data.novosti.introNews.naslovnaSlika
+    ? bData.data.novosti.introNews.naslovnaSlika.node.sourceUrl
+    : heroImagesDefault.desktop;
+  const naslovNovosti =
+    bData.data.novosti[`sadrzaj${l}Fields`]?.[isEngMistake ? `naslovSadrzajSadrzaj${l}` : `naslovSadrzaj${l}`];
+  // const sadrzajNovosti = bData.data.novosti[`sadrzaj${l}Fields`]?.[`sadrzajSadrzaj${l}`];
+  const introNovosti = bData.data.novosti[`sadrzaj${l}Fields`]?.[`kratkiUvodniTekstSadrzaj${l}`];
+  const author = bData.data.novosti.author;
+
+  const datum = bData.data.novosti.introNews.datum;
+
+  // const kategorija = bData.data.novosti.introNews.kategorija.edges[0].node.informacijeKategorije[`imeKategorije${l}`];
+
+  // const galleryNovosti = Object.values(bData.data.novosti.photoGallery.fotogalerija).filter(
+  //   (galItem: any) => galItem !== null
+  // );
+
+  const plainIntroText = htmlToText(introNovosti, {
+    wordwrap: 130,
+  });
+
+  return {
+    title: naslovNovosti,
+    description: plainIntroText,
+    // keywords: seoTagPrep,
+    openGraph: {
+      title: naslovNovosti,
+      keywords: 'seoTagPrep',
+      description: plainIntroText,
+      // url: `https://yourwebsite.com/blog/${id}`,
+      type: 'article',
+      images: [
+        {
+          url: naslovna,
+          width: 1200,
+          height: 630,
+          alt: 'descriptive image of article',
+          type: 'image/jpeg',
+          secure_url: naslovna,
+        },
+      ],
+      locale: lang,
+
+      article: {
+        published_time: datum,
+        // modified_time: prepareDataForClient.blog.modifiedDate,
+        // expiration_time: prepareDataForClient.blog.expirationDate,
+        section: 'Blog',
+        // tag: tagsField,
+        author: author.node.firstName,
+      },
+    },
+    twitter: {
+      card: 'summary_large_image',
+      // site: '@YourTwitterHandle',
+      creator: author,
+      title: naslovNovosti,
+      keywords: 'seoTagPrep',
+      description: plainIntroText,
+      image: naslovna,
+      alt: 'descriptive image of article',
+    },
+  };
+}
+
 export default async function SingleNewsPage({ params: { lang, slug } }: { params: { lang: string; slug: string } }) {
   const l = getSuffixFromLang(lang);
   const isEngMistake = lang === UserLanguage.eng;
@@ -72,7 +153,7 @@ export default async function SingleNewsPage({ params: { lang, slug } }: { param
     fGer: bData.data.novosti.docsUploadGer,
   };
 
-  console.log('LALALALAL', naslovna);
+  // console.log('LALALALAL', naslovna);
 
   return (
     <main className='w-full xl:-pb--xl---5xl lg:-pb--desktop---5xl md:-pb--tablet---5xl -pb--mobile---5xl min-h-screen'>
