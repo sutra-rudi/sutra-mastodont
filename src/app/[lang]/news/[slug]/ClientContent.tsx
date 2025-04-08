@@ -21,7 +21,7 @@ const ClientContent = ({ gallery, files, currentLang }: BlogPageContent) => {
   const l = getSuffixFromLang(currentLang);
   const [emblaRef] = useEmblaCarousel({ loop: false });
   const parseFiles = files[`f${l}`];
-  console.log('FAJLOV', parseFiles);
+
   React.useEffect(() => {
     if (window && typeof window !== 'undefined') {
       setCurrentLocation(String(window.location));

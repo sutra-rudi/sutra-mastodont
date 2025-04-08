@@ -904,6 +904,15 @@
                                 "uvodnaRecenica": null
                             },
                             "listaSadrzajSlo": null
+                        },
+                        "ikona": {
+                            "svgListIcon": null,
+                            "odabirBojeZaDefaultIkone": [
+                                "Akcentna"
+                            ],
+                            "odabirIkoneKojaSePrikazujeNaListi": [
+                                "Crtica"
+                            ]
                         }
                     }
                 },
@@ -966,6 +975,15 @@
                                 "uvodnaRecenica": null
                             },
                             "listaSadrzajSlo": null
+                        },
+                        "ikona": {
+                            "svgListIcon": null,
+                            "odabirBojeZaDefaultIkone": [
+                                "Akcentna"
+                            ],
+                            "odabirIkoneKojaSePrikazujeNaListi": [
+                                "Crtica"
+                            ]
                         }
                     }
                 },
@@ -1028,6 +1046,15 @@
                                 "uvodnaRecenica": null
                             },
                             "listaSadrzajSlo": null
+                        },
+                        "ikona": {
+                            "svgListIcon": null,
+                            "odabirBojeZaDefaultIkone": [
+                                "Akcentna"
+                            ],
+                            "odabirIkoneKojaSePrikazujeNaListi": [
+                                "To-Do-krug"
+                            ]
                         }
                     }
                 }
@@ -6378,5 +6405,13 @@
                 }
             ]
         }
+    },
+    "extensions": {
+        "debug": [
+            {
+                "type": "DEBUG_LOGS_INACTIVE",
+                "message": "GraphQL Debug logging is not active. To see debug logs, GRAPHQL_DEBUG must be enabled."
+            }
+        ]
     }
 }
