@@ -11,6 +11,9 @@ import updateLocale from 'dayjs/plugin/updateLocale';
 
 import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
+import { generateArticleSchema } from '@/app/utils/generateArticleSchema';
+import Script from 'next/script';
+import Head from 'next/head';
 
 const ClientContent = dynamic(() => import('./ClientContent'), { ssr: false });
 dayjs.extend(updateLocale);
@@ -153,7 +156,35 @@ export default async function SingleBlogPage({ params: { lang, slug } }: { param
     fGer: bData.data.blog.docsUploadGer,
   };
 
-  // console.log('BBB', bData.data.blog);
+  // Kreiranje schema objekta pomoću generateArticleSchema funkcije.
+  // Obrati pozornost da su imena polja usklađena s onima koje očekuje naša funkcija.
+  const schemaObj = generateArticleSchema({
+    headline: naslovBloga,
+    description: htmlToText(introBloga, { wordwrap: 130 }),
+    datePublished: datum,
+    // Ako imaš datum izmjene, možeš ga dodati:
+    // dateModified: dayjs(bData.data.blog.introBlog.modifiedDate).toISOString(),
+    image: naslovna,
+    author: {
+      firstName: author.node.firstName,
+      lastName: author.node.lastName,
+      image: author.node.avatar.url,
+    },
+    articleSection: kategorija,
+    // Ako želiš dodati puni tekst članka:
+    articleBody: sadrzajBloga,
+    // Opcionalno, ako imaš podatke o izdavaču:
+    // publisher: {
+    //   name: 'Naziv Izdavača',
+    //   logoUrl: 'https://link.do/logo.png',
+    // },
+    // Ako želiš dodati ključne riječi:
+    // keywords: 'ključna, riječ',
+    // Ako želiš postaviti glavnu entitetu stranice:
+    // mainEntityOfPage: `https://tvoja-web-stranica/blog/${slugId}`,
+    // Ako želiš dodati URL članka:
+    // url: `https://tvoja-web-stranica/blog/${slugId}`,
+  });
 
   return (
     <main className='w-full xl:-pb--xl---5xl lg:-pb--desktop---5xl md:-pb--tablet---5xl -pb--mobile---5xl min-h-screen'>
@@ -205,6 +236,12 @@ export default async function SingleBlogPage({ params: { lang, slug } }: { param
 
         <ClientContent gallery={galleryBlog} files={fileList} currentLang={lang} />
       </Suspense>
+
+      <Script
+        id='schema-org-article'
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaObj) }}
+      />
     </main>
   );
 }
