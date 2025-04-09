@@ -59,7 +59,7 @@ export default function ContactForm({ formId, lng }: Contact) {
 
   return (
     <div className='w-full max-w-screen-sm mx-auto'>
-      <p className='md:text-text-base-small-desktop text-text-base-small-mobiletablet text-accent-boja lg:mb-desktop-naslov-nadnaslov md:mb-tablet-naslov-nadnaslov mb-mobile-naslov-nadnaslov'>
+      <p className='md:text-text-base-small-desktop text-text-base-small-mobiletablet text-accent-boja lg:mb-desktop-naslov-nadnaslov md:mb-tablet-naslov-nadnaslov mb-mobile-naslov-nadnaslov hidden'>
         {
           //@ts-ignore
           getData[`adminKontaktFormaTekstovi${l}`]?.[`kontaktiBazaTekstova${l}`].uvodniTekstoviZaKontakteGrupaPolja
@@ -67,7 +67,7 @@ export default function ContactForm({ formId, lng }: Contact) {
         }
       </p>
       <h4
-        className={` lg:text-h4-desktop md:text-h4-tablet text-h4-mobile lg:mb-desktop-tekst-naslov md:mb-tablet-tekst-naslov mb-mobile-tekst-naslov`}
+        className={` lg:text-h4-desktop md:text-h4-tablet text-h4-mobile lg:mb-desktop-tekst-naslov md:mb-tablet-tekst-naslov mb-mobile-tekst-naslov hidden`}
       >
         {
           //@ts-ignore
@@ -75,7 +75,7 @@ export default function ContactForm({ formId, lng }: Contact) {
             .naslovUKontaktima
         }
       </h4>
-      <p className='md:text-text-base-base-desktop text-text-base-base-mobiletablet mb-4'>
+      <p className='md:text-text-base-base-desktop text-text-base-base-mobiletablet mb-4 hidden'>
         {
           //@ts-ignore
           getData[`adminKontaktFormaTekstovi${l}`]?.[`kontaktiBazaTekstova${l}`].uvodniTekstoviZaKontakteGrupaPolja
