@@ -32,7 +32,7 @@ export async function generateMetadata() {
 
   const MP = await fetchMediaPaths();
 
-  const { appleTouchIcons, favicons, ogImagesDefault } = MP;
+  const { appleTouchIcons, favicons, ogImagesDefault, microsoftTiles } = MP;
   return {
     //@ts-ignore
     title: extractData[`bazniSeo${l}`]?.[`bazniSeoTekstoviGlobalniZaStranicu${l}`].seoNaslov,
@@ -57,18 +57,42 @@ export async function generateMetadata() {
       images: [ogImagesDefault.default],
     },
 
-    icons: [
+    meta: [
+      // MICROSOFT TILES (meta tagovi)
       {
-        rel: 'icon',
-        type: 'image/png',
-        sizes: '196x196',
-        url: favicons['196x196'],
+        name: 'msapplication-TileImage',
+        content: microsoftTiles['144x144'],
       },
       {
+        name: 'msapplication-TileColor',
+        content: '#ffffff', // prilagodi prema svojoj vrijednosti boje
+      },
+      // Po potrebi možete dodati i dodatne meta tagove za Microsoft Tiles:
+      {
+        name: 'msapplication-square70x70logo',
+        content: microsoftTiles['70x70'],
+      },
+      {
+        name: 'msapplication-square150x150logo',
+        content: microsoftTiles['150x150'],
+      },
+      {
+        name: 'msapplication-wide310x150logo',
+        content: microsoftTiles['310x150'],
+      },
+      {
+        name: 'msapplication-square310x310logo',
+        content: microsoftTiles['310x310'],
+      },
+    ],
+
+    icons: [
+      // FAVICONS
+      {
         rel: 'icon',
         type: 'image/png',
-        sizes: '96x96',
-        url: favicons['96x96'],
+        sizes: '16x16',
+        url: favicons['16x16'],
       },
       {
         rel: 'icon',
@@ -79,8 +103,8 @@ export async function generateMetadata() {
       {
         rel: 'icon',
         type: 'image/png',
-        sizes: '16x16',
-        url: favicons['16x16'],
+        sizes: '96x96',
+        url: favicons['96x96'],
       },
       {
         rel: 'icon',
@@ -88,26 +112,29 @@ export async function generateMetadata() {
         sizes: '128x128',
         url: favicons['128x128'],
       },
-      // Apple Touch Icons
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '180x180',
+        url: favicons['180x180'],
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '192x192',
+        url: favicons['192x192'],
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '512x512',
+        url: favicons['512x512'],
+      },
+      // APPLE TOUCH ICONS
       {
         rel: 'apple-touch-icon',
         sizes: '57x57',
         url: appleTouchIcons['57x57'],
-      },
-      {
-        rel: 'apple-touch-icon',
-        sizes: '114x114',
-        url: appleTouchIcons['114x114'],
-      },
-      {
-        rel: 'apple-touch-icon',
-        sizes: '72x72',
-        url: appleTouchIcons['72x72'],
-      },
-      {
-        rel: 'apple-touch-icon',
-        sizes: '144x144',
-        url: appleTouchIcons['144x144'],
       },
       {
         rel: 'apple-touch-icon',
@@ -116,8 +143,8 @@ export async function generateMetadata() {
       },
       {
         rel: 'apple-touch-icon',
-        sizes: '120x120',
-        url: appleTouchIcons['120x120'],
+        sizes: '72x72',
+        url: appleTouchIcons['72x72'],
       },
       {
         rel: 'apple-touch-icon',
@@ -126,8 +153,28 @@ export async function generateMetadata() {
       },
       {
         rel: 'apple-touch-icon',
+        sizes: '114x114',
+        url: appleTouchIcons['114x114'],
+      },
+      {
+        rel: 'apple-touch-icon',
+        sizes: '120x120',
+        url: appleTouchIcons['120x120'],
+      },
+      {
+        rel: 'apple-touch-icon',
+        sizes: '144x144',
+        url: appleTouchIcons['144x144'],
+      },
+      {
+        rel: 'apple-touch-icon',
         sizes: '152x152',
         url: appleTouchIcons['152x152'],
+      },
+      {
+        rel: 'apple-touch-icon',
+        sizes: '180x180',
+        url: appleTouchIcons['180x180'],
       },
     ],
   };
