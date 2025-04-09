@@ -5,6 +5,7 @@ import { useFormspark } from '@formspark/use-formspark';
 import { useForm } from 'react-hook-form';
 import cData from '../../staticData/staticQueryData.json';
 import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
+import { promiseLangLib } from '@/app/utils/formPromiseLib';
 interface Contact {
   formId: string;
   lng: string;
@@ -35,11 +36,18 @@ export default function ContactForm({ formId, lng }: Contact) {
         ['Poruka']: data.message,
       };
 
-      await toast.promise(submit({ ...parseClientData }), {
-        loading: 'Šaljemo vašu poruku...',
-        success: 'Poruka je uspješno poslana!',
-        error: 'Došlo je do problema. Pokušajte ponovno.',
-      });
+      if (formId === '') {
+        toast('LOVRE FORMSPARK DEFAULT' + JSON.stringify({ ...parseClientData }));
+      } else {
+        await toast.promise(submit({ ...parseClientData }), {
+          //@ts-ignore
+          loading: promiseLangLib[lng].loading,
+          //@ts-ignore
+          success: promiseLangLib[lng].success,
+          //@ts-ignore
+          error: promiseLangLib[lng].success.error,
+        });
+      }
 
       reset();
     } catch (error) {

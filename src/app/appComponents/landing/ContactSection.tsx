@@ -18,7 +18,7 @@ export default function ContactSection({ currentLang }: ContactSection) {
     <section className='relative lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl overflow-hidden'>
       <div className='container mx-auto px-4'>
         <div className='-mx-4 flex flex-wrap justify-center'>
-          <div className='w-full px-4 lg:w-1/2 xl:w-6/12'>
+          <div className='w-full px-4 lg:w-1/2 xl:w-5/12'>
             <div className='mb-12 max-w-[570px] lg:mb-0'>
               <span className='mb-4 block text-base font-semibold text-primary'>
                 {
