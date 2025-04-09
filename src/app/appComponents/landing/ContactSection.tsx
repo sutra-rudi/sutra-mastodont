@@ -1,6 +1,10 @@
 import React from 'react';
+import ContactForm from '../global/ContactForm';
+interface ContactSection {
+  currentLang: string;
+}
 
-const ContactSection = () => {
+export default function ContactSection({ currentLang }: ContactSection) {
   return (
     <section className='relative lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl overflow-hidden'>
       <div className='container mx-auto px-4'>
@@ -80,20 +84,7 @@ const ContactSection = () => {
           </div>
           <div className='w-full px-4 lg:w-1/2 xl:w-5/12'>
             <div className='relative rounded-lg bg-white p-8 shadow-lg dark:bg-dark-2 sm:p-12'>
-              <form>
-                <ContactInputBox type='text' name='name' placeholder='Your Name' />
-                <ContactInputBox type='text' name='email' placeholder='Your Email' />
-                <ContactInputBox type='text' name='phone' placeholder='Your Phone' />
-                <ContactTextArea row='6' placeholder='Your Message' name='details' defaultValue='' />
-                <div>
-                  <button
-                    type='submit'
-                    className='w-full rounded border border-primary bg-primary p-3 text-white transition hover:bg-opacity-90'
-                  >
-                    Send Message
-                  </button>
-                </div>
-              </form>
+              <ContactForm lng={currentLang} formId='' />
               <div>
                 <span className='absolute -right-9 -top-10 z-[-1]'>
                   <svg width={100} height={100} viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -560,9 +551,7 @@ const ContactSection = () => {
       </div>
     </section>
   );
-};
-
-export default ContactSection;
+}
 
 function ContactTextArea({ row, placeholder, name, defaultValue }: any) {
   return (
