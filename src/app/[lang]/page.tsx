@@ -72,7 +72,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       <BaseCaruselSection dataset={filterImagesMiddle} />
 
       {newsData && <NewsSection currentLang={lang} newsList={newsData} />}
-      <ContactSection />
+      <ContactSection currentLang={lang} />
 
       <FaqSection currentLang={lang} />
       <MapSection />

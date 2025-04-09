@@ -1,5 +1,4 @@
 import './globals.scss';
-import type { Metadata } from 'next';
 import { cookies } from 'next/headers';
 import { UserLanguage } from './enums/LangEnum';
 import { Toaster } from 'react-hot-toast';
@@ -21,7 +20,7 @@ import { getSuffixFromLang } from './langUtils/getSuffixFromLang';
 import { fetchMediaPaths } from './utils/callMediaPaths';
 
 const AppHeader = dynamic(() => import('./globalComponents/AppHeader'), { ssr: false });
-const AppFooter = dynamic(() => import('./globalComponents/AppFooter'), { ssr: false });
+const AppFooter = dynamic(() => import('./globalComponents/AppFooter'));
 // import { fetchData } from './utils/callApi';
 // import { generateSeoSchemaOrg } from './utils/generateSchemaGlobal';
 
@@ -34,7 +33,6 @@ export async function generateMetadata() {
 
   const { appleTouchIcons, favicons, ogImagesDefault, microsoftTiles } = MP;
 
-  // console.log('FAVICONS', appleTouchIcons);
   return {
     //@ts-ignore
     title: extractData[`bazniSeo${l}`]?.[`bazniSeoTekstoviGlobalniZaStranicu${l}`].seoNaslov,
@@ -43,7 +41,7 @@ export async function generateMetadata() {
     robots: 'index, follow',
     authors: [
       {
-        name: 'Zadar-Kornati tours',
+        name: 'Studio Sutra',
       },
       {
         name: 'Studio Sutra',
@@ -54,39 +52,38 @@ export async function generateMetadata() {
       title: extractData[`bazniSeo${l}`]?.[`bazniSeoTekstoviGlobalniZaStranicu${l}`].seoNaslov,
       //@ts-ignore
       description: extractData[`bazniSeo${l}`]?.[`bazniSeoTekstoviGlobalniZaStranicu${l}`].seoOpisStranice,
-      url: 'https://www.zadar-kornati-tours.com',
-      siteName: 'Zadar-Kornati tours',
+      url: 'https://sutra-mastodont.vercel.app',
+      siteName: 'Sutra Starter',
       images: [ogImagesDefault.default],
     },
 
-    // meta: [
-    //   // MICROSOFT TILES (meta tagovi)
-    //   {
-    //     name: 'msapplication-TileImage',
-    //     content: microsoftTiles['144x144'],
-    //   },
-    //   {
-    //     name: 'msapplication-TileColor',
-    //     content: '#ffffff', // prilagodi prema svojoj vrijednosti boje
-    //   },
-    //   // Po potrebi možete dodati i dodatne meta tagove za Microsoft Tiles:
-    //   {
-    //     name: 'msapplication-square70x70logo',
-    //     content: microsoftTiles['70x70'],
-    //   },
-    //   {
-    //     name: 'msapplication-square150x150logo',
-    //     content: microsoftTiles['150x150'],
-    //   },
-    //   {
-    //     name: 'msapplication-wide310x150logo',
-    //     content: microsoftTiles['310x150'],
-    //   },
-    //   {
-    //     name: 'msapplication-square310x310logo',
-    //     content: microsoftTiles['310x310'],
-    //   },
-    // ],
+    meta: [
+      // MICROSOFT TILES (meta tagovi)
+      {
+        name: 'msapplication-TileImage',
+        content: microsoftTiles['144x144'],
+      },
+      {
+        name: 'msapplication-TileColor',
+        content: '#EEF8FF', // prilagodi prema svojoj vrijednosti boje
+      },
+      {
+        name: 'msapplication-square70x70logo',
+        content: microsoftTiles['70x70'],
+      },
+      {
+        name: 'msapplication-square150x150logo',
+        content: microsoftTiles['150x150'],
+      },
+      {
+        name: 'msapplication-wide310x150logo',
+        content: microsoftTiles['310x150'],
+      },
+      {
+        name: 'msapplication-square310x310logo',
+        content: microsoftTiles['310x310'],
+      },
+    ],
 
     icons: [
       // FAVICONS
@@ -198,8 +195,8 @@ export default async function RootLayout({
 
   // const schemaBasicData = !parseSchemaData.error ? generateSeoSchemaOrg(parseSchemaData) : null;
 
-  const getUserCookieConsent = cookies().get('@sutra-cookies-consent')?.value;
-  const userEnabledAllCookies = getUserCookieConsent === 'true';
+  // const getUserCookieConsent = cookies().get('@sutra-cookies-consent')?.value;
+  // const userEnabledAllCookies = getUserCookieConsent === 'true';
 
   const cookieStore = cookies();
   const lang = (cookieStore.get('@sutra-user-lang')?.value as UserLanguage) || 'hr';
