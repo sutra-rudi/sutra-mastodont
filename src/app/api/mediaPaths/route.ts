@@ -10,6 +10,7 @@ const mediaPaths = {
     '96x96': `${basePath}/Favicon/favicon-96x96.png`,
     '128x128': `${basePath}/Favicon/favicon-128x128.png`,
     '180x180': `${basePath}/Favicon/favicon-180x180.png`,
+    '196x196': `${basePath}/Favicon/favicon-196x196.png`,
     '192x192': `${basePath}/Favicon/android-chrome-192x192.png`,
     '512x512': `${basePath}/Favicon/android-chrome-512x512.png`,
   },
