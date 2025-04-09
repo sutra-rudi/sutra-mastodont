@@ -1,111 +1,184 @@
-export const maxDuration = 60;
-
-import type { Metadata } from 'next';
-import { Poppins } from 'next/font/google';
 import './globals.scss';
-
+import type { Metadata } from 'next';
 import { cookies } from 'next/headers';
 import { UserLanguage } from './enums/LangEnum';
 import { Toaster } from 'react-hot-toast';
 import { Suspense } from 'react';
 import Loading from './loading';
 import { Providers } from './providers';
-import { appleTouchIcons, favicons } from './pathsUtils/mediaImportsDynamic';
+import dataset from './staticData/staticQueryData.json';
+
+const extractData = dataset.data.allSeoAdmin.edges[0].node;
+
 // import { getAdminTokensQuery } from './queries/getAdminTokens';
 // import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google';
-
-// import Script from 'next/script';
 // import CookieConsentNotification from './components/CookiesNotification';
 // import { getAdminTekstoviManjihKomponentiQuery } from './queries/getAdminTekstoviManjihKomponenti';
-
-const poppins = Poppins({ subsets: ['latin'], weight: ['400', '500', '700'], display: 'swap' });
-
 // import { getBasicSchemaOrgProjectQuery } from './queries/getBasicSchemaOrgProjectQuery';
+
 import dynamic from 'next/dynamic';
+import { getSuffixFromLang } from './langUtils/getSuffixFromLang';
+import { fetchMediaPaths } from './utils/callMediaPaths';
 
 const AppHeader = dynamic(() => import('./globalComponents/AppHeader'), { ssr: false });
 const AppFooter = dynamic(() => import('./globalComponents/AppFooter'), { ssr: false });
 // import { fetchData } from './utils/callApi';
 // import { generateSeoSchemaOrg } from './utils/generateSchemaGlobal';
 
-export const metadata: Metadata = {
-  title: 'Sutra mastodont',
-  description: 'One repo to rule them all',
+export async function generateMetadata() {
+  const cookieStore = cookies();
+  const lang = (cookieStore.get('@sutra-user-lang')?.value as UserLanguage) || 'hr';
+  const l = getSuffixFromLang(lang);
 
-  icons: [
-    {
-      rel: 'icon',
-      type: 'image/png',
-      sizes: '196x196',
-      url: favicons['196x196'],
+  const MP = await fetchMediaPaths();
+
+  const { appleTouchIcons, favicons, ogImagesDefault, microsoftTiles } = MP;
+  return {
+    //@ts-ignore
+    title: extractData[`bazniSeo${l}`]?.[`bazniSeoTekstoviGlobalniZaStranicu${l}`].seoNaslov,
+    //@ts-ignore
+    description: extractData[`bazniSeo${l}`]?.[`bazniSeoTekstoviGlobalniZaStranicu${l}`].seoOpisStranice,
+    robots: 'index, follow',
+    authors: [
+      {
+        name: 'Zadar-Kornati tours',
+      },
+      {
+        name: 'Studio Sutra',
+      },
+    ],
+    openGraph: {
+      //@ts-ignore
+      title: extractData[`bazniSeo${l}`]?.[`bazniSeoTekstoviGlobalniZaStranicu${l}`].seoNaslov,
+      //@ts-ignore
+      description: extractData[`bazniSeo${l}`]?.[`bazniSeoTekstoviGlobalniZaStranicu${l}`].seoOpisStranice,
+      url: 'https://www.zadar-kornati-tours.com',
+      siteName: 'Zadar-Kornati tours',
+      images: [ogImagesDefault.default],
     },
-    {
-      rel: 'icon',
-      type: 'image/png',
-      sizes: '96x96',
-      url: favicons['96x96'],
-    },
-    {
-      rel: 'icon',
-      type: 'image/png',
-      sizes: '32x32',
-      url: favicons['32x32'],
-    },
-    {
-      rel: 'icon',
-      type: 'image/png',
-      sizes: '16x16',
-      url: favicons['16x16'],
-    },
-    {
-      rel: 'icon',
-      type: 'image/png',
-      sizes: '128x128',
-      url: favicons['128x128'],
-    },
-    // Apple Touch Icons
-    {
-      rel: 'apple-touch-icon',
-      sizes: '57x57',
-      url: appleTouchIcons['57x57'],
-    },
-    {
-      rel: 'apple-touch-icon',
-      sizes: '114x114',
-      url: appleTouchIcons['114x114'],
-    },
-    {
-      rel: 'apple-touch-icon',
-      sizes: '72x72',
-      url: appleTouchIcons['72x72'],
-    },
-    {
-      rel: 'apple-touch-icon',
-      sizes: '144x144',
-      url: appleTouchIcons['144x144'],
-    },
-    {
-      rel: 'apple-touch-icon',
-      sizes: '60x60',
-      url: appleTouchIcons['60x60'],
-    },
-    {
-      rel: 'apple-touch-icon',
-      sizes: '120x120',
-      url: appleTouchIcons['120x120'],
-    },
-    {
-      rel: 'apple-touch-icon',
-      sizes: '76x76',
-      url: appleTouchIcons['76x76'],
-    },
-    {
-      rel: 'apple-touch-icon',
-      sizes: '152x152',
-      url: appleTouchIcons['152x152'],
-    },
-  ],
-};
+
+    meta: [
+      // MICROSOFT TILES (meta tagovi)
+      {
+        name: 'msapplication-TileImage',
+        content: microsoftTiles['144x144'],
+      },
+      {
+        name: 'msapplication-TileColor',
+        content: '#ffffff', // prilagodi prema svojoj vrijednosti boje
+      },
+      // Po potrebi možete dodati i dodatne meta tagove za Microsoft Tiles:
+      {
+        name: 'msapplication-square70x70logo',
+        content: microsoftTiles['70x70'],
+      },
+      {
+        name: 'msapplication-square150x150logo',
+        content: microsoftTiles['150x150'],
+      },
+      {
+        name: 'msapplication-wide310x150logo',
+        content: microsoftTiles['310x150'],
+      },
+      {
+        name: 'msapplication-square310x310logo',
+        content: microsoftTiles['310x310'],
+      },
+    ],
+
+    icons: [
+      // FAVICONS
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '16x16',
+        url: favicons['16x16'],
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '32x32',
+        url: favicons['32x32'],
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '96x96',
+        url: favicons['96x96'],
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '128x128',
+        url: favicons['128x128'],
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '180x180',
+        url: favicons['180x180'],
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '192x192',
+        url: favicons['192x192'],
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '512x512',
+        url: favicons['512x512'],
+      },
+      // APPLE TOUCH ICONS
+      {
+        rel: 'apple-touch-icon',
+        sizes: '57x57',
+        url: appleTouchIcons['57x57'],
+      },
+      {
+        rel: 'apple-touch-icon',
+        sizes: '60x60',
+        url: appleTouchIcons['60x60'],
+      },
+      {
+        rel: 'apple-touch-icon',
+        sizes: '72x72',
+        url: appleTouchIcons['72x72'],
+      },
+      {
+        rel: 'apple-touch-icon',
+        sizes: '76x76',
+        url: appleTouchIcons['76x76'],
+      },
+      {
+        rel: 'apple-touch-icon',
+        sizes: '114x114',
+        url: appleTouchIcons['114x114'],
+      },
+      {
+        rel: 'apple-touch-icon',
+        sizes: '120x120',
+        url: appleTouchIcons['120x120'],
+      },
+      {
+        rel: 'apple-touch-icon',
+        sizes: '144x144',
+        url: appleTouchIcons['144x144'],
+      },
+      {
+        rel: 'apple-touch-icon',
+        sizes: '152x152',
+        url: appleTouchIcons['152x152'],
+      },
+      {
+        rel: 'apple-touch-icon',
+        sizes: '180x180',
+        url: appleTouchIcons['180x180'],
+      },
+    ],
+  };
+}
 
 export default async function RootLayout({
   children,

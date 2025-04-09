@@ -5,30 +5,33 @@ const basePath = 'https://dodgerblue-elephant-122364.hostingersite.com/Sutra-ftp
 // Sve putanje, možeš dodati sve potrebne objekte ovdje
 const mediaPaths = {
   favicons: {
-    '196x196': `${basePath}Favicon/favicon-196x196.png`,
-    '96x96': `${basePath}Favicon/favicon-96x96.png`,
-    '32x32': `${basePath}Favicon/favicon-32x32.png`,
-    '16x16': `${basePath}Favicon/favicon-16x16.png`,
-    '128x128': `${basePath}Favicon/favicon-128x128.png`,
+    '16x16': `${basePath}/Favicon/favicon-16x16.png`,
+    '32x32': `${basePath}/Favicon/favicon-32x32.png`,
+    '96x96': `${basePath}/Favicon/favicon-96x96.png`,
+    '128x128': `${basePath}/Favicon/favicon-128x128.png`,
+    '180x180': `${basePath}/Favicon/favicon-180x180.png`,
+    '192x192': `${basePath}/Favicon/android-chrome-192x192.png`,
+    '512x512': `${basePath}/Favicon/android-chrome-512x512.png`,
   },
 
   appleTouchIcons: {
-    '57x57': `${basePath}Favicon/apple-touch-icon-57x57.png`,
-    '114x114': `${basePath}Favicon/apple-touch-icon-114x114.png`,
-    '72x72': `${basePath}Favicon/apple-touch-icon-72x72.png`,
-    '144x144': `${basePath}Favicon/apple-touch-icon-144x144.png`,
-    '60x60': `${basePath}Favicon/apple-touch-icon-60x60.png`,
-    '120x120': `${basePath}Favicon/apple-touch-icon-120x120.png`,
-    '76x76': `${basePath}Favicon/apple-touch-icon-76x76.png`,
-    '152x152': `${basePath}Favicon/apple-touch-icon-152x152.png`,
+    '57x57': `${basePath}/Favicon/apple-touch-icon-57x57.png`,
+    '60x60': `${basePath}/Favicon/apple-touch-icon-60x60.png`,
+    '72x72': `${basePath}/Favicon/apple-touch-icon-72x72.png`,
+    '76x76': `${basePath}/Favicon/apple-touch-icon-76x76.png`,
+    '114x114': `${basePath}/Favicon/apple-touch-icon-114x114.png`,
+    '120x120': `${basePath}/Favicon/apple-touch-icon-120x120.png`,
+    '144x144': `${basePath}/Favicon/apple-touch-icon-144x144.png`,
+    '152x152': `${basePath}/Favicon/apple-touch-icon-152x152.png`,
+    '180x180': `${basePath}/Favicon/apple-touch-icon-180x180.png`,
   },
 
   microsoftTiles: {
     '144x144': `${basePath}/Favicon/mstile-144x144.png`,
-    '70x70': `${basePath}/Favicon/mstile-70x70.png`,
     '150x150': `${basePath}/Favicon/mstile-150x150.png`,
     '310x150': `${basePath}/Favicon/mstile-310x150.png`,
     '310x310': `${basePath}/Favicon/mstile-310x310.png`,
+    '70x70': `${basePath}/Favicon/mstile-70x70.png`,
   },
 
   designElements: {
