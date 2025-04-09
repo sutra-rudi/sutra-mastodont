@@ -5,22 +5,22 @@ const basePath = 'https://dodgerblue-elephant-122364.hostingersite.com/Sutra-ftp
 // Sve putanje, možeš dodati sve potrebne objekte ovdje
 const mediaPaths = {
   favicons: {
-    '196x196': `${basePath}Favicon/favicon-196x196.png`,
-    '96x96': `${basePath}Favicon/favicon-96x96.png`,
-    '32x32': `${basePath}Favicon/favicon-32x32.png`,
-    '16x16': `${basePath}Favicon/favicon-16x16.png`,
-    '128x128': `${basePath}Favicon/favicon-128x128.png`,
+    '196x196': `${basePath}/Favicon/favicon-196x196.png`,
+    '96x96': `${basePath}/Favicon/favicon-96x96.png`,
+    '32x32': `${basePath}/Favicon/favicon-32x32.png`,
+    '16x16': `${basePath}/Favicon/favicon-16x16.png`,
+    '128x128': `${basePath}/Favicon/favicon-128x128.png`,
   },
 
   appleTouchIcons: {
-    '57x57': `${basePath}Favicon/apple-touch-icon-57x57.png`,
-    '114x114': `${basePath}Favicon/apple-touch-icon-114x114.png`,
-    '72x72': `${basePath}Favicon/apple-touch-icon-72x72.png`,
-    '144x144': `${basePath}Favicon/apple-touch-icon-144x144.png`,
-    '60x60': `${basePath}Favicon/apple-touch-icon-60x60.png`,
-    '120x120': `${basePath}Favicon/apple-touch-icon-120x120.png`,
-    '76x76': `${basePath}Favicon/apple-touch-icon-76x76.png`,
-    '152x152': `${basePath}Favicon/apple-touch-icon-152x152.png`,
+    '57x57': `${basePath}/Favicon/apple-touch-icon-57x57.png`,
+    '114x114': `${basePath}/Favicon/apple-touch-icon-114x114.png`,
+    '72x72': `${basePath}/Favicon/apple-touch-icon-72x72.png`,
+    '144x144': `${basePath}/Favicon/apple-touch-icon-144x144.png`,
+    '60x60': `${basePath}/Favicon/apple-touch-icon-60x60.png`,
+    '120x120': `${basePath}/Favicon/apple-touch-icon-120x120.png`,
+    '76x76': `${basePath}/Favicon/apple-touch-icon-76x76.png`,
+    '152x152': `${basePath}/Favicon/apple-touch-icon-152x152.png`,
   },
 
   microsoftTiles: {
