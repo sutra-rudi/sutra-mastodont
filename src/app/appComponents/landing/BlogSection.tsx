@@ -17,7 +17,7 @@ export default function BlogSection({ currentLang, blogList }: BlogSection) {
   const l = getSuffixFromLang(currentLang);
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false });
   const [selectedIndex, setSelectedIndex] = React.useState(0);
-  const [scrollSnaps, setScrollSnaps] = React.useState([]);
+  const [scrollSnaps, setScrollSnaps] = React.useState<number[]>([]);
 
   const onSelect = React.useCallback(() => {
     if (!emblaApi) return;
@@ -26,13 +26,13 @@ export default function BlogSection({ currentLang, blogList }: BlogSection) {
 
   React.useEffect(() => {
     if (!emblaApi) return;
-    //@ts-ignore
+    // @ts-ignore
     setScrollSnaps(emblaApi.scrollSnapList());
     emblaApi.on('select', onSelect);
   }, [emblaApi, onSelect]);
 
   const scrollTo = React.useCallback(
-    (index: any) => {
+    (index: number) => {
       if (!emblaApi) return;
       emblaApi.scrollTo(index);
     },
@@ -42,7 +42,7 @@ export default function BlogSection({ currentLang, blogList }: BlogSection) {
   return (
     <section className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl'>
       <div className='max-w-[1440px] px-4 mx-auto'>
-        <h2 className=' text-3xl font-bold text-dark dark:text-white sm:text-[40px]/[48px] w-full text-center lg:mb-20 mb-[60px]'>
+        <h2 className='text-3xl font-bold text-dark dark:text-white sm:text-[40px]/[48px] w-full text-center lg:mb-20 mb-[60px]'>
           Blog
         </h2>
         <div className='lg:flex hidden flex-wrap items-start justify-center gap-4'>
@@ -80,7 +80,7 @@ export default function BlogSection({ currentLang, blogList }: BlogSection) {
                         <h1 className='title-font text-lg font-medium text-gray-600 mb-3'>
                           {
                             blog.node[`sadrzaj${l}Fields`]?.[
-                              `${isEngMistake ? `naslovSadrzajSadrzaj${l}` : `naslovSadrzaj${l}`}`
+                              isEngMistake ? `naslovSadrzajSadrzaj${l}` : `naslovSadrzaj${l}`
                             ]
                           }
                         </h1>
@@ -94,8 +94,8 @@ export default function BlogSection({ currentLang, blogList }: BlogSection) {
                             {parse(blog.node[`sadrzaj${l}Fields`]?.[`sadrzajSadrzaj${l}`])}
                           </div>
                         )}
-                        <div className='flex items-center flex-wrap '>
-                          <button className='bg-gradient-to-r from-cyan-400 to-blue-400 hover:scale-105 drop-shadow-md  shadow-cla-blue px-4 py-1 rounded-lg'>
+                        <div className='flex items-center flex-wrap'>
+                          <button className='bg-gradient-to-r from-cyan-400 to-blue-400 hover:scale-105 drop-shadow-md shadow-cla-blue px-4 py-1 rounded-lg'>
                             Learn more
                           </button>
                         </div>
@@ -145,7 +145,7 @@ export default function BlogSection({ currentLang, blogList }: BlogSection) {
                           <h1 className='title-font text-lg font-medium text-gray-600 mb-3'>
                             {
                               blog.node[`sadrzaj${l}Fields`]?.[
-                                `${isEngMistake ? `naslovSadrzajSadrzaj${l}` : `naslovSadrzaj${l}`}`
+                                isEngMistake ? `naslovSadrzajSadrzaj${l}` : `naslovSadrzaj${l}`
                               ]
                             }
                           </h1>
@@ -159,8 +159,8 @@ export default function BlogSection({ currentLang, blogList }: BlogSection) {
                               {parse(blog.node[`sadrzaj${l}Fields`]?.[`sadrzajSadrzaj${l}`])}
                             </div>
                           )}
-                          <div className='flex items-center flex-wrap '>
-                            <button className='bg-gradient-to-r from-cyan-400 to-blue-400 hover:scale-105 drop-shadow-md  shadow-cla-blue px-4 py-1 rounded-lg'>
+                          <div className='flex items-center flex-wrap'>
+                            <button className='bg-gradient-to-r from-cyan-400 to-blue-400 hover:scale-105 drop-shadow-md shadow-cla-blue px-4 py-1 rounded-lg'>
                               Learn more
                             </button>
                           </div>
@@ -173,16 +173,40 @@ export default function BlogSection({ currentLang, blogList }: BlogSection) {
             })}
           </div>
 
-          {/* Dots (pagination) */}
-          <div className='embla__dots lg:-mt--desktop---xl md:-mt--tablet---xl -mt--mobile---xl mx-auto w-max'>
-            {scrollSnaps.map((_, index) => (
-              <button
-                key={index}
-                className={`embla__dot ${index === selectedIndex ? 'is-selected' : ''}`}
-                onClick={() => scrollTo(index)}
-              />
-            ))}
-          </div>
+          {/* Dots (pagination) sa sliding window pristupom */}
+          {(() => {
+            const maxDots = 5; // željeni maksimalni broj dots na ekranu
+            const total = scrollSnaps.length;
+            let dotIndices: number[] = [];
+            if (total <= maxDots) {
+              dotIndices = scrollSnaps.map((_, index) => index);
+            } else {
+              const half = Math.floor(maxDots / 2);
+              // Pokušaj centrirati trenutno odabranu točku
+              let start = selectedIndex - half;
+              if (start < 0) start = 0;
+              let end = start + maxDots - 1;
+              if (end >= total) {
+                end = total - 1;
+                start = end - maxDots + 1;
+              }
+              for (let i = start; i <= end; i++) {
+                dotIndices.push(i);
+              }
+            }
+
+            return (
+              <div className='embla__dots lg:-mt--desktop---xl md:-mt--tablet---xl -mt--mobile---xl mx-auto w-max'>
+                {dotIndices.map((dotIndex) => (
+                  <button
+                    key={dotIndex}
+                    className={`embla__dot ${selectedIndex === dotIndex ? 'is-selected' : ''}`}
+                    onClick={() => scrollTo(dotIndex)}
+                  />
+                ))}
+              </div>
+            );
+          })()}
         </div>
       </div>
     </section>
