@@ -6,6 +6,7 @@ import { slugifyOptions } from '@/app/pathsUtils/slugifyOptions';
 import parse from 'html-react-parser';
 import slugify from 'slugify';
 import useEmblaCarousel from 'embla-carousel-react';
+import React from 'react';
 
 interface BlogSection {
   currentLang: string;
@@ -14,7 +15,29 @@ interface BlogSection {
 
 export default function BlogSection({ currentLang, blogList }: BlogSection) {
   const l = getSuffixFromLang(currentLang);
-  const [emblaRef] = useEmblaCarousel({ loop: false });
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false });
+  const [selectedIndex, setSelectedIndex] = React.useState(0);
+  const [scrollSnaps, setScrollSnaps] = React.useState([]);
+
+  const onSelect = React.useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+
+  React.useEffect(() => {
+    if (!emblaApi) return;
+    //@ts-ignore
+    setScrollSnaps(emblaApi.scrollSnapList());
+    emblaApi.on('select', onSelect);
+  }, [emblaApi, onSelect]);
+
+  const scrollTo = React.useCallback(
+    (index: any) => {
+      if (!emblaApi) return;
+      emblaApi.scrollTo(index);
+    },
+    [emblaApi]
+  );
 
   return (
     <section className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl'>
@@ -85,7 +108,7 @@ export default function BlogSection({ currentLang, blogList }: BlogSection) {
           })}
         </div>
 
-        <div ref={emblaRef} className='embla lg:hidden flex w-full mx-auto'>
+        <div ref={emblaRef} className='embla lg:hidden w-full mx-auto'>
           <div className='embla__container w-full flex items-start gap-4'>
             {blogList.map((blog) => {
               const isEngMistake = currentLang === UserLanguage.eng;
@@ -148,6 +171,17 @@ export default function BlogSection({ currentLang, blogList }: BlogSection) {
                 )
               );
             })}
+          </div>
+
+          {/* Dots (pagination) */}
+          <div className='embla__dots lg:-mt--desktop---xl md:-mt--tablet---xl -mt--mobile---xl mx-auto w-max'>
+            {scrollSnaps.map((_, index) => (
+              <button
+                key={index}
+                className={`embla__dot ${index === selectedIndex ? 'is-selected' : ''}`}
+                onClick={() => scrollTo(index)}
+              />
+            ))}
           </div>
         </div>
       </div>
