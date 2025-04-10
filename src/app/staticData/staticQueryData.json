@@ -5053,7 +5053,227 @@
             "edges": []
         },
         "allBrojcanici": {
-            "edges": []
+            "edges": [
+                {
+                    "node": {
+                        "id": "cG9zdDoxMDgxNA==",
+                        "title": "Brojcanik3",
+                        "brojcanikCompanyInNumbersUvod": {
+                            "brojcaniciUvod": {
+                                "broj": 17,
+                                "pozicijaUNizuUBrojcaniku": null,
+                                "prikaziDodatneOpcijeSlikaIkona": false,
+                                "reactIconsImportCode": null,
+                                "znakIliNatpisUzBroj": "%",
+                                "slikaPngSvg": null
+                            }
+                        },
+                        "metricsHr": {
+                            "companyInNumbersHr": {
+                                "prikaziDodatneOpcijeSwitcher": false,
+                                "tekstBrojcanikaGlavni": "Spašenog razuma",
+                                "tekstBrojcanikaSekundarniTekst": null,
+                                "znakIliNatpisUzBroj": null
+                            }
+                        },
+                        "metricsGer": {
+                            "companyInNumbersGer": {
+                                "prikaziDodatneOpcijeSwitcher": false,
+                                "tekstBrojcanikaGlavni": "Grund für Speicherung",
+                                "tekstBrojcanikaSekundarniTekst": null,
+                                "znakIliNatpisUzBroj": null
+                            }
+                        },
+                        "metricsFra": {
+                            "companyInNumbersFra": {
+                                "prikaziDodatneOpcijeSwitcher": false,
+                                "tekstBrojcanikaGlavni": "Raison sauvée",
+                                "tekstBrojcanikaSekundarniTekst": null,
+                                "znakIliNatpisUzBroj": null
+                            }
+                        },
+                        "metricsEsp": {
+                            "companyInNumbersEsp": {
+                                "prikaziDodatneOpcijeSwitcher": false,
+                                "tekstBrojcanikaGlavni": "Razón guardada",
+                                "tekstBrojcanikaSekundarniTekst": null,
+                                "znakIliNatpisUzBroj": null
+                            }
+                        },
+                        "metricsEng": {
+                            "companyInNumbersEng": {
+                                "prikaziDodatneOpcije": false,
+                                "tekstBrojcanikaGlavni": "Saved sanity",
+                                "tekstBrojcanikaSekundarniTekst": null,
+                                "znakIliNatpisUzBroj": null
+                            }
+                        },
+                        "metricsIta": {
+                            "companyInNumbersIta": {
+                                "fieldGroupName": "MetricsItaCompanyInNumbersIta",
+                                "prikaziDodatneOpcijeSwitcher": false,
+                                "tekstBrojcanikaGlavni": "Motivo salvato",
+                                "tekstBrojcanikaSekundarniTekst": null,
+                                "znakIliNatpisUzBroj": null
+                            }
+                        },
+                        "metricsSlo": {
+                            "companyInNumbersSlo": {
+                                "prikaziDodatneOpcijeSwitcher": false,
+                                "tekstBrojcanikaGlavni": "Shranjen razlog",
+                                "tekstBrojcanikaSekundarniTekst": null,
+                                "znakIliNatpisUzBroj": null
+                            }
+                        }
+                    }
+                },
+                {
+                    "node": {
+                        "id": "cG9zdDoxMDgxMg==",
+                        "title": "Brojcanik1",
+                        "brojcanikCompanyInNumbersUvod": {
+                            "brojcaniciUvod": {
+                                "broj": 25,
+                                "pozicijaUNizuUBrojcaniku": null,
+                                "prikaziDodatneOpcijeSlikaIkona": false,
+                                "reactIconsImportCode": null,
+                                "znakIliNatpisUzBroj": "+",
+                                "slikaPngSvg": null
+                            }
+                        },
+                        "metricsHr": {
+                            "companyInNumbersHr": {
+                                "prikaziDodatneOpcijeSwitcher": false,
+                                "tekstBrojcanikaGlavni": "Broj kulturnih, sportskih i turističkih događanja tijekom 2024. godine.",
+                                "tekstBrojcanikaSekundarniTekst": null,
+                                "znakIliNatpisUzBroj": null
+                            }
+                        },
+                        "metricsGer": {
+                            "companyInNumbersGer": {
+                                "prikaziDodatneOpcijeSwitcher": false,
+                                "tekstBrojcanikaGlavni": "Anzahl der kulturellen, sportlichen und touristischen Veranstaltungen im Jahr 2024.",
+                                "tekstBrojcanikaSekundarniTekst": null,
+                                "znakIliNatpisUzBroj": null
+                            }
+                        },
+                        "metricsFra": {
+                            "companyInNumbersFra": {
+                                "prikaziDodatneOpcijeSwitcher": false,
+                                "tekstBrojcanikaGlavni": "Nombre d'événements culturels, sportifs et touristiques en 2024.",
+                                "tekstBrojcanikaSekundarniTekst": null,
+                                "znakIliNatpisUzBroj": null
+                            }
+                        },
+                        "metricsEsp": {
+                            "companyInNumbersEsp": {
+                                "prikaziDodatneOpcijeSwitcher": false,
+                                "tekstBrojcanikaGlavni": "Número de eventos culturales, deportivos y turísticos durante el año 2024.",
+                                "tekstBrojcanikaSekundarniTekst": null,
+                                "znakIliNatpisUzBroj": null
+                            }
+                        },
+                        "metricsEng": {
+                            "companyInNumbersEng": {
+                                "prikaziDodatneOpcije": false,
+                                "tekstBrojcanikaGlavni": "The number of cultural, sporting and tourist events during 2024.",
+                                "tekstBrojcanikaSekundarniTekst": null,
+                                "znakIliNatpisUzBroj": null
+                            }
+                        },
+                        "metricsIta": {
+                            "companyInNumbersIta": {
+                                "fieldGroupName": "MetricsItaCompanyInNumbersIta",
+                                "prikaziDodatneOpcijeSwitcher": false,
+                                "tekstBrojcanikaGlavni": "Il numero di eventi culturali, sportivi e turistici nel corso del 2024.",
+                                "tekstBrojcanikaSekundarniTekst": null,
+                                "znakIliNatpisUzBroj": null
+                            }
+                        },
+                        "metricsSlo": {
+                            "companyInNumbersSlo": {
+                                "prikaziDodatneOpcijeSwitcher": false,
+                                "tekstBrojcanikaGlavni": "Število kulturnih, športnih in turističnih dogodkov v letu 2024.",
+                                "tekstBrojcanikaSekundarniTekst": null,
+                                "znakIliNatpisUzBroj": null
+                            }
+                        }
+                    }
+                },
+                {
+                    "node": {
+                        "id": "cG9zdDoxMDgxMw==",
+                        "title": "Brojcanik2",
+                        "brojcanikCompanyInNumbersUvod": {
+                            "brojcaniciUvod": {
+                                "broj": 3000,
+                                "pozicijaUNizuUBrojcaniku": null,
+                                "prikaziDodatneOpcijeSlikaIkona": false,
+                                "reactIconsImportCode": null,
+                                "znakIliNatpisUzBroj": "+",
+                                "slikaPngSvg": null
+                            }
+                        },
+                        "metricsHr": {
+                            "companyInNumbersHr": {
+                                "prikaziDodatneOpcijeSwitcher": false,
+                                "tekstBrojcanikaGlavni": "Ukupan broj posjetitelja na događanjima u 2024. godini.",
+                                "tekstBrojcanikaSekundarniTekst": null,
+                                "znakIliNatpisUzBroj": null
+                            }
+                        },
+                        "metricsGer": {
+                            "companyInNumbersGer": {
+                                "prikaziDodatneOpcijeSwitcher": false,
+                                "tekstBrojcanikaGlavni": "Gesamtzahl der Veranstaltungsbesucher im Jahr 2024.",
+                                "tekstBrojcanikaSekundarniTekst": null,
+                                "znakIliNatpisUzBroj": null
+                            }
+                        },
+                        "metricsFra": {
+                            "companyInNumbersFra": {
+                                "prikaziDodatneOpcijeSwitcher": false,
+                                "tekstBrojcanikaGlavni": "Nombre total de visiteurs aux événements en 2024.",
+                                "tekstBrojcanikaSekundarniTekst": null,
+                                "znakIliNatpisUzBroj": null
+                            }
+                        },
+                        "metricsEsp": {
+                            "companyInNumbersEsp": {
+                                "prikaziDodatneOpcijeSwitcher": false,
+                                "tekstBrojcanikaGlavni": "Número total de visitantes a eventos en 2024.",
+                                "tekstBrojcanikaSekundarniTekst": null,
+                                "znakIliNatpisUzBroj": null
+                            }
+                        },
+                        "metricsEng": {
+                            "companyInNumbersEng": {
+                                "prikaziDodatneOpcije": false,
+                                "tekstBrojcanikaGlavni": "Total number of visitors to events in 2024.",
+                                "tekstBrojcanikaSekundarniTekst": null,
+                                "znakIliNatpisUzBroj": null
+                            }
+                        },
+                        "metricsIta": {
+                            "companyInNumbersIta": {
+                                "fieldGroupName": "MetricsItaCompanyInNumbersIta",
+                                "prikaziDodatneOpcijeSwitcher": false,
+                                "tekstBrojcanikaGlavni": "Numero totale di visitatori agli eventi nel 2024.",
+                                "tekstBrojcanikaSekundarniTekst": null,
+                                "znakIliNatpisUzBroj": null
+                            }
+                        },
+                        "metricsSlo": {
+                            "companyInNumbersSlo": {
+                                "prikaziDodatneOpcijeSwitcher": false,
+                                "tekstBrojcanikaGlavni": "Skupno število obiskovalcev dogodkov v letu 2024.",
+                                "tekstBrojcanikaSekundarniTekst": null,
+                                "znakIliNatpisUzBroj": null
+                            }
+                        }
+                    }
+                }
+            ]
         },
         "allCjenik": {
             "edges": []

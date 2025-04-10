@@ -16,6 +16,36 @@ const AppHeader = () => {
   const splitPath = currentPath.split('/');
   const currentLang = splitPath[1];
 
+  const LinksLegalSet = [
+    {
+      hr: 'Uvijeti korištenja',
+      eng: 'Terms of Use',
+      ger: 'Nutzungsbedingungen',
+      ita: 'Termini di utilizzo',
+      esp: 'Términos de uso',
+      fra: "Conditions d'utilisation",
+      url: `/${currentLang}/terms-of-use`,
+    },
+    {
+      hr: 'Politika kolačića',
+      eng: 'Cookie Policy',
+      ger: 'Cookie-Richtlinie',
+      ita: 'Politica sui cookie',
+      esp: 'Política de cookies',
+      fra: 'Politique de cookies',
+      url: `/${currentLang}/cookie-policy`,
+    },
+    {
+      hr: 'Pravila privatnosti',
+      eng: 'Privacy Policy',
+      ger: 'Datenschutzrichtlinie',
+      ita: 'Norme sulla privacy',
+      esp: 'Política de privacidad',
+      fra: 'Politique de confidentialité',
+      url: `/${currentLang}/privacy-policy`,
+    },
+  ];
+
   const [theme, setTheme] = React.useState(getThemeIfAny);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState<boolean>(false);
 
@@ -26,50 +56,50 @@ const AppHeader = () => {
     { title: 'Italiano', lang: 'ita', flag: <It width={24} height={24} /> },
   ];
 
-  const navLinks = {
-    main: [
-      { url: `/${currentLang}`, title: 'Home' },
-      { url: `/${currentLang}/blog`, title: 'Blog' },
-      { url: `/${currentLang}/news`, title: 'News' },
-      { url: `/${currentLang}/about-us`, title: 'About' },
-      { url: `/${currentLang}/contact`, title: 'Contact' },
-      { url: `/${currentLang}/what-to-visit`, title: 'What to visit?' },
-      { url: `/${currentLang}/sastavnice-obicnih-sadrzaja`, title: 'Sastavnice obicnih sadrzaja' },
-    ],
-    legal: [
-      { url: `/${currentLang}/legal-info`, title: 'Legal info' },
-      { url: `/${currentLang}/company-info`, title: 'Company info' },
-      { url: `/${currentLang}/faq`, title: 'FAQ' },
-    ],
-    resources: [
-      { url: `/${currentLang}/sub-page-5`, title: 'Baza tekstova 5 pasusa' },
-      { url: `/${currentLang}/sub-page-1`, title: 'Baza tekstova 1 modul' },
-      { url: `/${currentLang}/msg-singles`, title: 'Poruke pojedinačno' },
-      { url: `/${currentLang}/hero-sections`, title: 'Hero kompilacija' },
-      { url: `/${currentLang}/maps`, title: 'Mape kompilacija' },
-      { url: `/${currentLang}/schedule`, title: 'Rasporedi' },
-      { url: `/${currentLang}/liste-bullets`, title: 'Liste' },
-      { url: `/${currentLang}/cards-compilation`, title: 'Kartice FIGMA' },
-    ],
-    other: [
-      { url: `/${currentLang}/360-tours`, title: 'Šetnje' },
-      { url: `/${currentLang}/buttons-compilation`, title: 'Botuni' },
-      { url: `/${currentLang}/tags-compilation`, title: 'Tagovi' },
-      { url: `/${currentLang}/radna-vremena`, title: 'Radna vremena' },
-      { url: `/${currentLang}/social-links`, title: 'Društvene mreže' },
-      { url: `/${currentLang}/gallery`, title: 'Galerija' },
-      { url: `/${currentLang}/blog-news-cards`, title: 'Kartice' },
-      { url: `/${currentLang}/locations`, title: 'Lokacije' },
-      { url: `/${currentLang}/notifications-page`, title: 'Obavijesti' },
-      { url: `/${currentLang}/partners`, title: 'Logo partneri' },
-      { url: `/${currentLang}/brojcanici`, title: 'Brojcanici PAGE' },
-      { url: `/${currentLang}/client-testimonials`, title: 'Testimonials PAGE' },
-      { url: `/${currentLang}/programerski-test`, title: 'RUDI PAGE' },
-      { url: `/${currentLang}/nav-trake`, title: 'NAVBAR TRAKE' },
-    ],
-    visuals: [{ url: `/${currentLang}/textures-bg`, title: 'Teksture pozadine' }],
-    mjere: [{ url: `/${currentLang}/widths-paddings`, title: 'Mjere' }],
-  };
+  // const navLinks = {
+  //   main: [
+  //     { url: `/${currentLang}`, title: 'Home' },
+  //     { url: `/${currentLang}/blog`, title: 'Blog' },
+  //     { url: `/${currentLang}/news`, title: 'News' },
+  //     { url: `/${currentLang}/about-us`, title: 'About' },
+  //     { url: `/${currentLang}/contact`, title: 'Contact' },
+  //     { url: `/${currentLang}/what-to-visit`, title: 'What to visit?' },
+  //     { url: `/${currentLang}/sastavnice-obicnih-sadrzaja`, title: 'Sastavnice obicnih sadrzaja' },
+  //   ],
+  //   legal: [
+  //     { url: `/${currentLang}/legal-info`, title: 'Legal info' },
+  //     { url: `/${currentLang}/company-info`, title: 'Company info' },
+  //     { url: `/${currentLang}/faq`, title: 'FAQ' },
+  //   ],
+  //   resources: [
+  //     { url: `/${currentLang}/sub-page-5`, title: 'Baza tekstova 5 pasusa' },
+  //     { url: `/${currentLang}/sub-page-1`, title: 'Baza tekstova 1 modul' },
+  //     { url: `/${currentLang}/msg-singles`, title: 'Poruke pojedinačno' },
+  //     { url: `/${currentLang}/hero-sections`, title: 'Hero kompilacija' },
+  //     { url: `/${currentLang}/maps`, title: 'Mape kompilacija' },
+  //     { url: `/${currentLang}/schedule`, title: 'Rasporedi' },
+  //     { url: `/${currentLang}/liste-bullets`, title: 'Liste' },
+  //     { url: `/${currentLang}/cards-compilation`, title: 'Kartice FIGMA' },
+  //   ],
+  //   other: [
+  //     { url: `/${currentLang}/360-tours`, title: 'Šetnje' },
+  //     { url: `/${currentLang}/buttons-compilation`, title: 'Botuni' },
+  //     { url: `/${currentLang}/tags-compilation`, title: 'Tagovi' },
+  //     { url: `/${currentLang}/radna-vremena`, title: 'Radna vremena' },
+  //     { url: `/${currentLang}/social-links`, title: 'Društvene mreže' },
+  //     { url: `/${currentLang}/gallery`, title: 'Galerija' },
+  //     { url: `/${currentLang}/blog-news-cards`, title: 'Kartice' },
+  //     { url: `/${currentLang}/locations`, title: 'Lokacije' },
+  //     { url: `/${currentLang}/notifications-page`, title: 'Obavijesti' },
+  //     { url: `/${currentLang}/partners`, title: 'Logo partneri' },
+  //     { url: `/${currentLang}/brojcanici`, title: 'Brojcanici PAGE' },
+  //     { url: `/${currentLang}/client-testimonials`, title: 'Testimonials PAGE' },
+  //     { url: `/${currentLang}/programerski-test`, title: 'RUDI PAGE' },
+  //     { url: `/${currentLang}/nav-trake`, title: 'NAVBAR TRAKE' },
+  //   ],
+  //   visuals: [{ url: `/${currentLang}/textures-bg`, title: 'Teksture pozadine' }],
+  //   mjere: [{ url: `/${currentLang}/widths-paddings`, title: 'Mjere' }],
+  // };
 
   const handleTheme = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark');
@@ -105,7 +135,7 @@ const AppHeader = () => {
   };
 
   return (
-    <nav className='bg-white dark:bg-gray-800  relative'>
+    <nav className=' dark:bg-gray-800  relative'>
       <div className='max-w-screen-xl mx-auto xl:px-0 md:px-4 px-2  py-4'>
         <div className='flex items-center justify-between'>
           <div className='flex items-center'>
@@ -130,13 +160,13 @@ const AppHeader = () => {
             </div>
 
             <div
-              className={`absolute z-40 w-full h-screen bg-red-300 inset-0 transition-all duration-300 flex items-center lg:justify-center justify-start flex-col lg:pt-0 pt-24  ${
+              className={`absolute z-40 w-full h-screen bg-almost-white inset-0 transition-all duration-300 flex items-center lg:justify-center justify-start flex-col lg:pt-0 pt-24  ${
                 isMobileMenuOpen
                   ? 'opacity-100 pointer-events-auto select-auto'
                   : 'opacity-0 select-none pointer-events-none'
               }`}
             >
-              <ul className='grid 2xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-3 grid-cols-2 gap-x-4 gap-y-2 w-full lg:px-6 px-2'>
+              {/* <ul className='grid 2xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-3 grid-cols-2 gap-x-4 gap-y-2 w-full lg:px-6 px-2'>
                 {Object.entries(navLinks).map(([category, links]) => (
                   <li key={category} className='mt-4'>
                     <h3 className='text-xl font-bold text-gray-800 dark:text-white mb-2'>{category.toUpperCase()}</h3>
@@ -154,7 +184,7 @@ const AppHeader = () => {
                     </ul>
                   </li>
                 ))}
-              </ul>
+              </ul> */}
             </div>
           </div>
           <div className='flex items-center space-x-4 z-40'>
