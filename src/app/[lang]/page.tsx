@@ -10,11 +10,13 @@ import FaqSection from '../appComponents/landing/FaqSection';
 import MapSection from '../appComponents/landing/MapSection';
 import NewsSection from '../appComponents/landing/NewsSection';
 import CompanyInNumbers from '../appComponents/landing/CompanyInNumbers';
+import ClientTestimonials from '../appComponents/landing/ClientTestimonials';
 //QUERIES
 import { fetchMediaPaths } from '../utils/callMediaPaths';
 import getAllBlogs from '../queries/dynamicQueries/getAllBlogs';
 import getAllNews from '../queries/dynamicQueries/getAllNews';
 import getAllBrojcanici from '../queries/dynamicQueries/getAllBrojcanici';
+import getIskustvaKlijenata from '../queries/dynamicQueries/getAllIskustva';
 
 //UTILS
 import { fetchData } from '../utils/callApi';
@@ -36,6 +38,7 @@ const findFirstListContent = dataset.data.allBazaLista.edges.find(
 );
 
 const findCiNStatic = dataset.data.allBrojcanici.edges;
+const findCtStatic = dataset.data.allIskustvaKlijenata.edges;
 
 const filterImagesBase = Object.values(findKaruselDataBase?.node.photoGallery30pcs!).filter((val) => val);
 const filterImagesMiddle = Object.values(findKaruselDataMiddle?.node.photoGallery30pcs!).filter((val) => val);
@@ -51,8 +54,11 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
   const getCiN = await fetchData(getAllBrojcanici());
   const cInData = !getCiN.error ? getCiN.data.allBrojcanici?.edges : null;
+  // const cInData = null;
 
-  // console.log('get', cInData);
+  const getCt = await fetchData(getIskustvaKlijenata());
+  const cTData = !getCt.error ? getCt.data.allIskustvaKlijenata?.edges : null;
+  // const cTdata =
 
   //MEDIA PATHS
   const MP = await fetchMediaPaths();
@@ -84,7 +90,9 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
       <CompanyInNumbers dataset={cInData ? cInData : findCiNStatic} currentLang={lang} />
 
+      <ClientTestimonials currentLang={lang} dataset={cTData ? cTData : findCtStatic} />
       {newsData && <NewsSection currentLang={lang} newsList={newsData} />}
+
       <ContactSection currentLang={lang} />
 
       <FaqSection currentLang={lang} />
