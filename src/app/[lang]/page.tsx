@@ -22,6 +22,11 @@ import getIskustvaKlijenata from '../queries/dynamicQueries/getAllIskustva';
 import { fetchData } from '../utils/callApi';
 //STATIC DATA
 import dataset from '../staticData/staticQueryData.json';
+import PhotoGalleryComponent from '../appComponents/global/PhotoGallery';
+import PartnersSection from '../appComponents/landing/PartnersSection';
+import getAllPortfolioCaseStudy from '../queries/dynamicQueries/getAllPortfolioCaseStudy';
+import PortfolioCaseStudy from '../appComponents/landing/PortfolioCaseStudy';
+import AboutUsSection from '../appComponents/landing/AboutUsSection';
 
 const findKaruselDataBase = dataset.data.allSlikeGalerijaKarusel.edges.find(
   (list) => list.node.title === 'Naslovnica – Karusel slika'
@@ -58,7 +63,9 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
   const getCt = await fetchData(getIskustvaKlijenata());
   const cTData = !getCt.error ? getCt.data.allIskustvaKlijenata?.edges : null;
-  // const cTdata =
+
+  const getPcS = await fetchData(getAllPortfolioCaseStudy());
+  const pCsData = !getPcS.error ? getPcS.data.allPortfolioCaseStudy?.edges : null;
 
   //MEDIA PATHS
   const MP = await fetchMediaPaths();
@@ -88,10 +95,19 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
       <BaseCaruselSection dataset={filterImagesMiddle} />
 
+      <AboutUsSection currentLang={lang} />
+
+      {pCsData && <PortfolioCaseStudy currentLang={lang} dataset={pCsData} />}
+
       <CompanyInNumbers dataset={cInData ? cInData : findCiNStatic} currentLang={lang} />
+
+      <PartnersSection currentLang={lang} />
 
       <ClientTestimonials currentLang={lang} dataset={cTData ? cTData : findCtStatic} />
       {newsData && <NewsSection currentLang={lang} newsList={newsData} />}
+      <div className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl max-w-[1140px] mx-auto px-4'>
+        <PhotoGalleryComponent gallery={filterImagesBase} currentLang={lang} />
+      </div>
 
       <ContactSection currentLang={lang} />
 
