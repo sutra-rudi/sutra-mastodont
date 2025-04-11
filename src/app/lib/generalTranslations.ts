@@ -35,4 +35,23 @@ export const generalTranslations = [
     esp: 'Nuestros socios',
     fra: 'Nos partenaires',
   },
+  // {
+  //   key: 'Portfolio - case study',
+  //   hr: 'Portfolio - studija slučaja',
+  //   eng: 'Portfolio - case study',
+  //   ger: 'Portfolio - Fallstudie',
+  //   ita: 'Portfolio - studio di caso',
+  //   esp: 'Portfolio - estudio de caso',
+  //   fra: 'Portfolio - étude de cas',
+  // },
+
+  {
+    key: 'Portfolio',
+    hr: 'Portfolio',
+    eng: 'Portfolio',
+    ger: 'Portfolio',
+    ita: 'Portfolio',
+    esp: 'Portfolio',
+    fra: 'Portfolio',
+  },
 ];

@@ -24,6 +24,8 @@ import { fetchData } from '../utils/callApi';
 import dataset from '../staticData/staticQueryData.json';
 import PhotoGalleryComponent from '../appComponents/global/PhotoGallery';
 import PartnersSection from '../appComponents/landing/PartnersSection';
+import getAllPortfolioCaseStudy from '../queries/dynamicQueries/getAllPortfolioCaseStudy';
+import PortfolioCaseStudy from '../appComponents/landing/PortfolioCaseStudy';
 
 const findKaruselDataBase = dataset.data.allSlikeGalerijaKarusel.edges.find(
   (list) => list.node.title === 'Naslovnica – Karusel slika'
@@ -60,7 +62,9 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
   const getCt = await fetchData(getIskustvaKlijenata());
   const cTData = !getCt.error ? getCt.data.allIskustvaKlijenata?.edges : null;
-  // const cTdata =
+
+  const getPcS = await fetchData(getAllPortfolioCaseStudy());
+  const pCsData = !getPcS.error ? getPcS.data.allPortfolioCaseStudy?.edges : null;
 
   //MEDIA PATHS
   const MP = await fetchMediaPaths();
@@ -89,6 +93,8 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       {blogsData && <BlogSection currentLang={lang} blogList={blogsData} />}
 
       <BaseCaruselSection dataset={filterImagesMiddle} />
+
+      {pCsData && <PortfolioCaseStudy currentLang={lang} dataset={pCsData} />}
 
       <CompanyInNumbers dataset={cInData ? cInData : findCiNStatic} currentLang={lang} />
 
