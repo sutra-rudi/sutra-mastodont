@@ -16,16 +16,8 @@ export default function PhotoGalleryComponent({ gallery, currentLang }: PhotoGal
 
   const handleClick = (index: number) => setIndex(index);
 
-  //   console.log('GALLERY', gallery);
-
   return (
-    <div className='max-w-[1140px] mx-auto px-4'>
-      <h3
-        className={`${'playfairDisplayFont.className'} lg:text-h3-desktop md:text-h3-tablet text-h3-mobile text-heading-color-light-mode lg:-mb--desktop---2xl md:-mb--tablet---2xl -mb--mobile---2xl`}
-      >
-        {findGeneralTranslation('Fotogalerija', currentLang, generalTranslations)}
-      </h3>
-
+    <div className=''>
       <div
         className='grid gap-2 md:gap-4 
   grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[150px] md:auto-rows-[250px]'
@@ -56,12 +48,13 @@ export default function PhotoGalleryComponent({ gallery, currentLang }: PhotoGal
                   className={`${'playfairDisplayFont.className'} max-w-[190px] lg:text-h4-desktop md:text-h4-tablet text-h4-mobile`}
                 >
                   {findGeneralTranslation('Pogledaj cijelu fotogaleriju', currentLang, generalTranslations)}
-                  {': '}
-                  {`+${gallery.length - 6} ${findGeneralTranslation(
-                    'Slike',
-                    currentLang,
-                    generalTranslations
-                  ).toLocaleLowerCase()}`}
+
+                  {gallery.length >= 6 &&
+                    `: +${gallery.length - 6} ${findGeneralTranslation(
+                      'Slike',
+                      currentLang,
+                      generalTranslations
+                    ).toLocaleLowerCase()}`}
                 </h4>
               </div>
             </div>

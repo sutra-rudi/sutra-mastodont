@@ -31,8 +31,11 @@ export default function PartnersSection({ currentLang }: PartnersSection) {
                 <img
                   src={p.node.logotipiPartnera.logoPNG.node.sourceUrl}
                   alt={`Company logo - ${p.node.logotipiPartnera.naziv}`}
-                  className='block aspect-auto object-center object-cover z-0 pointer-events-none select-none'
+                  className='block aspect-auto object-center object-cover z-0 pointer-events-none select-none w-full max-w-[300px] lg:max-h-[290px] max-h-[223px]'
                   decoding='async'
+                  width={300}
+                  height={290}
+                  loading='lazy'
                 />
               </picture>
             </a>

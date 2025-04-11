@@ -54,4 +54,13 @@ export const generalTranslations = [
     esp: 'Portfolio',
     fra: 'Portfolio',
   },
+  {
+    key: 'O nama',
+    hr: 'O nama',
+    eng: 'About us',
+    ger: 'Über uns',
+    ita: 'Chi siamo',
+    esp: 'Sobre nosotros',
+    fra: 'À propos de nous',
+  },
 ];
