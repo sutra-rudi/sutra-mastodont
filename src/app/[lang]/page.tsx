@@ -23,6 +23,7 @@ import { fetchData } from '../utils/callApi';
 //STATIC DATA
 import dataset from '../staticData/staticQueryData.json';
 import PhotoGalleryComponent from '../appComponents/global/PhotoGallery';
+import PartnersSection from '../appComponents/landing/PartnersSection';
 
 const findKaruselDataBase = dataset.data.allSlikeGalerijaKarusel.edges.find(
   (list) => list.node.title === 'Naslovnica – Karusel slika'
@@ -90,6 +91,8 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       <BaseCaruselSection dataset={filterImagesMiddle} />
 
       <CompanyInNumbers dataset={cInData ? cInData : findCiNStatic} currentLang={lang} />
+
+      <PartnersSection currentLang={lang} />
 
       <ClientTestimonials currentLang={lang} dataset={cTData ? cTData : findCtStatic} />
       {newsData && <NewsSection currentLang={lang} newsList={newsData} />}

@@ -26,4 +26,13 @@ export const generalTranslations = [
     esp: 'Imágenes',
     fra: 'Images',
   },
+  {
+    key: 'Naši partneri',
+    hr: 'Naši partneri',
+    eng: 'Our partners',
+    ger: 'Unsere Partner',
+    ita: 'I nostri partner',
+    esp: 'Nuestros socios',
+    fra: 'Nos partenaires',
+  },
 ];
