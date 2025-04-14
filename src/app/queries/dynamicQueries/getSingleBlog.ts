@@ -3,19 +3,19 @@ export default function getSingleBlog(id: string) {
   blog(id: "${id}", idType: DATABASE_ID) {
     id
     title
-      author {
-          node {
-            avatar {
-              url
-            }
-            firstName
-            name
-            nickname
-            lastName
-            nicename
-            username
-          }
+    author {
+      node {
+        avatar {
+          url
         }
+        firstName
+        name
+        nickname
+        lastName
+        nicename
+        username
+      }
+    }
     introBlog {
       datum
       istaknutoNaNaslovnici
@@ -112,8 +112,8 @@ export default function getSingleBlog(id: string) {
         node {
           id
           sourceUrl
-            mediaType
-            mediaItemUrl
+          mediaType
+          mediaItemUrl
         }
       }
       nazivDokumentaHr
@@ -123,8 +123,8 @@ export default function getSingleBlog(id: string) {
         node {
           id
           sourceUrl
-            mediaType
-            mediaItemUrl
+          mediaType
+          mediaItemUrl
         }
       }
       nazivDokumentaIta
@@ -135,8 +135,8 @@ export default function getSingleBlog(id: string) {
         node {
           id
           sourceUrl
-            mediaType
-            mediaItemUrl
+          mediaType
+          mediaItemUrl
         }
       }
     }
@@ -146,8 +146,8 @@ export default function getSingleBlog(id: string) {
         node {
           id
           sourceUrl
-            mediaType
-            mediaItemUrl
+          mediaType
+          mediaItemUrl
         }
       }
     }
@@ -215,7 +215,41 @@ export default function getSingleBlog(id: string) {
         }
       }
     }
-
+    seoHr {
+      seoHr {
+        seoOpisStranice
+      }
+    }
+    seoEsp {
+      seoEsp {
+        seoOpisStranice
+      }
+    }
+    seoEng {
+      seoEng {
+        seoOpisStranice
+      }
+    }
+    seoFra {
+      seoFra {
+        seoOpisStranice
+      }
+    }
+    seoGer {
+      seoGer {
+        seoOpisStranice
+      }
+    }
+    seoIta {
+      seoIta {
+        seoOpisStranice
+      }
+    }
+    seoSlo {
+      seoSlo {
+        seoOpisStranice
+      }
+    }
   }
 }`;
 }
