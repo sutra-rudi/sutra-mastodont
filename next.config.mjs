@@ -1,18 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  async headers() {
-    return [
-      {
-        source: '/[lang]/legal-info',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
-      },
-    ];
-  },
   images: {
     remotePatterns: [
       {
@@ -24,6 +11,9 @@ const nextConfig = {
       },
       {
         hostname: 'lavender-loris-843955.hostingersite.com',
+      },
+      {
+        hostname: 'dodgerblue-elephant-122364.hostingersite.com',
       },
     ],
   },
