@@ -56,6 +56,7 @@ export async function generateMetadata({ params: { lang, slug } }: { params: { l
   const naslovNovosti =
     bData.data.novosti[`sadrzaj${l}Fields`]?.[isEngMistake ? `naslovSadrzajSadrzaj${l}` : `naslovSadrzaj${l}`];
   // const sadrzajNovosti = bData.data.novosti[`sadrzaj${l}Fields`]?.[`sadrzajSadrzaj${l}`];
+  const seoOpisStranice = bData.data.novosti[`seo${l}`]?.[`seo${l}`].seoOpisStranice;
   const introNovosti = bData.data.novosti[`sadrzaj${l}Fields`]?.[`kratkiUvodniTekstSadrzaj${l}`];
   const author = bData.data.novosti.author;
 
@@ -73,12 +74,12 @@ export async function generateMetadata({ params: { lang, slug } }: { params: { l
 
   return {
     title: naslovNovosti,
-    description: plainIntroText,
+    description: seoOpisStranice ? seoOpisStranice : plainIntroText,
     // keywords: seoTagPrep,
     openGraph: {
       title: naslovNovosti,
       keywords: 'seoTagPrep',
-      description: plainIntroText,
+      description: seoOpisStranice ? seoOpisStranice : plainIntroText,
       // url: `https://yourwebsite.com/blog/${id}`,
       type: 'article',
       images: [
@@ -108,7 +109,7 @@ export async function generateMetadata({ params: { lang, slug } }: { params: { l
       creator: author,
       title: naslovNovosti,
       keywords: 'seoTagPrep',
-      description: plainIntroText,
+      description: seoOpisStranice ? seoOpisStranice : plainIntroText,
       image: naslovna,
       alt: 'descriptive image of article',
     },

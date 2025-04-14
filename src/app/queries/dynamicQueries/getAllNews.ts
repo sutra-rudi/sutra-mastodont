@@ -82,18 +82,6 @@ export default function getAllNews() {
             aktivatorSpa
           }
         }
-        tagsEng {
-          tagTextEng
-        }
-        tagsGer {
-          tagTextGer
-        }
-        tagsHr {
-          tagTextHr
-        }
-        tagsIta {
-          tagTextIta
-        }
         photoGallery {
           fotogalerija {
             galSlika01 {
@@ -195,39 +183,38 @@ export default function getAllNews() {
           }
         }
         seoHr {
-          seoTagoviHr
-          seoTekstHr
-          ogImageHr {
-            node {
-              sourceUrl
-            }
+          seoHr {
+            seoOpisStranice
           }
         }
         seoEng {
-          seoTagoviEng
-          seoTekstEng
-          ogImageEng {
-            node {
-              sourceUrl
-            }
+          seoEng {
+            seoOpisStranice
           }
         }
         seoIta {
-          seoTagoviIta
-          seoTekstIta
-          ogImageIta {
-            node {
-              sourceUrl
-            }
+          seoIta {
+            seoOpisStranice
           }
         }
         seoGer {
-          seoTagoviGer
-          seoTekstGer
-          ogImageGer {
-            node {
-              sourceUrl
-            }
+          seoGer {
+            seoOpisStranice
+          }
+        }
+        seoFra {
+          seoFra {
+            seoOpisStranice
+          }
+        }
+        seoEsp {
+          seoEsp {
+            seoOpisStranice
+          }
+        }
+        seoSlo {
+          seoSlo {
+            seoOpisStranice
           }
         }
       }

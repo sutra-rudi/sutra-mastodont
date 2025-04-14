@@ -3108,43 +3108,53 @@
                 {
                     "node": {
                         "id": "cG9zdDo2NjA=",
-                        "title": "O nama – VeraMa Hr i Eng",
+                        "title": "O nama – FINAL",
                         "naslovnaSlika": {
-                            "glavnaSlikaNaslovnaSlika": null,
-                            "sekundarnaGlavnaSlikaThumbnailHover": null
+                            "glavnaSlikaNaslovnaSlika": {
+                                "node": {
+                                    "id": "cG9zdDoxMDc5Mw==",
+                                    "sourceUrl": "https://dodgerblue-elephant-122364.hostingersite.com/wp-content/uploads/2025/02/DJI_20230816144648_0399_D_IV20230816.jpg"
+                                }
+                            },
+                            "sekundarnaGlavnaSlikaThumbnailHover": {
+                                "node": {
+                                    "id": "cG9zdDoxMDc0NQ==",
+                                    "sourceUrl": "https://dodgerblue-elephant-122364.hostingersite.com/wp-content/uploads/2025/02/fotogalerija-brod-sv-sime_04.jpg"
+                                }
+                            }
                         },
                         "oNamaSadrzajHr": {
                             "pasus2TekstHr": true,
                             "pasus3TekstHr": true,
                             "pasus1GrupaTekstovaHr": {
-                                "oNamaNadnaslovPodnaslov1": null,
-                                "oNamaNaslov1Pasus": null,
-                                "sadrzaj1": null
+                                "oNamaNadnaslovPodnaslov1": "Nadnaslov o nama ",
+                                "oNamaNaslov1Pasus": "Naslov pasusa",
+                                "sadrzaj1": "<p>Fitness studio VeraMa je mjesto za unaprjeđenje i održavanje zdravog načina života. Kroz dijagnostiku, odabir tjelesne aktivnosti (grupno i individualno) i prehrambene smjernice, pružamo cjelovitu podršku klijentima. Magistra kineziologije i nutricionistica Višnja Kraljić Zubčić vodi vas kroz cijeli proces.</p>\n<p>Višnja, vlasnica VeraMa fitness studija, specijalizirala se za individualni rad s klijentima i grupne programe, a dodatno je stekla zvanje nutricionista kako bi pružila cjelovitu uslugu svojim klijentima. Njezina strast prema zdravom načinu života i tjelesnoj aktivnosti motivira je da kroz svoj rad donosi pozitivne promjene u svakodnevicu ljudi.</p>\n<p>Gorana Milin, voditeljica fitness programa, završila je kineziologiju i dugogodišnje plesno obrazovanje, što doprinosi njezinom specifičnom pristupu treninzima. Kroz rad u malim grupama posvećena je svakom klijentu individualno, omogućujući im prilagodbu programa i postizanje maksimalnih rezultata.</p>\n"
                             },
                             "pasus2GrupaTekstovaHr": {
-                                "oNamaNadnaslovPodnaslov2": null,
-                                "oNamaNaslov2Pasus": null,
-                                "oNamaSadrzaj2": null
+                                "oNamaNadnaslovPodnaslov2": "Nadnaslov o nama ",
+                                "oNamaNaslov2Pasus": "Naslov 2. pasusa ",
+                                "oNamaSadrzaj2": "<p>Višnja, vlasnica VeraMa fitness studija, specijalizirala se za individualni rad s klijentima i grupne programe, a dodatno je stekla zvanje nutricionista kako bi pružila cjelovitu uslugu svojim klijentima. Njezina strast prema zdravom načinu života i tjelesnoj aktivnosti motivira je da kroz svoj rad donosi pozitivne promjene u svakodnevicu ljudi.</p>\n<p>Gorana Milin, voditeljica fitness programa, završila je kineziologiju i dugogodišnje plesno obrazovanje, što doprinosi njezinom specifičnom pristupu treninzima. Kroz rad u malim grupama posvećena je svakom klijentu individualno, omogućujući im prilagodbu programa i postizanje maksimalnih rezultata.</p>\n"
                             },
                             "pasus3GrupaTekstovaHr": {
-                                "oNamaNadnaslovPodnaslov3": null,
-                                "oNamaSadrzaj3": null,
-                                "oNamaSnaslov2": null
+                                "oNamaNadnaslovPodnaslov3": "Nadnaslov o nama ",
+                                "oNamaSadrzaj3": "<p>Donec et auctor nibh, eu tincidunt augue. Pellentesque vel pretium arcu, vitae feugiat libero. Nulla posuere id nulla at tincidunt. Praesent orci elit, tincidunt vitae est et, molestie fermentum tortor. Mauris laoreet luctus turpis, at volutpat sapien posuere sit amet. Nulla vestibulum nibh ac rutrum lobortis. Donec a nisi sed risus bibendum tincidunt in vel diam.</p>\n<p>Cras id ultricies ex. Suspendisse molestie libero mi, eget dictum erat vehicula eu. Aliquam vel rutrum lectus, vitae maximus urna. Nam id erat blandit, malesuada justo ac, volutpat dui. Aenean bibendum dolor mi, quis sagittis arcu euismod nec. Maecenas eget tempus est. Etiam mauris nunc, dapibus in feugiat sit amet, blandit et nibh. Suspendisse potenti.</p>\n",
+                                "oNamaSnaslov2": "Naslov 3. pasusa "
                             },
                             "skraceneVerzijeTekstaTekstaONamaHr": {
-                                "oNamaOpisTvrtkeUJednojReceniciMax200Znakova": "Fitness studio VeraMa, kojeg vode magistra kineziologije i nutricionistica Višnja Kraljić Zubčić te Gorana Milin, nudi cjelovitu podršku zdravom načinu života kroz dijagnostiku, prilagođene tjelesne a",
-                                "oNamaSkraceniTekstZaNaslovnicuIliFooter": "<p>Fitness studio VeraMa je mjesto za unaprjeđenje i održavanje zdravog načina života. Kroz dijagnostiku, odabir tjelesne aktivnosti (grupno i individualno) i prehrambene smjernice, pružamo cjelovitu podršku klijentima. Magistra kineziologije i nutricionistica Višnja Kraljić Zubčić vodi vas kroz cijeli proces.<br />\n&nbsp;<br />\nVišnja, vlasnica VeraMa fitness studija, specijalizirala se za individualni rad s klijentima i grupne programe, a dodatno je stekla zvanje nutricionista kako bi pružila cjelovitu uslugu svojim klijentima. Njezina strast prema zdravom načinu života i tjelesnoj aktivnosti motivira je da kroz svoj rad donosi pozitivne promjene u svakodnevicu ljudi.<br />\n&nbsp;<br />\nGorana Milin, voditeljica fitness programa, završila je kineziologiju i dugogodišnje plesno obrazovanje, što doprinosi njezinom specifičnom pristupu treninzima. Kroz rad u malim grupama posvećena je svakom klijentu individualno, omogućujući im prilagodbu programa i postizanje maksimalnih rezultata.</p>\n"
+                                "oNamaOpisTvrtkeUJednojReceniciMax200Znakova": "Fusce ultrices, urna non laoreet feugiat, ipsum est sodales nunc, vitae rutrum erat magna eu libero. Etiam dictum euismod justo sit amet eleifend.",
+                                "oNamaSkraceniTekstZaNaslovnicuIliFooter": "<p>Sed sit amet vestibulum lorem. Etiam a vestibulum lectus, congue condimentum justo. Mauris dapibus enim ut sem imperdiet dictum. Phasellus id molestie urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce eleifend lectus eros, faucibus lobortis nunc gravida a. Duis metus velit, rutrum vestibulum scelerisque sed, finibus id magna. Integer elementum justo cursus, consequat magna eget, accumsan tortor. Vestibulum euismod eget metus nec molestie. Phasellus porttitor bibendum dolor. Maecenas interdum porttitor efficitur. Sed massa neque, tempus sit amet malesuada nec, iaculis ac lectus.</p>\n"
                             },
                             "tekstoviPodstraniceONamaHr": {
                                 "oNamaHeroSekcijaTekstIspodNaslova": "Hero sekcija - Tekst ispod Naslova koji se ispisuje cumque nihil impedit quo minus id quod maxime placeat face ",
-                                "oNamaNaslovHeroSekcija": "Finibus Bonorum et Maloru hero nasloc Naslov za Hero sekciju"
+                                "oNamaNaslovHeroSekcija": "Lorem ipsum headline"
                             }
                         },
                         "oNamaSadrzajEng": {
                             "pasus1GrupaTekstovaEng": {
-                                "oNamaNadnaslovPodnaslov1": null,
-                                "oNamaNaslov1Pasus": null,
-                                "sadrzaj1": null
+                                "oNamaNadnaslovPodnaslov1": "Nadnaslov prvog pasusa",
+                                "oNamaNaslov1Pasus": "Naslvo prvi pasus",
+                                "sadrzaj1": "<p>Donec et auctor nibh, eu tincidunt augue. Pellentesque vel pretium arcu, vitae feugiat libero. Nulla posuere id nulla at tincidunt. Praesent orci elit, tincidunt vitae est et, molestie fermentum tortor. Mauris laoreet luctus turpis, at volutpat sapien posuere sit amet. Nulla vestibulum nibh ac rutrum lobortis. Donec a nisi sed risus bibendum tincidunt in vel diam.</p>\n<p>Cras id ultricies ex. Suspendisse molestie libero mi, eget dictum erat vehicula eu. Aliquam vel rutrum lectus, vitae maximus urna. Nam id erat blandit, malesuada justo ac, volutpat dui. Aenean bibendum dolor mi, quis sagittis arcu euismod nec. Maecenas eget tempus est. Etiam mauris nunc, dapibus in feugiat sit amet, blandit et nibh. Suspendisse potenti.</p>\n"
                             },
                             "pasus2GrupaTekstovaEng": {
                                 "oNamaNadnaslovPodnaslov2": "Finibus Bonorum et MalorumFinibus Bonorum et Malorum",
@@ -3158,10 +3168,10 @@
                             },
                             "skraceneVerzijeTekstaTekstaONamaEng": {
                                 "oNamaOpisTvrtkeUJednojReceniciMax200Znakova": "Fitness studio VeraMa, led by Master of Kinesiology and Nutrition Višnja Kraljić Zubčić and Gorana Milin, offers comprehensive support for a healthy lifestyle through diagnostics, tailored physical ac",
-                                "oNamaSkraceniTekstZaNaslovnicuIliFooter": "<p>Fitness studio VeraMa is a place for enhancing and maintaining a healthy lifestyle. Through diagnostics, the selection of physical activities (both group and individual), and dietary guidelines, we provide comprehensive support to our clients. Master of Kinesiology and Nutrition Višnja Kraljić Zubčić guides you through the entire process.<br />\n&nbsp;<br />\nVišnja, the owner of VeraMa Fitness Studio, has specialized in individual client work and group programs, and she has also earned the title of nutritionist to offer comprehensive services to her clients. Her passion for a healthy lifestyle and physical activity motivates her to bring positive changes to people&#8217;s daily lives through her work.<br />\n&nbsp;<br />\nGorana Milin, the head of the fitness program, has completed studies in kinesiology and has many years of dance education, which contribute to her unique approach to training. By working in small groups, she dedicates herself individually to each client, enabling them to customize their programs and achieve maximum results.</p>\n"
+                                "oNamaSkraceniTekstZaNaslovnicuIliFooter": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas efficitur malesuada neque eu hendrerit. Praesent id magna vitae risus fermentum sagittis. Quisque et elit imperdiet, commodo est non, vestibulum sapien. Praesent ut pulvinar libero, a luctus nisl. Donec quis tincidunt ligula, id iaculis nulla. Aliquam ut dapibus libero. Quisque malesuada tellus at massa viverra volutpat. Quisque pharetra dignissim quam, id accumsan urna eleifend posuere. Nam maximus augue ligula, scelerisque semper risus molestie id. Morbi vulputate nunc at nulla ultrices convallis. Etiam vitae porta eros. Donec congue consequat sapien vitae molestie.</p>\n<p>Donec et auctor nibh, eu tincidunt augue. Pellentesque vel pretium arcu, vitae feugiat libero. Nulla posuere id nulla at tincidunt. Praesent orci elit, tincidunt vitae est et, molestie fermentum tortor. Mauris laoreet luctus turpis, at volutpat sapien posuere sit amet. Nulla vestibulum nibh ac rutrum lobortis. Donec a nisi sed risus bibendum tincidunt in vel diam.</p>\n<p>Cras id ultricies ex. Suspendisse molestie libero mi, eget dictum erat vehicula eu. Aliquam vel rutrum lectus, vitae maximus urna. Nam id erat blandit, malesuada justo ac, volutpat dui. Aenean bibendum dolor mi, quis sagittis arcu euismod nec. Maecenas eget tempus est. Etiam mauris nunc, dapibus in feugiat sit amet, blandit et nibh. Suspendisse potenti.</p>\n"
                             },
                             "tekstoviPodstraniceONamaEng": {
-                                "oNamaHeroSekcijaTekstIspodNaslova": null,
+                                "oNamaHeroSekcijaTekstIspodNaslova": "Višnja, vlasnica VeraMa fitness studija, specijalizirala se za individualni rad s klijentima i grupne programe, a dodatno je stekla zvanje nutricionista kako bi pružila cjelovitu uslugu svojim klijentima. ",
                                 "oNamaNaslovHeroSekcija": "Finibus Bonorum et Malorum"
                             },
                             "pasus2TekstEng": false,
@@ -3198,9 +3208,9 @@
                             "pasus2TekstFra": false,
                             "pasus3TekstFra": false,
                             "pasus1GrupaTekstovaFra": {
-                                "oNamaNadnaslovPodnaslov1": null,
-                                "oNamaNaslov1Pasus": null,
-                                "sadrzaj1": null
+                                "oNamaNadnaslovPodnaslov1": "Etiam dictum euismod justo sit amet eleifend.",
+                                "oNamaNaslov1Pasus": "Lorem ipsum headline",
+                                "sadrzaj1": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas efficitur malesuada neque eu hendrerit. Praesent id magna vitae risus fermentum sagittis. Quisque et elit imperdiet, commodo est non, vestibulum sapien. Praesent ut pulvinar libero, a luctus nisl. Donec quis tincidunt ligula, id iaculis nulla. Aliquam ut dapibus libero. Quisque malesuada tellus at massa viverra volutpat. Quisque pharetra dignissim quam, id accumsan urna eleifend posuere. Nam maximus augue ligula, scelerisque semper risus molestie id. Morbi vulputate nunc at nulla ultrices convallis. Etiam vitae porta eros. Donec congue consequat sapien vitae molestie.</p>\n<p>Donec et auctor nibh, eu tincidunt augue. Pellentesque vel pretium arcu, vitae feugiat libero. Nulla posuere id nulla at tincidunt. Praesent orci elit, tincidunt vitae est et, molestie fermentum tortor. Mauris laoreet luctus turpis, at volutpat sapien posuere sit amet. Nulla vestibulum nibh ac rutrum lobortis. Donec a nisi sed risus bibendum tincidunt in vel diam.</p>\n<p>Cras id ultricies ex. Suspendisse molestie libero mi, eget dictum erat vehicula eu. Aliquam vel rutrum lectus, vitae maximus urna. Nam id erat blandit, malesuada justo ac, volutpat dui. Aenean bibendum dolor mi, quis sagittis arcu euismod nec. Maecenas eget tempus est. Etiam mauris nunc, dapibus in feugiat sit amet, blandit et nibh. Suspendisse potenti.</p>\n"
                             },
                             "pasus2GrupaTekstovaGer": {
                                 "oNamaNadnaslovPodnaslov2": null,
@@ -3213,21 +3223,21 @@
                                 "oNamaSnaslov2": null
                             },
                             "skraceneVerzijeTekstaTekstaONamaFra": {
-                                "oNamaOpisTvrtkeUJednojReceniciMax200Znakova": null,
-                                "oNamaSkraceniTekstZaNaslovnicuIliFooter": null
+                                "oNamaOpisTvrtkeUJednojReceniciMax200Znakova": "Sed sit amet vestibulum lorem. Etiam a vestibulum lectus, congue condimentum justo. Mauris dapibus enim ut sem imperdiet dictum. ",
+                                "oNamaSkraceniTekstZaNaslovnicuIliFooter": "<p>Donec et auctor nibh, eu tincidunt augue. Pellentesque vel pretium arcu, vitae feugiat libero. Nulla posuere id nulla at tincidunt. Praesent orci elit, tincidunt vitae est et, molestie fermentum tortor. Mauris laoreet luctus turpis, at volutpat sapien posuere sit amet. Nulla vestibulum nibh ac rutrum lobortis. Donec a nisi sed risus bibendum tincidunt in vel diam.</p>\n"
                             },
                             "tekstoviPodstraniceONamaFra": {
-                                "oNamaHeroSekcijaTekstIspodNaslova": null,
-                                "oNamaNaslovHeroSekcija": null
+                                "oNamaHeroSekcijaTekstIspodNaslova": "Fusce ultrices",
+                                "oNamaNaslovHeroSekcija": "Lorem ipsum headline"
                             }
                         },
                         "oNamaSadrzajEsp": {
                             "pasus2TekstEsp": false,
                             "pasus3TekstEsp": false,
                             "pasus1GrupaTekstovaEsp": {
-                                "oNamaNadnaslovPodnaslov1": null,
-                                "oNamaNaslov1Pasus": null,
-                                "sadrzaj1": null
+                                "oNamaNadnaslovPodnaslov1": "Ipsum est sodales nunc",
+                                "oNamaNaslov1Pasus": "Lorem ipsum headline",
+                                "sadrzaj1": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas efficitur malesuada neque eu hendrerit. Praesent id magna vitae risus fermentum sagittis. Quisque et elit imperdiet, commodo est non, vestibulum sapien. Praesent ut pulvinar libero, a luctus nisl. Donec quis tincidunt ligula, id iaculis nulla. Aliquam ut dapibus libero. Quisque malesuada tellus at massa viverra volutpat. Quisque pharetra dignissim quam, id accumsan urna eleifend posuere. Nam maximus augue ligula, scelerisque semper risus molestie id. Morbi vulputate nunc at nulla ultrices convallis. Etiam vitae porta eros. Donec congue consequat sapien vitae molestie.</p>\n<p>Donec et auctor nibh, eu tincidunt augue. Pellentesque vel pretium arcu, vitae feugiat libero. Nulla posuere id nulla at tincidunt. Praesent orci elit, tincidunt vitae est et, molestie fermentum tortor. Mauris laoreet luctus turpis, at volutpat sapien posuere sit amet. Nulla vestibulum nibh ac rutrum lobortis. Donec a nisi sed risus bibendum tincidunt in vel diam.</p>\n<p>Cras id ultricies ex. Suspendisse molestie libero mi, eget dictum erat vehicula eu. Aliquam vel rutrum lectus, vitae maximus urna. Nam id erat blandit, malesuada justo ac, volutpat dui. Aenean bibendum dolor mi, quis sagittis arcu euismod nec. Maecenas eget tempus est. Etiam mauris nunc, dapibus in feugiat sit amet, blandit et nibh. Suspendisse potenti.</p>\n"
                             },
                             "pasus2GrupaTekstovaGer": {
                                 "oNamaNadnaslovPodnaslov2": null,
@@ -3240,12 +3250,12 @@
                                 "oNamaSnaslov2": null
                             },
                             "skraceneVerzijeTekstaTekstaONamaEsp": {
-                                "oNamaOpisTvrtkeUJednojReceniciMax200Znakova": null,
-                                "oNamaSkraceniTekstZaNaslovnicuIliFooter": null
+                                "oNamaOpisTvrtkeUJednojReceniciMax200Znakova": "Sed sit amet vestibulum lorem. Etiam a vestibulum lectus, congue condimentum justo. Mauris dapibus enim ut sem imperdiet dictum. Phasellus id molestie urna. Vestibulum ante ipsum primis in faucibus or",
+                                "oNamaSkraceniTekstZaNaslovnicuIliFooter": "Sed sit amet vestibulum lorem. Etiam a vestibulum lectus, congue condimentum justo. Mauris dapibus enim ut sem imperdiet dictum. Phasellus id molestie urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; "
                             },
                             "tekstoviPodstraniceONamaEsp": {
-                                "oNamaHeroSekcijaTekstIspodNaslova": null,
-                                "oNamaNaslovHeroSekcija": null
+                                "oNamaHeroSekcijaTekstIspodNaslova": "Lorem ipsum nadnaslov",
+                                "oNamaNaslovHeroSekcija": "<p>Ipsum est sodales nunc</p>\n"
                             }
                         },
                         "oNamaSadrzajIta": {
@@ -3277,16 +3287,16 @@
                         },
                         "oNamaSadrzajSlo": {
                             "pasus1GrupaTekstovaSlo": {
-                                "oNamaNadnaslovPodnaslov1": null,
-                                "oNamaNaslov1Pasus": null,
-                                "sadrzaj1": null
+                                "oNamaNadnaslovPodnaslov1": "Ipsum est sodales nunc",
+                                "oNamaNaslov1Pasus": "Lorem ipsum headline",
+                                "sadrzaj1": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas efficitur malesuada neque eu hendrerit. Praesent id magna vitae risus fermentum sagittis. Quisque et elit imperdiet, commodo est non, vestibulum sapien. Praesent ut pulvinar libero, a luctus nisl. Donec quis tincidunt ligula, id iaculis nulla. Aliquam ut dapibus libero. Quisque malesuada tellus at massa viverra volutpat. Quisque pharetra dignissim quam, id accumsan urna eleifend posuere. Nam maximus augue ligula, scelerisque semper risus molestie id. Morbi vulputate nunc at nulla ultrices convallis. Etiam vitae porta eros. Donec congue consequat sapien vitae molestie.</p>\n<p>Donec et auctor nibh, eu tincidunt augue. Pellentesque vel pretium arcu, vitae feugiat libero. Nulla posuere id nulla at tincidunt. Praesent orci elit, tincidunt vitae est et, molestie fermentum tortor. Mauris laoreet luctus turpis, at volutpat sapien posuere sit amet. Nulla vestibulum nibh ac rutrum lobortis. Donec a nisi sed risus bibendum tincidunt in vel diam.</p>\n<p>Cras id ultricies ex. Suspendisse molestie libero mi, eget dictum erat vehicula eu. Aliquam vel rutrum lectus, vitae maximus urna. Nam id erat blandit, malesuada justo ac, volutpat dui. Aenean bibendum dolor mi, quis sagittis arcu euismod nec. Maecenas eget tempus est. Etiam mauris nunc, dapibus in feugiat sit amet, blandit et nibh. Suspendisse potenti.</p>\n"
                             },
                             "pasus2GrupaTekstovaGer": {
                                 "oNamaNadnaslovPodnaslov2": null,
                                 "oNamaNaslov2Pasus": null,
                                 "oNamaSadrzaj2": null
                             },
-                            "pasus2TekstSlo": false,
+                            "pasus2TekstSlo": true,
                             "pasus3TekstSlo": false,
                             "pasus3GrupaTekstovaSlo": {
                                 "oNamaNadnaslovPodnaslov3": null,
@@ -3294,12 +3304,12 @@
                                 "oNamaSnaslov2": null
                             },
                             "skraceneVerzijeTekstaTekstaONamaSlo": {
-                                "oNamaOpisTvrtkeUJednojReceniciMax200Znakova": null,
-                                "oNamaSkraceniTekstZaNaslovnicuIliFooter": null
+                                "oNamaOpisTvrtkeUJednojReceniciMax200Znakova": "Fusce ultrices, urna non laoreet feugiat, ipsum est sodales nunc, vitae rutrum erat magna eu libero. Etiam dictum euismod justo sit amet eleifend.",
+                                "oNamaSkraceniTekstZaNaslovnicuIliFooter": "Sed sit amet vestibulum lorem. Etiam a vestibulum lectus, congue condimentum justo. Mauris dapibus enim ut sem imperdiet dictum. Phasellus id molestie urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae"
                             },
                             "tekstoviPodstraniceONamaSlo": {
-                                "oNamaHeroSekcijaTekstIspodNaslova": null,
-                                "oNamaNaslovHeroSekcija": null
+                                "oNamaHeroSekcijaTekstIspodNaslova": "Lorem ipsum",
+                                "oNamaNaslovHeroSekcija": "Lorem ipsum headline"
                             }
                         },
                         "photoGallery": {
@@ -3322,231 +3332,48 @@
                                         "sourceUrl": "https://dodgerblue-elephant-122364.hostingersite.com/wp-content/uploads/2024/06/53463016-3c34-3b1c-abc4-791ffb679076-1.jpg"
                                     }
                                 },
-                                "galSlika04": null,
+                                "galSlika04": {
+                                    "node": {
+                                        "id": "cG9zdDoxMDc3Mw==",
+                                        "sourceUrl": "https://dodgerblue-elephant-122364.hostingersite.com/wp-content/uploads/2025/02/fotogalerija-kornati_16.jpg"
+                                    }
+                                },
                                 "galSlika05": {
                                     "node": {
                                         "id": "cG9zdDo2NTE=",
                                         "sourceUrl": "https://dodgerblue-elephant-122364.hostingersite.com/wp-content/uploads/2024/06/40f71afe-745d-3f79-b77b-a89ae0ae5826-1.jpg"
                                     }
                                 },
-                                "galSlika06": null,
-                                "galSlika07": null,
-                                "galSlika08": null,
-                                "galSlika09": null,
-                                "galSlika10": null
-                            }
-                        }
-                    }
-                },
-                {
-                    "node": {
-                        "id": "cG9zdDo2NTI=",
-                        "title": "O nama test 21/06/2024 ispunjen",
-                        "naslovnaSlika": {
-                            "glavnaSlikaNaslovnaSlika": null,
-                            "sekundarnaGlavnaSlikaThumbnailHover": null
-                        },
-                        "oNamaSadrzajHr": {
-                            "pasus2TekstHr": false,
-                            "pasus3TekstHr": false,
-                            "pasus1GrupaTekstovaHr": {
-                                "oNamaNadnaslovPodnaslov1": null,
-                                "oNamaNaslov1Pasus": null,
-                                "sadrzaj1": null
-                            },
-                            "pasus2GrupaTekstovaHr": {
-                                "oNamaNadnaslovPodnaslov2": null,
-                                "oNamaNaslov2Pasus": null,
-                                "oNamaSadrzaj2": null
-                            },
-                            "pasus3GrupaTekstovaHr": {
-                                "oNamaNadnaslovPodnaslov3": null,
-                                "oNamaSadrzaj3": null,
-                                "oNamaSnaslov2": null
-                            },
-                            "skraceneVerzijeTekstaTekstaONamaHr": {
-                                "oNamaOpisTvrtkeUJednojReceniciMax200Znakova": null,
-                                "oNamaSkraceniTekstZaNaslovnicuIliFooter": null
-                            },
-                            "tekstoviPodstraniceONamaHr": {
-                                "oNamaHeroSekcijaTekstIspodNaslova": null,
-                                "oNamaNaslovHeroSekcija": null
-                            }
-                        },
-                        "oNamaSadrzajEng": {
-                            "pasus1GrupaTekstovaEng": {
-                                "oNamaNadnaslovPodnaslov1": null,
-                                "oNamaNaslov1Pasus": null,
-                                "sadrzaj1": null
-                            },
-                            "pasus2GrupaTekstovaEng": {
-                                "oNamaNadnaslovPodnaslov2": null,
-                                "oNamaNaslov2Pasus": null,
-                                "oNamaSadrzaj2": null
-                            },
-                            "pasus3GrupaTekstovaEng": {
-                                "oNamaNadnaslovPodnaslov3": null,
-                                "oNamaSadrzaj3": null,
-                                "oNamaSnaslov2": null
-                            },
-                            "skraceneVerzijeTekstaTekstaONamaEng": {
-                                "oNamaOpisTvrtkeUJednojReceniciMax200Znakova": null,
-                                "oNamaSkraceniTekstZaNaslovnicuIliFooter": null
-                            },
-                            "tekstoviPodstraniceONamaEng": {
-                                "oNamaHeroSekcijaTekstIspodNaslova": null,
-                                "oNamaNaslovHeroSekcija": null
-                            },
-                            "pasus2TekstEng": false,
-                            "pasus3TekstEng": false
-                        },
-                        "oNamaSadrzajGer": {
-                            "pasus1GrupaTekstovaGer": {
-                                "oNamaNadnaslovPodnaslov1": null,
-                                "oNamaNaslov1Pasus": null,
-                                "sadrzaj1": null
-                            },
-                            "pasus2GrupaTekstovaGer": {
-                                "oNamaNadnaslovPodnaslov2": null,
-                                "oNamaNaslov2Pasus": null,
-                                "oNamaSadrzaj2": null
-                            },
-                            "pasus3GrupaTekstovaGer": {
-                                "oNamaNadnaslovPodnaslov3": null,
-                                "oNamaSadrzaj3": null,
-                                "oNamaSnaslov2": null
-                            },
-                            "skraceneVerzijeTekstaTekstaONamaGer": {
-                                "oNamaOpisTvrtkeUJednojReceniciMax200Znakova": null,
-                                "oNamaSkraceniTekstZaNaslovnicuIliFooter": null
-                            },
-                            "tekstoviPodstraniceONamaGer": {
-                                "oNamaHeroSekcijaTekstIspodNaslova": null,
-                                "oNamaNaslovHeroSekcija": null
-                            },
-                            "pasus3TekstGer": false,
-                            "pasus2TekstGer": false
-                        },
-                        "oNamaSadrzajFra": {
-                            "pasus2TekstFra": false,
-                            "pasus3TekstFra": false,
-                            "pasus1GrupaTekstovaFra": {
-                                "oNamaNadnaslovPodnaslov1": null,
-                                "oNamaNaslov1Pasus": null,
-                                "sadrzaj1": null
-                            },
-                            "pasus2GrupaTekstovaGer": {
-                                "oNamaNadnaslovPodnaslov2": null,
-                                "oNamaNaslov2Pasus": null,
-                                "oNamaSadrzaj2": null
-                            },
-                            "pasus3GrupaTekstovaFra": {
-                                "oNamaNadnaslovPodnaslov3": null,
-                                "oNamaSadrzaj3": null,
-                                "oNamaSnaslov2": null
-                            },
-                            "skraceneVerzijeTekstaTekstaONamaFra": {
-                                "oNamaOpisTvrtkeUJednojReceniciMax200Znakova": null,
-                                "oNamaSkraceniTekstZaNaslovnicuIliFooter": null
-                            },
-                            "tekstoviPodstraniceONamaFra": {
-                                "oNamaHeroSekcijaTekstIspodNaslova": null,
-                                "oNamaNaslovHeroSekcija": null
-                            }
-                        },
-                        "oNamaSadrzajEsp": {
-                            "pasus2TekstEsp": false,
-                            "pasus3TekstEsp": false,
-                            "pasus1GrupaTekstovaEsp": {
-                                "oNamaNadnaslovPodnaslov1": null,
-                                "oNamaNaslov1Pasus": null,
-                                "sadrzaj1": null
-                            },
-                            "pasus2GrupaTekstovaGer": {
-                                "oNamaNadnaslovPodnaslov2": null,
-                                "oNamaNaslov2Pasus": null,
-                                "oNamaSadrzaj2": null
-                            },
-                            "pasus3GrupaTekstovaEsp": {
-                                "oNamaNadnaslovPodnaslov3": null,
-                                "oNamaSadrzaj3": null,
-                                "oNamaSnaslov2": null
-                            },
-                            "skraceneVerzijeTekstaTekstaONamaEsp": {
-                                "oNamaOpisTvrtkeUJednojReceniciMax200Znakova": null,
-                                "oNamaSkraceniTekstZaNaslovnicuIliFooter": null
-                            },
-                            "tekstoviPodstraniceONamaEsp": {
-                                "oNamaHeroSekcijaTekstIspodNaslova": null,
-                                "oNamaNaslovHeroSekcija": null
-                            }
-                        },
-                        "oNamaSadrzajIta": {
-                            "pasus2TekstIta": false,
-                            "pasus3TekstIta": false,
-                            "pasus1GrupaTekstovaIta": {
-                                "oNamaNadnaslovPodnaslov1": null,
-                                "oNamaNaslov1PasusIta": null,
-                                "sadrzaj1": null
-                            },
-                            "pasus2GrupaTekstovaIta": {
-                                "oNamaNadnaslovPodnaslov2": null,
-                                "oNamaNaslov2Pasus": null,
-                                "oNamaSadrzaj2": null
-                            },
-                            "pasus3GrupaTekstovaIta": {
-                                "oNamaNadnaslovPodnaslov3": null,
-                                "oNamaSadrzaj3": null,
-                                "oNamaSnaslov2": null
-                            },
-                            "skraceneVerzijeTekstaTekstaONamaIta": {
-                                "oNamaOpisTvrtkeUJednojReceniciMax200Znakova": null,
-                                "oNamaSkraceniTekstZaNaslovnicuIliFooter": null
-                            },
-                            "tekstoviPodstraniceONamaIta": {
-                                "oNamaHeroSekcijaTekstIspodNaslova": null,
-                                "oNamaNaslovHeroSekcija": null
-                            }
-                        },
-                        "oNamaSadrzajSlo": {
-                            "pasus1GrupaTekstovaSlo": {
-                                "oNamaNadnaslovPodnaslov1": null,
-                                "oNamaNaslov1Pasus": null,
-                                "sadrzaj1": null
-                            },
-                            "pasus2GrupaTekstovaGer": {
-                                "oNamaNadnaslovPodnaslov2": null,
-                                "oNamaNaslov2Pasus": null,
-                                "oNamaSadrzaj2": null
-                            },
-                            "pasus2TekstSlo": false,
-                            "pasus3TekstSlo": false,
-                            "pasus3GrupaTekstovaSlo": {
-                                "oNamaNadnaslovPodnaslov3": null,
-                                "oNamaSadrzaj3": null,
-                                "oNamaSnaslov2": null
-                            },
-                            "skraceneVerzijeTekstaTekstaONamaSlo": {
-                                "oNamaOpisTvrtkeUJednojReceniciMax200Znakova": null,
-                                "oNamaSkraceniTekstZaNaslovnicuIliFooter": null
-                            },
-                            "tekstoviPodstraniceONamaSlo": {
-                                "oNamaHeroSekcijaTekstIspodNaslova": null,
-                                "oNamaNaslovHeroSekcija": null
-                            }
-                        },
-                        "photoGallery": {
-                            "fotogalerija": {
-                                "galSlika01": null,
-                                "galSlika02": null,
-                                "galSlika03": null,
-                                "galSlika04": null,
-                                "galSlika05": null,
-                                "galSlika06": null,
-                                "galSlika07": null,
-                                "galSlika08": null,
-                                "galSlika09": null,
-                                "galSlika10": null
+                                "galSlika06": {
+                                    "node": {
+                                        "id": "cG9zdDoxMDc1Mw==",
+                                        "sourceUrl": "https://dodgerblue-elephant-122364.hostingersite.com/wp-content/uploads/2025/02/fotogalerija-brod-sv-sime_12.jpg"
+                                    }
+                                },
+                                "galSlika07": {
+                                    "node": {
+                                        "id": "cG9zdDoxMDc3Ng==",
+                                        "sourceUrl": "https://dodgerblue-elephant-122364.hostingersite.com/wp-content/uploads/2025/02/fotogalerija-kornati_19.jpg"
+                                    }
+                                },
+                                "galSlika08": {
+                                    "node": {
+                                        "id": "cG9zdDoxMDc2OQ==",
+                                        "sourceUrl": "https://dodgerblue-elephant-122364.hostingersite.com/wp-content/uploads/2025/02/fotogalerija-kornati_12.jpg"
+                                    }
+                                },
+                                "galSlika09": {
+                                    "node": {
+                                        "id": "cG9zdDoxMDc1MQ==",
+                                        "sourceUrl": "https://dodgerblue-elephant-122364.hostingersite.com/wp-content/uploads/2025/02/fotogalerija-brod-sv-sime_10.jpg"
+                                    }
+                                },
+                                "galSlika10": {
+                                    "node": {
+                                        "id": "cG9zdDoxMDczMQ==",
+                                        "sourceUrl": "https://dodgerblue-elephant-122364.hostingersite.com/wp-content/uploads/2025/02/Karusel2_slike_05.jpg"
+                                    }
+                                }
                             }
                         }
                     }
@@ -5071,7 +4898,7 @@
                         "metricsHr": {
                             "companyInNumbersHr": {
                                 "prikaziDodatneOpcijeSwitcher": false,
-                                "tekstBrojcanikaGlavni": "Spašenog razuma",
+                                "tekstBrojcanikaGlavni": null,
                                 "tekstBrojcanikaSekundarniTekst": null,
                                 "znakIliNatpisUzBroj": null
                             }
@@ -5144,7 +4971,7 @@
                         "metricsHr": {
                             "companyInNumbersHr": {
                                 "prikaziDodatneOpcijeSwitcher": false,
-                                "tekstBrojcanikaGlavni": "Broj kulturnih, sportskih i turističkih događanja tijekom 2024. godine.",
+                                "tekstBrojcanikaGlavni": null,
                                 "tekstBrojcanikaSekundarniTekst": null,
                                 "znakIliNatpisUzBroj": null
                             }
@@ -5217,7 +5044,7 @@
                         "metricsHr": {
                             "companyInNumbersHr": {
                                 "prikaziDodatneOpcijeSwitcher": false,
-                                "tekstBrojcanikaGlavni": "Ukupan broj posjetitelja na događanjima u 2024. godini.",
+                                "tekstBrojcanikaGlavni": null,
                                 "tekstBrojcanikaSekundarniTekst": null,
                                 "znakIliNatpisUzBroj": null
                             }
@@ -6364,32 +6191,74 @@
                         "uslugeIntro": {
                             "istakniUsluguFavorite": false,
                             "status": true,
-                            "kategorija": null,
-                            "radniBrojUsluge": null,
-                            "slikaThumbnailSlikaNaKartici": null,
+                            "kategorija": {
+                                "edges": [
+                                    {
+                                        "node": {
+                                            "id": "dGVybToyMw==",
+                                            "name": "Centralna Dalmacija"
+                                        }
+                                    }
+                                ]
+                            },
+                            "radniBrojUsluge": 2,
+                            "slikaThumbnailSlikaNaKartici": {
+                                "node": {
+                                    "id": "cG9zdDoxMDc0NQ==",
+                                    "sourceUrl": "https://dodgerblue-elephant-122364.hostingersite.com/wp-content/uploads/2025/02/fotogalerija-brod-sv-sime_04.jpg"
+                                }
+                            },
                             "dodatneOpcijeUsluga": {
-                                "bojaUsluge": null,
-                                "ikonaUsluge": null,
+                                "bojaUsluge": "#dd3333",
+                                "ikonaUsluge": {
+                                    "node": {
+                                        "id": "cG9zdDo5ODE3",
+                                        "sourceUrl": "https://dodgerblue-elephant-122364.hostingersite.com/wp-content/uploads/2025/01/Sutra-profilna-slika-zuta-horizontalna.jpg"
+                                    }
+                                },
                                 "sliderSlikeHeroSekcije1": null,
-                                "tAG": null,
+                                "tAG": {
+                                    "edges": [
+                                        {
+                                            "node": {
+                                                "id": "dGVybTo3"
+                                            }
+                                        },
+                                        {
+                                            "node": {
+                                                "id": "dGVybTo4"
+                                            }
+                                        },
+                                        {
+                                            "node": {
+                                                "id": "dGVybTo5"
+                                            }
+                                        }
+                                    ]
+                                },
                                 "uploadVidea": null
                             },
-                            "dodatneOpcijeSwitcher": false,
-                            "glavnaSlika": null
+                            "dodatneOpcijeSwitcher": true,
+                            "glavnaSlika": {
+                                "node": {
+                                    "id": "cG9zdDoxMDc2NA==",
+                                    "sourceUrl": "https://dodgerblue-elephant-122364.hostingersite.com/wp-content/uploads/2025/02/fotogalerija-kornati_07.jpg"
+                                }
+                            }
                         },
                         "uslugeSadrzajHr": {
                             "sadrzajGrupeUslugaHr": {
-                                "kratakOpisUslugeHr": "qdqqdqddd",
-                                "nazivUslugeHr": "qwddddd",
-                                "podnaslovIliUvodnikHr": "dqdqdqdqd",
+                                "kratakOpisUslugeHr": "Ut enim ad minim veniam, quis nostrud exercitation ullam",
+                                "nazivUslugeHr": "Naziv usluge",
+                                "podnaslovIliUvodnikHr": "Ut enim ad minim veniam, quis nostrud exercitation ullam. Ut enim ad minim veniam, quis nostrud exercitation ullam",
                                 "sadrzajHr": {
                                     "pasus2Switcher": true,
                                     "pasus3Switcher": true,
                                     "pasus4Switcher": true,
-                                    "sadrzajPasusa": "<p>dqdqdqd</p>\n",
-                                    "sadrzajPasusa2": "<p>hrhrhrh</p>\n",
-                                    "sadrzajPasusa3": "<p>hrhrhrh</p>\n",
-                                    "sadrzajPasusa4": "<p>hrhrhrh</p>\n"
+                                    "sadrzajPasusa": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, <strong>sed</strong> <strong>do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea c</strong>ommodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n",
+                                    "sadrzajPasusa2": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n",
+                                    "sadrzajPasusa3": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n",
+                                    "sadrzajPasusa4": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n"
                                 }
                             }
                         },
@@ -6625,13 +6494,5 @@
                 }
             ]
         }
-    },
-    "extensions": {
-        "debug": [
-            {
-                "type": "DEBUG_LOGS_INACTIVE",
-                "message": "GraphQL Debug logging is not active. To see debug logs, GRAPHQL_DEBUG must be enabled."
-            }
-        ]
     }
 }

@@ -4206,5 +4206,86 @@ export default function GIGA_QUERY() {
       }
     }
   }
+  allBazaLista {
+    edges {
+      node {
+        id
+        listaHr {
+          listaUvodHr {
+
+            nadnaslovpodnaslovOpcionalno
+            naslov
+            uvodnaRecenica
+          }
+          listaSadrzajHr
+        }
+        listaEng {
+          listaUvodEng {
+
+            nadnaslovpodnaslovOpcionalno
+            naslov
+            uvodnaRecenica
+          }
+          listaSadrzajEng
+        }
+        listaGer {
+          listaUvodGer {
+
+            nadnaslovpodnaslovOpcionalno
+            naslov
+            uvodnaRecenica
+          }
+          listaSadrzajGer
+        }
+        listaFra {
+          listaUvodFra {
+
+            nadnaslovpodnaslovOpcionalno
+            naslov
+            uvodnaRecenica
+          }
+          listaSadrzajFra
+        }
+        listaEsp {
+          listaUvodEsp {
+
+            nadnaslovpodnaslovOpcionalno
+            naslov
+            uvodnaRecenica
+          }
+          listaSadrzajEsp
+        }
+        listaIta {
+          listaUvodIta {
+
+            nadnaslovpodnaslovOpcionalno
+            naslov
+            uvodnaRecenica
+          }
+          listaSadrzajIta
+        }
+        listaSlo {
+          listaUvodSlo {
+
+            nadnaslovpodnaslovOpcionalno
+            naslov
+            uvodnaRecenica
+          }
+          listaSadrzajSlo
+        }
+        ikona {
+          svgListIcon {
+            node {
+              id
+              sourceUrl
+            }
+          }
+          odabirBojeZaDefaultIkone
+          odabirIkoneKojaSePrikazujeNaListi
+        }
+      }
+    }
+  }
+  
 }`;
 }

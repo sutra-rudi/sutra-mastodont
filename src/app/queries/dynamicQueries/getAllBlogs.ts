@@ -94,18 +94,6 @@ export default function getAllBlogs() {
             aktivatorSpa
           }
         }
-        tagsEng {
-          tagTextEng
-        }
-        tagsGer {
-          tagTextGer
-        }
-        tagsHr {
-          tagTextHr
-        }
-        tagsIta {
-          tagTextIta
-        }
         photoGallery {
           fotogalerija {
             galSlika01 {
@@ -204,6 +192,41 @@ export default function getAllBlogs() {
               id
               sourceUrl
             }
+          }
+        }
+        seoHr {
+          seoHr {
+            seoOpisStranice
+          }
+        }
+        seoGer {
+          seoGer {
+            seoOpisStranice
+          }
+        }
+        seoFra {
+          seoFra {
+            seoOpisStranice
+          }
+        }
+        seoEsp {
+          seoEsp {
+            seoOpisStranice
+          }
+        }
+        seoEng {
+          seoEng {
+            seoOpisStranice
+          }
+        }
+        seoIta {
+          seoIta {
+            seoOpisStranice
+          }
+        }
+        seoSlo {
+          seoSlo {
+            seoOpisStranice
           }
         }
       }

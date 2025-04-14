@@ -3,19 +3,19 @@ export default function getSingleNews(id: string) {
   novosti(id: "${id}", idType: DATABASE_ID) {
     id
     title
-      author {
-          node {
-            avatar {
-              url
-            }
-            firstName
-            name
-            nickname
-            lastName
-            nicename
-            username
-          }
+    author {
+      node {
+        avatar {
+          url
         }
+        firstName
+        name
+        nickname
+        lastName
+        nicename
+        username
+      }
+    }
     introNews {
       datum
       istaknutoNaNaslovnici
@@ -54,7 +54,6 @@ export default function getSingleNews(id: string) {
           }
         }
       }
-
       thumbnail {
         node {
           id
@@ -102,8 +101,8 @@ export default function getSingleNews(id: string) {
         node {
           id
           sourceUrl
-            mediaType
-            mediaItemUrl
+          mediaType
+          mediaItemUrl
         }
       }
       nazivDokumentaHr
@@ -113,8 +112,8 @@ export default function getSingleNews(id: string) {
         node {
           id
           sourceUrl
-            mediaType
-            mediaItemUrl
+          mediaType
+          mediaItemUrl
         }
       }
       nazivDokumentaIta
@@ -125,8 +124,8 @@ export default function getSingleNews(id: string) {
         node {
           id
           sourceUrl
-            mediaType
-            mediaItemUrl
+          mediaType
+          mediaItemUrl
         }
       }
     }
@@ -136,8 +135,8 @@ export default function getSingleNews(id: string) {
         node {
           id
           sourceUrl
-            mediaType
-            mediaItemUrl
+          mediaType
+          mediaItemUrl
         }
       }
     }
@@ -205,7 +204,41 @@ export default function getSingleNews(id: string) {
         }
       }
     }
-
+    seoHr {
+      seoHr {
+        seoOpisStranice
+      }
+    }
+    seoGer {
+      seoGer {
+        seoOpisStranice
+      }
+    }
+    seoFra {
+      seoFra {
+        seoOpisStranice
+      }
+    }
+    seoEsp {
+      seoEsp {
+        seoOpisStranice
+      }
+    }
+    seoEng {
+      seoEng {
+        seoOpisStranice
+      }
+    }
+    seoIta {
+      seoIta {
+        seoOpisStranice
+      }
+    }
+    seoSlo {
+      seoSlo {
+        seoOpisStranice
+      }
+    }
   }
 }`;
 }
