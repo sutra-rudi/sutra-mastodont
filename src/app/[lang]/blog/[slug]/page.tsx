@@ -47,6 +47,8 @@ export async function generateMetadata({ params: { lang, slug } }: { params: { l
 
   const bData = await fetchData(getSingleBlog(slugId));
 
+  // console.log('GLOBBB', bData.data.blog[`seo${l}`]?.[`seo${l}`].seoOpisStranice);
+
   const MP = await fetchMediaPaths();
 
   const { heroImagesDefault } = MP;
@@ -57,6 +59,7 @@ export async function generateMetadata({ params: { lang, slug } }: { params: { l
   const naslovBloga =
     bData.data.blog[`sadrzaj${l}Fields`]?.[isEngMistake ? `naslovSadrzajSadrzaj${l}` : `naslovSadrzaj${l}`];
   // const sadrzajBloga = bData.data.blog[`sadrzaj${l}Fields`]?.[`sadrzajSadrzaj${l}`];
+  const seoOpisStranice = bData.data.blog[`seo${l}`]?.[`seo${l}`].seoOpisStranice;
   const introBloga = bData.data.blog[`sadrzaj${l}Fields`]?.[`kratkiUvodniTekstSadrzaj${l}`];
   const author = bData.data.blog.author;
 
@@ -74,12 +77,12 @@ export async function generateMetadata({ params: { lang, slug } }: { params: { l
 
   return {
     title: naslovBloga,
-    description: plainIntroText,
+    description: seoOpisStranice ? seoOpisStranice : plainIntroText,
     // keywords: seoTagPrep,
     openGraph: {
       title: naslovBloga,
       keywords: 'seoTagPrep',
-      description: plainIntroText,
+      description: seoOpisStranice ? seoOpisStranice : plainIntroText,
       // url: `https://yourwebsite.com/blog/${id}`,
       type: 'article',
       images: [
@@ -109,7 +112,7 @@ export async function generateMetadata({ params: { lang, slug } }: { params: { l
       creator: author,
       title: naslovBloga,
       keywords: 'seoTagPrep',
-      description: plainIntroText,
+      description: seoOpisStranice ? seoOpisStranice : plainIntroText,
       image: naslovna,
       alt: 'descriptive image of article',
     },
