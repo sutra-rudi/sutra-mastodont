@@ -20,6 +20,15 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['framer-motion'],
   },
+  // async redirects() {
+  //   return [
+  //     {
+  //       source: '/hr/blog/:slug',
+  //       destination: '/',
+  //       permanent: true,
+  //     },
+  //   ];
+  // },
 };
 
 export default nextConfig;
