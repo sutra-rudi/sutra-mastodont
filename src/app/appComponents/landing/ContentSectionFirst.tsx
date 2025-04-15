@@ -1,6 +1,5 @@
 'use client';
 
-// import BaseSVG from '@/app/components/generalMisc/BaseSVG';
 import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 import parse from 'html-react-parser';
 interface ContentSectionSecond {

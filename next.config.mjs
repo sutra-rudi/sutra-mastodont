@@ -17,9 +17,9 @@ const nextConfig = {
       },
     ],
   },
-  experimental: {
-    optimizePackageImports: ['framer-motion'],
-  },
+  // experimental: {
+  //   optimizePackageImports: ['framer-motion'],
+  // },
   // async redirects() {
   //   return [
   //     {

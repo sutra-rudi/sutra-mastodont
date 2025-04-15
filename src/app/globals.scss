@@ -174,17 +174,6 @@ body {
   }
 }
 
-// SLIDER
-
-.slider-container {
-  .slick-prev,
-  .slick-next {
-    &::before {
-      color: theme('colors.accent-boja');
-    }
-  }
-}
-
 .react-datepicker-popper {
   z-index: 9999 !important;
 }
