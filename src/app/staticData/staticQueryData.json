@@ -905,14 +905,11 @@
                             },
                             "listaSadrzajSlo": null
                         },
-                        "ikona": {
-                            "svgListIcon": null,
-                            "odabirBojeZaDefaultIkone": [
-                                "Akcentna"
-                            ],
-                            "odabirIkoneKojaSePrikazujeNaListi": [
-                                "Crtica"
-                            ]
+                        "uvodLista": {
+                            "prikaziDodatneOpcije": false,
+                            "slika1Lista": null,
+                            "slika2Lista": null,
+                            "slika3Lista": null
                         }
                     }
                 },
@@ -976,14 +973,11 @@
                             },
                             "listaSadrzajSlo": null
                         },
-                        "ikona": {
-                            "svgListIcon": null,
-                            "odabirBojeZaDefaultIkone": [
-                                "Akcentna"
-                            ],
-                            "odabirIkoneKojaSePrikazujeNaListi": [
-                                "Crtica"
-                            ]
+                        "uvodLista": {
+                            "prikaziDodatneOpcije": false,
+                            "slika1Lista": null,
+                            "slika2Lista": null,
+                            "slika3Lista": null
                         }
                     }
                 },
@@ -994,7 +988,7 @@
                         "listaHr": {
                             "listaSadrzajHr": "Zadarski arhipelag – uživanje u prekrasnom pogledu na tri tisuće godina stari grad Zadar, Zadarski kanal te otoke Ugljan i Pašman, kao i prolazak ispod mosta Ždrelac\r\nNacionalni park Kornati – panoramsko razgledavanje najrazvedenijeg arhipelaga na Mediteranu koji se sastoji od 89 otoka, otočića i hridi\r\nOtok Levrnaka – kupanje i opuštanje na poznatoj plaži Lojena te penjanje na obližnji vidikovac s kojega se pruža očaravajući pogled na gotovo čitav park\r\nSvjetionik Vela Sestrica – krstarenje pored slikovitog svjetionika izgrađenog 1876. godine\r\nPark prirode Telašćica – istraživanje impresivnih klifova te šetnja i kupanje u jezeru Mir",
                             "listaUvodHr": {
-                                "nadnaslovpodnaslovOpcionalno": null,
+                                "nadnaslovpodnaslovOpcionalno": "Fusce ultrices, urna non laoreet feugiat, ipsum est sodales nunc, vitae rutrum erat magna eu libero. ",
                                 "naslov": "ŠTO ĆETE SVE VIDJETI",
                                 "uvodnaRecenica": null
                             }
@@ -1002,17 +996,17 @@
                         "listaEng": {
                             "listaSadrzajEng": "Zadar archipelago – enjoy stunning views of the three-thousand-year-old city of Zadar, Zadar Channel, and the islands of Ugljan and Pašman, as well as passing under the Ždrelac Bridge\r\nKornati National Park – panoramic sightseeing of the most indented archipelago in the Mediterranean, consisting of 89 islands, islets, and reefs\r\nLevrnaka Island – swimming and relaxing on the famous Lojena Beach, with an option to hike up to a scenic viewpoint offering breathtaking views of the park\r\nVela Sestrica Lighthouse – cruise past this picturesque lighthouse, built in 1876\r\nTelašćica Nature Park – explore impressive cliffs and enjoy a walk and swim in Mir Lake",
                             "listaUvodEng": {
-                                "nadnaslovpodnaslovOpcionalno": null,
+                                "nadnaslovpodnaslovOpcionalno": "Ipsum est sodales nunc",
                                 "naslov": "WHAT YOU WILL SEE",
-                                "uvodnaRecenica": null
+                                "uvodnaRecenica": "Fusce ultrices, urna non laoreet feugiat, ipsum est sodales nunc, vitae rutrum erat magna eu libero. Etiam dictum euismod justo sit amet eleifend."
                             }
                         },
                         "listaIta": {
                             "listaSadrzajIta": "Arcipelago di Zara – godetevi la splendida vista della città di Zara, antica di tremila anni, del Canale di Zara e delle isole Ugljan e Pašman, passando sotto il ponte di Ždrelac\r\nParco Nazionale delle Kornati – tour panoramico dell'arcipelago più frastagliato del Mediterraneo, composto da 89 isole, isolotti e scogli\r\nIsola di Levrnaka – nuotare e rilassarsi sulla famosa spiaggia di Lojena e salire al vicino belvedere che offre una vista mozzafiato su quasi tutto il parco\r\nFaro di Vela Sestrica – navigazione accanto al pittoresco faro costruito nel 1876\r\nParco Naturale di Telašćica – esplorazione delle imponenti scogliere, passeggiate e bagno nel lago Mir",
                             "listaUvodIta": {
-                                "nadnaslovpodnaslovOpcionalno": null,
+                                "nadnaslovpodnaslovOpcionalno": "Ipsum est sodales nunc",
                                 "naslov": "COSA VEDRETE",
-                                "uvodnaRecenica": null
+                                "uvodnaRecenica": "Fusce ultrices, urna non laoreet feugiat, ipsum est sodales nunc, vitae rutrum erat magna eu libero. Etiam dictum euismod justo sit amet eleifend."
                             }
                         },
                         "listaGer": {
@@ -1047,14 +1041,11 @@
                             },
                             "listaSadrzajSlo": null
                         },
-                        "ikona": {
-                            "svgListIcon": null,
-                            "odabirBojeZaDefaultIkone": [
-                                "Akcentna"
-                            ],
-                            "odabirIkoneKojaSePrikazujeNaListi": [
-                                "To-Do-krug"
-                            ]
+                        "uvodLista": {
+                            "prikaziDodatneOpcije": false,
+                            "slika1Lista": null,
+                            "slika2Lista": null,
+                            "slika3Lista": null
                         }
                     }
                 }
@@ -4693,41 +4684,45 @@
                 {
                     "node": {
                         "id": "cG9zdDoxMDE3Nw==",
-                        "title": "Fitness i Wellness area",
+                        "title": "WHY US – potpuno ispunjen za test FINAL",
                         "uvodWhyUs": {
-                            "slikaIliIkonaWhyUs": null,
-                            "linkNaReactIkonuReactIconsgithubio": null,
-                            "odabirBoje": null,
-                            "prikazDodatnihOpcija": false,
+                            "slikaIliIkonaWhyUs": {
+                                "node": {
+                                    "sourceUrl": "https://dodgerblue-elephant-122364.hostingersite.com/wp-content/uploads/2025/04/4bdcdfec-04a6-3146-a7f8-f879bd7a0110.jpe"
+                                }
+                            },
+                            "linkNaReactIkonuReactIconsgithubio": "<FiCamera />",
+                            "odabirBoje": "#eeee22",
+                            "prikazDodatnihOpcija": true,
                             "redniBroj": 4
                         },
                         "textHr": {
-                            "naslovHr": "Fitness i Wellness area",
+                            "naslovHr": "Lorem ipsum headline HR",
                             "sadrzajTextHr": "<p>Naša moderna fitness i wellness zona omogućava vam da ostanete aktivni čak i tijekom odmora. Uz vrhunsku fitness opremu, nudimo prostor za opuštanje gdje možete iskusiti potpuni wellness tretman. Ovdje možete pronaći mir i opuštanje, dok uživate u luksuzu ove jedinstvene vile.</p>\n"
                         },
                         "textEng": {
-                            "naslovEng": "Fitness i Wellness area ENG",
+                            "naslovEng": "Lorem ipsum headline ENG",
                             "sadrzajTextEng": "<p>Naša moderna fitness i wellness zona omogućava vam da ostanete aktivni čak i tijekom odmora. Uz vrhunsku fitness opremu, nudimo prostor za opuštanje gdje možete iskusiti potpuni wellness tretman. Ovdje možete pronaći mir i opuštanje, dok uživate u luksuzu ove jedinstvene vile.</p>\n"
                         },
                         "textEsp": {
-                            "naslovEsp": null,
-                            "sadrzajTextEsp": null
+                            "naslovEsp": "Ipsum est sodales nunc",
+                            "sadrzajTextEsp": "<p>Sed sit amet vestibulum lorem. Etiam a vestibulum lectus, congue condimentum justo. Mauris dapibus enim ut sem imperdiet dictum. Phasellus id molestie urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce eleifend lectus eros, faucibus lobortis nunc gravida a. Duis metus velit, rutrum vestibulum scelerisque sed, finibus id magna. Integer elementum justo cursus, consequat magna eget, accumsan tortor. Vestibulum euismod eget metus nec molestie. Phasellus porttitor bibendum dolor. Maecenas interdum porttitor efficitur. Sed massa neque, tempus sit amet malesuada nec, iaculis ac lectus.</p>\n"
                         },
                         "textFra": {
-                            "naslovFra": null,
-                            "sadrzajTextFra": null
+                            "naslovFra": "Ipsum est sodales nunc",
+                            "sadrzajTextFra": "<p>Sed sit amet vestibulum lorem. Etiam a vestibulum lectus, congue condimentum justo. Mauris dapibus enim ut sem imperdiet dictum. Phasellus id molestie urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce eleifend lectus eros, faucibus lobortis nunc gravida a. Duis metus velit, rutrum vestibulum scelerisque sed, finibus id magna. Integer elementum justo cursus, consequat magna eget, accumsan tortor. Vestibulum euismod eget metus nec molestie. Phasellus porttitor bibendum dolor. Maecenas interdum porttitor efficitur. Sed massa neque, tempus sit amet malesuada nec, iaculis ac lectus.</p>\n"
                         },
                         "textGer": {
-                            "naslovGer": null,
-                            "sadrzajTextGer": null
+                            "naslovGer": "Lorem ipsum headline",
+                            "sadrzajTextGer": "<p>Sed sit amet vestibulum lorem. Etiam a vestibulum lectus, congue condimentum justo. Mauris dapibus enim ut sem imperdiet dictum. Phasellus id molestie urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce eleifend lectus eros, faucibus lobortis nunc gravida a. Duis metus velit, rutrum vestibulum scelerisque sed, finibus id magna. Integer elementum justo cursus, consequat magna eget, accumsan tortor. Vestibulum euismod eget metus nec molestie. Phasellus porttitor bibendum dolor. Maecenas interdum porttitor efficitur. Sed massa neque, tempus sit amet malesuada nec, iaculis ac lectus.</p>\n"
                         },
                         "textIta": {
-                            "naslovIta": null,
-                            "sadrzajTextIta": null
+                            "naslovIta": "Lorem ipsum headline",
+                            "sadrzajTextIta": "<p>Sed sit amet vestibulum lorem. Etiam a vestibulum lectus, congue condimentum justo. Mauris dapibus enim ut sem imperdiet dictum. Phasellus id molestie urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce eleifend lectus eros, faucibus lobortis nunc gravida a. Duis metus velit, rutrum vestibulum scelerisque sed, finibus id magna. Integer elementum justo cursus, consequat magna eget, accumsan tortor. Vestibulum euismod eget metus nec molestie. Phasellus porttitor bibendum dolor. Maecenas interdum porttitor efficitur. Sed massa neque, tempus sit amet malesuada nec, iaculis ac lectus.</p>\n"
                         },
                         "textSlo": {
-                            "naslovSlo": null,
-                            "sadrzajTextSlo": null
+                            "naslovSlo": "Ipsum est sodales nunc",
+                            "sadrzajTextSlo": "<p>Sed sit amet vestibulum lorem. Etiam a vestibulum lectus, congue condimentum justo. Mauris dapibus enim ut sem imperdiet dictum. Phasellus id molestie urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce eleifend lectus eros, faucibus lobortis nunc gravida a. Duis metus velit, rutrum vestibulum scelerisque sed, finibus id magna. Integer elementum justo cursus, consequat magna eget, accumsan tortor. Vestibulum euismod eget metus nec molestie. Phasellus porttitor bibendum dolor. Maecenas interdum porttitor efficitur. Sed massa neque, tempus sit amet malesuada nec, iaculis ac lectus.</p>\n"
                         }
                     }
                 },
@@ -4898,7 +4893,7 @@
                         "metricsHr": {
                             "companyInNumbersHr": {
                                 "prikaziDodatneOpcijeSwitcher": false,
-                                "tekstBrojcanikaGlavni": null,
+                                "tekstBrojcanikaGlavni": "Spašenog razuma",
                                 "tekstBrojcanikaSekundarniTekst": null,
                                 "znakIliNatpisUzBroj": null
                             }
@@ -4971,7 +4966,7 @@
                         "metricsHr": {
                             "companyInNumbersHr": {
                                 "prikaziDodatneOpcijeSwitcher": false,
-                                "tekstBrojcanikaGlavni": null,
+                                "tekstBrojcanikaGlavni": "Broj kulturnih, sportskih i turističkih događanja tijekom 2024. godine.",
                                 "tekstBrojcanikaSekundarniTekst": null,
                                 "znakIliNatpisUzBroj": null
                             }
@@ -5044,7 +5039,7 @@
                         "metricsHr": {
                             "companyInNumbersHr": {
                                 "prikaziDodatneOpcijeSwitcher": false,
-                                "tekstBrojcanikaGlavni": null,
+                                "tekstBrojcanikaGlavni": "Ukupan broj posjetitelja na događanjima u 2024. godini.",
                                 "tekstBrojcanikaSekundarniTekst": null,
                                 "znakIliNatpisUzBroj": null
                             }
@@ -6189,7 +6184,7 @@
                     "node": {
                         "id": "cG9zdDo4MzQy",
                         "uslugeIntro": {
-                            "istakniUsluguFavorite": false,
+                            "istakniUsluguFavorite": true,
                             "status": true,
                             "kategorija": {
                                 "edges": [
@@ -6264,16 +6259,16 @@
                         },
                         "uslugeSadrzajEng": {
                             "sadrzajGrupeUslugaEng": {
-                                "kratakOpisUsluge180Znakova": "wnwnwn",
+                                "kratakOpisUsluge180Znakova": "Fusce ultrices, urna non laoreet feugiat, ipsum est sodales nunc, vitae rutrum erat magna eu libero. Etiam dictum euismod justo sit amet eleifend.",
                                 "naz": "nwwn",
-                                "podnaslovIliUvodnik": "wnwnwn",
+                                "podnaslovIliUvodnik": "Sed sit amet vestibulum lorem. Etiam a vestibulum lectus, congue condimentum justo. Mauris dapibus enim ut sem imperdiet dictum. Phasellus id molestie urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce eleifend lectus eros, faucibus lobortis nunc gravida a. Duis metus velit, rutrum vestibulum scelerisque sed, finibus id magna. Integer elementum justo cursus, consequat magna eget, accumsan tortor. Vestibulum euismod eget metus nec molestie. Phasellus porttitor bibendum dolor. Maecenas interdum porttitor efficitur. Sed massa neque, tempus sit amet malesuada nec, iaculis ac lectus.",
                                 "sadrzajEng": {
                                     "pasus2Switcher": true,
                                     "pasus3Switcher": true,
                                     "pasus4Switcher": true,
-                                    "sadrzajPasusa": "<p>wnwnw</p>\n",
+                                    "sadrzajPasusa": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas efficitur malesuada neque eu hendrerit. Praesent id magna vitae risus fermentum sagittis. Quisque et elit imperdiet, commodo est non, vestibulum sapien. Praesent ut pulvinar libero, a luctus nisl. Donec quis tincidunt ligula, id iaculis nulla. Aliquam ut dapibus libero. Quisque malesuada tellus at massa viverra volutpat. Quisque pharetra dignissim quam, id accumsan urna eleifend posuere. Nam maximus augue ligula, scelerisque semper risus molestie id. Morbi vulputate nunc at nulla ultrices convallis. Etiam vitae porta eros. Donec congue consequat sapien vitae molestie.</p>\n<p>Donec et auctor nibh, eu tincidunt augue. Pellentesque vel pretium arcu, vitae feugiat libero. Nulla posuere id nulla at tincidunt. Praesent orci elit, tincidunt vitae est et, molestie fermentum tortor. Mauris laoreet luctus turpis, at volutpat sapien posuere sit amet. Nulla vestibulum nibh ac rutrum lobortis. Donec a nisi sed risus bibendum tincidunt in vel diam.</p>\n<p>Cras id ultricies ex. Suspendisse molestie libero mi, eget dictum erat vehicula eu. Aliquam vel rutrum lectus, vitae maximus urna. Nam id erat blandit, malesuada justo ac, volutpat dui. Aenean bibendum dolor mi, quis sagittis arcu euismod nec. Maecenas eget tempus est. Etiam mauris nunc, dapibus in feugiat sit amet, blandit et nibh. Suspendisse potenti.</p>\n",
                                     "sadrzajPasusa2": "<p>wqqwddwqdqw</p>\n",
-                                    "sadrzajPasusa3": "<p>qwdqwdqwdqwd</p>\n",
+                                    "sadrzajPasusa3": "<p>Fusce ultrices, urna non laoreet feugiat, ipsum est sodales nunc, vitae rutrum erat magna eu libero. Etiam dictum euismod justo sit amet eleifend.</p>\n",
                                     "sadrzajPasusa4": "<p>qwdqwdqwdqwqdw</p>\n"
                                 }
                             }

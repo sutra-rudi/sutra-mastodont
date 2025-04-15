@@ -74,7 +74,11 @@ export default function ContentSectionFirst({
 
           <div className={`${reverse ? 'order-1' : 'order-2'} w-full px-4 lg:w-1/2 xl:w-5/12`}>
             <div className='mt-10 lg:mt-0'>
-              {nadNaslov && <span className='block mb-4 text-lg font-semibold text-primary'>{nadNaslov}</span>}
+              {nadNaslov && (
+                <span className='block mb-4 lg:text-nadnaslov-desktop md:text-nadnaslov-tablet text-nadnaslov-mobile text-balance'>
+                  {nadNaslov}
+                </span>
+              )}
               <h2 className='mb-5 text-3xl font-bold text-dark dark:text-white sm:text-[40px]/[48px]'>{naslov}</h2>
 
               {!isList && <div className='lg:prose-lg prose'>{parse(sadrzaj)}</div>}
