@@ -223,7 +223,7 @@ export default async function SingleBlogPage({ params: { lang, slug } }: { param
             <p className='font-normal'>{dayjs(datum).format('D MMMM YYYY')}</p>
           </div>
         </div>
-        <picture className='block relative lg:mt-10 md:mt-7 mt-4'>
+        <picture className='block relative lg:mt-10 md:mt-7 mt-4 mx-auto max-w-[1920px]'>
           <img
             src={naslovna}
             alt={`Blog image, source: ${naslovna}`}
