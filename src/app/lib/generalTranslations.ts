@@ -90,4 +90,13 @@ export const generalTranslations = [
     esp: 'Lugar de trabajo',
     fra: 'Lieu de travail',
   },
+  {
+    key: 'Kategorija posla',
+    hr: 'Kategorija posla',
+    eng: 'Job Category',
+    ger: 'Jobkategorie',
+    ita: 'Categoria di lavoro',
+    esp: 'Categoría de trabajo',
+    fra: "Catégorie d'emploi",
+  },
 ];

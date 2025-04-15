@@ -142,7 +142,7 @@ const AppHeader = () => {
                 ))}
               </ul>
 
-              <ul className='flex items-center justify-center gap-4 mt-24 lg:text-h4-desktop md:text-h4-tablet text-h4-mobile'>
+              <ul className='flex items-center justify-center gap-4 mt-24 lg:text-h4-desktop md:text-h4-tablet text-h4-mobile flex-wrap'>
                 {linksLegalSet.map((item) => (
                   <li key={item.url}>
                     {/* @ts-ignore */}
