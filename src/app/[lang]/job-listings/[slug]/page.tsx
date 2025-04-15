@@ -35,12 +35,12 @@ export async function generateMetadata({ params: { lang, slug } }: { params: { l
 
   return {
     title: naslovOglasa,
-    description: kratkiUvod ? kratkiUvod : plainIntroText,
+    description: kratkiUvod ? kratkiUvod : plainIntroText.slice(0, 155) + '...',
     // keywords: seoTagPrep,
     openGraph: {
       title: naslovOglasa,
       //  keywords: 'seoTagPrep',
-      description: kratkiUvod ? kratkiUvod : plainIntroText,
+      description: kratkiUvod ? kratkiUvod : plainIntroText.slice(0, 155) + '...',
       // url: `https://yourwebsite.com/blog/${id}`,
       type: 'article',
       images: [
@@ -69,8 +69,8 @@ export async function generateMetadata({ params: { lang, slug } }: { params: { l
       // site: '@YourTwitterHandle',
       //  creator: author,
       title: naslovOglasa,
-      keywords: 'seoTagPrep',
-      description: kratkiUvod ? kratkiUvod : plainIntroText,
+      // keywords: 'seoTagPrep',
+      description: kratkiUvod ? kratkiUvod : plainIntroText.slice(0, 155) + '...',
       image: naslovnaSLika.sourceUrl,
       alt: 'descriptive image of article',
     },

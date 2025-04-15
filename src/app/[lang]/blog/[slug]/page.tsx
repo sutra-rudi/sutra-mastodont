@@ -76,12 +76,12 @@ export async function generateMetadata({ params: { lang, slug } }: { params: { l
 
   return {
     title: naslovBloga,
-    description: seoOpisStranice ? seoOpisStranice : plainIntroText,
+    description: seoOpisStranice ? seoOpisStranice : plainIntroText.slice(0, 155) + '...',
     // keywords: seoTagPrep,
     openGraph: {
       title: naslovBloga,
       keywords: 'seoTagPrep',
-      description: seoOpisStranice ? seoOpisStranice : plainIntroText,
+      description: seoOpisStranice ? seoOpisStranice : plainIntroText.slice(0, 155) + '...',
       // url: `https://yourwebsite.com/blog/${id}`,
       type: 'article',
       images: [
@@ -111,7 +111,7 @@ export async function generateMetadata({ params: { lang, slug } }: { params: { l
       creator: author,
       title: naslovBloga,
       keywords: 'seoTagPrep',
-      description: seoOpisStranice ? seoOpisStranice : plainIntroText,
+      description: seoOpisStranice ? seoOpisStranice : plainIntroText.slice(0, 155) + '...',
       image: naslovna,
       alt: 'descriptive image of article',
     },

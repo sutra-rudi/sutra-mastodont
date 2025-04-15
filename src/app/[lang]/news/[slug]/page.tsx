@@ -74,12 +74,12 @@ export async function generateMetadata({ params: { lang, slug } }: { params: { l
 
   return {
     title: naslovNovosti,
-    description: seoOpisStranice ? seoOpisStranice : plainIntroText,
+    description: seoOpisStranice ? seoOpisStranice : plainIntroText.slice(0, 155) + '...',
     // keywords: seoTagPrep,
     openGraph: {
       title: naslovNovosti,
-      keywords: 'seoTagPrep',
-      description: seoOpisStranice ? seoOpisStranice : plainIntroText,
+      // keywords: 'seoTagPrep',
+      description: seoOpisStranice ? seoOpisStranice : plainIntroText.slice(0, 155) + '...',
       // url: `https://yourwebsite.com/blog/${id}`,
       type: 'article',
       images: [
@@ -98,7 +98,7 @@ export async function generateMetadata({ params: { lang, slug } }: { params: { l
         published_time: datum,
         // modified_time: prepareDataForClient.blog.modifiedDate,
         // expiration_time: prepareDataForClient.blog.expirationDate,
-        section: 'Blog',
+        section: 'News',
         // tag: tagsField,
         author: author.node.firstName,
       },
@@ -108,8 +108,8 @@ export async function generateMetadata({ params: { lang, slug } }: { params: { l
       // site: '@YourTwitterHandle',
       creator: author,
       title: naslovNovosti,
-      keywords: 'seoTagPrep',
-      description: seoOpisStranice ? seoOpisStranice : plainIntroText,
+      // keywords: 'seoTagPrep',
+      description: seoOpisStranice ? seoOpisStranice : plainIntroText.slice(0, 155) + '...',
       image: naslovna,
       alt: 'descriptive image of article',
     },
