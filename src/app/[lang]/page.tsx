@@ -1,5 +1,5 @@
 export const maxDuration = 60;
-export const revalidate = 3600;
+export const revalidate = 21600; // 6h
 //SECTION IMPORTS
 import AppHero from '../appComponents/landing/AppHero';
 import BaseCaruselSection from '../appComponents/landing/BaseCaruselSection';
@@ -27,6 +27,8 @@ import PartnersSection from '../appComponents/landing/PartnersSection';
 import getAllPortfolioCaseStudy from '../queries/dynamicQueries/getAllPortfolioCaseStudy';
 import PortfolioCaseStudy from '../appComponents/landing/PortfolioCaseStudy';
 import AboutUsSection from '../appComponents/landing/AboutUsSection';
+import JobOpeningSection from '../appComponents/landing/JobOpeningSection';
+import getJobOpenings from '../queries/dynamicQueries/getAllJobOpenings';
 
 const findKaruselDataBase = dataset.data.allSlikeGalerijaKarusel.edges.find(
   (list) => list.node.title === 'Naslovnica – Karusel slika'
@@ -67,6 +69,9 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
   const getPcS = await fetchData(getAllPortfolioCaseStudy());
   const pCsData = !getPcS.error ? getPcS.data.allPortfolioCaseStudy?.edges : null;
 
+  const getJo = await fetchData(getJobOpenings());
+  const jOData = !getJo.error ? getJo.data.allOglasiZaPosao?.edges : null;
+
   //MEDIA PATHS
   const MP = await fetchMediaPaths();
 
@@ -102,6 +107,8 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       <CompanyInNumbers dataset={cInData ? cInData : findCiNStatic} currentLang={lang} />
 
       <PartnersSection currentLang={lang} />
+
+      {jOData && <JobOpeningSection currentLang={lang} dataset={jOData} />}
 
       <ClientTestimonials currentLang={lang} dataset={cTData ? cTData : findCtStatic} />
       {newsData && <NewsSection currentLang={lang} newsList={newsData} />}
