@@ -531,6 +531,27 @@ export default function GIGA_QUERY() {
           }
           listaSadrzajSlo
         }
+        uvodLista {
+          prikaziDodatneOpcije
+          slika1Lista {
+            node {
+              id
+              sourceUrl
+            }
+          }
+          slika2Lista {
+            node {
+              id
+              sourceUrl
+            }
+          }
+          slika3Lista {
+            node {
+              id
+              sourceUrl
+            }
+          }
+        }
       }
     }
   }
@@ -4109,7 +4130,6 @@ export default function GIGA_QUERY() {
       node {
         id
         uslugeIntro {
-          
           istakniUsluguFavorite
           status
           kategorija {
@@ -4132,7 +4152,6 @@ export default function GIGA_QUERY() {
           }
           dodatneOpcijeUsluga {
             bojaUsluge
-            
             ikonaUsluge {
               node {
                 id
@@ -4172,7 +4191,6 @@ export default function GIGA_QUERY() {
         }
         uslugeSadrzajHr {
           sadrzajGrupeUslugaHr {
-            
             kratakOpisUslugeHr
             nazivUslugeHr
             podnaslovIliUvodnikHr
@@ -4210,82 +4228,86 @@ export default function GIGA_QUERY() {
     edges {
       node {
         id
+        title
         listaHr {
+          listaSadrzajHr
           listaUvodHr {
-
             nadnaslovpodnaslovOpcionalno
             naslov
             uvodnaRecenica
           }
-          listaSadrzajHr
         }
         listaEng {
-          listaUvodEng {
-
-            nadnaslovpodnaslovOpcionalno
-            naslov
-            uvodnaRecenica
-          }
           listaSadrzajEng
-        }
-        listaGer {
-          listaUvodGer {
-
+          listaUvodEng {
             nadnaslovpodnaslovOpcionalno
             naslov
             uvodnaRecenica
           }
-          listaSadrzajGer
-        }
-        listaFra {
-          listaUvodFra {
-
-            nadnaslovpodnaslovOpcionalno
-            naslov
-            uvodnaRecenica
-          }
-          listaSadrzajFra
-        }
-        listaEsp {
-          listaUvodEsp {
-
-            nadnaslovpodnaslovOpcionalno
-            naslov
-            uvodnaRecenica
-          }
-          listaSadrzajEsp
         }
         listaIta {
+          listaSadrzajIta
           listaUvodIta {
-
             nadnaslovpodnaslovOpcionalno
             naslov
             uvodnaRecenica
           }
-          listaSadrzajIta
+        }
+        listaGer {
+          listaSadrzajGer
+          listaUvodGer {
+            nadnaslovpodnaslovOpcionalno
+            naslov
+            uvodnaRecenica
+          }
+        }
+        listaEsp {
+          listaSadrzajEsp
+          listaUvodEsp {
+            nadnaslovpodnaslovOpcionalno
+            naslov
+            uvodnaRecenica
+          }
+        }
+        listaFra {
+          listaSadrzajFra
+          listaUvodFra {
+            nadnaslovpodnaslovOpcionalno
+            naslov
+            uvodnaRecenica
+          }
         }
         listaSlo {
           listaUvodSlo {
-
             nadnaslovpodnaslovOpcionalno
             naslov
             uvodnaRecenica
           }
           listaSadrzajSlo
         }
-        ikona {
-          svgListIcon {
+        uvodLista {
+          prikaziDodatneOpcije
+          slika1Lista {
             node {
               id
               sourceUrl
             }
           }
-          odabirBojeZaDefaultIkone
-          odabirIkoneKojaSePrikazujeNaListi
+          slika2Lista {
+            node {
+              id
+              sourceUrl
+            }
+          }
+          slika3Lista {
+            node {
+              id
+              sourceUrl
+            }
+          }
         }
       }
     }
   }
-  
 }`;
 }

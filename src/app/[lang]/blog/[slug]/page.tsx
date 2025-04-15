@@ -13,7 +13,6 @@ import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 import { generateArticleSchema } from '@/app/utils/generateArticleSchema';
 import Script from 'next/script';
-import Head from 'next/head';
 
 const ClientContent = dynamic(() => import('./ClientContent'), { ssr: false });
 dayjs.extend(updateLocale);
@@ -72,17 +71,17 @@ export async function generateMetadata({ params: { lang, slug } }: { params: { l
   // );
 
   const plainIntroText = htmlToText(introBloga, {
-    wordwrap: 130,
+    wordwrap: false,
   });
 
   return {
     title: naslovBloga,
-    description: seoOpisStranice ? seoOpisStranice : plainIntroText,
+    description: seoOpisStranice ? seoOpisStranice : plainIntroText.slice(0, 155) + '...',
     // keywords: seoTagPrep,
     openGraph: {
       title: naslovBloga,
       keywords: 'seoTagPrep',
-      description: seoOpisStranice ? seoOpisStranice : plainIntroText,
+      description: seoOpisStranice ? seoOpisStranice : plainIntroText.slice(0, 155) + '...',
       // url: `https://yourwebsite.com/blog/${id}`,
       type: 'article',
       images: [
@@ -112,7 +111,7 @@ export async function generateMetadata({ params: { lang, slug } }: { params: { l
       creator: author,
       title: naslovBloga,
       keywords: 'seoTagPrep',
-      description: seoOpisStranice ? seoOpisStranice : plainIntroText,
+      description: seoOpisStranice ? seoOpisStranice : plainIntroText.slice(0, 155) + '...',
       image: naslovna,
       alt: 'descriptive image of article',
     },
@@ -163,7 +162,7 @@ export default async function SingleBlogPage({ params: { lang, slug } }: { param
   // Obrati pozornost da su imena polja usklađena s onima koje očekuje naša funkcija.
   const schemaObj = generateArticleSchema({
     headline: naslovBloga,
-    description: htmlToText(introBloga, { wordwrap: 130 }),
+    description: htmlToText(introBloga, { wordwrap: false }),
     datePublished: datum,
     // Ako imaš datum izmjene, možeš ga dodati:
     // dateModified: dayjs(bData.data.blog.introBlog.modifiedDate).toISOString(),
@@ -224,7 +223,7 @@ export default async function SingleBlogPage({ params: { lang, slug } }: { param
             <p className='font-normal'>{dayjs(datum).format('D MMMM YYYY')}</p>
           </div>
         </div>
-        <picture className='block relative lg:mt-10 md:mt-7 mt-4'>
+        <picture className='block relative lg:mt-10 md:mt-7 mt-4 mx-auto max-w-[1920px]'>
           <img
             src={naslovna}
             alt={`Blog image, source: ${naslovna}`}

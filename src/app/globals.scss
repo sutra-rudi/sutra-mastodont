@@ -174,17 +174,6 @@ body {
   }
 }
 
-// SLIDER
-
-.slider-container {
-  .slick-prev,
-  .slick-next {
-    &::before {
-      color: theme('colors.accent-boja');
-    }
-  }
-}
-
 .react-datepicker-popper {
   z-index: 9999 !important;
 }
@@ -289,3 +278,11 @@ body {
 .dot-gallery {
   justify-content: center;
 }
+
+//DEBUG
+// * {
+//   outline: 1px solid red;
+//   opacity: 1 !important;
+//   visibility: visible !important;
+// }
+//DEBUG

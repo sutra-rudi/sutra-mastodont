@@ -203,7 +203,7 @@ export default async function RootLayout({
 
   return (
     <html lang={lang} className='scrollbar scrollbar-thumb-accent-boja scrollbar-track-primarna-tamna'>
-      <body className={` w-full h-full antialiased`}>
+      <body className={` w-full h-full antialiased `}>
         {/* {adminTekstoviShorthand && <CookieConsentNotification pageContent={adminTekstoviShorthand} />} */}
         {/* 
         {adminTokensDataShorthand?.kodoviAdminApi?.googleAnalytics && userEnabledAllCookies && (

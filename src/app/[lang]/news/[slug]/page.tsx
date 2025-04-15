@@ -69,17 +69,17 @@ export async function generateMetadata({ params: { lang, slug } }: { params: { l
   // );
 
   const plainIntroText = htmlToText(introNovosti, {
-    wordwrap: 130,
+    wordwrap: false,
   });
 
   return {
     title: naslovNovosti,
-    description: seoOpisStranice ? seoOpisStranice : plainIntroText,
+    description: seoOpisStranice ? seoOpisStranice : plainIntroText.slice(0, 155) + '...',
     // keywords: seoTagPrep,
     openGraph: {
       title: naslovNovosti,
-      keywords: 'seoTagPrep',
-      description: seoOpisStranice ? seoOpisStranice : plainIntroText,
+      // keywords: 'seoTagPrep',
+      description: seoOpisStranice ? seoOpisStranice : plainIntroText.slice(0, 155) + '...',
       // url: `https://yourwebsite.com/blog/${id}`,
       type: 'article',
       images: [
@@ -98,7 +98,7 @@ export async function generateMetadata({ params: { lang, slug } }: { params: { l
         published_time: datum,
         // modified_time: prepareDataForClient.blog.modifiedDate,
         // expiration_time: prepareDataForClient.blog.expirationDate,
-        section: 'Blog',
+        section: 'News',
         // tag: tagsField,
         author: author.node.firstName,
       },
@@ -108,8 +108,8 @@ export async function generateMetadata({ params: { lang, slug } }: { params: { l
       // site: '@YourTwitterHandle',
       creator: author,
       title: naslovNovosti,
-      keywords: 'seoTagPrep',
-      description: seoOpisStranice ? seoOpisStranice : plainIntroText,
+      // keywords: 'seoTagPrep',
+      description: seoOpisStranice ? seoOpisStranice : plainIntroText.slice(0, 155) + '...',
       image: naslovna,
       alt: 'descriptive image of article',
     },
@@ -158,7 +158,7 @@ export default async function SingleNewsPage({ params: { lang, slug } }: { param
 
   const schemaObj = generateArticleSchema({
     headline: naslovNovosti,
-    description: htmlToText(introNovosti, { wordwrap: 130 }),
+    description: htmlToText(introNovosti, { wordwrap: false }),
     datePublished: datum,
     image: naslovna,
     author: {
@@ -206,7 +206,7 @@ export default async function SingleNewsPage({ params: { lang, slug } }: { param
             <p className='font-normal'>{dayjs(datum).format('D MMMM YYYY')}</p>
           </div>
         </div>
-        <picture className='block relative lg:mt-10 md:mt-7 mt-4'>
+        <picture className='block relative lg:mt-10 md:mt-7 mt-4 mx-auto max-w-[1920px]'>
           <img
             src={naslovna}
             alt={`Blog image, source: ${naslovna}`}
