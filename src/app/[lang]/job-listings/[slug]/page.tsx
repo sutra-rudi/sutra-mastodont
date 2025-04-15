@@ -5,6 +5,77 @@ import getSingleJobOpening from '@/app/queries/dynamicQueries/getSingleJobOpenin
 import { fetchData } from '@/app/utils/callApi';
 import dayjs from 'dayjs';
 import parse from 'html-react-parser';
+import { htmlToText } from 'html-to-text';
+
+export async function generateMetadata({ params: { lang, slug } }: { params: { lang: string; slug: string } }) {
+  const getIdFromSlug = (slug: string): string => {
+    const parts = slug.split('-');
+    return parts.pop() || '';
+  };
+
+  const slugId = getIdFromSlug(slug);
+
+  const l = getSuffixFromLang(lang);
+
+  const jData = await fetchData(getSingleJobOpening(slugId));
+
+  const naslovOglasa = jData.data.oglasiZaPosao[`oglasiZaPosaoSadrzaj${l}`].naslov;
+  const sadrzajOglasa = jData.data.oglasiZaPosao[`oglasiZaPosaoSadrzaj${l}`].opisPosla;
+  // const uvjetiPosla = jData.data.oglasiZaPosao[`oglasiZaPosaoSadrzaj${l}`].uvjeti;
+  // const kategorijaPosla = jData.data.oglasiZaPosao[`oglasiZaPosaoSadrzaj${l}`].kategorija;
+  const kratkiUvod = jData.data.oglasiZaPosao[`oglasiZaPosaoSadrzaj${l}`]?.kratkiUvod;
+  // const mjestoPosla = jData.data.oglasiZaPosao.oglasiUvod.mjestoRada;
+  const datumOd = jData.data.oglasiZaPosao.oglasiUvod.objavaNatjecaja;
+  // const datumDo = jData.data.oglasiZaPosao.oglasiUvod.trajanjeNatjecaja;
+  const naslovnaSLika = jData.data.oglasiZaPosao.oglasiUvod.glavnaSlikaOglas.node;
+
+  const plainIntroText = htmlToText(sadrzajOglasa, {
+    wordwrap: false,
+  });
+
+  return {
+    title: naslovOglasa,
+    description: kratkiUvod ? kratkiUvod : plainIntroText,
+    // keywords: seoTagPrep,
+    openGraph: {
+      title: naslovOglasa,
+      //  keywords: 'seoTagPrep',
+      description: kratkiUvod ? kratkiUvod : plainIntroText,
+      // url: `https://yourwebsite.com/blog/${id}`,
+      type: 'article',
+      images: [
+        {
+          url: naslovnaSLika.sourceUrl,
+          width: 1200,
+          height: 630,
+          alt: 'descriptive image of article',
+          type: 'image/jpeg',
+          secure_url: naslovnaSLika.sourceUrl,
+        },
+      ],
+      locale: lang,
+
+      article: {
+        published_time: datumOd,
+        // modified_time: prepareDataForClient.blog.modifiedDate,
+        // expiration_time: prepareDataForClient.blog.expirationDate,
+        section: 'Job Listing',
+        // tag: tagsField,
+        //  author: author.node.firstName,
+      },
+    },
+    twitter: {
+      card: 'summary_large_image',
+      // site: '@YourTwitterHandle',
+      //  creator: author,
+      title: naslovOglasa,
+      keywords: 'seoTagPrep',
+      description: kratkiUvod ? kratkiUvod : plainIntroText,
+      image: naslovnaSLika.sourceUrl,
+      alt: 'descriptive image of article',
+    },
+  };
+}
 
 export default async function JobOpeningSingle({ params: { lang, slug } }: { params: { lang: string; slug: string } }) {
   const getIdFromSlug = (slug: string): string => {
