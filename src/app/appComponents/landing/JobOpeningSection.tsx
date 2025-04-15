@@ -1,4 +1,3 @@
-'use client';
 import { findGeneralTranslation } from '@/app/langUtils/findGeneralTranslation';
 import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 import { generalTranslations } from '@/app/lib/generalTranslations';
@@ -13,15 +12,13 @@ interface JobOpeningSection {
 export default function JobOpeningSection({ currentLang, dataset }: JobOpeningSection) {
   const l = getSuffixFromLang(currentLang);
 
-  console.log('DATASET', dataset);
-
   return (
-    <section className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl'>
-      <div className='max-w-7xl mx-auto px-6 lg:px-8'>
-        <h2 className='text-3xl font-bold text-dark dark:text-white sm:text-[40px]/[48px] w-full text-center lg:mb-20 mb-[60px]'>
-          {findGeneralTranslation('Oglasi za posao', currentLang, generalTranslations)}
-        </h2>
+    <section className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl px-4'>
+      <h2 className='text-3xl font-bold text-dark dark:text-white sm:text-[40px]/[48px] w-full text-center lg:mb-20 mb-[60px]'>
+        {findGeneralTranslation('Oglasi za posao', currentLang, generalTranslations)}
+      </h2>
 
+      <div className='flex items-center justify-center gap-4 flex-wrap'>
         {dataset.map((og: any) => {
           const jTitle = og.node[`oglasiZaPosaoSadrzaj${l}`]?.naslov;
           const jDesc = og.node[`oglasiZaPosaoSadrzaj${l}`]?.kratkiUvod;
@@ -53,6 +50,12 @@ export default function JobOpeningSection({ currentLang, dataset }: JobOpeningSe
             </a>
           );
         })}
+      </div>
+
+      <div className='w-full mx-auto max-w-[1440px] flex items-center justify-center lg:-mt--desktop---2xl md:-mt--tablet---2xl -mt--mobile---2xl'>
+        <a href={`/${currentLang}/job-listings`} className='block border border-accent-boja rounded px-4 py-2'>
+          {findGeneralTranslation('Pogledaj sve oglase', currentLang, generalTranslations)}
+        </a>
       </div>
     </section>
   );

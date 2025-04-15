@@ -13,7 +13,6 @@ import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 import { generateArticleSchema } from '@/app/utils/generateArticleSchema';
 import Script from 'next/script';
-import Head from 'next/head';
 
 const ClientContent = dynamic(() => import('./ClientContent'), { ssr: false });
 dayjs.extend(updateLocale);
@@ -72,7 +71,7 @@ export async function generateMetadata({ params: { lang, slug } }: { params: { l
   // );
 
   const plainIntroText = htmlToText(introBloga, {
-    wordwrap: 130,
+    wordwrap: false,
   });
 
   return {
@@ -163,7 +162,7 @@ export default async function SingleBlogPage({ params: { lang, slug } }: { param
   // Obrati pozornost da su imena polja usklađena s onima koje očekuje naša funkcija.
   const schemaObj = generateArticleSchema({
     headline: naslovBloga,
-    description: htmlToText(introBloga, { wordwrap: 130 }),
+    description: htmlToText(introBloga, { wordwrap: false }),
     datePublished: datum,
     // Ako imaš datum izmjene, možeš ga dodati:
     // dateModified: dayjs(bData.data.blog.introBlog.modifiedDate).toISOString(),

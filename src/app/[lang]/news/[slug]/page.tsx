@@ -69,7 +69,7 @@ export async function generateMetadata({ params: { lang, slug } }: { params: { l
   // );
 
   const plainIntroText = htmlToText(introNovosti, {
-    wordwrap: 130,
+    wordwrap: false,
   });
 
   return {
@@ -158,7 +158,7 @@ export default async function SingleNewsPage({ params: { lang, slug } }: { param
 
   const schemaObj = generateArticleSchema({
     headline: naslovNovosti,
-    description: htmlToText(introNovosti, { wordwrap: 130 }),
+    description: htmlToText(introNovosti, { wordwrap: false }),
     datePublished: datum,
     image: naslovna,
     author: {

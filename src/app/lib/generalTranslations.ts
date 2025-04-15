@@ -99,4 +99,13 @@ export const generalTranslations = [
     esp: 'Categoría de trabajo',
     fra: "Catégorie d'emploi",
   },
+  {
+    key: 'Pogledaj sve oglase',
+    hr: 'Pogledaj sve oglase',
+    eng: 'View All Listings',
+    ger: 'Alle Anzeigen ansehen',
+    ita: 'Visualizza tutti gli annunci',
+    esp: 'Ver todos los anuncios',
+    fra: 'Voir toutes les annonces',
+  },
 ];
