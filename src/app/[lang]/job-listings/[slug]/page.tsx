@@ -6,8 +6,6 @@ import { fetchData } from '@/app/utils/callApi';
 import dayjs from 'dayjs';
 import parse from 'html-react-parser';
 
-import { IoIosBicycle, IoIosCloudDownload, IoMdDisc } from 'react-icons/io';
-
 export default async function JobOpeningSingle({ params: { lang, slug } }: { params: { lang: string; slug: string } }) {
   const getIdFromSlug = (slug: string): string => {
     const parts = slug.split('-');
@@ -38,8 +36,8 @@ export default async function JobOpeningSingle({ params: { lang, slug } }: { par
           className='w-full  object-cover object-center block aspect-auto max-h-[500px]'
         />
       </picture>
-      <div className='max-w-prose mx-auto px-4'>
-        <div className='lg:mt-desktop-slika-sadrzaj md:mt-tablet-slika-sadrzaj mt-mobile-slika-sadrzaj flex items-center justify-start gap-2 lg:flex-nowrap flex-wrap'>
+      <article className='max-w-prose mx-auto px-4'>
+        <section className='lg:mt-desktop-slika-sadrzaj md:mt-tablet-slika-sadrzaj mt-mobile-slika-sadrzaj flex items-center justify-start gap-2 lg:flex-nowrap flex-wrap'>
           <span>{`${findGeneralTranslation('Kategorija posla', lang, generalTranslations)}: ${kategorijaPosla}`}</span>
 
           <span>|</span>
@@ -49,17 +47,17 @@ export default async function JobOpeningSingle({ params: { lang, slug } }: { par
           <span>|</span>
 
           <span>{`${dayjs(datumOd).format('DD.MM.YYYY')} - ${dayjs(datumDo).format('DD.MM.YYYY')}`}</span>
-        </div>
+        </section>
         <h1 className='lg:mt-desktop-naslov-nadnaslov md:mt-tablet-naslov-nadnaslov mt-mobile-naslov-nadnaslov lg:text-h1-desktop md:text-h1-tablet text-h1-mobile35 lg:mb-desktop-tekst-naslov md:mb-tablet-tekst-naslov mb-mobile-tekst-naslov w-full relative'>
           {naslovOglasa}
         </h1>
 
-        <div className='lg:prose-lg prose w-full'>{parse(sadrzajOglasa)}</div>
+        <section className='lg:prose-lg prose w-full'>{parse(sadrzajOglasa)}</section>
 
-        <div className='lg:prose-lg prose w-full lg:mt-desktop-blok-teksta-donjidio md:mt-tablet-blok-teksta-donjidio mt-mobile-blok-teksta-donjidio'>
+        <section className='lg:prose-lg prose w-full lg:mt-desktop-blok-teksta-donjidio md:mt-tablet-blok-teksta-donjidio mt-mobile-blok-teksta-donjidio'>
           {parse(uvjetiPosla)}
-        </div>
-      </div>
+        </section>
+      </article>
     </main>
   );
 }
