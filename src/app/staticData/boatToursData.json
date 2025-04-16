@@ -1,0 +1,162 @@
+{
+    "data": {
+        "allBoatTours": {
+            "edges": [
+                {
+                    "node": {
+                        "id": "cG9zdDoxMDk0MA==",
+                        "title": "Sukošan: Izlet brodom Sveti Ante",
+                        "databaseId": 10940,
+                        "opisHr": {
+                            "opisHr": {
+                                "duziOpis": "<p>M/B Sveti Ante vodi vas u čarobni svijet <strong>Nacionalnog parka Kornati</strong>. Pridružite nam se i otkrijte netaknutu prirodu i kristalno čisto more. Trosatna pauza na <strong>plaži Lojena</strong> daje vam priliku za plivanje i ronjenje s maskom, a na povratku ćemo stati u malom ribarskom mjestu <strong>Kukljica</strong>, gdje možete prošetati i probati domaći sladoled.</p>\n<p>Hrana, piće i ulaznice uključeni su u cijenu!</p>\n",
+                                "kratkiOpis": "<p>M/B Sveti Ante vodi vas u čarobni svijet Nacionalnog parka Kornati. Pridružite nam se i otkrijte netaknutu prirodu i kristalno čisto more. Hrana, piće i ulaznice uključeni su u cijenu!</p>\n",
+                                "nadnaslov": "KORNATI",
+                                "naslov": "20 Godina tradicije"
+                            }
+                        },
+                        "uvodTours": {
+                            "brojOsobaNaBrodu": "80",
+                            "imeBroda": " Sveti Ante",
+                            "mjestoPolaska": "Branimirova 16, Zadar",
+                            "mjestoPolaskaLink": "https://www.google.pl/maps/dir//Gradski+most/@44.1175277,15.2320447,15.99z/data=!4m8!4m7!1m0!1m5!1m1!1s0x4761fa6fdbf6aaab:0x8353450e177c7f16!2m2!1d15.2301911!2d44.1158896?entry=ttu&g_ep=EgoyMDI1MDQxMy4wIKXMDSoASAFQAw%3D%3D",
+                            "parking": "Branimirova obala 19,Zadar",
+                            "parkingLink": "https://www.google.pl/maps/dir//Gradski+most/@44.1175277,15.2320447,15.99z/data=!4m8!4m7!1m0!1m5!1m1!1s0x4761fa6fdbf6aaab:0x8353450e177c7f16!2m2!1d15.2301911!2d44.1158896?entry=ttu&g_ep=EgoyMDI1MDQxMy4wIKXMDSoASAFQAw%3D%3D",
+                            "trajanjeIzleta": "11h",
+                            "vrijemeDolaska": "18:00",
+                            "vrijemePolaska": "9:15",
+                            "lokacijeKojeBrodPosjecuje": [
+                                "Kornati (Plaža Lojena)",
+                                "Kukljica (ribarsko selo)"
+                            ],
+                            "sadrzajiKojeBrodNudiPrikazanoNaKartici": [
+                                "Aperitiv i suhe smokve",
+                                "Sendvič",
+                                "Ručak",
+                                "Desert",
+                                "Piće",
+                                "Vodič",
+                                "Ulaznica za Nacionalni park"
+                            ],
+                            "stoPonijetiSaSobom": [
+                                "Kupaći kostim",
+                                "Ručnik za plažu",
+                                "Cipele za plažu ili vodene sandale",
+                                "Krema za sunčanje s visokim SPF-om",
+                                "Šešir ili kapa za sunce",
+                                "Sunčane naočale",
+                                "Lagani snack ili voće",
+                                "Fotoaparat ili mobitel s punom baterijom",
+                                "Osobne dokumente i nešto gotovine",
+                                "Osmijeh"
+                            ],
+                            "slikaBrodaIliIzleta": {
+                                "node": {
+                                    "id": "cG9zdDoxMDc0Mw==",
+                                    "sourceUrl": "https://dodgerblue-elephant-122364.hostingersite.com/wp-content/uploads/2025/02/fotogalerija-brod-sv-sime_02.jpg"
+                                }
+                            },
+                            "cijenaPredsezonaIPostsezona": {
+                                "djeca411Godina": "30",
+                                "djeca411GodinaDepozit": "10",
+                                "odrasli12Godina": "60",
+                                "odrasli12GodinaDepozit": "20"
+                            },
+                            "cijenaSezona": {
+                                "djeca411Godina": "30",
+                                "djeca411GodinaDepozit": "10",
+                                "odrasli12Godina": "60",
+                                "odrasli12GodinaDepozit": "20"
+                            },
+                            "detaljiOBroduOpcionalno": {
+                                "brojWcA": "2",
+                                "duzinaBroda": "25m",
+                                "linkNa360FotoBroda": "www.sutra.hr",
+                                "pripremaHraneNaBrodu": true,
+                                "velicinaPosade": "6"
+                            },
+                            "kategorijaIliTipIzleta": [
+                                "KORNATI"
+                            ],
+                            "uCijenuJeUkljuceno": [
+                                "Voda"
+                            ]
+                        },
+                        "photoGallery30pcs": {
+                            "galSlika01": {
+                                "node": {
+                                    "id": "cG9zdDoxMDc5MA==",
+                                    "sourceUrl": "https://dodgerblue-elephant-122364.hostingersite.com/wp-content/uploads/2025/02/fotogalerija-telascica_11.jpg"
+                                }
+                            },
+                            "galSlika02": {
+                                "node": {
+                                    "id": "cG9zdDoxMDc3OA==",
+                                    "sourceUrl": "https://dodgerblue-elephant-122364.hostingersite.com/wp-content/uploads/2025/02/fotogalerija-kornati_21.jpg"
+                                }
+                            },
+                            "galSlika03": {
+                                "node": {
+                                    "id": "cG9zdDoxMDc4Mw==",
+                                    "sourceUrl": "https://dodgerblue-elephant-122364.hostingersite.com/wp-content/uploads/2025/02/fotogalerija-telascica_04.jpg"
+                                }
+                            },
+                            "galSlika04": {
+                                "node": {
+                                    "id": "cG9zdDoxMDc4NA==",
+                                    "sourceUrl": "https://dodgerblue-elephant-122364.hostingersite.com/wp-content/uploads/2025/02/fotogalerija-telascica_05.jpg"
+                                }
+                            },
+                            "galSlika05": {
+                                "node": {
+                                    "id": "cG9zdDoxMDc2MA==",
+                                    "sourceUrl": "https://dodgerblue-elephant-122364.hostingersite.com/wp-content/uploads/2025/02/fotogalerija-kornati_03.jpg"
+                                }
+                            },
+                            "galSlika06": {
+                                "node": {
+                                    "id": "cG9zdDoxMDc2Ng==",
+                                    "sourceUrl": "https://dodgerblue-elephant-122364.hostingersite.com/wp-content/uploads/2025/02/fotogalerija-kornati_09.jpg"
+                                }
+                            },
+                            "galSlika07": {
+                                "node": {
+                                    "id": "cG9zdDoxMDc3Ng==",
+                                    "sourceUrl": "https://dodgerblue-elephant-122364.hostingersite.com/wp-content/uploads/2025/02/fotogalerija-kornati_19.jpg"
+                                }
+                            },
+                            "galSlika08": {
+                                "node": {
+                                    "id": "cG9zdDoxMDcyOA==",
+                                    "sourceUrl": "https://dodgerblue-elephant-122364.hostingersite.com/wp-content/uploads/2025/02/Karusel2_slike_09.jpg"
+                                }
+                            },
+                            "galSlika09": null,
+                            "galSlika10": null,
+                            "galSlika11": null,
+                            "galSlika12": null,
+                            "galSlika13": null,
+                            "galSlika14": null,
+                            "galSlika15": null,
+                            "galSlika16": null,
+                            "galSlika17": null,
+                            "galSlika18": null,
+                            "galSlika19": null,
+                            "galSlika20": null,
+                            "galSlika21": null,
+                            "galSlika22": null,
+                            "galSlika23": null,
+                            "galSlika24": null,
+                            "galSlika25": null,
+                            "galSlika26": null,
+                            "galSlika27": null,
+                            "galSlika28": null,
+                            "galSlika29": null,
+                            "galSlika30": null
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}
