@@ -1,8 +1,10 @@
 export enum UserLanguage {
-  hr = 'hr',
-  eng = 'eng',
-  ger = 'ger',
-  ita = 'ita',
-  esp = 'esp',
-  fra = 'fra',
+  hr = 'hr', // HRVATSKI
+  eng = 'eng', // ENGLESKI
+  ger = 'ger', // NJEMACKI
+  ita = 'ita', // TALIJANSKI
+  esp = 'esp', // NE IDE ZA OVAJ WEB
+  fra = 'fra', // FRANCUSKI
+  hu = 'hu', // MADJARSKI
+  pl = 'pl', // POLJSKI
 }
