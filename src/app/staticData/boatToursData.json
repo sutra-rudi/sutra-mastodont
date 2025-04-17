@@ -1,0 +1,213 @@
+{
+  "data": {
+    "allBoatTours": {
+      "edges": [
+        {
+          "node": {
+            "id": "cG9zdDoxMDk0MA==",
+            "title": "Sukošan: Izlet brodom Sveti Ante",
+            "databaseId": 10940,
+            "opisHr": {
+              "opisHr": {
+                "duziOpis": "<p>M/B Sveti Ante vodi vas u čarobni svijet <strong>Nacionalnog parka Kornati</strong>. Pridružite nam se i otkrijte netaknutu prirodu i kristalno čisto more. Trosatna pauza na <strong>plaži Lojena</strong> daje vam priliku za plivanje i ronjenje s maskom, a na povratku ćemo stati u malom ribarskom mjestu <strong>Kukljica</strong>, gdje možete prošetati i probati domaći sladoled.</p>\n<p>Hrana, piće i ulaznice uključeni su u cijenu!</p>\n",
+                "kratkiOpis": "<p>M/B Sveti Ante vodi vas u čarobni svijet Nacionalnog parka Kornati. Pridružite nam se i otkrijte netaknutu prirodu i kristalno čisto more. Hrana, piće i ulaznice uključeni su u cijenu!</p>\n",
+                "nadnaslov": "KORNATI",
+                "naslov": "20 Godina tradicije"
+              }
+            },
+            "opisEng": {
+              "opisEng": {
+                "duziOpis": "<p>M/B Sveti Ante takes you into the enchanting world of <strong>Kornati National Park</strong>. Join us to discover pristine nature and crystal clear sea. A three-hour break at <strong>Lojena Beach</strong> offers you the opportunity to swim and snorkel, and on the way back we'll stop at the small fishing village of <strong>Kukljica</strong>, where you can stroll and try local ice cream.</p>\n<p>Food, drinks, and entrance fees are included!</p>\n",
+                "kratkiOpis": "<p>M/B Sveti Ante takes you into the enchanting world of Kornati National Park. Join us to discover pristine nature and crystal clear sea. Food, drinks, and entrance fees are included!</p>\n",
+                "nadnaslov": "KORNATI",
+                "naslov": "20 Years of Tradition"
+              }
+            },
+            "opisGer": {
+              "opisGer": {
+                "duziOpis": "<p>M/B Sveti Ante führt Sie in die zauberhafte Welt des <strong>Nationalparks Kornati</strong>. Schließen Sie sich uns an und entdecken Sie unberührte Natur und kristallklares Meer. Eine dreistündige Pause am <strong>Strand Lojena</strong> gibt Ihnen die Gelegenheit zum Schwimmen und Schnorcheln, und auf dem Rückweg werden wir im kleinen Fischerdorf <strong>Kukljica</strong> anhalten, wo Sie spazieren gehen und hausgemachtes Eis probieren können.</p>\n<p>Essen, Getränke und Eintritt sind im Preis inbegriffen!</p>\n",
+                "kratkiOpis": "<p>M/B Sveti Ante führt Sie in die zauberhafte Welt des Nationalparks Kornati. Schließen Sie sich uns an und entdecken Sie unberührte Natur und kristallklares Meer. Essen, Getränke und Eintritt sind im Preis inbegriffen!</p>\n",
+                "nadnaslov": "KORNATI",
+                "naslov": "20 Jahre Tradition"
+              }
+            },
+            "opisPl": {
+              "opisPl": {
+                "duziOpis": "<p>M/B Sveti Ante zabierze Cię do zaczarowanego świata <strong>Parku Narodowego Kornati</strong>. Dołącz do nas i odkryj nieskażoną przyrodę oraz krystalicznie czyste morze. Trzygodzinna przerwa na <strong>plaży Lojena</strong> daje Ci możliwość kąpieli i nurkowania z maską, a w drodze powrotnej zatrzymamy się w małej wiosce rybackiej <strong>Kukljica</strong>, gdzie możesz pospacerować i spróbować lokalnych lodów.</p>\n<p>W cenie wliczone są jedzenie, napoje oraz bilety wstępu!</p>\n",
+                "kratkiOpis": "<p>M/B Sveti Ante zabierze Cię do zaczarowanego świata Parku Narodowego Kornati. Dołącz do nas i odkryj nieskażoną przyrodę oraz krystalicznie czyste morze. W cenie wliczone są jedzenie, napoje oraz bilety wstępu!</p>\n",
+                "nadnaslov": "KORNATI",
+                "naslov": "20 lat tradycji"
+              }
+            },
+            "opisFra": {
+              "opisFra": {
+                "duziOpis": "<p>M/B Sveti Ante vous emmène dans le monde enchanteur du <strong>Parc National de Kornati</strong>. Rejoignez-nous pour découvrir une nature intacte et une mer cristalline. Une pause de trois heures à la <strong>plage de Lojena</strong> vous offre l'opportunité de nager et de faire du snorkeling, et sur le chemin du retour, nous nous arrêterons dans le petit village de pêcheurs de <strong>Kukljica</strong>, où vous pourrez vous promener et goûter à la glace artisanale.</p>\n<p>La nourriture, les boissons et les billets d'entrée sont inclus!</p>\n",
+                "kratkiOpis": "<p>M/B Sveti Ante vous emmène dans le monde enchanteur du Parc National de Kornati. Rejoignez-nous pour découvrir une nature intacte et une mer cristalline. La nourriture, les boissons et les billets d'entrée sont inclus!</p>\n",
+                "nadnaslov": "KORNATI",
+                "naslov": "20 ans de tradition"
+              }
+            },
+            "opisHu": {
+              "opisHu": {
+                "duziOpis": "<p>M/B Sveti Ante ви отваря врати към омагьосания свят на <strong>Национален парк Корнати</strong>. Присъединете се към нас, за да откриете непокътната природа и кристално чистото море. Тристайна почивка на <strong>плаж Лойена</strong> ви предоставя възможност за плуване и шнорхелинг, а на връщането ще спрем в малко рибарско селище <strong>Куклича</strong>, където можете да се разходите и опитате местно сладоледче.</p>\n<p>Храната, напитките и входните такси са включени в цената!</p>\n",
+                "kratkiOpis": "<p>M/B Sveti Ante ви отваря врати към омагьосания свят на Националния парк Корнати. Присъединете се към нас, за да откриете непокътната природа и кристално чистото море. Храната, напитките и входните такси са включени в цената!</p>\n",
+                "nadnaslov": "KORNATI",
+                "naslov": "20 години традиция"
+              }
+            },
+            "opisIta": {
+              "opisIta": {
+                "duziOpis": "<p>M/B Sveti Ante ti conduce nel mondo incantato del <strong>Parco Nazionale dei Kornati</strong>. Unisciti a noi e scopri una natura incontaminata e un mare cristallino. Una pausa di tre ore alla <strong>spiaggia di Lojena</strong> ti offre l'opportunità di nuotare e fare snorkeling, e al ritorno ci fermeremo nel piccolo villaggio di pescatori di <strong>Kukljica</strong>, dove potrai fare una passeggiata e assaggiare il gelato artigianale.</p>\n<p>Cibo, bevande e biglietti d’ingresso sono inclusi!</p>\n",
+                "kratkiOpis": "<p>M/B Sveti Ante ti conduce nel mondo incantato del Parco Nazionale dei Kornati. Unisciti a noi e scopri una natura incontaminata e un mare cristallino. Cibo, bevande e biglietti d’ingresso sono inclusi!</p>\n",
+                "nadnaslov": "KORNATI",
+                "naslov": "20 Anni di Tradizione"
+              }
+            },
+
+            "uvodTours": {
+              "brojOsobaNaBrodu": "80",
+              "imeBroda": " Sveti Ante",
+              "mjestoPolaska": "Branimirova 16, Zadar",
+              "mjestoPolaskaLink": "https://www.google.pl/maps/dir//Gradski+most/@44.1175277,15.2320447,15.99z/data=!4m8!4m7!1m0!1m5!1m1!1s0x4761fa6fdbf6aaab:0x8353450e177c7f16!2m2!1d15.2301911!2d44.1158896?entry=ttu&g_ep=EgoyMDI1MDQxMy4wIKXMDSoASAFQAw%3D%3D",
+              "parking": "Branimirova obala 19,Zadar",
+              "parkingLink": "https://www.google.pl/maps/dir//Gradski+most/@44.1175277,15.2320447,15.99z/data=!4m8!4m7!1m0!1m5!1m1!1s0x4761fa6fdbf6aaab:0x8353450e177c7f16!2m2!1d15.2301911!2d44.1158896?entry=ttu&g_ep=EgoyMDI1MDQxMy4wIKXMDSoASAFQAw%3D%3D",
+              "trajanjeIzleta": "11h",
+              "vrijemeDolaska": "18:00",
+              "vrijemePolaska": "9:15",
+              "lokacijeKojeBrodPosjecuje": ["Kornati (Plaža Lojena)", "Kukljica (ribarsko selo)"],
+              "sadrzajiKojeBrodNudiPrikazanoNaKartici": [
+                "Aperitiv i suhe smokve",
+                "Sendvič",
+                "Ručak",
+                "Desert",
+                "Piće",
+                "Vodič",
+                "Ulaznica za Nacionalni park"
+              ],
+              "stoPonijetiSaSobom": [
+                "Kupaći kostim",
+                "Ručnik za plažu",
+                "Cipele za plažu ili vodene sandale",
+                "Krema za sunčanje s visokim SPF-om",
+                "Šešir ili kapa za sunce",
+                "Sunčane naočale",
+                "Lagani snack ili voće",
+                "Fotoaparat ili mobitel s punom baterijom",
+                "Osobne dokumente i nešto gotovine",
+                "Osmijeh"
+              ],
+              "slikaBrodaIliIzleta": {
+                "node": {
+                  "id": "cG9zdDoxMDc0Mw==",
+                  "sourceUrl": "https://dodgerblue-elephant-122364.hostingersite.com/wp-content/uploads/2025/02/fotogalerija-brod-sv-sime_02.jpg"
+                }
+              },
+              "cijenaPredsezonaIPostsezona": {
+                "djeca411Godina": "30",
+                "djeca411GodinaDepozit": "10",
+                "odrasli12Godina": "60",
+                "odrasli12GodinaDepozit": "20"
+              },
+              "cijenaSezona": {
+                "djeca411Godina": "30",
+                "djeca411GodinaDepozit": "10",
+                "odrasli12Godina": "60",
+                "odrasli12GodinaDepozit": "20"
+              },
+              "detaljiOBroduOpcionalno": {
+                "brojWcA": "2",
+                "duzinaBroda": "25m",
+                "linkNa360FotoBroda": "www.sutra.hr",
+                "pripremaHraneNaBrodu": true,
+                "velicinaPosade": "6"
+              },
+              "kategorijaIliTipIzleta": ["KORNATI"],
+              "uCijenuJeUkljuceno": [
+                "Aperitiv i suhe smokve",
+                "Sendvič",
+                "Ručak (riba, meso ili vege roštilj, salata)",
+                "Desert (lubenica)",
+                "Piće (voda i vino neograničeno)",
+                "Voda",
+                "Vodič",
+                "Ulaznica za Nacionalni park"
+              ]
+            },
+            "photoGallery30pcs": {
+              "galSlika01": {
+                "node": {
+                  "id": "cG9zdDoxMDc5MA==",
+                  "sourceUrl": "https://dodgerblue-elephant-122364.hostingersite.com/wp-content/uploads/2025/02/fotogalerija-telascica_11.jpg"
+                }
+              },
+              "galSlika02": {
+                "node": {
+                  "id": "cG9zdDoxMDc3OA==",
+                  "sourceUrl": "https://dodgerblue-elephant-122364.hostingersite.com/wp-content/uploads/2025/02/fotogalerija-kornati_21.jpg"
+                }
+              },
+              "galSlika03": {
+                "node": {
+                  "id": "cG9zdDoxMDc4Mw==",
+                  "sourceUrl": "https://dodgerblue-elephant-122364.hostingersite.com/wp-content/uploads/2025/02/fotogalerija-telascica_04.jpg"
+                }
+              },
+              "galSlika04": {
+                "node": {
+                  "id": "cG9zdDoxMDc4NA==",
+                  "sourceUrl": "https://dodgerblue-elephant-122364.hostingersite.com/wp-content/uploads/2025/02/fotogalerija-telascica_05.jpg"
+                }
+              },
+              "galSlika05": {
+                "node": {
+                  "id": "cG9zdDoxMDc2MA==",
+                  "sourceUrl": "https://dodgerblue-elephant-122364.hostingersite.com/wp-content/uploads/2025/02/fotogalerija-kornati_03.jpg"
+                }
+              },
+              "galSlika06": {
+                "node": {
+                  "id": "cG9zdDoxMDc2Ng==",
+                  "sourceUrl": "https://dodgerblue-elephant-122364.hostingersite.com/wp-content/uploads/2025/02/fotogalerija-kornati_09.jpg"
+                }
+              },
+              "galSlika07": {
+                "node": {
+                  "id": "cG9zdDoxMDc3Ng==",
+                  "sourceUrl": "https://dodgerblue-elephant-122364.hostingersite.com/wp-content/uploads/2025/02/fotogalerija-kornati_19.jpg"
+                }
+              },
+              "galSlika08": {
+                "node": {
+                  "id": "cG9zdDoxMDcyOA==",
+                  "sourceUrl": "https://dodgerblue-elephant-122364.hostingersite.com/wp-content/uploads/2025/02/Karusel2_slike_09.jpg"
+                }
+              },
+              "galSlika09": null,
+              "galSlika10": null,
+              "galSlika11": null,
+              "galSlika12": null,
+              "galSlika13": null,
+              "galSlika14": null,
+              "galSlika15": null,
+              "galSlika16": null,
+              "galSlika17": null,
+              "galSlika18": null,
+              "galSlika19": null,
+              "galSlika20": null,
+              "galSlika21": null,
+              "galSlika22": null,
+              "galSlika23": null,
+              "galSlika24": null,
+              "galSlika25": null,
+              "galSlika26": null,
+              "galSlika27": null,
+              "galSlika28": null,
+              "galSlika29": null,
+              "galSlika30": null
+            }
+          }
+        }
+      ]
+    }
+  }
+}
