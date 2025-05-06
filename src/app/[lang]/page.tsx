@@ -33,9 +33,7 @@ import getJobOpenings from '../queries/dynamicQueries/getAllJobOpenings';
 const findKaruselDataBase = dataset.data.allSlikeGalerijaKarusel.edges.find(
   (list) => list.node.title === 'Naslovnica – Karusel slika'
 );
-const findKaruselDataMiddle = dataset.data.allSlikeGalerijaKarusel.edges.find(
-  (list) => list.node.title === 'Fotogalerija – Obilazak jezera Mir i Klifova Telascice'
-);
+const findKaruselDataMiddle = dataset.data.allSlikeGalerijaKarusel.edges[0];
 const findFirstTextContent = dataset.data.allBazaTekstaPodstranice1Modul.edges.find(
   (item) => item.node.title === 'Naslovnica – S NAMA NA KORNATE'
 );
@@ -64,6 +62,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
   // const cInData = null;
 
   const getCt = await fetchData(getIskustvaKlijenata());
+  console.log('GET', getCt.data.allIskustvaKlijenata.edges[0].node);
   const cTData = !getCt.error ? getCt.data.allIskustvaKlijenata?.edges : null;
 
   const getPcS = await fetchData(getAllPortfolioCaseStudy());

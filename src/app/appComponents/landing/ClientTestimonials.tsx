@@ -13,6 +13,7 @@ export default function ClientTestimonials({ dataset, currentLang }: ClientTesti
   const l = getSuffixFromLang(currentLang);
   const [emblaRef] = useEmblaCarousel({ loop: false });
 
+  console.log('DATASET', dataset);
   return (
     <section className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl px-4'>
       <div ref={emblaRef} className='embla w-full'>
@@ -41,9 +42,16 @@ export default function ClientTestimonials({ dataset, currentLang }: ClientTesti
                   </svg>
 
                   <div className='flex justify-center items-start flex-col text-left gap-5'>
-                    <div className='italic text-sm md:text-base line-clamp-3 text-ellipsis'>
-                      {parse(item.node[`testimonials${l}`]?.[`tekstTestimoniala${l}`])}
-                    </div>
+                    {item.node[`testimonials${l}`]?.[`tekstTestimoniala${l}`] ? (
+                      <div className='italic text-sm md:text-base line-clamp-3 text-ellipsis'>
+                        {/* {parse()} */}
+                        {item.node[`testimonials${l}`]?.[`tekstTestimoniala${l}`].includes('<')
+                          ? parse(item.node[`testimonials${l}`]?.[`tekstTestimoniala${l}`])
+                          : ''}
+                      </div>
+                    ) : (
+                      <p>Nema recenzije!</p>
+                    )}
                     <div>
                       <h3 className='text-xl md:text-2xl font-semibold'>
                         {item.node.iskustvaklijenataUvod.imeKlijentaTestimonials}

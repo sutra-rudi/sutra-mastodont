@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { NextRequest } from 'next/server';
-const basePath = 'https://dodgerblue-elephant-122364.hostingersite.com/Sutra-ftp';
+const basePath = 'https://mastodont-2.sutra-cms.com/Sutra-ftp';
 
 // Sve putanje, možeš dodati sve potrebne objekte ovdje
 const mediaPaths = {
