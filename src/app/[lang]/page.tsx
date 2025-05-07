@@ -24,13 +24,12 @@ import { fetchData } from '../utils/callApi';
 import dataset from '../staticData/staticQueryData.json';
 import PhotoGalleryComponent from '../appComponents/global/PhotoGallery';
 import PartnersSection from '../appComponents/landing/PartnersSection';
-import getAllPortfolioCaseStudy, {
-  PortfolioCaseStudyFragment,
-} from '../queries/dynamicQueries/getAllPortfolioCaseStudy';
+import { PortfolioCaseStudyFragment } from '../queries/dynamicQueries/getAllPortfolioCaseStudy';
 import PortfolioCaseStudy from '../appComponents/landing/PortfolioCaseStudy';
 import AboutUsSection from '../appComponents/landing/AboutUsSection';
 import JobOpeningSection from '../appComponents/landing/JobOpeningSection';
-import getJobOpenings, { JobOpeningsFragment } from '../queries/dynamicQueries/getAllJobOpenings';
+import { JobOpeningsFragment } from '../queries/dynamicQueries/getAllJobOpenings';
+import Timeline from '../components/Timeline';
 
 const findKaruselDataBase = dataset.data.allSlikeGalerijaKarusel.edges.find(
   (list) => list.node.title === 'Naslovnica – Karusel slika'
@@ -101,6 +100,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       <BaseCaruselSection dataset={filterImagesMiddle} />
 
       <AboutUsSection currentLang={lang} />
+      <Timeline />
 
       {pCsData && <PortfolioCaseStudy currentLang={lang} dataset={pCsData} />}
 

@@ -6,23 +6,24 @@ import { Suspense } from 'react';
 import Loading from './loading';
 import { Providers } from './providers';
 import dataset from './staticData/staticQueryData.json';
-
 const extractData = dataset.data.allSeoAdmin.edges[0].node;
-
-// import { getAdminTokensQuery } from './queries/getAdminTokens';
-// import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google';
-// import CookieConsentNotification from './components/CookiesNotification';
-// import { getAdminTekstoviManjihKomponentiQuery } from './queries/getAdminTekstoviManjihKomponenti';
-// import { getBasicSchemaOrgProjectQuery } from './queries/getBasicSchemaOrgProjectQuery';
-
 import dynamic from 'next/dynamic';
 import { getSuffixFromLang } from './langUtils/getSuffixFromLang';
 import { fetchMediaPaths } from './utils/callMediaPaths';
+import { Viewport } from 'next';
 
 const AppHeader = dynamic(() => import('./globalComponents/AppHeader'), { ssr: false });
 const AppFooter = dynamic(() => import('./globalComponents/AppFooter'));
-// import { fetchData } from './utils/callApi';
-// import { generateSeoSchemaOrg } from './utils/generateSchemaGlobal';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 3,
+  userScalable: true,
+  interactiveWidget: 'overlays-content',
+  colorScheme: 'light',
+  themeColor: '#EEF8FF',
+};
 
 export async function generateMetadata() {
   const cookieStore = cookies();
@@ -30,151 +31,72 @@ export async function generateMetadata() {
   const l = getSuffixFromLang(lang);
 
   const MP = await fetchMediaPaths();
+  const { appleTouchIcons, favicons, ogImagesDefault } = MP;
+  //@ts-ignore
+  const title = extractData[`bazniSeo${l}`]?.[`bazniSeoTekstoviGlobalniZaStranicu${l}`].seoNaslov;
+  //@ts-ignore
+  const description = extractData[`bazniSeo${l}`]?.[`bazniSeoTekstoviGlobalniZaStranicu${l}`].seoOpisStranice;
 
-  const { appleTouchIcons, favicons, ogImagesDefault, microsoftTiles } = MP;
+  const domain = 'https://sutra-mastodont.vercel.app';
+  const pathSuffixes: Record<UserLanguage, string> = {
+    hr: '/hr',
+    eng: '/eng',
+    ger: '/ger',
+    ita: '/ita',
+    fra: '/fra',
+    esp: '/esp',
+  };
+
+  const suffixPath = pathSuffixes[lang] ?? '';
+  const canonicalUrl = `${domain}${suffixPath}`;
+  const languages = Object.fromEntries(Object.entries(pathSuffixes).map(([code, suf]) => [code, `${domain}${suf}`]));
 
   return {
-    //@ts-ignore
-    title: extractData[`bazniSeo${l}`]?.[`bazniSeoTekstoviGlobalniZaStranicu${l}`].seoNaslov,
-    //@ts-ignore
-    description: extractData[`bazniSeo${l}`]?.[`bazniSeoTekstoviGlobalniZaStranicu${l}`].seoOpisStranice,
+    title,
+    description,
     robots: 'index, follow',
+    alternates: {
+      canonical: canonicalUrl,
+      languages,
+    },
     authors: [
-      {
-        name: 'Studio Sutra',
-      },
       {
         name: 'Studio Sutra',
       },
     ],
     openGraph: {
-      //@ts-ignore
-      title: extractData[`bazniSeo${l}`]?.[`bazniSeoTekstoviGlobalniZaStranicu${l}`].seoNaslov,
-      //@ts-ignore
-      description: extractData[`bazniSeo${l}`]?.[`bazniSeoTekstoviGlobalniZaStranicu${l}`].seoOpisStranice,
-      url: 'https://sutra-mastodont.vercel.app',
+      title,
+      description,
+      url: canonicalUrl,
       siteName: 'Sutra Starter',
+      images: [ogImagesDefault.default],
+      locale: lang,
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      creator: '@Studio Sutra',
       images: [ogImagesDefault.default],
     },
 
-    meta: [
-      // MICROSOFT TILES (meta tagovi)
-      {
-        name: 'msapplication-TileImage',
-        content: microsoftTiles['144x144'],
-      },
-      {
-        name: 'msapplication-TileColor',
-        content: '#EEF8FF', // prilagodi prema svojoj vrijednosti boje
-      },
-      {
-        name: 'msapplication-square70x70logo',
-        content: microsoftTiles['70x70'],
-      },
-      {
-        name: 'msapplication-square150x150logo',
-        content: microsoftTiles['150x150'],
-      },
-      {
-        name: 'msapplication-wide310x150logo',
-        content: microsoftTiles['310x150'],
-      },
-      {
-        name: 'msapplication-square310x310logo',
-        content: microsoftTiles['310x310'],
-      },
-    ],
-
     icons: [
-      // FAVICONS
-      {
-        rel: 'icon',
-        type: 'image/png',
-        sizes: '16x16',
-        url: favicons['16x16'],
-      },
-      {
-        rel: 'icon',
-        type: 'image/png',
-        sizes: '32x32',
-        url: favicons['32x32'],
-      },
-      {
-        rel: 'icon',
-        type: 'image/png',
-        sizes: '96x96',
-        url: favicons['96x96'],
-      },
-      {
-        rel: 'icon',
-        type: 'image/png',
-        sizes: '128x128',
-        url: favicons['128x128'],
-      },
-      // {
-      //   rel: 'icon',
-      //   type: 'image/png',
-      //   sizes: '180x180',
-      //   url: favicons['180x180'],
-      // },
-      {
-        rel: 'icon',
-        type: 'image/png',
-        sizes: '196x196',
-        url: favicons['196x196'],
-      },
-      // {
-      //   rel: 'icon',
-      //   type: 'image/png',
-      //   sizes: '512x512',
-      //   url: favicons['512x512'],
-      // },
-      // APPLE TOUCH ICONS
-      {
-        rel: 'apple-touch-icon',
-        sizes: '57x57',
-        url: appleTouchIcons['57x57'],
-      },
-      {
-        rel: 'apple-touch-icon',
-        sizes: '60x60',
-        url: appleTouchIcons['60x60'],
-      },
-      {
-        rel: 'apple-touch-icon',
-        sizes: '72x72',
-        url: appleTouchIcons['72x72'],
-      },
-      {
-        rel: 'apple-touch-icon',
-        sizes: '76x76',
-        url: appleTouchIcons['76x76'],
-      },
-      {
-        rel: 'apple-touch-icon',
-        sizes: '114x114',
-        url: appleTouchIcons['114x114'],
-      },
-      {
-        rel: 'apple-touch-icon',
-        sizes: '120x120',
-        url: appleTouchIcons['120x120'],
-      },
-      {
-        rel: 'apple-touch-icon',
-        sizes: '144x144',
-        url: appleTouchIcons['144x144'],
-      },
-      {
-        rel: 'apple-touch-icon',
-        sizes: '152x152',
-        url: appleTouchIcons['152x152'],
-      },
-      // {
-      //   rel: 'apple-touch-icon',
-      //   sizes: '180x180',
-      //   url: appleTouchIcons['180x180'],
-      // },
+      // Favicons
+      { rel: 'icon', type: 'image/png', sizes: '16x16', url: favicons['16x16'] },
+      { rel: 'icon', type: 'image/png', sizes: '32x32', url: favicons['32x32'] },
+      { rel: 'icon', type: 'image/png', sizes: '96x96', url: favicons['96x96'] },
+      { rel: 'icon', type: 'image/png', sizes: '128x128', url: favicons['128x128'] },
+      { rel: 'icon', type: 'image/png', sizes: '196x196', url: favicons['196x196'] },
+      // Apple Touch Icons
+      { rel: 'apple-touch-icon', sizes: '57x57', url: appleTouchIcons['57x57'] },
+      { rel: 'apple-touch-icon', sizes: '60x60', url: appleTouchIcons['60x60'] },
+      { rel: 'apple-touch-icon', sizes: '72x72', url: appleTouchIcons['72x72'] },
+      { rel: 'apple-touch-icon', sizes: '76x76', url: appleTouchIcons['76x76'] },
+      { rel: 'apple-touch-icon', sizes: '114x114', url: appleTouchIcons['114x114'] },
+      { rel: 'apple-touch-icon', sizes: '120x120', url: appleTouchIcons['120x120'] },
+      { rel: 'apple-touch-icon', sizes: '144x144', url: appleTouchIcons['144x144'] },
+      { rel: 'apple-touch-icon', sizes: '152x152', url: appleTouchIcons['152x152'] },
     ],
   };
 }
@@ -184,27 +106,12 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // const adminTokens = await fetchData(getAdminTokensQuery());
-  // const adminTekstovi = await fetchData(getAdminTekstoviManjihKomponentiQuery());
-  // const parseSchemaData = await fetchData(getBasicSchemaOrgProjectQuery());
-
-  // const adminTokensDataShorthand = !adminTokens.error ? adminTokens.data.kodoviApitokenStylebox?.edges[0]?.node : null;
-  // const adminTekstoviShorthand = !adminTekstovi.error
-  //   ? adminTekstovi.data?.allAdminTekstoviManjihKomponenti?.edges[0]?.node
-  //   : null;
-
-  // const schemaBasicData = !parseSchemaData.error ? generateSeoSchemaOrg(parseSchemaData) : null;
-
-  // const getUserCookieConsent = cookies().get('@sutra-cookies-consent')?.value;
-  // const userEnabledAllCookies = getUserCookieConsent === 'true';
-
   const cookieStore = cookies();
   const lang = (cookieStore.get('@sutra-user-lang')?.value as UserLanguage) || 'hr';
 
   return (
     <html lang={lang} className='scrollbar scrollbar-thumb-accent-boja scrollbar-track-primarna-tamna'>
       <body className={` w-full h-full antialiased `}>
-        {/* {adminTekstoviShorthand && <CookieConsentNotification pageContent={adminTekstoviShorthand} />} */}
         {/* 
         {adminTokensDataShorthand?.kodoviAdminApi?.googleAnalytics && userEnabledAllCookies && (
           <GoogleAnalytics gaId={adminTokensDataShorthand.kodoviAdminApi.googleAnalytics} />
