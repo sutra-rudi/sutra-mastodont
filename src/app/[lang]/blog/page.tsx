@@ -1,3 +1,7 @@
+import BlogSection from '@/app/appComponents/landing/BlogSection';
+import getAllBlogs from '@/app/queries/dynamicQueries/getAllBlogs';
+import { fetchData } from '@/app/utils/callApi';
+
 export default async function BlogPage({
   params: { lang },
   searchParams: { tag },
@@ -5,9 +9,11 @@ export default async function BlogPage({
   params: { lang: string };
   searchParams: { tag: string };
 }) {
+  const getBlogs = await fetchData(getAllBlogs());
+  const allBlogs = !getBlogs.error ? getBlogs.data.allBlog?.edges : null;
   return (
-    <main>
-      <h1 className='text-h1-desktop'>BLOGOVI GRUPNO</h1>
+    <main className='w-full h-full relative block min-h-screen'>
+      {allBlogs && <BlogSection currentLang={lang} blogList={allBlogs} />}
     </main>
   );
 }

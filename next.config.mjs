@@ -9,12 +9,6 @@ const nextConfig = {
       {
         hostname: 'placehold.co',
       },
-      {
-        hostname: 'lavender-loris-843955.hostingersite.com',
-      },
-      {
-        hostname: 'dodgerblue-elephant-122364.hostingersite.com',
-      },
     ],
   },
   // experimental: {

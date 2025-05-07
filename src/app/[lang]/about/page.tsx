@@ -1,36 +1,8 @@
-import { getAllONamaQuery } from '@/app/queries/getAllONamaQuery';
 import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
-import dynamic from 'next/dynamic';
 import dataset from '../../staticData/staticQueryData.json';
 import parse from 'html-react-parser';
 import { fetchMediaPaths } from '@/app/utils/callMediaPaths';
 import PhotoGalleryComponent from '@/app/appComponents/global/PhotoGallery';
-
-// export async function generateMetadata({ params: { lang } }: { params: { lang: string } }) {
-//   const getAboutUs = await fetch(`${process.env.CMS_BASE_URL}`, {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify({
-//       query: getAllONamaQuery(lang),
-//     }),
-//   });
-
-//   const parseData = await getAboutUs.json();
-
-//   const prepareDataForClient = parseData.data.allONama.edges[0].node;
-
-//   const l = getSuffixFromLang(lang);
-
-//   const seoField = prepareDataForClient[`seo${l}`];
-
-//   return {
-//     title: prepareDataForClient[`oNamaSadrzaj${l}`]?.[`tekstoviPodstraniceONama${l}`].oNamaNaslovHeroSekcija,
-//     description: seoField[`seoTekst${l}`],
-//     keywords: seoField[`seoTagovi${l}`].split(', ').map((keyw: string) => keyw),
-//   };
-// }
 
 //HERO IMAGES ABOUT US NA FPT NIJE ISPUNJEN PA KORISTIN DEFAULT HERO
 export default async function AboutUsPage({ params: { lang } }: { params: { lang: string } }) {
@@ -54,8 +26,8 @@ export default async function AboutUsPage({ params: { lang } }: { params: { lang
   const contentFieldText = contentField[`pasus1GrupaTekstova${l}`];
 
   const gallery = Object.values(aboutDataset.photoGallery.fotogalerija).filter((v) => v);
-  const hasP2 = contentField[`pasus2Tekst${l}`];
-  const hasP3 = contentField[`pasus3Tekst${l}`];
+  //   const hasP2 = contentField[`pasus2Tekst${l}`];
+  //   const hasP3 = contentField[`pasus3Tekst${l}`];
 
   return (
     <main className='w-full h-full min-h-screen relative'>

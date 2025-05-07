@@ -5,10 +5,13 @@ import React from 'react';
 import { Twirl as Hamburger } from 'hamburger-react';
 import { LuSun as SunIcon, LuMoon as MoonIcon } from 'react-icons/lu';
 import { Hr, Gb, It, De } from 'react-flags-select';
-import Image from 'next/image';
 import { useLocalStorage } from '@uidotdev/usehooks';
 
-const AppHeader = () => {
+interface Header {
+  logos: any;
+}
+
+const AppHeader = ({ logos }: Header) => {
   const currentPath = usePathname();
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -25,6 +28,42 @@ const AppHeader = () => {
       esp: 'Sobre nosotros',
       fra: 'À propos de nous',
       url: `/${currentLang}/about`,
+    },
+    {
+      hr: 'Blog',
+      eng: 'Blog',
+      ger: 'Blog',
+      ita: 'Blog',
+      esp: 'Blog',
+      fra: 'Blog',
+      url: `/${currentLang}/blog`,
+    },
+    {
+      hr: 'Novosti',
+      eng: 'News',
+      ger: 'Neuigkeiten',
+      ita: 'Novità',
+      esp: 'Noticias',
+      fra: 'Actualités',
+      url: `/${currentLang}/news`,
+    },
+    {
+      hr: 'Oglasi',
+      eng: 'Listings',
+      ger: 'Anzeigen',
+      ita: 'Annunci',
+      esp: 'Anuncios',
+      fra: 'Annonces',
+      url: `/${currentLang}/job-listings`,
+    },
+    {
+      hr: 'Kontakt',
+      eng: 'Contact',
+      ger: 'Kontakt',
+      ita: 'Contatto',
+      esp: 'Contacto',
+      fra: 'Contact',
+      url: `/${currentLang}/contact`,
     },
   ];
 
@@ -107,33 +146,27 @@ const AppHeader = () => {
         <div className='flex items-center justify-between'>
           <div className='flex items-center'>
             <div className='shrink-0'>
-              <a href={`/${currentLang}`} title='' className='w-8 h-8 block'>
-                <Image
-                  className='dark:hidden block w-full h-full'
-                  src='https://cms.sutra.hr/wp-content/uploads/2024/06/Sutra-profilna-slika-1.jpg'
-                  alt=''
-                  width={128}
-                  height={128}
-                />
-
-                <Image
-                  className='hidden dark:block w-full h-full'
-                  src='https://cms.sutra.hr/wp-content/uploads/2024/06/Sutra-profilna-slika-1.jpg'
-                  alt=''
-                  width={128}
-                  height={128}
-                />
+              <a href={`/${currentLang}`} className='block'>
+                <picture>
+                  <img
+                    src={logos.verticalLight}
+                    alt='SITE_LOGO'
+                    width={190}
+                    height={50}
+                    className='aspect-auto object-cover object-center block'
+                  />
+                </picture>
               </a>
             </div>
 
             <div
-              className={`absolute z-40 w-full h-screen bg-almost-white inset-0 transition-all duration-300 flex items-center lg:justify-center justify-start flex-col lg:pt-0 pt-24 px-4  ${
+              className={`absolute z-[90] w-full h-screen bg-almost-white inset-0 transition-all duration-300 flex items-center lg:justify-center justify-start flex-col lg:pt-0 pt-24 px-4  ${
                 isMobileMenuOpen
                   ? 'opacity-100 pointer-events-auto select-auto'
                   : 'opacity-0 select-none pointer-events-none'
               }`}
             >
-              <ul className='lg:text-h3-desktop md:text-h3-tablet text-h3-mobile'>
+              <ul className='lg:text-h2-desktop md:text-h2-tablet text-h2-mobile flex flex-col gap-4'>
                 {baseNav.map((item) => (
                   <li key={item.url}>
                     {/* @ts-ignore */}
@@ -152,7 +185,7 @@ const AppHeader = () => {
               </ul>
             </div>
           </div>
-          <div className='flex items-center space-x-4 z-40'>
+          <div className='flex items-center space-x-4 z-[101]'>
             {langs.map((language) => (
               <button
                 disabled={currentLang === language.lang}
@@ -170,7 +203,7 @@ const AppHeader = () => {
             >
               {theme === 'light' ? <SunIcon size={24} color='#181816' /> : <MoonIcon size={24} color='#F8F7F2' />}
             </div>
-            <div className='w-min z-40'>
+            <div className='w-min '>
               <Hamburger
                 color={theme === 'light' ? '#181816' : '#F8F7F2'}
                 onToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

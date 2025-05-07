@@ -52,19 +52,40 @@ export default function ContentSectionFirst({
               <div className='w-full px-3 sm:px-4 xl:w-1/2'>
                 <div className='py-3 sm:py-4'>
                   <picture>
-                    <img src={handleImages()[0]} alt='' className='w-full rounded-2xl' />
+                    <img
+                      src={handleImages()[0]}
+                      onError={() =>
+                        "this.src = 'https://mastodont-2.sutra-cms.com/Sutra-ftp/other/CMS_Image_Placeholder.jpg'"
+                      }
+                      alt={`Article img - ${handleImages()[0]}`}
+                      className='w-full rounded-2xl'
+                    />
                   </picture>
                 </div>
                 <div className='py-3 sm:py-4'>
                   <picture>
-                    <img src={handleImages()[1]} alt='' className='w-full rounded-2xl' />
+                    <img
+                      src={handleImages()[1]}
+                      onError={() =>
+                        "this.src = 'https://mastodont-2.sutra-cms.com/Sutra-ftp/other/CMS_Image_Placeholder.jpg'"
+                      }
+                      alt={`Article img - ${handleImages()[1]}`}
+                      className='w-full rounded-2xl'
+                    />
                   </picture>
                 </div>
               </div>
               <div className='w-full px-3 sm:px-4 xl:w-1/2'>
                 <div className='relative z-10 my-4'>
                   <picture>
-                    <img src={handleImages()[2]} alt='' className='w-full rounded-2xl' />
+                    <img
+                      src={handleImages()[2]}
+                      onError={() =>
+                        "this.src = 'https://mastodont-2.sutra-cms.com/Sutra-ftp/other/CMS_Image_Placeholder.jpg'"
+                      }
+                      alt={`Article img - ${handleImages()[2]}`}
+                      className='w-full rounded-2xl'
+                    />
                   </picture>
                   <span className='absolute -right-7 -bottom-7 z-[-1]'>{/* <BaseSVG /> */}</span>
                 </div>
