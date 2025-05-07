@@ -13,10 +13,10 @@ import CompanyInNumbers from '../appComponents/landing/CompanyInNumbers';
 import ClientTestimonials from '../appComponents/landing/ClientTestimonials';
 //QUERIES
 import { fetchMediaPaths } from '../utils/callMediaPaths';
-import getAllBlogs, { BlogFragment } from '../queries/dynamicQueries/getAllBlogs';
-import getAllNews, { NewsFragment } from '../queries/dynamicQueries/getAllNews';
-import getAllBrojcanici, { BrojcaniciFragment } from '../queries/dynamicQueries/getAllBrojcanici';
-import getIskustvaKlijenata, { IskustvaFragment } from '../queries/dynamicQueries/getAllIskustva';
+import { BlogFragment } from '../queries/dynamicQueries/getAllBlogs';
+import { NewsFragment } from '../queries/dynamicQueries/getAllNews';
+import { BrojcaniciFragment } from '../queries/dynamicQueries/getAllBrojcanici';
+import { IskustvaFragment } from '../queries/dynamicQueries/getAllIskustva';
 
 //UTILS
 import { fetchData } from '../utils/callApi';
