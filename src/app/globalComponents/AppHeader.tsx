@@ -169,7 +169,7 @@ const AppHeader = () => {
                   : 'opacity-0 select-none pointer-events-none'
               }`}
             >
-              <ul className='lg:text-h3-desktop md:text-h3-tablet text-h3-mobile'>
+              <ul className='lg:text-h2-desktop md:text-h2-tablet text-h2-mobile flex flex-col gap-4'>
                 {baseNav.map((item) => (
                   <li key={item.url}>
                     {/* @ts-ignore */}
