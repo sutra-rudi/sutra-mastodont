@@ -13,10 +13,10 @@ import CompanyInNumbers from '../appComponents/landing/CompanyInNumbers';
 import ClientTestimonials from '../appComponents/landing/ClientTestimonials';
 //QUERIES
 import { fetchMediaPaths } from '../utils/callMediaPaths';
-import getAllBlogs from '../queries/dynamicQueries/getAllBlogs';
-import getAllNews from '../queries/dynamicQueries/getAllNews';
-import getAllBrojcanici from '../queries/dynamicQueries/getAllBrojcanici';
-import getIskustvaKlijenata from '../queries/dynamicQueries/getAllIskustva';
+import getAllBlogs, { BlogFragment } from '../queries/dynamicQueries/getAllBlogs';
+import getAllNews, { NewsFragment } from '../queries/dynamicQueries/getAllNews';
+import getAllBrojcanici, { BrojcaniciFragment } from '../queries/dynamicQueries/getAllBrojcanici';
+import getIskustvaKlijenata, { IskustvaFragment } from '../queries/dynamicQueries/getAllIskustva';
 
 //UTILS
 import { fetchData } from '../utils/callApi';
@@ -24,11 +24,13 @@ import { fetchData } from '../utils/callApi';
 import dataset from '../staticData/staticQueryData.json';
 import PhotoGalleryComponent from '../appComponents/global/PhotoGallery';
 import PartnersSection from '../appComponents/landing/PartnersSection';
-import getAllPortfolioCaseStudy from '../queries/dynamicQueries/getAllPortfolioCaseStudy';
+import getAllPortfolioCaseStudy, {
+  PortfolioCaseStudyFragment,
+} from '../queries/dynamicQueries/getAllPortfolioCaseStudy';
 import PortfolioCaseStudy from '../appComponents/landing/PortfolioCaseStudy';
 import AboutUsSection from '../appComponents/landing/AboutUsSection';
 import JobOpeningSection from '../appComponents/landing/JobOpeningSection';
-import getJobOpenings from '../queries/dynamicQueries/getAllJobOpenings';
+import getJobOpenings, { JobOpeningsFragment } from '../queries/dynamicQueries/getAllJobOpenings';
 
 const findKaruselDataBase = dataset.data.allSlikeGalerijaKarusel.edges.find(
   (list) => list.node.title === 'Naslovnica – Karusel slika'
@@ -51,25 +53,24 @@ const filterImagesMiddle = Object.values(findKaruselDataMiddle?.node.photoGaller
 //
 export default async function Landing({ params: { lang } }: { params: { lang: string } }) {
   //DYNAMIC DATA
-  const getBlogs = await fetchData(getAllBlogs());
-  const blogsData = !getBlogs.error ? getBlogs.data.allBlog?.edges : null;
 
-  const getNews = await fetchData(getAllNews());
-  const newsData = !getNews.error ? getNews.data.allNovosti?.edges : null;
+  const groupQ = await fetchData(`query groupQuery {
+    ${BlogFragment()}
+    ${NewsFragment()}
+    ${BrojcaniciFragment()}
+    ${IskustvaFragment()}
+    ${PortfolioCaseStudyFragment()}
+    ${JobOpeningsFragment()}
+    }`);
 
-  const getCiN = await fetchData(getAllBrojcanici());
-  const cInData = !getCiN.error ? getCiN.data.allBrojcanici?.edges : null;
-  // const cInData = null;
+  const blogsData = !groupQ.error ? groupQ.data.allBlog?.edges : null;
+  const newsData = !groupQ.error ? groupQ.data.allNovosti?.edges : null;
+  const cInData = !groupQ.error ? groupQ.data.allBrojcanici?.edges : null;
+  const cTData = !groupQ.error ? groupQ.data.allIskustvaKlijenata?.edges : null;
+  const pCsData = !groupQ.error ? groupQ.data.allPortfolioCaseStudy?.edges : null;
+  const jOData = !groupQ.error ? groupQ.data.allOglasiZaPosao?.edges : null;
 
-  const getCt = await fetchData(getIskustvaKlijenata());
-  console.log('GET', getCt.data.allIskustvaKlijenata.edges[0].node);
-  const cTData = !getCt.error ? getCt.data.allIskustvaKlijenata?.edges : null;
-
-  const getPcS = await fetchData(getAllPortfolioCaseStudy());
-  const pCsData = !getPcS.error ? getPcS.data.allPortfolioCaseStudy?.edges : null;
-
-  const getJo = await fetchData(getJobOpenings());
-  const jOData = !getJo.error ? getJo.data.allOglasiZaPosao?.edges : null;
+  // console.log('GQ', groupQ);
 
   //MEDIA PATHS
   const MP = await fetchMediaPaths();
@@ -111,6 +112,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
       <ClientTestimonials currentLang={lang} dataset={cTData ? cTData : findCtStatic} />
       {newsData && <NewsSection currentLang={lang} newsList={newsData} />}
+
       <div className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl max-w-[1140px] mx-auto px-4'>
         <PhotoGalleryComponent gallery={filterImagesBase} currentLang={lang} />
       </div>
