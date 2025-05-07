@@ -26,6 +26,42 @@ const AppHeader = () => {
       fra: 'À propos de nous',
       url: `/${currentLang}/about`,
     },
+    {
+      hr: 'Blog',
+      eng: 'Blog',
+      ger: 'Blog',
+      ita: 'Blog',
+      esp: 'Blog',
+      fra: 'Blog',
+      url: `/${currentLang}/blog`,
+    },
+    {
+      hr: 'Novosti',
+      eng: 'News',
+      ger: 'Neuigkeiten',
+      ita: 'Novità',
+      esp: 'Noticias',
+      fra: 'Actualités',
+      url: `/${currentLang}/news`,
+    },
+    {
+      hr: 'Oglasi',
+      eng: 'Listings',
+      ger: 'Anzeigen',
+      ita: 'Annunci',
+      esp: 'Anuncios',
+      fra: 'Annonces',
+      url: `/${currentLang}/job-listings`,
+    },
+    {
+      hr: 'Kontakt',
+      eng: 'Contact',
+      ger: 'Kontakt',
+      ita: 'Contatto',
+      esp: 'Contacto',
+      fra: 'Contact',
+      url: `/${currentLang}/contact`,
+    },
   ];
 
   const linksLegalSet = [
