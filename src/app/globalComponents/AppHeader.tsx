@@ -163,7 +163,7 @@ const AppHeader = () => {
             </div>
 
             <div
-              className={`absolute z-40 w-full h-screen bg-almost-white inset-0 transition-all duration-300 flex items-center lg:justify-center justify-start flex-col lg:pt-0 pt-24 px-4  ${
+              className={`absolute z-[90] w-full h-screen bg-almost-white inset-0 transition-all duration-300 flex items-center lg:justify-center justify-start flex-col lg:pt-0 pt-24 px-4  ${
                 isMobileMenuOpen
                   ? 'opacity-100 pointer-events-auto select-auto'
                   : 'opacity-0 select-none pointer-events-none'
@@ -188,7 +188,7 @@ const AppHeader = () => {
               </ul>
             </div>
           </div>
-          <div className='flex items-center space-x-4 z-40'>
+          <div className='flex items-center space-x-4 z-[101]'>
             {langs.map((language) => (
               <button
                 disabled={currentLang === language.lang}
@@ -206,7 +206,7 @@ const AppHeader = () => {
             >
               {theme === 'light' ? <SunIcon size={24} color='#181816' /> : <MoonIcon size={24} color='#F8F7F2' />}
             </div>
-            <div className='w-min z-40'>
+            <div className='w-min '>
               <Hamburger
                 color={theme === 'light' ? '#181816' : '#F8F7F2'}
                 onToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

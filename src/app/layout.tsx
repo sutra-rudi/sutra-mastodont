@@ -13,7 +13,7 @@ import { fetchMediaPaths } from './utils/callMediaPaths';
 import { Viewport } from 'next';
 
 const AppHeader = dynamic(() => import('./globalComponents/AppHeader'), { ssr: false });
-const AppFooter = dynamic(() => import('./globalComponents/AppFooter'));
+const AppFooter = dynamic(() => import('./globalComponents/AppFooter'), { ssr: false });
 
 export const viewport: Viewport = {
   width: 'device-width',

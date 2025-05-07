@@ -12,7 +12,7 @@ export default async function BlogPage({
   const getBlogs = await fetchData(getAllBlogs());
   const allBlogs = !getBlogs.error ? getBlogs.data.allBlog?.edges : null;
   return (
-    <main className='w-full h-full relative block'>
+    <main className='w-full h-full relative block min-h-screen'>
       {allBlogs && <BlogSection currentLang={lang} blogList={allBlogs} />}
     </main>
   );
