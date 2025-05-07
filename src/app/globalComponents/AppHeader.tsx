@@ -5,10 +5,13 @@ import React from 'react';
 import { Twirl as Hamburger } from 'hamburger-react';
 import { LuSun as SunIcon, LuMoon as MoonIcon } from 'react-icons/lu';
 import { Hr, Gb, It, De } from 'react-flags-select';
-import Image from 'next/image';
 import { useLocalStorage } from '@uidotdev/usehooks';
 
-const AppHeader = () => {
+interface Header {
+  logos: any;
+}
+
+const AppHeader = ({ logos }: Header) => {
   const currentPath = usePathname();
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -143,22 +146,16 @@ const AppHeader = () => {
         <div className='flex items-center justify-between'>
           <div className='flex items-center'>
             <div className='shrink-0'>
-              <a href={`/${currentLang}`} title='' className='w-8 h-8 block'>
-                <Image
-                  className='dark:hidden block w-full h-full'
-                  src='https://cms.sutra.hr/wp-content/uploads/2024/06/Sutra-profilna-slika-1.jpg'
-                  alt=''
-                  width={128}
-                  height={128}
-                />
-
-                <Image
-                  className='hidden dark:block w-full h-full'
-                  src='https://cms.sutra.hr/wp-content/uploads/2024/06/Sutra-profilna-slika-1.jpg'
-                  alt=''
-                  width={128}
-                  height={128}
-                />
+              <a href={`/${currentLang}`} className='block'>
+                <picture>
+                  <img
+                    src={logos.verticalLight}
+                    alt='SITE_LOGO'
+                    width={190}
+                    height={50}
+                    className='aspect-auto object-cover object-center block'
+                  />
+                </picture>
               </a>
             </div>
 

@@ -109,6 +109,10 @@ export default async function RootLayout({
   const cookieStore = cookies();
   const lang = (cookieStore.get('@sutra-user-lang')?.value as UserLanguage) || 'hr';
 
+  const MP = await fetchMediaPaths();
+
+  const { siteLogo } = MP;
+
   return (
     <html lang={lang} className='scrollbar scrollbar-thumb-accent-boja scrollbar-track-primarna-tamna'>
       <body className={` w-full h-full antialiased `}>
@@ -122,7 +126,7 @@ export default async function RootLayout({
         )} */}
 
         <Suspense fallback={<Loading />}>
-          <AppHeader />
+          <AppHeader logos={siteLogo} />
           <Toaster />
 
           <Providers>{children}</Providers>
