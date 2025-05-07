@@ -208,34 +208,39 @@ body {
 //LOADER
 
 .loader-sutra {
-  width: 124px;
-  height: 124px;
-  display: inline-block;
+  width: 48px;
+  height: 48px;
+  border: 10px solid #fff;
+  border-radius: 50%;
   position: relative;
+  transform: rotate(45deg);
+  box-sizing: border-box;
 }
-.loader-sutra::after,
 .loader-sutra::before {
   content: '';
-  width: 124px;
-  height: 124px;
-  border: 4px solid theme('colors.accent-boja');
   position: absolute;
-  left: 0;
-  top: 0;
   box-sizing: border-box;
-  animation: rotation 2s ease-in-out infinite;
-}
-.loader-sutra::after {
-  border-color: theme('colors.accent-boja');
-  animation-delay: 1s;
+  inset: -10px;
+  border-radius: 50%;
+  border: 10px solid #ff3d00;
+  animation: prixClipFix 2s infinite linear;
 }
 
-@keyframes rotation {
+@keyframes prixClipFix {
   0% {
-    transform: rotate(0deg);
+    clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0);
+  }
+  25% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0);
+  }
+  50% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%);
+  }
+  75% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%);
   }
   100% {
-    transform: rotate(360deg);
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0);
   }
 }
 
@@ -257,6 +262,18 @@ body {
   min-width: 0;
 }
 
+.embla__slide_blog_gallery_boats {
+  position: relative;
+  min-width: 100%;
+  text-align: center;
+
+  width: 100%;
+  @media (min-width: 1000px) {
+    flex: 0 0 450px;
+    min-width: 0;
+  }
+}
+
 /* Dots */
 .embla__dots {
   display: flex;
@@ -271,7 +288,19 @@ body {
   cursor: pointer;
   border: none;
 }
-.embla__dot.is-selected {
+
+.embla_dot_boat {
+  width: 16px;
+  height: 16px;
+  border-radius: 9999px;
+
+  background-color: theme('colors.primarna-svijetla');
+  margin: 0 5px;
+  cursor: pointer;
+  border: none;
+}
+.embla__dot.is-selected,
+.embla_dot_boat.is-selected {
   background-color: theme('colors.accent-boja');
 }
 
