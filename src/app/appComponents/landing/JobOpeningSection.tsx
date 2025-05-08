@@ -53,7 +53,11 @@ export default function JobOpeningSection({ currentLang, dataset }: JobOpeningSe
       </div>
 
       <div className='w-full mx-auto max-w-[1440px] flex items-center justify-center lg:-mt--desktop---2xl md:-mt--tablet---2xl -mt--mobile---2xl'>
-        <a href={`/${currentLang}/job-listings`} className='block border border-accent-boja rounded px-4 py-2'>
+        <a
+          href={`/${currentLang}/job-listings`}
+          hrefLang={currentLang}
+          className='block border border-accent-boja rounded px-4 py-2'
+        >
           {findGeneralTranslation('Pogledaj sve oglase', currentLang, generalTranslations)}
         </a>
       </div>

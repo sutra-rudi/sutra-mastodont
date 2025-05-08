@@ -19,6 +19,23 @@ export default function getAllBlogs() {
                 ... on Category {
                   id
                   name
+          informacijeKategorije {
+          bojaKategorije
+          imeKategorijeEng
+          imeKategorijeGer
+          imeKategorijeHr
+          imeKategorijeIta
+          opisKategorijeEng
+          opisKategorijeGer
+          opisKategorijeHr
+          opisKategorijeIta
+          slikaKategorije {
+            node {
+              id
+              sourceUrl
+            }
+          }
+        }
                 }
               }
             }
@@ -255,6 +272,23 @@ export function BlogFragment() {
                 ... on Category {
                   id
                   name
+          informacijeKategorije {
+          bojaKategorije
+          imeKategorijeEng
+          imeKategorijeGer
+          imeKategorijeHr
+          imeKategorijeIta
+          opisKategorijeEng
+          opisKategorijeGer
+          opisKategorijeHr
+          opisKategorijeIta
+          slikaKategorije {
+            node {
+              id
+              sourceUrl
+            }
+          }
+        }
                 }
               }
             }

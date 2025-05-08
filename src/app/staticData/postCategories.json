@@ -1,0 +1,116 @@
+{
+  "data": {
+    "categories": {
+      "edges": [
+        {
+          "node": {
+            "id": "dGVybToyMw==",
+            "name": "Centralna Dalmacija",
+            "informacijeKategorije": {
+              "bojaKategorije": null,
+              "imeKategorijeEng": "Central Dalmatia",
+              "imeKategorijeGer": "Zentraldalmatien",
+              "imeKategorijeHr": "Centralna Dalmacija",
+              "imeKategorijeIta": "La Dalmazia centrale",
+              "opisKategorijeEng": "Central Dalmatia, with its vibrant cities, beautiful beaches, and rich cultural heritage, offers unforgettable experiences for every visitor.",
+              "opisKategorijeGer": "Zentraldalmatien, mit seinen lebhaften Städten, wunderschönen Stränden und reichen kulturellen Erbe, bietet unvergessliche Erlebnisse für jeden Besucher.",
+              "opisKategorijeHr": "Centralna Dalmacija, sa svojim živopisnim gradovima, predivnim plažama i bogatom kulturnom baštinom, nudi nezaboravna iskustva za svakog posjetitelja.",
+              "opisKategorijeIta": "La Dalmazia centrale, con le sue città vivaci, le bellissime spiagge e il ricco patrimonio culturale, offre esperienze indimenticabili per ogni visitatore.",
+              "slikaKategorije": null
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "dGVybToyMg==",
+            "name": "Južna Dalmacija",
+            "informacijeKategorije": {
+              "bojaKategorije": null,
+              "imeKategorijeEng": "South Dalmatia",
+              "imeKategorijeGer": "Dalmatia Sud Njem",
+              "imeKategorijeHr": "Južna Dalmacija",
+              "imeKategorijeIta": "Dalmatia Sud",
+              "opisKategorijeEng": null,
+              "opisKategorijeGer": null,
+              "opisKategorijeHr": null,
+              "opisKategorijeIta": null,
+              "slikaKategorije": null
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "dGVybTozMg==",
+            "name": "Otoci Sjeverne Dalmacije",
+            "informacijeKategorije": {
+              "bojaKategorije": "#7c2a00",
+              "imeKategorijeEng": "The islands of Northern Dalmatia",
+              "imeKategorijeGer": "Die Inseln Norddalmatiens",
+              "imeKategorijeHr": "Otoci Sjeverne Dalmacije",
+              "imeKategorijeIta": "Le isole della Dalmazia settentrional",
+              "opisKategorijeEng": "The islands of Northern Dalmatia, known for their untouched nature, crystal-clear waters, and authentic Dalmatian villages, provide the perfect retreat for relaxation and exploration.",
+              "opisKategorijeGer": "Die Inseln Norddalmatiens, bekannt für ihre unberührte Natur, kristallklares Wasser und authentische dalmatinische Dörfer, bieten den perfekten Rückzugsort zur Entspannung und Erkundung.",
+              "opisKategorijeHr": "Otoci Sjeverne Dalmacije, poznati po svojoj netaknutoj prirodi, kristalno čistom moru i autentičnim dalmatinskim selima, pružaju savršeno utočište za opuštanje i istraživanje.",
+              "opisKategorijeIta": "Le isole della Dalmazia settentrionale, note per la loro natura incontaminata, le acque cristalline e i villaggi dalmati autentici, offrono il rifugio perfetto per il relax e l'esplorazione.",
+              "slikaKategorije": null
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "dGVybToxOQ==",
+            "name": "Sjeverna Dalmacija",
+            "informacijeKategorije": {
+              "bojaKategorije": "#000000",
+              "imeKategorijeEng": "Northern Dalmatia",
+              "imeKategorijeGer": "Norddalmatien",
+              "imeKategorijeHr": "Sjeverna Dalmacija",
+              "imeKategorijeIta": "La Dalmazia settentrionale",
+              "opisKategorijeEng": "Renowned for its stunning coastlines, historic cities, and pristine natural beauty, is an ideal destination for culture, nature, and relaxation enthusiasts.",
+              "opisKategorijeGer": "Norddalmatien, bekannt für seine atemberaubenden Küsten, historischen Städte und unberührte Naturschönheit, ist ein ideales Reiseziel für Kultur-, Natur- und Erholungsliebhaber.",
+              "opisKategorijeHr": "Sjeverna Dalmacija, poznata po svojim prekrasnim obalama, povijesnim gradovima i netaknutim prirodnim ljepotama, idealna je destinacija za sve ljubitelje kulture, prirode i opuštanja.",
+              "opisKategorijeIta": "La Dalmazia settentrionale, rinomata per le sue splendide coste, città storiche e bellezze naturali incontaminate, è una destinazione ideale per gli amanti della cultura, della natura e del relax.",
+              "slikaKategorije": null
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "dGVybTo0MQ==",
+            "name": "Slavonija",
+            "informacijeKategorije": {
+              "bojaKategorije": null,
+              "imeKategorijeEng": null,
+              "imeKategorijeGer": null,
+              "imeKategorijeHr": null,
+              "imeKategorijeIta": null,
+              "opisKategorijeEng": null,
+              "opisKategorijeGer": null,
+              "opisKategorijeHr": null,
+              "opisKategorijeIta": null,
+              "slikaKategorije": null
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "dGVybTox",
+            "name": "Uncategorized",
+            "informacijeKategorije": {
+              "bojaKategorije": null,
+              "imeKategorijeEng": null,
+              "imeKategorijeGer": null,
+              "imeKategorijeHr": null,
+              "imeKategorijeIta": null,
+              "opisKategorijeEng": null,
+              "opisKategorijeGer": null,
+              "opisKategorijeHr": null,
+              "opisKategorijeIta": null,
+              "slikaKategorije": null
+            }
+          }
+        }
+      ]
+    }
+  }
+}

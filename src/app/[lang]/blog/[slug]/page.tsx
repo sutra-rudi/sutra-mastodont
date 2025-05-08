@@ -13,6 +13,7 @@ import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 import { generateArticleSchema } from '@/app/utils/generateArticleSchema';
 import Script from 'next/script';
+import { Metadata } from 'next';
 
 const ClientContent = dynamic(() => import('./ClientContent'), { ssr: false });
 dayjs.extend(updateLocale);
@@ -34,7 +35,11 @@ dayjs.updateLocale('en', {
   ],
 });
 
-export async function generateMetadata({ params: { lang, slug } }: { params: { lang: string; slug: string } }) {
+export async function generateMetadata({
+  params: { lang, slug },
+}: {
+  params: { lang: string; slug: string };
+}): Promise<Metadata> {
   const l = getSuffixFromLang(lang);
   const isEngMistake = lang === UserLanguage.eng;
   const getIdFromSlug = (slug: string): string => {
@@ -46,8 +51,6 @@ export async function generateMetadata({ params: { lang, slug } }: { params: { l
 
   const bData = await fetchData(getSingleBlog(slugId));
 
-  // console.log('GLOBBB', bData.data.blog[`seo${l}`]?.[`seo${l}`].seoOpisStranice);
-
   const MP = await fetchMediaPaths();
 
   const { heroImagesDefault } = MP;
@@ -57,18 +60,29 @@ export async function generateMetadata({ params: { lang, slug } }: { params: { l
     : heroImagesDefault.desktop;
   const naslovBloga =
     bData.data.blog[`sadrzaj${l}Fields`]?.[isEngMistake ? `naslovSadrzajSadrzaj${l}` : `naslovSadrzaj${l}`];
-  // const sadrzajBloga = bData.data.blog[`sadrzaj${l}Fields`]?.[`sadrzajSadrzaj${l}`];
   const seoOpisStranice = bData.data.blog[`seo${l}`]?.[`seo${l}`].seoOpisStranice;
   const introBloga = bData.data.blog[`sadrzaj${l}Fields`]?.[`kratkiUvodniTekstSadrzaj${l}`];
   const author = bData.data.blog.author;
 
-  const datum = bData.data.blog.introBlog.datum;
+  // const datum = bData.data.blog.introBlog.datum;
+  const domain = 'https://sutra-mastodont.vercel.app/blog';
+  const pathSuffixes: Record<UserLanguage, string> = {
+    hr: '/hr',
+    eng: '/eng',
+    ger: '/ger',
+    ita: '/ita',
+    fra: '/fra',
+    esp: '/esp',
+  };
 
-  // const kategorija = bData.data.blog.introBlog.kategorija.edges[0].node.informacijeKategorije[`imeKategorije${l}`];
+  //@ts-ignore
+  const suffixPath = pathSuffixes[lang] ?? '';
+  const canonicalUrl = `${domain}${suffixPath}/${slug}`;
+  const languages = Object.fromEntries(
+    Object.entries(pathSuffixes).map(([code, suf]) => [code, `${domain}${suf}/${slug}`])
+  );
 
-  // const galleryBlog = Object.values(bData.data.blog.photoGallery.fotogalerija).filter(
-  //   (galItem: any) => galItem !== null
-  // );
+  const kategorija = bData.data.blog.introBlog.kategorija.edges[0].node.informacijeKategorije[`imeKategorije${l}`];
 
   const plainIntroText = htmlToText(introBloga, {
     wordwrap: false,
@@ -77,13 +91,28 @@ export async function generateMetadata({ params: { lang, slug } }: { params: { l
   return {
     title: naslovBloga,
     description: seoOpisStranice ? seoOpisStranice : plainIntroText.slice(0, 155) + '...',
-    // keywords: seoTagPrep,
+    category: kategorija,
+    authors: [{ name: `${author.node.name} ${author.node.lastName}` }],
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+      },
+    },
+    alternates: {
+      canonical: canonicalUrl,
+      languages,
+    },
+
     openGraph: {
       title: naslovBloga,
-      keywords: 'seoTagPrep',
       description: seoOpisStranice ? seoOpisStranice : plainIntroText.slice(0, 155) + '...',
-      // url: `https://yourwebsite.com/blog/${id}`,
+      url: canonicalUrl,
       type: 'article',
+      alternateLocale: Object.values(languages),
+
       images: [
         {
           url: naslovna,
@@ -91,29 +120,25 @@ export async function generateMetadata({ params: { lang, slug } }: { params: { l
           height: 630,
           alt: 'descriptive image of article',
           type: 'image/jpeg',
-          secure_url: naslovna,
         },
       ],
       locale: lang,
-
-      article: {
-        published_time: datum,
-        // modified_time: prepareDataForClient.blog.modifiedDate,
-        // expiration_time: prepareDataForClient.blog.expirationDate,
-        section: 'Blog',
-        // tag: tagsField,
-        author: author.node.firstName,
-      },
+      authors: [`${author.node.name} ${author.node.lastName}`],
     },
     twitter: {
       card: 'summary_large_image',
-      // site: '@YourTwitterHandle',
-      creator: author,
+      creator: `${author.node.name} ${author.node.lastName}`,
       title: naslovBloga,
-      keywords: 'seoTagPrep',
       description: seoOpisStranice ? seoOpisStranice : plainIntroText.slice(0, 155) + '...',
-      image: naslovna,
-      alt: 'descriptive image of article',
+      images: [
+        {
+          url: naslovna,
+          width: 1200,
+          height: 630,
+          alt: 'descriptive image of article',
+          type: 'image/jpeg',
+        },
+      ],
     },
   };
 }

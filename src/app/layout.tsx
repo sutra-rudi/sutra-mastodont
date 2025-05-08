@@ -10,7 +10,7 @@ const extractData = dataset.data.allSeoAdmin.edges[0].node;
 import dynamic from 'next/dynamic';
 import { getSuffixFromLang } from './langUtils/getSuffixFromLang';
 import { fetchMediaPaths } from './utils/callMediaPaths';
-import { Viewport } from 'next';
+import { Metadata, Viewport } from 'next';
 
 const AppHeader = dynamic(() => import('./globalComponents/AppHeader'), { ssr: false });
 const AppFooter = dynamic(() => import('./globalComponents/AppFooter'), { ssr: false });
@@ -25,7 +25,7 @@ export const viewport: Viewport = {
   themeColor: '#EEF8FF',
 };
 
-export async function generateMetadata() {
+export async function generateMetadata(): Promise<Metadata> {
   const cookieStore = cookies();
   const lang = (cookieStore.get('@sutra-user-lang')?.value as UserLanguage) || 'hr';
   const l = getSuffixFromLang(lang);
@@ -131,7 +131,7 @@ export default async function RootLayout({
 
           <Providers>{children}</Providers>
 
-          <AppFooter />
+          <AppFooter logos={siteLogo} currentLang={lang} />
         </Suspense>
         {/* {schemaBasicData && (
           <Script id='schema-org' type='application/ld+json' dangerouslySetInnerHTML={{ __html: schemaBasicData }} />
