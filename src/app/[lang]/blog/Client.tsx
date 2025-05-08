@@ -8,16 +8,23 @@ import slugify from 'slugify';
 import useEmblaCarousel from 'embla-carousel-react';
 import React from 'react';
 
-interface BlogSection {
-  currentLang: string;
-  blogList: any[];
+import categories from '../../staticData/postCategories.json';
+import { findGeneralTranslation } from '@/app/langUtils/findGeneralTranslation';
+import { generalTranslations } from '@/app/lib/generalTranslations';
+
+interface Client {
+  blogList: any;
+  currentLang: any;
 }
 
-export default function BlogSection({ currentLang, blogList }: BlogSection) {
+export default function Client({ blogList, currentLang }: Client) {
   const l = getSuffixFromLang(currentLang);
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false });
   const [selectedIndex, setSelectedIndex] = React.useState(0);
   const [scrollSnaps, setScrollSnaps] = React.useState<number[]>([]);
+
+  const [catName, setCatName] = React.useState<string>('Sve kategorije');
+  const [renderBlogs, setRenderBlogs] = React.useState<any[]>(blogList);
 
   const onSelect = React.useCallback(() => {
     if (!emblaApi) return;
@@ -39,19 +46,86 @@ export default function BlogSection({ currentLang, blogList }: BlogSection) {
     [emblaApi]
   );
 
+  function filterBlogsByCat(cat: any) {
+    const arr = blogList.filter((blog: any) => {
+      return blog.node.introBlog.kategorija.edges[0].node.name === cat;
+    });
+
+    setRenderBlogs(arr);
+  }
+
   return (
     <section className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl'>
       <div className='max-w-[1440px] px-4 mx-auto'>
-        <h2 className='text-3xl font-bold text-dark dark:text-white sm:text-[40px]/[48px] w-full text-center lg:mb-20 mb-[60px]'>
-          Blog
+        <h2 className='lg:text-h2-desktop md:text-h2-tablet text-h2-mobile font-bold text-dark dark:text-white  w-full text-center '>
+          {catName !== 'Sve kategorije'
+            ? `Blog - ${
+                //@ts-ignore
+                categories.data.categories.edges.find((c) => c.node.name === catName)?.node.informacijeKategorije[
+                  `imeKategorije${l}`
+                ]
+              }`
+            : 'Blog'}
         </h2>
-        <div className='lg:flex hidden flex-wrap items-start justify-center gap-4'>
-          {blogList.map((blog) => {
+
+        <div className='container mx-auto flex items-center justify-center gap-4 flex-wrap lg:-mt--desktop---2xl md:-mt--tablet---2xl -mt--mobile---2xl'>
+          <button
+            className={`${
+              catName === 'Sve kategorije' ? 'bg-accent-boja' : 'bg-sekundarna-tamna'
+            } text-almost-white block py-4 lg:text-button-desktop md:text-button-tablet text-button-mobile cursor-pointer transition-all ease-in-out relative group
+                    
+                    before:absolute before:inset-0 before:bg-primarna-svijetla before:w-full before:h-full before:transition-all before:ease-in-out before:translate-y-full hover:before:translate-y-0 before:duration-300 before:cursor-pointer
+                    
+                    after:absolute after:inset-0 after:bg-accent-boja after:w-full after:h-full after:transition-all after:ease-in-out after:translate-y-full hover:after:translate-y-0 after:delay-[200ms] after:duration-300
+                    after:cursor-pointer
+                    overflow-hidden px-4`}
+            onClick={() => {
+              setCatName('Sve kategorije');
+              setRenderBlogs(blogList);
+            }}
+          >
+            <span className='relative z-20 group-hover:motion-preset-slide-up motion-ease-spring-bouncy'>
+              {findGeneralTranslation('Sve kategorije', currentLang, generalTranslations)}
+            </span>
+          </button>
+          {categories.data.categories.edges
+            .filter((ct) => ct.node.informacijeKategorije.imeKategorijeHr)
+            .map((ct) => {
+              return (
+                <button
+                  className={`${
+                    catName === ct.node.name ? 'bg-accent-boja' : 'bg-sekundarna-tamna'
+                  } text-almost-white block py-4 lg:text-button-desktop md:text-button-tablet text-button-mobile cursor-pointer transition-all ease-in-out relative group
+                    
+                    before:absolute before:inset-0 before:bg-primarna-svijetla before:w-full before:h-full before:transition-all before:ease-in-out before:translate-y-full hover:before:translate-y-0 before:duration-300 before:cursor-pointer
+                    
+                    after:absolute after:inset-0 after:bg-accent-boja after:w-full after:h-full after:transition-all after:ease-in-out after:translate-y-full hover:after:translate-y-0 after:delay-[200ms] after:duration-300
+                  after:cursor-pointer                    
+                    overflow-hidden px-4`}
+                  onClick={() => {
+                    setCatName(ct.node.name);
+                    filterBlogsByCat(ct.node.name);
+                  }}
+                  key={ct.node.name}
+                >
+                  <span className='relative z-20 group-hover:motion-preset-slide-up motion-ease-spring-bouncy cursor-pointer'>
+                    {/* @ts-ignore */}
+                    {ct.node.informacijeKategorije[`imeKategorije${l}`]}
+                  </span>
+                </button>
+              );
+            })}
+        </div>
+        <div className='lg:flex hidden flex-wrap items-start justify-center gap-4 lg:-mt--desktop---3xl md:-mt--tablet---3xl -mt--mobile---3xl'>
+          {renderBlogs.map((blog: any, i) => {
             const isEngMistake = currentLang === UserLanguage.eng;
             return (
               blog.node.introBlog.istaknutoNaNaslovnici &&
               blog.node.introBlog.statusBloga && (
                 <a
+                  style={{
+                    animationDelay: `${i * 0.15}s`,
+                  }}
                   key={blog.node.databaseId}
                   href={`/${currentLang}/blog/${slugify(
                     blog.node.sadrzajHrFields.naslovSadrzajHr + `-${blog.node.databaseId}`,
@@ -59,6 +133,7 @@ export default function BlogSection({ currentLang, blogList }: BlogSection) {
                       ...slugifyOptions,
                     }
                   )}`}
+                  className='motion-preset-slide-down-left-sm motion-ease-spring-bouncy'
                 >
                   <article className='p-4 max-w-[350px]'>
                     <div className='h-full rounded-xl shadow-cla-blue bg-gradient-to-r from-indigo-50 to-blue-50 overflow-hidden'>
@@ -108,15 +183,21 @@ export default function BlogSection({ currentLang, blogList }: BlogSection) {
           })}
         </div>
 
-        <div ref={emblaRef} className='embla lg:hidden w-full mx-auto'>
+        <div
+          ref={emblaRef}
+          className='embla lg:hidden w-full mx-auto lg:-mt--desktop---3xl md:-mt--tablet---3xl -mt--mobile---3xl'
+        >
           <div className='embla__container w-full flex items-start gap-4'>
-            {blogList.map((blog) => {
+            {renderBlogs.map((blog: any, i) => {
               const isEngMistake = currentLang === UserLanguage.eng;
               return (
                 blog.node.introBlog.istaknutoNaNaslovnici &&
                 blog.node.introBlog.statusBloga && (
                   <a
-                    className='embla__slide_blog_gallery'
+                    style={{
+                      animationDelay: `${i * 0.15}s`,
+                    }}
+                    className='embla__slide_blog_gallery motion-preset-fade motion-ease-spring-bouncy'
                     key={blog.node.databaseId}
                     href={`/${currentLang}/blog/${slugify(
                       blog.node.sadrzajHrFields.naslovSadrzajHr + `-${blog.node.databaseId}`,

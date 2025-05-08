@@ -8,4 +8,3 @@ export enum UserLanguage {
   // hu = 'hu', // MADJARSKI
   // pl = 'pl', // POLJSKI
 }
-//TEST COMMIT

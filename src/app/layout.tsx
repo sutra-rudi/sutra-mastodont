@@ -10,7 +10,7 @@ const extractData = dataset.data.allSeoAdmin.edges[0].node;
 import dynamic from 'next/dynamic';
 import { getSuffixFromLang } from './langUtils/getSuffixFromLang';
 import { fetchMediaPaths } from './utils/callMediaPaths';
-import { Viewport } from 'next';
+import { Metadata, Viewport } from 'next';
 
 const AppHeader = dynamic(() => import('./globalComponents/AppHeader'), { ssr: false });
 const AppFooter = dynamic(() => import('./globalComponents/AppFooter'), { ssr: false });
@@ -25,18 +25,30 @@ export const viewport: Viewport = {
   themeColor: '#EEF8FF',
 };
 
-export async function generateMetadata() {
+const localeMapping: Record<UserLanguage, string> = {
+  hr: 'hr_HR',
+  eng: 'en_US',
+  ger: 'de_DE',
+  ita: 'it_IT',
+  fra: 'fr_FR',
+  esp: 'es_ES',
+};
+
+export async function generateMetadata(): Promise<Metadata> {
   const cookieStore = cookies();
-  const lang = (cookieStore.get('@sutra-user-lang')?.value as UserLanguage) || 'hr';
+  const lang = (cookieStore.get('@sutra-user-lang')?.value as UserLanguage) || UserLanguage.hr;
   const l = getSuffixFromLang(lang);
 
+  // Dohvat medijskih putanja
   const MP = await fetchMediaPaths();
   const { appleTouchIcons, favicons, ogImagesDefault } = MP;
-  //@ts-ignore
-  const title = extractData[`bazniSeo${l}`]?.[`bazniSeoTekstoviGlobalniZaStranicu${l}`].seoNaslov;
-  //@ts-ignore
-  const description = extractData[`bazniSeo${l}`]?.[`bazniSeoTekstoviGlobalniZaStranicu${l}`].seoOpisStranice;
 
+  //@ts-ignore
+  const seoGlobal = extractData[`bazniSeo${l}`]?.[`bazniSeoTekstoviGlobalniZaStranicu${l}`];
+  const title = seoGlobal?.seoNaslov ?? 'Sutra Starter';
+  const description = seoGlobal?.seoOpisStranice ?? 'Dobrodošli na Sutra Starter.';
+
+  // Osnovni URL i suffix
   const domain = 'https://sutra-mastodont.vercel.app';
   const pathSuffixes: Record<UserLanguage, string> = {
     hr: '/hr',
@@ -46,10 +58,16 @@ export async function generateMetadata() {
     fra: '/fra',
     esp: '/esp',
   };
-
   const suffixPath = pathSuffixes[lang] ?? '';
   const canonicalUrl = `${domain}${suffixPath}`;
-  const languages = Object.fromEntries(Object.entries(pathSuffixes).map(([code, suf]) => [code, `${domain}${suf}`]));
+
+  // Generiranje alternates.languages s ISO ključevima
+  const languages = Object.fromEntries(
+    Object.entries(pathSuffixes).map(([code, suf]) => {
+      const iso = localeMapping[code as UserLanguage];
+      return [iso, `${domain}${suf}`];
+    })
+  );
 
   return {
     title,
@@ -59,18 +77,15 @@ export async function generateMetadata() {
       canonical: canonicalUrl,
       languages,
     },
-    authors: [
-      {
-        name: 'Studio Sutra',
-      },
-    ],
+    authors: [{ name: 'Studio Sutra' }],
     openGraph: {
       title,
       description,
       url: canonicalUrl,
       siteName: 'Sutra Starter',
       images: [ogImagesDefault.default],
-      locale: lang,
+      locale: localeMapping[lang],
+      alternateLocale: Object.keys(languages),
       type: 'website',
     },
     twitter: {
@@ -80,7 +95,6 @@ export async function generateMetadata() {
       creator: '@Studio Sutra',
       images: [ogImagesDefault.default],
     },
-
     icons: [
       // Favicons
       { rel: 'icon', type: 'image/png', sizes: '16x16', url: favicons['16x16'] },
@@ -113,8 +127,17 @@ export default async function RootLayout({
 
   const { siteLogo } = MP;
 
+  const htmlLangMap: Record<UserLanguage, string> = {
+    hr: 'hr',
+    eng: 'en',
+    ger: 'de',
+    ita: 'it',
+    fra: 'fr',
+    esp: 'es',
+  };
+
   return (
-    <html lang={lang} className='scrollbar scrollbar-thumb-accent-boja scrollbar-track-primarna-tamna'>
+    <html lang={htmlLangMap[lang]} className='scrollbar scrollbar-thumb-accent-boja scrollbar-track-primarna-tamna'>
       <body className={` w-full h-full antialiased `}>
         {/* 
         {adminTokensDataShorthand?.kodoviAdminApi?.googleAnalytics && userEnabledAllCookies && (
@@ -131,7 +154,7 @@ export default async function RootLayout({
 
           <Providers>{children}</Providers>
 
-          <AppFooter />
+          <AppFooter logos={siteLogo} currentLang={lang} />
         </Suspense>
         {/* {schemaBasicData && (
           <Script id='schema-org' type='application/ld+json' dangerouslySetInnerHTML={{ __html: schemaBasicData }} />
