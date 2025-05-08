@@ -47,6 +47,15 @@ export async function generateMetadata({
     return parts.pop() || '';
   };
 
+  const localeMapping: Record<UserLanguage, string> = {
+    hr: 'hr_HR',
+    eng: 'en_US',
+    ger: 'de_DE',
+    ita: 'it_IT',
+    fra: 'fr_FR',
+    esp: 'es_ES', // iako ne koristiš, možeš ostaviti za poslije
+  };
+
   const slugId = getIdFromSlug(slug);
 
   const bData = await fetchData(getSingleBlog(slugId));
@@ -79,7 +88,10 @@ export async function generateMetadata({
   const suffixPath = pathSuffixes[lang] ?? '';
   const canonicalUrl = `${domain}${suffixPath}/${slug}`;
   const languages = Object.fromEntries(
-    Object.entries(pathSuffixes).map(([code, suf]) => [code, `${domain}${suf}/${slug}`])
+    Object.entries(pathSuffixes).map(([code, suf]) => {
+      const iso = localeMapping[code as UserLanguage];
+      return [iso, `${domain}${suf}/${slug}`];
+    })
   );
 
   const kategorija = bData.data.blog.introBlog.kategorija.edges[0].node.informacijeKategorije[`imeKategorije${l}`];
@@ -111,8 +123,7 @@ export async function generateMetadata({
       description: seoOpisStranice ? seoOpisStranice : plainIntroText.slice(0, 155) + '...',
       url: canonicalUrl,
       type: 'article',
-      alternateLocale: Object.values(languages),
-
+      alternateLocale: Object.keys(languages),
       images: [
         {
           url: naslovna,
@@ -122,7 +133,8 @@ export async function generateMetadata({
           type: 'image/jpeg',
         },
       ],
-      locale: lang,
+      //@ts-ignore
+      locale: localeMapping[lang],
       authors: [`${author.node.name} ${author.node.lastName}`],
     },
     twitter: {
