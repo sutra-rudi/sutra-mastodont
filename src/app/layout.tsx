@@ -127,8 +127,17 @@ export default async function RootLayout({
 
   const { siteLogo } = MP;
 
+  const htmlLangMap: Record<UserLanguage, string> = {
+    hr: 'hr',
+    eng: 'en',
+    ger: 'de',
+    ita: 'it',
+    fra: 'fr',
+    esp: 'es',
+  };
+
   return (
-    <html lang={lang} className='scrollbar scrollbar-thumb-accent-boja scrollbar-track-primarna-tamna'>
+    <html lang={htmlLangMap[lang]} className='scrollbar scrollbar-thumb-accent-boja scrollbar-track-primarna-tamna'>
       <body className={` w-full h-full antialiased `}>
         {/* 
         {adminTokensDataShorthand?.kodoviAdminApi?.googleAnalytics && userEnabledAllCookies && (

@@ -209,4 +209,14 @@ export const generalTranslations = [
     hu: 'Fedezd fel a lehetőségeket',
     pl: 'Odkryj opcje',
   },
+  {
+    key: 'Sve kategorije',
+    hr: 'Sve kategorije',
+    eng: 'All categories',
+    ger: 'Alle Kategorien',
+    ita: 'Tutte le categorie',
+    fra: 'Toutes les catégories',
+    hu: 'Minden kategória',
+    pl: 'Wszystkie kategorie',
+  },
 ];

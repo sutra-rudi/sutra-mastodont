@@ -130,7 +130,7 @@ const AppHeader = ({ logos }: Header) => {
 
   const handleLangSwitch = (lang: string) => {
     // Postavi kolačić na odabrani jezik
-    document.cookie = `@sutra-mastodont-user-lang=${lang}; path=/; max-age=31536000`; // 1 godina
+    document.cookie = `@sutra-user-lang=${lang}; path=/; max-age=31536000`; // 1 godina
 
     // Preusmjeri na novu putanju
     router.push(
@@ -138,6 +138,8 @@ const AppHeader = ({ logos }: Header) => {
         searchParams.toString() ? '?' + searchParams.toString() : ''
       }`
     );
+
+    router.refresh();
   };
 
   return (

@@ -1,6 +1,6 @@
-import BlogSection from '@/app/appComponents/landing/BlogSection';
 import getAllBlogs from '@/app/queries/dynamicQueries/getAllBlogs';
 import { fetchData } from '@/app/utils/callApi';
+import Client from './Client';
 
 export default async function BlogPage({
   params: { lang },
@@ -13,7 +13,7 @@ export default async function BlogPage({
   const allBlogs = !getBlogs.error ? getBlogs.data.allBlog?.edges : null;
   return (
     <main className='w-full h-full relative block min-h-screen'>
-      {allBlogs && <BlogSection currentLang={lang} blogList={allBlogs} />}
+      {allBlogs && <Client currentLang={lang} blogList={allBlogs} />}
     </main>
   );
 }
