@@ -35,6 +35,15 @@ dayjs.updateLocale('en', {
   ],
 });
 
+const localeMapping: Record<UserLanguage, string> = {
+  hr: 'hr_HR',
+  eng: 'en_US',
+  ger: 'de_DE',
+  ita: 'it_IT',
+  fra: 'fr_FR',
+  esp: 'es_ES',
+};
+
 export async function generateMetadata({
   params: { lang, slug },
 }: {
@@ -45,15 +54,6 @@ export async function generateMetadata({
   const getIdFromSlug = (slug: string): string => {
     const parts = slug.split('-');
     return parts.pop() || '';
-  };
-
-  const localeMapping: Record<UserLanguage, string> = {
-    hr: 'hr_HR',
-    eng: 'en_US',
-    ger: 'de_DE',
-    ita: 'it_IT',
-    fra: 'fr_FR',
-    esp: 'es_ES', // iako ne koristiš, možeš ostaviti za poslije
   };
 
   const slugId = getIdFromSlug(slug);
