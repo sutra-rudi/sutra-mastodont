@@ -94,7 +94,8 @@ export async function generateMetadata({
     })
   );
 
-  const kategorija = bData.data.blog.introBlog.kategorija.edges[0].node.informacijeKategorije[`imeKategorije${l}`];
+  const kategorija =
+    bData.data.blog.introBlog.kategorija.edges[0].node.informacijeKategorije.prijevodi[`imeKategorije${l}`];
 
   const plainIntroText = htmlToText(introBloga, {
     wordwrap: false,
@@ -182,7 +183,8 @@ export default async function SingleBlogPage({ params: { lang, slug } }: { param
 
   const datum = bData.data.blog.introBlog.datum;
 
-  const kategorija = bData.data.blog.introBlog.kategorija.edges[0].node.informacijeKategorije[`imeKategorije${l}`];
+  const kategorija =
+    bData.data.blog.introBlog.kategorija.edges[0].node.informacijeKategorije.prijevodi[`imeKategorije${l}`];
 
   const galleryBlog = Object.values(bData.data.blog.photoGallery.fotogalerija).filter(
     (galItem: any) => galItem !== null
@@ -225,6 +227,8 @@ export default async function SingleBlogPage({ params: { lang, slug } }: { param
     // url: `https://tvoja-web-stranica/blog/${slugId}`,
   });
 
+  console.log('INTRO', bData.data.blog[`sadrzaj${l}Fields`]);
+
   return (
     <main className='w-full xl:-pb--xl---5xl lg:-pb--desktop---5xl md:-pb--tablet---5xl -pb--mobile---5xl min-h-screen'>
       <Suspense>
@@ -240,9 +244,11 @@ export default async function SingleBlogPage({ params: { lang, slug } }: { param
           {naslovBloga}
         </h2>
 
-        <div className='text-ellipsis line-clamp-1 max-w-prose mx-auto text-center relative lg:-mt--desktop-h1-2---naslov-nadnaslov md:-mt--tablet-h1-2---naslov-nadnaslov -mt--mobile-h1-2---naslov-nadnaslov lg:text-nadnaslov-desktop md:text-nadnaslov-tablet text-nadnaslov-mobile px-4'>
-          {parse(introBloga)}
-        </div>
+        {introBloga && (
+          <div className='text-ellipsis line-clamp-1 max-w-prose mx-auto text-center relative lg:-mt--desktop-h1-2---naslov-nadnaslov md:-mt--tablet-h1-2---naslov-nadnaslov -mt--mobile-h1-2---naslov-nadnaslov lg:text-nadnaslov-desktop md:text-nadnaslov-tablet text-nadnaslov-mobile px-4'>
+            {parse(introBloga)}
+          </div>
+        )}
 
         <div className='flex items-center relative mx-auto lg:mt-10 md:mt-7 mt-4 max-w-max gap-4'>
           <picture>

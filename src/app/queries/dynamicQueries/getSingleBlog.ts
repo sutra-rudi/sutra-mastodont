@@ -26,6 +26,12 @@ export default function getSingleBlog(id: string) {
           sourceUrl
         }
       }
+      thumbnail {
+        node {
+          id
+          sourceUrl
+        }
+      }
       kategorija {
         edges {
           node {
@@ -34,19 +40,26 @@ export default function getSingleBlog(id: string) {
               id
               name
               informacijeKategorije {
-                bojaKategorije
-                imeKategorijeEng
-                imeKategorijeGer
-                imeKategorijeHr
-                imeKategorijeIta
-                opisKategorijeEng
-                opisKategorijeGer
-                opisKategorijeHr
-                opisKategorijeIta
-                slikaKategorije {
-                  node {
-                    id
-                    sourceUrl
+                prijevodi {
+                  imeKategorijeEng
+                  imeKategorijeEsp
+                  imeKategorijeFra
+                  imeKategorijeGer
+                  imeKategorijeHr
+                  imeKategorijeIta
+                  opisKategorijeEng
+                  opisKategorijeEsp
+                  opisKategorijeFra
+                  opisKategorijeGer
+                  opisKategorijeHr
+                  opisKategorijeIta
+                }
+                uvod {
+                  bojaKategorije
+                  slikaKategorije {
+                    node {
+                      sourceUrl
+                    }
                   }
                 }
               }
@@ -54,21 +67,25 @@ export default function getSingleBlog(id: string) {
           }
         }
       }
-      tag {
+      oznaka {
         edges {
           node {
             id
-            ... on Category {
+            name
+            ... on Tag {
               id
               name
+              tags {
+                prijevodiTagova {
+                  
+                  engleskiPrijevod
+                  francuskiPrijevod
+                  hrvatskiPrijevod
+                  talijanskiPrijevod
+                }
+              }
             }
           }
-        }
-      }
-      thumbnail {
-        node {
-          id
-          sourceUrl
         }
       }
     }

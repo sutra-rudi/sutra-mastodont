@@ -3,9 +3,7 @@
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import React from 'react';
 import { Twirl as Hamburger } from 'hamburger-react';
-import { LuSun as SunIcon, LuMoon as MoonIcon } from 'react-icons/lu';
 import { Hr, Gb, It, De } from 'react-flags-select';
-import { useLocalStorage } from '@uidotdev/usehooks';
 
 interface Header {
   logos: any;
@@ -15,7 +13,6 @@ const AppHeader = ({ logos }: Header) => {
   const currentPath = usePathname();
   const searchParams = useSearchParams();
   const router = useRouter();
-  const [getThemeIfAny, setThemeToStorage] = useLocalStorage('@sutra-user-crl-scheme', 'light');
   const splitPath = currentPath.split('/');
   const currentLang = splitPath[1];
 
@@ -97,7 +94,6 @@ const AppHeader = ({ logos }: Header) => {
     },
   ];
 
-  const [theme, setTheme] = React.useState(getThemeIfAny);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState<boolean>(false);
 
   const langs = [
@@ -106,21 +102,6 @@ const AppHeader = ({ logos }: Header) => {
     { title: 'Deutsch', lang: 'ger', flag: <De width={24} height={24} /> },
     { title: 'Italiano', lang: 'ita', flag: <It width={24} height={24} /> },
   ];
-
-  const handleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
-    setThemeToStorage(theme === 'dark' ? 'light' : 'dark');
-  };
-
-  React.useEffect(() => {
-    getThemeIfAny === 'light'
-      ? document.documentElement.classList.remove('dark')
-      : document.documentElement.classList.add('dark');
-
-    theme === 'dark'
-      ? document.documentElement.classList.add('dark')
-      : document.documentElement.classList.remove('dark');
-  }, [theme, getThemeIfAny]);
 
   React.useEffect(() => {
     isMobileMenuOpen
@@ -199,17 +180,8 @@ const AppHeader = ({ logos }: Header) => {
               </button>
             ))}
 
-            <div
-              onClick={handleTheme}
-              className='z-40 cursor-pointer outline outline-1 rounded-full outline-offset-4 outline-almost-black dark:outline-almost-white transition-all duration-300 ease-linear'
-            >
-              {theme === 'light' ? <SunIcon size={24} color='#181816' /> : <MoonIcon size={24} color='#F8F7F2' />}
-            </div>
             <div className='w-min '>
-              <Hamburger
-                color={theme === 'light' ? '#181816' : '#F8F7F2'}
-                onToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              />
+              <Hamburger onToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
             </div>
           </div>
         </div>

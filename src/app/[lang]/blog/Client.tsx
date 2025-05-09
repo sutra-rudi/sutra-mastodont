@@ -119,6 +119,7 @@ export default function Client({ blogList, currentLang }: Client) {
         <div className='lg:flex hidden flex-wrap items-start justify-center gap-4 lg:-mt--desktop---3xl md:-mt--tablet---3xl -mt--mobile---3xl'>
           {renderBlogs.map((blog: any, i) => {
             const isEngMistake = currentLang === UserLanguage.eng;
+
             return (
               blog.node.introBlog.istaknutoNaNaslovnici &&
               blog.node.introBlog.statusBloga && (
@@ -150,7 +151,11 @@ export default function Client({ blogList, currentLang }: Client) {
                       </picture>
                       <div className='p-6'>
                         <h2 className='tracking-widest text-xs title-font font-medium text-gray-400 mb-1'>
-                          {blog.node.introBlog.kategorija.edges[0].node.informacijeKategorije[`imeKategorije${l}`]}
+                          {
+                            blog.node.introBlog.kategorija.edges[0].node.informacijeKategorije.prijevodi[
+                              `imeKategorije${l}`
+                            ]
+                          }
                         </h2>
                         <h1 className='title-font text-lg font-medium text-gray-600 mb-3'>
                           {
@@ -221,7 +226,11 @@ export default function Client({ blogList, currentLang }: Client) {
                         </picture>
                         <div className='p-6'>
                           <h2 className='tracking-widest text-xs title-font font-medium text-gray-400 mb-1'>
-                            {blog.node.introBlog.kategorija.edges[0].node.informacijeKategorije[`imeKategorije${l}`]}
+                            {
+                              blog.node.introBlog.kategorija.edges[0].node.informacijeKategorije.prijevodi[
+                                `imeKategorije${l}`
+                              ]
+                            }
                           </h2>
                           <h1 className='title-font text-lg font-medium text-gray-600 mb-3'>
                             {
