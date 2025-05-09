@@ -184,7 +184,8 @@ export default async function SingleBlogPage({ params: { lang, slug } }: { param
   const datum = bData.data.blog.introBlog.datum;
 
   const kategorija =
-    bData.data.blog.introBlog.kategorija.edges[0].node.informacijeKategorije.prijevodi[`imeKategorije${l}`];
+    bData.data.blog.introBlog.kategorija.edges[0].node.informacijeKategorije.prijevodi[`imeKategorije${l}`] ??
+    bData.data.blog.introBlog.kategorija.edges[0].node.name;
 
   const galleryBlog = Object.values(bData.data.blog.photoGallery.fotogalerija).filter(
     (galItem: any) => galItem !== null

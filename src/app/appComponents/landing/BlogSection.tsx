@@ -75,11 +75,9 @@ export default function BlogSection({ currentLang, blogList }: BlogSection) {
                       </picture>
                       <div className='p-6'>
                         <h2 className='tracking-widest text-xs title-font font-medium text-gray-400 mb-1'>
-                          {
-                            blog.node.introBlog.kategorija.edges[0].node.informacijeKategorije.prijevodi[
-                              `imeKategorije${l}`
-                            ]
-                          }
+                          {blog.node.introBlog.kategorija.edges[0].node.informacijeKategorije.prijevodi[
+                            `imeKategorije${l}`
+                          ] ?? blog.node.introBlog.kategorija.edges[0].node.name}
                         </h2>
                         <h1 className='title-font text-lg font-medium text-gray-600 mb-3'>
                           {
