@@ -9,62 +9,78 @@ export default function getAllBlogs() {
         slug
         date
         introBlog {
-          datum
-          istaknutoNaNaslovnici
-          statusBloga
-          kategorija {
-            edges {
-              node {
-                id
-                ... on Category {
-                  id
-                  name
-          informacijeKategorije {
-          bojaKategorije
-          imeKategorijeEng
-          imeKategorijeGer
-          imeKategorijeHr
-          imeKategorijeIta
-          opisKategorijeEng
-          opisKategorijeGer
-          opisKategorijeHr
-          opisKategorijeIta
-          slikaKategorije {
-            node {
-              id
-              sourceUrl
-            }
-          }
+      datum
+      istaknutoNaNaslovnici
+      statusBloga
+      naslovnaSlika {
+        node {
+          id
+          sourceUrl
         }
+      }
+      thumbnail {
+        node {
+          id
+          sourceUrl
+        }
+      }
+      kategorija {
+        edges {
+          node {
+            id
+            ... on Category {
+              id
+              name
+              informacijeKategorije {
+                prijevodi {
+                  imeKategorijeEng
+                  imeKategorijeEsp
+                  imeKategorijeFra
+                  imeKategorijeGer
+                  imeKategorijeHr
+                  imeKategorijeIta
+                  opisKategorijeEng
+                  opisKategorijeEsp
+                  opisKategorijeFra
+                  opisKategorijeGer
+                  opisKategorijeHr
+                  opisKategorijeIta
+                }
+                uvod {
+                  bojaKategorije
+                  slikaKategorije {
+                    node {
+                      sourceUrl
+                    }
+                  }
                 }
               }
             }
           }
-          naslovnaSlika {
-            node {
+        }
+      }
+      oznaka {
+        edges {
+          node {
+            id
+            name
+            ... on Tag {
               id
-              sourceUrl
-            }
-          }
-          tag {
-            edges {
-              node {
-                id
-                ... on Category {
-                  id
-                  name
+              name
+              tags {
+                prijevodiTagova {
+                  
+                  engleskiPrijevod
+                  francuskiPrijevod
+                  hrvatskiPrijevod
+                  talijanskiPrijevod
                 }
-                name
               }
             }
           }
-          thumbnail {
-            node {
-              id
-              sourceUrl
-            }
-          }
         }
+      }
+    }
         sadrzajHrFields {
           kratkiUvodniTekstSadrzajHr
           naslovSadrzajHr
@@ -262,62 +278,78 @@ export function BlogFragment() {
         slug
         date
         introBlog {
-          datum
-          istaknutoNaNaslovnici
-          statusBloga
-          kategorija {
-            edges {
-              node {
-                id
-                ... on Category {
-                  id
-                  name
-          informacijeKategorije {
-          bojaKategorije
-          imeKategorijeEng
-          imeKategorijeGer
-          imeKategorijeHr
-          imeKategorijeIta
-          opisKategorijeEng
-          opisKategorijeGer
-          opisKategorijeHr
-          opisKategorijeIta
-          slikaKategorije {
-            node {
-              id
-              sourceUrl
-            }
-          }
+      datum
+      istaknutoNaNaslovnici
+      statusBloga
+      naslovnaSlika {
+        node {
+          id
+          sourceUrl
         }
+      }
+      thumbnail {
+        node {
+          id
+          sourceUrl
+        }
+      }
+      kategorija {
+        edges {
+          node {
+            id
+            ... on Category {
+              id
+              name
+              informacijeKategorije {
+                prijevodi {
+                  imeKategorijeEng
+                  imeKategorijeEsp
+                  imeKategorijeFra
+                  imeKategorijeGer
+                  imeKategorijeHr
+                  imeKategorijeIta
+                  opisKategorijeEng
+                  opisKategorijeEsp
+                  opisKategorijeFra
+                  opisKategorijeGer
+                  opisKategorijeHr
+                  opisKategorijeIta
+                }
+                uvod {
+                  bojaKategorije
+                  slikaKategorije {
+                    node {
+                      sourceUrl
+                    }
+                  }
                 }
               }
             }
           }
-          naslovnaSlika {
-            node {
+        }
+      }
+      oznaka {
+        edges {
+          node {
+            id
+            name
+            ... on Tag {
               id
-              sourceUrl
-            }
-          }
-          tag {
-            edges {
-              node {
-                id
-                ... on Category {
-                  id
-                  name
+              name
+              tags {
+                prijevodiTagova {
+                  
+                  engleskiPrijevod
+                  francuskiPrijevod
+                  hrvatskiPrijevod
+                  talijanskiPrijevod
                 }
-                name
               }
             }
           }
-          thumbnail {
-            node {
-              id
-              sourceUrl
-            }
-          }
         }
+      }
+    }
         sadrzajHrFields {
           kratkiUvodniTekstSadrzajHr
           naslovSadrzajHr

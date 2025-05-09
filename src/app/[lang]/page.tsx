@@ -69,8 +69,6 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
   const pCsData = !groupQ.error ? groupQ.data.allPortfolioCaseStudy?.edges : null;
   const jOData = !groupQ.error ? groupQ.data.allOglasiZaPosao?.edges : null;
 
-  // console.log('GQ', groupQ);
-
   //MEDIA PATHS
   const MP = await fetchMediaPaths();
 

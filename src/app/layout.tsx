@@ -12,8 +12,8 @@ import { getSuffixFromLang } from './langUtils/getSuffixFromLang';
 import { fetchMediaPaths } from './utils/callMediaPaths';
 import { Metadata, Viewport } from 'next';
 
-const AppHeader = dynamic(() => import('./globalComponents/AppHeader'), { ssr: false });
-const AppFooter = dynamic(() => import('./globalComponents/AppFooter'), { ssr: false });
+const AppHeader = dynamic(() => import('./globalComponents/AppHeader'));
+const AppFooter = dynamic(() => import('./globalComponents/AppFooter'));
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -138,7 +138,7 @@ export default async function RootLayout({
 
   return (
     <html lang={htmlLangMap[lang]} className='scrollbar scrollbar-thumb-accent-boja scrollbar-track-primarna-tamna'>
-      <body className={` w-full h-full antialiased `}>
+      <body className={` w-full h-full antialiased relative`}>
         {/* 
         {adminTokensDataShorthand?.kodoviAdminApi?.googleAnalytics && userEnabledAllCookies && (
           <GoogleAnalytics gaId={adminTokensDataShorthand.kodoviAdminApi.googleAnalytics} />

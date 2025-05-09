@@ -13,7 +13,6 @@ export default function ClientTestimonials({ dataset, currentLang }: ClientTesti
   const l = getSuffixFromLang(currentLang);
   const [emblaRef] = useEmblaCarousel({ loop: false });
 
-  console.log('DATASET', dataset);
   return (
     <section className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl px-4'>
       <div ref={emblaRef} className='embla w-full'>
