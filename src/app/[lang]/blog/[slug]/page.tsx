@@ -14,6 +14,7 @@ import { Suspense } from 'react';
 import { generateArticleSchema } from '@/app/utils/generateArticleSchema';
 import Script from 'next/script';
 import { Metadata } from 'next';
+import Breadcrumbs from '@/app/globalComponents/Breadcrumbs';
 
 const ClientContent = dynamic(() => import('./ClientContent'), { ssr: false });
 dayjs.extend(updateLocale);
@@ -36,12 +37,12 @@ dayjs.updateLocale('en', {
 });
 
 const localeMapping: Record<UserLanguage, string> = {
-  hr: 'hr_HR',
-  eng: 'en_US',
-  ger: 'de_DE',
-  ita: 'it_IT',
-  fra: 'fr_FR',
-  esp: 'es_ES',
+  hr: 'hr-HR',
+  eng: 'en-US',
+  ger: 'de-DE',
+  ita: 'it-IT',
+  fra: 'fr-FR',
+  esp: 'es-ES',
 };
 
 export async function generateMetadata({
@@ -168,9 +169,13 @@ export default async function SingleBlogPage({ params: { lang, slug } }: { param
 
   const bData = await fetchData(getSingleBlog(slugId));
 
+  // console.log('BDATA', bData.data.blog.introBlog.oznaka.edges[1].node.tags);
+
   const MP = await fetchMediaPaths();
 
   const { heroImagesDefault } = MP;
+
+  const tags = bData.data.blog.introBlog.oznaka;
 
   const naslovna = bData.data.blog.introBlog.naslovnaSlika
     ? bData.data.blog.introBlog.naslovnaSlika.node.sourceUrl
@@ -228,11 +233,14 @@ export default async function SingleBlogPage({ params: { lang, slug } }: { param
     // url: `https://tvoja-web-stranica/blog/${slugId}`,
   });
 
-  console.log('INTRO', bData.data.blog[`sadrzaj${l}Fields`]);
+  // console.log('INTRO', bData.data.blog[`sadrzaj${l}Fields`]);
 
   return (
     <main className='w-full xl:-pb--xl---5xl lg:-pb--desktop---5xl md:-pb--tablet---5xl -pb--mobile---5xl min-h-screen'>
       <Suspense>
+        <div className='max-w-screen-xl px-4 mx-auto flex items-center justify-start mt-12'>
+          <Breadcrumbs />
+        </div>
         <div className='bg-accent-boja/35 text-accent-boja block max-w-max rounded-[36px] text-sm uppercase py-1 px-3 lg:-mt--desktop---3xl md:-mt--tablet---5xl -mt--mobile---5xl mx-auto'>
           {kategorija}
         </div>
@@ -280,7 +288,7 @@ export default async function SingleBlogPage({ params: { lang, slug } }: { param
           {parse(sadrzajBloga)}
         </div>
 
-        <ClientContent gallery={galleryBlog} files={fileList} currentLang={lang} />
+        <ClientContent gallery={galleryBlog} files={fileList} currentLang={lang} tags={tags} />
       </Suspense>
 
       <Script

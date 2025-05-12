@@ -74,6 +74,7 @@ export default function getAllBlogs() {
                   francuskiPrijevod
                   hrvatskiPrijevod
                   talijanskiPrijevod
+                  njemackiPrijevod
                 }
               }
             }
@@ -343,6 +344,7 @@ export function BlogFragment() {
                   francuskiPrijevod
                   hrvatskiPrijevod
                   talijanskiPrijevod
+                  njemackiPrijevod
                 }
               }
             }
