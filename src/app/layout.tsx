@@ -26,12 +26,12 @@ export const viewport: Viewport = {
 };
 
 const localeMapping: Record<UserLanguage, string> = {
-  hr: 'hr_HR',
-  eng: 'en_US',
-  ger: 'de_DE',
-  ita: 'it_IT',
-  fra: 'fr_FR',
-  esp: 'es_ES',
+  hr: 'hr-HR',
+  eng: 'en-US',
+  ger: 'de-DE',
+  ita: 'it-IT',
+  fra: 'fr-FR',
+  esp: 'es-ES',
 };
 
 export async function generateMetadata(): Promise<Metadata> {

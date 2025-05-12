@@ -3,7 +3,7 @@ export enum UserLanguage {
   eng = 'eng', // ENGLESKI
   ger = 'ger', // NJEMACKI
   ita = 'ita', // TALIJANSKI
-  esp = 'esp', // NE IDE ZA OVAJ WEB
+  esp = 'esp', // FRANCUSKI
   fra = 'fra', // FRANCUSKI
   // hu = 'hu', // MADJARSKI
   // pl = 'pl', // POLJSKI

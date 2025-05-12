@@ -14,6 +14,7 @@ import { findGeneralTranslation } from '@/app/langUtils/findGeneralTranslation';
 import { generalTranslations } from '@/app/lib/generalTranslations';
 import { usePathname, useRouter } from 'next/navigation';
 import Loading from './loading';
+import Breadcrumbs from '@/app/globalComponents/Breadcrumbs';
 
 interface Client {
   blogList: any;
@@ -52,8 +53,6 @@ export default function Client({ blogList, currentLang, param }: Client) {
     },
     [emblaApi]
   );
-
-  console.log('HAS PARAM', hasParam);
 
   function filterBlogsByCat(cat: any) {
     const arr = blogList.filter((blog: any) => {
