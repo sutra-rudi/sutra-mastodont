@@ -88,31 +88,33 @@ const ClientContent = ({ gallery, files, currentLang, tags }: BlogPageContent) =
             )}
           </div>
 
-          <div className='w-full max-w-[750px] mx-auto flex items-center justify-start gap-2 flex-wrap'>
-            {tags.map((t: any) => {
-              const ta = t.node.tags.prijevodiTagova;
+          {tags && (
+            <div className='w-full max-w-[750px] mx-auto flex items-center justify-start gap-2 flex-wrap'>
+              {tags.edges.map((t: any) => {
+                const ta = t.node.tags.prijevodiTagova;
 
-              const tMap = {
-                hr: ta.hrvatskiPrijevod,
-                eng: ta.engleskiPrijevod,
-                ger: ta.njemackiPrijevod,
-                ita: ta.talijanskiPrijevod,
-              };
+                const tMap = {
+                  hr: ta.hrvatskiPrijevod,
+                  eng: ta.engleskiPrijevod,
+                  ger: ta.njemackiPrijevod,
+                  ita: ta.talijanskiPrijevod,
+                };
 
-              return (
-                <a
-                  key={t.node.id}
-                  href={`/${currentLang}/blog?tag=${t.node.name.replace('#', '')}`}
-                  className='relative block'
-                >
-                  <span className='relative block transition-all ease-in-out border border-text-light-mode text-text-light-mode uppercase px-[0.35rem] py-[0.15rem] rounded-lg cursor-pointer hover:border-text-dark-mode hover:text-text-dark-mode hover:bg-text-light-mode'>
-                    {/* @ts-ignore */}
-                    {tMap[currentLang] ?? t.node.name}
-                  </span>
-                </a>
-              );
-            })}
-          </div>
+                return (
+                  <a
+                    key={t.node.id}
+                    href={`/${currentLang}/blog?tag=${t.node.name.replace('#', '')}`}
+                    className='relative block'
+                  >
+                    <span className='relative block transition-all ease-in-out border border-text-light-mode text-text-light-mode uppercase px-[0.35rem] py-[0.15rem] rounded-lg cursor-pointer hover:border-text-dark-mode hover:text-text-dark-mode hover:bg-text-light-mode'>
+                      {/* @ts-ignore */}
+                      {tMap[currentLang] ?? t.node.name}
+                    </span>
+                  </a>
+                );
+              })}
+            </div>
+          )}
 
           <div className='w-full mx-auto bg-almost-black/10 h-px lg:-my--desktop---xl md:-my--tablet---xl -my--mobile---xl '></div>
 

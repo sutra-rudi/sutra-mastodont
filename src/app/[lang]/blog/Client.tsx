@@ -7,10 +7,13 @@ import parse from 'html-react-parser';
 import slugify from 'slugify';
 import useEmblaCarousel from 'embla-carousel-react';
 import React from 'react';
+import { MdOutlineClose as CloseIcon } from 'react-icons/md';
 
 import categories from '../../staticData/postCategories.json';
 import { findGeneralTranslation } from '@/app/langUtils/findGeneralTranslation';
 import { generalTranslations } from '@/app/lib/generalTranslations';
+import { usePathname, useRouter } from 'next/navigation';
+import Loading from './loading';
 
 interface Client {
   blogList: any;
@@ -25,9 +28,11 @@ export default function Client({ blogList, currentLang, param }: Client) {
   const [scrollSnaps, setScrollSnaps] = React.useState<number[]>([]);
 
   const [catName, setCatName] = React.useState<string>('Sve kategorije');
-  const [renderBlogs, setRenderBlogs] = React.useState<any[]>(blogList);
+  const [renderBlogs, setRenderBlogs] = React.useState<any[]>([]);
   const [hasParam, setHasParam] = React.useState<string | string[] | null>(param);
 
+  const r = useRouter();
+  const pName = usePathname();
   const onSelect = React.useCallback(() => {
     if (!emblaApi) return;
     setSelectedIndex(emblaApi.selectedScrollSnap());
@@ -48,6 +53,8 @@ export default function Client({ blogList, currentLang, param }: Client) {
     [emblaApi]
   );
 
+  console.log('HAS PARAM', hasParam);
+
   function filterBlogsByCat(cat: any) {
     const arr = blogList.filter((blog: any) => {
       return blog.node.introBlog.kategorija.edges[0].node.name === cat;
@@ -57,25 +64,46 @@ export default function Client({ blogList, currentLang, param }: Client) {
   }
 
   React.useEffect(() => {
-    if (hasParam) {
-      const b = blogList.filter((blog: any) => {
-        if (blog.node.introBlog.oznaka !== null && blog.node.introBlog.oznaka.edges.length > 0)
-          return blog.node.introBlog.oznaka.edges[0].node.name.toLowerCase().replace('#', '') === param;
-      });
-
-      console.log('BB', b);
+    if (!hasParam) {
+      setRenderBlogs(blogList);
+      return;
     }
-  }, []);
 
-  console.log('BLOG LIST', blogList);
+    const filtered = blogList.filter((blog: any) => {
+      const edges = blog.node.introBlog.oznaka?.edges;
+      if (!edges || edges.length === 0) return false;
+
+      // Provjeri postoji li barem jedan edge koji se slaže s param
+      return edges.some((edge: any) => {
+        const name = edge.node.name.toLowerCase().replace('#', '');
+        return name === param;
+      });
+    });
+
+    if (filtered.length > 0) {
+      setRenderBlogs(filtered);
+    } else {
+      setRenderBlogs(blogList);
+    }
+  }, [hasParam, param, blogList]);
 
   return (
     <section className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl'>
       <div className='max-w-[1440px] px-4 mx-auto'>
         {hasParam && (
-          <h4 className='lg:text-h4-desktop md:text-h4-tablet text-h4-mobile font-bold text-dark dark:text-white  w-full text-center mb-desktop-naslov-nadnaslov'>
-            #{param}
-          </h4>
+          <div
+            title='Click to close'
+            className='lg:text-h4-desktop md:text-h4-tablet text-h4-mobile font-bold text-text-light-mode dark:text-text-dark-mode w-full text-center mb-desktop-naslov-nadnaslov border max-w-max mx-auto border-text-light-mode flex items-center justify-start gap-2 py-1 px-2 rounded-lg transition-all ease-in-out duration-300 cursor-pointer hover:bg-text-light-mode hover:text-text-dark-mode'
+          >
+            <span className='block relative'>#{param}</span>
+            <CloseIcon
+              onClick={() => {
+                setHasParam(null);
+                r.replace(pName);
+              }}
+              className='text-inherit lg:text-h4-desktop md:text-h4-tablet text-h4-mobile cursor-pointer'
+            />
+          </div>
         )}
         <h2 className='lg:text-h2-desktop md:text-h2-tablet text-h2-mobile font-bold text-dark dark:text-white  w-full text-center '>
           {catName !== 'Sve kategorije'
@@ -88,7 +116,11 @@ export default function Client({ blogList, currentLang, param }: Client) {
             : 'Blog'}
         </h2>
 
-        <div className='container mx-auto flex items-center justify-center gap-4 flex-wrap lg:-mt--desktop---2xl md:-mt--tablet---2xl -mt--mobile---2xl'>
+        <div
+          className={`container mx-auto flex items-center justify-center gap-4 flex-wrap lg:-mt--desktop---2xl md:-mt--tablet---2xl -mt--mobile---2xl ${
+            hasParam && 'opacity-20 cursor-not-allowed pointer-events-none select-none'
+          }`}
+        >
           <button
             className={`${
               catName === 'Sve kategorije' ? 'bg-accent-boja' : 'bg-sekundarna-tamna'
@@ -103,6 +135,7 @@ export default function Client({ blogList, currentLang, param }: Client) {
               setCatName('Sve kategorije');
               setRenderBlogs(blogList);
             }}
+            disabled={hasParam !== null}
           >
             <span className='relative z-20 group-hover:motion-preset-slide-up motion-ease-spring-bouncy'>
               {findGeneralTranslation('Sve kategorije', currentLang, generalTranslations)}
@@ -127,6 +160,7 @@ export default function Client({ blogList, currentLang, param }: Client) {
                     filterBlogsByCat(ct.node.name);
                   }}
                   key={ct.node.name}
+                  disabled={hasParam !== null}
                 >
                   <span className='relative z-20 group-hover:motion-preset-slide-up motion-ease-spring-bouncy cursor-pointer'>
                     {/* @ts-ignore */}
@@ -136,74 +170,78 @@ export default function Client({ blogList, currentLang, param }: Client) {
               );
             })}
         </div>
-        <div className='lg:flex hidden flex-wrap items-start justify-center gap-4 lg:-mt--desktop---3xl md:-mt--tablet---3xl -mt--mobile---3xl'>
-          {renderBlogs.map((blog: any, i) => {
-            const isEngMistake = currentLang === UserLanguage.eng;
+        <div className='lg:flex hidden flex-wrap items-start justify-center gap-4 lg:-mt--desktop---3xl md:-mt--tablet---3xl -mt--mobile---3xl relative'>
+          {renderBlogs.length > 0 ? (
+            renderBlogs.map((blog: any, i) => {
+              const isEngMistake = currentLang === UserLanguage.eng;
 
-            return (
-              blog.node.introBlog.istaknutoNaNaslovnici &&
-              blog.node.introBlog.statusBloga && (
-                <a
-                  style={{
-                    animationDelay: `${i * 0.15}s`,
-                  }}
-                  key={blog.node.databaseId}
-                  href={`/${currentLang}/blog/${slugify(
-                    blog.node.sadrzajHrFields.naslovSadrzajHr + `-${blog.node.databaseId}`,
-                    {
-                      ...slugifyOptions,
-                    }
-                  )}`}
-                  className='motion-preset-slide-down-left-sm motion-ease-spring-bouncy'
-                >
-                  <article className='p-4 max-w-[350px]'>
-                    <div className='h-full rounded-xl shadow-cla-blue bg-gradient-to-r from-indigo-50 to-blue-50 overflow-hidden'>
-                      <picture>
-                        <img
-                          className='lg:h-48 md:h-36 w-full object-cover object-center scale-110 transition-all duration-400 hover:scale-100 aspect-auto'
-                          src={
-                            blog.node.introBlog.naslovnaSlika
-                              ? blog.node.introBlog.naslovnaSlika.node.sourceUrl
-                              : 'https://images.unsplash.com/photo-1618172193622-ae2d025f4032?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80'
-                          }
-                          alt='blog'
-                        />
-                      </picture>
-                      <div className='p-6'>
-                        <h2 className='tracking-widest text-xs title-font font-medium text-gray-400 mb-1'>
-                          {blog.node.introBlog.kategorija.edges[0].node.informacijeKategorije.prijevodi[
-                            `imeKategorije${l}`
-                          ] ?? blog.node.introBlog.kategorija.edges[0].node.name}
-                        </h2>
-                        <h1 className='title-font text-lg font-medium text-gray-600 mb-3'>
-                          {
-                            blog.node[`sadrzaj${l}Fields`]?.[
-                              isEngMistake ? `naslovSadrzajSadrzaj${l}` : `naslovSadrzaj${l}`
-                            ]
-                          }
-                        </h1>
+              return (
+                // blog.node.introBlog.istaknutoNaNaslovnici &&
+                blog.node.introBlog.statusBloga && (
+                  <a
+                    style={{
+                      animationDelay: `${i * 0.15}s`,
+                    }}
+                    key={blog.node.databaseId}
+                    href={`/${currentLang}/blog/${slugify(
+                      blog.node.sadrzajHrFields.naslovSadrzajHr + `-${blog.node.databaseId}`,
+                      {
+                        ...slugifyOptions,
+                      }
+                    )}`}
+                    className='motion-preset-slide-down-left-sm motion-ease-spring-bouncy'
+                  >
+                    <article className='p-4 max-w-[350px]'>
+                      <div className='h-full rounded-xl shadow-cla-blue bg-gradient-to-r from-indigo-50 to-blue-50 overflow-hidden'>
+                        <picture>
+                          <img
+                            className='lg:h-48 md:h-36 w-full object-cover object-center scale-110 transition-all duration-400 hover:scale-100 aspect-auto'
+                            src={
+                              blog.node.introBlog.naslovnaSlika
+                                ? blog.node.introBlog.naslovnaSlika.node.sourceUrl
+                                : 'https://images.unsplash.com/photo-1618172193622-ae2d025f4032?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80'
+                            }
+                            alt='blog'
+                          />
+                        </picture>
+                        <div className='p-6'>
+                          <h2 className='tracking-widest text-xs title-font font-medium text-gray-400 mb-1'>
+                            {blog.node.introBlog.kategorija.edges[0].node.informacijeKategorije.prijevodi[
+                              `imeKategorije${l}`
+                            ] ?? blog.node.introBlog.kategorija.edges[0].node.name}
+                          </h2>
+                          <h1 className='title-font text-lg font-medium text-gray-600 mb-3'>
+                            {
+                              blog.node[`sadrzaj${l}Fields`]?.[
+                                isEngMistake ? `naslovSadrzajSadrzaj${l}` : `naslovSadrzaj${l}`
+                              ]
+                            }
+                          </h1>
 
-                        {blog.node[`sadrzaj${l}Fields`]?.[`kratkiUvodniTekstSadrzaj${l}`] ? (
-                          <div className='line-clamp-4 leading-relaxed mb-3'>
-                            {parse(blog.node[`sadrzaj${l}Fields`]?.[`kratkiUvodniTekstSadrzaj${l}`])}
+                          {blog.node[`sadrzaj${l}Fields`]?.[`kratkiUvodniTekstSadrzaj${l}`] ? (
+                            <div className='line-clamp-4 leading-relaxed mb-3'>
+                              {parse(blog.node[`sadrzaj${l}Fields`]?.[`kratkiUvodniTekstSadrzaj${l}`])}
+                            </div>
+                          ) : (
+                            <div className='line-clamp-4 leading-relaxed mb-3'>
+                              {/* {parse(blog.node[`sadrzaj${l}Fields`]?.[`sadrzajSadrzaj${l}`])} */}
+                            </div>
+                          )}
+                          <div className='flex items-center flex-wrap'>
+                            <button className='bg-gradient-to-r from-cyan-400 to-blue-400 hover:scale-105 drop-shadow-md shadow-cla-blue px-4 py-1 rounded-lg'>
+                              Learn more
+                            </button>
                           </div>
-                        ) : (
-                          <div className='line-clamp-4 leading-relaxed mb-3'>
-                            {parse(blog.node[`sadrzaj${l}Fields`]?.[`sadrzajSadrzaj${l}`])}
-                          </div>
-                        )}
-                        <div className='flex items-center flex-wrap'>
-                          <button className='bg-gradient-to-r from-cyan-400 to-blue-400 hover:scale-105 drop-shadow-md shadow-cla-blue px-4 py-1 rounded-lg'>
-                            Learn more
-                          </button>
                         </div>
                       </div>
-                    </div>
-                  </article>
-                </a>
-              )
-            );
-          })}
+                    </article>
+                  </a>
+                )
+              );
+            })
+          ) : (
+            <Loading />
+          )}
         </div>
 
         <div
@@ -262,7 +300,7 @@ export default function Client({ blogList, currentLang, param }: Client) {
                             </div>
                           ) : (
                             <div className='line-clamp-4 leading-relaxed mb-3'>
-                              {parse(blog.node[`sadrzaj${l}Fields`]?.[`sadrzajSadrzaj${l}`])}
+                              {/* {parse(blog.node[`sadrzaj${l}Fields`]?.[`sadrzajSadrzaj${l}`])} */}
                             </div>
                           )}
                           <div className='flex items-center flex-wrap'>

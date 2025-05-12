@@ -174,7 +174,7 @@ export default async function SingleBlogPage({ params: { lang, slug } }: { param
 
   const { heroImagesDefault } = MP;
 
-  const tags = bData.data.blog.introBlog.oznaka.edges;
+  const tags = bData.data.blog.introBlog.oznaka;
   console.log('TAGS', tags);
   const naslovna = bData.data.blog.introBlog.naslovnaSlika
     ? bData.data.blog.introBlog.naslovnaSlika.node.sourceUrl
