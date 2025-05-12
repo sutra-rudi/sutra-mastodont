@@ -82,6 +82,7 @@ export default function getSingleBlog(id: string) {
                   francuskiPrijevod
                   hrvatskiPrijevod
                   talijanskiPrijevod
+                  njemackiPrijevod
                 }
               }
             }

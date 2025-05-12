@@ -168,10 +168,14 @@ export default async function SingleBlogPage({ params: { lang, slug } }: { param
 
   const bData = await fetchData(getSingleBlog(slugId));
 
+  // console.log('BDATA', bData.data.blog.introBlog.oznaka.edges[1].node.tags);
+
   const MP = await fetchMediaPaths();
 
   const { heroImagesDefault } = MP;
 
+  const tags = bData.data.blog.introBlog.oznaka.edges;
+  console.log('TAGS', tags);
   const naslovna = bData.data.blog.introBlog.naslovnaSlika
     ? bData.data.blog.introBlog.naslovnaSlika.node.sourceUrl
     : heroImagesDefault.desktop;
@@ -228,7 +232,7 @@ export default async function SingleBlogPage({ params: { lang, slug } }: { param
     // url: `https://tvoja-web-stranica/blog/${slugId}`,
   });
 
-  console.log('INTRO', bData.data.blog[`sadrzaj${l}Fields`]);
+  // console.log('INTRO', bData.data.blog[`sadrzaj${l}Fields`]);
 
   return (
     <main className='w-full xl:-pb--xl---5xl lg:-pb--desktop---5xl md:-pb--tablet---5xl -pb--mobile---5xl min-h-screen'>
@@ -280,7 +284,7 @@ export default async function SingleBlogPage({ params: { lang, slug } }: { param
           {parse(sadrzajBloga)}
         </div>
 
-        <ClientContent gallery={galleryBlog} files={fileList} currentLang={lang} />
+        <ClientContent gallery={galleryBlog} files={fileList} currentLang={lang} tags={tags} />
       </Suspense>
 
       <Script

@@ -15,9 +15,10 @@ import { generalTranslations } from '@/app/lib/generalTranslations';
 interface Client {
   blogList: any;
   currentLang: any;
+  param: string | string[] | null;
 }
 
-export default function Client({ blogList, currentLang }: Client) {
+export default function Client({ blogList, currentLang, param }: Client) {
   const l = getSuffixFromLang(currentLang);
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false });
   const [selectedIndex, setSelectedIndex] = React.useState(0);
@@ -25,6 +26,7 @@ export default function Client({ blogList, currentLang }: Client) {
 
   const [catName, setCatName] = React.useState<string>('Sve kategorije');
   const [renderBlogs, setRenderBlogs] = React.useState<any[]>(blogList);
+  const [hasParam, setHasParam] = React.useState<string | string[] | null>(param);
 
   const onSelect = React.useCallback(() => {
     if (!emblaApi) return;
@@ -54,9 +56,27 @@ export default function Client({ blogList, currentLang }: Client) {
     setRenderBlogs(arr);
   }
 
+  React.useEffect(() => {
+    if (hasParam) {
+      const b = blogList.filter((blog: any) => {
+        if (blog.node.introBlog.oznaka !== null && blog.node.introBlog.oznaka.edges.length > 0)
+          return blog.node.introBlog.oznaka.edges[0].node.name.toLowerCase().replace('#', '') === param;
+      });
+
+      console.log('BB', b);
+    }
+  }, []);
+
+  console.log('BLOG LIST', blogList);
+
   return (
     <section className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl'>
       <div className='max-w-[1440px] px-4 mx-auto'>
+        {hasParam && (
+          <h4 className='lg:text-h4-desktop md:text-h4-tablet text-h4-mobile font-bold text-dark dark:text-white  w-full text-center mb-desktop-naslov-nadnaslov'>
+            #{param}
+          </h4>
+        )}
         <h2 className='lg:text-h2-desktop md:text-h2-tablet text-h2-mobile font-bold text-dark dark:text-white  w-full text-center '>
           {catName !== 'Sve kategorije'
             ? `Blog - ${
@@ -119,7 +139,7 @@ export default function Client({ blogList, currentLang }: Client) {
         <div className='lg:flex hidden flex-wrap items-start justify-center gap-4 lg:-mt--desktop---3xl md:-mt--tablet---3xl -mt--mobile---3xl'>
           {renderBlogs.map((blog: any, i) => {
             const isEngMistake = currentLang === UserLanguage.eng;
-            console.log('KAT', blog.node.introBlog.kategorija.edges[0].node);
+
             return (
               blog.node.introBlog.istaknutoNaNaslovnici &&
               blog.node.introBlog.statusBloga && (
