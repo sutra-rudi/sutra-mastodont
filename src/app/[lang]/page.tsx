@@ -30,6 +30,8 @@ import AboutUsSection from '../appComponents/landing/AboutUsSection';
 import JobOpeningSection from '../appComponents/landing/JobOpeningSection';
 import { JobOpeningsFragment } from '../queries/dynamicQueries/getAllJobOpenings';
 import Timeline from '../components/Timeline';
+import { Suspense } from 'react';
+import Loading from './loading';
 
 const findKaruselDataBase = dataset.data.allSlikeGalerijaKarusel.edges.find(
   (list) => list.node.title === 'Naslovnica – Karusel slika'
@@ -76,49 +78,51 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
   return (
     <main className='relative w-full dark:bg-primarna-tamna min-h-screen'>
-      <AppHero currentLang={lang} />
-      <ContentSectionFirst
-        isList={false}
-        content={findFirstTextContent?.node}
-        currentLang={lang}
-        placeholderGallery={carusel1Images}
-      />
-      <BaseCaruselSection dataset={filterImagesBase} />
+      <Suspense fallback={<Loading />}>
+        <AppHero currentLang={lang} />
+        <ContentSectionFirst
+          isList={false}
+          content={findFirstTextContent?.node}
+          currentLang={lang}
+          placeholderGallery={carusel1Images}
+        />
+        <BaseCaruselSection dataset={filterImagesBase} />
 
-      <ContentSectionFirst
-        reverse
-        isList={true}
-        content={findFirstListContent?.node}
-        currentLang={lang}
-        placeholderGallery={carusel1Images}
-      />
+        <ContentSectionFirst
+          reverse
+          isList={true}
+          content={findFirstListContent?.node}
+          currentLang={lang}
+          placeholderGallery={carusel1Images}
+        />
 
-      {blogsData && <BlogSection currentLang={lang} blogList={blogsData} />}
+        {blogsData && <BlogSection currentLang={lang} blogList={blogsData} />}
 
-      <BaseCaruselSection dataset={filterImagesMiddle} />
+        <BaseCaruselSection dataset={filterImagesMiddle} />
 
-      <AboutUsSection currentLang={lang} />
-      <Timeline currentLang={lang} />
+        <AboutUsSection currentLang={lang} />
+        <Timeline currentLang={lang} />
 
-      {pCsData && <PortfolioCaseStudy currentLang={lang} dataset={pCsData} />}
+        {pCsData && <PortfolioCaseStudy currentLang={lang} dataset={pCsData} />}
 
-      <CompanyInNumbers dataset={cInData ? cInData : findCiNStatic} currentLang={lang} />
+        <CompanyInNumbers dataset={cInData ? cInData : findCiNStatic} currentLang={lang} />
 
-      <PartnersSection currentLang={lang} />
+        <PartnersSection currentLang={lang} />
 
-      {jOData && <JobOpeningSection currentLang={lang} dataset={jOData} />}
+        {jOData && <JobOpeningSection currentLang={lang} dataset={jOData} />}
 
-      <ClientTestimonials currentLang={lang} dataset={cTData ? cTData : findCtStatic} />
-      {newsData && <NewsSection currentLang={lang} newsList={newsData} />}
+        <ClientTestimonials currentLang={lang} dataset={cTData ? cTData : findCtStatic} />
+        {newsData && <NewsSection currentLang={lang} newsList={newsData} />}
 
-      <div className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl max-w-[1140px] mx-auto px-4'>
-        <PhotoGalleryComponent gallery={filterImagesBase} currentLang={lang} />
-      </div>
+        <div className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl max-w-[1140px] mx-auto px-4'>
+          <PhotoGalleryComponent gallery={filterImagesBase} currentLang={lang} />
+        </div>
 
-      <ContactSection currentLang={lang} />
+        <ContactSection currentLang={lang} />
 
-      <FaqSection currentLang={lang} />
-      <MapSection />
+        <FaqSection currentLang={lang} />
+        <MapSection />
+      </Suspense>
     </main>
   );
 }
