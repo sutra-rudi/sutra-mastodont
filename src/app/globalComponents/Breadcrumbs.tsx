@@ -3,7 +3,6 @@
 import React from 'react';
 import { usePathname } from 'next/navigation';
 
-// Prikazi labelu za "home" po jezicima
 const homeLabels: Record<string, string> = {
   hr: 'Početna',
   eng: 'Home',
@@ -13,7 +12,6 @@ const homeLabels: Record<string, string> = {
   fra: 'Accueil',
 };
 
-// Pretvori segment u "Title Case"
 function formatSegment(segment: string): string {
   return segment
     .split('-')
@@ -27,10 +25,8 @@ export default function Breadcrumbs() {
 
   if (segments.length === 0) return null;
 
-  // Prvi segment je uvijek jezik
   const lang = segments[0];
 
-  // Kreiraj home crumb
   const crumbs = [
     {
       href: `/${lang}`,
@@ -38,7 +34,6 @@ export default function Breadcrumbs() {
     },
   ];
 
-  // Dodaj ostale segmente iza jezika
   segments.slice(1).forEach((seg, idx) => {
     const href = '/' + segments.slice(0, idx + 2).join('/');
     crumbs.push({ href, label: formatSegment(seg) });

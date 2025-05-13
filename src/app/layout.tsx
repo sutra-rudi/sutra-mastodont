@@ -138,7 +138,7 @@ export default async function RootLayout({
 
   return (
     <html lang={htmlLangMap[lang]} className='scrollbar scrollbar-thumb-accent-boja scrollbar-track-primarna-tamna'>
-      <body className={` w-full h-full antialiased relative`}>
+      <body className={`antialiased relative w-full h-full`}>
         {/* 
         {adminTokensDataShorthand?.kodoviAdminApi?.googleAnalytics && userEnabledAllCookies && (
           <GoogleAnalytics gaId={adminTokensDataShorthand.kodoviAdminApi.googleAnalytics} />
@@ -148,14 +148,13 @@ export default async function RootLayout({
           <GoogleTagManager gtmId={adminTokensDataShorthand.kodoviAdminApi.googleTagManager} />
         )} */}
 
+        <Toaster />
         <Suspense fallback={<Loading />}>
           <AppHeader logos={siteLogo} />
-          <Toaster />
-
           <Providers>{children}</Providers>
-
           <AppFooter logos={siteLogo} currentLang={lang} />
         </Suspense>
+
         {/* {schemaBasicData && (
           <Script id='schema-org' type='application/ld+json' dangerouslySetInnerHTML={{ __html: schemaBasicData }} />
         )} */}

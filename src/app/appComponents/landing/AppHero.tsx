@@ -9,7 +9,7 @@ const findDataset = dataset.data.allHeroSekcija.edges[0].node;
 export default async function AppHero({ currentLang }: AppHero) {
   const l = getSuffixFromLang(currentLang);
   return (
-    <section className='min-h-[50vh] flex justify-center items-center'>
+    <section className='min-h-[50vh] flex justify-center items-center lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl'>
       <div className='text-center max-w-6xl mx-10'>
         <p className='my-3 text-sm tracking-widest text-dark from-blue-600-500 uppercase'>
           {currentLang === UserLanguage.hr
