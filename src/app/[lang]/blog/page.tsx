@@ -14,7 +14,7 @@ export default async function BlogPage({
   const allBlogs = !getBlogs.error ? getBlogs.data.allBlog?.edges : null;
   return (
     <main className='w-full h-full relative block min-h-screen'>
-      <div className='max-w-screen-xl px-4 mx-auto flex items-center justify-start mt-12'>
+      <div className='max-w-screen-xl px-4 mx-auto flex items-center justify-start -mt--desktop---5xl'>
         <Breadcrumbs />
       </div>
       {allBlogs && <Client currentLang={lang} blogList={allBlogs} param={searchParams!.tag ?? null} />}
