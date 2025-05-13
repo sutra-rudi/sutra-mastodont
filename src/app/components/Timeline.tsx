@@ -21,7 +21,7 @@ export default function Timeline({ currentLang }: Timeline) {
         <ol className='relative space-y-8 before:absolute before:top-0 before:left-1/2 before:h-full before:w-0.5 before:-translate-x-1/2 before:rounded-full before:bg-primarna-tamna/5'>
           {findData.map((d) => {
             return (
-              <li className='group relative grid grid-cols-2 odd:-me-3 even:-ms-3'>
+              <li key={d.node.id} className='group relative grid grid-cols-2 odd:-me-3 even:-ms-3'>
                 <div className='relative flex items-start gap-4 group-odd:flex-row-reverse group-odd:text-right group-even:order-last'>
                   <span className='size-3 shrink-0 rounded-full bg-primarna-tamna'></span>
                   <div className='-mt-2'>
