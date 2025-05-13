@@ -19,40 +19,46 @@ export default function Timeline({ currentLang }: Timeline) {
       </h2>
       <div className='container px-4 mx-auto'>
         <ol className='relative space-y-8 before:absolute before:top-0 before:left-1/2 before:h-full before:w-0.5 before:-translate-x-1/2 before:rounded-full before:bg-primarna-tamna/5'>
-          {findData.map((d) => {
-            return (
-              <li key={d.node.id} className='group relative grid grid-cols-2 odd:-me-3 even:-ms-3'>
-                <div className='relative flex items-start gap-4 group-odd:flex-row-reverse group-odd:text-right group-even:order-last'>
-                  <span className='size-3 shrink-0 rounded-full bg-primarna-tamna'></span>
-                  <div className='-mt-2'>
-                    <time
-                      dateTime={d.node.uvodTimeline.uvodTimeline.datum}
-                      className='font-medium lg:text-nadnaslov-desktop md:text-nadnaslov-tablet text-nadnaslov-mobile text-nadnaslov-color-light-mode'
-                    >
-                      {dayjs(d.node.uvodTimeline.uvodTimeline.datum).format('DD/MM/YYYY')}
-                    </time>
+          {findData
+            .sort(
+              (a, b) =>
+                dayjs(a.node.uvodTimeline.uvodTimeline.datum).unix() -
+                dayjs(b.node.uvodTimeline.uvodTimeline.datum).unix()
+            )
+            .map((d) => {
+              return (
+                <li key={d.node.id} className='group relative grid grid-cols-2 odd:-me-3 even:-ms-3'>
+                  <div className='relative flex items-start gap-4 group-odd:flex-row-reverse group-odd:text-right group-even:order-last'>
+                    <span className='size-3 shrink-0 rounded-full bg-primarna-tamna'></span>
+                    <div className='-mt-2'>
+                      <time
+                        dateTime={d.node.uvodTimeline.uvodTimeline.datum}
+                        className='font-medium lg:text-nadnaslov-desktop md:text-nadnaslov-tablet text-nadnaslov-mobile text-nadnaslov-color-light-mode'
+                      >
+                        {dayjs(d.node.uvodTimeline.uvodTimeline.datum).format('DD/MM/YYYY')}
+                      </time>
 
-                    <h3 className='font-bold lg:text-h3-desktop md:text-h3-tablet text-h3-mobile text-heading-color-light-mode'>
-                      {d.node[`timeline${l}`]?.[`timelineSadrzaj${l}`].naslov}
-                    </h3>
+                      <h3 className='font-bold lg:text-h3-desktop md:text-h3-tablet text-h3-mobile text-heading-color-light-mode'>
+                        {d.node[`timeline${l}`]?.[`timelineSadrzaj${l}`].naslov}
+                      </h3>
 
-                    <div className='lg:prose prose-sm mt-0.5 prose-p:text-text-light-mode prose-headings:text-heading-color-light-mode'>
-                      {parse(d.node[`timeline${l}`]?.[`timelineSadrzaj${l}`].sadrzaj)}
+                      <div className='lg:prose prose-sm mt-0.5 prose-p:text-text-light-mode prose-headings:text-heading-color-light-mode'>
+                        {parse(d.node[`timeline${l}`]?.[`timelineSadrzaj${l}`].sadrzaj)}
+                      </div>
+
+                      <picture>
+                        <img
+                          src={d.node.uvodTimeline.uvodTimeline.slika.node.sourceUrl}
+                          alt={`Timeline picture - ${d.node[`timeline${l}`]?.[`timelineSadrzaj${l}`].naslov}`}
+                          className='max-h-[400px] w-full object-cover object-center block aspect-auto'
+                        />
+                      </picture>
                     </div>
-
-                    <picture>
-                      <img
-                        src={d.node.uvodTimeline.uvodTimeline.slika.node.sourceUrl}
-                        alt={`Timeline picture - ${d.node[`timeline${l}`]?.[`timelineSadrzaj${l}`].naslov}`}
-                        className='max-h-[400px] w-full object-cover object-center block aspect-auto'
-                      />
-                    </picture>
                   </div>
-                </div>
-                <div aria-hidden='true'></div>
-              </li>
-            );
-          })}
+                  <div aria-hidden='true'></div>
+                </li>
+              );
+            })}
         </ol>
       </div>
     </section>
