@@ -4309,5 +4309,59 @@ export default function GIGA_QUERY() {
       }
     }
   }
+   allTimeline {
+    edges {
+      node {
+        id
+        uvodTimeline {
+          uvodTimeline {
+            datum
+            slika {
+              node {
+                id
+                sourceUrl
+              }
+            }
+          }
+        }
+        timelineHr {
+          timelineSadrzajHr {
+            naslov
+            sadrzaj
+          }
+        }
+        timelineEng {
+          timelineSadrzajEng {
+            naslov
+            sadrzaj
+          }
+        }
+        timelineGer {
+          timelineSadrzajGer {
+            naslov
+            sadrzaj
+          }
+        }
+        timelineFra {
+          timelineSadrzajFra {
+            naslov
+            sadrzaj
+          }
+        }
+        timelineEsp {
+          timelineSadrzajEsp {
+            naslov
+            sadrzaj
+          }
+        }
+        timelineIta {
+          timelineSadrzajIta {
+            naslov
+            sadrzaj
+          }
+        }
+      }
+    }
+  }
 }`;
 }
