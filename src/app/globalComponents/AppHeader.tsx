@@ -16,6 +16,10 @@ const AppHeader = ({ logos }: Header) => {
   const splitPath = currentPath.split('/');
   const currentLang = splitPath[1];
 
+  const [visible, setVisible] = React.useState(true);
+  const prevScrollY = React.useRef(0);
+  const ticking = React.useRef(false);
+
   const baseNav = [
     {
       hr: 'O nama',
@@ -123,8 +127,38 @@ const AppHeader = ({ logos }: Header) => {
     router.refresh();
   };
 
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (!ticking.current) {
+        window.requestAnimationFrame(() => {
+          if (currentScrollY > prevScrollY.current && currentScrollY > 100) {
+            // Scroll dolje i već smo skroz gore -> sakrij
+            setVisible(false);
+          } else {
+            // Scroll gore -> pokaži
+            setVisible(true);
+          }
+          prevScrollY.current = currentScrollY;
+          ticking.current = false;
+        });
+
+        ticking.current = true;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <nav className=' dark:bg-gray-800  relative'>
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50
+        transform transition-transform duration-500 ease-in-out  ${
+          visible ? 'translate-y-0' : '-translate-y-full'
+        } bg-white shadow-sm`}
+    >
       <div className='max-w-screen-xl mx-auto xl:px-0 md:px-4 px-2  py-4'>
         <div className='flex items-center justify-between'>
           <div className='flex items-center'>
