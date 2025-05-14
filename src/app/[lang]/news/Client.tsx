@@ -31,6 +31,8 @@ export default function Client({ blogList, currentLang, param }: Client) {
   const [renderBlogs, setRenderBlogs] = React.useState<any[]>([]);
   const [hasParam, setHasParam] = React.useState<string | string[] | null>(param);
 
+  const [isLoading, setIsLoading] = React.useState<boolean>(true);
+
   const r = useRouter();
   const pName = usePathname();
   const onSelect = React.useCallback(() => {
@@ -55,20 +57,24 @@ export default function Client({ blogList, currentLang, param }: Client) {
 
   function filterBlogsByCat(cat: any) {
     const arr = blogList.filter((blog: any) => {
-      return blog.node.introBlog.kategorija.edges[0].node.name === cat;
+      return blog.node.introNews.kategorija.edges[0].node.name === cat;
     });
 
     setRenderBlogs(arr);
+    setIsLoading(false);
   }
 
   React.useEffect(() => {
+    // setIsLoading(true);
     if (!hasParam) {
       setRenderBlogs(blogList);
+      setIsLoading(false);
       return;
     }
 
     const filtered = blogList.filter((blog: any) => {
-      const edges = blog.node.introBlog.oznaka?.edges;
+      setIsLoading(true);
+      const edges = blog.node.introNews.oznaka?.edges;
       if (!edges || edges.length === 0) return false;
 
       // Provjeri postoji li barem jedan edge koji se slaže s param
@@ -80,8 +86,10 @@ export default function Client({ blogList, currentLang, param }: Client) {
 
     if (filtered.length > 0) {
       setRenderBlogs(filtered);
+      setIsLoading(false);
     } else {
       setRenderBlogs(blogList);
+      setIsLoading(false);
     }
   }, [hasParam, param, blogList]);
 
@@ -105,13 +113,13 @@ export default function Client({ blogList, currentLang, param }: Client) {
         )}
         <h2 className='lg:text-h2-desktop md:text-h2-tablet text-h2-mobile font-bold text-dark dark:text-white  w-full text-center '>
           {catName !== 'Sve kategorije'
-            ? `Blog - ${
+            ? `News - ${
                 //@ts-ignore
                 categories.data.categories.edges.find((c) => c.node.name === catName)?.node.informacijeKategorije[
                   `imeKategorije${l}`
                 ]
               }`
-            : 'Blog'}
+            : 'News'}
         </h2>
 
         <div
@@ -169,19 +177,23 @@ export default function Client({ blogList, currentLang, param }: Client) {
             })}
         </div>
         <div className='lg:flex hidden flex-wrap items-start justify-center gap-4 lg:-mt--desktop---3xl md:-mt--tablet---3xl -mt--mobile---3xl relative'>
-          {renderBlogs.length > 0 ? (
+          {isLoading ? (
+            <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
+              <div className='loader-sutra'></div>
+            </div>
+          ) : renderBlogs.length > 0 ? (
             renderBlogs.map((blog: any, i) => {
               const isEngMistake = currentLang === UserLanguage.eng;
 
               return (
-                // blog.node.introBlog.istaknutoNaNaslovnici &&
-                blog.node.introBlog.statusBloga && (
+                // blog.node.introNews.istaknutoNaNaslovnici &&
+                blog.node.introNews.statusNovosti && (
                   <a
                     style={{
                       animationDelay: `${i * 0.15}s`,
                     }}
                     key={blog.node.databaseId}
-                    href={`/${currentLang}/blog/${slugify(
+                    href={`/${currentLang}/news/${slugify(
                       blog.node.sadrzajHrFields.naslovSadrzajHr + `-${blog.node.databaseId}`,
                       {
                         ...slugifyOptions,
@@ -195,8 +207,8 @@ export default function Client({ blogList, currentLang, param }: Client) {
                           <img
                             className='lg:h-48 md:h-36 w-full object-cover object-center scale-110 transition-all duration-400 hover:scale-100 aspect-auto'
                             src={
-                              blog.node.introBlog.naslovnaSlika
-                                ? blog.node.introBlog.naslovnaSlika.node.sourceUrl
+                              blog.node.introNews.naslovnaSlika
+                                ? blog.node.introNews.naslovnaSlika.node.sourceUrl
                                 : 'https://images.unsplash.com/photo-1618172193622-ae2d025f4032?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80'
                             }
                             alt='blog'
@@ -204,9 +216,9 @@ export default function Client({ blogList, currentLang, param }: Client) {
                         </picture>
                         <div className='p-6'>
                           <h2 className='tracking-widest text-xs title-font font-medium text-gray-400 mb-1'>
-                            {blog.node.introBlog.kategorija.edges[0].node.informacijeKategorije.prijevodi[
+                            {blog.node.introNews.kategorija.edges[0].node.informacijeKategorije.prijevodi[
                               `imeKategorije${l}`
-                            ] ?? blog.node.introBlog.kategorija.edges[0].node.name}
+                            ] ?? blog.node.introNews.kategorija.edges[0].node.name}
                           </h2>
                           <h1 className='title-font text-lg font-medium text-gray-600 mb-3'>
                             {
@@ -238,7 +250,7 @@ export default function Client({ blogList, currentLang, param }: Client) {
               );
             })
           ) : (
-            <Loading />
+            <h4 className='lg:text-h4-desktop md:text-h4-tablet text-h4-mobile'>Nema novosti u toj kategoriji</h4>
           )}
         </div>
 
@@ -250,15 +262,15 @@ export default function Client({ blogList, currentLang, param }: Client) {
             {renderBlogs.map((blog: any, i) => {
               const isEngMistake = currentLang === UserLanguage.eng;
               return (
-                blog.node.introBlog.istaknutoNaNaslovnici &&
-                blog.node.introBlog.statusBloga && (
+                blog.node.introNews.istaknutoNaNaslovnici &&
+                blog.node.introNews.statusBloga && (
                   <a
                     style={{
                       animationDelay: `${i * 0.15}s`,
                     }}
                     className='embla__slide_blog_gallery motion-preset-fade motion-ease-spring-bouncy'
                     key={blog.node.databaseId}
-                    href={`/${currentLang}/blog/${slugify(
+                    href={`/${currentLang}/news/${slugify(
                       blog.node.sadrzajHrFields.naslovSadrzajHr + `-${blog.node.databaseId}`,
                       {
                         ...slugifyOptions,
@@ -271,8 +283,8 @@ export default function Client({ blogList, currentLang, param }: Client) {
                           <img
                             className='lg:h-48 md:h-36 w-full object-cover object-center scale-110 transition-all duration-400 hover:scale-100 aspect-auto h-[215px]'
                             src={
-                              blog.node.introBlog.naslovnaSlika
-                                ? blog.node.introBlog.naslovnaSlika.node.sourceUrl
+                              blog.node.introNews.naslovnaSlika
+                                ? blog.node.introNews.naslovnaSlika.node.sourceUrl
                                 : 'https://images.unsplash.com/photo-1618172193622-ae2d025f4032?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80'
                             }
                             alt='blog'
@@ -280,9 +292,9 @@ export default function Client({ blogList, currentLang, param }: Client) {
                         </picture>
                         <div className='p-6'>
                           <h2 className='tracking-widest text-xs title-font font-medium text-gray-400 mb-1'>
-                            {blog.node.introBlog.kategorija.edges[0].node.informacijeKategorije.prijevodi[
+                            {blog.node.introNews.kategorija.edges[0].node.informacijeKategorije.prijevodi[
                               `imeKategorije${l}`
-                            ] ?? blog.node.introBlog.kategorija.edges[0].node.name}
+                            ] ?? blog.node.introNews.kategorija.edges[0].node.name}
                           </h2>
                           <h1 className='title-font text-lg font-medium text-gray-600 mb-3'>
                             {

@@ -19,10 +19,59 @@ export default function getAllNews() {
                 ... on Category {
                   id
                   name
+                  informacijeKategorije {
+                    prijevodi {
+                      imeKategorijeEng
+                      imeKategorijeEsp
+                      imeKategorijeFra
+                      imeKategorijeGer
+                      imeKategorijeHr
+                      imeKategorijeIta
+                      opisKategorijeEng
+                      opisKategorijeEsp
+                      opisKategorijeFra
+                      opisKategorijeGer
+                      opisKategorijeHr
+                      opisKategorijeIta
+                    }
+                    uvod {
+                      bojaKategorije
+                      slikaKategorije {
+                        node {
+                          id
+                          sourceUrl
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
           }
+        oznaka {
+        edges {
+          node {
+            id
+            name
+            ... on Tag {
+              id
+              name
+              tags {
+                prijevodiTagova {
+                  
+                  engleskiPrijevod
+                  francuskiPrijevod
+                  hrvatskiPrijevod
+                  talijanskiPrijevod
+                  njemackiPrijevod
+                }
+              }
+            }
+          }
+        }
+      
+    }     
+       
           naslovnaSlika {
             node {
               id
@@ -35,6 +84,7 @@ export default function getAllNews() {
               sourceUrl
             }
           }
+
         }
         sadrzajHrFields {
           kratkiUvodniTekstSadrzajHr
@@ -224,7 +274,7 @@ export default function getAllNews() {
 }
 
 export function NewsFragment() {
-  return `allNovosti(first: 20) {
+  return `  allNovosti(first: 20) {
     edges {
       node {
         id
@@ -243,10 +293,59 @@ export function NewsFragment() {
                 ... on Category {
                   id
                   name
+                  informacijeKategorije {
+                    prijevodi {
+                      imeKategorijeEng
+                      imeKategorijeEsp
+                      imeKategorijeFra
+                      imeKategorijeGer
+                      imeKategorijeHr
+                      imeKategorijeIta
+                      opisKategorijeEng
+                      opisKategorijeEsp
+                      opisKategorijeFra
+                      opisKategorijeGer
+                      opisKategorijeHr
+                      opisKategorijeIta
+                    }
+                    uvod {
+                      bojaKategorije
+                      slikaKategorije {
+                        node {
+                          id
+                          sourceUrl
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
           }
+        oznaka {
+        edges {
+          node {
+            id
+            name
+            ... on Tag {
+              id
+              name
+              tags {
+                prijevodiTagova {
+                  
+                  engleskiPrijevod
+                  francuskiPrijevod
+                  hrvatskiPrijevod
+                  talijanskiPrijevod
+                  njemackiPrijevod
+                }
+              }
+            }
+          }
+        }
+      
+    }     
+       
           naslovnaSlika {
             node {
               id
@@ -259,6 +358,7 @@ export function NewsFragment() {
               sourceUrl
             }
           }
+
         }
         sadrzajHrFields {
           kratkiUvodniTekstSadrzajHr
