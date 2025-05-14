@@ -26,34 +26,63 @@ export default function getSingleNews(id: string) {
           sourceUrl
         }
       }
-      kategorija {
-        edges {
-          node {
-            id
-            ... on Category {
-              id
-              name
-              informacijeKategorije {
-                bojaKategorije
-                imeKategorijeEng
-                imeKategorijeGer
-                imeKategorijeHr
-                imeKategorijeIta
-                opisKategorijeEng
-                opisKategorijeGer
-                opisKategorijeHr
-                opisKategorijeIta
-                slikaKategorije {
-                  node {
-                    id
-                    sourceUrl
+          kategorija {
+            edges {
+              node {
+                id
+                ... on Category {
+                  id
+                  name
+                  informacijeKategorije {
+                    prijevodi {
+                      imeKategorijeEng
+                      imeKategorijeEsp
+                      imeKategorijeFra
+                      imeKategorijeGer
+                      imeKategorijeHr
+                      imeKategorijeIta
+                      opisKategorijeEng
+                      opisKategorijeEsp
+                      opisKategorijeFra
+                      opisKategorijeGer
+                      opisKategorijeHr
+                      opisKategorijeIta
+                    }
+                    uvod {
+                      bojaKategorije
+                      slikaKategorije {
+                        node {
+                          id
+                          sourceUrl
+                        }
+                      }
+                    }
                   }
                 }
               }
             }
           }
+			oznaka {
+        edges {
+          node {
+            id
+            name
+            ... on Tag {
+              id
+              name
+              tags {
+                prijevodiTagova {
+                  engleskiPrijevod
+                  francuskiPrijevod
+                  hrvatskiPrijevod
+                  talijanskiPrijevod
+                  njemackiPrijevod
+                }
+              }
+            }
+          }
         }
-      }
+    }     
       thumbnail {
         node {
           id

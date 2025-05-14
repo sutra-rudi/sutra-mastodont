@@ -133,6 +133,8 @@ export default async function SingleNewsPage({ params: { lang, slug } }: { param
 
   const { heroImagesDefault } = MP;
 
+  const tags = bData.data.novosti.introNews.oznaka;
+
   const naslovna = bData.data.novosti.introNews.naslovnaSlika
     ? bData.data.novosti.introNews.naslovnaSlika.node.sourceUrl
     : heroImagesDefault.desktop;
@@ -144,7 +146,9 @@ export default async function SingleNewsPage({ params: { lang, slug } }: { param
 
   const datum = bData.data.novosti.introNews.datum;
 
-  const kategorija = bData.data.novosti.introNews.kategorija.edges[0].node.informacijeKategorije[`imeKategorije${l}`];
+  const kategorija =
+    bData.data.novosti.introNews.kategorija.edges[0].node.informacijeKategorije.prijevodi[`imeKategorije${l}`] ??
+    bData.data.novosti.introNews.kategorija.edges[0].node.name;
 
   const galleryNovosti = Object.values(bData.data.novosti.photoGallery.fotogalerija).filter(
     (galItem: any) => galItem !== null
@@ -175,7 +179,7 @@ export default async function SingleNewsPage({ params: { lang, slug } }: { param
   return (
     <main className='w-full xl:-pb--xl---5xl lg:-pb--desktop---5xl md:-pb--tablet---5xl -pb--mobile---5xl min-h-screen'>
       <Suspense>
-        <div className='max-w-screen-xl px-4 mx-auto flex items-center justify-start mt-12'>
+        <div className='max-w-screen-xl px-4 mx-auto flex items-center justify-start -mt--desktop---5xl'>
           <Breadcrumbs />
         </div>
         <div className='bg-accent-boja/35 text-accent-boja block max-w-max rounded-[36px] text-sm uppercase py-1 px-3 lg:-mt--desktop---3xl md:-mt--tablet---5xl -mt--mobile---5xl mx-auto'>
@@ -223,7 +227,7 @@ export default async function SingleNewsPage({ params: { lang, slug } }: { param
           {parse(sadrzajNovosti)}
         </div>
 
-        <ClientContent gallery={galleryNovosti} files={fileList} currentLang={lang} />
+        <ClientContent gallery={galleryNovosti} files={fileList} currentLang={lang} tags={tags} />
       </Suspense>
 
       <Script
