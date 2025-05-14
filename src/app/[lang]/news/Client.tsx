@@ -262,8 +262,8 @@ export default function Client({ blogList, currentLang, param }: Client) {
             {renderBlogs.map((blog: any, i) => {
               const isEngMistake = currentLang === UserLanguage.eng;
               return (
-                blog.node.introNews.istaknutoNaNaslovnici &&
-                blog.node.introNews.statusBloga && (
+                // blog.node.introNews.istaknutoNaNaslovnici &&
+                blog.node.introNews.statusNovosti && (
                   <a
                     style={{
                       animationDelay: `${i * 0.15}s`,
