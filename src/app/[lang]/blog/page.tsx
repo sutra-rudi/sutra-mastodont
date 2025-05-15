@@ -1,3 +1,5 @@
+export const revalidate = 1800;
+
 import getAllBlogs from '@/app/queries/dynamicQueries/getAllBlogs';
 import { fetchData } from '@/app/utils/callApi';
 import Client from './Client';

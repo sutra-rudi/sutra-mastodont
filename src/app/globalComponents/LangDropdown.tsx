@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useRef, useEffect } from 'react';
 import { UserLanguage } from '../enums/LangEnum';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
@@ -27,7 +29,7 @@ export default function LanguageDropdown({ langs }: Props) {
     document.cookie = `@sutra-user-lang=${lang}; path=/; max-age=31536000`; // 1 godina
 
     // Preusmjeri na novu putanju
-    r.replace(
+    r.push(
       `/${lang}${currentPath.replace(`/${currentLang}`, '')}${
         searchParams.toString() ? '?' + searchParams.toString() : ''
       }`

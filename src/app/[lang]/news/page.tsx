@@ -1,4 +1,5 @@
-import NewsSection from '@/app/appComponents/landing/NewsSection';
+export const revalidate = 1800;
+
 import Breadcrumbs from '@/app/globalComponents/Breadcrumbs';
 import getAllNews from '@/app/queries/dynamicQueries/getAllNews';
 import { fetchData } from '@/app/utils/callApi';
