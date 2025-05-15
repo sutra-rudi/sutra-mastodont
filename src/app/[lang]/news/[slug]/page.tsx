@@ -1,3 +1,5 @@
+export const revalidate = 1800;
+
 import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 import { htmlToText } from 'html-to-text';
 import { UserLanguage } from '@/app/enums/LangEnum';

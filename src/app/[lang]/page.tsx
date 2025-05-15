@@ -1,5 +1,6 @@
 export const maxDuration = 60;
-export const revalidate = 21600; // 6h
+// export const revalidate = 21600; // 6h
+export const revalidate = 1800;
 //SECTION IMPORTS
 import AppHero from '../appComponents/landing/AppHero';
 import BaseCaruselSection from '../appComponents/landing/BaseCaruselSection';
