@@ -53,11 +53,12 @@ export default function LanguageDropdown({ langs, currentLang, handleLangSwitch 
     <div className='relative inline-block text-left' ref={dropdownRef}>
       <button
         onClick={toggleOpen}
-        className='inline-flex items-center justify-center px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none'
+        className='inline-flex items-center justify-start gap-2 px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none '
       >
-        {langs.find((l) => l.lang === currentLang)?.flag}
+        <div className='shrink-0'>{langs.find((l) => l.lang === currentLang)?.flag}</div>
+        <span>{langs.find((l) => l.lang === currentLang)?.lang.toUpperCase()}</span>
         <svg
-          className={`ml-2 h-5 w-5 text-gray-500 dark:text-gray-400 transition-all ease-in-out duration-300 ${
+          className={` h-5 w-5 text-gray-500 dark:text-gray-400 transition-all ease-in-out duration-300 shrink-0 ${
             open ? 'rotate-180' : 'rotate-0'
           }`}
           xmlns='http://www.w3.org/2000/svg'

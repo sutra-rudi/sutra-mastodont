@@ -64,7 +64,7 @@ export default function BlogSection({ currentLang, blogList }: BlogSection) {
                     <div className='h-full rounded-xl shadow-cla-blue bg-gradient-to-r from-indigo-50 to-blue-50 overflow-hidden'>
                       <picture>
                         <img
-                          className='lg:h-48 md:h-36 w-full object-cover object-center scale-110 transition-all duration-400 hover:scale-100 aspect-auto'
+                          className='lg:h-[230px] md:h-[215px] h-[200px] w-full object-cover object-center scale-110 transition-all duration-400 hover:scale-100 aspect-auto'
                           src={
                             blog.node.introBlog.naslovnaSlika
                               ? blog.node.introBlog.naslovnaSlika.node.sourceUrl
@@ -131,7 +131,7 @@ export default function BlogSection({ currentLang, blogList }: BlogSection) {
                       <div className='h-full rounded-xl shadow-cla-blue bg-gradient-to-r from-indigo-50 to-blue-50 overflow-hidden'>
                         <picture>
                           <img
-                            className='lg:h-48 md:h-36 w-full object-cover object-center scale-110 transition-all duration-400 hover:scale-100 aspect-auto'
+                            className='lg:h-[230px] md:h-[215px] h-[200px] w-full object-cover object-center scale-110 transition-all duration-400 hover:scale-100 aspect-auto'
                             src={
                               blog.node.introBlog.naslovnaSlika
                                 ? blog.node.introBlog.naslovnaSlika.node.sourceUrl
