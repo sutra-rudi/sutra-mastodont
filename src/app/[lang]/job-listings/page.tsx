@@ -1,23 +1,29 @@
+import Breadcrumbs from '@/app/globalComponents/Breadcrumbs';
 import { findGeneralTranslation } from '@/app/langUtils/findGeneralTranslation';
 import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 import { generalTranslations } from '@/app/lib/generalTranslations';
 import { slugifyOptions } from '@/app/pathsUtils/slugifyOptions';
 import getJobOpenings from '@/app/queries/dynamicQueries/getAllJobOpenings';
 import { fetchData } from '@/app/utils/callApi';
+import { fetchMediaPaths } from '@/app/utils/callMediaPaths';
 import slugify from 'slugify';
+import Client from './Client';
 
 export default async function JobListings({ params: { lang } }: { params: { lang: string } }) {
   const l = getSuffixFromLang(lang);
   const getJo = await fetchData(getJobOpenings());
   const jOData = !getJo.error ? getJo.data.allOglasiZaPosao?.edges : null;
 
+  const MP = await fetchMediaPaths();
+
+  const { heroImagesCareer } = MP;
+
   return (
-    <main className='w-full h-full min-h-screen relative'>
-      <h2 className='text-3xl font-bold text-dark dark:text-white sm:text-[40px]/[48px] w-full text-center lg:mb-20 mb-[60px]'>
-        {findGeneralTranslation('Oglasi za posao', lang, generalTranslations)}
-      </h2>
-      <section className='max-w-[1440px] mx-auto px-4'>
-        <div className='flex items-center justify-center gap-4 flex-wrap w-full'>
+    <main className='w-full h-full min-h-screen relative -mt--desktop---4xl'>
+      <Client imgSrc={heroImagesCareer} lang={lang} />
+      <section className='container mx-auto px-4 lg:-mt--desktop---2xl md:-mt--tablet---2xl -mt--mobile---2xl'>
+        <Breadcrumbs />
+        <div className='flex items-center justify-center gap-4 flex-wrap w-full lg:-mt--desktop---2xl md:-mt--tablet---2xl -mt--mobile---2xl'>
           {jOData.map((og: any) => {
             const jTitle = og.node[`oglasiZaPosaoSadrzaj${l}`]?.naslov;
             const jDesc = og.node[`oglasiZaPosaoSadrzaj${l}`]?.kratkiUvod;

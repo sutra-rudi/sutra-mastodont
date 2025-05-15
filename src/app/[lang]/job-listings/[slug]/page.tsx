@@ -1,3 +1,4 @@
+import Breadcrumbs from '@/app/globalComponents/Breadcrumbs';
 import { findGeneralTranslation } from '@/app/langUtils/findGeneralTranslation';
 import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 import { generalTranslations } from '@/app/lib/generalTranslations';
@@ -99,15 +100,19 @@ export default async function JobOpeningSingle({ params: { lang, slug } }: { par
   const naslovnaSLika = jData.data.oglasiZaPosao.oglasiUvod.glavnaSlikaOglas.node;
 
   return (
-    <main className='w-full h-full relative min-h-screen '>
+    <main className='w-full h-full relative min-h-screen -mt--desktop---4xl'>
       <picture>
         <img
           src={naslovnaSLika.sourceUrl}
           alt='Job opening image desctiption'
-          className='w-full  object-cover object-center block aspect-auto max-h-[500px]'
+          className='w-full  object-cover object-center block aspect-auto lg:h-[500px] md:h-[400px] h-[250px]'
         />
       </picture>
-      <article className='max-w-prose mx-auto px-4'>
+
+      <div className='container mx-auto px-4 lg:-mt--desktop---2xl md:-mt--tablet---2xl -mt--mobile---2xl'>
+        <Breadcrumbs />
+      </div>
+      <article className='max-w-prose mx-auto px-4 lg:-mt--desktop---2xl md:-mt--tablet---2xl -mt--mobile---2xl'>
         <section className='lg:mt-desktop-slika-sadrzaj md:mt-tablet-slika-sadrzaj mt-mobile-slika-sadrzaj flex items-center justify-start gap-2 lg:flex-nowrap flex-wrap'>
           <span>{`${findGeneralTranslation('Kategorija posla', lang, generalTranslations)}: ${kategorijaPosla}`}</span>
 

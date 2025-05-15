@@ -12,6 +12,14 @@ const config: Config = {
         xl: '1550px',
       },
 
+      container: {
+        screens: {
+          xl: '1350px',
+          lg: '1000px',
+          md: '640px',
+        },
+      },
+
       // # Colors
       colors: {
         // ## Primary and Secondary Colors
