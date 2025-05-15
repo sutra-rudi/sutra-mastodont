@@ -3,6 +3,7 @@ import dataset from '../../staticData/staticQueryData.json';
 import parse from 'html-react-parser';
 import { fetchMediaPaths } from '@/app/utils/callMediaPaths';
 import PhotoGalleryComponent from '@/app/appComponents/global/PhotoGallery';
+import Client from './Client';
 
 //HERO IMAGES ABOUT US NA FPT NIJE ISPUNJEN PA KORISTIN DEFAULT HERO
 export default async function AboutUsPage({ params: { lang } }: { params: { lang: string } }) {
@@ -31,24 +32,13 @@ export default async function AboutUsPage({ params: { lang } }: { params: { lang
 
   return (
     <main className='w-full h-full min-h-screen relative'>
-      <div className='relative'>
-        <picture>
-          <img
-            src={heroImg ? heroImg.node.sourceUrl : heroImagesDefault.desktop}
-            alt='Hero image for section "about us"'
-            className='object-cover object-center block w-full h-auto aspect-auto max-h-[500px] brightness-75'
-          />
-        </picture>
-
-        <div className='absolute inset-0 w-full h-full flex flex-col items-center justify-center text-almost-white'>
-          <h2 className='mx-auto text-balance max-w-prose lg:text-h2-desktop md:text-h2-tablet text-h2-mobile lg:-mt--desktop---3xl md:-mt--tablet---3xl -mt--mobile---3xl text-center px-4'>
-            {title}
-          </h2>
-
-          <h4 className='mx-auto text-balance max-w-prose lg:text-h4-desktop md:text-h4-tablet text-h4-mobile lg:mt-desktop-naslov-nadnaslov md:mt-tablet-naslov-nadnaslov mt-mobile-naslov-nadnaslov text-center px-4'>
-            {subTitle}
-          </h4>
-        </div>
+      <div className='relative -mt--desktop---4xl max-w-[1920px]'>
+        <Client
+          lang={lang}
+          title={title}
+          subTitle={subTitle}
+          imgSrc={heroImg ? heroImg.node.sourceUrl : heroImagesDefault.desktop}
+        />
       </div>
 
       <article className='max-w-prose mx-auto px-4 lg:mt-desktop-slika-sadrzaj md:mt-tablet-slika-sadrzaj mt-mobile-slika-sadrzaj'>

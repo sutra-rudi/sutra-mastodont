@@ -50,11 +50,11 @@ export default function PhotoGalleryComponent({ gallery, currentLang }: PhotoGal
                   {findGeneralTranslation('Pogledaj cijelu fotogaleriju', currentLang, generalTranslations)}
 
                   {gallery.length >= 6 &&
-                    `: +${gallery.length - 6} ${findGeneralTranslation(
-                      'Slike',
+                    ` (${gallery.length} ${findGeneralTranslation(
+                      'Slika',
                       currentLang,
                       generalTranslations
-                    ).toLocaleLowerCase()}`}
+                    ).toLocaleLowerCase()})`}
                 </h4>
               </div>
             </div>

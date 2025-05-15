@@ -18,8 +18,8 @@ export const generalTranslations = [
     fra: 'Galerie photo',
   },
   {
-    key: 'Slike',
-    hr: 'Slike',
+    key: 'Slika',
+    hr: 'Slika',
     eng: 'Pictures',
     ger: 'Bilder',
     ita: 'Immagini',
