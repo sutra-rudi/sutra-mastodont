@@ -175,12 +175,9 @@ export default function ContentSectionFirst({
                   })}
                 </div>
               )}
-              <a
-                href='javascript:void(0)'
-                className='lg:-mt--desktop---xl md:-mt--tablet---xl -mt--mobile---xl inline-flex items-center justify-center py-3 text-base font-medium text-center text-almost-black border border-accent-boja rounded-md px-7 bg-primary hover:bg-opacity-90'
-              >
+              <button className='lg:-mt--desktop---xl md:-mt--tablet---xl -mt--mobile---xl inline-flex items-center justify-center py-3 text-base font-medium text-center text-almost-black border border-accent-boja rounded-md px-7 bg-primary hover:bg-opacity-90'>
                 NEKI CTA
-              </a>
+              </button>
             </div>
           </div>
         </div>

@@ -4,6 +4,7 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import React from 'react';
 import { Twirl as Hamburger } from 'hamburger-react';
 import { Hr, Gb, It, De } from 'react-flags-select';
+import LanguageDropdown from './LangDropdown';
 
 interface Header {
   logos: any;
@@ -203,16 +204,11 @@ const AppHeader = ({ logos }: Header) => {
             </div>
           </div>
           <div className='flex items-center space-x-4 z-[101]'>
-            {langs.map((language) => (
-              <button
-                disabled={currentLang === language.lang}
-                key={language.lang}
-                className='text-sm font-medium text-gray-900 dark:text-white flex place-items-center gap-2 transition-all ease-out hover:-translate-y-1 hover:scale-110'
-                onClick={() => handleLangSwitch(language.lang)}
-              >
-                {language.flag}
-              </button>
-            ))}
+            <LanguageDropdown
+              currentLang={currentLang as any}
+              langs={langs as any}
+              handleLangSwitch={handleLangSwitch}
+            />
 
             <div className='w-min '>
               <Hamburger onToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
