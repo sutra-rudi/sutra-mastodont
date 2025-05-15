@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { UserLanguage } from '../enums/LangEnum';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 interface Language {
   lang: UserLanguage;
@@ -8,15 +9,32 @@ interface Language {
 
 interface Props {
   langs: Language[];
-  currentLang: UserLanguage;
-  handleLangSwitch: (lang: UserLanguage) => void;
 }
 
-export default function LanguageDropdown({ langs, currentLang, handleLangSwitch }: Props) {
+export default function LanguageDropdown({ langs }: Props) {
   const [open, setOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const currentPath = usePathname();
+  const searchParams = useSearchParams();
+  const splitPath = currentPath.split('/');
+  const currentLang = splitPath[1];
+  const r = useRouter();
+
+  const handleLangSwitch = (lang: string) => {
+    // Postavi kolačić na odabrani jezik
+    document.cookie = `@sutra-user-lang=${lang}; path=/; max-age=31536000`; // 1 godina
+
+    // Preusmjeri na novu putanju
+    r.replace(
+      `/${lang}${currentPath.replace(`/${currentLang}`, '')}${
+        searchParams.toString() ? '?' + searchParams.toString() : ''
+      }`
+    );
+
+    r.refresh();
+  };
 
   const openDropdown = () => {
     setIsVisible(true);
@@ -88,6 +106,7 @@ export default function LanguageDropdown({ langs, currentLang, handleLangSwitch 
                 onClick={() => {
                   handleLangSwitch(language.lang);
                   closeDropdown();
+                  r.refresh();
                 }}
                 className='w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-2 disabled:opacity-50 disabled:cursor-default'
               >

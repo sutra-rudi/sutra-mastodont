@@ -11,6 +11,7 @@ import dynamic from 'next/dynamic';
 import { getSuffixFromLang } from './langUtils/getSuffixFromLang';
 import { fetchMediaPaths } from './utils/callMediaPaths';
 import { Metadata, Viewport } from 'next';
+import CookieNotice from './globalComponents/CookieNotice';
 
 const AppHeader = dynamic(() => import('./globalComponents/AppHeader'));
 const AppFooter = dynamic(() => import('./globalComponents/AppFooter'));
@@ -153,6 +154,7 @@ export default async function RootLayout({
           <AppHeader logos={siteLogo} />
           <Providers>{children}</Providers>
           <AppFooter logos={siteLogo} currentLang={lang} />
+          <CookieNotice lng={lang} />
         </Suspense>
 
         {/* {schemaBasicData && (
