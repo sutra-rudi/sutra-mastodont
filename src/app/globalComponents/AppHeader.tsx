@@ -4,6 +4,7 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import React from 'react';
 import { Twirl as Hamburger } from 'hamburger-react';
 import { Hr, Gb, It, De } from 'react-flags-select';
+import LanguageDropdown from './LangDropdown';
 
 interface Header {
   logos: any;
@@ -11,8 +12,7 @@ interface Header {
 
 const AppHeader = ({ logos }: Header) => {
   const currentPath = usePathname();
-  const searchParams = useSearchParams();
-  const router = useRouter();
+
   const splitPath = currentPath.split('/');
   const currentLang = splitPath[1];
 
@@ -113,20 +113,6 @@ const AppHeader = ({ logos }: Header) => {
       : document.documentElement.classList.remove('overflow-hidden');
   }, [isMobileMenuOpen]);
 
-  const handleLangSwitch = (lang: string) => {
-    // Postavi kolačić na odabrani jezik
-    document.cookie = `@sutra-user-lang=${lang}; path=/; max-age=31536000`; // 1 godina
-
-    // Preusmjeri na novu putanju
-    router.push(
-      `/${lang}${currentPath.replace(`/${currentLang}`, '')}${
-        searchParams.toString() ? '?' + searchParams.toString() : ''
-      }`
-    );
-
-    router.refresh();
-  };
-
   React.useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -159,7 +145,7 @@ const AppHeader = ({ logos }: Header) => {
           visible ? 'translate-y-0' : '-translate-y-full'
         } bg-white shadow-sm`}
     >
-      <div className='max-w-screen-xl mx-auto xl:px-0 md:px-4 px-2  py-4'>
+      <div className='container mx-auto xl:px-0 md:px-4 px-2  py-4'>
         <div className='flex items-center justify-between'>
           <div className='flex items-center'>
             <div className='shrink-0'>
@@ -203,16 +189,7 @@ const AppHeader = ({ logos }: Header) => {
             </div>
           </div>
           <div className='flex items-center space-x-4 z-[101]'>
-            {langs.map((language) => (
-              <button
-                disabled={currentLang === language.lang}
-                key={language.lang}
-                className='text-sm font-medium text-gray-900 dark:text-white flex place-items-center gap-2 transition-all ease-out hover:-translate-y-1 hover:scale-110'
-                onClick={() => handleLangSwitch(language.lang)}
-              >
-                {language.flag}
-              </button>
-            ))}
+            <LanguageDropdown langs={langs as any} />
 
             <div className='w-min '>
               <Hamburger onToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
