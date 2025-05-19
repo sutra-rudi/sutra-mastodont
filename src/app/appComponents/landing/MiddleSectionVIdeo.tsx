@@ -29,7 +29,7 @@ export default function MiddleSectionVideo({ sourceUrl }: MiddleSectionVideoProp
         />
       ) : (
         <div className='absolute top-0 left-0 w-full h-full bg-black flex items-center justify-center text-white text-lg'>
-          <h1 className='lg:text-h1-desktop md:text-h1-tablet text-h1-mobile35 text-heading-color-dark-mode'>{`Video trenutno nije dostupan. (PROVJERI FTP)`}</h1>
+          <h1 className='lg:text-h1-desktop md:text-h1-tablet text-h1-mobile35 text-heading-color-dark-mode text-center px-4'>{`Video trenutno nije dostupan. (PROVJERI FTP)`}</h1>
         </div>
       )}
     </div>
