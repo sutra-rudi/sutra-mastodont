@@ -12,6 +12,9 @@ import { getSuffixFromLang } from './langUtils/getSuffixFromLang';
 import { fetchMediaPaths } from './utils/callMediaPaths';
 import { Metadata, Viewport } from 'next';
 import CookieNotice from './globalComponents/CookieNotice';
+import { fetchData } from './utils/callApi';
+import GetAlertsQuery from './queries/dynamicQueries/getAllAlerts';
+import NewsTrack from './globalComponents/NewsTrack';
 
 const AppHeader = dynamic(() => import('./globalComponents/AppHeader'));
 const AppFooter = dynamic(() => import('./globalComponents/AppFooter'));
@@ -126,6 +129,10 @@ export default async function RootLayout({
 
   const MP = await fetchMediaPaths();
 
+  const getNews = await fetchData(GetAlertsQuery());
+
+  const newsTrackData = !getNews.error ? getNews.data.allObavijestiNaStranici.edges || null : null;
+
   const { siteLogo } = MP;
 
   const htmlLangMap: Record<UserLanguage, string> = {
@@ -155,6 +162,7 @@ export default async function RootLayout({
           <Providers>{children}</Providers>
           <AppFooter logos={siteLogo} currentLang={lang} />
           <CookieNotice lng={lang} />
+          {newsTrackData && <NewsTrack pageContent={newsTrackData} lang={lang} />}
         </Suspense>
 
         {/* {schemaBasicData && (

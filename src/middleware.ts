@@ -1,60 +1,66 @@
+// middleware.ts
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { UserLanguage } from './app/enums/LangEnum';
 
+const COOKIE_NAME = '@sutra-user-lang'; // bez '@'
+const COOKIE_MAX_AGE = 60 * 60 * 24 * 30; // 30 dana
+const SUPPORTED_LANGUAGES = Object.values(UserLanguage);
+
 export function middleware(request: NextRequest) {
-  const SUPPORTED_LANGUAGES = Object.values(UserLanguage);
-  const userLangFromCookie = request.cookies.get('@sutra-user-lang')?.value;
-  const url = request.nextUrl;
+  const url = request.nextUrl.clone();
+  const p = url.pathname;
+  const cookieLang = request.cookies.get(COOKIE_NAME)?.value as string | undefined;
 
-  // Funkcija za preusmjeravanje s postavljanjem jezika u kolačić
-  const redirectToLanguage = (lang: string) => {
-    const response = NextResponse.redirect(new URL(`/${lang}`, url));
-    response.cookies.set('@sutra-user-lang', lang, { maxAge: 60 * 60 * 24 * 30 }); // 30 dana trajanja
-    return response;
-  };
-
-  // Izuzetak za sitemap.xml
+  // 1) Izuzeci za statiku, API, _next, favicon, sitemap i .well‑known
   if (
-    url.pathname === '/sitemap.xml' ||
-    url.pathname.startsWith('/hr/sitemap.xml') ||
-    url.pathname.startsWith('/.well-known')
-    // Object.values(UserLanguage).some((lang) => url.pathname.startsWith(`/${lang}`))
+    p.startsWith('/api') ||
+    p.startsWith('/_next') ||
+    p.startsWith('/static') ||
+    p === '/favicon.ico' ||
+    p === '/sitemap.xml' ||
+    p.startsWith('/.well-known')
   ) {
     return NextResponse.next();
   }
 
-  // Ako korisnik posjećuje osnovnu stranicu "/"
-  if (url.pathname === '/') {
-    if (userLangFromCookie && SUPPORTED_LANGUAGES.includes(userLangFromCookie as UserLanguage)) {
-      return redirectToLanguage(userLangFromCookie);
+  // 2) Korisnik na root "/"
+  if (p === '/') {
+    // 2.a) iz cookieja
+    if (cookieLang && SUPPORTED_LANGUAGES.includes(cookieLang as UserLanguage)) {
+      const res = NextResponse.redirect(new URL(`/${cookieLang}`, request.url));
+      res.cookies.set(COOKIE_NAME, cookieLang, { maxAge: COOKIE_MAX_AGE, path: '/' });
+      return res;
     }
-
-    const acceptLanguage = request.headers.get('accept-language')?.split(',')[0].split('-')[0];
-
-    if (acceptLanguage) {
-      const langMatch = SUPPORTED_LANGUAGES.find((lang) => lang.startsWith(acceptLanguage));
-      if (langMatch) return redirectToLanguage(langMatch);
-    }
-    return redirectToLanguage('hr');
+    // 2.b) iz headera
+    const accept = request.headers.get('accept-language')?.split(',')[0].split('-')[0];
+    const matched = SUPPORTED_LANGUAGES.find((l) => l.startsWith(accept || ''));
+    const langToUse = matched || UserLanguage.hr;
+    const res = NextResponse.redirect(new URL(`/${langToUse}`, request.url));
+    res.cookies.set(COOKIE_NAME, langToUse, { maxAge: COOKIE_MAX_AGE, path: '/' });
+    return res;
   }
 
-  // Pročitaj prvi segment URL-a
-  const lang = url.pathname.split('/')[1] as string;
-
-  // Ako to nije podržani jezik, samo proslijedi bez redirecta ili cookie logike
-  if (!SUPPORTED_LANGUAGES.includes(lang as UserLanguage)) {
+  // 3) Dohvati prvi segment i provjeri je li validan jezik
+  const [_, first] = p.split('/');
+  if (!SUPPORTED_LANGUAGES.includes(first as UserLanguage)) {
+    // nije validno /lang/... → pusti Next.js da izgenerira 404 ili drugu logiku
     return NextResponse.next();
   }
 
-  // Ako kolačić nije postavljen, postavi ga
-  if (!userLangFromCookie) {
-    const response = NextResponse.next();
-    response.cookies.set('@sutra-user-lang', lang, { maxAge: 60 * 60 * 24 * 30 });
-    return response;
+  // 4) Validan jezik u pathu
+  const pathLang = first as UserLanguage;
+  const res = NextResponse.next();
+
+  // 5) Ako cookie ne postoji ili se razlikuje, sinkroniziraj
+  if (cookieLang !== pathLang) {
+    res.cookies.set(COOKIE_NAME, pathLang, {
+      maxAge: COOKIE_MAX_AGE,
+      path: '/',
+    });
   }
 
-  return NextResponse.next();
+  return res;
 }
 
 export const config = {
