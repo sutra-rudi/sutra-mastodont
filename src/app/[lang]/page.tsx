@@ -75,12 +75,12 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
   //MEDIA PATHS
   const MP = await fetchMediaPaths();
 
-  const { carusel1Images } = MP;
+  const { carusel1Images, heroImagesHomePage } = MP;
 
   return (
     <main className='relative w-full dark:bg-primarna-tamna min-h-screen'>
       <Suspense fallback={<Loading />}>
-        <AppHero currentLang={lang} />
+        <AppHero currentLang={lang} imgs={heroImagesHomePage} />
         <ContentSectionFirst
           isList={false}
           content={findFirstTextContent?.node}
