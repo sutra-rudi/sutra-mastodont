@@ -15,7 +15,12 @@ export function middleware(request: NextRequest) {
   };
 
   // Izuzetak za sitemap.xml
-  if (url.pathname === '/sitemap.xml' || url.pathname.startsWith('/hr/sitemap.xml')) {
+  if (
+    url.pathname === '/sitemap.xml' ||
+    url.pathname.startsWith('/hr/sitemap.xml') ||
+    url.pathname.startsWith('/.well-known')
+    // Object.values(UserLanguage).some((lang) => url.pathname.startsWith(`/${lang}`))
+  ) {
     return NextResponse.next();
   }
 
@@ -26,6 +31,7 @@ export function middleware(request: NextRequest) {
     }
 
     const acceptLanguage = request.headers.get('accept-language')?.split(',')[0].split('-')[0];
+
     if (acceptLanguage) {
       const langMatch = SUPPORTED_LANGUAGES.find((lang) => lang.startsWith(acceptLanguage));
       if (langMatch) return redirectToLanguage(langMatch);
@@ -33,9 +39,13 @@ export function middleware(request: NextRequest) {
     return redirectToLanguage('hr');
   }
 
-  // Pročitaj jezik iz putanje ("/lang/...")
-  const lang = url.pathname.split('/')[1];
-  if (!SUPPORTED_LANGUAGES.includes(lang as UserLanguage)) return redirectToLanguage('hr');
+  // Pročitaj prvi segment URL-a
+  const lang = url.pathname.split('/')[1] as string;
+
+  // Ako to nije podržani jezik, samo proslijedi bez redirecta ili cookie logike
+  if (!SUPPORTED_LANGUAGES.includes(lang as UserLanguage)) {
+    return NextResponse.next();
+  }
 
   // Ako kolačić nije postavljen, postavi ga
   if (!userLangFromCookie) {
