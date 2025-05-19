@@ -33,6 +33,7 @@ import { JobOpeningsFragment } from '../queries/dynamicQueries/getAllJobOpenings
 import Timeline from '../components/Timeline';
 import { Suspense } from 'react';
 import Loading from './loading';
+import MiddleSectionVideo from '../appComponents/landing/MiddleSectionVIdeo';
 
 const findKaruselDataBase = dataset.data.allSlikeGalerijaKarusel.edges.find(
   (list) => list.node.title === 'Naslovnica – Karusel slika'
@@ -75,12 +76,16 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
   //MEDIA PATHS
   const MP = await fetchMediaPaths();
 
-  const { carusel1Images } = MP;
+  const {
+    carusel1Images,
+    heroImagesHomePage,
+    videoResources: { homePageMiddleSection },
+  } = MP;
 
   return (
     <main className='relative w-full dark:bg-primarna-tamna min-h-screen'>
       <Suspense fallback={<Loading />}>
-        <AppHero currentLang={lang} />
+        <AppHero currentLang={lang} imgs={heroImagesHomePage} />
         <ContentSectionFirst
           isList={false}
           content={findFirstTextContent?.node}
@@ -103,6 +108,8 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
         <AboutUsSection currentLang={lang} />
         <Timeline currentLang={lang} />
+
+        <MiddleSectionVideo sourceUrl={homePageMiddleSection} />
 
         {pCsData && <PortfolioCaseStudy currentLang={lang} dataset={pCsData} />}
 
