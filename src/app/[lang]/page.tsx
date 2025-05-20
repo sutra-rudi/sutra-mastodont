@@ -34,6 +34,7 @@ import Timeline from '../components/Timeline';
 import { Suspense } from 'react';
 import Loading from './loading';
 import MiddleSectionVideo from '../appComponents/landing/MiddleSectionVIdeo';
+import ServicesSection from '../appComponents/landing/ServicesSection';
 
 const findKaruselDataBase = dataset.data.allSlikeGalerijaKarusel.edges.find(
   (list) => list.node.title === 'Naslovnica – Karusel slika'
@@ -105,6 +106,8 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
         {blogsData && <BlogSection currentLang={lang} blogList={blogsData} />}
 
         <BaseCaruselSection dataset={filterImagesMiddle} />
+
+        <ServicesSection currentLang={lang} />
 
         <AboutUsSection currentLang={lang} />
         <Timeline currentLang={lang} />
