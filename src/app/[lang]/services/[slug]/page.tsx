@@ -20,7 +20,9 @@ export default async function SingleServicePage({
   const slugId = getIdFromSlug(slug);
   const uData = await fetchData(getSingleUsluge(slugId));
 
-  const hero = uData.data.portfolioUsluga.uslugeIntro.glavnaSlika.node.sourceUrl;
+  const hero = uData.data.portfolioUsluga.uslugeIntro.glavnaSlika
+    ? uData.data.portfolioUsluga.uslugeIntro.glavnaSlika.node.sourceUrl
+    : 'https://mastodont-2.sutra-cms.com/Sutra-ftp/other/CMS_Image_Placeholder.jpg';
 
   //   const hero = uData.data.portfolioUsluga.uslugeIntro.dodatneOpcijeUsluga.sliderSlikeHeroSekcije1 ?? null;
   //   const hero2 = uData.data.portfolioUsluga.uslugeIntro.dodatneOpcijeUsluga.sliderSlikeHeroSekcije2 ?? null;
