@@ -75,6 +75,12 @@ export default function getAllUslugeQuery() {
               sourceUrl
             }
           }
+      glavnaSlika {
+        node {
+          sourceUrl
+          id
+        }
+      }
         }
         skupinaAtributaHr {
           atributiSkupinaHr {

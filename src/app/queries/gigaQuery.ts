@@ -4345,6 +4345,12 @@ export default function GIGA_QUERY() {
               sourceUrl
             }
           }
+          glavnaSlika {
+        node {
+          sourceUrl
+          id
+        }
+      }
         }
         skupinaAtributaHr {
           atributiSkupinaHr {
