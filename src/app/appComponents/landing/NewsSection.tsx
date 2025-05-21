@@ -63,7 +63,8 @@ export default function NewsSection({ currentLang, newsList }: NewsSection) {
                           </div>
                         ) : (
                           <div className='line-clamp-4 leading-relaxed mb-3'>
-                            {parse(news.node[`sadrzaj${l}Fields`]?.[`sadrzajSadrzaj${l}`])}
+                            {/* {parse(news.node[`sadrzaj${l}Fields`]?.[`sadrzajSadrzaj${l}`])} */}
+                            Nema introa
                           </div>
                         )}
                         <div className='flex items-center flex-wrap '>

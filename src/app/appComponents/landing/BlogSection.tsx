@@ -93,7 +93,8 @@ export default function BlogSection({ currentLang, blogList }: BlogSection) {
                           </div>
                         ) : (
                           <div className='line-clamp-4 leading-relaxed mb-3'>
-                            {parse(blog.node[`sadrzaj${l}Fields`]?.[`sadrzajSadrzaj${l}`])}
+                            Nema introa
+                            {/* {parse(blog.node[`sadrzaj${l}Fields`]?.[`sadrzajSadrzaj${l}`])} */}
                           </div>
                         )}
                         <div className='flex items-center flex-wrap'>
@@ -162,7 +163,8 @@ export default function BlogSection({ currentLang, blogList }: BlogSection) {
                             </div>
                           ) : (
                             <div className='line-clamp-4 leading-relaxed mb-3'>
-                              {parse(blog.node[`sadrzaj${l}Fields`]?.[`sadrzajSadrzaj${l}`])}
+                              {/* {parse(blog.node[`sadrzaj${l}Fields`]?.[`sadrzajSadrzaj${l}`])} */}
+                              Nema introa
                             </div>
                           )}
                           <div className='flex items-center flex-wrap'>

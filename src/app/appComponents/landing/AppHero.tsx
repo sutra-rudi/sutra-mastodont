@@ -10,7 +10,7 @@ const findDataset = dataset.data.allHeroSekcija.edges[0].node;
 export default async function AppHero({ currentLang, imgs }: AppHero) {
   const l = getSuffixFromLang(currentLang);
   return (
-    <section className='lg:min-h-[50vh] min-h-[70vh] flex justify-center items-center -mt--desktop---5xl relative'>
+    <section className='lg:min-h-[50vh] min-h-[70vh] flex justify-center items-center -mt--desktop---4xl relative'>
       <picture>
         <img
           src={imgs.mobile}
