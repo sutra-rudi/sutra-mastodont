@@ -163,7 +163,7 @@ const AppHeader = ({ logos }: Header) => {
             </div>
 
             <div
-              className={`absolute z-[90] w-full h-screen bg-almost-white inset-0 transition-all duration-300 flex items-center lg:justify-center justify-start flex-col lg:pt-0 pt-24 px-4  ${
+              className={`absolute z-[90] w-full max-w-full h-screen bg-almost-white inset-0 transition-all duration-300 flex items-center lg:justify-center justify-start flex-col lg:pt-0 pt-24 px-4  ${
                 isMobileMenuOpen
                   ? 'opacity-100 pointer-events-auto select-auto'
                   : 'opacity-0 select-none pointer-events-none'

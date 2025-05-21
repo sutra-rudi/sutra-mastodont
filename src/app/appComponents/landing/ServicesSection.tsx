@@ -15,7 +15,7 @@ interface Usluge {
 
 export default function ServicesSection({ currentLang }: Usluge) {
   const l = getSuffixFromLang(currentLang);
-  //   console.log('ALL USLUGE', allUsluge);
+
   return (
     <section className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl relative w-full'>
       <h2 className='text-3xl font-bold text-dark dark:text-white sm:text-[40px]/[48px] w-full text-center lg:mb-20 mb-[60px]'>
