@@ -1,10 +1,8 @@
-export default function getAllUslugeQuery() {
-  return `query getPortfolioUsluga {
-  allPortfolioUsluga {
-    edges {
-      node {
-        id
-        databaseId
+export default function getSingleUsluge(id: string) {
+  return `query getAPortfolioUsluga {
+  portfolioUsluga(id: "${id}", idType: DATABASE_ID) {
+    id
+      databaseId
         statusAtivacijePoJezicima {
           aktivatorEng
           aktivatorGer
@@ -26,26 +24,31 @@ export default function getAllUslugeQuery() {
             ikonaUsluge {
               node {
                 id
+                sourceUrl
               }
             }
             sliderSlikeHeroSekcije1 {
               node {
                 id
+                sourceUrl
               }
             }
             sliderSlikeHeroSekcije2 {
               node {
                 id
+                sourceUrl
               }
             }
             sliderSlikeHeroSekcije3 {
               node {
                 id
+                sourceUrl
               }
             }
             sliderSlikeHeroSekcije4 {
               node {
                 id
+                sourceUrl
               }
             }
             tAG {
@@ -755,8 +758,6 @@ export default function getAllUslugeQuery() {
             kratakOpisUsluge
           }
         }
-      }
-    }
   }
 }`;
 }
