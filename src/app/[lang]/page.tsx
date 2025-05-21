@@ -83,6 +83,8 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
     videoResources: { homePageMiddleSection },
   } = MP;
 
+  // console.log('BLOGS DATA', blogsData);
+
   return (
     <main className='relative w-full dark:bg-primarna-tamna min-h-screen'>
       <Suspense fallback={<Loading />}>

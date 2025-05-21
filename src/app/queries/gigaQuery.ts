@@ -4269,6 +4269,7 @@ export default function GIGA_QUERY() {
     edges {
       node {
         id
+        databaseId
         statusAtivacijePoJezicima {
           aktivatorEng
           aktivatorGer
@@ -4290,26 +4291,31 @@ export default function GIGA_QUERY() {
             ikonaUsluge {
               node {
                 id
+                sourceUrl
               }
             }
             sliderSlikeHeroSekcije1 {
               node {
                 id
+                sourceUrl
               }
             }
             sliderSlikeHeroSekcije2 {
               node {
                 id
+                sourceUrl
               }
             }
             sliderSlikeHeroSekcije3 {
               node {
                 id
+                sourceUrl
               }
             }
             sliderSlikeHeroSekcije4 {
               node {
                 id
+                sourceUrl
               }
             }
             tAG {

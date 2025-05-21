@@ -13,6 +13,8 @@ export default function AboutUsSection({ currentLang }: AboutUsSection) {
       ?.oNamaSkraceniTekstZaNaslovnicuIliFooter;
 
   const imgThumb = findAboutData.naslovnaSlika.sekundarnaGlavnaSlikaThumbnailHover;
+
+  console.log('ABD', abd);
   return (
     <section className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl w-full h-full'>
       <div className='mx-auto container w-full px-4 flex items-start justify-center lg:gap-desktop-slika-sadrzaj md:gap-tablet-slika-sadrzaj gap-mobile-slika-sadrzaj lg:flex-nowrap flex-wrap'>

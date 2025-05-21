@@ -5998,6 +5998,7 @@
         {
           "node": {
             "id": "cG9zdDo4MzQy",
+            "databaseId": 8342,
             "statusAtivacijePoJezicima": {
               "aktivatorEng": true,
               "aktivatorGer": true,
@@ -6018,27 +6019,32 @@
                 "bojaUsluge": "#dd3333",
                 "ikonaUsluge": {
                   "node": {
-                    "id": "cG9zdDo5ODE3"
+                    "id": "cG9zdDo5ODE3",
+                    "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/01/Sutra-profilna-slika-zuta-horizontalna.jpg"
                   }
                 },
                 "sliderSlikeHeroSekcije1": {
                   "node": {
-                    "id": "cG9zdDoxMTIyNg=="
+                    "id": "cG9zdDoxMTIyNg==",
+                    "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/1000091084-1.jpg"
                   }
                 },
                 "sliderSlikeHeroSekcije2": {
                   "node": {
-                    "id": "cG9zdDoxMTIxNQ=="
+                    "id": "cG9zdDoxMTIxNQ==",
+                    "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01749.jpg"
                   }
                 },
                 "sliderSlikeHeroSekcije3": {
                   "node": {
-                    "id": "cG9zdDoxMTIxOQ=="
+                    "id": "cG9zdDoxMTIxOQ==",
+                    "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/1000091074.jpg"
                   }
                 },
                 "sliderSlikeHeroSekcije4": {
                   "node": {
-                    "id": "cG9zdDoxMTEzNQ=="
+                    "id": "cG9zdDoxMTEzNQ==",
+                    "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DJI_0330-1.jpg"
                   }
                 },
                 "tAG": {
@@ -6767,6 +6773,7 @@
         {
           "node": {
             "id": "cG9zdDozMTE0",
+            "databaseId": 3114,
             "statusAtivacijePoJezicima": {
               "aktivatorEng": true,
               "aktivatorGer": true,
@@ -7478,6 +7485,7 @@
         {
           "node": {
             "id": "cG9zdDozMTk0",
+            "databaseId": 3194,
             "statusAtivacijePoJezicima": {
               "aktivatorEng": true,
               "aktivatorGer": false,
@@ -8189,6 +8197,7 @@
         {
           "node": {
             "id": "cG9zdDo3Nzk1",
+            "databaseId": 7795,
             "statusAtivacijePoJezicima": {
               "aktivatorEng": true,
               "aktivatorGer": true,
@@ -8900,6 +8909,7 @@
         {
           "node": {
             "id": "cG9zdDo3Nzk3",
+            "databaseId": 7797,
             "statusAtivacijePoJezicima": {
               "aktivatorEng": true,
               "aktivatorGer": true,
