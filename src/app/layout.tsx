@@ -15,6 +15,7 @@ import CookieNotice from './globalComponents/CookieNotice';
 import { fetchData } from './utils/callApi';
 import GetAlertsQuery from './queries/dynamicQueries/getAllAlerts';
 import NewsTrack from './globalComponents/NewsTrack';
+import ViewTransitionProvider from './viewTransitionProvider';
 
 const AppHeader = dynamic(() => import('./globalComponents/AppHeader'));
 const AppFooter = dynamic(() => import('./globalComponents/AppFooter'));
