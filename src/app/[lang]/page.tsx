@@ -1,17 +1,20 @@
 export const maxDuration = 60;
-// export const revalidate = 21600; // 6h
 export const revalidate = 1800;
 //SECTION IMPORTS
 import AppHero from '../appComponents/landing/AppHero';
 import BaseCaruselSection from '../appComponents/landing/BaseCaruselSection';
-import BlogSection from '../appComponents/landing/BlogSection';
 import ContactSection from '../appComponents/landing/ContactSection';
 import ContentSectionFirst from '../appComponents/landing/ContentSectionFirst';
 import FaqSection from '../appComponents/landing/FaqSection';
-import MapSection from '../appComponents/landing/MapSection';
-import NewsSection from '../appComponents/landing/NewsSection';
 import CompanyInNumbers from '../appComponents/landing/CompanyInNumbers';
 import ClientTestimonials from '../appComponents/landing/ClientTestimonials';
+import ServicesSection from '../appComponents/landing/ServicesSection';
+
+const MiddleSectionVideo = dynamic(() => import('../appComponents/landing/MiddleSectionVIdeo'), { ssr: false });
+const BlogSection = dynamic(() => import('../appComponents/landing/BlogSection'));
+const NewsSection = dynamic(() => import('../appComponents/landing/NewsSection'));
+const MapSection = dynamic(() => import('../appComponents/landing/MapSection'));
+
 //QUERIES
 import { fetchMediaPaths } from '../utils/callMediaPaths';
 import { BlogFragment } from '../queries/dynamicQueries/getAllBlogs';
@@ -33,8 +36,7 @@ import { JobOpeningsFragment } from '../queries/dynamicQueries/getAllJobOpenings
 import Timeline from '../components/Timeline';
 import { Suspense } from 'react';
 import Loading from './loading';
-import MiddleSectionVideo from '../appComponents/landing/MiddleSectionVIdeo';
-import ServicesSection from '../appComponents/landing/ServicesSection';
+import dynamic from 'next/dynamic';
 
 const findKaruselDataBase = dataset.data.allSlikeGalerijaKarusel.edges.find(
   (list) => list.node.title === 'Naslovnica – Karusel slika'
@@ -82,8 +84,6 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
     heroImagesHomePage,
     videoResources: { homePageMiddleSection },
   } = MP;
-
-  // console.log('BLOGS DATA', blogsData);
 
   return (
     <main className='relative w-full dark:bg-primarna-tamna min-h-screen'>
@@ -133,7 +133,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
         <ContactSection currentLang={lang} />
 
-        <FaqSection currentLang={lang} />
+        <FaqSection currentLang={lang} isSub={false} />
         <MapSection />
       </Suspense>
     </main>

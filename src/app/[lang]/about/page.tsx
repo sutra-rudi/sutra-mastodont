@@ -4,6 +4,7 @@ import parse from 'html-react-parser';
 import { fetchMediaPaths } from '@/app/utils/callMediaPaths';
 import PhotoGalleryComponent from '@/app/appComponents/global/PhotoGallery';
 import Client from './Client';
+import { Suspense } from 'react';
 
 //HERO IMAGES ABOUT US NA FPT NIJE ISPUNJEN PA KORISTIN DEFAULT HERO
 export default async function AboutUsPage({ params: { lang } }: { params: { lang: string } }) {
@@ -32,29 +33,31 @@ export default async function AboutUsPage({ params: { lang } }: { params: { lang
 
   return (
     <main className='w-full h-full min-h-screen relative'>
-      <div className='relative -mt--desktop---4xl max-w-[1920px]'>
-        <Client
-          lang={lang}
-          title={title}
-          subTitle={subTitle}
-          imgSrc={heroImg ? heroImg.node.sourceUrl : heroImagesDefault.desktop}
-        />
-      </div>
+      <Suspense>
+        <div className='relative -mt--desktop---4xl max-w-[1920px]'>
+          <Client
+            lang={lang}
+            title={title}
+            subTitle={subTitle}
+            imgSrc={heroImg ? heroImg.node.sourceUrl : heroImagesDefault.desktop}
+          />
+        </div>
 
-      <article className='max-w-prose mx-auto px-4 lg:mt-desktop-slika-sadrzaj md:mt-tablet-slika-sadrzaj mt-mobile-slika-sadrzaj'>
-        <p className='lg:text-nadnaslov-desktop md:text-nadnaslov-tablet text-nadnaslov-mobile'>
-          {contentFieldText.oNamaNadnaslovPodnaslov1}
-        </p>
-        <h3 className='lg:text-h3-desktop md:text-h3-tablet text-h3-mobile lg:mb-desktop-naslov-nadnaslov md:mb-tablet-naslov-nadnaslov mb-mobile-naslov-nadnaslov'>
-          {contentFieldText.oNamaNaslov1Pasus}
-        </h3>
+        <article className='max-w-prose mx-auto px-4 lg:mt-desktop-slika-sadrzaj md:mt-tablet-slika-sadrzaj mt-mobile-slika-sadrzaj'>
+          <p className='lg:text-nadnaslov-desktop md:text-nadnaslov-tablet text-nadnaslov-mobile'>
+            {contentFieldText.oNamaNadnaslovPodnaslov1}
+          </p>
+          <h3 className='lg:text-h3-desktop md:text-h3-tablet text-h3-mobile lg:mb-desktop-naslov-nadnaslov md:mb-tablet-naslov-nadnaslov mb-mobile-naslov-nadnaslov'>
+            {contentFieldText.oNamaNaslov1Pasus}
+          </h3>
 
-        <section className='lg:prose-lg prose'>{parse(contentFieldText.sadrzaj1)}</section>
-      </article>
+          <section className='lg:prose-lg prose'>{parse(contentFieldText.sadrzaj1)}</section>
+        </article>
 
-      <div className='w-full mx-auto max-w-[1440px] px-4 lg:-mt--desktop---3xl md:-mt--tablet---3xl -mt--mobile---3xl'>
-        <PhotoGalleryComponent gallery={gallery} currentLang={lang} />
-      </div>
+        <div className='w-full mx-auto max-w-[1440px] px-4 lg:-mt--desktop---3xl md:-mt--tablet---3xl -mt--mobile---3xl'>
+          <PhotoGalleryComponent gallery={gallery} currentLang={lang} />
+        </div>
+      </Suspense>
     </main>
   );
 }

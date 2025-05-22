@@ -42,9 +42,11 @@ export default function Timeline({ currentLang }: Timeline) {
                         {d.node[`timeline${l}`]?.[`timelineSadrzaj${l}`].naslov}
                       </h3>
 
-                      <div className='lg:prose prose-sm mt-0.5 prose-p:text-text-light-mode prose-headings:text-heading-color-light-mode'>
-                        {parse(d.node[`timeline${l}`]?.[`timelineSadrzaj${l}`].sadrzaj)}
-                      </div>
+                      {d.node[`timeline${l}`]?.[`timelineSadrzaj${l}`].sadrzaj && (
+                        <div className='lg:prose prose-sm mt-0.5 prose-p:text-text-light-mode prose-headings:text-heading-color-light-mode'>
+                          {parse(d.node[`timeline${l}`]?.[`timelineSadrzaj${l}`].sadrzaj)}
+                        </div>
+                      )}
 
                       <picture>
                         <img

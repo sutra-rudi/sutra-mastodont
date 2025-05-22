@@ -63,7 +63,7 @@ const NewsTrack = ({ pageContent, lang }: ObavijestiNaStraniciInterface) => {
   return (
     isOpen && (
       <div
-        className={`absolute  max-w-full overflow-hidden left-0 right-0 top-[0] motion-preset-slide-down z-40 justify-center bg-accent-boja motion-ease-spring-smooth motion-delay-300 md:py-4 py-2`}
+        className={`absolute hidden  max-w-full overflow-hidden left-0 right-0 top-[0] motion-preset-slide-down z-40 justify-center bg-accent-boja motion-ease-spring-smooth motion-delay-300 md:py-4 py-2`}
       >
         {filtriraneObavijesti.map((contentShorthand: any, index: number) => {
           const notificationToShow = contentShorthand.statusAtivacijePoJezicima[`aktivator${l}`];

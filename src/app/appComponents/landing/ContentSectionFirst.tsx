@@ -112,8 +112,8 @@ export default function ContentSectionFirst({
               {naslov}
             </h2>
 
-            {!isList && <div className='lg:prose-lg prose'>{parse(sadrzaj)}</div>}
-            {isList && (
+            {!isList && sadrzaj && <div className='lg:prose-lg prose'>{parse(sadrzaj)}</div>}
+            {isList && sadrzaj && (
               <ul className='flex flex-col lg:-gap--desktop-liste-udaljenost-u-listama-big md:-gap--tablet-liste-udaljenost-u-listama-big -gap--mobile-liste-udaljenost-u-listama-big w-full max-w-prose h-full text-text-light-mode dark:text-text-dark-mode'>
                 {sadrzaj.map((ld: any, i: number) => {
                   return (

@@ -19,7 +19,8 @@ export function middleware(request: NextRequest) {
     p.startsWith('/static') ||
     p === '/favicon.ico' ||
     p === '/sitemap.xml' ||
-    p.startsWith('/.well-known')
+    p.startsWith('/.well-known') ||
+    p.startsWith('/image')
   ) {
     return NextResponse.next();
   }
