@@ -12,7 +12,7 @@ interface MiddleSectionVideoProps {
 export default function MiddleSectionVideo({ sourceUrl }: MiddleSectionVideoProps) {
   const [videoError, setVideoError] = useState(false);
 
-  const hasValidVideo = !!sourceUrl?.video && !videoError;
+  const hasValidVideo = !sourceUrl?.video || !videoError;
 
   return (
     <div className='relative w-full md:h-[calc(100vh-5rem)] h-[300px] lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl'>
