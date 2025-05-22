@@ -26,7 +26,7 @@ function AccordionItem({ header, text }: { header: string; text: string }) {
   return (
     <div
       onClick={toggle}
-      className='mb-8 w-full rounded-lg bg-white p-4 shadow-[0px_20px_95px_0px_rgba(201,203,204,0.30)] dark:bg-dark-2 dark:shadow-[0px_20px_95px_0px_rgba(0,0,0,0.30)] sm:p-8 lg:px-6 xl:px-8 transition-all ease-in-out cursor-pointer hover:bg-primarna-svijetla/5'
+      className='mb-8 w-full rounded-lg bg-white p-4 shadow-[0px_20px_95px_0px_rgba(201,203,204,0.30)] dark:bg-dark-2 dark:shadow-[0px_20px_95px_0px_rgba(0,0,0,0.30)] sm:p-8 lg:px-6 xl:px-8 transition-all ease-in-out transform-gpu cursor-pointer hover:bg-primarna-svijetla/5'
     >
       <button role='button' className='flex w-full text-left'>
         <div className='mr-5 flex h-10 w-full max-w-[40px] items-center justify-center rounded-lg'>
@@ -54,7 +54,7 @@ function AccordionItem({ header, text }: { header: string; text: string }) {
 
       <div
         ref={contentRef}
-        className={`pl-[62px] overflow-hidden transition-all duration-500 ease-in-out ${
+        className={`pl-[62px] overflow-hidden transition-all duration-500 ease-in-out transform-gpu ${
           active ? 'max-h-[500px] opacity-100 animate-fade-in-down' : 'max-h-0 opacity-0 animate-fade-out-up'
         }`}
       >
