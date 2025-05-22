@@ -116,7 +116,7 @@ export default function FaqSection({ currentLang }: FaqSectionProps) {
         </div>
 
         <div className='flex flex-wrap px-4'>
-          <div className='w-full px-4 lg:w-1/2'>
+          <div className='w-full lg:px-4 lg:w-1/2'>
             {left.map((item) => (
               <AccordionItem
                 key={item.node.id}
@@ -127,7 +127,7 @@ export default function FaqSection({ currentLang }: FaqSectionProps) {
               />
             ))}
           </div>
-          <div className='w-full px-4 lg:w-1/2'>
+          <div className='w-full lg:px-4 lg:w-1/2'>
             {right.map((item) => (
               <AccordionItem
                 key={item.node.id}
