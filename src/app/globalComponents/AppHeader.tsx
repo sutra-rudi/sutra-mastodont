@@ -188,7 +188,7 @@ const AppHeader = ({ logos }: Header) => {
             </div>
 
             <div
-              className={`absolute z-[90] w-full max-w-full h-screen bg-almost-white inset-0 flex items-center lg:justify-center justify-start flex-col lg:pt-0 pt-24 px-4 transition-all ease-in-out duration-700 will-change-transform transform-gpu ${
+              className={`absolute z-[90] w-full max-w-full h-screen bg-almost-white inset-0 flex items-center lg:justify-center justify-start flex-col lg:pt-0 pt-24 px-4 transition-all ease-in-out duration-700 will-change-transform transform-gpu overflow-scroll ${
                 !mounted
                   ? 'translate-x-full opacity-0 pointer-events-none'
                   : isMobileMenuOpen
@@ -196,7 +196,7 @@ const AppHeader = ({ logos }: Header) => {
                   : 'motion-translate-x-out-100 motion-opacity-out-0 motion-duration-[700ms] motion-ease-spring-smooth pointer-events-none'
               }`}
             >
-              <ul className='lg:text-h2-desktop md:text-h2-tablet text-h2-mobile flex flex-col gap-4'>
+              <ul className='lg:text-h2-desktop md:text-h2-tablet text-h2-mobile flex flex-col lg:-gap--desktop-liste-udaljenost-u-listama-big md:-gap--tablet-liste-udaljenost-u-listama-big -gap--mobile-liste-udaljenost-u-listama-big'>
                 {baseNav.map((item, i) => (
                   <li
                     key={item.url}
