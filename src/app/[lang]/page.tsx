@@ -3,17 +3,18 @@ export const revalidate = 1800;
 //SECTION IMPORTS
 import AppHero from '../appComponents/landing/AppHero';
 import BaseCaruselSection from '../appComponents/landing/BaseCaruselSection';
-import BlogSection from '../appComponents/landing/BlogSection';
 import ContactSection from '../appComponents/landing/ContactSection';
 import ContentSectionFirst from '../appComponents/landing/ContentSectionFirst';
 import FaqSection from '../appComponents/landing/FaqSection';
-import MapSection from '../appComponents/landing/MapSection';
-import NewsSection from '../appComponents/landing/NewsSection';
 import CompanyInNumbers from '../appComponents/landing/CompanyInNumbers';
 import ClientTestimonials from '../appComponents/landing/ClientTestimonials';
 import ServicesSection from '../appComponents/landing/ServicesSection';
 
 const MiddleSectionVideo = dynamic(() => import('../appComponents/landing/MiddleSectionVIdeo'), { ssr: false });
+const BlogSection = dynamic(() => import('../appComponents/landing/BlogSection'));
+const NewsSection = dynamic(() => import('../appComponents/landing/NewsSection'));
+const MapSection = dynamic(() => import('../appComponents/landing/MapSection'));
+
 //QUERIES
 import { fetchMediaPaths } from '../utils/callMediaPaths';
 import { BlogFragment } from '../queries/dynamicQueries/getAllBlogs';
