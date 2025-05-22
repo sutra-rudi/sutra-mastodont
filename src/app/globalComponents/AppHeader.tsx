@@ -49,6 +49,15 @@ const AppHeader = ({ logos }: Header) => {
       url: `/${currentLang}/news`,
     },
     {
+      hr: 'Usluge',
+      eng: 'Services',
+      ger: 'Dienstleistungen',
+      ita: 'Servizi',
+      esp: 'Servicios',
+      fra: 'Services',
+      url: `/${currentLang}/services`,
+    },
+    {
       hr: 'Oglasi',
       eng: 'Listings',
       ger: 'Anzeigen',
@@ -56,6 +65,15 @@ const AppHeader = ({ logos }: Header) => {
       esp: 'Anuncios',
       fra: 'Annonces',
       url: `/${currentLang}/job-listings`,
+    },
+    {
+      hr: 'FAQ',
+      eng: 'FAQ',
+      ger: 'FAQ',
+      ita: 'FAQ',
+      esp: 'FAQ',
+      fra: 'FAQ',
+      url: `/${currentLang}/faq`,
     },
     {
       hr: 'Kontakt',

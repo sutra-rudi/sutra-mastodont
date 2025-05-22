@@ -23,11 +23,16 @@ function AccordionItem({ header, text }: { header: string; text: string }) {
   };
 
   return (
-    <div className='mb-8 w-full rounded-lg bg-white p-4 shadow-[0px_20px_95px_0px_rgba(201,203,204,0.30)] dark:bg-dark-2 dark:shadow-[0px_20px_95px_0px_rgba(0,0,0,0.30)] sm:p-8 lg:px-6 xl:px-8'>
-      <button className='faq-btn flex w-full text-left' onClick={toggle}>
-        <div className='mr-5 flex h-10 w-full max-w-[40px] items-center justify-center rounded-lg bg-primary/5 text-primary dark:bg-white/5'>
+    <div
+      onClick={toggle}
+      className='mb-8 w-full rounded-lg bg-white p-4 shadow-[0px_20px_95px_0px_rgba(201,203,204,0.30)] dark:bg-dark-2 dark:shadow-[0px_20px_95px_0px_rgba(0,0,0,0.30)] sm:p-8 lg:px-6 xl:px-8 transition-all ease-in-out cursor-pointer hover:bg-primarna-svijetla/5'
+    >
+      <button role='button' className='flex w-full text-left'>
+        <div className='mr-5 flex h-10 w-full max-w-[40px] items-center justify-center rounded-lg'>
           <svg
-            className={`fill-primary stroke-primary duration-500 ease-in-out ${active ? 'rotate-180' : ''}`}
+            className={`fill-primary stroke-primary duration-500 ease-in-out ${
+              active ? 'rotate-180 stroke-accent-boja fill-accent-boja' : ''
+            }`}
             width='17'
             height='10'
             viewBox='0 0 17 10'
@@ -40,7 +45,9 @@ function AccordionItem({ header, text }: { header: string; text: string }) {
           </svg>
         </div>
         <div className='w-full'>
-          <h4 className='mt-1 text-lg font-semibold text-dark dark:text-white'>{header}</h4>
+          <h4 className='mt-1 lg:text-h4-desktop md:text-h4-tablet text-h4-mobile text-heading-color-light-mode dark:text-heading-color-dark-mode'>
+            {header}
+          </h4>
         </div>
       </button>
 
@@ -50,7 +57,9 @@ function AccordionItem({ header, text }: { header: string; text: string }) {
           active ? 'max-h-[500px] opacity-100 animate-fade-in-down' : 'max-h-0 opacity-0 animate-fade-out-up'
         }`}
       >
-        <p className='py-3 text-base leading-relaxed text-body-color dark:text-dark-6'>{text}</p>
+        <p className='py-3 md:text-text-base-base-desktop text-text-base-base-mobiletablet text-text-light-mode dark:text-text-dark-mode'>
+          {text}
+        </p>
       </div>
 
       <style jsx>{`
@@ -99,16 +108,14 @@ export default function FaqSection({ currentLang }: FaqSectionProps) {
   return (
     <section className='relative z-20 overflow-hidden bg-white pb-12 lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl'>
       <div className='container mx-auto'>
-        <div className='-mx-4 flex flex-wrap'>
-          <div className='w-full px-4'>
-            <div className='mx-auto mb-[60px] max-w-[520px] text-center lg:mb-20'>
-              <h2 className='mb-4 text-3xl font-bold text-dark dark:text-white sm:text-[40px]/[48px]'>{title}</h2>
-              <div className='text-base text-body-color dark:text-dark-6'>{parse(text)}</div>
-            </div>
-          </div>
+        <h2 className='lg:text-h2-desktop md:text-h2-tablet text-h2-mobile text-heading-color-light-mode dark:text-heading-color-dark-mode block text-center text-balance lg:-mb--desktop-h1-2---naslov-tekst md:-mb--tablet-h1-2---naslov-tekst -mb--mobile-h1-2---naslov-tekst px-4'>
+          {title}
+        </h2>
+        <div className='text-center md:text-text-base-base-desktop text-text-base-base-mobiletablet max-w-prose text-balance mx-auto text-text-light-mode dark:text-text-dark-mode lg:-mb--desktop---3xl md:-mb--tablet---3xl -mb--mobile---3xl px-4 relative block'>
+          {parse(text)}
         </div>
 
-        <div className='-mx-4 flex flex-wrap'>
+        <div className='flex flex-wrap px-4'>
           <div className='w-full px-4 lg:w-1/2'>
             {left.map((item) => (
               <AccordionItem
