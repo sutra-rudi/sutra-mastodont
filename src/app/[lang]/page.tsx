@@ -132,7 +132,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
         <ContactSection currentLang={lang} />
 
-        <FaqSection currentLang={lang} />
+        <FaqSection currentLang={lang} isSub={false} />
         <MapSection />
       </Suspense>
     </main>

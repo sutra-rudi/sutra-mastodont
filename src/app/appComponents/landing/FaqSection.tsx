@@ -11,6 +11,7 @@ const findIntro = faqDataset.data.allBazaTekstaPodstranice1Modul.edges.find(
 
 interface FaqSectionProps {
   currentLang: string;
+  isSub: boolean;
 }
 
 function AccordionItem({ header, text }: { header: string; text: string }) {
@@ -94,7 +95,7 @@ function AccordionItem({ header, text }: { header: string; text: string }) {
   );
 }
 
-export default function FaqSection({ currentLang }: FaqSectionProps) {
+export default function FaqSection({ currentLang, isSub = false }: FaqSectionProps) {
   const l = getSuffixFromLang(currentLang);
   const middle = Math.floor(findDataset.length / 2);
   const left = findDataset.slice(0, middle);
@@ -108,12 +109,16 @@ export default function FaqSection({ currentLang }: FaqSectionProps) {
   return (
     <section className='relative z-20 overflow-hidden bg-white pb-12 lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl'>
       <div className='container mx-auto'>
-        <h2 className='lg:text-h2-desktop md:text-h2-tablet text-h2-mobile text-heading-color-light-mode dark:text-heading-color-dark-mode block text-center text-balance lg:-mb--desktop-h1-2---naslov-tekst md:-mb--tablet-h1-2---naslov-tekst -mb--mobile-h1-2---naslov-tekst px-4'>
-          {title}
-        </h2>
-        <div className='text-center md:text-text-base-base-desktop text-text-base-base-mobiletablet max-w-prose text-balance mx-auto text-text-light-mode dark:text-text-dark-mode lg:-mb--desktop---3xl md:-mb--tablet---3xl -mb--mobile---3xl px-4 relative block'>
-          {parse(text)}
-        </div>
+        {!isSub && (
+          <h2 className='lg:text-h2-desktop md:text-h2-tablet text-h2-mobile text-heading-color-light-mode dark:text-heading-color-dark-mode block text-center text-balance lg:-mb--desktop-h1-2---naslov-tekst md:-mb--tablet-h1-2---naslov-tekst -mb--mobile-h1-2---naslov-tekst px-4'>
+            {title}
+          </h2>
+        )}
+        {!isSub && (
+          <div className='text-center md:text-text-base-base-desktop text-text-base-base-mobiletablet max-w-prose text-balance mx-auto text-text-light-mode dark:text-text-dark-mode lg:-mb--desktop---3xl md:-mb--tablet---3xl -mb--mobile---3xl px-4 relative block'>
+            {parse(text)}
+          </div>
+        )}
 
         <div className='flex flex-wrap px-4'>
           <div className='w-full lg:px-4 lg:w-1/2'>
