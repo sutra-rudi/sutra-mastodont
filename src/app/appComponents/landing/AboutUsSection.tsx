@@ -27,9 +27,11 @@ export default function AboutUsSection({ currentLang }: AboutUsSection) {
             {/* @ts-ignore */}
             {findAboutData[`oNamaSadrzaj${l}`]?.[`tekstoviPodstraniceONama${l}`].oNamaHeroSekcijaTekstIspodNaslova}
           </p>
-          <div className='lg:mt-desktop-tekst-naslov md:mt-tablet-tekst-naslov mt-mobile-tekst-naslov lg:prose-lg prose w-full prose-headings:text-heading-color-light-mode dark:prose-headings:text-heading-color-dark-mode prose-p:text-text-light-mode dark:prose-p:text-text-dark-mode'>
-            {parse(abd)}
-          </div>
+          {abd && (
+            <div className='lg:mt-desktop-tekst-naslov md:mt-tablet-tekst-naslov mt-mobile-tekst-naslov lg:prose-lg prose w-full prose-headings:text-heading-color-light-mode dark:prose-headings:text-heading-color-dark-mode prose-p:text-text-light-mode dark:prose-p:text-text-dark-mode'>
+              {parse(abd)}
+            </div>
+          )}
         </div>
 
         <div className='max-w-prose relative'>
