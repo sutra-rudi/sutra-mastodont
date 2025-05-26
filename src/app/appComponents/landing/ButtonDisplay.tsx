@@ -15,7 +15,7 @@ import {
 
 export default function ButtonDisplay() {
   return (
-    <section className='flex items-center justify-start flex-wrap gap-6 container mx-auto lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl'>
+    <section className='flex items-center justify-center flex-wrap gap-6 container mx-auto lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl px-4'>
       <PuniTamni />
       <PuniSvjetli />
       <PuniAccent />
