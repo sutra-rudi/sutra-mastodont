@@ -147,7 +147,7 @@ export default async function RootLayout({
 
   return (
     <html lang={htmlLangMap[lang]} className='scrollbar scrollbar-thumb-accent-boja scrollbar-track-primarna-tamna'>
-      <body className={`antialiased relative w-full h-full`}>
+      <body className={`antialiased relative w-full h-full `}>
         {/* 
         {adminTokensDataShorthand?.kodoviAdminApi?.googleAnalytics && userEnabledAllCookies && (
           <GoogleAnalytics gaId={adminTokensDataShorthand.kodoviAdminApi.googleAnalytics} />

@@ -37,6 +37,7 @@ import Timeline from '../components/Timeline';
 import { Suspense } from 'react';
 import Loading from './loading';
 import dynamic from 'next/dynamic';
+import ButtonDisplay from '../appComponents/landing/ButtonDisplay';
 
 const findKaruselDataBase = dataset.data.allSlikeGalerijaKarusel.edges.find(
   (list) => list.node.title === 'Naslovnica – Karusel slika'
@@ -104,6 +105,8 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
           currentLang={lang}
           placeholderGallery={carusel1Images}
         />
+
+        <ButtonDisplay />
 
         {blogsData && <BlogSection currentLang={lang} blogList={blogsData} />}
 

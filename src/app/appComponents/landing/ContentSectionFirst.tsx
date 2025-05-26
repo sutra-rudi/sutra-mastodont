@@ -3,6 +3,7 @@
 import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 import parse from 'html-react-parser';
 import { useIntersectionObserver } from '@uidotdev/usehooks';
+import { PuniTamni } from '../global/Buttons';
 interface ContentSectionSecond {
   reverse?: boolean;
   content: any;
@@ -190,9 +191,7 @@ export default function ContentSectionFirst({
                 })}
               </ul>
             )}
-            <button className='lg:-mt--desktop-h1-2---sadrzaj-cta md:-mt--tablet-h1-2---sadrzaj-cta -mt--mobile-h1-2---sadrzaj-cta inline-flex items-center justify-center py-3 text-base font-medium text-center text-almost-black border border-accent-boja rounded-md px-7 bg-primary hover:bg-opacity-90'>
-              NEKI CTA
-            </button>
+            <PuniTamni />
           </div>
         </div>
       </div>
