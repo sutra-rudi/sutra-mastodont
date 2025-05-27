@@ -50,7 +50,7 @@ export default function EmailBannerSection({ currentLang }: BannerEmail) {
             placeholder='Unesite svoju email adresu'
             className='w-full flex-1 rounded-md border border-transparent px-4 py-2 text-gray-900 focus:border-yellow-400 focus:outline-none'
           />
-          <PuniTamni />
+          <PuniTamni txt='Prijavi se' />
         </form>
       </div>
     </section>

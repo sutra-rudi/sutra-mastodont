@@ -1,11 +1,12 @@
 interface BTN {
   withMargin?: boolean;
+  txt?: string;
 }
 
-export function PuniTamni({ withMargin }: BTN) {
+export function PuniTamni({ withMargin, txt }: BTN) {
   return (
     <button className='w-max max-w-[180px]  flex items-center justify-start bg-primarna-tamna text-almost-white lg:text-button-desktop md:text-button-tablet text-button-mobile md:px-7 md:py-3 px-6 py-[15px] md:rounded-[7px] rounded-[5px] md:gap-[13.3px] gap-[11.6px] transition-all ease-in-out duration-300 group hover:bg-sekundarna-tamna active:bg-almost-black'>
-      <span className='motion-ease-spring-bouncy group-hover:motion-preset-slide-up'>Button text</span>
+      <span className='motion-ease-spring-bouncy group-hover:motion-preset-slide-up'>{txt ? txt : 'Button text'}</span>
 
       <svg
         xmlns='http://www.w3.org/2000/svg'
