@@ -1,3 +1,5 @@
+export const revalidate = 1800;
+
 // import FaqSection from '@/app/appComponents/landing/FaqSection';
 import { fetchMediaPaths } from '@/app/utils/callMediaPaths';
 import Client from './Client';
