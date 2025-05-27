@@ -191,7 +191,9 @@ export default function ContentSectionFirst({
                 })}
               </ul>
             )}
-            <PuniTamni />
+            <div className='lg:-mt--desktop-h1-2---sadrzaj-cta md:-mt--tablet-h1-2---sadrzaj-cta -mt--mobile-h1-2---sadrzaj-cta'>
+              <PuniTamni />
+            </div>
           </div>
         </div>
       </div>

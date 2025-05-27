@@ -288,8 +288,18 @@
             "title": "Naslovnica – S NAMA NA KORNATE",
             "modulBazeTekstovaUvod": {
               "statusPrikazaTekstaZaPodstranicu": true,
-              "slika1": null,
-              "slika2": null
+              "slika1": {
+                "node": {
+                  "id": "cG9zdDoxMTIwMQ==",
+                  "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DJI_0977.jpg"
+                }
+              },
+              "slika2": {
+                "node": {
+                  "id": "cG9zdDoxMTIwMw==",
+                  "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DJI_0991.jpg"
+                }
+              }
             },
             "modulBazeTekstovaHr": {
               "tekstBazaTekstovaHr": "<p data-start=\"74\" data-end=\"631\">Pridružite nam se na nezaboravnom izletu kroz prirodne ljepote Jadrana! Naša tura brodom Sveti Šime II. pruža vam savršen način da uživate u netaknutoj prirodi, predivnim plažama i skrivenim uvalama Nacionalnog parka Kornati i Parka prirode Telašćica. Nakon panoramske vožnje kroz Kornatski arhipelag, zaustavljamo se na otoku Levrnaka i njegovoj poznatoj nebesko plavoj plaži Lojena. Nastavljamo prema Parku prirode Telašćica, gdje možete istražiti spektakularne klifove kao i prirodni fenomen – slano jezero Mir, poznato po svojim ljekovitim svojstvima.</p>\n<p data-start=\"633\" data-end=\"841\">Vaša avantura na Kornatima počinje s povjerenjem, jer je naš cilj pružiti vam najljepše uspomene na ovom putovanju. Doživite Jadran iz prve ruke, opuštajući se i istražujući mjesta koja ostavljaju bez daha.</p>\n",
@@ -328,10 +338,30 @@
             },
             "photoGallery": {
               "fotogalerija": {
-                "galSlika01": null,
-                "galSlika02": null,
-                "galSlika03": null,
-                "galSlika04": null,
+                "galSlika01": {
+                  "node": {
+                    "id": "cG9zdDoxMTIyNA==",
+                    "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/1000091082.jpg"
+                  }
+                },
+                "galSlika02": {
+                  "node": {
+                    "id": "cG9zdDoxMTIwNg==",
+                    "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01469.jpg"
+                  }
+                },
+                "galSlika03": {
+                  "node": {
+                    "id": "cG9zdDoxMTIwNQ==",
+                    "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01464.jpg"
+                  }
+                },
+                "galSlika04": {
+                  "node": {
+                    "id": "cG9zdDoxMTE5MQ==",
+                    "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DJI_0001.jpg"
+                  }
+                },
                 "galSlika05": null,
                 "galSlika06": null,
                 "galSlika07": null,
@@ -2348,14 +2378,14 @@
                   "cookieDugoNapomena": "Klikom na 'Prihvati sve' pristajete na korištenje svih kolačića. Kliknite 'Prihvati samo nužne' za ograničene postavke.",
                   "cookieDugoNaslov": null,
                   "cookieDugoTekst": "<p>&#8220;Kako bismo osigurali najbolje moguće iskustvo pregledavanja, naša web stranica koristi kolačiće. Kolačići su male tekstualne datoteke koje se pohranjuju na vaš uređaj i pomažu nam analizirati promet, prilagoditi sadržaj i osigurati ispravan rad stranice.</p>\n<p>Korištenjem kolačića omogućujemo:</p>\n<p>Poboljšanje funkcionalnosti stranice za ugodnije korištenje.<br />\nAnalizu prometa i razumijevanje kako korisnici koriste našu stranicu.<br />\nPrilagodbu sadržaja kako bismo vam ponudili relevantnije informacije.</p>\n<p>Možete prihvatiti sve kolačiće, odbiti nepotrebne ili prilagoditi svoje postavke u bilo kojem trenutku. Nužni kolačići, koji omogućuju osnovne funkcionalnosti stranice, uvijek su aktivni. Više informacija o vrstama kolačića koje koristimo i kako upravljati njima pronađite u našim Uvjetima korištenja.</p>\n",
-                  "cookieKratkoCta": "Promjeni postavke",
+                  "cookieKratkoCta": "OK",
                   "cookieKratkoNaslov": null,
                   "cookieKratkoTekst": "<p>Ova stranica koristi kolačiće.</p>\n"
                 },
                 "dodatneOpcije505Page": false,
                 "footerBazaTekstova": {
                   "bonusPoljeTeksta": null,
-                  "fOOTERInfoTekstKojiSeIspisujeUDnuStranice": "© 2025"
+                  "footerInfoTekstKojiSeIspisujeUDnuStranicecookieKratkoCtaPostavke": "© 2025"
                 },
                 "maintenanceStranicaPrivremenoOdrzavanje": {
                   "naslov": "Stranica je privremeno nedostupna",
@@ -2390,7 +2420,182 @@
                 "dodatneOpcije505Page": false,
                 "footerBazaTekstova": {
                   "bonusPoljeTeksta": null,
-                  "fOOTERInfoTekstKojiSeIspisujeUDnuStranice": "© 2025"
+                  "footerInfoTekstKojiSeIspisujeUDnuStranicecookieKratkoCtaPostavke": "© 2025"
+                },
+                "maintenanceStranicaPrivremenoOdrzavanje": {
+                  "naslov": "Stranica je privremeno nedostupna",
+                  "tekst": null
+                },
+                "newsletterBazaTekstova": {
+                  "naslovNewslettera": "Najnovije vijesti i ponude iz naše tvrtke",
+                  "newsletterUvodnaPoruka": "Budite uvijek u tijeku s novostima iz naše tvrtke, saznajte prve o našim najnovijim proizvodima i uslugama, te dobivajte korisne savjete i trikove izravno u svoj inbox.",
+                  "newsletterZahvalaNaPretplati": "Zahvaljujemo se na vašoj pretplati na naš newsletter! Sada ćete redovito primati najnovije vijesti, ekskluzivne ponude i korisne informacije izravno u vaš inbox. Cijenimo vašu podršku i radujemo se što ćemo s vama dijeliti sve što je novo i uzbudljivo. Ako imate bilo kakvih pitanja ili prijedloga, slobodno nas kontaktirajte."
+                },
+                "stranicaZaPretraguNoResults": {
+                  "naslov": "Nema rezultata pretrage",
+                  "tekst": null
+                },
+                "thankYouStraniceZahvala": {
+                  "tekst": null
+                }
+              }
+            },
+            "adminCookiesFooterNewsletterGer": {
+              "osnovniTekstoviWebaGer": {
+                "cookieBazaTekstova": {
+                  "cookieDugoCTAPrihvatiSve": "Prihvati sve",
+                  "cookieDugoCtaPrihvatiSamoNuzne": "Prihvati samo nužne",
+                  "cookieDugoNapomena": "Klikom na 'Prihvati sve' pristajete na korištenje svih kolačića. Kliknite 'Prihvati samo nužne' za ograničene postavke.",
+                  "cookieDugoNaslov": null,
+                  "cookieDugoTekst": "<p>&#8220;Kako bismo osigurali najbolje moguće iskustvo pregledavanja, naša web stranica koristi kolačiće. Kolačići su male tekstualne datoteke koje se pohranjuju na vaš uređaj i pomažu nam analizirati promet, prilagoditi sadržaj i osigurati ispravan rad stranice.</p>\n<p>Korištenjem kolačića omogućujemo:</p>\n<p>Poboljšanje funkcionalnosti stranice za ugodnije korištenje.<br />\nAnalizu prometa i razumijevanje kako korisnici koriste našu stranicu.<br />\nPrilagodbu sadržaja kako bismo vam ponudili relevantnije informacije.</p>\n<p>Možete prihvatiti sve kolačiće, odbiti nepotrebne ili prilagoditi svoje postavke u bilo kojem trenutku. Nužni kolačići, koji omogućuju osnovne funkcionalnosti stranice, uvijek su aktivni. Više informacija o vrstama kolačića koje koristimo i kako upravljati njima pronađite u našim Uvjetima korištenja.</p>\n",
+                  "cookieKratkoCta": "OK",
+                  "cookieKratkoNaslov": null,
+                  "cookieKratkoTekst": null
+                },
+                "dodatneOpcije505Page": false,
+                "footerBazaTekstova": {
+                  "bonusPoljeTeksta": null,
+                  "footerInfoTekstKojiSeIspisujeUDnuStranicecookieKratkoCtaPostavke": "© 2025"
+                },
+                "maintenanceStranicaPrivremenoOdrzavanje": {
+                  "naslov": "Stranica je privremeno nedostupna",
+                  "tekst": null
+                },
+                "newsletterBazaTekstova": {
+                  "naslovNewslettera": "Najnovije vijesti i ponude iz naše tvrtke",
+                  "newsletterUvodnaPoruka": "Budite uvijek u tijeku s novostima iz naše tvrtke, saznajte prve o našim najnovijim proizvodima i uslugama, te dobivajte korisne savjete i trikove izravno u svoj inbox.",
+                  "newsletterZahvalaNaPretplati": "Zahvaljujemo se na vašoj pretplati na naš newsletter! Sada ćete redovito primati najnovije vijesti, ekskluzivne ponude i korisne informacije izravno u vaš inbox. Cijenimo vašu podršku i radujemo se što ćemo s vama dijeliti sve što je novo i uzbudljivo. Ako imate bilo kakvih pitanja ili prijedloga, slobodno nas kontaktirajte."
+                },
+                "stranicaZaPretraguNoResults": {
+                  "naslov": "Nema rezultata pretrage",
+                  "tekst": null
+                },
+                "thankYouStraniceZahvala": {
+                  "tekst": null
+                }
+              }
+            },
+            "adminCookiesFooterNewsletterIta": {
+              "osnovniTekstoviWebaIta": {
+                "cookieBazaTekstova": {
+                  "cookieDugoCTAPrihvatiSve": "Prihvati sve",
+                  "cookieDugoCtaPrihvatiSamoNuzne": "Prihvati samo nužne",
+                  "cookieDugoNapomena": "Klikom na 'Prihvati sve' pristajete na korištenje svih kolačića. Kliknite 'Prihvati samo nužne' za ograničene postavke.",
+                  "cookieDugoNaslov": null,
+                  "cookieDugoTekst": "<p>&#8220;Kako bismo osigurali najbolje moguće iskustvo pregledavanja, naša web stranica koristi kolačiće. Kolačići su male tekstualne datoteke koje se pohranjuju na vaš uređaj i pomažu nam analizirati promet, prilagoditi sadržaj i osigurati ispravan rad stranice.</p>\n<p>Korištenjem kolačića omogućujemo:</p>\n<p>Poboljšanje funkcionalnosti stranice za ugodnije korištenje.<br />\nAnalizu prometa i razumijevanje kako korisnici koriste našu stranicu.<br />\nPrilagodbu sadržaja kako bismo vam ponudili relevantnije informacije.</p>\n<p>Možete prihvatiti sve kolačiće, odbiti nepotrebne ili prilagoditi svoje postavke u bilo kojem trenutku. Nužni kolačići, koji omogućuju osnovne funkcionalnosti stranice, uvijek su aktivni. Više informacija o vrstama kolačića koje koristimo i kako upravljati njima pronađite u našim Uvjetima korištenja.</p>\n",
+                  "cookieKratkoCta": "OK",
+                  "cookieKratkoNaslov": null,
+                  "cookieKratkoTekst": null
+                },
+                "dodatneOpcije505Page": false,
+                "footerBazaTekstova": {
+                  "bonusPoljeTeksta": null,
+                  "footerInfoTekstKojiSeIspisujeUDnuStranicecookieKratkoCtaPostavke": "© 2025"
+                },
+                "maintenanceStranicaPrivremenoOdrzavanje": {
+                  "naslov": "Stranica je privremeno nedostupna",
+                  "tekst": null
+                },
+                "newsletterBazaTekstova": {
+                  "naslovNewslettera": "Najnovije vijesti i ponude iz naše tvrtke",
+                  "newsletterUvodnaPoruka": "Budite uvijek u tijeku s novostima iz naše tvrtke, saznajte prve o našim najnovijim proizvodima i uslugama, te dobivajte korisne savjete i trikove izravno u svoj inbox.",
+                  "newsletterZahvalaNaPretplati": "Zahvaljujemo se na vašoj pretplati na naš newsletter! Sada ćete redovito primati najnovije vijesti, ekskluzivne ponude i korisne informacije izravno u vaš inbox. Cijenimo vašu podršku i radujemo se što ćemo s vama dijeliti sve što je novo i uzbudljivo. Ako imate bilo kakvih pitanja ili prijedloga, slobodno nas kontaktirajte."
+                },
+                "stranicaZaPretraguNoResults": {
+                  "naslov": "Nema rezultata pretrage",
+                  "tekst": null
+                },
+                "thankYouStraniceZahvala": {
+                  "tekst": null
+                }
+              }
+            },
+            "adminCookiesFooterNewsletterEsp": {
+              "osnovniTekstoviWebaEsp": {
+                "cookieBazaTekstova": {
+                  "cookieDugoCTAPrihvatiSve": "Prihvati sve",
+                  "cookieDugoCtaPrihvatiSamoNuzne": "Prihvati samo nužne",
+                  "cookieDugoNapomena": "Klikom na 'Prihvati sve' pristajete na korištenje svih kolačića. Kliknite 'Prihvati samo nužne' za ograničene postavke.",
+                  "cookieDugoNaslov": null,
+                  "cookieDugoTekst": "<p>&#8220;Kako bismo osigurali najbolje moguće iskustvo pregledavanja, naša web stranica koristi kolačiće. Kolačići su male tekstualne datoteke koje se pohranjuju na vaš uređaj i pomažu nam analizirati promet, prilagoditi sadržaj i osigurati ispravan rad stranice.</p>\n<p>Korištenjem kolačića omogućujemo:</p>\n<p>Poboljšanje funkcionalnosti stranice za ugodnije korištenje.<br />\nAnalizu prometa i razumijevanje kako korisnici koriste našu stranicu.<br />\nPrilagodbu sadržaja kako bismo vam ponudili relevantnije informacije.</p>\n<p>Možete prihvatiti sve kolačiće, odbiti nepotrebne ili prilagoditi svoje postavke u bilo kojem trenutku. Nužni kolačići, koji omogućuju osnovne funkcionalnosti stranice, uvijek su aktivni. Više informacija o vrstama kolačića koje koristimo i kako upravljati njima pronađite u našim Uvjetima korištenja.</p>\n",
+                  "cookieKratkoCta": "OK",
+                  "cookieKratkoNaslov": null,
+                  "cookieKratkoTekst": null
+                },
+                "dodatneOpcije505Page": false,
+                "footerBazaTekstova": {
+                  "bonusPoljeTeksta": null,
+                  "footerInfoTekstKojiSeIspisujeUDnuStranicecookieKratkoCtaPostavke": "© 2025"
+                },
+                "maintenanceStranicaPrivremenoOdrzavanje": {
+                  "naslov": "Stranica je privremeno nedostupna",
+                  "tekst": null
+                },
+                "newsletterBazaTekstova": {
+                  "naslovNewslettera": "Najnovije vijesti i ponude iz naše tvrtke",
+                  "newsletterUvodnaPoruka": "Budite uvijek u tijeku s novostima iz naše tvrtke, saznajte prve o našim najnovijim proizvodima i uslugama, te dobivajte korisne savjete i trikove izravno u svoj inbox.",
+                  "newsletterZahvalaNaPretplati": "Zahvaljujemo se na vašoj pretplati na naš newsletter! Sada ćete redovito primati najnovije vijesti, ekskluzivne ponude i korisne informacije izravno u vaš inbox. Cijenimo vašu podršku i radujemo se što ćemo s vama dijeliti sve što je novo i uzbudljivo. Ako imate bilo kakvih pitanja ili prijedloga, slobodno nas kontaktirajte."
+                },
+                "stranicaZaPretraguNoResults": {
+                  "naslov": "Nema rezultata pretrage",
+                  "tekst": null
+                },
+                "thankYouStraniceZahvala": {
+                  "tekst": null
+                }
+              }
+            },
+            "adminCookiesFooterNewsletterFra": {
+              "osnovniTekstoviWebaFra": {
+                "cookieBazaTekstova": {
+                  "cookieDugoCTAPrihvatiSve": "Prihvati sve",
+                  "cookieDugoCtaPrihvatiSamoNuzne": "Prihvati samo nužne",
+                  "cookieDugoNapomena": "Klikom na 'Prihvati sve' pristajete na korištenje svih kolačića. Kliknite 'Prihvati samo nužne' za ograničene postavke.",
+                  "cookieDugoNaslov": null,
+                  "cookieDugoTekst": "<p>&#8220;Kako bismo osigurali najbolje moguće iskustvo pregledavanja, naša web stranica koristi kolačiće. Kolačići su male tekstualne datoteke koje se pohranjuju na vaš uređaj i pomažu nam analizirati promet, prilagoditi sadržaj i osigurati ispravan rad stranice.</p>\n<p>Korištenjem kolačića omogućujemo:</p>\n<p>Poboljšanje funkcionalnosti stranice za ugodnije korištenje.<br />\nAnalizu prometa i razumijevanje kako korisnici koriste našu stranicu.<br />\nPrilagodbu sadržaja kako bismo vam ponudili relevantnije informacije.</p>\n<p>Možete prihvatiti sve kolačiće, odbiti nepotrebne ili prilagoditi svoje postavke u bilo kojem trenutku. Nužni kolačići, koji omogućuju osnovne funkcionalnosti stranice, uvijek su aktivni. Više informacija o vrstama kolačića koje koristimo i kako upravljati njima pronađite u našim Uvjetima korištenja.</p>\n",
+                  "cookieKratkoCta": "OK",
+                  "cookieKratkoNaslov": null,
+                  "cookieKratkoTekst": null
+                },
+                "dodatneOpcije505Page": false,
+                "footerBazaTekstova": {
+                  "bonusPoljeTeksta": null,
+                  "footerInfoTekstKojiSeIspisujeUDnuStranicecookieKratkoCtaPostavke": "© 2025"
+                },
+                "maintenanceStranicaPrivremenoOdrzavanje": {
+                  "naslov": "Stranica je privremeno nedostupna",
+                  "tekst": null
+                },
+                "newsletterBazaTekstova": {
+                  "naslovNewslettera": "Najnovije vijesti i ponude iz naše tvrtke",
+                  "newsletterUvodnaPoruka": "Budite uvijek u tijeku s novostima iz naše tvrtke, saznajte prve o našim najnovijim proizvodima i uslugama, te dobivajte korisne savjete i trikove izravno u svoj inbox.",
+                  "newsletterZahvalaNaPretplati": "Zahvaljujemo se na vašoj pretplati na naš newsletter! Sada ćete redovito primati najnovije vijesti, ekskluzivne ponude i korisne informacije izravno u vaš inbox. Cijenimo vašu podršku i radujemo se što ćemo s vama dijeliti sve što je novo i uzbudljivo. Ako imate bilo kakvih pitanja ili prijedloga, slobodno nas kontaktirajte."
+                },
+                "stranicaZaPretraguNoResults": {
+                  "naslov": "Nema rezultata pretrage",
+                  "tekst": null
+                },
+                "thankYouStraniceZahvala": {
+                  "tekst": null
+                }
+              }
+            },
+            "adminCookiesFooterNewsletterSlo": {
+              "osnovniTekstoviWebaSlo": {
+                "cookieBazaTekstova": {
+                  "cookieDugoCTAPrihvatiSve": "Prihvati sve",
+                  "cookieDugoCtaPrihvatiSamoNuzne": "Prihvati samo nužne",
+                  "cookieDugoNapomena": "Klikom na 'Prihvati sve' pristajete na korištenje svih kolačića. Kliknite 'Prihvati samo nužne' za ograničene postavke.",
+                  "cookieDugoNaslov": null,
+                  "cookieDugoTekst": "<p>&#8220;Kako bismo osigurali najbolje moguće iskustvo pregledavanja, naša web stranica koristi kolačiće. Kolačići su male tekstualne datoteke koje se pohranjuju na vaš uređaj i pomažu nam analizirati promet, prilagoditi sadržaj i osigurati ispravan rad stranice.</p>\n<p>Korištenjem kolačića omogućujemo:</p>\n<p>Poboljšanje funkcionalnosti stranice za ugodnije korištenje.<br />\nAnalizu prometa i razumijevanje kako korisnici koriste našu stranicu.<br />\nPrilagodbu sadržaja kako bismo vam ponudili relevantnije informacije.</p>\n<p>Možete prihvatiti sve kolačiće, odbiti nepotrebne ili prilagoditi svoje postavke u bilo kojem trenutku. Nužni kolačići, koji omogućuju osnovne funkcionalnosti stranice, uvijek su aktivni. Više informacija o vrstama kolačića koje koristimo i kako upravljati njima pronađite u našim Uvjetima korištenja.</p>\n",
+                  "cookieKratkoCta": "OK",
+                  "cookieKratkoNaslov": null,
+                  "cookieKratkoTekst": null
+                },
+                "dodatneOpcije505Page": false,
+                "footerBazaTekstova": {
+                  "bonusPoljeTeksta": null,
+                  "footerInfoTekstKojiSeIspisujeUDnuStranicecookieKratkoCtaPostavke": "© 2025"
                 },
                 "maintenanceStranicaPrivremenoOdrzavanje": {
                   "naslov": "Stranica je privremeno nedostupna",
@@ -2424,14 +2629,14 @@
                   "cookieDugoNapomena": "Klikom na 'Prihvati sve' pristajete na korištenje svih kolačića. Kliknite 'Prihvati samo nužne' za ograničene postavke.",
                   "cookieDugoNaslov": null,
                   "cookieDugoTekst": "<p>&#8220;Kako bismo osigurali najbolje moguće iskustvo pregledavanja, naša web stranica koristi kolačiće. Kolačići su male tekstualne datoteke koje se pohranjuju na vaš uređaj i pomažu nam analizirati promet, prilagoditi sadržaj i osigurati ispravan rad stranice.</p>\n<p>Korištenjem kolačića omogućujemo:</p>\n<p>Poboljšanje funkcionalnosti stranice za ugodnije korištenje.<br />\nAnalizu prometa i razumijevanje kako korisnici koriste našu stranicu.<br />\nPrilagodbu sadržaja kako bismo vam ponudili relevantnije informacije.</p>\n<p>Možete prihvatiti sve kolačiće, odbiti nepotrebne ili prilagoditi svoje postavke u bilo kojem trenutku. Nužni kolačići, koji omogućuju osnovne funkcionalnosti stranice, uvijek su aktivni. Više informacija o vrstama kolačića koje koristimo i kako upravljati njima pronađite u našim Uvjetima korištenja.</p>\n",
-                  "cookieKratkoCta": "Promjeni postavke",
+                  "cookieKratkoCta": "OK",
                   "cookieKratkoNaslov": null,
                   "cookieKratkoTekst": "<p>Ova stranica koristi kolačiće.</p>\n"
                 },
                 "dodatneOpcije505Page": false,
                 "footerBazaTekstova": {
                   "bonusPoljeTeksta": null,
-                  "fOOTERInfoTekstKojiSeIspisujeUDnuStranice": "© 2025"
+                  "footerInfoTekstKojiSeIspisujeUDnuStranicecookieKratkoCtaPostavke": "© 2025"
                 },
                 "maintenanceStranicaPrivremenoOdrzavanje": {
                   "naslov": "Stranica je privremeno nedostupna",
@@ -2466,7 +2671,182 @@
                 "dodatneOpcije505Page": false,
                 "footerBazaTekstova": {
                   "bonusPoljeTeksta": null,
-                  "fOOTERInfoTekstKojiSeIspisujeUDnuStranice": "© 2025"
+                  "footerInfoTekstKojiSeIspisujeUDnuStranicecookieKratkoCtaPostavke": "© 2025"
+                },
+                "maintenanceStranicaPrivremenoOdrzavanje": {
+                  "naslov": "Stranica je privremeno nedostupna",
+                  "tekst": null
+                },
+                "newsletterBazaTekstova": {
+                  "naslovNewslettera": "Najnovije vijesti i ponude iz naše tvrtke",
+                  "newsletterUvodnaPoruka": "Budite uvijek u tijeku s novostima iz naše tvrtke, saznajte prve o našim najnovijim proizvodima i uslugama, te dobivajte korisne savjete i trikove izravno u svoj inbox.",
+                  "newsletterZahvalaNaPretplati": "Zahvaljujemo se na vašoj pretplati na naš newsletter! Sada ćete redovito primati najnovije vijesti, ekskluzivne ponude i korisne informacije izravno u vaš inbox. Cijenimo vašu podršku i radujemo se što ćemo s vama dijeliti sve što je novo i uzbudljivo. Ako imate bilo kakvih pitanja ili prijedloga, slobodno nas kontaktirajte."
+                },
+                "stranicaZaPretraguNoResults": {
+                  "naslov": "Nema rezultata pretrage",
+                  "tekst": null
+                },
+                "thankYouStraniceZahvala": {
+                  "tekst": null
+                }
+              }
+            },
+            "adminCookiesFooterNewsletterGer": {
+              "osnovniTekstoviWebaGer": {
+                "cookieBazaTekstova": {
+                  "cookieDugoCTAPrihvatiSve": "Prihvati sve",
+                  "cookieDugoCtaPrihvatiSamoNuzne": "Prihvati samo nužne",
+                  "cookieDugoNapomena": "Klikom na 'Prihvati sve' pristajete na korištenje svih kolačića. Kliknite 'Prihvati samo nužne' za ograničene postavke.",
+                  "cookieDugoNaslov": null,
+                  "cookieDugoTekst": "<p>&#8220;Kako bismo osigurali najbolje moguće iskustvo pregledavanja, naša web stranica koristi kolačiće. Kolačići su male tekstualne datoteke koje se pohranjuju na vaš uređaj i pomažu nam analizirati promet, prilagoditi sadržaj i osigurati ispravan rad stranice.</p>\n<p>Korištenjem kolačića omogućujemo:</p>\n<p>Poboljšanje funkcionalnosti stranice za ugodnije korištenje.<br />\nAnalizu prometa i razumijevanje kako korisnici koriste našu stranicu.<br />\nPrilagodbu sadržaja kako bismo vam ponudili relevantnije informacije.</p>\n<p>Možete prihvatiti sve kolačiće, odbiti nepotrebne ili prilagoditi svoje postavke u bilo kojem trenutku. Nužni kolačići, koji omogućuju osnovne funkcionalnosti stranice, uvijek su aktivni. Više informacija o vrstama kolačića koje koristimo i kako upravljati njima pronađite u našim Uvjetima korištenja.</p>\n",
+                  "cookieKratkoCta": "OK",
+                  "cookieKratkoNaslov": null,
+                  "cookieKratkoTekst": null
+                },
+                "dodatneOpcije505Page": false,
+                "footerBazaTekstova": {
+                  "bonusPoljeTeksta": null,
+                  "footerInfoTekstKojiSeIspisujeUDnuStranicecookieKratkoCtaPostavke": "© 2025"
+                },
+                "maintenanceStranicaPrivremenoOdrzavanje": {
+                  "naslov": "Stranica je privremeno nedostupna",
+                  "tekst": null
+                },
+                "newsletterBazaTekstova": {
+                  "naslovNewslettera": "Najnovije vijesti i ponude iz naše tvrtke",
+                  "newsletterUvodnaPoruka": "Budite uvijek u tijeku s novostima iz naše tvrtke, saznajte prve o našim najnovijim proizvodima i uslugama, te dobivajte korisne savjete i trikove izravno u svoj inbox.",
+                  "newsletterZahvalaNaPretplati": "Zahvaljujemo se na vašoj pretplati na naš newsletter! Sada ćete redovito primati najnovije vijesti, ekskluzivne ponude i korisne informacije izravno u vaš inbox. Cijenimo vašu podršku i radujemo se što ćemo s vama dijeliti sve što je novo i uzbudljivo. Ako imate bilo kakvih pitanja ili prijedloga, slobodno nas kontaktirajte."
+                },
+                "stranicaZaPretraguNoResults": {
+                  "naslov": "Nema rezultata pretrage",
+                  "tekst": null
+                },
+                "thankYouStraniceZahvala": {
+                  "tekst": null
+                }
+              }
+            },
+            "adminCookiesFooterNewsletterIta": {
+              "osnovniTekstoviWebaIta": {
+                "cookieBazaTekstova": {
+                  "cookieDugoCTAPrihvatiSve": "Prihvati sve",
+                  "cookieDugoCtaPrihvatiSamoNuzne": "Prihvati samo nužne",
+                  "cookieDugoNapomena": "Klikom na 'Prihvati sve' pristajete na korištenje svih kolačića. Kliknite 'Prihvati samo nužne' za ograničene postavke.",
+                  "cookieDugoNaslov": null,
+                  "cookieDugoTekst": "<p>&#8220;Kako bismo osigurali najbolje moguće iskustvo pregledavanja, naša web stranica koristi kolačiće. Kolačići su male tekstualne datoteke koje se pohranjuju na vaš uređaj i pomažu nam analizirati promet, prilagoditi sadržaj i osigurati ispravan rad stranice.</p>\n<p>Korištenjem kolačića omogućujemo:</p>\n<p>Poboljšanje funkcionalnosti stranice za ugodnije korištenje.<br />\nAnalizu prometa i razumijevanje kako korisnici koriste našu stranicu.<br />\nPrilagodbu sadržaja kako bismo vam ponudili relevantnije informacije.</p>\n<p>Možete prihvatiti sve kolačiće, odbiti nepotrebne ili prilagoditi svoje postavke u bilo kojem trenutku. Nužni kolačići, koji omogućuju osnovne funkcionalnosti stranice, uvijek su aktivni. Više informacija o vrstama kolačića koje koristimo i kako upravljati njima pronađite u našim Uvjetima korištenja.</p>\n",
+                  "cookieKratkoCta": "OK",
+                  "cookieKratkoNaslov": null,
+                  "cookieKratkoTekst": null
+                },
+                "dodatneOpcije505Page": false,
+                "footerBazaTekstova": {
+                  "bonusPoljeTeksta": null,
+                  "footerInfoTekstKojiSeIspisujeUDnuStranicecookieKratkoCtaPostavke": "© 2025"
+                },
+                "maintenanceStranicaPrivremenoOdrzavanje": {
+                  "naslov": "Stranica je privremeno nedostupna",
+                  "tekst": null
+                },
+                "newsletterBazaTekstova": {
+                  "naslovNewslettera": "Najnovije vijesti i ponude iz naše tvrtke",
+                  "newsletterUvodnaPoruka": "Budite uvijek u tijeku s novostima iz naše tvrtke, saznajte prve o našim najnovijim proizvodima i uslugama, te dobivajte korisne savjete i trikove izravno u svoj inbox.",
+                  "newsletterZahvalaNaPretplati": "Zahvaljujemo se na vašoj pretplati na naš newsletter! Sada ćete redovito primati najnovije vijesti, ekskluzivne ponude i korisne informacije izravno u vaš inbox. Cijenimo vašu podršku i radujemo se što ćemo s vama dijeliti sve što je novo i uzbudljivo. Ako imate bilo kakvih pitanja ili prijedloga, slobodno nas kontaktirajte."
+                },
+                "stranicaZaPretraguNoResults": {
+                  "naslov": "Nema rezultata pretrage",
+                  "tekst": null
+                },
+                "thankYouStraniceZahvala": {
+                  "tekst": null
+                }
+              }
+            },
+            "adminCookiesFooterNewsletterEsp": {
+              "osnovniTekstoviWebaEsp": {
+                "cookieBazaTekstova": {
+                  "cookieDugoCTAPrihvatiSve": "Prihvati sve",
+                  "cookieDugoCtaPrihvatiSamoNuzne": "Prihvati samo nužne",
+                  "cookieDugoNapomena": "Klikom na 'Prihvati sve' pristajete na korištenje svih kolačića. Kliknite 'Prihvati samo nužne' za ograničene postavke.",
+                  "cookieDugoNaslov": null,
+                  "cookieDugoTekst": "<p>&#8220;Kako bismo osigurali najbolje moguće iskustvo pregledavanja, naša web stranica koristi kolačiće. Kolačići su male tekstualne datoteke koje se pohranjuju na vaš uređaj i pomažu nam analizirati promet, prilagoditi sadržaj i osigurati ispravan rad stranice.</p>\n<p>Korištenjem kolačića omogućujemo:</p>\n<p>Poboljšanje funkcionalnosti stranice za ugodnije korištenje.<br />\nAnalizu prometa i razumijevanje kako korisnici koriste našu stranicu.<br />\nPrilagodbu sadržaja kako bismo vam ponudili relevantnije informacije.</p>\n<p>Možete prihvatiti sve kolačiće, odbiti nepotrebne ili prilagoditi svoje postavke u bilo kojem trenutku. Nužni kolačići, koji omogućuju osnovne funkcionalnosti stranice, uvijek su aktivni. Više informacija o vrstama kolačića koje koristimo i kako upravljati njima pronađite u našim Uvjetima korištenja.</p>\n",
+                  "cookieKratkoCta": "OK",
+                  "cookieKratkoNaslov": null,
+                  "cookieKratkoTekst": null
+                },
+                "dodatneOpcije505Page": false,
+                "footerBazaTekstova": {
+                  "bonusPoljeTeksta": null,
+                  "footerInfoTekstKojiSeIspisujeUDnuStranicecookieKratkoCtaPostavke": "© 2025"
+                },
+                "maintenanceStranicaPrivremenoOdrzavanje": {
+                  "naslov": "Stranica je privremeno nedostupna",
+                  "tekst": null
+                },
+                "newsletterBazaTekstova": {
+                  "naslovNewslettera": "Najnovije vijesti i ponude iz naše tvrtke",
+                  "newsletterUvodnaPoruka": "Budite uvijek u tijeku s novostima iz naše tvrtke, saznajte prve o našim najnovijim proizvodima i uslugama, te dobivajte korisne savjete i trikove izravno u svoj inbox.",
+                  "newsletterZahvalaNaPretplati": "Zahvaljujemo se na vašoj pretplati na naš newsletter! Sada ćete redovito primati najnovije vijesti, ekskluzivne ponude i korisne informacije izravno u vaš inbox. Cijenimo vašu podršku i radujemo se što ćemo s vama dijeliti sve što je novo i uzbudljivo. Ako imate bilo kakvih pitanja ili prijedloga, slobodno nas kontaktirajte."
+                },
+                "stranicaZaPretraguNoResults": {
+                  "naslov": "Nema rezultata pretrage",
+                  "tekst": null
+                },
+                "thankYouStraniceZahvala": {
+                  "tekst": null
+                }
+              }
+            },
+            "adminCookiesFooterNewsletterFra": {
+              "osnovniTekstoviWebaFra": {
+                "cookieBazaTekstova": {
+                  "cookieDugoCTAPrihvatiSve": "Prihvati sve",
+                  "cookieDugoCtaPrihvatiSamoNuzne": "Prihvati samo nužne",
+                  "cookieDugoNapomena": "Klikom na 'Prihvati sve' pristajete na korištenje svih kolačića. Kliknite 'Prihvati samo nužne' za ograničene postavke.",
+                  "cookieDugoNaslov": null,
+                  "cookieDugoTekst": "<p>&#8220;Kako bismo osigurali najbolje moguće iskustvo pregledavanja, naša web stranica koristi kolačiće. Kolačići su male tekstualne datoteke koje se pohranjuju na vaš uređaj i pomažu nam analizirati promet, prilagoditi sadržaj i osigurati ispravan rad stranice.</p>\n<p>Korištenjem kolačića omogućujemo:</p>\n<p>Poboljšanje funkcionalnosti stranice za ugodnije korištenje.<br />\nAnalizu prometa i razumijevanje kako korisnici koriste našu stranicu.<br />\nPrilagodbu sadržaja kako bismo vam ponudili relevantnije informacije.</p>\n<p>Možete prihvatiti sve kolačiće, odbiti nepotrebne ili prilagoditi svoje postavke u bilo kojem trenutku. Nužni kolačići, koji omogućuju osnovne funkcionalnosti stranice, uvijek su aktivni. Više informacija o vrstama kolačića koje koristimo i kako upravljati njima pronađite u našim Uvjetima korištenja.</p>\n",
+                  "cookieKratkoCta": "OK",
+                  "cookieKratkoNaslov": null,
+                  "cookieKratkoTekst": null
+                },
+                "dodatneOpcije505Page": false,
+                "footerBazaTekstova": {
+                  "bonusPoljeTeksta": null,
+                  "footerInfoTekstKojiSeIspisujeUDnuStranicecookieKratkoCtaPostavke": "© 2025"
+                },
+                "maintenanceStranicaPrivremenoOdrzavanje": {
+                  "naslov": "Stranica je privremeno nedostupna",
+                  "tekst": null
+                },
+                "newsletterBazaTekstova": {
+                  "naslovNewslettera": "Najnovije vijesti i ponude iz naše tvrtke",
+                  "newsletterUvodnaPoruka": "Budite uvijek u tijeku s novostima iz naše tvrtke, saznajte prve o našim najnovijim proizvodima i uslugama, te dobivajte korisne savjete i trikove izravno u svoj inbox.",
+                  "newsletterZahvalaNaPretplati": "Zahvaljujemo se na vašoj pretplati na naš newsletter! Sada ćete redovito primati najnovije vijesti, ekskluzivne ponude i korisne informacije izravno u vaš inbox. Cijenimo vašu podršku i radujemo se što ćemo s vama dijeliti sve što je novo i uzbudljivo. Ako imate bilo kakvih pitanja ili prijedloga, slobodno nas kontaktirajte."
+                },
+                "stranicaZaPretraguNoResults": {
+                  "naslov": "Nema rezultata pretrage",
+                  "tekst": null
+                },
+                "thankYouStraniceZahvala": {
+                  "tekst": null
+                }
+              }
+            },
+            "adminCookiesFooterNewsletterSlo": {
+              "osnovniTekstoviWebaSlo": {
+                "cookieBazaTekstova": {
+                  "cookieDugoCTAPrihvatiSve": "Prihvati sve",
+                  "cookieDugoCtaPrihvatiSamoNuzne": "Prihvati samo nužne",
+                  "cookieDugoNapomena": "Klikom na 'Prihvati sve' pristajete na korištenje svih kolačića. Kliknite 'Prihvati samo nužne' za ograničene postavke.",
+                  "cookieDugoNaslov": null,
+                  "cookieDugoTekst": "<p>&#8220;Kako bismo osigurali najbolje moguće iskustvo pregledavanja, naša web stranica koristi kolačiće. Kolačići su male tekstualne datoteke koje se pohranjuju na vaš uređaj i pomažu nam analizirati promet, prilagoditi sadržaj i osigurati ispravan rad stranice.</p>\n<p>Korištenjem kolačića omogućujemo:</p>\n<p>Poboljšanje funkcionalnosti stranice za ugodnije korištenje.<br />\nAnalizu prometa i razumijevanje kako korisnici koriste našu stranicu.<br />\nPrilagodbu sadržaja kako bismo vam ponudili relevantnije informacije.</p>\n<p>Možete prihvatiti sve kolačiće, odbiti nepotrebne ili prilagoditi svoje postavke u bilo kojem trenutku. Nužni kolačići, koji omogućuju osnovne funkcionalnosti stranice, uvijek su aktivni. Više informacija o vrstama kolačića koje koristimo i kako upravljati njima pronađite u našim Uvjetima korištenja.</p>\n",
+                  "cookieKratkoCta": "OK",
+                  "cookieKratkoNaslov": null,
+                  "cookieKratkoTekst": null
+                },
+                "dodatneOpcije505Page": false,
+                "footerBazaTekstova": {
+                  "bonusPoljeTeksta": null,
+                  "footerInfoTekstKojiSeIspisujeUDnuStranicecookieKratkoCtaPostavke": "© 2025"
                 },
                 "maintenanceStranicaPrivremenoOdrzavanje": {
                   "naslov": "Stranica je privremeno nedostupna",
@@ -4932,14 +5312,82 @@
       "edges": [
         {
           "node": {
-            "id": "cG9zdDoxMTg0",
-            "title": "FAQ – test prikaza svih FAQ na jednoj stranici (Riva tekstovi) – spremno za povezivanje",
+            "id": "cG9zdDoxMTcyOA==",
+            "title": "TREĆA OPCIJA",
             "textHr": {
-              "naslovHr": null,
+              "naslovHr": "TREĆA OPCIJA",
+              "sadrzajTextHr": "<div class=\"faqSection_accordionItem__lxs7x\" data-accordion-component=\"AccordionItem\">\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<div class=\"faqSection_accordionItem__lxs7x\" data-accordion-component=\"AccordionItem\">\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R5kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"true\" aria-controls=\"accordion__panel-:R5kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Minimalan broj osoba za pješačku turu Kudin most?</strong></h2>\n</div>\n<p>Minimalan broj osoba u grupi sa lokalnim vodičem je 6.</p>\n<p>&nbsp;</p>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R9kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:R9kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Koliko traje kayak/rafting tura?</strong></h2>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<div id=\"accordion__heading-:Rdkaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rdkaula:\" data-accordion-component=\"AccordionItemButton\">Kako se vratimo sa cilja kayak/rafting ture na start po automobile?</div>\n</div>\n<div class=\"faqSection_accordionItem__lxs7x\" data-accordion-component=\"AccordionItem\">\n<div id=\"accordion__heading-:Rhkaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\">Postoji li vodič u kayak turi?</div>\n<div role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\"></div>\n<div role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\">\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R5kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"true\" aria-controls=\"accordion__panel-:R5kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Minimalan broj osoba za pješačku turu Kudin most?</strong></h2>\n</div>\n<div id=\"accordion__panel-:R5kaula:\" class=\"faqSection_accordionItemPanel__j_uJK\" data-accordion-component=\"AccordionItemPanel\">\n<p>Minimalan broj osoba u grupi sa lokalnim vodičem je 6.</p>\n<p>&nbsp;</p>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R9kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:R9kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Koliko traje kayak/rafting tura?</strong></h2>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<div id=\"accordion__heading-:Rdkaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rdkaula:\" data-accordion-component=\"AccordionItemButton\">Kako se vratimo sa cilja kayak/rafting ture na start po automobile?</div>\n</div>\n<div class=\"faqSection_accordionItem__lxs7x\" data-accordion-component=\"AccordionItem\">\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<p class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\">Postoji li vodič u kayak turi?</p>\n<p role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\">\n<div class=\"faqSection_accordionItem__lxs7x\" data-accordion-component=\"AccordionItem\">\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R5kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"true\" aria-controls=\"accordion__panel-:R5kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Minimalan broj osoba za pješačku turu Kudin most?</strong></h2>\n</div>\n<p>Minimalan broj osoba u grupi sa lokalnim vodičem je 6.</p>\n<p>&nbsp;</p>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R9kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:R9kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Koliko traje kayak/rafting tura?</strong></h2>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<div id=\"accordion__heading-:Rdkaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rdkaula:\" data-accordion-component=\"AccordionItemButton\">Kako se vratimo sa cilja kayak/rafting ture na start po automobile?</div>\n</div>\n<div class=\"faqSection_accordionItem__lxs7x\" data-accordion-component=\"AccordionItem\">\n<div id=\"accordion__heading-:Rhkaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\">Postoji li vodič u kayak turi?</div>\n<div role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\"></div>\n<div role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\">\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R5kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"true\" aria-controls=\"accordion__panel-:R5kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Minimalan broj osoba za pješačku turu Kudin most?</strong></h2>\n</div>\n<div id=\"accordion__panel-:R5kaula:\" class=\"faqSection_accordionItemPanel__j_uJK\" data-accordion-component=\"AccordionItemPanel\">\n<p>Minimalan broj osoba u grupi sa lokalnim vodičem je 6.</p>\n<p>&nbsp;</p>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R9kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:R9kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Koliko traje kayak/rafting tura?</strong></h2>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<div id=\"accordion__heading-:Rdkaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rdkaula:\" data-accordion-component=\"AccordionItemButton\">Kako se vratimo sa cilja kayak/rafting ture na start po automobile?</div>\n</div>\n<div class=\"faqSection_accordionItem__lxs7x\" data-accordion-component=\"AccordionItem\">\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<p id=\"accordion__heading-:Rhkaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\">Postoji li vodič u kayak turi?</p>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n"
+            },
+            "textEng": {
+              "naslovEng": "NAJČEŠĆA PITANJA ENG",
+              "sadrzajTextEng": "<div class=\"faqSection_accordionItem__lxs7x\" data-accordion-component=\"AccordionItem\">\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R5kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"true\" aria-controls=\"accordion__panel-:R5kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Minimalan broj osoba za pješačku turu Kudin most?</strong></h2>\n</div>\n<p>Minimalan broj osoba u grupi sa lokalnim vodičem je 6.</p>\n<p>&nbsp;</p>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R9kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:R9kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Koliko traje kayak/rafting tura?</strong></h2>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<div id=\"accordion__heading-:Rdkaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rdkaula:\" data-accordion-component=\"AccordionItemButton\">Kako se vratimo sa cilja kayak/rafting ture na start po automobile?</div>\n</div>\n<div class=\"faqSection_accordionItem__lxs7x\" data-accordion-component=\"AccordionItem\">\n<div id=\"accordion__heading-:Rhkaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\">Postoji li vodič u kayak turi?</div>\n<div role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\"></div>\n<div role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\">\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R5kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"true\" aria-controls=\"accordion__panel-:R5kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Minimalan broj osoba za pješačku turu Kudin most?</strong></h2>\n</div>\n<div id=\"accordion__panel-:R5kaula:\" class=\"faqSection_accordionItemPanel__j_uJK\" data-accordion-component=\"AccordionItemPanel\">\n<p>Minimalan broj osoba u grupi sa lokalnim vodičem je 6.</p>\n<p>&nbsp;</p>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R9kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:R9kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Koliko traje kayak/rafting tura?</strong></h2>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<div id=\"accordion__heading-:Rdkaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rdkaula:\" data-accordion-component=\"AccordionItemButton\">Kako se vratimo sa cilja kayak/rafting ture na start po automobile?</div>\n</div>\n<div class=\"faqSection_accordionItem__lxs7x\" data-accordion-component=\"AccordionItem\">\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<p id=\"accordion__heading-:Rhkaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\">Postoji li vodič u kayak turi?</p>\n</div>\n</div>\n</div>\n</div>\n"
+            },
+            "textEsp": {
+              "naslovEsp": null,
+              "sadrzajTextEsp": null
+            },
+            "textFra": {
+              "naslovFra": null,
+              "sadrzajTextFra": null
+            },
+            "textGer": {
+              "naslovGer": "NAJČEŠĆA PITANJA NJEM",
+              "sadrzajTextGer": "<div class=\"faqSection_accordionItem__lxs7x\" data-accordion-component=\"AccordionItem\">\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R5kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"true\" aria-controls=\"accordion__panel-:R5kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Minimalan broj osoba za pješačku turu Kudin most?</strong></h2>\n</div>\n<p>Minimalan broj osoba u grupi sa lokalnim vodičem je 6.</p>\n<p>&nbsp;</p>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R9kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:R9kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Koliko traje kayak/rafting tura?</strong></h2>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<div id=\"accordion__heading-:Rdkaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rdkaula:\" data-accordion-component=\"AccordionItemButton\">Kako se vratimo sa cilja kayak/rafting ture na start po automobile?</div>\n</div>\n<div class=\"faqSection_accordionItem__lxs7x\" data-accordion-component=\"AccordionItem\">\n<div id=\"accordion__heading-:Rhkaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\">Postoji li vodič u kayak turi?</div>\n<div role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\"></div>\n<div role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\">\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R5kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"true\" aria-controls=\"accordion__panel-:R5kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Minimalan broj osoba za pješačku turu Kudin most?</strong></h2>\n</div>\n<div id=\"accordion__panel-:R5kaula:\" class=\"faqSection_accordionItemPanel__j_uJK\" data-accordion-component=\"AccordionItemPanel\">\n<p>Minimalan broj osoba u grupi sa lokalnim vodičem je 6.</p>\n<p>&nbsp;</p>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R9kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:R9kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Koliko traje kayak/rafting tura?</strong></h2>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<div id=\"accordion__heading-:Rdkaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rdkaula:\" data-accordion-component=\"AccordionItemButton\">Kako se vratimo sa cilja kayak/rafting ture na start po automobile?</div>\n</div>\n<div class=\"faqSection_accordionItem__lxs7x\" data-accordion-component=\"AccordionItem\">\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<p id=\"accordion__heading-:Rhkaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\">Postoji li vodič u kayak turi?</p>\n</div>\n</div>\n</div>\n</div>\n"
+            },
+            "textIta": {
+              "naslovIta": "NAJČEŠĆA PITANJA TAL",
+              "sadrzajTextIta": "<div class=\"faqSection_accordionItem__lxs7x\" data-accordion-component=\"AccordionItem\">\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R5kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"true\" aria-controls=\"accordion__panel-:R5kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Minimalan broj osoba za pješačku turu Kudin most?</strong></h2>\n</div>\n<p>Minimalan broj osoba u grupi sa lokalnim vodičem je 6.</p>\n<p>&nbsp;</p>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R9kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:R9kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Koliko traje kayak/rafting tura?</strong></h2>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<div id=\"accordion__heading-:Rdkaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rdkaula:\" data-accordion-component=\"AccordionItemButton\">Kako se vratimo sa cilja kayak/rafting ture na start po automobile?</div>\n</div>\n<div class=\"faqSection_accordionItem__lxs7x\" data-accordion-component=\"AccordionItem\">\n<div id=\"accordion__heading-:Rhkaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\">Postoji li vodič u kayak turi?</div>\n<div role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\"></div>\n<div role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\">\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R5kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"true\" aria-controls=\"accordion__panel-:R5kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Minimalan broj osoba za pješačku turu Kudin most?</strong></h2>\n</div>\n<div id=\"accordion__panel-:R5kaula:\" class=\"faqSection_accordionItemPanel__j_uJK\" data-accordion-component=\"AccordionItemPanel\">\n<p>Minimalan broj osoba u grupi sa lokalnim vodičem je 6.</p>\n<p>&nbsp;</p>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R9kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:R9kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Koliko traje kayak/rafting tura?</strong></h2>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<div id=\"accordion__heading-:Rdkaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rdkaula:\" data-accordion-component=\"AccordionItemButton\">Kako se vratimo sa cilja kayak/rafting ture na start po automobile?</div>\n</div>\n<div class=\"faqSection_accordionItem__lxs7x\" data-accordion-component=\"AccordionItem\">\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<p id=\"accordion__heading-:Rhkaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\">Postoji li vodič u kayak turi?</p>\n</div>\n</div>\n</div>\n</div>\n"
+            },
+            "textSlo": {
+              "naslovSlo": null,
+              "sadrzajTextSlo": null
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDoxMTg0",
+            "title": "KNJIGOVODSTVO",
+            "textHr": {
+              "naslovHr": "KNJIGOVODSTVOK",
               "sadrzajTextHr": "<div class=\"faqSection_accordionItem__lxs7x\" data-accordion-component=\"AccordionItem\">\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R5kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"true\" aria-controls=\"accordion__panel-:R5kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Minimalan broj osoba za pješačku turu Kudin most?</strong></h2>\n</div>\n<p>Minimalan broj osoba u grupi sa lokalnim vodičem je 6.</p>\n<p>&nbsp;</p>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R9kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:R9kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Koliko traje kayak/rafting tura?</strong></h2>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<div id=\"accordion__heading-:Rdkaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rdkaula:\" data-accordion-component=\"AccordionItemButton\">Kako se vratimo sa cilja kayak/rafting ture na start po automobile?</div>\n</div>\n<div class=\"faqSection_accordionItem__lxs7x\" data-accordion-component=\"AccordionItem\">\n<div id=\"accordion__heading-:Rhkaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\">Postoji li vodič u kayak turi?</div>\n<div role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\"></div>\n<div role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\">\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R5kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"true\" aria-controls=\"accordion__panel-:R5kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Minimalan broj osoba za pješačku turu Kudin most?</strong></h2>\n</div>\n<div id=\"accordion__panel-:R5kaula:\" class=\"faqSection_accordionItemPanel__j_uJK\" data-accordion-component=\"AccordionItemPanel\">\n<p>Minimalan broj osoba u grupi sa lokalnim vodičem je 6.</p>\n<p>&nbsp;</p>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R9kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:R9kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Koliko traje kayak/rafting tura?</strong></h2>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<div id=\"accordion__heading-:Rdkaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rdkaula:\" data-accordion-component=\"AccordionItemButton\">Kako se vratimo sa cilja kayak/rafting ture na start po automobile?</div>\n</div>\n<div class=\"faqSection_accordionItem__lxs7x\" data-accordion-component=\"AccordionItem\">\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<p id=\"accordion__heading-:Rhkaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\">Postoji li vodič u kayak turi?</p>\n</div>\n</div>\n</div>\n</div>\n"
             },
             "textEng": {
               "naslovEng": "NAJČEŠĆA PITANJA ENG",
+              "sadrzajTextEng": "<div class=\"faqSection_accordionItem__lxs7x\" data-accordion-component=\"AccordionItem\">\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R5kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"true\" aria-controls=\"accordion__panel-:R5kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Minimalan broj osoba za pješačku turu Kudin most?</strong></h2>\n</div>\n<p>Minimalan broj osoba u grupi sa lokalnim vodičem je 6.</p>\n<p>&nbsp;</p>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R9kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:R9kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Koliko traje kayak/rafting tura?</strong></h2>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<div id=\"accordion__heading-:Rdkaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rdkaula:\" data-accordion-component=\"AccordionItemButton\">Kako se vratimo sa cilja kayak/rafting ture na start po automobile?</div>\n</div>\n<div class=\"faqSection_accordionItem__lxs7x\" data-accordion-component=\"AccordionItem\">\n<div id=\"accordion__heading-:Rhkaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\">Postoji li vodič u kayak turi?</div>\n<div role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\"></div>\n<div role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\">\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R5kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"true\" aria-controls=\"accordion__panel-:R5kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Minimalan broj osoba za pješačku turu Kudin most?</strong></h2>\n</div>\n<div id=\"accordion__panel-:R5kaula:\" class=\"faqSection_accordionItemPanel__j_uJK\" data-accordion-component=\"AccordionItemPanel\">\n<p>Minimalan broj osoba u grupi sa lokalnim vodičem je 6.</p>\n<p>&nbsp;</p>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R9kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:R9kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Koliko traje kayak/rafting tura?</strong></h2>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<div id=\"accordion__heading-:Rdkaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rdkaula:\" data-accordion-component=\"AccordionItemButton\">Kako se vratimo sa cilja kayak/rafting ture na start po automobile?</div>\n</div>\n<div class=\"faqSection_accordionItem__lxs7x\" data-accordion-component=\"AccordionItem\">\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<p id=\"accordion__heading-:Rhkaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\">Postoji li vodič u kayak turi?</p>\n</div>\n</div>\n</div>\n</div>\n"
+            },
+            "textEsp": {
+              "naslovEsp": null,
+              "sadrzajTextEsp": null
+            },
+            "textFra": {
+              "naslovFra": null,
+              "sadrzajTextFra": null
+            },
+            "textGer": {
+              "naslovGer": "NAJČEŠĆA PITANJA NJEM",
+              "sadrzajTextGer": "<div class=\"faqSection_accordionItem__lxs7x\" data-accordion-component=\"AccordionItem\">\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R5kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"true\" aria-controls=\"accordion__panel-:R5kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Minimalan broj osoba za pješačku turu Kudin most?</strong></h2>\n</div>\n<p>Minimalan broj osoba u grupi sa lokalnim vodičem je 6.</p>\n<p>&nbsp;</p>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R9kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:R9kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Koliko traje kayak/rafting tura?</strong></h2>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<div id=\"accordion__heading-:Rdkaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rdkaula:\" data-accordion-component=\"AccordionItemButton\">Kako se vratimo sa cilja kayak/rafting ture na start po automobile?</div>\n</div>\n<div class=\"faqSection_accordionItem__lxs7x\" data-accordion-component=\"AccordionItem\">\n<div id=\"accordion__heading-:Rhkaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\">Postoji li vodič u kayak turi?</div>\n<div role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\"></div>\n<div role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\">\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R5kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"true\" aria-controls=\"accordion__panel-:R5kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Minimalan broj osoba za pješačku turu Kudin most?</strong></h2>\n</div>\n<div id=\"accordion__panel-:R5kaula:\" class=\"faqSection_accordionItemPanel__j_uJK\" data-accordion-component=\"AccordionItemPanel\">\n<p>Minimalan broj osoba u grupi sa lokalnim vodičem je 6.</p>\n<p>&nbsp;</p>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R9kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:R9kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Koliko traje kayak/rafting tura?</strong></h2>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<div id=\"accordion__heading-:Rdkaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rdkaula:\" data-accordion-component=\"AccordionItemButton\">Kako se vratimo sa cilja kayak/rafting ture na start po automobile?</div>\n</div>\n<div class=\"faqSection_accordionItem__lxs7x\" data-accordion-component=\"AccordionItem\">\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<p id=\"accordion__heading-:Rhkaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\">Postoji li vodič u kayak turi?</p>\n</div>\n</div>\n</div>\n</div>\n"
+            },
+            "textIta": {
+              "naslovIta": "NAJČEŠĆA PITANJA TAL",
+              "sadrzajTextIta": "<div class=\"faqSection_accordionItem__lxs7x\" data-accordion-component=\"AccordionItem\">\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R5kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"true\" aria-controls=\"accordion__panel-:R5kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Minimalan broj osoba za pješačku turu Kudin most?</strong></h2>\n</div>\n<p>Minimalan broj osoba u grupi sa lokalnim vodičem je 6.</p>\n<p>&nbsp;</p>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R9kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:R9kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Koliko traje kayak/rafting tura?</strong></h2>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<div id=\"accordion__heading-:Rdkaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rdkaula:\" data-accordion-component=\"AccordionItemButton\">Kako se vratimo sa cilja kayak/rafting ture na start po automobile?</div>\n</div>\n<div class=\"faqSection_accordionItem__lxs7x\" data-accordion-component=\"AccordionItem\">\n<div id=\"accordion__heading-:Rhkaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\">Postoji li vodič u kayak turi?</div>\n<div role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\"></div>\n<div role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\">\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R5kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"true\" aria-controls=\"accordion__panel-:R5kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Minimalan broj osoba za pješačku turu Kudin most?</strong></h2>\n</div>\n<div id=\"accordion__panel-:R5kaula:\" class=\"faqSection_accordionItemPanel__j_uJK\" data-accordion-component=\"AccordionItemPanel\">\n<p>Minimalan broj osoba u grupi sa lokalnim vodičem je 6.</p>\n<p>&nbsp;</p>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R9kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:R9kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Koliko traje kayak/rafting tura?</strong></h2>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<div id=\"accordion__heading-:Rdkaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rdkaula:\" data-accordion-component=\"AccordionItemButton\">Kako se vratimo sa cilja kayak/rafting ture na start po automobile?</div>\n</div>\n<div class=\"faqSection_accordionItem__lxs7x\" data-accordion-component=\"AccordionItem\">\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<p id=\"accordion__heading-:Rhkaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\">Postoji li vodič u kayak turi?</p>\n</div>\n</div>\n</div>\n</div>\n"
+            },
+            "textSlo": {
+              "naslovSlo": null,
+              "sadrzajTextSlo": null
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDoxMTcyNw==",
+            "title": "KONZALTING",
+            "textHr": {
+              "naslovHr": "KONZALTING",
+              "sadrzajTextHr": "<div class=\"faqSection_accordionItem__lxs7x\" data-accordion-component=\"AccordionItem\">\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R5kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"true\" aria-controls=\"accordion__panel-:R5kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Minimalan broj osoba za pješačku turu Kudin most?</strong></h2>\n</div>\n<p>Minimalan broj osoba u grupi sa lokalnim vodičem je 6.</p>\n<p>&nbsp;</p>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R9kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:R9kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Koliko traje kayak/rafting tura?</strong></h2>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<div id=\"accordion__heading-:Rdkaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rdkaula:\" data-accordion-component=\"AccordionItemButton\">Kako se vratimo sa cilja kayak/rafting ture na start po automobile?</div>\n</div>\n<div class=\"faqSection_accordionItem__lxs7x\" data-accordion-component=\"AccordionItem\">\n<div id=\"accordion__heading-:Rhkaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\">Postoji li vodič u kayak turi?</div>\n<div role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\"></div>\n<div role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\">\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R5kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"true\" aria-controls=\"accordion__panel-:R5kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Minimalan broj osoba za pješačku turu Kudin most?</strong></h2>\n</div>\n<div id=\"accordion__panel-:R5kaula:\" class=\"faqSection_accordionItemPanel__j_uJK\" data-accordion-component=\"AccordionItemPanel\">\n<p>Minimalan broj osoba u grupi sa lokalnim vodičem je 6.</p>\n<p>&nbsp;</p>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R9kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:R9kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Koliko traje kayak/rafting tura?</strong></h2>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<div id=\"accordion__heading-:Rdkaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rdkaula:\" data-accordion-component=\"AccordionItemButton\">Kako se vratimo sa cilja kayak/rafting ture na start po automobile?</div>\n</div>\n<div class=\"faqSection_accordionItem__lxs7x\" data-accordion-component=\"AccordionItem\">\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<p id=\"accordion__heading-:Rhkaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\">Postoji li vodič u kayak turi?</p>\n</div>\n</div>\n</div>\n</div>\n"
+            },
+            "textEng": {
+              "naslovEng": "CONSALTING ENG",
               "sadrzajTextEng": "<div class=\"faqSection_accordionItem__lxs7x\" data-accordion-component=\"AccordionItem\">\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R5kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"true\" aria-controls=\"accordion__panel-:R5kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Minimalan broj osoba za pješačku turu Kudin most?</strong></h2>\n</div>\n<p>Minimalan broj osoba u grupi sa lokalnim vodičem je 6.</p>\n<p>&nbsp;</p>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R9kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:R9kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Koliko traje kayak/rafting tura?</strong></h2>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<div id=\"accordion__heading-:Rdkaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rdkaula:\" data-accordion-component=\"AccordionItemButton\">Kako se vratimo sa cilja kayak/rafting ture na start po automobile?</div>\n</div>\n<div class=\"faqSection_accordionItem__lxs7x\" data-accordion-component=\"AccordionItem\">\n<div id=\"accordion__heading-:Rhkaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\">Postoji li vodič u kayak turi?</div>\n<div role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\"></div>\n<div role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\">\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R5kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"true\" aria-controls=\"accordion__panel-:R5kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Minimalan broj osoba za pješačku turu Kudin most?</strong></h2>\n</div>\n<div id=\"accordion__panel-:R5kaula:\" class=\"faqSection_accordionItemPanel__j_uJK\" data-accordion-component=\"AccordionItemPanel\">\n<p>Minimalan broj osoba u grupi sa lokalnim vodičem je 6.</p>\n<p>&nbsp;</p>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<h2 id=\"accordion__heading-:R9kaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:R9kaula:\" data-accordion-component=\"AccordionItemButton\"><strong>Koliko traje kayak/rafting tura?</strong></h2>\n</div>\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<div id=\"accordion__heading-:Rdkaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rdkaula:\" data-accordion-component=\"AccordionItemButton\">Kako se vratimo sa cilja kayak/rafting ture na start po automobile?</div>\n</div>\n<div class=\"faqSection_accordionItem__lxs7x\" data-accordion-component=\"AccordionItem\">\n<div class=\"faqSection_accordionItemHeading__jmh6b\" role=\"heading\" data-accordion-component=\"AccordionItemHeading\">\n<p id=\"accordion__heading-:Rhkaula:\" class=\"faqSection_accordionItemButton__gwKd_\" role=\"button\" aria-expanded=\"false\" aria-controls=\"accordion__panel-:Rhkaula:\" data-accordion-component=\"AccordionItemButton\">Postoji li vodič u kayak turi?</p>\n</div>\n</div>\n</div>\n</div>\n"
             },
             "textEsp": {
@@ -5800,19 +6248,19 @@
             "timelineHr": {
               "timelineSadrzajHr": {
                 "naslov": "Kickoff hr",
-                "sadrzaj": "<h2>Kickoff</h2>\n<div class=\"md:col-span-8 sm:col-span-11 sm:col-start-2 col-span-12\">\n<div class=\"w-full bg-white sm:mt-6 mt-4 rounded-2xl sm:px-10 px-5 sm:pt-10 pt-5 sm:pb-2 pb-1\">\n<div id=\"text\" class=\"lg:text-[28px] lg:leading-tight sm:text-xl sm:leading-tight text-lg leading-tight text-neutral-600 font-serif sm:*:mb-6 *:mb-4\">\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim <strong>ad minim veniam</strong>, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>\n</div>\n</div>\n</div>\n<blockquote><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></blockquote>\n"
+                "sadrzaj": "<div class=\"md:col-span-8 sm:col-span-11 sm:col-start-2 col-span-12\">\n<div class=\"w-full bg-white sm:mt-6 mt-4 rounded-2xl sm:px-10 px-5 sm:pt-10 pt-5 sm:pb-2 pb-1\">\n<div id=\"text\" class=\"lg:text-[28px] lg:leading-tight sm:text-xl sm:leading-tight text-lg leading-tight text-neutral-600 font-serif sm:*:mb-6 *:mb-4\">\n<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>\n</div>\n</div>\n</div>\n"
               }
             },
             "timelineEng": {
               "timelineSadrzajEng": {
                 "naslov": "Kickoff eng",
-                "sadrzaj": "<h2>Kickoff</h2>\n<div class=\"md:col-span-8 sm:col-span-11 sm:col-start-2 col-span-12\">\n<div class=\"w-full bg-white sm:mt-6 mt-4 rounded-2xl sm:px-10 px-5 sm:pt-10 pt-5 sm:pb-2 pb-1\">\n<div id=\"text\" class=\"lg:text-[28px] lg:leading-tight sm:text-xl sm:leading-tight text-lg leading-tight text-neutral-600 font-serif sm:*:mb-6 *:mb-4\">\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim <strong>ad minim veniam</strong>, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>\n</div>\n</div>\n</div>\n<blockquote><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></blockquote>\n"
+                "sadrzaj": "<div class=\"md:col-span-8 sm:col-span-11 sm:col-start-2 col-span-12\">\n<div class=\"w-full bg-white sm:mt-6 mt-4 rounded-2xl sm:px-10 px-5 sm:pt-10 pt-5 sm:pb-2 pb-1\">\n<div id=\"text\" class=\"lg:text-[28px] lg:leading-tight sm:text-xl sm:leading-tight text-lg leading-tight text-neutral-600 font-serif sm:*:mb-6 *:mb-4\">\n<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>\n</div>\n</div>\n</div>\n"
               }
             },
             "timelineGer": {
               "timelineSadrzajGer": {
                 "naslov": "Kickoff ger",
-                "sadrzaj": "<h2>Kickoff</h2>\n<div class=\"md:col-span-8 sm:col-span-11 sm:col-start-2 col-span-12\">\n<div class=\"w-full bg-white sm:mt-6 mt-4 rounded-2xl sm:px-10 px-5 sm:pt-10 pt-5 sm:pb-2 pb-1\">\n<div id=\"text\" class=\"lg:text-[28px] lg:leading-tight sm:text-xl sm:leading-tight text-lg leading-tight text-neutral-600 font-serif sm:*:mb-6 *:mb-4\">\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim <strong>ad minim veniam</strong>, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>\n</div>\n</div>\n</div>\n<blockquote><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></blockquote>\n"
+                "sadrzaj": "<div class=\"md:col-span-8 sm:col-span-11 sm:col-start-2 col-span-12\">\n<div class=\"w-full bg-white sm:mt-6 mt-4 rounded-2xl sm:px-10 px-5 sm:pt-10 pt-5 sm:pb-2 pb-1\">\n<div id=\"text\" class=\"lg:text-[28px] lg:leading-tight sm:text-xl sm:leading-tight text-lg leading-tight text-neutral-600 font-serif sm:*:mb-6 *:mb-4\">\n<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>\n</div>\n</div>\n</div>\n"
               }
             },
             "timelineFra": {
@@ -5830,7 +6278,7 @@
             "timelineIta": {
               "timelineSadrzajIta": {
                 "naslov": "Kickoff ita",
-                "sadrzaj": "<h2>Kickoff</h2>\n<div class=\"md:col-span-8 sm:col-span-11 sm:col-start-2 col-span-12\">\n<div class=\"w-full bg-white sm:mt-6 mt-4 rounded-2xl sm:px-10 px-5 sm:pt-10 pt-5 sm:pb-2 pb-1\">\n<div id=\"text\" class=\"lg:text-[28px] lg:leading-tight sm:text-xl sm:leading-tight text-lg leading-tight text-neutral-600 font-serif sm:*:mb-6 *:mb-4\">\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim <strong>ad minim veniam</strong>, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>\n</div>\n</div>\n</div>\n<blockquote><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></blockquote>\n"
+                "sadrzaj": "<div class=\"md:col-span-8 sm:col-span-11 sm:col-start-2 col-span-12\">\n<div class=\"w-full bg-white sm:mt-6 mt-4 rounded-2xl sm:px-10 px-5 sm:pt-10 pt-5 sm:pb-2 pb-1\">\n<div id=\"text\" class=\"lg:text-[28px] lg:leading-tight sm:text-xl sm:leading-tight text-lg leading-tight text-neutral-600 font-serif sm:*:mb-6 *:mb-4\">\n<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>\n</div>\n</div>\n</div>\n"
               }
             }
           }
@@ -5852,13 +6300,13 @@
             "timelineHr": {
               "timelineSadrzajHr": {
                 "naslov": "Kickoff hr",
-                "sadrzaj": "<h2>Kickoff</h2>\n<div class=\"md:col-span-8 sm:col-span-11 sm:col-start-2 col-span-12\">\n<div class=\"w-full bg-white sm:mt-6 mt-4 rounded-2xl sm:px-10 px-5 sm:pt-10 pt-5 sm:pb-2 pb-1\">\n<div id=\"text\" class=\"lg:text-[28px] lg:leading-tight sm:text-xl sm:leading-tight text-lg leading-tight text-neutral-600 font-serif sm:*:mb-6 *:mb-4\">\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim <strong>ad minim veniam</strong>, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>\n</div>\n</div>\n</div>\n<blockquote><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></blockquote>\n"
+                "sadrzaj": "<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n"
               }
             },
             "timelineEng": {
               "timelineSadrzajEng": {
                 "naslov": "Kickoff eng",
-                "sadrzaj": "<h2>Kickoff</h2>\n<div class=\"md:col-span-8 sm:col-span-11 sm:col-start-2 col-span-12\">\n<div class=\"w-full bg-white sm:mt-6 mt-4 rounded-2xl sm:px-10 px-5 sm:pt-10 pt-5 sm:pb-2 pb-1\">\n<div id=\"text\" class=\"lg:text-[28px] lg:leading-tight sm:text-xl sm:leading-tight text-lg leading-tight text-neutral-600 font-serif sm:*:mb-6 *:mb-4\">\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim <strong>ad minim veniam</strong>, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>\n</div>\n</div>\n</div>\n<blockquote><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></blockquote>\n"
+                "sadrzaj": "<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n"
               }
             },
             "timelineGer": {
@@ -5882,7 +6330,7 @@
             "timelineIta": {
               "timelineSadrzajIta": {
                 "naslov": "Kickoff ita",
-                "sadrzaj": "<h2>Kickoff</h2>\n<div class=\"md:col-span-8 sm:col-span-11 sm:col-start-2 col-span-12\">\n<div class=\"w-full bg-white sm:mt-6 mt-4 rounded-2xl sm:px-10 px-5 sm:pt-10 pt-5 sm:pb-2 pb-1\">\n<div id=\"text\" class=\"lg:text-[28px] lg:leading-tight sm:text-xl sm:leading-tight text-lg leading-tight text-neutral-600 font-serif sm:*:mb-6 *:mb-4\">\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim <strong>ad minim veniam</strong>, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>\n</div>\n</div>\n</div>\n<blockquote><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></blockquote>\n"
+                "sadrzaj": "<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n"
               }
             }
           }
@@ -5904,13 +6352,13 @@
             "timelineHr": {
               "timelineSadrzajHr": {
                 "naslov": "Kickoff hr",
-                "sadrzaj": "<h2>Kickoff</h2>\n<div class=\"md:col-span-8 sm:col-span-11 sm:col-start-2 col-span-12\">\n<div class=\"w-full bg-white sm:mt-6 mt-4 rounded-2xl sm:px-10 px-5 sm:pt-10 pt-5 sm:pb-2 pb-1\">\n<div id=\"text\" class=\"lg:text-[28px] lg:leading-tight sm:text-xl sm:leading-tight text-lg leading-tight text-neutral-600 font-serif sm:*:mb-6 *:mb-4\">\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim <strong>ad minim veniam</strong>, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>\n</div>\n</div>\n</div>\n<blockquote><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></blockquote>\n"
+                "sadrzaj": "<div class=\"md:col-span-8 sm:col-span-11 sm:col-start-2 col-span-12\">\n<div class=\"w-full bg-white sm:mt-6 mt-4 rounded-2xl sm:px-10 px-5 sm:pt-10 pt-5 sm:pb-2 pb-1\">\n<div id=\"text\" class=\"lg:text-[28px] lg:leading-tight sm:text-xl sm:leading-tight text-lg leading-tight text-neutral-600 font-serif sm:*:mb-6 *:mb-4\">\n<p>Ut enim <strong>ad minim veniam</strong>, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>\n</div>\n</div>\n</div>\n"
               }
             },
             "timelineEng": {
               "timelineSadrzajEng": {
                 "naslov": "Kickoff eng",
-                "sadrzaj": "<h2>Kickoff</h2>\n<div class=\"md:col-span-8 sm:col-span-11 sm:col-start-2 col-span-12\">\n<div class=\"w-full bg-white sm:mt-6 mt-4 rounded-2xl sm:px-10 px-5 sm:pt-10 pt-5 sm:pb-2 pb-1\">\n<div id=\"text\" class=\"lg:text-[28px] lg:leading-tight sm:text-xl sm:leading-tight text-lg leading-tight text-neutral-600 font-serif sm:*:mb-6 *:mb-4\">\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim <strong>ad minim veniam</strong>, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>\n</div>\n</div>\n</div>\n<blockquote><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></blockquote>\n"
+                "sadrzaj": "<div class=\"md:col-span-8 sm:col-span-11 sm:col-start-2 col-span-12\">\n<div class=\"w-full bg-white sm:mt-6 mt-4 rounded-2xl sm:px-10 px-5 sm:pt-10 pt-5 sm:pb-2 pb-1\">\n<div id=\"text\" class=\"lg:text-[28px] lg:leading-tight sm:text-xl sm:leading-tight text-lg leading-tight text-neutral-600 font-serif sm:*:mb-6 *:mb-4\">\n<p>Ut enim <strong>ad minim veniam</strong>, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>\n</div>\n</div>\n</div>\n"
               }
             },
             "timelineGer": {
@@ -5934,7 +6382,7 @@
             "timelineIta": {
               "timelineSadrzajIta": {
                 "naslov": "Kickoff ita",
-                "sadrzaj": "<h2>Kickoff</h2>\n<div class=\"md:col-span-8 sm:col-span-11 sm:col-start-2 col-span-12\">\n<div class=\"w-full bg-white sm:mt-6 mt-4 rounded-2xl sm:px-10 px-5 sm:pt-10 pt-5 sm:pb-2 pb-1\">\n<div id=\"text\" class=\"lg:text-[28px] lg:leading-tight sm:text-xl sm:leading-tight text-lg leading-tight text-neutral-600 font-serif sm:*:mb-6 *:mb-4\">\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim <strong>ad minim veniam</strong>, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>\n</div>\n</div>\n</div>\n<blockquote><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></blockquote>\n"
+                "sadrzaj": "<div class=\"md:col-span-8 sm:col-span-11 sm:col-start-2 col-span-12\">\n<div class=\"w-full bg-white sm:mt-6 mt-4 rounded-2xl sm:px-10 px-5 sm:pt-10 pt-5 sm:pb-2 pb-1\">\n<div id=\"text\" class=\"lg:text-[28px] lg:leading-tight sm:text-xl sm:leading-tight text-lg leading-tight text-neutral-600 font-serif sm:*:mb-6 *:mb-4\">\n<p>Ut enim <strong>ad minim veniam</strong>, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>\n</div>\n</div>\n</div>\n"
               }
             }
           }
@@ -5956,19 +6404,19 @@
             "timelineHr": {
               "timelineSadrzajHr": {
                 "naslov": "Kickoff hr",
-                "sadrzaj": "<h2>Kickoff</h2>\n<div class=\"md:col-span-8 sm:col-span-11 sm:col-start-2 col-span-12\">\n<div class=\"w-full bg-white sm:mt-6 mt-4 rounded-2xl sm:px-10 px-5 sm:pt-10 pt-5 sm:pb-2 pb-1\">\n<div id=\"text\" class=\"lg:text-[28px] lg:leading-tight sm:text-xl sm:leading-tight text-lg leading-tight text-neutral-600 font-serif sm:*:mb-6 *:mb-4\">\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim <strong>ad minim veniam</strong>, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>\n</div>\n</div>\n</div>\n<blockquote><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></blockquote>\n"
+                "sadrzaj": "<p>Fusce ultrices, urna non laoreet feugiat, ipsum est sodales nunc, vitae rutrum erat magna eu libero. Etiam dictum euismod justo sit amet eleifend.</p>\n"
               }
             },
             "timelineEng": {
               "timelineSadrzajEng": {
                 "naslov": "Kickoff eng",
-                "sadrzaj": "<h2>Kickoff</h2>\n<div class=\"md:col-span-8 sm:col-span-11 sm:col-start-2 col-span-12\">\n<div class=\"w-full bg-white sm:mt-6 mt-4 rounded-2xl sm:px-10 px-5 sm:pt-10 pt-5 sm:pb-2 pb-1\">\n<div id=\"text\" class=\"lg:text-[28px] lg:leading-tight sm:text-xl sm:leading-tight text-lg leading-tight text-neutral-600 font-serif sm:*:mb-6 *:mb-4\">\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim <strong>ad minim veniam</strong>, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>\n</div>\n</div>\n</div>\n<blockquote><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></blockquote>\n"
+                "sadrzaj": "<p>Fusce ultrices, urna non laoreet feugiat, ipsum est sodales nunc,</p>\n"
               }
             },
             "timelineGer": {
               "timelineSadrzajGer": {
                 "naslov": "Kickoff ger",
-                "sadrzaj": "<h2>Kickoff</h2>\n<div class=\"md:col-span-8 sm:col-span-11 sm:col-start-2 col-span-12\">\n<div class=\"w-full bg-white sm:mt-6 mt-4 rounded-2xl sm:px-10 px-5 sm:pt-10 pt-5 sm:pb-2 pb-1\">\n<div id=\"text\" class=\"lg:text-[28px] lg:leading-tight sm:text-xl sm:leading-tight text-lg leading-tight text-neutral-600 font-serif sm:*:mb-6 *:mb-4\">\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim <strong>ad minim veniam</strong>, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>\n</div>\n</div>\n</div>\n<blockquote><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></blockquote>\n"
+                "sadrzaj": "<div class=\"md:col-span-8 sm:col-span-11 sm:col-start-2 col-span-12\">\n<div class=\"w-full bg-white sm:mt-6 mt-4 rounded-2xl sm:px-10 px-5 sm:pt-10 pt-5 sm:pb-2 pb-1\">\n<div id=\"text\" class=\"lg:text-[28px] lg:leading-tight sm:text-xl sm:leading-tight text-lg leading-tight text-neutral-600 font-serif sm:*:mb-6 *:mb-4\">\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim <strong>ad minim veniam</strong>, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>\n</div>\n</div>\n</div>\n"
               }
             },
             "timelineFra": {
@@ -5986,7 +6434,7 @@
             "timelineIta": {
               "timelineSadrzajIta": {
                 "naslov": "Kickoff ita",
-                "sadrzaj": "<h2>Kickoff</h2>\n<div class=\"md:col-span-8 sm:col-span-11 sm:col-start-2 col-span-12\">\n<div class=\"w-full bg-white sm:mt-6 mt-4 rounded-2xl sm:px-10 px-5 sm:pt-10 pt-5 sm:pb-2 pb-1\">\n<div id=\"text\" class=\"lg:text-[28px] lg:leading-tight sm:text-xl sm:leading-tight text-lg leading-tight text-neutral-600 font-serif sm:*:mb-6 *:mb-4\">\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim <strong>ad minim veniam</strong>, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>\n</div>\n</div>\n</div>\n<blockquote><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></blockquote>\n"
+                "sadrzaj": "<div class=\"md:col-span-8 sm:col-span-11 sm:col-start-2 col-span-12\">\n<div class=\"w-full bg-white sm:mt-6 mt-4 rounded-2xl sm:px-10 px-5 sm:pt-10 pt-5 sm:pb-2 pb-1\">\n<div id=\"text\" class=\"lg:text-[28px] lg:leading-tight sm:text-xl sm:leading-tight text-lg leading-tight text-neutral-600 font-serif sm:*:mb-6 *:mb-4\">\n<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n</div>\n</div>\n</div>\n"
               }
             }
           }
@@ -6086,6 +6534,12 @@
                 "node": {
                   "id": "cG9zdDoxMDc0NQ==",
                   "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/02/fotogalerija-brod-sv-sime_04.jpg"
+                }
+              },
+              "glavnaSlika": {
+                "node": {
+                  "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/02/fotogalerija-kornati_07.jpg",
+                  "id": "cG9zdDoxMDc2NA=="
                 }
               }
             },
@@ -6799,7 +7253,8 @@
                 "sliderSlikeHeroSekcije4": null,
                 "tAG": null
               },
-              "slikaThumbnailSlikaNaKartici": null
+              "slikaThumbnailSlikaNaKartici": null,
+              "glavnaSlika": null
             },
             "skupinaAtributaHr": {
               "atributiSkupinaHr": {
@@ -7511,7 +7966,8 @@
                 "sliderSlikeHeroSekcije4": null,
                 "tAG": null
               },
-              "slikaThumbnailSlikaNaKartici": null
+              "slikaThumbnailSlikaNaKartici": null,
+              "glavnaSlika": null
             },
             "skupinaAtributaHr": {
               "atributiSkupinaHr": {
@@ -8223,7 +8679,8 @@
                 "sliderSlikeHeroSekcije4": null,
                 "tAG": null
               },
-              "slikaThumbnailSlikaNaKartici": null
+              "slikaThumbnailSlikaNaKartici": null,
+              "glavnaSlika": null
             },
             "skupinaAtributaHr": {
               "atributiSkupinaHr": {
@@ -8935,7 +9392,8 @@
                 "sliderSlikeHeroSekcije4": null,
                 "tAG": null
               },
-              "slikaThumbnailSlikaNaKartici": null
+              "slikaThumbnailSlikaNaKartici": null,
+              "glavnaSlika": null
             },
             "skupinaAtributaHr": {
               "atributiSkupinaHr": {

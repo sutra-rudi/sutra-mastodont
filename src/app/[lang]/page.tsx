@@ -28,8 +28,8 @@ import { fetchData } from '../utils/callApi';
 import dataset from '../staticData/staticQueryData.json';
 import PhotoGalleryComponent from '../appComponents/global/PhotoGallery';
 import PartnersSection from '../appComponents/landing/PartnersSection';
-import { PortfolioCaseStudyFragment } from '../queries/dynamicQueries/getAllPortfolioCaseStudy';
-import PortfolioCaseStudy from '../appComponents/landing/PortfolioCaseStudy';
+// import { PortfolioCaseStudyFragment } from '../queries/dynamicQueries/getAllPortfolioCaseStudy';
+// import PortfolioCaseStudy from '../appComponents/landing/PortfolioCaseStudy';
 import AboutUsSection from '../appComponents/landing/AboutUsSection';
 import JobOpeningSection from '../appComponents/landing/JobOpeningSection';
 import { JobOpeningsFragment } from '../queries/dynamicQueries/getAllJobOpenings';
@@ -38,6 +38,9 @@ import { Suspense } from 'react';
 import Loading from './loading';
 import dynamic from 'next/dynamic';
 import ButtonDisplay from '../appComponents/landing/ButtonDisplay';
+import EmailBannerSection from '../appComponents/landing/NewsletterSection';
+import getWorkingHoursQueryFragment from '../queries/dynamicQueries/getWorkingHours';
+import WorkingHoursSection from '../appComponents/landing/WorkingHoursSection';
 
 const findKaruselDataBase = dataset.data.allSlikeGalerijaKarusel.edges.find(
   (list) => list.node.title === 'Naslovnica – Karusel slika'
@@ -61,21 +64,25 @@ const filterImagesMiddle = Object.values(findKaruselDataMiddle?.node.photoGaller
 export default async function Landing({ params: { lang } }: { params: { lang: string } }) {
   //DYNAMIC DATA
 
+  // ${PortfolioCaseStudyFragment()}
   const groupQ = await fetchData(`query groupQuery {
     ${BlogFragment()}
     ${NewsFragment()}
     ${BrojcaniciFragment()}
     ${IskustvaFragment()}
-    ${PortfolioCaseStudyFragment()}
     ${JobOpeningsFragment()}
+    ${getWorkingHoursQueryFragment()}
     }`);
 
   const blogsData = !groupQ.error ? groupQ.data.allBlog?.edges : null;
   const newsData = !groupQ.error ? groupQ.data.allNovosti?.edges : null;
   const cInData = !groupQ.error ? groupQ.data.allBrojcanici?.edges : null;
   const cTData = !groupQ.error ? groupQ.data.allIskustvaKlijenata?.edges : null;
-  const pCsData = !groupQ.error ? groupQ.data.allPortfolioCaseStudy?.edges : null;
+  // const pCsData = !groupQ.error ? groupQ.data.allPortfolioCaseStudy?.edges : null;
   const jOData = !groupQ.error ? groupQ.data.allOglasiZaPosao?.edges : null;
+
+  const baseWHdata = !groupQ.error ? groupQ.data.allRadnoVrijeme?.edges : null;
+  const seasonWHdata = !groupQ.error ? groupQ.data.allRadnoVrijemeSezonsko?.edges : null;
 
   //MEDIA PATHS
   const MP = await fetchMediaPaths();
@@ -108,6 +115,10 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
         <ButtonDisplay />
 
+        <WorkingHoursSection sezonsko={seasonWHdata} bazno={baseWHdata} currentLang={lang} />
+
+        <EmailBannerSection currentLang={lang} />
+
         {blogsData && <BlogSection currentLang={lang} blogList={blogsData} />}
 
         <BaseCaruselSection dataset={filterImagesMiddle} />
@@ -115,11 +126,12 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
         <ServicesSection currentLang={lang} />
 
         <AboutUsSection currentLang={lang} />
+
         <Timeline currentLang={lang} />
 
         <MiddleSectionVideo sourceUrl={homePageMiddleSection} />
 
-        {pCsData && <PortfolioCaseStudy currentLang={lang} dataset={pCsData} />}
+        {/* {pCsData && <PortfolioCaseStudy currentLang={lang} dataset={pCsData} />} */}
 
         <CompanyInNumbers dataset={cInData ? cInData : findCiNStatic} currentLang={lang} />
 

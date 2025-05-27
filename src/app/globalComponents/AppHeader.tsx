@@ -1,9 +1,9 @@
 'use client';
 
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import React from 'react';
 import { Twirl as Hamburger } from 'hamburger-react';
-import { Hr, Gb, It, De } from 'react-flags-select';
+import { Hr, Gb, It, De, Fr, Es } from 'react-flags-select';
 import LanguageDropdown from './LangDropdown';
 
 interface Header {
@@ -123,6 +123,8 @@ const AppHeader = ({ logos }: Header) => {
     { title: 'English', lang: 'eng', flag: <Gb width={24} height={24} /> },
     { title: 'Deutsch', lang: 'ger', flag: <De width={24} height={24} /> },
     { title: 'Italiano', lang: 'ita', flag: <It width={24} height={24} /> },
+    { title: 'Français', lang: 'fra', flag: <Fr width={24} height={24} /> },
+    { title: 'Español', lang: 'esp', flag: <Es width={24} height={24} /> },
   ];
 
   React.useEffect(() => {
