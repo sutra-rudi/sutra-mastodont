@@ -1806,7 +1806,7 @@ export default function GIGA_QUERY() {
       }
     }
   }
-  allAdminTekstoviCookies404Footer {
+   allAdminTekstoviCookies404Footer {
     edges {
       node {
         id
@@ -1826,7 +1826,7 @@ export default function GIGA_QUERY() {
             dodatneOpcije505Page
             footerBazaTekstova {
               bonusPoljeTeksta
-              fOOTERInfoTekstKojiSeIspisujeUDnuStranice
+              footerInfoTekstKojiSeIspisujeUDnuStranicecookieKratkoCtaPostavke
             }
             maintenanceStranicaPrivremenoOdrzavanje {
               naslov
@@ -1861,7 +1861,7 @@ export default function GIGA_QUERY() {
             dodatneOpcije505Page
             footerBazaTekstova {
               bonusPoljeTeksta
-              fOOTERInfoTekstKojiSeIspisujeUDnuStranice
+              footerInfoTekstKojiSeIspisujeUDnuStranicecookieKratkoCtaPostavke
             }
             maintenanceStranicaPrivremenoOdrzavanje {
               naslov
@@ -1881,9 +1881,191 @@ export default function GIGA_QUERY() {
             }
           }
         }
+        
+    adminCookiesFooterNewsletterGer {
+          osnovniTekstoviWebaGer {
+            cookieBazaTekstova {
+              cookieDugoCTAPrihvatiSve
+              cookieDugoCtaPrihvatiSamoNuzne
+              cookieDugoNapomena
+              cookieDugoNaslov
+              cookieDugoTekst
+              cookieKratkoCta
+              cookieKratkoNaslov
+              cookieKratkoTekst
+            }
+            dodatneOpcije505Page
+            footerBazaTekstova {
+              bonusPoljeTeksta
+              footerInfoTekstKojiSeIspisujeUDnuStranicecookieKratkoCtaPostavke
+            }
+            maintenanceStranicaPrivremenoOdrzavanje {
+              naslov
+              tekst
+            }
+            newsletterBazaTekstova {
+              naslovNewslettera
+              newsletterUvodnaPoruka
+              newsletterZahvalaNaPretplati
+            }
+            stranicaZaPretraguNoResults {
+              naslov
+              tekst
+            }
+            thankYouStraniceZahvala {
+              tekst
+            }
+          }
+        }
+        
+       adminCookiesFooterNewsletterIta {
+          osnovniTekstoviWebaIta {
+            cookieBazaTekstova {
+              cookieDugoCTAPrihvatiSve
+              cookieDugoCtaPrihvatiSamoNuzne
+              cookieDugoNapomena
+              cookieDugoNaslov
+              cookieDugoTekst
+              cookieKratkoCta
+              cookieKratkoNaslov
+              cookieKratkoTekst
+            }
+            dodatneOpcije505Page
+            footerBazaTekstova {
+              bonusPoljeTeksta
+              footerInfoTekstKojiSeIspisujeUDnuStranicecookieKratkoCtaPostavke
+            }
+            maintenanceStranicaPrivremenoOdrzavanje {
+              naslov
+              tekst
+            }
+            newsletterBazaTekstova {
+              naslovNewslettera
+              newsletterUvodnaPoruka
+              newsletterZahvalaNaPretplati
+            }
+            stranicaZaPretraguNoResults {
+              naslov
+              tekst
+            }
+            thankYouStraniceZahvala {
+              tekst
+            }
+          }
+        }
+        
+    adminCookiesFooterNewsletterEsp {
+          osnovniTekstoviWebaEsp {
+            cookieBazaTekstova {
+              cookieDugoCTAPrihvatiSve
+              cookieDugoCtaPrihvatiSamoNuzne
+              cookieDugoNapomena
+              cookieDugoNaslov
+              cookieDugoTekst
+              cookieKratkoCta
+              cookieKratkoNaslov
+              cookieKratkoTekst
+            }
+            dodatneOpcije505Page
+            footerBazaTekstova {
+              bonusPoljeTeksta
+              footerInfoTekstKojiSeIspisujeUDnuStranicecookieKratkoCtaPostavke
+            }
+            maintenanceStranicaPrivremenoOdrzavanje {
+              naslov
+              tekst
+            }
+            newsletterBazaTekstova {
+              naslovNewslettera
+              newsletterUvodnaPoruka
+              newsletterZahvalaNaPretplati
+            }
+            stranicaZaPretraguNoResults {
+              naslov
+              tekst
+            }
+            thankYouStraniceZahvala {
+              tekst
+            }
+          }
+        }
+        
+      adminCookiesFooterNewsletterFra {
+          osnovniTekstoviWebaFra {
+            cookieBazaTekstova {
+              cookieDugoCTAPrihvatiSve
+              cookieDugoCtaPrihvatiSamoNuzne
+              cookieDugoNapomena
+              cookieDugoNaslov
+              cookieDugoTekst
+              cookieKratkoCta
+              cookieKratkoNaslov
+              cookieKratkoTekst
+            }
+            dodatneOpcije505Page
+            footerBazaTekstova {
+              bonusPoljeTeksta
+              footerInfoTekstKojiSeIspisujeUDnuStranicecookieKratkoCtaPostavke
+            }
+            maintenanceStranicaPrivremenoOdrzavanje {
+              naslov
+              tekst
+            }
+            newsletterBazaTekstova {
+              naslovNewslettera
+              newsletterUvodnaPoruka
+              newsletterZahvalaNaPretplati
+            }
+            stranicaZaPretraguNoResults {
+              naslov
+              tekst
+            }
+            thankYouStraniceZahvala {
+              tekst
+            }
+          }
+        }
+        
+   adminCookiesFooterNewsletterSlo {
+          osnovniTekstoviWebaSlo {
+            cookieBazaTekstova {
+              cookieDugoCTAPrihvatiSve
+              cookieDugoCtaPrihvatiSamoNuzne
+              cookieDugoNapomena
+              cookieDugoNaslov
+              cookieDugoTekst
+              cookieKratkoCta
+              cookieKratkoNaslov
+              cookieKratkoTekst
+            }
+            dodatneOpcije505Page
+            footerBazaTekstova {
+              bonusPoljeTeksta
+              footerInfoTekstKojiSeIspisujeUDnuStranicecookieKratkoCtaPostavke
+            }
+            maintenanceStranicaPrivremenoOdrzavanje {
+              naslov
+              tekst
+            }
+            newsletterBazaTekstova {
+              naslovNewslettera
+              newsletterUvodnaPoruka
+              newsletterZahvalaNaPretplati
+            }
+            stranicaZaPretraguNoResults {
+              naslov
+              tekst
+            }
+            thankYouStraniceZahvala {
+              tekst
+            }
+          }
+        }
+
       }
     }
   }
+    
   allAmenetiesSadrzajiPogodnosti {
     edges {
       node {
