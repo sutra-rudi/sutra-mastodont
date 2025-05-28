@@ -41,6 +41,8 @@ import ButtonDisplay from '../appComponents/landing/ButtonDisplay';
 import EmailBannerSection from '../appComponents/landing/NewsletterSection';
 import getWorkingHoursQueryFragment from '../queries/dynamicQueries/getWorkingHours';
 import WorkingHoursSection from '../appComponents/landing/WorkingHoursSection';
+import { getAllEventsFragment } from '../queries/dynamicQueries/getAllEvents';
+import EventSection from '../appComponents/landing/EventSection';
 
 const findKaruselDataBase = dataset.data.allSlikeGalerijaKarusel.edges.find(
   (list) => list.node.title === 'Naslovnica – Karusel slika'
@@ -72,6 +74,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
     ${IskustvaFragment()}
     ${JobOpeningsFragment()}
     ${getWorkingHoursQueryFragment()}
+    ${getAllEventsFragment()}
     }`);
 
   const blogsData = !groupQ.error ? groupQ.data.allBlog?.edges : null;
@@ -83,6 +86,8 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
   const baseWHdata = !groupQ.error ? groupQ.data.allRadnoVrijeme?.edges : null;
   const seasonWHdata = !groupQ.error ? groupQ.data.allRadnoVrijemeSezonsko?.edges : null;
+
+  const eventsData = !groupQ.error ? groupQ.data.allEvent?.edges : null;
 
   //MEDIA PATHS
   const MP = await fetchMediaPaths();
@@ -112,6 +117,8 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
           currentLang={lang}
           placeholderGallery={carusel1Images}
         />
+
+        {eventsData && <EventSection dataset={eventsData} currentLang={lang} />}
 
         <ButtonDisplay />
 

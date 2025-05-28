@@ -38,16 +38,9 @@ export default function ContentSectionFirst({
     ? content[`lista${l}`]?.[`listaSadrzaj${l}`].split('\r\n')
     : content[`modulBazeTekstova${l}`]?.[`tekstBazaTekstova${l}`];
 
-  const handleImages = () => {
-    if (isList) {
-      return Object.values(placeholderGallery);
-    } else {
-      const gal = Object.values(content.photoGallery.fotogalerija);
-      if (gal.every((item) => item === null)) {
-        return Object.values(placeholderGallery);
-      } else return gal;
-    }
-  };
+  function handleImages() {
+    return Object.values(placeholderGallery).filter((g) => g);
+  }
 
   return (
     <section className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl'>

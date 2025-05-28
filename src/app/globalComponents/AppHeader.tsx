@@ -58,6 +58,15 @@ const AppHeader = ({ logos }: Header) => {
       url: `/${currentLang}/services`,
     },
     {
+      hr: 'Događaji',
+      eng: 'Events',
+      ger: 'Veranstaltungen',
+      ita: 'Eventi',
+      esp: 'Eventos',
+      fra: 'Événements',
+      url: `/${currentLang}/events`,
+    },
+    {
       hr: 'Oglasi',
       eng: 'Listings',
       ger: 'Anzeigen',
