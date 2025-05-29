@@ -14,7 +14,7 @@ const MiddleSectionVideo = dynamic(() => import('../appComponents/landing/Middle
 const BlogSection = dynamic(() => import('../appComponents/landing/BlogSection'));
 const NewsSection = dynamic(() => import('../appComponents/landing/NewsSection'));
 const MapSection = dynamic(() => import('../appComponents/landing/MapSection'));
-const WorkingHoursSection = dynamic(() => import('../appComponents/landing/WorkingHoursSection'), { ssr: false });
+const WorkingHoursSection = dynamic(() => import('../appComponents/landing/WorkingHoursSection'));
 
 //QUERIES
 import { fetchMediaPaths } from '../utils/callMediaPaths';
@@ -85,10 +85,10 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
   // const pCsData = !groupQ.error ? groupQ.data.allPortfolioCaseStudy?.edges : null;
   const jOData = !groupQ.error ? groupQ.data.allOglasiZaPosao?.edges : null;
 
-  const baseWHdata = !groupQ.error ? groupQ.data.allRadnoVrijeme?.edges : null;
-  const seasonWHdata = !groupQ.error ? groupQ.data.allRadnoVrijemeSezonsko?.edges : null;
+  // const baseWHdata = !groupQ.error ? groupQ.data.allRadnoVrijeme?.edges : null;
+  // const seasonWHdata = !groupQ.error ? groupQ.data.allRadnoVrijemeSezonsko?.edges : null;
 
-  console.log('BASE', seasonWHdata[0].node);
+  // console.log('BASE', seasonWHdata[0].node);
 
   const eventsData = !groupQ.error ? groupQ.data.allEvent?.edges : null;
 
@@ -125,9 +125,9 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
         <ButtonDisplay />
 
-        {seasonWHdata && baseWHdata && (
+        {/* {seasonWHdata && baseWHdata && (
           <WorkingHoursSection sezonsko={seasonWHdata} bazno={baseWHdata} currentLang={lang} />
-        )}
+        )} */}
 
         <EmailBannerSection currentLang={lang} />
 
