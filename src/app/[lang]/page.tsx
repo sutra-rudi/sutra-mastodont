@@ -155,7 +155,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
           <PhotoGalleryComponent gallery={filterImagesBase} currentLang={lang} />
         </div>
 
-        <ContactSection currentLang={lang} />
+        <ContactSection currentLang={lang} sezonsko={seasonWHdata} bazno={baseWHdata} />
 
         <FaqSection currentLang={lang} isSub={false} />
         <MapSection />

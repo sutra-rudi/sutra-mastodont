@@ -48,17 +48,19 @@ export default function Timeline({ currentLang }: Timeline) {
                         </div>
                       )}
 
-                      <picture>
-                        <img
-                          src={
-                            d.node.uvodTimeline.uvodTimeline.slika
-                              ? d.node.uvodTimeline.uvodTimeline.slika.node.sourceUrl
-                              : 'https://mastodont-2.sutra-cms.com/Sutra-ftp/other/CMS_Image_Placeholder.jpg'
-                          }
-                          alt={`Timeline picture - ${d.node[`timeline${l}`]?.[`timelineSadrzaj${l}`].naslov}`}
-                          className='max-h-[400px] w-full object-cover object-center block aspect-auto'
-                        />
-                      </picture>
+                      {d.node.uvodTimeline.uvodTimeline.slika && (
+                        <picture>
+                          <img
+                            src={
+                              d.node.uvodTimeline.uvodTimeline.slika
+                                ? d.node.uvodTimeline.uvodTimeline.slika.node.sourceUrl
+                                : 'https://mastodont-2.sutra-cms.com/Sutra-ftp/other/CMS_Image_Placeholder.jpg'
+                            }
+                            alt={`Timeline picture - ${d.node[`timeline${l}`]?.[`timelineSadrzaj${l}`].naslov}`}
+                            className='max-h-[400px] w-full object-cover object-center block aspect-auto'
+                          />
+                        </picture>
+                      )}
                     </div>
                   </div>
                   <div aria-hidden='true'></div>
