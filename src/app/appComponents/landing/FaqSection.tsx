@@ -1,9 +1,10 @@
 'use client';
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 import faqDataset from '../../staticData/staticQueryData.json';
 import parse from 'html-react-parser';
+import { useIntersectionObserver } from '@uidotdev/usehooks';
 const findDataset = faqDataset.data.allFaq.edges;
 const findIntro = faqDataset.data.allBazaTekstaPodstranice1Modul.edges.find(
   (item) => item.node.title === 'NASLOVNICA – Često postavljana pitanja (FAQ)'
@@ -14,7 +15,19 @@ interface FaqSectionProps {
   isSub: boolean;
 }
 
-function AccordionItem({ header, text }: { header: string; text: string }) {
+function AccordionItem({
+  header,
+  text,
+  index,
+  isSeen,
+  isRight,
+}: {
+  header: string;
+  text: string;
+  index: number;
+  isSeen: boolean;
+  isRight: boolean;
+}) {
   const [active, setActive] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -26,7 +39,12 @@ function AccordionItem({ header, text }: { header: string; text: string }) {
   return (
     <div
       onClick={toggle}
-      className='mb-8 w-full rounded-lg bg-white p-4 shadow-[0px_20px_95px_0px_rgba(201,203,204,0.30)] dark:bg-dark-2 dark:shadow-[0px_20px_95px_0px_rgba(0,0,0,0.30)] sm:p-8 lg:px-6 xl:px-8 transition-all ease-in-out transform-gpu cursor-pointer hover:bg-primarna-svijetla/5'
+      style={{
+        animationDelay: `${isRight ? index * 0.4 : index * 0.3}s`,
+      }}
+      className={`mb-8 w-full rounded-lg bg-white p-4 shadow-[0px_20px_95px_0px_rgba(201,203,204,0.30)] dark:bg-dark-2 dark:shadow-[0px_20px_95px_0px_rgba(0,0,0,0.30)] sm:p-8 lg:px-6 xl:px-8 transition-all ease-in-out transform-gpu cursor-pointer hover:bg-primarna-svijetla/5 ${
+        isSeen && 'motion-preset-slide-up motion-ease-spring-smooth'
+      }`}
     >
       <button role='button' className='flex w-full text-left'>
         <div className='mr-5 flex h-10 w-full max-w-[40px] items-center justify-center rounded-lg'>
@@ -101,13 +119,22 @@ export default function FaqSection({ currentLang, isSub = false }: FaqSectionPro
   const left = findDataset.slice(0, middle);
   const right = findDataset.slice(middle);
 
+  const [ref, entry] = useIntersectionObserver({
+    threshold: 0,
+    root: null,
+    rootMargin: '0px',
+  });
+
   //@ts-ignore
   const title = findIntro?.node[`modulBazeTekstova${l}`]?.[`naslovBazaTekstova${l}`];
   //@ts-ignore
   const text = findIntro?.node[`modulBazeTekstova${l}`]?.[`tekstBazaTekstova${l}`];
 
   return (
-    <section className='relative z-20 overflow-hidden bg-white pb-12 lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl'>
+    <section
+      ref={ref}
+      className='relative z-20 overflow-hidden bg-white pb-12 lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl'
+    >
       <div className='container mx-auto'>
         {!isSub && (
           <h2 className='lg:text-h2-desktop md:text-h2-tablet text-h2-mobile text-heading-color-light-mode dark:text-heading-color-dark-mode block text-center text-balance lg:-mb--desktop-h1-2---naslov-tekst md:-mb--tablet-h1-2---naslov-tekst -mb--mobile-h1-2---naslov-tekst px-4'>
@@ -122,8 +149,11 @@ export default function FaqSection({ currentLang, isSub = false }: FaqSectionPro
 
         <div className='flex flex-wrap px-4'>
           <div className='w-full lg:px-4 lg:w-1/2'>
-            {left.map((item) => (
+            {left.map((item, i) => (
               <AccordionItem
+                index={i}
+                isRight={false}
+                isSeen={entry?.isIntersecting!}
                 key={item.node.id}
                 //@ts-ignore
                 header={item.node[`faqPojedinacnoDodavanje${l}`]?.[`pitanjeFaq${l}`]}
@@ -133,8 +163,11 @@ export default function FaqSection({ currentLang, isSub = false }: FaqSectionPro
             ))}
           </div>
           <div className='w-full lg:px-4 lg:w-1/2'>
-            {right.map((item) => (
+            {right.map((item, i) => (
               <AccordionItem
+                isRight
+                index={i}
+                isSeen={entry?.isIntersecting!}
                 key={item.node.id}
                 //@ts-ignore
                 header={item.node[`faqPojedinacnoDodavanje${l}`]?.[`pitanjeFaq${l}`]}

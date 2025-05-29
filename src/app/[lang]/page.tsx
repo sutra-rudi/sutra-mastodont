@@ -24,7 +24,7 @@ const BlogSection = dynamic(() => import('../appComponents/landing/BlogSection')
 const NewsSection = dynamic(() => import('../appComponents/landing/NewsSection'));
 const MapSection = dynamic(() => import('../appComponents/landing/MapSection'));
 const WorkingHoursSection = dynamic(() => import('../appComponents/landing/WorkingHoursSection'));
-const FaqSection = dynamic(() => import('../appComponents/landing/FaqSection'));
+const FaqSection = dynamic(() => import('../appComponents/landing/FaqSection'), { ssr: false });
 const ContactSection = dynamic(() => import('../appComponents/landing/ContactSection'), { ssr: false });
 //QUERIES
 import { fetchMediaPaths } from '../utils/callMediaPaths';
