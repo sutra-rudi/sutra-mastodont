@@ -85,8 +85,8 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
   // const pCsData = !groupQ.error ? groupQ.data.allPortfolioCaseStudy?.edges : null;
   const jOData = !groupQ.error ? groupQ.data.allOglasiZaPosao?.edges : null;
 
-  // const baseWHdata = !groupQ.error ? groupQ.data.allRadnoVrijeme?.edges : null;
-  // const seasonWHdata = !groupQ.error ? groupQ.data.allRadnoVrijemeSezonsko?.edges : null;
+  const baseWHdata = !groupQ.error ? groupQ.data.allRadnoVrijeme?.edges : null;
+  const seasonWHdata = !groupQ.error ? groupQ.data.allRadnoVrijemeSezonsko?.edges : null;
 
   // console.log('BASE', seasonWHdata[0].node);
 
@@ -125,9 +125,9 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
         <ButtonDisplay />
 
-        {/* {seasonWHdata && baseWHdata && (
+        {seasonWHdata && baseWHdata && (
           <WorkingHoursSection sezonsko={seasonWHdata} bazno={baseWHdata} currentLang={lang} />
-        )} */}
+        )}
 
         <EmailBannerSection currentLang={lang} />
 
