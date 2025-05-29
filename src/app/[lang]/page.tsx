@@ -125,7 +125,9 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
         <ButtonDisplay />
 
-        <WorkingHoursSection sezonsko={seasonWHdata} bazno={baseWHdata} currentLang={lang} />
+        {seasonWHdata && baseWHdata && (
+          <WorkingHoursSection sezonsko={seasonWHdata} bazno={baseWHdata} currentLang={lang} />
+        )}
 
         <EmailBannerSection currentLang={lang} />
 
