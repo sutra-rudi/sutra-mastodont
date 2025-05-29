@@ -258,7 +258,10 @@ export default function Client({ blogList, currentLang, param }: Client) {
           )}
         </div>
 
-        <div ref={emblaRef} className='embla lg:hidden w-full mx-auto'>
+        <div
+          ref={emblaRef}
+          className='embla lg:hidden w-full mx-auto lg:-mt--desktop---3xl md:-mt--tablet---3xl -mt--mobile---3xl relative'
+        >
           <div className='embla__container w-full flex items-start gap-4'>
             {blogList.map((blog: any, i: number) => {
               const isEngMistake = currentLang === UserLanguage.eng;
