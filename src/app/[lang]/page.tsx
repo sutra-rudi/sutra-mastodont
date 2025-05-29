@@ -5,7 +5,6 @@ import AppHero from '../appComponents/landing/AppHero';
 import BaseCaruselSection from '../appComponents/landing/BaseCaruselSection';
 import ContactSection from '../appComponents/landing/ContactSection';
 import ContentSectionFirst from '../appComponents/landing/ContentSectionFirst';
-import FaqSection from '../appComponents/landing/FaqSection';
 import CompanyInNumbers from '../appComponents/landing/CompanyInNumbers';
 import ClientTestimonials from '../appComponents/landing/ClientTestimonials';
 import ServicesSection from '../appComponents/landing/ServicesSection';
@@ -15,7 +14,7 @@ const BlogSection = dynamic(() => import('../appComponents/landing/BlogSection')
 const NewsSection = dynamic(() => import('../appComponents/landing/NewsSection'));
 const MapSection = dynamic(() => import('../appComponents/landing/MapSection'));
 const WorkingHoursSection = dynamic(() => import('../appComponents/landing/WorkingHoursSection'));
-
+const FaqSection = dynamic(() => import('../appComponents/landing/FaqSection'));
 //QUERIES
 import { fetchMediaPaths } from '../utils/callMediaPaths';
 import { BlogFragment } from '../queries/dynamicQueries/getAllBlogs';
@@ -87,8 +86,6 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
   const baseWHdata = !groupQ.error ? groupQ.data.allRadnoVrijeme?.edges : null;
   const seasonWHdata = !groupQ.error ? groupQ.data.allRadnoVrijemeSezonsko?.edges : null;
-
-  // console.log('BASE', seasonWHdata[0].node);
 
   const eventsData = !groupQ.error ? groupQ.data.allEvent?.edges : null;
 
