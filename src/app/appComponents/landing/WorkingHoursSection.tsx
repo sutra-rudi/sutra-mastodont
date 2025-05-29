@@ -19,14 +19,14 @@ export default function WorkingHoursSection({ sezonsko, bazno, currentLang }: WH
           Sezonsko radno vrijeme
         </h2>
 
-        <p className='lg:text-nadnaslov-desktop md:text-nadnaslov-tablet text-nadnaslov-mobile text-nadnaslov-color-light-mode dark:text-nadnaslov-color-light-mode italic lg:mt-desktop-naslov-nadnaslov md:mt-tablet-naslov-nadnaslov mt-mobile-naslov-nadnaslov'>{`Vrijedi od ${dayjs(
+        {/* <p className='lg:text-nadnaslov-desktop md:text-nadnaslov-tablet text-nadnaslov-mobile text-nadnaslov-color-light-mode dark:text-nadnaslov-color-light-mode italic lg:mt-desktop-naslov-nadnaslov md:mt-tablet-naslov-nadnaslov mt-mobile-naslov-nadnaslov'>{`Vrijedi od ${dayjs(
           sezonsko[0].node.sezonskoRadnoVrijemeAktivatorDatuma.vrijediOdSezonskoRadnoVrijeme
         ).format('DD.MM.YYYY')} do ${dayjs(
           sezonsko[0].node.sezonskoRadnoVrijemeAktivatorDatuma.vrijediDoSezonskoRadnoVrijeme
         ).format('DD.MM.YYYY')}`}</p>
         <div className='prose lg:-mt--desktop-h1-2---naslov-tekst md:-mt--tablet-h1-2---naslov-tekst -mt--mobile-h1-2---naslov-tekst'>
           {sezonsko[0].node[`radnoVrijeme${l}`]?.[`textBox${l}`] ?? 'NEMA UPISA U BAZI: UPIŠI VRIME'}
-        </div>
+        </div> */}
       </section>
 
       <section className='container mx-auto px-4 lg:-mt--desktop---2xl md:-mt--tablet---2xl -mt--mobile---2xl'>
