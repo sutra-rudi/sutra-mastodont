@@ -62,7 +62,18 @@ export default async function AppHero({ currentLang, imgs }: AppHero) {
                 </span>
               ))
             : //@ts-ignore
-              findDataset[`tekstHero${l}`]?.[`slide1Hero${l}`].naslov}
+              findDataset[`tekstHero${l}`]?.[`slide1Hero${l}`].naslov.split(' ').map((l, i) => (
+                <span
+                  key={i}
+                  className='inline-block opacity-0'
+                  style={{
+                    animation: `rise 1s ease-in-out forwards`,
+                    animationDelay: `${i * 0.3}s`,
+                  }}
+                >
+                  {l}
+                </span>
+              ))}
         </h1>
       </div>
     </section>
