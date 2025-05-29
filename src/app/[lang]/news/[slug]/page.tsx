@@ -61,6 +61,8 @@ export async function generateMetadata({ params: { lang, slug } }: { params: { l
   // const sadrzajNovosti = bData.data.novosti[`sadrzaj${l}Fields`]?.[`sadrzajSadrzaj${l}`];
   const seoOpisStranice = bData.data.novosti[`seo${l}`]?.[`seo${l}`].seoOpisStranice;
   const introNovosti = bData.data.novosti[`sadrzaj${l}Fields`]?.[`kratkiUvodniTekstSadrzaj${l}`];
+
+  console.log('INTRO', introNovosti);
   const author = bData.data.novosti.author;
 
   const datum = bData.data.novosti.introNews.datum;
@@ -196,9 +198,11 @@ export default async function SingleNewsPage({ params: { lang, slug } }: { param
           {naslovNovosti}
         </h2>
 
-        <div className='text-ellipsis line-clamp-1 max-w-prose mx-auto text-center relative lg:-mt--desktop-h1-2---naslov-nadnaslov md:-mt--tablet-h1-2---naslov-nadnaslov -mt--mobile-h1-2---naslov-nadnaslov lg:text-nadnaslov-desktop md:text-nadnaslov-tablet text-nadnaslov-mobile px-4'>
-          {parse(introNovosti)}
-        </div>
+        {introNovosti && (
+          <div className='text-ellipsis line-clamp-1 max-w-prose mx-auto text-center relative lg:-mt--desktop-h1-2---naslov-nadnaslov md:-mt--tablet-h1-2---naslov-nadnaslov -mt--mobile-h1-2---naslov-nadnaslov lg:text-nadnaslov-desktop md:text-nadnaslov-tablet text-nadnaslov-mobile px-4'>
+            {parse(introNovosti)}
+          </div>
+        )}
 
         <div className='flex items-center relative mx-auto lg:mt-10 md:mt-7 mt-4 max-w-max gap-4'>
           <picture>
@@ -225,9 +229,11 @@ export default async function SingleNewsPage({ params: { lang, slug } }: { param
             className='object-cover object-center block aspect-auto lg:h-[500px] md:h-[400px] h-[250px]'
           />
         </picture>
-        <div className='lg:prose-lg prose max-w-[750px] w-full mx-auto lg:mt-xl-slika-sadrzaj md:mt-desktop-slika-sadrzaj mt-tablet-slika-sadrzaj px-4'>
-          {parse(sadrzajNovosti)}
-        </div>
+        {sadrzajNovosti && (
+          <div className='lg:prose-lg prose max-w-[750px] w-full mx-auto lg:mt-xl-slika-sadrzaj md:mt-desktop-slika-sadrzaj mt-tablet-slika-sadrzaj px-4'>
+            {parse(sadrzajNovosti)}
+          </div>
+        )}
 
         <ClientContent gallery={galleryNovosti} files={fileList} currentLang={lang} tags={tags} />
       </Suspense>
