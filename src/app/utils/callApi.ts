@@ -2,25 +2,24 @@ type FetchDataResponse = any;
 
 /**
  * Fetches data from the CMS using a provided GraphQL query.
- * @param query
- * @param noCache
- * @returns
+ * @param query – GraphQL query string
+ * @param noCache – ako je true, prisiljava fetch bez cachea
+ * @returns Parsed JSON ili { error: true, details?: string }
  */
 export async function fetchData(
   query: string,
   noCache: boolean = false
-): Promise<FetchDataResponse | { error: boolean }> {
+): Promise<FetchDataResponse | { error: true; details?: string }> {
   const url = process.env.CMS_BASE_URL;
   const apiKey = process.env.API_KEY_SUTRA;
 
   if (!url) {
-    console.error('CMS_BASE_URL is not defined in environment variables.');
-    return { error: true }; // Return an error object if URL is missing
+    console.error('[fetchData] ❌ CMS_BASE_URL nije definirana');
+    return { error: true, details: 'Missing CMS_BASE_URL' };
   }
-
   if (!apiKey) {
-    console.error('API_KEY is not defined in enviorment variables');
-    return { error: true };
+    console.error('[fetchData] ❌ API_KEY_SUTRA nije definirana');
+    return { error: true, details: 'Missing API_KEY_SUTRA' };
   }
 
   const fetchOptions: RequestInit = {
@@ -31,23 +30,43 @@ export async function fetchData(
     },
     body: JSON.stringify({ query }),
     cache: noCache ? 'no-store' : 'force-cache',
+    redirect: 'manual', // da vidimo eventualne redirecte
   };
 
   try {
     const response = await fetch(url, fetchOptions);
 
-    // Check if the response is ok (status 200-299)
+    // status izvan 200–299
     if (!response.ok) {
-      console.error(`Fetch error: ${response.status} - ${response.statusText}`);
-      return { error: true }; // Return an error object on failure
+      console.error(`[fetchData] Fetch error: ${response.status} ${response.statusText}`);
+      return { error: true, details: `HTTP ${response.status}` };
     }
 
-    const data = await response.json(); // Parse response JSON
+    // ako je redirect, bacamo grešku
+    if (response.type === 'opaqueredirect' || (response.status >= 300 && response.status < 400)) {
+      const location = response.headers.get('location');
+      console.error(`[fetchData] Neočekivani redirect na ${location}`);
+      return { error: true, details: `Redirect to ${location}` };
+    }
 
-    // console.log('DATA RETURNED', data);
-    return data;
-  } catch (error) {
-    console.error('Error during fetch operation:', error);
-    return { error: true }; // Return an error object on exception
+    const contentType = response.headers.get('content-type') || '';
+    const text = await response.text();
+    // log raw odgovor kad ne parsira
+    if (!contentType.includes('application/json')) {
+      console.error('[fetchData] Odgovor nije JSON, vraćam raw tekst:', text);
+      return { error: true, details: 'Non-JSON response' };
+    }
+
+    // pokušaj parsiranja JSON-a
+    try {
+      const data = JSON.parse(text);
+      return data;
+    } catch (jsonErr) {
+      console.error('[fetchData] JSON.parse failed:', jsonErr, '— raw:', text);
+      return { error: true, details: 'Invalid JSON' };
+    }
+  } catch (err) {
+    console.error('[fetchData] Exception during fetch:', err);
+    return { error: true, details: 'Fetch exception' };
   }
 }

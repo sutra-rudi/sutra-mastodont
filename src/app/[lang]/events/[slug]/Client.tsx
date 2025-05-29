@@ -19,8 +19,6 @@ interface Client {
 }
 
 export default function Client({ data, currentLang }: Client) {
-  console.log('DATASET', data);
-
   const l = getSuffixFromLang(currentLang);
 
   return (
