@@ -34,7 +34,7 @@ export default function WorkingHoursSection({ sezonsko, bazno, currentLang }: WH
           Bazno radno vrijeme
         </h2>
 
-        {bazno[0].node[`radnoVrijeme${l}`]?.[`textBox${l}`] ? (
+        {/* {bazno[0].node[`radnoVrijeme${l}`]?.[`textBox${l}`] ? (
           <div className='prose lg:-mt--desktop-h1-2---naslov-tekst md:-mt--tablet-h1-2---naslov-tekst -mt--mobile-h1-2---naslov-tekst'>
             {parse(bazno[0].node[`radnoVrijeme${l}`]?.[`textBox${l}`])}
           </div>
@@ -42,7 +42,7 @@ export default function WorkingHoursSection({ sezonsko, bazno, currentLang }: WH
           <div className='prose lg:-mt--desktop-h1-2---naslov-tekst md:-mt--tablet-h1-2---naslov-tekst -mt--mobile-h1-2---naslov-tekst'>
             NEMA UPISA U BAZI: UPIŠI VRIME
           </div>
-        )}
+        )} */}
       </section>
     </section>
   );
