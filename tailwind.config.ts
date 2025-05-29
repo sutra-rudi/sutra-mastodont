@@ -559,9 +559,9 @@ const config: Config = {
   plugins: [
     require('@tailwindcss/typography'),
     require('tailwind-scrollbar'),
-    require('@tailwindcss/forms')({
-      strategy: 'base',
-    }),
+    // require('@tailwindcss/forms')({
+    //   strategy: 'base',
+    // }),
     require('tailwindcss-motion'),
   ],
 };

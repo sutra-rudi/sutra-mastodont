@@ -11,6 +11,20 @@ export default async function AppHero({ currentLang, imgs }: AppHero) {
   const l = getSuffixFromLang(currentLang);
   return (
     <section className='lg:min-h-[50vh] min-h-[80vh] flex justify-center items-center -mt--desktop---4xl relative'>
+      <style>
+        {`
+      @keyframes rise {
+        from {
+          transform: translateY(75%);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0%);
+          opacity: 1;
+        }
+      }
+    `}
+      </style>
       <picture>
         <img
           src={imgs.mobile}
@@ -31,10 +45,22 @@ export default async function AppHero({ currentLang, imgs }: AppHero) {
             : //@ts-ignore
               findDataset[`tekstHero${l}`]?.[`slide1Hero${l}`].nadnaslov}
         </p>
-        <h1 className='lg:text-h1-desktop md:text-h1-tablet text-h1-mobile35 text-heading-color-dark-mode'>
+
+        <h1 className='lg:text-h1-desktop md:text-h1-tablet text-h1-mobile35 text-heading-color-dark-mode flex gap-2 max-w-prose flex-wrap text-balance items-center justify-center'>
           {currentLang === UserLanguage.hr
             ? //@ts-ignore
-              findDataset[`tekstHero${l}`].slide1Hero.naslov
+              findDataset[`tekstHero${l}`].slide1Hero.naslov.split(' ').map((l, i) => (
+                <span
+                  key={i}
+                  className='inline-block opacity-0'
+                  style={{
+                    animation: `rise 1s ease-in-out forwards`,
+                    animationDelay: `${i * 0.3}s`,
+                  }}
+                >
+                  {l}
+                </span>
+              ))
             : //@ts-ignore
               findDataset[`tekstHero${l}`]?.[`slide1Hero${l}`].naslov}
         </h1>

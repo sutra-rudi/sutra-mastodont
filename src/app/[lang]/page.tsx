@@ -1,20 +1,31 @@
 export const maxDuration = 60;
 export const revalidate = 1800;
+
+import { Suspense } from 'react';
+import Loading from './loading';
+import dynamic from 'next/dynamic';
 //SECTION IMPORTS
 import AppHero from '../appComponents/landing/AppHero';
 import BaseCaruselSection from '../appComponents/landing/BaseCaruselSection';
-import ContactSection from '../appComponents/landing/ContactSection';
 import ContentSectionFirst from '../appComponents/landing/ContentSectionFirst';
 import CompanyInNumbers from '../appComponents/landing/CompanyInNumbers';
 import ClientTestimonials from '../appComponents/landing/ClientTestimonials';
 import ServicesSection from '../appComponents/landing/ServicesSection';
+import PartnersSection from '../appComponents/landing/PartnersSection';
+// import { PortfolioCaseStudyFragment } from '../queries/dynamicQueries/getAllPortfolioCaseStudy';
+// import PortfolioCaseStudy from '../appComponents/landing/PortfolioCaseStudy';
+import AboutUsSection from '../appComponents/landing/AboutUsSection';
+import JobOpeningSection from '../appComponents/landing/JobOpeningSection';
+import ButtonDisplay from '../appComponents/landing/ButtonDisplay';
+import EmailBannerSection from '../appComponents/landing/NewsletterSection';
 
 const MiddleSectionVideo = dynamic(() => import('../appComponents/landing/MiddleSectionVIdeo'), { ssr: false });
 const BlogSection = dynamic(() => import('../appComponents/landing/BlogSection'));
 const NewsSection = dynamic(() => import('../appComponents/landing/NewsSection'));
 const MapSection = dynamic(() => import('../appComponents/landing/MapSection'));
 const WorkingHoursSection = dynamic(() => import('../appComponents/landing/WorkingHoursSection'));
-const FaqSection = dynamic(() => import('../appComponents/landing/FaqSection'));
+const FaqSection = dynamic(() => import('../appComponents/landing/FaqSection'), { ssr: false });
+const ContactSection = dynamic(() => import('../appComponents/landing/ContactSection'), { ssr: false });
 //QUERIES
 import { fetchMediaPaths } from '../utils/callMediaPaths';
 import { BlogFragment } from '../queries/dynamicQueries/getAllBlogs';
@@ -27,18 +38,8 @@ import { fetchData } from '../utils/callApi';
 //STATIC DATA
 import dataset from '../staticData/staticQueryData.json';
 import PhotoGalleryComponent from '../appComponents/global/PhotoGallery';
-import PartnersSection from '../appComponents/landing/PartnersSection';
-// import { PortfolioCaseStudyFragment } from '../queries/dynamicQueries/getAllPortfolioCaseStudy';
-// import PortfolioCaseStudy from '../appComponents/landing/PortfolioCaseStudy';
-import AboutUsSection from '../appComponents/landing/AboutUsSection';
-import JobOpeningSection from '../appComponents/landing/JobOpeningSection';
 import { JobOpeningsFragment } from '../queries/dynamicQueries/getAllJobOpenings';
 import Timeline from '../components/Timeline';
-import { Suspense } from 'react';
-import Loading from './loading';
-import dynamic from 'next/dynamic';
-import ButtonDisplay from '../appComponents/landing/ButtonDisplay';
-import EmailBannerSection from '../appComponents/landing/NewsletterSection';
 import getWorkingHoursQueryFragment from '../queries/dynamicQueries/getWorkingHours';
 
 import { getAllEventsFragment } from '../queries/dynamicQueries/getAllEvents';
@@ -155,7 +156,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
           <PhotoGalleryComponent gallery={filterImagesBase} currentLang={lang} />
         </div>
 
-        <ContactSection currentLang={lang} />
+        <ContactSection currentLang={lang} sezonsko={seasonWHdata} bazno={baseWHdata} />
 
         <FaqSection currentLang={lang} isSub={false} />
         <MapSection />

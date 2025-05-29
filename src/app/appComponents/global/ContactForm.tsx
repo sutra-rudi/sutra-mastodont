@@ -200,9 +200,23 @@ export default function ContactForm({ formId, lng }: Contact) {
           <button
             type='submit'
             disabled={submitting}
-            className='w-full bg-prva-tamna-boja  py-4 transition-all duration-200 ease-out cursor-pointer bg-primarna-tamna text-almost-white hover:bg-primarna-svijetla rounded'
+            className='lg:-mt--desktop-h1-2---sadrzaj-cta md:-mt--tablet-h1-2---sadrzaj-cta -mt--mobile-h1-2---sadrzaj-cta flex items-center justify-center bg-primarna-tamna text-almost-white lg:text-button-desktop md:text-button-tablet text-button-mobile md:px-7 md:py-3 px-6 py-[15px] md:rounded-[7px] rounded-[5px] md:gap-[13.3px] gap-[11.6px] transition-all ease-in-out duration-300 group hover:bg-sekundarna-tamna hover:text-sekundarna-svijetla active:text-almost-white active:bg-accent-boja w-full'
           >
-            Pošalji poruku
+            <span className='motion-ease-spring-bouncy group-hover:motion-preset-slide-up'>Pošalji poruku</span>
+
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              width='17'
+              height='14'
+              viewBox='0 0 17 14'
+              fill='none'
+              className='transition-all ease-in-out group-hover:translate-x-1'
+            >
+              <path
+                d='M0.5 13.6693V0.335938L16.3333 7.00261L0.5 13.6693ZM2.16667 11.1693L12.0417 7.00261L2.16667 2.83594V5.75261L7.16667 7.00261L2.16667 8.2526V11.1693ZM2.16667 11.1693V7.00261V2.83594V5.75261V8.2526V11.1693Z'
+                fill='currentColor'
+              />
+            </svg>
           </button>
         </div>
       </form>

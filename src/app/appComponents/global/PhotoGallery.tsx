@@ -28,7 +28,7 @@ export default function PhotoGalleryComponent({ gallery, currentLang }: PhotoGal
               <div
                 onClick={() => handleClick(index)}
                 key={g.node.id}
-                className={`relative w-full h-full overflow-hidden rounded-lg group cursor-pointer ${
+                className={`relative w-full h-full overflow-hidden rounded-lg group cursor-pointer group ${
                   index % 3 === 0 ? 'col-span-2 row-span-2' : ''
                 }`}
               >
@@ -36,14 +36,14 @@ export default function PhotoGalleryComponent({ gallery, currentLang }: PhotoGal
                   <img
                     src={g.node.sourceUrl}
                     alt={`gallery image-${g.node.id}`}
-                    className='w-full h-full object-cover object-center block aspect-auto'
+                    className='w-full h-full object-cover object-center block aspect-auto transition-all ease-out duration-[7000ms] group-hover:scale-125'
                     loading='lazy'
                     decoding='async'
                   />
                 </picture>
 
                 <div
-                  className={`absolute w-full h-full inset-0 bg-overlay-dark opacity-0 group-hover:opacity-100 flex items-center justify-center text-accent-boja  transition-all ease-in-out duration-300`}
+                  className={`absolute w-full h-full inset-0 bg-overlay-dark opacity-0 group-hover:opacity-100 flex items-center justify-center text-accent-boja  transition-all ease-in-out duration-[3000ms]`}
                 >
                   <h4
                     className={`${'playfairDisplayFont.className'} max-w-[190px] lg:text-h4-desktop md:text-h4-tablet text-h4-mobile`}
