@@ -28,7 +28,7 @@ export default function ContactLocations({ currentLang }: ContactLocations) {
           {locationsData.map((ld) => {
             return (
               <a key={ld.node.id} href={`/${currentLang}/locations#${slugify(ld.node.title, { ...slugifyOptions })}`}>
-                <article className='flex items-stretch bg-almost-white shadow lg:flex-nowrap flex-wrap group cursor-pointer'>
+                <article className='flex items-stretch bg-almost-white shadow lg:flex-nowrap flex-wrap group cursor-pointer lg:pb-0 pb-4'>
                   <div className='overflow-hidden relative block  w-full lg:h-[460px] h-[300px] lg:max-w-[600px]'>
                     <picture>
                       <img
@@ -49,7 +49,7 @@ export default function ContactLocations({ currentLang }: ContactLocations) {
                     </picture>
                   </div>
                   <div className='max-w-prose md:pt-6 lg:px-8 md:px-6 px-4'>
-                    <h1 className='lg:text-h2-desktop md:text-h2-tablet text-h2-mobile text-heading-color-light-mode dark:text-heading-color-dark-mode motion-ease-spring-bouncy group-hover:motion-preset-slide-up'>
+                    <h1 className='lg:text-h2-desktop md:text-h2-tablet text-h2-mobile text-heading-color-light-mode dark:text-heading-color-dark-mode motion-ease-spring-bouncy group-hover:motion-preset-slide-up lg:mt-0 mt-mobile-slika-sadrzaj'>
                       {ld.node.radnaVremenaLokacijaOsnovneInformacije.nazivLokacije}
                     </h1>
 
