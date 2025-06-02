@@ -54,7 +54,7 @@ export default async function AppHero({ currentLang, imgs }: AppHero) {
                   key={i}
                   className='inline-block opacity-0'
                   style={{
-                    animation: `rise 1s ease-in-out forwards`,
+                    animation: `rise 1s ease-out forwards`,
                     animationDelay: `${i * 0.3}s`,
                   }}
                 >
@@ -67,7 +67,7 @@ export default async function AppHero({ currentLang, imgs }: AppHero) {
                   key={i}
                   className='inline-block opacity-0'
                   style={{
-                    animation: `rise 1s ease-in-out forwards`,
+                    animation: `rise 1s ease-out forwards`,
                     animationDelay: `${i * 0.3}s`,
                   }}
                 >

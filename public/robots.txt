@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sutra-mastodont.vercel.app/sitemap.xml
