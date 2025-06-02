@@ -59,23 +59,46 @@ export default function ContactLocationsPage({
                   </p>
 
                   <ul className='flex flex-col lg:-gap--desktop-liste-udaljenost-u-listama-big md:-gap--tablet-liste-udaljenost-u-listama-big -gap--mobile-liste-udaljenost-u-listama-big lg:-mt--desktop-h1-2---naslov-tekst md:-mt--tablet-h1-2---naslov-tekst -mt--mobile-h1-2---naslov-tekst text-text-light-mode dark:text-text-dark-mode'>
-                    <li className='flex items-start justify-start flex-col lg:gap-4 md:gap-3 gap-2 motion-ease-spring-bouncy group-hover:motion-preset-slide-up motion-delay-200'>
-                      <div className='flex items-center justify-start gap-1 md:text-text-base-l-desktop text-text-base-l-mobiletablet'>
+                    <li className='flex items-start justify-start flex-col lg:gap-4 md:gap-3 gap-2 transition-all ease-in-out hover:text-accent-boja'>
+                      <div className='flex items-center justify-start gap-1 md:text-text-base-l-desktop text-text-base-l-mobiletablet '>
                         <Misto />
                         <p>Adresa</p>
                       </div>
-                      <div className='lg:prose-lg prose text-text-light-mode dark:text-text-dark-mode'>
+                      <a
+                        href={
+                          ld.node.radnaVremenaLokacijaOsnovneInformacije.googleMapsLinkPojedineLokacije
+                            ? ld.node.radnaVremenaLokacijaOsnovneInformacije.googleMapsLinkPojedineLokacije
+                            : '/'
+                        }
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        className='lg:prose-lg prose text-text-light-mode dark:text-text-dark-mode'
+                      >
                         {parse(ld.node.radnaVremenaLokacijaOsnovneInformacije.adresaLokacije)}
-                      </div>
+                      </a>
                     </li>
-                    <li className='flex items-center justify-start lg:gap-4 md:gap-3 gap-2 md:text-text-base-l-desktop text-text-base-l-mobiletablet motion-ease-spring-bouncy group-hover:motion-preset-slide-up motion-delay-300'>
-                      <Mejl /> <p>{ld.node.radnaVremenaLokacijaOsnovneInformacije.emailLokacije}</p>
+                    <li className=' md:text-text-base-l-desktop text-text-base-l-mobiletablet transition-all ease-in-out hover:text-accent-boja'>
+                      <a
+                        href={`mailto:${ld.node.radnaVremenaLokacijaOsnovneInformacije.emailLokacije}`}
+                        className='flex items-center justify-start lg:gap-4 md:gap-3 gap-2'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                      >
+                        <Mejl /> <p>{ld.node.radnaVremenaLokacijaOsnovneInformacije.emailLokacije}</p>
+                      </a>
                     </li>
                     <li className='flex items-center justify-start lg:gap-4 md:gap-3 gap-2 md:text-text-base-l-desktop text-text-base-l-mobiletablet motion-ease-spring-bouncy group-hover:motion-preset-slide-up motion-delay-[400ms]'>
                       <Osoba /> {ld.node.radnaVremenaLokacijaOsnovneInformacije.imeOdgovorneOsobe}
                     </li>
-                    <li className='flex items-center justify-start lg:gap-4 md:gap-3 gap-2 md:text-text-base-l-desktop text-text-base-l-mobiletablet motion-ease-spring-bouncy group-hover:motion-preset-slide-up motion-delay-500'>
-                      <Telefon /> {ld.node.radnaVremenaLokacijaOsnovneInformacije.kontaktTelefonLokacije}
+                    <li className=' md:text-text-base-l-desktop text-text-base-l-mobiletablet transition-all ease-in-out hover:text-accent-boja'>
+                      <a
+                        href={`tel:${ld.node.radnaVremenaLokacijaOsnovneInformacije.kontaktTelefonLokacije}`}
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        className='flex items-center justify-start lg:gap-4 md:gap-3 gap-2'
+                      >
+                        <Telefon /> {ld.node.radnaVremenaLokacijaOsnovneInformacije.kontaktTelefonLokacije}
+                      </a>
                     </li>
                   </ul>
                 </div>
