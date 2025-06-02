@@ -38,7 +38,7 @@ export default function EventSection({ dataset, currentLang }: EventSection) {
                     <img
                       src={ds.node.naslovnaSlika.sekundarnaGlavnaSlikaThumbnailHover.node.sourceUrl}
                       alt={ds.node.naslovnaSlika.sekundarnaGlavnaSlikaThumbnailHover.node.altText}
-                      aria-description={ds.node.naslovnaSlika.sekundarnaGlavnaSlikaThumbnailHover.node.description}
+                      aria-details={ds.node.naslovnaSlika.sekundarnaGlavnaSlikaThumbnailHover.node.description}
                       className='object-cover object-center block aspect-auto w-full lg:h-[305px] md:h-[270px] h-[225px] transition-all ease-out duration-[7000ms] group-hover:scale-125'
                     />
                   </picture>

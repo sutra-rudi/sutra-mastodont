@@ -27,7 +27,7 @@ export default function Client({ data, currentLang }: Client) {
         <img
           src={data.naslovnaSlika.glavnaSlikaNaslovnaSlika.node.sourceUrl}
           alt={data.naslovnaSlika.glavnaSlikaNaslovnaSlika.node.altText}
-          aria-description={data.naslovnaSlika.glavnaSlikaNaslovnaSlika.node.description}
+          aria-details={data.naslovnaSlika.glavnaSlikaNaslovnaSlika.node.description}
           className='object-cover object-top block aspect-auto lg:h-[500px] md:h-[400px] h-[250px] w-full -motion-translate-y-in-25 motion-ease-spring-smooth max-w-[1920px] mx-auto'
         />
       </picture>
