@@ -3216,7 +3216,7 @@
                 "oNamaSnaslov2": "Naslov 3. pasusa "
               },
               "skraceneVerzijeTekstaTekstaONamaHr": {
-                "oNamaOpisTvrtkeUJednojReceniciMax200Znakova": "Fusce ultrices, urna non laoreet feugiat, ipsum est sodales nunc, vitae rutrum erat magna eu libero. Etiam dictum euismod justo sit amet eleifend.",
+                "oNamaOpisTvrtkeUJednojReceniciMax200Znakova": "Fusce ultrices, urna non laoreet feugiat, ipsum est sodales nunc, vitae rutrum erat magna eu libero. Etiam dictum euismod justo sit amet eleifend. ",
                 "oNamaSkraceniTekstZaNaslovnicuIliFooter": "<p>Sed sit amet vestibulum lorem. Etiam a vestibulum lectus, congue condimentum justo. Mauris dapibus enim ut sem imperdiet dictum. Phasellus id molestie urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce eleifend lectus eros, faucibus lobortis nunc gravida a. Duis metus velit, rutrum vestibulum scelerisque sed, finibus id magna. Integer elementum justo cursus, consequat magna eget, accumsan tortor. Vestibulum euismod eget metus nec molestie. Phasellus porttitor bibendum dolor. Maecenas interdum porttitor efficitur. Sed massa neque, tempus sit amet malesuada nec, iaculis ac lectus.</p>\n"
               },
               "tekstoviPodstraniceONamaHr": {
@@ -5424,7 +5424,7 @@
               "datumTestimoniala": null,
               "imeKlijentaTestimonials": "John",
               "imeTvrtkeTestimonials": null,
-              "izvorRecenzije": "The cruise was great! From Booking.com with Boris to the great crew on the boat. We had a group of 25 people and the group made us feel special. They picked us up on a near by Island so that we would not have to go to the main land. The crew was amazing, food was great and the singing and Entertainment was great",
+              "izvorRecenzije": "www.sutra.hr",
               "ocijenaIliBrojZvjezdicaTestimonials": null,
               "prikaziDodatneOpcijeVideoLogoLinkYoutube": false,
               "vanjskaPoveznicaTestimonials": null,
@@ -5451,7 +5451,7 @@
               "tekstTestimonialaGer": null
             },
             "testimonialsHr": {
-              "pozicijaUkolikoPostojiHr": null,
+              "pozicijaUkolikoPostojiHr": "sdsasdads",
               "tekstTestimonialaHr": null
             },
             "testimonialsIta": {
@@ -5846,6 +5846,198 @@
     },
     "allKontaktiLokacije": {
       "edges": [
+        {
+          "node": {
+            "id": "cG9zdDoxMjUyMQ==",
+            "title": "Prodajno mjesto Split 3",
+            "naslovnaSlika": {
+              "glavnaSlikaNaslovnaSlika": {
+                "node": {
+                  "id": "cG9zdDo2NTE=",
+                  "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2024/06/40f71afe-745d-3f79-b77b-a89ae0ae5826-1.jpg"
+                }
+              },
+              "sekundarnaGlavnaSlikaThumbnailHover": {
+                "node": {
+                  "id": "cG9zdDo2NjE=",
+                  "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2024/06/53463016-3c34-3b1c-abc4-791ffb679076-1.jpg"
+                }
+              }
+            },
+            "photoGallery": {
+              "fotogalerija": {
+                "galSlika01": {
+                  "node": {
+                    "id": "cG9zdDo2NTE=",
+                    "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2024/06/40f71afe-745d-3f79-b77b-a89ae0ae5826-1.jpg"
+                  }
+                },
+                "galSlika02": {
+                  "node": {
+                    "id": "cG9zdDo2NTU=",
+                    "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2024/06/ff0a2223-c2af-307a-8e92-a53e4938b576-1.jpg"
+                  }
+                },
+                "galSlika03": {
+                  "node": {
+                    "id": "cG9zdDo2NDM=",
+                    "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2024/06/4ae356fe-84bd-361e-b50d-10b275571261-1.jpg"
+                  }
+                },
+                "galSlika04": {
+                  "node": {
+                    "id": "cG9zdDo2NjE=",
+                    "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2024/06/53463016-3c34-3b1c-abc4-791ffb679076-1.jpg"
+                  }
+                },
+                "galSlika05": null,
+                "galSlika06": null,
+                "galSlika07": null,
+                "galSlika08": null,
+                "galSlika09": null,
+                "galSlika10": null
+              }
+            },
+            "radnaVremenaLokacijaOsnovneInformacije": {
+              "adresaLokacije": "Split 3<br />\r\n21000<br />\r\nSplit",
+              "emailLokacije": "split@sutra.hr",
+              "googleMapsLinkPojedineLokacije": "https://www.google.com/maps/dir/44.125561,15.2514663/23000,+Zadar/@44.1364382,15.2475187,15z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x4761e53094e483c1:0x1300ad50351f8db2!2m2!1d15.2743718!2d44.1473707?entry=ttu",
+              "imeOdgovorneOsobe": "Rudi Vladusic",
+              "kontaktTelefonLokacije": "098/354-657",
+              "kontaktTelefonLokacijeLink": null,
+              "nazivLokacije": "Prodajno mjesto Pariz",
+              "status": true
+            },
+            "radnoVrijemeEng": {
+              "textBoxEng": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            },
+            "radnoVrijemeEsp": {
+              "textBoxEsp": null
+            },
+            "radnoVrijemeFra": {
+              "textBoxFra": null
+            },
+            "radnoVrijemeGer": {
+              "textBoxGer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            },
+            "radnoVrijemeHr": {
+              "textBoxHr": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            },
+            "radnoVrijemeIta": {
+              "textBoxIta": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            },
+            "radnoVrijemeSlo": {
+              "textBoxSlo": null
+            },
+            "statusAtivacijePoJezicima": {
+              "aktivatorEng": true,
+              "aktivatorGer": true,
+              "aktivatorHr": true,
+              "aktivatorIta": true,
+              "dodatniJezici": {
+                "aktivatorFra": false,
+                "aktivatorSlo": false,
+                "aktivatorSpa": false
+              }
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDoxMjUyMA==",
+            "title": "Prodajno mjesto Split 2",
+            "naslovnaSlika": {
+              "glavnaSlikaNaslovnaSlika": {
+                "node": {
+                  "id": "cG9zdDo2NTE=",
+                  "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2024/06/40f71afe-745d-3f79-b77b-a89ae0ae5826-1.jpg"
+                }
+              },
+              "sekundarnaGlavnaSlikaThumbnailHover": {
+                "node": {
+                  "id": "cG9zdDo2NjE=",
+                  "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2024/06/53463016-3c34-3b1c-abc4-791ffb679076-1.jpg"
+                }
+              }
+            },
+            "photoGallery": {
+              "fotogalerija": {
+                "galSlika01": {
+                  "node": {
+                    "id": "cG9zdDo2NTE=",
+                    "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2024/06/40f71afe-745d-3f79-b77b-a89ae0ae5826-1.jpg"
+                  }
+                },
+                "galSlika02": {
+                  "node": {
+                    "id": "cG9zdDo2NTU=",
+                    "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2024/06/ff0a2223-c2af-307a-8e92-a53e4938b576-1.jpg"
+                  }
+                },
+                "galSlika03": {
+                  "node": {
+                    "id": "cG9zdDo2NDM=",
+                    "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2024/06/4ae356fe-84bd-361e-b50d-10b275571261-1.jpg"
+                  }
+                },
+                "galSlika04": {
+                  "node": {
+                    "id": "cG9zdDo2NjE=",
+                    "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2024/06/53463016-3c34-3b1c-abc4-791ffb679076-1.jpg"
+                  }
+                },
+                "galSlika05": null,
+                "galSlika06": null,
+                "galSlika07": null,
+                "galSlika08": null,
+                "galSlika09": null,
+                "galSlika10": null
+              }
+            },
+            "radnaVremenaLokacijaOsnovneInformacije": {
+              "adresaLokacije": "Split 3<br />\r\n21000<br />\r\nSplit",
+              "emailLokacije": "split@sutra.hr",
+              "googleMapsLinkPojedineLokacije": "https://www.google.com/maps/dir/44.125561,15.2514663/23000,+Zadar/@44.1364382,15.2475187,15z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x4761e53094e483c1:0x1300ad50351f8db2!2m2!1d15.2743718!2d44.1473707?entry=ttu",
+              "imeOdgovorneOsobe": "Rudi Vladusic",
+              "kontaktTelefonLokacije": "098/354-657",
+              "kontaktTelefonLokacijeLink": null,
+              "nazivLokacije": "Prodajno mjesto Zadar",
+              "status": true
+            },
+            "radnoVrijemeEng": {
+              "textBoxEng": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            },
+            "radnoVrijemeEsp": {
+              "textBoxEsp": null
+            },
+            "radnoVrijemeFra": {
+              "textBoxFra": null
+            },
+            "radnoVrijemeGer": {
+              "textBoxGer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            },
+            "radnoVrijemeHr": {
+              "textBoxHr": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            },
+            "radnoVrijemeIta": {
+              "textBoxIta": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            },
+            "radnoVrijemeSlo": {
+              "textBoxSlo": null
+            },
+            "statusAtivacijePoJezicima": {
+              "aktivatorEng": true,
+              "aktivatorGer": true,
+              "aktivatorHr": true,
+              "aktivatorIta": true,
+              "dodatniJezici": {
+                "aktivatorFra": false,
+                "aktivatorSlo": false,
+                "aktivatorSpa": false
+              }
+            }
+          }
+        },
         {
           "node": {
             "id": "cG9zdDoxMTQw",
@@ -6289,7 +6481,7 @@
             },
             "timelineHr": {
               "timelineSadrzajHr": {
-                "naslov": "Kickoff hr",
+                "naslov": "Kickoff hr ☎️",
                 "sadrzaj": "<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n"
               }
             },
