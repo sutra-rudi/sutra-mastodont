@@ -26,22 +26,14 @@ export default function ContactLocationsPage({
         {locationsData.map((ld) => {
           return (
             <article key={ld.node.id} id={slugify(ld.node.title, { ...slugifyOptions })} className=''>
-              <div className='overflow-hidden relative block  w-full h-[500px] -motion-translate-y-in-25 motion-ease-spring-smooth max-w-[1920px] mx-auto'>
+              <div className='overflow-hidden relative block  w-full lg:h-[500px] md:h-[400px] h-[325px] -motion-translate-y-in-25 motion-ease-spring-smooth max-w-[1920px] mx-auto'>
                 <picture>
                   <img
                     src={ld.node.naslovnaSlika.glavnaSlikaNaslovnaSlika.node.sourceUrl}
                     alt={`Contact location image - ${ld.node.title}`}
                     decoding='async'
                     loading='lazy'
-                    className='object-cover object-center block aspect-auto w-full h-full transition-all ease-out duration-[3000ms] group-hover:scale-125 group-hover:opacity-0 absolute inset-0'
-                  />
-
-                  <img
-                    src={ld.node.naslovnaSlika.sekundarnaGlavnaSlikaThumbnailHover.node.sourceUrl}
-                    alt={`Contact location image - ${ld.node.title}`}
-                    decoding='async'
-                    loading='lazy'
-                    className='object-cover object-center block aspect-auto w-full h-full transition-all ease-out duration-[3000ms] group-hover:scale-125 opacity-0 group-hover:opacity-100 absolute inset-0'
+                    className='object-cover object-center block aspect-auto w-full h-full transition-all ease-out duration-[3000ms] absolute inset-0'
                   />
                 </picture>
               </div>
