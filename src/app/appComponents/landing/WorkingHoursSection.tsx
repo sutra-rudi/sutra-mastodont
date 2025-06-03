@@ -26,7 +26,7 @@ export default function WorkingHoursSection({ sezonsko, bazno, currentLang }: WH
             sezonsko[0].node.sezonskoRadnoVrijemeAktivatorDatuma.vrijediDoSezonskoRadnoVrijeme
           ).format('DD.MM.YYYY')}`}</p>
         )}
-        {sezonsko[0] && (
+        {sezonsko && (
           <div className='prose lg:-mt--desktop-h1-2---naslov-tekst md:-mt--tablet-h1-2---naslov-tekst -mt--mobile-h1-2---naslov-tekst'>
             {sezonsko[0].node[`radnoVrijeme${l}`]?.[`textBox${l}`] ?? 'NEMA UPISA U BAZI: UPIŠI VRIME'}
           </div>
