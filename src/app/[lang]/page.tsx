@@ -45,6 +45,7 @@ import getWorkingHoursQueryFragment from '../queries/dynamicQueries/getWorkingHo
 import { getAllEventsFragment } from '../queries/dynamicQueries/getAllEvents';
 import EventSection from '../appComponents/landing/EventSection';
 import ContactLocations from '../appComponents/landing/ContactLocations';
+import WhyUsSection from '../appComponents/landing/WhyUsSection';
 
 const findKaruselDataBase = dataset.data.allSlikeGalerijaKarusel.edges.find(
   (list) => list.node.title === 'Naslovnica – Karusel slika'
@@ -125,6 +126,8 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
         <ButtonDisplay />
 
         <ContactLocations currentLang={lang} />
+
+        <WhyUsSection currentLang={lang} />
 
         {seasonWHdata && baseWHdata && (
           <WorkingHoursSection sezonsko={seasonWHdata} bazno={baseWHdata} currentLang={lang} />

@@ -5,6 +5,8 @@ import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 import faqDataset from '../../staticData/staticQueryData.json';
 import parse from 'html-react-parser';
 import { useIntersectionObserver } from '@uidotdev/usehooks';
+import Script from 'next/script';
+import { generateFaqJsonLd } from '@/app/utils/generateFaqSchema';
 const findDataset = faqDataset.data.allFaq.edges;
 const findIntro = faqDataset.data.allBazaTekstaPodstranice1Modul.edges.find(
   (item) => item.node.title === 'NASLOVNICA – Često postavljana pitanja (FAQ)'
@@ -114,6 +116,7 @@ function AccordionItem({
 }
 
 export default function FaqSection({ currentLang, isSub = false }: FaqSectionProps) {
+  const faqJsonLd = generateFaqJsonLd(findDataset, currentLang);
   const l = getSuffixFromLang(currentLang);
   const middle = Math.floor(findDataset.length / 2);
   const left = findDataset.slice(0, middle);
@@ -178,6 +181,12 @@ export default function FaqSection({ currentLang, isSub = false }: FaqSectionPro
           </div>
         </div>
       </div>
+
+      <Script
+        id='faq-jsonld'
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
     </section>
   );
 }
