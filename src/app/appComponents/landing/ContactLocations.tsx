@@ -10,6 +10,8 @@ import { BsPersonSquare as Osoba } from 'react-icons/bs';
 import { FaEnvelope as Mejl } from 'react-icons/fa';
 import slugify from 'slugify';
 import { slugifyOptions } from '@/app/pathsUtils/slugifyOptions';
+import { generateStoreJsonLd } from '@/app/utils/generateLocationsSchema';
+import Script from 'next/script';
 const locationsData = dataset.data.allKontaktiLokacije.edges;
 interface ContactLocations {
   currentLang: any;
@@ -17,6 +19,9 @@ interface ContactLocations {
 
 export default function ContactLocations({ currentLang }: ContactLocations) {
   const l = getSuffixFromLang(currentLang);
+
+  const jsonLdArr = locationsData.map((ld) => generateStoreJsonLd(ld.node));
+
   return (
     <section className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl'>
       <div className='container mx-auto px-4'>
@@ -87,6 +92,14 @@ export default function ContactLocations({ currentLang }: ContactLocations) {
           })}
         </div>
       </div>
+      {jsonLdArr.map((ar, i) => (
+        <Script
+          key={i}
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(ar) }}
+          id={locationsData[i].node.title}
+        />
+      ))}
     </section>
   );
 }
