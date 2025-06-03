@@ -19,7 +19,7 @@ export default function WorkingHoursSection({ sezonsko, bazno, currentLang }: WH
           Sezonsko radno vrijeme
         </h2>
 
-        {sezonsko[0] && (
+        {sezonsko && (
           <p className='lg:text-nadnaslov-desktop md:text-nadnaslov-tablet text-nadnaslov-mobile text-nadnaslov-color-light-mode dark:text-nadnaslov-color-light-mode italic lg:mt-desktop-naslov-nadnaslov md:mt-tablet-naslov-nadnaslov mt-mobile-naslov-nadnaslov'>{`Vrijedi od ${dayjs(
             sezonsko[0].node.sezonskoRadnoVrijemeAktivatorDatuma.vrijediOdSezonskoRadnoVrijeme
           ).format('DD.MM.YYYY')} do ${dayjs(
@@ -38,7 +38,7 @@ export default function WorkingHoursSection({ sezonsko, bazno, currentLang }: WH
           Bazno radno vrijeme
         </h2>
 
-        {bazno[0] && bazno[0].node[`radnoVrijeme${l}`]?.[`textBox${l}`] ? (
+        {bazno && bazno[0].node[`radnoVrijeme${l}`]?.[`textBox${l}`] ? (
           <div className='prose lg:-mt--desktop-h1-2---naslov-tekst md:-mt--tablet-h1-2---naslov-tekst -mt--mobile-h1-2---naslov-tekst'>
             {parse(bazno[0].node[`radnoVrijeme${l}`]?.[`textBox${l}`])}
           </div>
