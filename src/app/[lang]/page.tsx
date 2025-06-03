@@ -80,17 +80,18 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
     ${getAllEventsFragment()}
     }`);
 
-  const blogsData = !groupQ.error ? groupQ.data.allBlog?.edges : null;
-  const newsData = !groupQ.error ? groupQ.data.allNovosti?.edges : null;
-  const cInData = !groupQ.error ? groupQ.data.allBrojcanici?.edges : null;
-  const cTData = !groupQ.error ? groupQ.data.allIskustvaKlijenata?.edges : null;
+  const blogsData = !groupQ.error && typeof groupQ.data !== 'undefined' ? groupQ.data.allBlog?.edges : null;
+  const newsData = !groupQ.error && typeof groupQ.data !== 'undefined' ? groupQ.data.allNovosti?.edges : null;
+  const cInData = !groupQ.error && typeof groupQ.data !== 'undefined' ? groupQ.data.allBrojcanici?.edges : null;
+  const cTData = !groupQ.error && typeof groupQ.data !== 'undefined' ? groupQ.data.allIskustvaKlijenata?.edges : null;
   // const pCsData = !groupQ.error ? groupQ.data.allPortfolioCaseStudy?.edges : null;
-  const jOData = !groupQ.error ? groupQ.data.allOglasiZaPosao?.edges : null;
+  const jOData = !groupQ.error && typeof groupQ.data !== 'undefined' ? groupQ.data.allOglasiZaPosao?.edges : null;
 
-  const baseWHdata = !groupQ.error ? groupQ.data.allRadnoVrijeme?.edges : null;
-  const seasonWHdata = !groupQ.error ? groupQ.data.allRadnoVrijemeSezonsko?.edges : null;
+  const baseWHdata = !groupQ.error && typeof groupQ.data !== 'undefined' ? groupQ.data.allRadnoVrijeme?.edges : null;
+  const seasonWHdata =
+    !groupQ.error && typeof groupQ.data !== 'undefined' ? groupQ.data.allRadnoVrijemeSezonsko?.edges : null;
 
-  const eventsData = !groupQ.error ? groupQ.data.allEvent?.edges : null;
+  const eventsData = !groupQ.error && typeof groupQ.data !== 'undefined' ? groupQ.data.allEvent?.edges : null;
 
   //MEDIA PATHS
   const MP = await fetchMediaPaths();
