@@ -3062,7 +3062,7 @@ export default function GIGA_QUERY() {
       }
     }
   }
-  allWhyUs {
+ allWhyUs {
     edges {
       node {
         id
@@ -3073,10 +3073,8 @@ export default function GIGA_QUERY() {
               sourceUrl
             }
           }
-          linkNaReactIkonuReactIconsgithubio
-          odabirBoje
-          prikazDodatnihOpcija
           redniBroj
+          emoji
         }
         textHr {
           naslovHr
@@ -5216,5 +5214,73 @@ export default function GIGA_QUERY() {
       }
     }
   }
-}`;
+
+  allListeFeatures {
+    edges {
+      node {
+        id
+        featuresListaHr {
+          sadrzajHr {
+            uvod {
+              nadnaslov
+              naslov
+              sadrzaj
+              brojStavki
+            }
+          }
+        }
+        featuresListaEng {
+          sadrzajEng {
+            uvod {
+              nadnaslov
+              naslov
+              sadrzaj
+              brojStavki
+            }
+          }
+        }
+        featuresListaFra {
+          sadrzajFra {
+            uvod {
+              nadnaslov
+              naslov
+              sadrzaj
+              brojStavki
+            }
+          }
+        }
+        featuresListaEsp {
+          sadrzajEsp {
+            uvod {
+              nadnaslov
+              naslov
+              sadrzaj
+              brojStavki
+            }
+          }
+        }
+        featuresListaIta {
+          sadrzajIta {
+            uvod {
+              nadnaslov
+              naslov
+              sadrzaj
+              brojStavki
+            }
+          }
+        }
+        featuresListaSlo {
+          sadrzajSlo {
+            uvod {
+              nadnaslov
+              naslov
+              sadrzaj
+              brojStavki
+            }
+          }
+        }
+      }
+    }
+  }
+} `;
 }

@@ -4770,10 +4770,8 @@
                   "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/4bdcdfec-04a6-3146-a7f8-f879bd7a0110.jpe"
                 }
               },
-              "linkNaReactIkonuReactIconsgithubio": "<FiCamera />",
-              "odabirBoje": "#eeee22",
-              "prikazDodatnihOpcija": true,
-              "redniBroj": 4
+              "redniBroj": 4,
+              "emoji": "☎️"
             },
             "textHr": {
               "naslovHr": "Lorem ipsum headline HR",
@@ -4811,10 +4809,8 @@
             "title": "Teniski teren",
             "uvodWhyUs": {
               "slikaIliIkonaWhyUs": null,
-              "linkNaReactIkonuReactIconsgithubio": null,
-              "odabirBoje": null,
-              "prikazDodatnihOpcija": false,
-              "redniBroj": 3
+              "redniBroj": 3,
+              "emoji": null
             },
             "textHr": {
               "naslovHr": "Teniski teren",
@@ -4852,10 +4848,8 @@
             "title": "Grijani bazen i vanjska blagavaonica",
             "uvodWhyUs": {
               "slikaIliIkonaWhyUs": null,
-              "linkNaReactIkonuReactIconsgithubio": null,
-              "odabirBoje": null,
-              "prikazDodatnihOpcija": false,
-              "redniBroj": 2
+              "redniBroj": 2,
+              "emoji": null
             },
             "textHr": {
               "naslovHr": "Grijani bazen i vanjska blagavaonica",
@@ -4893,10 +4887,8 @@
             "title": "3 odvojene jedinice",
             "uvodWhyUs": {
               "slikaIliIkonaWhyUs": null,
-              "linkNaReactIkonuReactIconsgithubio": null,
-              "odabirBoje": null,
-              "prikazDodatnihOpcija": false,
-              "redniBroj": 1
+              "redniBroj": 1,
+              "emoji": null
             },
             "textHr": {
               "naslovHr": "3 odvojene jedinice",
@@ -6060,20 +6052,20 @@
               "fotogalerija": {
                 "galSlika01": {
                   "node": {
-                    "id": "cG9zdDo2NTE=",
-                    "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2024/06/40f71afe-745d-3f79-b77b-a89ae0ae5826-1.jpg"
+                    "id": "cG9zdDoxMTIyNw==",
+                    "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/1000110296.jpg"
                   }
                 },
                 "galSlika02": {
                   "node": {
-                    "id": "cG9zdDo2NTU=",
-                    "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2024/06/ff0a2223-c2af-307a-8e92-a53e4938b576-1.jpg"
+                    "id": "cG9zdDoxMTIyOQ==",
+                    "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/1000110301.jpg"
                   }
                 },
                 "galSlika03": {
                   "node": {
-                    "id": "cG9zdDo2NDM=",
-                    "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2024/06/4ae356fe-84bd-361e-b50d-10b275571261-1.jpg"
+                    "id": "cG9zdDoxMTIzMA==",
+                    "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/1000110302.jpg"
                   }
                 },
                 "galSlika04": {
@@ -6082,9 +6074,24 @@
                     "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2024/06/53463016-3c34-3b1c-abc4-791ffb679076-1.jpg"
                   }
                 },
-                "galSlika05": null,
-                "galSlika06": null,
-                "galSlika07": null,
+                "galSlika05": {
+                  "node": {
+                    "id": "cG9zdDoxMTIwOA==",
+                    "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01520.jpg"
+                  }
+                },
+                "galSlika06": {
+                  "node": {
+                    "id": "cG9zdDoxMTIxMQ==",
+                    "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01669.jpg"
+                  }
+                },
+                "galSlika07": {
+                  "node": {
+                    "id": "cG9zdDoxMTIyMg==",
+                    "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/1000091076.jpg"
+                  }
+                },
                 "galSlika08": null,
                 "galSlika09": null,
                 "galSlika10": null
@@ -6096,7 +6103,7 @@
               "googleMapsLinkPojedineLokacije": "https://www.google.com/maps/dir/44.125561,15.2514663/23000,+Zadar/@44.1364382,15.2475187,15z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x4761e53094e483c1:0x1300ad50351f8db2!2m2!1d15.2743718!2d44.1473707?entry=ttu",
               "imeOdgovorneOsobe": "Rudi Vladusic",
               "kontaktTelefonLokacije": "098/354-657",
-              "kontaktTelefonLokacijeLink": null,
+              "kontaktTelefonLokacijeLink": 98354657,
               "nazivLokacije": "Prodajno mjesto Split",
               "status": true
             },
@@ -6104,10 +6111,10 @@
               "textBoxEng": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
             },
             "radnoVrijemeEsp": {
-              "textBoxEsp": null
+              "textBoxEsp": "cdssdcsdc"
             },
             "radnoVrijemeFra": {
-              "textBoxFra": null
+              "textBoxFra": "dsccxzczx"
             },
             "radnoVrijemeGer": {
               "textBoxGer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
@@ -6119,7 +6126,7 @@
               "textBoxIta": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
             },
             "radnoVrijemeSlo": {
-              "textBoxSlo": null
+              "textBoxSlo": "cxzcxzcxzcx"
             },
             "statusAtivacijePoJezicima": {
               "aktivatorEng": true,
