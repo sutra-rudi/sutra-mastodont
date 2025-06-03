@@ -34,12 +34,21 @@ export default function WhyUsSection({ currentLang }: WhyUs) {
                 }
               </h4>
 
-              <p className='md:text-text-base-base-desktop text-text-base-base-mobiletablet text-text-light-mode dark:text-text-dark-mode line-clamp-4 text-ellipsis lg:-mt--desktop-h3-4---naslov-tekst md:-mt--tablet-h3-4---naslov-tekst -mt--mobile-h3-4---naslov-tekst text-center'>
-                {
-                  //@ts-ignore
-                  parse(wu.node[`text${l}`]?.[`sadrzajText${l}`])
-                }
-              </p>
+              {
+                //@ts-ignore
+                wu.node[`text${l}`]?.[`sadrzajText${l}`] && (
+                  <p className='md:text-text-base-base-desktop text-text-base-base-mobiletablet text-text-light-mode dark:text-text-dark-mode line-clamp-4 text-ellipsis lg:-mt--desktop-h3-4---naslov-tekst md:-mt--tablet-h3-4---naslov-tekst -mt--mobile-h3-4---naslov-tekst text-center'>
+                    {
+                      //@ts-ignore
+                      wu.node[`text${l}`]?.[`sadrzajText${l}`].startsWith('<')
+                        ? //@ts-ignore
+                          parse(wu.node[`text${l}`]?.[`sadrzajText${l}`])
+                        : //@ts-ignore
+                          [`text${l}`]?.[`sadrzajText${l}`]
+                    }
+                  </p>
+                )
+              }
             </div>
           );
         })}
