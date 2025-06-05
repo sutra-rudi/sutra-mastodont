@@ -44,8 +44,8 @@ const config: Config = {
       },
 
       animation: {
-        riseAnima: 'rise 1s ease-out forwards',
-        fallAnima: 'fall 1.5s ease-out forwards',
+        riseAnima: 'rise 0.75s ease-out forwards',
+        fallAnima: 'fall 1s ease-out forwards',
       },
 
       // # Colors
