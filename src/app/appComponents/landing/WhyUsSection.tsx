@@ -22,7 +22,7 @@ export default function WhyUsSection({ currentLang }: WhyUs) {
           return (
             <div
               key={wu.node.id}
-              className='w-full bg-light-mode-bg dark:bg-dark-mode-bg max-w-[423px] flex flex-col items-center justify-center lg:p-6 md:p-5 p-4 lg:rounded-lg md:rounded-md rounded shadow-sm'
+              className='w-full bg-light-mode-bg dark:bg-dark-mode-bg max-w-[423px] flex flex-col items-center justify-center lg:p-6 md:p-5 px-4 py-6 lg:rounded-lg md:rounded-md rounded shadow-sm'
             >
               <div className='xl:text-brojcanik-xl lg:text-brojcanik-desktop md:text-brojcanik-tablet text-brojcanik-mobile text-text-light-mode dark:text-text-dark-mode leading-none'>
                 {wu.node.uvodWhyUs.emoji ?? <Bira />}
@@ -37,16 +37,18 @@ export default function WhyUsSection({ currentLang }: WhyUs) {
               {
                 //@ts-ignore
                 wu.node[`text${l}`]?.[`sadrzajText${l}`] && (
-                  <p className='md:text-text-base-base-desktop text-text-base-base-mobiletablet text-text-light-mode dark:text-text-dark-mode line-clamp-4 text-ellipsis lg:-mt--desktop-h3-4---naslov-tekst md:-mt--tablet-h3-4---naslov-tekst -mt--mobile-h3-4---naslov-tekst text-center'>
+                  <div className='md:text-text-base-base-desktop text-text-base-base-mobiletablet text-text-light-mode dark:text-text-dark-mode  lg:-mt--desktop-h3-4---naslov-tekst md:-mt--tablet-h3-4---naslov-tekst -mt--mobile-h3-4---naslov-tekst text-center'>
                     {
                       //@ts-ignore
-                      wu.node[`text${l}`]?.[`sadrzajText${l}`].startsWith('<')
-                        ? //@ts-ignore
-                          parse(wu.node[`text${l}`]?.[`sadrzajText${l}`])
-                        : //@ts-ignore
-                          [`text${l}`]?.[`sadrzajText${l}`]
+                      wu.node[`text${l}`]?.[`sadrzajText${l}`].startsWith('<') ? (
+                        //@ts-ignore
+                        parse(wu.node[`text${l}`]?.[`sadrzajText${l}`])
+                      ) : (
+                        //@ts-ignore
+                        <p>{[`text${l}`]?.[`sadrzajText${l}`]}</p>
+                      )
                     }
-                  </p>
+                  </div>
                 )
               }
             </div>

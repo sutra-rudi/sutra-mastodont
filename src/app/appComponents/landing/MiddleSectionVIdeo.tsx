@@ -37,8 +37,9 @@ export default function MiddleSectionVideo({ sourceUrl }: MiddleSectionVideoProp
             muted
             loop
             preload='auto'
+            controls={false}
             poster={sourceUrl.poster}
-            className='absolute top-0 left-0 w-full h-full object-cover'
+            className='absolute top-0 left-0 w-full h-full object-cover select-none pointer-events-none'
             onError={() => setVideoError(true)}
           />
         );
@@ -54,7 +55,7 @@ export default function MiddleSectionVideo({ sourceUrl }: MiddleSectionVideoProp
   return (
     <div
       ref={sectionRef}
-      className='relative w-full md:h-[calc(100vh-5rem)] h-[300px] lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl'
+      className='relative w-full md:h-[calc(100vh-5rem)] h-[500px] lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl'
     >
       <VideoRender />
     </div>

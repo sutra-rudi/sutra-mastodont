@@ -199,7 +199,7 @@ const AppHeader = ({ logos }: Header) => {
             </div>
 
             <div
-              className={`absolute z-[90] w-full max-w-full h-screen bg-almost-white inset-0 flex items-center lg:justify-center justify-start flex-col lg:pt-0 pt-24 px-4 transition-all ease-in-out duration-700 will-change-transform transform-gpu overflow-scroll ${
+              className={`absolute z-[90] w-full max-w-full h-screen bg-almost-white inset-0 flex items-center lg:justify-center justify-start flex-col lg:pt-0 pt-24 px-4 pb-44 transition-all ease-in-out duration-700 will-change-transform transform-gpu overflow-scroll ${
                 !mounted
                   ? 'translate-x-full opacity-0 pointer-events-none'
                   : isMobileMenuOpen
@@ -212,7 +212,9 @@ const AppHeader = ({ logos }: Header) => {
                   <li
                     key={item.url}
                     style={{ animationDelay: `${i * 0.15}s ` }}
-                    className={`${isMobileMenuOpen ? 'motion-preset-slide-up motion-ease-spring-bouncy' : ''}`}
+                    className={`${
+                      isMobileMenuOpen ? 'motion-preset-slide-up motion-ease-spring-bouncy' : ''
+                    } text-heading-color-light-mode dark:text-heading-color-dark-mode`}
                   >
                     {/* @ts-ignore */}
                     <a href={item.url}>{item[currentLang]}</a>
@@ -228,12 +230,14 @@ const AppHeader = ({ logos }: Header) => {
                 <LanguageDropdown langs={langs as any} />
               </div>
 
-              <ul className='flex items-center justify-center gap-4 mt-24 lg:text-h4-desktop md:text-h4-tablet text-h4-mobile flex-wrap'>
+              <ul className='flex items-center justify-center gap-4 mt-24 lg:text-nadnaslov-xl md:text-nadnaslov-desktop text-nadnaslov-tablet flex-wrap'>
                 {linksLegalSet.map((item, i) => (
                   <li
                     key={item.url}
                     style={{ animationDelay: `${i * 0.45}s ` }}
-                    className={`${isMobileMenuOpen ? 'motion-preset-slide-right motion-ease-spring-bouncy' : ''}`}
+                    className={`${
+                      isMobileMenuOpen ? 'motion-preset-slide-right motion-ease-spring-bouncy' : ''
+                    } text-heading-color-light-mode dark:text-heading-color-dark-mode`}
                   >
                     {/* @ts-ignore */}
                     <a href={item.url}>{item[currentLang]}</a>
@@ -248,7 +252,7 @@ const AppHeader = ({ logos }: Header) => {
             </div>
 
             <div className='w-min '>
-              <Hamburger onToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
+              <Hamburger onToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)} color={'#174173'} />
             </div>
           </div>
         </div>

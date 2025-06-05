@@ -5,7 +5,7 @@ import { Suspense } from 'react';
 import Loading from './loading';
 import dynamic from 'next/dynamic';
 //SECTION IMPORTS
-import AppHero from '../appComponents/landing/AppHero';
+
 import BaseCaruselSection from '../appComponents/landing/BaseCaruselSection';
 import ContentSectionFirst from '../appComponents/landing/ContentSectionFirst';
 import CompanyInNumbers from '../appComponents/landing/CompanyInNumbers';
@@ -26,6 +26,10 @@ const MapSection = dynamic(() => import('../appComponents/landing/MapSection'));
 const WorkingHoursSection = dynamic(() => import('../appComponents/landing/WorkingHoursSection'));
 const FaqSection = dynamic(() => import('../appComponents/landing/FaqSection'), { ssr: false });
 const ContactSection = dynamic(() => import('../appComponents/landing/ContactSection'), { ssr: false });
+const HeroSection = dynamic(() => import('../appComponents/landing/AppHero'), {
+  ssr: false,
+  loading: () => <Loading />,
+});
 //QUERIES
 import { fetchMediaPaths } from '../utils/callMediaPaths';
 import { BlogFragment } from '../queries/dynamicQueries/getAllBlogs';
@@ -46,6 +50,7 @@ import { getAllEventsFragment } from '../queries/dynamicQueries/getAllEvents';
 import EventSection from '../appComponents/landing/EventSection';
 import ContactLocations from '../appComponents/landing/ContactLocations';
 import WhyUsSection from '../appComponents/landing/WhyUsSection';
+import MiddleSectionBanner from '../appComponents/landing/MiddleSectionBanner';
 
 const findKaruselDataBase = dataset.data.allSlikeGalerijaKarusel.edges.find(
   (list) => list.node.title === 'Naslovnica – Karusel slika'
@@ -105,7 +110,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
   return (
     <main className='relative w-full dark:bg-primarna-tamna min-h-screen'>
       <Suspense fallback={<Loading />}>
-        <AppHero currentLang={lang} imgs={heroImagesHomePage} />
+        <HeroSection currentLang={lang} imgs={heroImagesHomePage} />
         <ContentSectionFirst
           isList={false}
           content={findFirstTextContent?.node}
@@ -141,6 +146,8 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
         <BaseCaruselSection dataset={filterImagesMiddle} />
 
         <ServicesSection currentLang={lang} />
+
+        <MiddleSectionBanner img={heroImagesHomePage} />
 
         <AboutUsSection currentLang={lang} />
 
