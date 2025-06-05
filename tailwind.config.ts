@@ -20,6 +20,34 @@ const config: Config = {
         },
       },
 
+      keyframes: {
+        rise: {
+          from: {
+            transform: 'translateY(75%)',
+            opacity: '0',
+          },
+          to: {
+            transform: 'translateY(0%)',
+            opacity: '1',
+          },
+        },
+        fall: {
+          from: {
+            transform: 'translateY(-75%)',
+            opacity: '0',
+          },
+          to: {
+            transform: 'translateY(0%)',
+            opacity: '1',
+          },
+        },
+      },
+
+      animation: {
+        riseAnima: 'rise 1s ease-out forwards',
+        fallAnima: 'fall 1.5s ease-out forwards',
+      },
+
       // # Colors
       colors: {
         // ## Primary and Secondary Colors
