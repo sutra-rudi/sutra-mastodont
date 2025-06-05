@@ -57,10 +57,20 @@ export default function AppHero({ currentLang, imgs }: AppHero) {
                         </span>
                       ))
                     : //@ts-ignore
-                      findDataset[`tekstHero${l}`]?.[`slide1Hero${l}`].nadnaslov}
+                      findDataset[`tekstHero${l}`]?.[`slide1Hero${l}`].nadnaslov.split(' ').map((t, i) => (
+                        <span
+                          key={i}
+                          className='inline-block opacity-0 animate-fallAnima'
+                          style={{
+                            animationDelay: `${i * 0.3}s`,
+                          }}
+                        >
+                          {t}
+                        </span>
+                      ))}
                 </p>
 
-                <h1 className='xl:text-h1-xl lg:text-h1-desktop md:text-h1-tablet text-h1-mobile35 text-heading-color-dark-mode flex gap-2 !max-w-prose flex-wrap text-balance items-center justify-center'>
+                <h1 className='xl:text-h1-xl lg:text-h1-desktop md:text-h1-tablet text-h1-mobile35 text-heading-color-dark-mode flex gap-2 !max-w-[30ch] flex-wrap text-balance items-center justify-center'>
                   {currentLang === UserLanguage.hr
                     ? //@ts-ignore
                       findDataset[`tekstHero${l}`].slide1Hero.naslov.split(' ').map((l, i) => (
