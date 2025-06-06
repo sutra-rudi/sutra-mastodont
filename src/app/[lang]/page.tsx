@@ -98,8 +98,6 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
   const eventsData = !groupQ.error && typeof groupQ.data !== 'undefined' ? groupQ.data.allEvent?.edges : null;
 
-  console.log('BLOGS DATA', blogsData);
-
   //MEDIA PATHS
   const MP = await fetchMediaPaths();
 
