@@ -22,7 +22,7 @@ export default function FeatureListSection({ currentLang }: FeatureListSection) 
           const stavke = Array.from(
             { length: brojStavki },
             //@ts-ignore
-            (_, i) => lf.node.featuresListaHr.sadrzajHr[`stavka${i + 1}`]
+            (_, i) => lf.node[`featuresLista${l}`]?.[`sadrzaj${l}`][`stavka${i + 1}`]
           );
 
           return (
@@ -34,13 +34,13 @@ export default function FeatureListSection({ currentLang }: FeatureListSection) 
                     lf.node[`featuresLista${l}`]?.[`sadrzaj${l}`].uvod.nadnaslov
                   }
                 </p>
-                <h1 className='lg:text-h1-desktop md:text-h1-tablet text-h1-mobile35 text-heading-color-light-mode dark:text-hero-heading-color-dark-mode lg:-mt--desktop-h1-2---naslov-nadnaslov md:-mt--tablet-h1-2---naslov-nadnaslov -mt--mobile-h1-2---naslov-nadnaslov'>
+                <h1 className='lg:text-h1-desktop md:text-h1-tablet text-h1-mobile35 text-heading-color-light-mode dark:text-hero-heading-color-dark-mode lg:-mt--desktop-h1-2---naslov-nadnaslov md:-mt--tablet-h1-2---naslov-nadnaslov -mt--mobile-h1-2---naslov-nadnaslov '>
                   {
                     //@ts-ignore
                     lf.node[`featuresLista${l}`]?.[`sadrzaj${l}`].uvod.naslov
                   }
                 </h1>
-                <div className='lg:text-h4-desktop md:text-h4-tablet text-h4-mobile text-heading-color-light-mode dark:text-heading-color-dark-mode lg:-mt--desktop-h1-2---naslov-tekst md:-mt--tablet-h1-2---naslov-tekst -mt--mobile-h1-2---naslov-tekst'>
+                <div className='lg:text-h4-desktop md:text-h4-tablet text-h4-mobile text-heading-color-light-mode dark:text-heading-color-dark-mode lg:-mt--desktop-h1-2---naslov-tekst md:-mt--tablet-h1-2---naslov-tekst -mt--mobile-h1-2---naslov-tekst '>
                   {
                     //@ts-ignore
                     parse(lf.node[`featuresLista${l}`]?.[`sadrzaj${l}`].uvod.sadrzaj)
@@ -59,7 +59,7 @@ export default function FeatureListSection({ currentLang }: FeatureListSection) 
                         <h3 className='lg:text-h3-desktop md:text-h3-tablet text-h3-mobile text-heading-color-light-mode dark:text-heading-color-dark-mode'>
                           {s.naslov}
                         </h3>
-                        <div className='md:text-text-base-base-desktop text-text-base-base-mobiletablet lg:-mt--desktop-h3-4---naslov-tekst md:-mt--tablet-h3-4---naslov-tekst -mt--mobile-h3-4---naslov-tekst text-text-light-mode dark:text-text-dark-mode'>
+                        <div className='md:text-text-base-base-desktop text-text-base-base-mobiletablet lg:-mt--desktop-h3-4---naslov-tekst md:-mt--tablet-h3-4---naslov-tekst -mt--mobile-h3-4---naslov-tekst text-text-light-mode dark:text-text-dark-mode !max-w-full text-balance whitespace-pre-wrap relative block prose prose-p:text-balance prose-p:max-w-full prose-p:whitespace-pre-wrap overflow-hidden'>
                           {parse(s.sadrzaj)}
                         </div>
                       </section>
