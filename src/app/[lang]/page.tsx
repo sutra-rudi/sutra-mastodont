@@ -1,5 +1,4 @@
 export const maxDuration = 60;
-export const revalidate = 1800;
 
 import { Suspense } from 'react';
 import Loading from './loading';
@@ -51,6 +50,7 @@ import EventSection from '../appComponents/landing/EventSection';
 import ContactLocations from '../appComponents/landing/ContactLocations';
 import WhyUsSection from '../appComponents/landing/WhyUsSection';
 import MiddleSectionBanner from '../appComponents/landing/MiddleSectionBanner';
+import FeatureListSection from '../appComponents/landing/FeatureListSection';
 
 const findKaruselDataBase = dataset.data.allSlikeGalerijaKarusel.edges.find(
   (list) => list.node.title === 'Naslovnica – Karusel slika'
@@ -134,6 +134,8 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
         <ContactLocations currentLang={lang} />
 
         <WhyUsSection currentLang={lang} />
+
+        <FeatureListSection currentLang={lang} />
 
         {seasonWHdata && baseWHdata && (
           <WorkingHoursSection sezonsko={seasonWHdata} bazno={baseWHdata} currentLang={lang} />
