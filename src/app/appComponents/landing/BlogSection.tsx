@@ -14,6 +14,7 @@ interface BlogSection {
 }
 
 export default function BlogSection({ currentLang, blogList }: BlogSection) {
+  console.log('BLOG LIST CLIENT', blogList);
   const l = getSuffixFromLang(currentLang);
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false });
   const [selectedIndex, setSelectedIndex] = React.useState(0);
