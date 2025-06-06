@@ -29,8 +29,11 @@ export async function fetchData(
       'X-API-KEY': apiKey,
     },
     body: JSON.stringify({ query }),
-    cache: noCache ? 'no-store' : 'force-cache',
+    // cache: noCache ? 'no-store' : 'force-cache',
     redirect: 'manual', // da vidimo eventualne redirecte
+    next: {
+      revalidate: 1800,
+    },
   };
 
   try {
