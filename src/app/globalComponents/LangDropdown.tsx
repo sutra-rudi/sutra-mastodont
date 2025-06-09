@@ -110,7 +110,7 @@ export default function LanguageDropdown({ langs }: Props) {
                   closeDropdown();
                   r.refresh();
                 }}
-                className='w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-2 disabled:opacity-50 disabled:cursor-default'
+                className='w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-2 disabled:opacity-50 disabled:cursor-default transition-all ease-in-out duration-300 hover:translate-x-1'
               >
                 {language.flag} <span>{language.lang.toUpperCase()}</span>
               </button>

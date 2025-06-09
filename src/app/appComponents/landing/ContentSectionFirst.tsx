@@ -102,13 +102,13 @@ export default function ContentSectionFirst({
                 {nadNaslov}
               </span>
             )}
-            <h2 className='lg:text-h2-desktop md:text-h2-tablet text-h2-mobile text-heading-color-light-mode dark:text-heading-color-light-mode lg:-mb--desktop-h1-2---naslov-tekst md:-mb--tablet-h1-2---naslov-tekst -mb--mobile-h1-2---naslov-tekst block relative'>
+            <h2 className='lg:text-h2-desktop md:text-h2-tablet text-h2-mobile text-heading-color-light-mode dark:text-heading-color-light-mode lg:-mb--desktop-h1-2---naslov-tekst md:-mb--tablet-h1-2---naslov-tekst -mb--mobile-h1-2---naslov-tekst lg:-mt--desktop-h1-2---naslov-nadnaslov md:-mt--tablet-h1-2---naslov-nadnaslov -mt--mobile-h1-2---naslov-nadnaslov block relative'>
               {naslov}
             </h2>
 
             {!isList && sadrzaj && <div className='lg:prose-lg prose'>{parse(sadrzaj)}</div>}
             {isList && sadrzaj && (
-              <ul className='flex flex-col lg:-gap--desktop-liste-udaljenost-u-listama-big md:-gap--tablet-liste-udaljenost-u-listama-big -gap--mobile-liste-udaljenost-u-listama-big w-full max-w-prose h-full text-text-light-mode dark:text-text-dark-mode'>
+              <ul className='flex flex-col lg:-gap--desktop-liste-udaljenost-u-listama-big md:-gap--tablet-liste-udaljenost-u-listama-big -gap--mobile-liste-udaljenost-u-listama-big w-full max-w-prose h-full text-text-light-mode dark:text-text-dark-mode md:text-text-base-base-desktop text-text-base-base-mobiletablet'>
                 {sadrzaj.map((ld: any, i: number) => {
                   return (
                     <li

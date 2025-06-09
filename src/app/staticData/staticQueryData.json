@@ -2199,6 +2199,171 @@
       "edges": [
         {
           "node": {
+            "id": "cG9zdDoxNDEwNQ==",
+            "title": "Kontakt SEO",
+            "bazniSeoEng": {
+              "bazniSeoTekstoviGlobalniZaStranicuEng": {
+                "metaRobotsGlobalno": "index, follow",
+                "seoNaslov": "Contact",
+                "seoOpisStranice": "Need more information or have a question? Feel free to contact us via the form or give our team a call. We’re here to help."
+              }
+            },
+            "bazniSeoEsp": {
+              "bazniSeoTekstoviGlobalniZaStranicuEsp": {
+                "metaRobotsGlobalno": "index, follow",
+                "seoNaslov": "Contacto",
+                "seoOpisStranice": "¿Necesitas más información o tienes alguna pregunta? Contáctanos mediante el formulario o llama a nuestro equipo. Estamos aquí para ayudarte."
+              }
+            },
+            "bazniSeoFra": {
+              "bazniSeoTekstoviGlobalniZaStranicuFra": {
+                "metaRobotsGlobalno": "index, follow",
+                "seoNaslov": "Contact",
+                "seoOpisStranice": "Besoin de plus d’informations ou une question ? Contactez-nous via le formulaire ou appelez notre équipe. Nous sommes là pour vous aider."
+              }
+            },
+            "bazniSeoGer": {
+              "bazniSeoTekstoviGlobalniZaStranicuGer": {
+                "metaRobotsGlobalno": "index, follow",
+                "seoNaslov": "Kontakt",
+                "seoOpisStranice": "Benötigen Sie weitere Informationen oder haben Sie eine Frage? Kontaktieren Sie uns gerne über das Formular oder rufen Sie unser Team an. Wir sind für Sie da."
+              }
+            },
+            "bazniSeoHr": {
+              "bazniSeoTekstoviGlobalniZaStranicuHr": {
+                "metaRobotsGlobalno": "index, follow",
+                "seoNaslov": "Kontakt",
+                "seoOpisStranice": "Trebate dodatne informacije ili imate pitanje? Slobodno nas kontaktirajte putem obrasca ili nazovite naš tim. Tu smo da pomognemo."
+              }
+            },
+            "bazniSeoIta": {
+              "bazniSeoTekstoviGlobalniZaStranicuIta": {
+                "metaRobotsGlobalno": "index, follow",
+                "seoNaslov": "Contatto",
+                "seoOpisStranice": "Hai bisogno di maggiori informazioni o hai una domanda? Contattaci tramite il modulo o chiamaci. Siamo qui per aiutarti."
+              }
+            },
+            "bazniSeoSlo": {
+              "bazniSeoTekstoviGlobalniZaStranicuSlo": {
+                "metaRobotsGlobalno": "index, follow",
+                "seoNaslov": "Kontakt",
+                "seoOpisStranice": "Potrebujete dodatne informacije ali imate vprašanje? Kontaktirajte nas preko obrazca ali pokličite našo ekipo. Tukaj smo za vas."
+              }
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDoxNDEwNA==",
+            "title": "FAQ SEO",
+            "bazniSeoEng": {
+              "bazniSeoTekstoviGlobalniZaStranicuEng": {
+                "metaRobotsGlobalno": "index, follow",
+                "seoNaslov": "FAQ - Frequently Asked Questions",
+                "seoOpisStranice": "Have questions? Find answers to the most frequently asked questions about our services, processes, and support. Mastodont is here for you!"
+              }
+            },
+            "bazniSeoEsp": {
+              "bazniSeoTekstoviGlobalniZaStranicuEsp": {
+                "metaRobotsGlobalno": "index, follow",
+                "seoNaslov": "FAQ - Preguntas frecuentes",
+                "seoOpisStranice": "¿Tienes preguntas? Encuentra respuestas a las preguntas más frecuentes sobre nuestros servicios, procesos y soporte. ¡Mastodont está aquí para ayudarte!"
+              }
+            },
+            "bazniSeoFra": {
+              "bazniSeoTekstoviGlobalniZaStranicuFra": {
+                "metaRobotsGlobalno": "index, follow",
+                "seoNaslov": "FAQ - Questions fréquentes",
+                "seoOpisStranice": "Vous avez des questions ? Trouvez les réponses aux questions les plus fréquentes sur nos services, nos processus et notre assistance. Mastodont est là pour vous"
+              }
+            },
+            "bazniSeoGer": {
+              "bazniSeoTekstoviGlobalniZaStranicuGer": {
+                "metaRobotsGlobalno": "index, follow",
+                "seoNaslov": "FAQ - Häufig gestellte Fragen",
+                "seoOpisStranice": "Haben Sie Fragen? Hier finden Sie Antworten auf die häufigsten Fragen zu unseren Dienstleistungen, Prozessen und unserem Support. Mastodont ist für Sie da!"
+              }
+            },
+            "bazniSeoHr": {
+              "bazniSeoTekstoviGlobalniZaStranicuHr": {
+                "metaRobotsGlobalno": "index, follow",
+                "seoNaslov": "FAQ - Česta pitanja",
+                "seoOpisStranice": "mate pitanja? Pogledajte najčešća pitanja i odgovore o našim uslugama, procesima i podršci. Mastodont je tu za vas!"
+              }
+            },
+            "bazniSeoIta": {
+              "bazniSeoTekstoviGlobalniZaStranicuIta": {
+                "metaRobotsGlobalno": "index, follow",
+                "seoNaslov": "FAQ - Domande frequenti",
+                "seoOpisStranice": "Hai domande? Trova le risposte alle domande più frequenti sui nostri servizi, processi e assistenza. Mastodont è qui per te!"
+              }
+            },
+            "bazniSeoSlo": {
+              "bazniSeoTekstoviGlobalniZaStranicuSlo": {
+                "metaRobotsGlobalno": "index, follow",
+                "seoNaslov": "FAQ - Pogosta vprašanja",
+                "seoOpisStranice": "Imate vprašanja? Oglejte si odgovore na najpogostejša vprašanja o naših storitvah, postopkih in podpori. Mastodont je tukaj za vas!"
+              }
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDoxNDEwMw==",
+            "title": "About us SEO",
+            "bazniSeoEng": {
+              "bazniSeoTekstoviGlobalniZaStranicuEng": {
+                "metaRobotsGlobalno": "index, follow",
+                "seoNaslov": "About Us - Mastodont",
+                "seoOpisStranice": "Learn more about Mastodont – a company committed to innovation, quality, and delivering top-tier solutions to clients worldwide."
+              }
+            },
+            "bazniSeoEsp": {
+              "bazniSeoTekstoviGlobalniZaStranicuEsp": {
+                "metaRobotsGlobalno": "index, follow",
+                "seoNaslov": "Sobre nosotros - Mastodont",
+                "seoOpisStranice": "Conoce más sobre Mastodont – una empresa dedicada a la innovación, la calidad y soluciones de primer nivel para clientes en todo el mundo."
+              }
+            },
+            "bazniSeoFra": {
+              "bazniSeoTekstoviGlobalniZaStranicuFra": {
+                "metaRobotsGlobalno": "index, follow",
+                "seoNaslov": "À propos de nous - Mastodont",
+                "seoOpisStranice": "Découvrez Mastodont – une entreprise engagée dans l’innovation, la qualité et des solutions haut de gamme pour des clients dans le monde entier."
+              }
+            },
+            "bazniSeoGer": {
+              "bazniSeoTekstoviGlobalniZaStranicuGer": {
+                "metaRobotsGlobalno": "index, follow",
+                "seoNaslov": "Über uns - Mastodont",
+                "seoOpisStranice": "Erfahren Sie mehr über Mastodont – ein Unternehmen, das sich Innovation, Qualität und erstklassigen Lösungen für Kunden weltweit verschrieben hat."
+              }
+            },
+            "bazniSeoHr": {
+              "bazniSeoTekstoviGlobalniZaStranicuHr": {
+                "metaRobotsGlobalno": "index, follow",
+                "seoNaslov": "O nama - Mastodont",
+                "seoOpisStranice": "Saznajte više o Mastodontu – tvrtki posvećenoj inovacijama, kvaliteti i vrhunskim rješenjima za svoje klijente diljem Hrvatske i šire."
+              }
+            },
+            "bazniSeoIta": {
+              "bazniSeoTekstoviGlobalniZaStranicuIta": {
+                "metaRobotsGlobalno": "index, follow",
+                "seoNaslov": "Chi siamo - Mastodont",
+                "seoOpisStranice": "Scopri di più su Mastodont – un’azienda impegnata nell’innovazione, nella qualità e nelle soluzioni di alto livello per clienti in tutto il mondo."
+              }
+            },
+            "bazniSeoSlo": {
+              "bazniSeoTekstoviGlobalniZaStranicuSlo": {
+                "metaRobotsGlobalno": "index, follow",
+                "seoNaslov": "O nas - Mastodont",
+                "seoOpisStranice": "Izvedite več o podjetju Mastodont – podjetju, predanemu inovacijam, kakovosti in vrhunskim rešitvam za stranke po vsem svetu."
+              }
+            }
+          }
+        },
+        {
+          "node": {
             "id": "cG9zdDoxMDYyMQ==",
             "title": "Glavni SEO weba",
             "bazniSeoEng": {
@@ -2246,8 +2411,8 @@
             "bazniSeoSlo": {
               "bazniSeoTekstoviGlobalniZaStranicuSlo": {
                 "metaRobotsGlobalno": "index, follow",
-                "seoNaslov": null,
-                "seoOpisStranice": null
+                "seoNaslov": "Izleti z ladjo Kornati – Izleti z ladjo iz Zadra do Kornatov",
+                "seoOpisStranice": "Doživite nepozabno pustolovščino z ladjo do Kornatov! Rezervirajte svoj izlet na spletu že danes!"
               }
             }
           }

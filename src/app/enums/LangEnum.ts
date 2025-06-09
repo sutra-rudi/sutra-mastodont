@@ -5,6 +5,7 @@ export enum UserLanguage {
   ita = 'ita', // TALIJANSKI
   esp = 'esp', // FRANCUSKI
   fra = 'fra', // FRANCUSKI
+  slo = 'slo', // SLOVENSKI
   // hu = 'hu', // MADJARSKI
   // pl = 'pl', // POLJSKI
 }

@@ -4,8 +4,6 @@ import { Suspense } from 'react';
 import Loading from './loading';
 import dynamic from 'next/dynamic';
 //SECTION IMPORTS
-
-import BaseCaruselSection from '../appComponents/landing/BaseCaruselSection';
 import ContentSectionFirst from '../appComponents/landing/ContentSectionFirst';
 import CompanyInNumbers from '../appComponents/landing/CompanyInNumbers';
 import ClientTestimonials from '../appComponents/landing/ClientTestimonials';
@@ -17,18 +15,6 @@ import AboutUsSection from '../appComponents/landing/AboutUsSection';
 import JobOpeningSection from '../appComponents/landing/JobOpeningSection';
 import ButtonDisplay from '../appComponents/landing/ButtonDisplay';
 import EmailBannerSection from '../appComponents/landing/NewsletterSection';
-
-const MiddleSectionVideo = dynamic(() => import('../appComponents/landing/MiddleSectionVIdeo'), { ssr: false });
-const BlogSection = dynamic(() => import('../appComponents/landing/BlogSection'));
-const NewsSection = dynamic(() => import('../appComponents/landing/NewsSection'));
-const MapSection = dynamic(() => import('../appComponents/landing/MapSection'));
-const WorkingHoursSection = dynamic(() => import('../appComponents/landing/WorkingHoursSection'));
-const FaqSection = dynamic(() => import('../appComponents/landing/FaqSection'), { ssr: false });
-const ContactSection = dynamic(() => import('../appComponents/landing/ContactSection'), { ssr: false });
-const HeroSection = dynamic(() => import('../appComponents/landing/AppHero'), {
-  ssr: false,
-  loading: () => <Loading />,
-});
 //QUERIES
 import { fetchMediaPaths } from '../utils/callMediaPaths';
 import { BlogFragment } from '../queries/dynamicQueries/getAllBlogs';
@@ -51,6 +37,34 @@ import ContactLocations from '../appComponents/landing/ContactLocations';
 import WhyUsSection from '../appComponents/landing/WhyUsSection';
 import MiddleSectionBanner from '../appComponents/landing/MiddleSectionBanner';
 import FeatureListSection from '../appComponents/landing/FeatureListSection';
+import { Metadata } from 'next';
+import { UserLanguage } from '../enums/LangEnum';
+import { getSuffixFromLang } from '../langUtils/getSuffixFromLang';
+///
+
+const seoData = dataset.data.allSeoAdmin.edges.find((item) => item.node.title === 'Glavni SEO weba');
+//
+
+const MiddleSectionVideo = dynamic(() => import('../appComponents/landing/MiddleSectionVIdeo'), {
+  ssr: false,
+  loading: () => <Loading />,
+});
+const BlogSection = dynamic(() => import('../appComponents/landing/BlogSection'), {
+  loading: () => <Loading />,
+});
+const NewsSection = dynamic(() => import('../appComponents/landing/NewsSection'));
+const MapSection = dynamic(() => import('../appComponents/landing/MapSection'));
+const WorkingHoursSection = dynamic(() => import('../appComponents/landing/WorkingHoursSection'));
+const FaqSection = dynamic(() => import('../appComponents/landing/FaqSection'), { ssr: false });
+const ContactSection = dynamic(() => import('../appComponents/landing/ContactSection'), { ssr: false });
+const HeroSection = dynamic(() => import('../appComponents/landing/AppHero'), {
+  ssr: false,
+  loading: () => <Loading />,
+});
+const BaseCaruselSection = dynamic(() => import('../appComponents/landing/BaseCaruselSection'), {
+  ssr: false,
+  loading: () => <Loading />,
+});
 
 const findKaruselDataBase = dataset.data.allSlikeGalerijaKarusel.edges.find(
   (list) => list.node.title === 'Naslovnica – Karusel slika'
@@ -70,7 +84,77 @@ const findCtStatic = dataset.data.allIskustvaKlijenata.edges;
 const filterImagesBase = Object.values(findKaruselDataBase?.node.photoGallery30pcs!).filter((val) => val);
 const filterImagesMiddle = Object.values(findKaruselDataMiddle?.node.photoGallery30pcs!).filter((val) => val);
 
-//
+const localeMapping: Record<UserLanguage, string> = {
+  hr: 'hr-HR', // Hrvatski (Hrvatska)
+  eng: 'en-US', // Engleski (SAD)
+  ger: 'de-DE', // Njemački (Njemačka)
+  ita: 'it-IT', // Talijanski (Italija)
+  fra: 'fr-FR', // Francuski (Francuska)
+  esp: 'es-ES', // Španjolski (Španjolska)
+  slo: 'sl-SI', // Slovenski (Slovenija)
+};
+
+export async function generateMetadata({ params: { lang } }: { params: { lang: string } }): Promise<Metadata> {
+  const { ogImagesDefault } = await fetchMediaPaths();
+  const l = getSuffixFromLang(lang);
+  //@ts-ignore
+  const seoGlobal = seoData[`bazniSeo${l}`]?.[`bazniSeoTekstoviGlobalniZaStranicu${l}`];
+
+  const title = seoGlobal?.seoNaslov;
+
+  const desc = seoGlobal?.seoOpisStranice;
+
+  const pathSuffixes: Record<UserLanguage, string> = {
+    hr: '/hr',
+    eng: '/eng',
+    ger: '/ger',
+    ita: '/ita',
+    fra: '/fra',
+    esp: '/esp',
+    slo: '/slo',
+  };
+  const domain = 'https://www.sutra-mastodont.vercel.app';
+
+  //@ts-ignore
+  const suffixPath = pathSuffixes[lang] ?? '';
+  const canonicalUrl = `${domain}${suffixPath}`;
+
+  const languages = Object.fromEntries(
+    Object.entries(pathSuffixes).map(([code, suf]) => {
+      const iso = localeMapping[code as UserLanguage];
+      return [iso, `${domain}${suf}`];
+    })
+  );
+
+  return {
+    title: { template: `%s | ${title}`, default: title },
+    description: desc,
+    alternates: {
+      canonical: canonicalUrl,
+      languages,
+    },
+    openGraph: {
+      title: title,
+      description: desc,
+      url: canonicalUrl,
+      //@ts-ignore
+      locale: localeMapping[lang],
+      alternateLocale: Object.keys(languages),
+      type: 'website',
+      siteName: 'Boat Tour Zadar',
+      images: [ogImagesDefault.default],
+    },
+
+    twitter: {
+      title: title,
+      description: desc,
+      card: 'summary_large_image',
+      creator: '@Boat-Tour-Zadar',
+      images: [ogImagesDefault.default],
+    },
+  };
+}
+
 export default async function Landing({ params: { lang } }: { params: { lang: string } }) {
   //DYNAMIC DATA
 
