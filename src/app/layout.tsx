@@ -6,7 +6,7 @@ import { Suspense } from 'react';
 import Loading from './loading';
 import { Providers } from './providers';
 import dataset from './staticData/staticQueryData.json';
-const extractData = dataset.data.allSeoAdmin.edges[0].node;
+const extractData = dataset.data.allSeoAdmin.edges.find((item) => item.node.title === 'Glavni SEO weba');
 import dynamic from 'next/dynamic';
 import { getSuffixFromLang } from './langUtils/getSuffixFromLang';
 import { fetchMediaPaths } from './utils/callMediaPaths';
@@ -15,7 +15,6 @@ import CookieNotice from './globalComponents/CookieNotice';
 import { fetchData } from './utils/callApi';
 import GetAlertsQuery from './queries/dynamicQueries/getAllAlerts';
 import NewsTrack from './globalComponents/NewsTrack';
-import ViewTransitionProvider from './viewTransitionProvider';
 
 const AppHeader = dynamic(() => import('./globalComponents/AppHeader'));
 const AppFooter = dynamic(() => import('./globalComponents/AppFooter'));
@@ -31,83 +30,36 @@ export const viewport: Viewport = {
 };
 
 const localeMapping: Record<UserLanguage, string> = {
-  hr: 'hr-HR',
-  eng: 'en-US',
-  ger: 'de-DE',
-  ita: 'it-IT',
-  fra: 'fr-FR',
-  esp: 'es-ES',
+  hr: 'hr-HR', // Hrvatski (Hrvatska)
+  eng: 'en-US', // Engleski (SAD)
+  ger: 'de-DE', // Njemački (Njemačka)
+  ita: 'it-IT', // Talijanski (Italija)
+  fra: 'fr-FR', // Francuski (Francuska)
+  esp: 'es-ES', // Španjolski (Španjolska)
+  slo: 'sl-SI', // Slovenski (Slovenija)
 };
 
 export async function generateMetadata(): Promise<Metadata> {
-  const cookieStore = cookies();
-  const lang = (cookieStore.get('@sutra-user-lang')?.value as UserLanguage) || UserLanguage.hr;
-  const l = getSuffixFromLang(lang);
-
-  // Dohvat medijskih putanja
   const MP = await fetchMediaPaths();
-  const { appleTouchIcons, favicons, ogImagesDefault } = MP;
-
-  //@ts-ignore
-  const seoGlobal = extractData[`bazniSeo${l}`]?.[`bazniSeoTekstoviGlobalniZaStranicu${l}`];
-  const title = seoGlobal?.seoNaslov ?? 'Sutra Starter';
-  const description = seoGlobal?.seoOpisStranice ?? 'Dobrodošli na Sutra Starter.';
-
-  // Osnovni URL i suffix
-  const domain = 'https://sutra-mastodont.vercel.app';
-  const pathSuffixes: Record<UserLanguage, string> = {
-    hr: '/hr',
-    eng: '/eng',
-    ger: '/ger',
-    ita: '/ita',
-    fra: '/fra',
-    esp: '/esp',
-  };
-  const suffixPath = pathSuffixes[lang] ?? '';
-  const canonicalUrl = `${domain}${suffixPath}`;
-
-  // Generiranje alternates.languages s ISO ključevima
-  const languages = Object.fromEntries(
-    Object.entries(pathSuffixes).map(([code, suf]) => {
-      const iso = localeMapping[code as UserLanguage];
-      return [iso, `${domain}${suf}`];
-    })
-  );
+  const { appleTouchIcons, favicons } = MP;
 
   return {
-    title,
-    description,
-    robots: 'index, follow',
-    alternates: {
-      canonical: canonicalUrl,
-      languages,
-    },
-    authors: [{ name: 'Studio Sutra' }],
-    openGraph: {
-      title,
-      description,
-      url: canonicalUrl,
-      siteName: 'Sutra Starter',
-      images: [ogImagesDefault.default],
-      locale: localeMapping[lang],
-      alternateLocale: Object.keys(languages),
-      type: 'website',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title,
-      description,
-      creator: '@Studio Sutra',
-      images: [ogImagesDefault.default],
+    authors: [{ name: 'Boat-Tour-Zadar' }, { name: 'Studio Sutra' }],
+
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+      },
     },
     icons: [
-      // Favicons
       { rel: 'icon', type: 'image/png', sizes: '16x16', url: favicons['16x16'] },
       { rel: 'icon', type: 'image/png', sizes: '32x32', url: favicons['32x32'] },
       { rel: 'icon', type: 'image/png', sizes: '96x96', url: favicons['96x96'] },
       { rel: 'icon', type: 'image/png', sizes: '128x128', url: favicons['128x128'] },
       { rel: 'icon', type: 'image/png', sizes: '196x196', url: favicons['196x196'] },
-      // Apple Touch Icons
       { rel: 'apple-touch-icon', sizes: '57x57', url: appleTouchIcons['57x57'] },
       { rel: 'apple-touch-icon', sizes: '60x60', url: appleTouchIcons['60x60'] },
       { rel: 'apple-touch-icon', sizes: '72x72', url: appleTouchIcons['72x72'] },
@@ -117,6 +69,7 @@ export async function generateMetadata(): Promise<Metadata> {
       { rel: 'apple-touch-icon', sizes: '144x144', url: appleTouchIcons['144x144'] },
       { rel: 'apple-touch-icon', sizes: '152x152', url: appleTouchIcons['152x152'] },
     ],
+    // manifest: '/site.webmanifest',
   };
 }
 
@@ -136,17 +89,8 @@ export default async function RootLayout({
 
   const { siteLogo } = MP;
 
-  const htmlLangMap: Record<UserLanguage, string> = {
-    hr: 'hr',
-    eng: 'en',
-    ger: 'de',
-    ita: 'it',
-    fra: 'fr',
-    esp: 'es',
-  };
-
   return (
-    <html lang={htmlLangMap[lang]} className='scrollbar scrollbar-thumb-accent-boja scrollbar-track-primarna-tamna'>
+    <html lang={localeMapping[lang]} className='scrollbar scrollbar-thumb-accent-boja scrollbar-track-primarna-tamna'>
       <body className={`antialiased relative w-full h-full `}>
         {/* 
         {adminTokensDataShorthand?.kodoviAdminApi?.googleAnalytics && userEnabledAllCookies && (

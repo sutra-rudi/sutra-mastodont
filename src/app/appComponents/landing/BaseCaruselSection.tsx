@@ -1,3 +1,5 @@
+'use client';
+
 import Marquee from 'react-fast-marquee';
 
 interface CaruselInterface {
@@ -15,8 +17,8 @@ export default function BaseCaruselSection({ dataset }: CaruselInterface) {
               alt={`Image - ${im?.node.id}`}
               width={300}
               height={290}
-              loading='eager'
-              fetchPriority='high'
+              loading='lazy'
+              decoding='async'
               className='object-cover object-center block m-0 p-0 aspect-square w-full max-w-[300px] lg:max-h-[290px] max-h-[223px]'
             />
           </picture>

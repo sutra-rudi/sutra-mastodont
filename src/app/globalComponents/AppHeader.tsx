@@ -207,17 +207,19 @@ const AppHeader = ({ logos }: Header) => {
                   : 'motion-translate-x-out-100 motion-opacity-out-0 motion-duration-[700ms] motion-ease-spring-smooth pointer-events-none'
               }`}
             >
-              <ul className='lg:text-h2-desktop md:text-h2-tablet text-h2-mobile flex flex-col lg:-gap--desktop-liste-udaljenost-u-listama-big md:-gap--tablet-liste-udaljenost-u-listama-big -gap--mobile-liste-udaljenost-u-listama-big'>
+              <ul className='lg:text-h2-desktop md:text-h2-tablet text-h2-mobile flex flex-col lg:-gap--desktop-liste-udaljenost-u-listama-big md:-gap--tablet-liste-udaljenost-u-listama-big -gap--mobile-liste-udaljenost-u-listama-big select-none'>
                 {baseNav.map((item, i) => (
                   <li
                     key={item.url}
                     style={{ animationDelay: `${i * 0.15}s ` }}
                     className={`${
                       isMobileMenuOpen ? 'motion-preset-slide-up motion-ease-spring-bouncy' : ''
-                    } text-heading-color-light-mode dark:text-heading-color-dark-mode`}
+                    } text-heading-color-light-mode dark:text-heading-color-dark-mode group`}
                   >
-                    {/* @ts-ignore */}
-                    <a href={item.url}>{item[currentLang]}</a>
+                    <a href={item.url} className='group-hover:translate-x-2 block transition-all ease-out duration-300'>
+                      {/* @ts-ignore */}
+                      {item[currentLang]}
+                    </a>
                   </li>
                 ))}
               </ul>
@@ -230,17 +232,19 @@ const AppHeader = ({ logos }: Header) => {
                 <LanguageDropdown langs={langs as any} />
               </div>
 
-              <ul className='flex items-center justify-center gap-4 mt-24 lg:text-nadnaslov-xl md:text-nadnaslov-desktop text-nadnaslov-tablet flex-wrap'>
+              <ul className='flex items-center justify-center gap-4 mt-24 lg:text-nadnaslov-xl md:text-nadnaslov-desktop text-nadnaslov-tablet flex-wrap select-none '>
                 {linksLegalSet.map((item, i) => (
                   <li
                     key={item.url}
                     style={{ animationDelay: `${i * 0.45}s ` }}
                     className={`${
                       isMobileMenuOpen ? 'motion-preset-slide-right motion-ease-spring-bouncy' : ''
-                    } text-heading-color-light-mode dark:text-heading-color-dark-mode`}
+                    } text-heading-color-light-mode dark:text-heading-color-dark-mode group`}
                   >
-                    {/* @ts-ignore */}
-                    <a href={item.url}>{item[currentLang]}</a>
+                    <a href={item.url} className='group-hover:translate-y-1 block transition-all ease-out duration-300'>
+                      {/* @ts-ignore */}
+                      {item[currentLang]}
+                    </a>
                   </li>
                 ))}
               </ul>
