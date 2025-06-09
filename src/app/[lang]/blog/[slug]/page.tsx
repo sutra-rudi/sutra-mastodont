@@ -45,6 +45,7 @@ const localeMapping: Record<UserLanguage, string> = {
   ita: 'it-IT',
   fra: 'fr-FR',
   esp: 'es-ES',
+  slo: 'sl-SI', // Slovenski (Slovenija)
 };
 
 export async function generateMetadata({
@@ -85,6 +86,7 @@ export async function generateMetadata({
     ita: '/ita',
     fra: '/fra',
     esp: '/esp',
+    slo: '/slo',
   };
 
   //@ts-ignore
