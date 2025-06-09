@@ -34,6 +34,10 @@ const textMap: Record<UserLanguage, { intro: string; policy: string }> = {
     intro: 'Este sitio web utiliza cookies. Para más información, consulta nuestra ',
     policy: 'política de cookies',
   },
+  slo: {
+    intro: 'Slo cookie',
+    policy: 'Slo cookie',
+  },
   //     hu: {
   //       intro: 'Ez a weboldal sütiket használ. További információért olvassa el ',
   //       policy: 'sütikre vonatkozó irányelveinket',
