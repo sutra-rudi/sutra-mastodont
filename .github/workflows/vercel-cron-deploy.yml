@@ -1,0 +1,14 @@
+name: Scheduled Vercel Deploy
+
+on:
+  schedule:
+    - cron: '0,30 * * * *' # Svakih 30 minuta
+  workflow_dispatch: # Opcionalno: ručno pokretanje iz GitHub sučelja
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Vercel Deployment via Deploy Hook
+        run: |
+          curl -X POST "${{ secrets.VERCEL_DEPLOY_HOOK_URL }}"
