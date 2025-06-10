@@ -98,7 +98,7 @@ export async function generateMetadata({ params: { lang } }: { params: { lang: s
   const { ogImagesDefault } = await fetchMediaPaths();
   const l = getSuffixFromLang(lang);
   //@ts-ignore
-  const seoGlobal = seoData[`bazniSeo${l}`]?.[`bazniSeoTekstoviGlobalniZaStranicu${l}`];
+  const seoGlobal = seoData?.node[`bazniSeo${l}`]?.[`bazniSeoTekstoviGlobalniZaStranicu${l}`];
 
   const title = seoGlobal?.seoNaslov;
 
