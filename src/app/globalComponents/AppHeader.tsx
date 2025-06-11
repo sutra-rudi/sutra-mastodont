@@ -19,6 +19,8 @@ const AppHeader = ({ logos }: Header) => {
   const [visible, setVisible] = React.useState(true);
   const prevScrollY = React.useRef(0);
   const ticking = React.useRef(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState<boolean>(false);
+  const [isShrink, setIsShrink] = React.useState<boolean>(false);
 
   const baseNav = [
     {
@@ -125,8 +127,6 @@ const AppHeader = ({ logos }: Header) => {
     },
   ];
 
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState<boolean>(false);
-
   const langs = [
     { title: 'Hrvatski', lang: 'hr', flag: <Hr width={24} height={24} /> },
     { title: 'English', lang: 'eng', flag: <Gb width={24} height={24} /> },
@@ -134,6 +134,7 @@ const AppHeader = ({ logos }: Header) => {
     { title: 'Italiano', lang: 'ita', flag: <It width={24} height={24} /> },
     { title: 'Français', lang: 'fra', flag: <Fr width={24} height={24} /> },
     { title: 'Español', lang: 'esp', flag: <Es width={24} height={24} /> },
+    // { title: 'Español', lang: 'esp', flag: <Es width={24} height={24} /> },
   ];
 
   React.useEffect(() => {
@@ -150,10 +151,12 @@ const AppHeader = ({ logos }: Header) => {
         window.requestAnimationFrame(() => {
           if (currentScrollY > prevScrollY.current && currentScrollY > 100) {
             // Scroll dolje i već smo skroz gore -> sakrij
+            setIsShrink(true);
             setVisible(false);
           } else {
             // Scroll gore -> pokaži
             setVisible(true);
+            setIsShrink(false);
           }
           prevScrollY.current = currentScrollY;
           ticking.current = false;
@@ -177,22 +180,28 @@ const AppHeader = ({ logos }: Header) => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50
-        transform transition-transform duration-500 ease-in-out  ${
+        transform transition-transform duration-500 ease-in-out delay-500  ${
           visible ? 'translate-y-0' : '-translate-y-full'
-        } bg-white shadow-sm`}
+        } bg-white shadow-sm `}
     >
-      <div className='container mx-auto xl:px-0 md:px-4 px-2  py-4'>
+      <div
+        className={`container mx-auto xl:px-0 md:px-4 px-2  py-4 transition-all duration-1000   ease-in-out ${
+          isShrink ? 'h-20' : 'h-24 delay-[600ms]'
+        }`}
+      >
         <div className='flex items-center justify-between'>
           <div className='flex items-center'>
             <div className='shrink-0'>
-              <a href={`/${currentLang}`} className='block'>
+              <a href={`/${currentLang}`} className={`block`}>
                 <picture>
                   <img
                     src={logos.verticalLight}
                     alt='SITE_LOGO'
                     width={190}
                     height={50}
-                    className='aspect-auto object-cover object-center block'
+                    className={`aspect-auto object-cover object-center block ${
+                      isShrink ? 'scale-50 ' : 'scale-100 delay-[600ms]'
+                    } transition-all duration-1000   ease-in-out`}
                   />
                 </picture>
               </a>
@@ -250,7 +259,11 @@ const AppHeader = ({ logos }: Header) => {
               </ul>
             </div>
           </div>
-          <div className='flex items-center space-x-4 z-[101]'>
+          <div
+            className={`flex items-center space-x-4 z-[101] ${
+              isShrink ? 'scale-50 ' : 'scale-100 delay-[600ms]'
+            } transition-all duration-1000   ease-in-out`}
+          >
             <div className='md:block hidden'>
               <LanguageDropdown langs={langs as any} />
             </div>
