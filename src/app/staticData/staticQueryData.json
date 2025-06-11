@@ -5129,7 +5129,7 @@
             "metricsHr": {
               "companyInNumbersHr": {
                 "prikaziDodatneOpcijeSwitcher": false,
-                "tekstBrojcanikaGlavni": "Spašenog razuma",
+                "tekstBrojcanikaGlavni": null,
                 "tekstBrojcanikaSekundarniTekst": null,
                 "znakIliNatpisUzBroj": null
               }
@@ -5202,7 +5202,7 @@
             "metricsHr": {
               "companyInNumbersHr": {
                 "prikaziDodatneOpcijeSwitcher": false,
-                "tekstBrojcanikaGlavni": "Broj kulturnih, sportskih i turističkih događanja tijekom 2024. godine.",
+                "tekstBrojcanikaGlavni": null,
                 "tekstBrojcanikaSekundarniTekst": null,
                 "znakIliNatpisUzBroj": null
               }
@@ -5275,7 +5275,7 @@
             "metricsHr": {
               "companyInNumbersHr": {
                 "prikaziDodatneOpcijeSwitcher": false,
-                "tekstBrojcanikaGlavni": "Ukupan broj posjetitelja na događanjima u 2024. godini.",
+                "tekstBrojcanikaGlavni": null,
                 "tekstBrojcanikaSekundarniTekst": null,
                 "znakIliNatpisUzBroj": null
               }
