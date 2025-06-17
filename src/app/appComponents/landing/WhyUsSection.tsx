@@ -1,10 +1,20 @@
+'use client';
+
 import React from 'react';
 import dataset from '../../staticData/staticQueryData.json';
 import { IoIosBeer as Bira } from 'react-icons/io';
 import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 const data = dataset.data.allWhyUs.edges;
 
+const introT = dataset.data.allBazaTekstaPodstranice1Modul.edges.find(
+  (item) => item.node.title === 'NASLOVNICA – WHY US (uvod-intro)'
+);
+
 import parse from 'html-react-parser';
+import slugify from 'slugify';
+import { slugifyOptions } from '@/app/pathsUtils/slugifyOptions';
+import { usePathname } from 'next/navigation';
+import { useIntersectionObserver } from '@uidotdev/usehooks';
 
 interface WhyUs {
   currentLang: any;
@@ -12,10 +22,35 @@ interface WhyUs {
 
 export default function WhyUsSection({ currentLang }: WhyUs) {
   const l = getSuffixFromLang(currentLang);
+
+  const currentPath = usePathname();
+
+  const [ref, entry] = useIntersectionObserver({
+    threshold: 0,
+    root: null,
+    rootMargin: '0px',
+  });
+
+  //@ts-ignore
+  const title = introT?.node[`modulBazeTekstova${l}`]?.[`naslovBazaTekstova${l}`] ?? 'NEMA NASLOVA NA OVI JEZIK';
+
+  React.useEffect(() => {
+    const hash = `#${slugify(title, slugifyOptions)}`;
+
+    if (entry?.isIntersecting) {
+      window.history.replaceState(null, '', `${currentPath}${hash}`);
+    } else if (window.location.hash === hash) {
+      window.history.replaceState(null, '', currentPath);
+    }
+  }, [entry, currentPath, title]);
   return (
-    <section className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl bg-almost-white lg:pb-24 md:pb-20 pb-16 dark:bg-sekundarna-tamna'>
-      <h2 className='text-3xl font-bold text-dark dark:text-white sm:text-[40px]/[48px] w-full text-center lg:mb-20 mb-[60px] lg:pt-20 pt-[60px]'>
-        Why us
+    <section
+      id={title}
+      ref={ref}
+      className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl bg-almost-white lg:pb-24 md:pb-20 pb-16 dark:bg-sekundarna-tamna'
+    >
+      <h2 className='relative lg:-pt--desktop---3xl md:-pt--tablet---3xl -pt--mobile---3xl lg:text-h2-desktop md:text-h2-tablet text-h2-mobile text-heading-color-light-mode dark:text-heading-color-dark-mode block text-center text-balance lg:-mb--desktop-h1-2---naslov-tekst md:-mb--tablet-h1-2---naslov-tekst -mb--mobile-h1-2---naslov-tekst px-4'>
+        {title}
       </h2>
       <div className='container mx-auto px-4 flex items-start justify-center lg:gap-5 md:gap-4 gap-3 flex-wrap '>
         {data.map((wu) => {
