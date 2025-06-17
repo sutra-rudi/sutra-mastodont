@@ -7,9 +7,11 @@ import parse from 'html-react-parser';
 import { useIntersectionObserver } from '@uidotdev/usehooks';
 import Script from 'next/script';
 import { generateFaqJsonLd } from '@/app/utils/generateFaqSchema';
+import slugify from 'slugify';
+import { slugifyOptions } from '@/app/pathsUtils/slugifyOptions';
 const findDataset = faqDataset.data.allFaq.edges;
 const findIntro = faqDataset.data.allBazaTekstaPodstranice1Modul.edges.find(
-  (item) => item.node.title === 'NASLOVNICA – Često postavljana pitanja (FAQ)'
+  (item) => item.node.title === 'NASLOVNICA – Često postavljana pitanja (FAQ)  (uvod-intro)'
 );
 
 interface FaqSectionProps {
@@ -48,7 +50,12 @@ function AccordionItem({
         isSeen && 'motion-preset-slide-up motion-ease-spring-smooth'
       }`}
     >
-      <button role='button' className='flex w-full text-left'>
+      <button
+        role='button'
+        className='flex w-full text-left'
+        data-gtm={slugify(`open ${header} accordion`, { ...slugifyOptions })}
+        data-gtm-general={'open-accordion'}
+      >
         <div className='mr-5 flex h-10 w-full max-w-[40px] items-center justify-center rounded-lg'>
           <svg
             className={`fill-primary stroke-primary duration-500 ease-in-out ${
@@ -135,6 +142,7 @@ export default function FaqSection({ currentLang, isSub = false }: FaqSectionPro
 
   return (
     <section
+      id={slugify(title ? title : 'Nema naslova', { ...slugifyOptions })}
       ref={ref}
       className='relative z-20 overflow-hidden bg-white pb-12 lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl'
     >
@@ -144,7 +152,7 @@ export default function FaqSection({ currentLang, isSub = false }: FaqSectionPro
             {title}
           </h2>
         )}
-        {!isSub && (
+        {!isSub && typeof text !== 'undefined' && (
           <div className='text-center md:text-text-base-base-desktop text-text-base-base-mobiletablet max-w-prose text-balance mx-auto text-text-light-mode dark:text-text-dark-mode lg:-mb--desktop---3xl md:-mb--tablet---3xl -mb--mobile---3xl px-4 relative block'>
             {parse(text)}
           </div>
