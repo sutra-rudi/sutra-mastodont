@@ -53,7 +53,8 @@ function AccordionItem({
       <button
         role='button'
         className='flex w-full text-left'
-        data-gtm={slugify(`open ${header} tab`, { ...slugifyOptions })}
+        data-gtm={slugify(`open ${header} accordion`, { ...slugifyOptions })}
+        data-gtm-general={'open-accordion'}
       >
         <div className='mr-5 flex h-10 w-full max-w-[40px] items-center justify-center rounded-lg'>
           <svg

@@ -5,16 +5,14 @@ import { Toaster } from 'react-hot-toast';
 import { Suspense } from 'react';
 import Loading from './loading';
 import { Providers } from './providers';
-import dataset from './staticData/staticQueryData.json';
-const extractData = dataset.data.allSeoAdmin.edges.find((item) => item.node.title === 'Glavni SEO weba');
 import dynamic from 'next/dynamic';
-import { getSuffixFromLang } from './langUtils/getSuffixFromLang';
 import { fetchMediaPaths } from './utils/callMediaPaths';
 import { Metadata, Viewport } from 'next';
 import CookieNotice from './globalComponents/CookieNotice';
 import { fetchData } from './utils/callApi';
 import GetAlertsQuery from './queries/dynamicQueries/getAllAlerts';
 import NewsTrack from './globalComponents/NewsTrack';
+import { GoogleTagManager } from '@next/third-parties/google';
 
 const AppHeader = dynamic(() => import('./globalComponents/AppHeader'));
 const AppFooter = dynamic(() => import('./globalComponents/AppFooter'));
@@ -100,6 +98,8 @@ export default async function RootLayout({
         {/* {adminTokensDataShorthand?.kodoviAdminApi?.googleTagManager && userEnabledAllCookies && (
           <GoogleTagManager gtmId={adminTokensDataShorthand.kodoviAdminApi.googleTagManager} />
         )} */}
+
+        <GoogleTagManager gtmId='GTM-5WVGHCWV' />
 
         <Toaster />
         <Suspense fallback={<Loading />}>
