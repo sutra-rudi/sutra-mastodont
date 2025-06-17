@@ -164,6 +164,66 @@
       "edges": [
         {
           "node": {
+            "id": "cG9zdDoxNDEwNg==",
+            "title": "NASLOVNICA – WHY US (uvod-intro)",
+            "modulBazeTekstovaUvod": {
+              "statusPrikazaTekstaZaPodstranicu": true,
+              "slika1": null,
+              "slika2": null
+            },
+            "modulBazeTekstovaHr": {
+              "tekstBazaTekstovaHr": "<p>Fusce ultrices, urna non laoreet feugiat, ipsum est sodales nunc, vitae rutrum erat magna eu libero. Etiam dictum euismod justo sit amet eleifend.</p>\n",
+              "naslovBazaTekstovaHr": "Zašto mi",
+              "nadnaslovPodnaslovBazaTekstovaHr": "Nadnaslov "
+            },
+            "modulBazeTekstovaEng": {
+              "tekstBazaTekstovaEng": "<p>Fusce ultrices, urna non laoreet feugiat, ipsum est sodales nunc, vitae rutrum erat magna eu libero. Etiam dictum euismod justo sit amet eleifend.</p>\n",
+              "naslovBazaTekstovaEng": "Why Us",
+              "nadnaslovPodnaslovBazaTekstovaEng": null
+            },
+            "modulBazeTekstovaEsp": {
+              "nadnaslovPodnaslovBazaTekstovaEsp": "nadnaslov1",
+              "naslovBazaTekstovaEsp": "Lorem ipsum headline esp",
+              "tekstBazaTekstovaEsp": "<p>Donec et auctor nibh, eu tincidunt augue. Pellentesque vel pretium arcu, vitae feugiat libero. Nulla posuere id nulla at tincidunt. Praesent orci elit, tincidunt vitae est et, molestie fermentum tortor. Mauris laoreet luctus turpis, at volutpat sapien posuere sit amet. Nulla vestibulum nibh ac rutrum lobortis. Donec a nisi sed risus bibendum tincidunt in vel diam.</p>\n<p>Cras id ultricies ex. Suspendisse molestie libero mi, eget dictum erat vehicula eu. Aliquam vel rutrum lectus, vitae maximus urna. Nam id erat blandit, malesuada justo ac, volutpat dui. Aenean bibendum dolor mi, quis sagittis arcu euismod nec. Maecenas eget tempus est. Etiam mauris nunc, dapibus in feugiat sit amet, blandit et nibh. Suspendisse potenti.</p>\n"
+            },
+            "modulBazeTekstovaFra": {
+              "nadnaslovPodnaslovBazaTekstovaFra": "nadnslov",
+              "naslovBazaTekstovaFra": "Lorem ipsum headline",
+              "tekstBazaTekstovaFra": "<p>Sed sit amet vestibulum lorem. Etiam a vestibulum lectus, congue condimentum justo. Mauris dapibus enim ut sem imperdiet dictum. Phasellus id molestie urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce eleifend lectus eros, faucibus lobortis nunc gravida a. Duis metus velit, rutrum vestibulum scelerisque sed, finibus id magna. Integer elementum justo cursus, consequat magna eget, accumsan tortor. Vestibulum euismod eget metus nec molestie. Phasellus porttitor bibendum dolor.</p>\n"
+            },
+            "modulBazeTekstovaGer": {
+              "nadnaslovPodnaslovBazaTekstovaGer": "nasnaslov njem",
+              "naslovBazaTekstovaGer": "zašto mi njem",
+              "tekstBazaTekstovaGer": "<p>Sed sit amet vestibulum lorem. Etiam a vestibulum lectus, congue condimentum justo. Mauris dapibus enim ut sem imperdiet dictum. Phasellus id molestie urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce eleifend lectus eros, faucibus lobortis nunc gravida a. Duis metus velit, rutrum vestibulum scelerisque sed, finibus id magna. Integer elementum justo cursus, consequat magna eget, accumsan tortor. Vestibulum euismod eget metus nec molestie. Phasellus porttitor bibendum dolor.</p>\n"
+            },
+            "modulBazeTekstovaIta": {
+              "nadnaslovPodnaslovBazaTekstovaIta": "nasnaslov",
+              "naslovBazaTekstovaIta": "perche noi",
+              "tekstBazaTekstovaIta": "<p>Fusce ultrices, urna non laoreet feugiat, ipsum est sodales nunc, vitae rutrum erat magna eu libero. Etiam dictum euismod justo sit amet eleifend.</p>\n"
+            },
+            "modulBazeTekstovaSlo": {
+              "nadnaslovPodnaslovBazaTekstovaSlo": "nadnaslov",
+              "naslovBazaTekstovaSlo": "Lorem ipsum headline",
+              "tekstBazaTekstovaSlo": "<p>Fusce ultrices, urna non laoreet feugiat, ipsum est sodales nunc, vitae rutrum erat magna eu libero. Etiam dictum euismod justo sit amet eleifend.</p>\n"
+            },
+            "photoGallery": {
+              "fotogalerija": {
+                "galSlika01": null,
+                "galSlika02": null,
+                "galSlika03": null,
+                "galSlika04": null,
+                "galSlika05": null,
+                "galSlika06": null,
+                "galSlika07": null,
+                "galSlika08": null,
+                "galSlika09": null,
+                "galSlika10": null
+              }
+            }
+          }
+        },
+        {
+          "node": {
             "id": "cG9zdDoxMDc5OA==",
             "title": "NASLOVNICA – Mali pasus cijena",
             "modulBazeTekstovaUvod": {
@@ -225,7 +285,7 @@
         {
           "node": {
             "id": "cG9zdDoxMDYzNQ==",
-            "title": "NASLOVNICA – Često postavljana pitanja (FAQ)",
+            "title": "NASLOVNICA – Često postavljana pitanja (FAQ)  (uvod-intro)",
             "modulBazeTekstovaUvod": {
               "statusPrikazaTekstaZaPodstranicu": true,
               "slika1": null,
@@ -5129,7 +5189,7 @@
             "metricsHr": {
               "companyInNumbersHr": {
                 "prikaziDodatneOpcijeSwitcher": false,
-                "tekstBrojcanikaGlavni": null,
+                "tekstBrojcanikaGlavni": "Spašenog razuma",
                 "tekstBrojcanikaSekundarniTekst": null,
                 "znakIliNatpisUzBroj": null
               }
@@ -5202,7 +5262,7 @@
             "metricsHr": {
               "companyInNumbersHr": {
                 "prikaziDodatneOpcijeSwitcher": false,
-                "tekstBrojcanikaGlavni": null,
+                "tekstBrojcanikaGlavni": "Broj kulturnih, sportskih i turističkih događanja tijekom 2024. godine.",
                 "tekstBrojcanikaSekundarniTekst": null,
                 "znakIliNatpisUzBroj": null
               }
@@ -5275,7 +5335,7 @@
             "metricsHr": {
               "companyInNumbersHr": {
                 "prikaziDodatneOpcijeSwitcher": false,
-                "tekstBrojcanikaGlavni": null,
+                "tekstBrojcanikaGlavni": "Ukupan broj posjetitelja na događanjima u 2024. godini.",
                 "tekstBrojcanikaSekundarniTekst": null,
                 "znakIliNatpisUzBroj": null
               }
