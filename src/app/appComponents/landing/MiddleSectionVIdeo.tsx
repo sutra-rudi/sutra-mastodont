@@ -32,6 +32,7 @@ export default function MiddleSectionVideo({ sourceUrl }: MiddleSectionVideoProp
       if (hasValidVideo) {
         return (
           <video
+            data-gtm='play-middle-section-video'
             src={sourceUrl.video}
             autoPlay
             muted

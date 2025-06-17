@@ -2,7 +2,9 @@
 
 import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 import { slugifyOptions } from '@/app/pathsUtils/slugifyOptions';
+import { useIntersectionObserver } from '@uidotdev/usehooks';
 import dayjs from 'dayjs';
+import { usePathname } from 'next/navigation';
 import React from 'react';
 import slugify from 'slugify';
 
@@ -14,9 +16,32 @@ export default function EventSection({ dataset, currentLang }: EventSection) {
   const l = getSuffixFromLang(currentLang);
 
   //   console.log('DATASET', dataset);
+
+  const currentPath = usePathname();
+
+  const [ref, entry] = useIntersectionObserver({
+    threshold: 0,
+    root: null,
+    rootMargin: '0px',
+  });
+
+  React.useEffect(() => {
+    const hash = `#${slugify('events', slugifyOptions)}`;
+
+    if (entry?.isIntersecting) {
+      window.history.replaceState(null, '', `${currentPath}${hash}`);
+    } else if (window.location.hash === hash) {
+      window.history.replaceState(null, '', currentPath);
+    }
+  }, [entry, currentPath]);
+
   return (
-    <section className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl relative w-full'>
-      <h2 className='text-3xl font-bold text-dark dark:text-white sm:text-[40px]/[48px] w-full text-center lg:mb-20 mb-[60px]'>
+    <section
+      id='events'
+      ref={ref}
+      className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl relative w-full'
+    >
+      <h2 className='relative lg:-pt--desktop---3xl md:-pt--tablet---3xl -pt--mobile---3xl lg:text-h2-desktop md:text-h2-tablet text-h2-mobile text-heading-color-light-mode dark:text-heading-color-dark-mode block text-center text-balance lg:-mb--desktop-h1-2---naslov-tekst md:-mb--tablet-h1-2---naslov-tekst -mb--mobile-h1-2---naslov-tekst px-4'>
         Events
       </h2>
       <div className='container mx-auto flex items-center justify-start gap-6 px-4'>
@@ -24,6 +49,9 @@ export default function EventSection({ dataset, currentLang }: EventSection) {
           return (
             <a
               key={ds.node.databaseId}
+              data-gtm={slugify(`event click ${ds.node[`event${l}`]?.[`event${l}`].nazivEventa}`, {
+                ...slugifyOptions,
+              })}
               href={`/${currentLang}/events/${slugify(
                 ds.node[`event${l}`]?.[`event${l}`].nazivEventa + `-${ds.node.databaseId}`,
                 {

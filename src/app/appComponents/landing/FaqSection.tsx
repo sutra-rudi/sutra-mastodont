@@ -9,6 +9,7 @@ import Script from 'next/script';
 import { generateFaqJsonLd } from '@/app/utils/generateFaqSchema';
 import slugify from 'slugify';
 import { slugifyOptions } from '@/app/pathsUtils/slugifyOptions';
+import { usePathname } from 'next/navigation';
 const findDataset = faqDataset.data.allFaq.edges;
 const findIntro = faqDataset.data.allBazaTekstaPodstranice1Modul.edges.find(
   (item) => item.node.title === 'NASLOVNICA – Često postavljana pitanja (FAQ)  (uvod-intro)'
@@ -129,6 +130,8 @@ export default function FaqSection({ currentLang, isSub = false }: FaqSectionPro
   const left = findDataset.slice(0, middle);
   const right = findDataset.slice(middle);
 
+  const currentPath = usePathname();
+
   const [ref, entry] = useIntersectionObserver({
     threshold: 0,
     root: null,
@@ -139,6 +142,16 @@ export default function FaqSection({ currentLang, isSub = false }: FaqSectionPro
   const title = findIntro?.node[`modulBazeTekstova${l}`]?.[`naslovBazaTekstova${l}`];
   //@ts-ignore
   const text = findIntro?.node[`modulBazeTekstova${l}`]?.[`tekstBazaTekstova${l}`];
+
+  React.useEffect(() => {
+    const hash = `#${slugify(title, slugifyOptions)}`;
+
+    if (entry?.isIntersecting) {
+      window.history.replaceState(null, '', `${currentPath}${hash}`);
+    } else if (window.location.hash === hash) {
+      window.history.replaceState(null, '', currentPath);
+    }
+  }, [entry, currentPath, title]);
 
   return (
     <section
