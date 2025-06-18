@@ -7,6 +7,10 @@ import parse from 'html-react-parser';
 import slugify from 'slugify';
 import useEmblaCarousel from 'embla-carousel-react';
 import React from 'react';
+import { findGeneralTranslation } from '@/app/langUtils/findGeneralTranslation';
+import { generalTranslations } from '@/app/lib/generalTranslations';
+import { usePathname } from 'next/navigation';
+import { useIntersectionObserver } from '@uidotdev/usehooks';
 
 interface BlogSection {
   currentLang: string;
@@ -40,13 +44,33 @@ export default function BlogSection({ currentLang, blogList }: BlogSection) {
     [emblaApi]
   );
 
+  const t = slugify(findGeneralTranslation('Blog', currentLang, generalTranslations), { ...slugifyOptions });
+  const currentPath = usePathname();
+
+  const [ref, entry] = useIntersectionObserver({
+    threshold: 0,
+    root: null,
+    rootMargin: '0px',
+  });
+
+  React.useEffect(() => {
+    const hash = `#${slugify(t, slugifyOptions)}`;
+
+    if (entry?.isIntersecting) {
+      window.history.replaceState(null, '', `${currentPath}${hash}`);
+    } else if (window.location.hash === hash) {
+      window.history.replaceState(null, '', currentPath);
+    }
+  }, [entry, currentPath, t]);
+
   return (
-    <section id='blog' className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl'>
+    <section id='blog' ref={ref} className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl'>
       <div className='max-w-[1440px] px-4 mx-auto'>
-        <h2 className='text-3xl font-bold text-dark dark:text-white sm:text-[40px]/[48px] w-full text-center lg:mb-20 mb-[60px]'>
-          Blog
+        <h2 className='lg:text-h2-desktop md:text-h2-tablet text-h2-mobile text-heading-color-light-mode dark:text-heading-color-dark-mode text-center'>
+          {findGeneralTranslation('Blog', currentLang, generalTranslations)}
         </h2>
-        <div className='lg:flex hidden flex-wrap items-start justify-center gap-4'>
+
+        <div className='lg:flex hidden flex-wrap items-start justify-center gap-4 lg:-mt--desktop---2xl md:-mt--tablet---2xl -mt--mobile---2xl'>
           {blogList.map((blog) => {
             const isEngMistake = currentLang === UserLanguage.eng;
             return (
@@ -54,6 +78,9 @@ export default function BlogSection({ currentLang, blogList }: BlogSection) {
               blog.node.introBlog.statusBloga && (
                 <a
                   key={blog.node.databaseId}
+                  data-gtm={slugify(`kartica click blog`, {
+                    ...slugifyOptions,
+                  })}
                   href={`/${currentLang}/blog/${slugify(
                     blog.node.sadrzajHrFields.naslovSadrzajHr + `-${blog.node.databaseId}`,
                     {
@@ -130,7 +157,10 @@ export default function BlogSection({ currentLang, blogList }: BlogSection) {
           })}
         </div>
 
-        <div ref={emblaRef} className='embla lg:hidden w-full mx-auto'>
+        <div
+          ref={emblaRef}
+          className='embla lg:hidden w-full mx-auto lg:-mt--desktop---2xl md:-mt--tablet---2xl -mt--mobile---2xl'
+        >
           <div className='embla__container w-full flex items-start gap-4'>
             {blogList.map((blog) => {
               const isEngMistake = currentLang === UserLanguage.eng;
@@ -140,6 +170,9 @@ export default function BlogSection({ currentLang, blogList }: BlogSection) {
                   <a
                     className='embla__slide_blog_gallery block max-w-[433px] bg-almost-white group rounded-lg shadow-md'
                     key={blog.node.databaseId}
+                    data-gtm={slugify(`kartica click blog`, {
+                      ...slugifyOptions,
+                    })}
                     href={`/${currentLang}/blog/${slugify(
                       blog.node.sadrzajHrFields.naslovSadrzajHr + `-${blog.node.databaseId}`,
                       {

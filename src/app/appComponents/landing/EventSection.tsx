@@ -1,6 +1,8 @@
 'use client';
 
+import { findGeneralTranslation } from '@/app/langUtils/findGeneralTranslation';
 import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
+import { generalTranslations } from '@/app/lib/generalTranslations';
 import { slugifyOptions } from '@/app/pathsUtils/slugifyOptions';
 import { useIntersectionObserver } from '@uidotdev/usehooks';
 import dayjs from 'dayjs';
@@ -15,8 +17,6 @@ interface EventSection {
 export default function EventSection({ dataset, currentLang }: EventSection) {
   const l = getSuffixFromLang(currentLang);
 
-  //   console.log('DATASET', dataset);
-
   const currentPath = usePathname();
 
   const [ref, entry] = useIntersectionObserver({
@@ -25,31 +25,28 @@ export default function EventSection({ dataset, currentLang }: EventSection) {
     rootMargin: '0px',
   });
 
+  const t = findGeneralTranslation('Događanja', currentLang, generalTranslations);
   React.useEffect(() => {
-    const hash = `#${slugify('events', slugifyOptions)}`;
+    const hash = `#${slugify(t, slugifyOptions)}`;
 
     if (entry?.isIntersecting) {
       window.history.replaceState(null, '', `${currentPath}${hash}`);
     } else if (window.location.hash === hash) {
       window.history.replaceState(null, '', currentPath);
     }
-  }, [entry, currentPath]);
+  }, [entry, currentPath, t]);
 
   return (
-    <section
-      id='events'
-      ref={ref}
-      className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl relative w-full'
-    >
+    <section id={t} className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl relative w-full'>
       <h2 className='relative lg:-pt--desktop---3xl md:-pt--tablet---3xl -pt--mobile---3xl lg:text-h2-desktop md:text-h2-tablet text-h2-mobile text-heading-color-light-mode dark:text-heading-color-dark-mode block text-center text-balance lg:-mb--desktop-h1-2---naslov-tekst md:-mb--tablet-h1-2---naslov-tekst -mb--mobile-h1-2---naslov-tekst px-4'>
-        Events
+        {t}
       </h2>
-      <div className='container mx-auto flex items-center justify-start gap-6 px-4'>
+      <div ref={ref} className='container mx-auto flex items-center justify-start gap-6 px-4'>
         {dataset.map((ds: any) => {
           return (
             <a
               key={ds.node.databaseId}
-              data-gtm={slugify(`event click ${ds.node[`event${l}`]?.[`event${l}`].nazivEventa}`, {
+              data-gtm={slugify(`kartica click ${t}`, {
                 ...slugifyOptions,
               })}
               href={`/${currentLang}/events/${slugify(

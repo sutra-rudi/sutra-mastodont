@@ -5,6 +5,8 @@ import React from 'react';
 import { Twirl as Hamburger } from 'hamburger-react';
 import { Hr, Gb, It, De, Fr, Es } from 'react-flags-select';
 import LanguageDropdown from './LangDropdown';
+import slugify from 'slugify';
+import { slugifyOptions } from '../pathsUtils/slugifyOptions';
 
 interface Header {
   logos: any;
@@ -208,7 +210,7 @@ const AppHeader = ({ logos }: Header) => {
             </div>
 
             <div
-              className={`absolute z-[90] w-full max-w-full h-screen bg-almost-white inset-0 flex items-center lg:justify-center justify-start flex-col lg:pt-0 pt-24 px-4 pb-44 transition-all ease-in-out duration-700 will-change-transform transform-gpu overflow-scroll ${
+              className={`absolute z-[90] w-full max-w-full h-screen bg-almost-white inset-0 flex items-center lg:justify-center justify-start flex-col lg:pt-0 pt-24 px-4 md:pb-0 pb-44 transition-all ease-in-out duration-700 will-change-transform transform-gpu overflow-scroll ${
                 !mounted
                   ? 'translate-x-full opacity-0 pointer-events-none'
                   : isMobileMenuOpen
@@ -219,6 +221,8 @@ const AppHeader = ({ logos }: Header) => {
               <ul className='lg:text-h2-desktop md:text-h2-tablet text-h2-mobile flex flex-col lg:-gap--desktop-liste-udaljenost-u-listama-big md:-gap--tablet-liste-udaljenost-u-listama-big -gap--mobile-liste-udaljenost-u-listama-big select-none'>
                 {baseNav.map((item, i) => (
                   <li
+                    //@ts-ignore
+                    data-gtm={slugify(`nav click ${item[currentLang]}`, { ...slugifyOptions })}
                     key={item.url}
                     style={{ animationDelay: `${i * 0.15}s ` }}
                     className={`${
@@ -245,6 +249,8 @@ const AppHeader = ({ logos }: Header) => {
                 {linksLegalSet.map((item, i) => (
                   <li
                     key={item.url}
+                    //@ts-ignore
+                    data-gtm={slugify(`nav click ${item[currentLang]}`, { ...slugifyOptions })}
                     style={{ animationDelay: `${i * 0.45}s ` }}
                     className={`${
                       isMobileMenuOpen ? 'motion-preset-slide-right motion-ease-spring-bouncy' : ''
@@ -257,6 +263,18 @@ const AppHeader = ({ logos }: Header) => {
                   </li>
                 ))}
               </ul>
+
+              <a
+                data-gtm={slugify(`nav click sutra hr`)}
+                href='https://www.sutra.hr/'
+                target='_blank'
+                rel='noopener noreferrer'
+                className={`relative mt-12 select-none  hover:translate-y-1 block transition-all ease-out duration-300 text-heading-color-light-mode dark:text-heading-color-dark-mode  text-all-caps-small${
+                  isMobileMenuOpen ? 'motion-preset-slide-right motion-ease-spring-bouncy' : ''
+                }`}
+              >
+                Made by Sutra.hr
+              </a>
             </div>
           </div>
           <div

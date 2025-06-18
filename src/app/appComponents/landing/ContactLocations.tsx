@@ -12,6 +12,10 @@ import slugify from 'slugify';
 import { slugifyOptions } from '@/app/pathsUtils/slugifyOptions';
 import { generateStoreJsonLd } from '@/app/utils/generateLocationsSchema';
 import Script from 'next/script';
+import { findGeneralTranslation } from '@/app/langUtils/findGeneralTranslation';
+import { generalTranslations } from '@/app/lib/generalTranslations';
+import { useIntersectionObserver } from '@uidotdev/usehooks';
+import { usePathname } from 'next/navigation';
 const locationsData = dataset.data.allKontaktiLokacije.edges;
 interface ContactLocations {
   currentLang: any;
@@ -22,17 +26,43 @@ export default function ContactLocations({ currentLang }: ContactLocations) {
 
   const jsonLdArr = locationsData.map((ld) => generateStoreJsonLd(ld.node));
 
+  const t = slugify(findGeneralTranslation('Kontakt lokacije', currentLang, generalTranslations), {
+    ...slugifyOptions,
+  });
+
+  const currentPath = usePathname();
+
+  const [ref, entry] = useIntersectionObserver({
+    threshold: 0,
+    root: null,
+    rootMargin: '0px',
+  });
+
+  React.useEffect(() => {
+    const hash = `#${slugify(t, slugifyOptions)}`;
+
+    if (entry?.isIntersecting) {
+      window.history.replaceState(null, '', `${currentPath}${hash}`);
+    } else if (window.location.hash === hash) {
+      window.history.replaceState(null, '', currentPath);
+    }
+  }, [entry, currentPath, t]);
+
   return (
-    <section className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl'>
+    <section id={t} ref={ref} className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl'>
       <div className='container mx-auto px-4'>
         <h2 className='lg:text-h2-desktop md:text-h2-tablet text-h2-mobile text-heading-color-light-mode dark:text-heading-color-dark-mode'>
-          Kontakt lokacije
+          {findGeneralTranslation('Kontakt lokacije', currentLang, generalTranslations)}
         </h2>
 
         <div className='w-full lg:-mt--desktop---2xl md:-mt--tablet---2xl -mt--mobile---2xl grid grid-cols-1 lg:gap-16 md:gap-12 gap-8'>
           {locationsData.map((ld) => {
             return (
-              <a key={ld.node.id} href={`/${currentLang}/locations#${slugify(ld.node.title, { ...slugifyOptions })}`}>
+              <a
+                key={ld.node.id}
+                data-gtm={slugify(`kartica click ${t}`, { ...slugifyOptions })}
+                href={`/${currentLang}/locations#${slugify(ld.node.title, { ...slugifyOptions })}`}
+              >
                 <article className='flex items-stretch bg-almost-white shadow lg:flex-nowrap flex-wrap group cursor-pointer lg:pb-0 pb-4'>
                   <div className='overflow-hidden relative block  w-full lg:h-[460px] h-[300px] lg:max-w-[600px]'>
                     <picture>
