@@ -3,7 +3,11 @@
 import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 import parse from 'html-react-parser';
 import { useIntersectionObserver } from '@uidotdev/usehooks';
-import { PuniTamni } from '../global/Buttons';
+import slugify from 'slugify';
+import { slugifyOptions } from '@/app/pathsUtils/slugifyOptions';
+import React from 'react';
+import { usePathname } from 'next/navigation';
+
 interface ContentSectionSecond {
   reverse?: boolean;
   content: any;
@@ -25,6 +29,8 @@ export default function ContentSectionFirst({
     rootMargin: '0px',
   });
 
+  const currentPath = usePathname();
+
   const l = getSuffixFromLang(currentLang);
   const naslov = isList
     ? content[`lista${l}`]?.[`listaUvod${l}`].naslov
@@ -42,9 +48,21 @@ export default function ContentSectionFirst({
     return Object.values(placeholderGallery).filter((g) => g);
   }
 
+  const parseTitle = slugify(naslov, { ...slugifyOptions });
+
+  React.useEffect(() => {
+    const hash = `#${parseTitle}`;
+
+    if (entry?.isIntersecting) {
+      window.history.replaceState(null, '', `${currentPath}${hash}`);
+    } else if (window.location.hash === hash) {
+      window.history.replaceState(null, '', currentPath);
+    }
+  }, [entry, currentPath, parseTitle]);
+
   return (
-    <section className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl'>
-      <div className='container mx-auto'>
+    <section id={parseTitle} className='lg:-mt--desktop---section-l md:-mt--tablet---section-l -mt--mobile---section-l'>
+      <div className='container mx-auto' ref={ref}>
         <div className='flex lg:flex-nowrap flex-wrap items-center justify-between lg:gap-8 md:gap-6 gap-8 w-full h-full'>
           <div className={`${reverse ? 'order-2' : 'order-1'} w-full h-full px-4 lg:w-6/12`}>
             <div className='flex items-center'>
@@ -92,7 +110,6 @@ export default function ContentSectionFirst({
           </div>
 
           <div
-            ref={ref}
             className={`${
               reverse ? 'order-1' : 'order-2'
             } w-full px-4 lg:w-1/2 xl:w-5/12 h-full flex flex-col relative`}
@@ -191,13 +208,10 @@ export default function ContentSectionFirst({
               {/* <PuniTamni /> */}
 
               <button
-                data-gtm='kornati-click'
+                data-gtm={`section-button-click-${parseTitle}`}
                 className='w-max max-w-[180px] lg:-mt--desktop-h1-2---sadrzaj-cta md:-mt--tablet-h1-2---sadrzaj-cta -mt--mobile-h1-2---sadrzaj-cta  flex items-center justify-start bg-primarna-tamna text-almost-white lg:text-button-desktop md:text-button-tablet text-button-mobile md:px-7 md:py-3 px-6 py-[15px] md:rounded-[7px] rounded-[5px] md:gap-[13.3px] gap-[11.6px] transition-all ease-in-out duration-300 group hover:bg-sekundarna-tamna active:bg-almost-black'
               >
-                <span className='motion-ease-spring-bouncy group-hover:motion-preset-slide-up'>
-                  {/* {txt ? txt : 'Button text'} */}
-                  Button text
-                </span>
+                <span className='motion-ease-spring-bouncy group-hover:motion-preset-slide-up'>Button text</span>
 
                 <svg
                   xmlns='http://www.w3.org/2000/svg'

@@ -1,11 +1,15 @@
 'use client';
+'use client';
 
 import React from 'react';
-import { FaTag as TI } from 'react-icons/fa';
 import dataset from '../../staticData/staticQueryData.json';
 import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 import { slugifyOptions } from '@/app/pathsUtils/slugifyOptions';
 import slugify from 'slugify';
+import { findGeneralTranslation } from '@/app/langUtils/findGeneralTranslation';
+import { generalTranslations } from '@/app/lib/generalTranslations';
+import { usePathname } from 'next/navigation';
+import { useIntersectionObserver } from '@uidotdev/usehooks';
 
 const allUsluge = dataset.data.allPortfolioUsluga.edges;
 
@@ -16,16 +20,38 @@ interface Usluge {
 export default function ServicesSection({ currentLang }: Usluge) {
   const l = getSuffixFromLang(currentLang);
 
+  const t = slugify(findGeneralTranslation('Usluge', currentLang, generalTranslations), { ...slugifyOptions });
+  const currentPath = usePathname();
+
+  const [ref, entry] = useIntersectionObserver({
+    threshold: 0,
+    root: null,
+    rootMargin: '0px',
+  });
+
+  React.useEffect(() => {
+    const hash = `#${slugify(t, slugifyOptions)}`;
+
+    if (entry?.isIntersecting) {
+      window.history.replaceState(null, '', `${currentPath}${hash}`);
+    } else if (window.location.hash === hash) {
+      window.history.replaceState(null, '', currentPath);
+    }
+  }, [entry, currentPath, t]);
+
   return (
-    <section className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl relative w-full'>
-      <h2 className='text-3xl font-bold text-dark dark:text-white sm:text-[40px]/[48px] w-full text-center lg:mb-20 mb-[60px]'>
-        Usluge
+    <section id={t} ref={ref} className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl relative w-full'>
+      <h2 className='lg:text-h2-desktop md:text-h2-tablet text-h2-mobile text-heading-color-light-mode dark:text-heading-color-dark-mode text-center'>
+        {findGeneralTranslation('Usluge', currentLang, generalTranslations)}
       </h2>
-      <div className='container mx-auto flex gap-8 flex-wrap items-start md:justify-start justify-center px-4'>
+      <div className='container mx-auto flex gap-8 flex-wrap items-start md:justify-start justify-center px-4 lg:-mt--desktop---2xl md:-mt--tablet---2xl -mt--mobile---2xl'>
         {allUsluge.map((us) => {
           return (
             <a
               key={us.node.databaseId}
+              data-gtm={slugify(`kartica click ${findGeneralTranslation('Usluge', currentLang, generalTranslations)}`, {
+                ...slugifyOptions,
+              })}
               href={`/${currentLang}/services/${slugify(
                 us.node.uslugeSadrzajHr.sadrzajGrupeUslugaHr.nazivUsluge + `-${us.node.databaseId}`,
                 {

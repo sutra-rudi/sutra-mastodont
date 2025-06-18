@@ -34,18 +34,19 @@ export default function WhyUsSection({ currentLang }: WhyUs) {
   //@ts-ignore
   const title = introT?.node[`modulBazeTekstova${l}`]?.[`naslovBazaTekstova${l}`] ?? 'NEMA NASLOVA NA OVI JEZIK';
 
+  const t = slugify(title, slugifyOptions);
   React.useEffect(() => {
-    const hash = `#${slugify(title, slugifyOptions)}`;
+    const hash = `#${t}`;
 
     if (entry?.isIntersecting) {
       window.history.replaceState(null, '', `${currentPath}${hash}`);
     } else if (window.location.hash === hash) {
       window.history.replaceState(null, '', currentPath);
     }
-  }, [entry, currentPath, title]);
+  }, [entry, currentPath, t]);
   return (
     <section
-      id={title}
+      id={t}
       ref={ref}
       className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl bg-almost-white lg:pb-24 md:pb-20 pb-16 dark:bg-sekundarna-tamna'
     >
