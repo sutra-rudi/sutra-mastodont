@@ -16,6 +16,7 @@ export function middleware(request: NextRequest) {
 
   // Skip static and API routes
   if (
+    pathname === '/.well-known/appspecific/com.chrome.devtools.json' ||
     pathname.startsWith('/_next') ||
     pathname.startsWith('/static') ||
     pathname.startsWith('/api') ||
