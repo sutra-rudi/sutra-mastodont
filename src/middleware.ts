@@ -4,36 +4,29 @@ import { UserLanguage } from './app/enums/LangEnum';
 
 export function middleware(request: NextRequest) {
   const SUPPORTED_LANGUAGES = Object.values(UserLanguage);
-  const userLangCookie = request.cookies.get('@sutra-user-lang')?.value;
-  const abCookieName = '@sutra-ab-test';
-  let abGroup = request.cookies.get(abCookieName)?.value;
-  let newAB: 'A' | 'B' | null = null;
   const url = request.nextUrl;
 
-  // A/B testing: assign if missing
-  if (!abGroup) {
-    newAB = Math.random() < 0.5 ? 'A' : 'B';
-    abGroup = newAB;
-  }
+  // Read cookies
+  const userLangCookie = request.cookies.get('@sutra-user-lang')?.value;
+  const abCookieName = '@sutra-ab-test';
+  const abGroup = request.cookies.get(abCookieName)?.value;
 
-  const decorate = (res: NextResponse) => {
-    if (newAB) {
-      res.cookies.set(abCookieName, newAB, {
-        maxAge: 60 * 60 * 24 * 30,
-        path: '/',
-      });
-    }
+  // If AB cookie missing, first set it via redirect so next request SSR sees it
+  if (!abGroup) {
+    const newGroup = Math.random() < 0.5 ? 'A' : 'B';
+    const res = NextResponse.redirect(url);
+    res.cookies.set(abCookieName, newGroup, { maxAge: 60 * 60 * 24 * 30, path: '/' });
     return res;
-  };
+  }
 
   // Helper: redirect and set lang cookie
   const redirectToLanguage = (lang: string) => {
     const res = NextResponse.redirect(url);
     res.cookies.set('@sutra-user-lang', lang, { maxAge: 60 * 60 * 24 * 30, path: '/' });
-    return decorate(res);
+    return res;
   };
 
-  // Exclude static, sitemap, robots, api...
+  // Exclude static and API routes
   if (
     url.pathname === '/.well-known/appspecific/com.chrome.devtools.json' ||
     url.pathname.startsWith('/api') ||
@@ -43,7 +36,7 @@ export function middleware(request: NextRequest) {
     url.pathname.endsWith('/sitemap.xml') ||
     url.pathname.endsWith('/robots.txt')
   ) {
-    return decorate(NextResponse.next());
+    return NextResponse.next();
   }
 
   // Root: redirect based on cookie or header
@@ -65,15 +58,15 @@ export function middleware(request: NextRequest) {
     return redirectToLanguage('hr');
   }
 
-  // If missing language cookie, redirect to same URL to ensure cookie is sent next request
+  // If language cookie missing, redirect once to set it
   if (!userLangCookie) {
     const res = NextResponse.redirect(url);
     res.cookies.set('@sutra-user-lang', langInPath, { maxAge: 60 * 60 * 24 * 30, path: '/' });
-    return decorate(res);
+    return res;
   }
 
-  // Default: proceed and attach A/B cookie if new
-  return decorate(NextResponse.next());
+  // All cookies present, proceed
+  return NextResponse.next();
 }
 
 export const config = {
