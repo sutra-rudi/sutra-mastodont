@@ -4,62 +4,71 @@ import { UserLanguage } from './app/enums/LangEnum';
 
 export function middleware(request: NextRequest) {
   const SUPPORTED_LANGUAGES = Object.values(UserLanguage);
-  const userLangFromCookie = request.cookies.get('@sutra-user-lang')?.value;
   const url = request.nextUrl;
 
-  // Funkcija za preusmjeravanje s postavljanjem jezika u kolačić
+  // Read cookies
+  const userLangCookie = request.cookies.get('@sutra-user-lang')?.value;
+  const abCookieName = '@sutra-ab-test';
+  const abGroup = request.cookies.get(abCookieName)?.value;
+
+  // If AB cookie missing, first set it via redirect so next request SSR sees it
+  if (!abGroup) {
+    const newGroup = Math.random() < 0.5 ? 'A' : 'B';
+    const res = NextResponse.redirect(url);
+    res.cookies.set(abCookieName, newGroup, { maxAge: 60 * 60 * 24 * 30, path: '/' });
+    return res;
+  }
+
+  // Helper: redirect and set lang cookie
   const redirectToLanguage = (lang: string) => {
-    const response = NextResponse.redirect(new URL(`/${lang}`, url));
-    response.cookies.set('@sutra-user-lang', lang, { maxAge: 60 * 60 * 24 * 30 }); // 30 dana trajanja
-    return response;
+    const res = NextResponse.redirect(url);
+    res.cookies.set('@sutra-user-lang', lang, { maxAge: 60 * 60 * 24 * 30, path: '/' });
+    return res;
   };
 
-  // Izuzetak za sitemap.xml
+  // Exclude static and API routes
   if (
-    url.pathname === '/hr/sitemap.xml' ||
-    url.pathname === '/eng/sitemap.xml' ||
-    url.pathname === '/ger/sitemap.xml' ||
-    url.pathname === '/ita/sitemap.xml' ||
-    url.pathname === '/esp/sitemap.xml' ||
-    url.pathname === '/fra/sitemap.xml' ||
-    url.pathname === '/hr/robots.txt' ||
-    url.pathname === '/eng/robots.txt' ||
-    url.pathname === '/ger/robots.txt' ||
-    url.pathname === '/ita/robots.txt' ||
-    url.pathname === '/esp/robots.txt' ||
-    url.pathname === '/fra/robots.txt'
+    url.pathname === '/.well-known/appspecific/com.chrome.devtools.json' ||
+    url.pathname.startsWith('/api') ||
+    url.pathname.startsWith('/_next') ||
+    url.pathname.startsWith('/static') ||
+    url.pathname === '/favicon.ico' ||
+    url.pathname.endsWith('/sitemap.xml') ||
+    url.pathname.endsWith('/robots.txt')
   ) {
     return NextResponse.next();
   }
 
-  // Ako korisnik posjećuje osnovnu stranicu "/"
+  // Root: redirect based on cookie or header
   if (url.pathname === '/') {
-    if (userLangFromCookie && SUPPORTED_LANGUAGES.includes(userLangFromCookie as UserLanguage)) {
-      return redirectToLanguage(userLangFromCookie);
+    if (userLangCookie && SUPPORTED_LANGUAGES.includes(userLangCookie as UserLanguage)) {
+      return redirectToLanguage(userLangCookie);
     }
-
-    const acceptLanguage = request.headers.get('accept-language')?.split(',')[0].split('-')[0];
-    if (acceptLanguage) {
-      const langMatch = SUPPORTED_LANGUAGES.find((lang) => lang.startsWith(acceptLanguage));
-      if (langMatch) return redirectToLanguage(langMatch);
+    const acceptLang = request.headers.get('accept-language')?.split(',')[0].split('-')[0];
+    if (acceptLang) {
+      const match = SUPPORTED_LANGUAGES.find((l) => l.startsWith(acceptLang));
+      if (match) return redirectToLanguage(match);
     }
     return redirectToLanguage('hr');
   }
 
-  // Pročitaj jezik iz putanje ("/lang/...")
-  const lang = url.pathname.split('/')[1];
-  if (!SUPPORTED_LANGUAGES.includes(lang as UserLanguage)) return redirectToLanguage('hr');
-
-  // Ako kolačić nije postavljen, postavi ga
-  if (!userLangFromCookie) {
-    const response = NextResponse.next();
-    response.cookies.set('@sutra-user-lang', lang, { maxAge: 60 * 60 * 24 * 30 });
-    return response;
+  // Path includes language segment
+  const langInPath = url.pathname.split('/')[1];
+  if (!SUPPORTED_LANGUAGES.includes(langInPath as UserLanguage)) {
+    return redirectToLanguage('hr');
   }
 
+  // If language cookie missing, redirect once to set it
+  if (!userLangCookie) {
+    const res = NextResponse.redirect(url);
+    res.cookies.set('@sutra-user-lang', langInPath, { maxAge: 60 * 60 * 24 * 30, path: '/' });
+    return res;
+  }
+
+  // All cookies present, proceed
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: '/((?!api|_next|static|favicon.ico|sitemap.xml).*)',
+  matcher: '/((?!favicon.ico|_next|static|api|sitemap.xml).*)',
 };

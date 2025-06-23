@@ -4,8 +4,164 @@
       "edges": [
         {
           "node": {
+            "id": "cG9zdDoxNDEwNw==",
+            "title": "NASLOVNICA – hero tekstovi – B",
+            "tekstHeroHr": {
+              "aktivirajDodatniSlide2Hr": true,
+              "aktivirajDodatniSlide3Hr": false,
+              "aktivirajDodatniSlide4Hr": false,
+              "slide1Hero": {
+                "nadnaslov": "Posjeti Kornate - B",
+                "naslov": "Prirodno bogatstvo u srcu Dalmacije - B",
+                "tekst": "Okupani plaventilom kristalno čistog mora upovit ćete u nestvarnu ljepotu brojnih otoka ovog jedinstvenog krajolika. - B"
+              },
+              "slide2Hero": {
+                "nadnaslov": "Zaplovi do Sakaruna - B",
+                "naslov": "Plaže koja ostavlja bez daha - B",
+                "tekst": "Pješčana plaža koja svojim bijelim pijeskom očarava svakog posjetitelja, a čisto more pruža osvježenje koje je potrebno u ovim ljetnim danima. - B"
+              },
+              "slide3Hero": {
+                "nadnaslov": null,
+                "naslov": null,
+                "tekst": null
+              },
+              "slide4Hero": {
+                "nadnaslov": null,
+                "naslov": "fasd",
+                "tekst": "fsad"
+              }
+            },
+            "tekstHeroIta": {
+              "aktivirajDodatniSlide2Ita": false,
+              "aktivirajDodatniSlide3Ita": false,
+              "aktivirajDodatniSlide4Ita": false,
+              "slide1HeroIta": {
+                "nadnaslov": "Esplora il paradiso nascosto dell’Adriatico - B",
+                "naslov": "Vivi la bellezza di Kornati e Telašćica con un’indimenticabile escursione in barca da Zara - B",
+                "tekst": null
+              },
+              "slide2HeroIta": {
+                "nadnaslov": null,
+                "naslov": "DSA",
+                "tekst": "das"
+              },
+              "slide3HeroIta": {
+                "nadnaslov": null,
+                "naslov": "DSa",
+                "tekst": "ads"
+              },
+              "slide4HeroIta": {
+                "nadnaslov": null,
+                "naslov": "ads",
+                "tekst": "Ads"
+              }
+            },
+            "tekstHeroEng": {
+              "aktivirajDodatniSlide2Eng": false,
+              "aktivirajDodatniSlide3Eng": false,
+              "aktivirajDodatniSlide4Eng": false,
+              "slide1HeroEng": {
+                "nadnaslov": "Explore the Adriatic’s Hidden Paradise- B",
+                "naslov": "Experience the Beauty of Kornati and Telašćica on an Unforgettable Boat Tour from Zadar- B",
+                "tekst": null
+              },
+              "slide2HeroEng": {
+                "nadnaslov": null,
+                "naslov": "dsgfdgf",
+                "tekst": "dgsf"
+              },
+              "slide3HeroEng": {
+                "nadnaslov": null,
+                "naslov": "dfzfds",
+                "tekst": "dvfsdfvs"
+              },
+              "slide4HeroEng": {
+                "nadnaslov": null,
+                "naslov": "xzvzvx",
+                "tekst": "zxvzvxf"
+              }
+            },
+            "tekstHeroGer": {
+              "aktivirajDodatniSlide2Ger": false,
+              "aktivirajDodatniSlide3Ger": false,
+              "aktivirajDodatniSlide4Ger": false,
+              "slide1HeroGer": {
+                "nadnaslov": "Erkunde das verborgene Paradies der Adria - B",
+                "naslov": "Vivez la beauté de Kornati et Telašćica lors d’une excursion en bateau inoubliable depuis Zadar - B",
+                "tekst": null
+              },
+              "slide2HeroGer": {
+                "nadnaslov": null,
+                "naslov": "DAS",
+                "tekst": "Asd"
+              },
+              "slide3HeroGer": {
+                "nadnaslov": null,
+                "naslov": "DSA",
+                "tekst": "dvs"
+              },
+              "slide4HeroGer": {
+                "nadnaslov": null,
+                "naslov": "bcxv",
+                "tekst": "bcxv"
+              }
+            },
+            "tekstHeroFra": {
+              "aktivirajDodatniSlide2Fra": false,
+              "aktivirajDodatniSlide3Fra": false,
+              "aktivirajDodatniSlide4Fra": false,
+              "slide1HeroFra": {
+                "nadnaslov": "Explorez le paradis caché de l’Adriatique - B",
+                "naslov": "Découvrez la beauté de Kornati et Telašćica lors d’une excursion en bateau inoubliable au départ de Zadar - B",
+                "tekst": null
+              },
+              "slide2HeroFra": {
+                "nadnaslov": null,
+                "naslov": null,
+                "tekst": null
+              },
+              "slide3HeroFra": {
+                "nadnaslov": null,
+                "naslov": null,
+                "tekst": null
+              },
+              "slide4HeroFra": {
+                "nadnaslov": null,
+                "naslov": null,
+                "tekst": null
+              }
+            },
+            "tekstHeroEsp": {
+              "aktivirajDodatniSlide2Esp": false,
+              "aktivirajDodatniSlide3Esp": false,
+              "aktivirajDodatniSlide4Esp": false,
+              "slide1HeroEsp": {
+                "nadnaslov": "Explora el paraíso escondido del Adriático - B",
+                "naslov": "Descubre la belleza de Kornati y Telašćica en un inolvidable tour en barco desde Zadar - B",
+                "tekst": null
+              },
+              "slide2HeroEsp": {
+                "nadnaslov": null,
+                "naslov": null,
+                "tekst": null
+              },
+              "slide3HeroEsp": {
+                "nadnaslov": null,
+                "naslov": null,
+                "tekst": null
+              },
+              "slide4HeroEsp": {
+                "nadnaslov": null,
+                "naslov": null,
+                "tekst": null
+              }
+            }
+          }
+        },
+        {
+          "node": {
             "id": "cG9zdDo4MDQ1",
-            "title": "NASLOVNICA – hero tekstovi",
+            "title": "NASLOVNICA – hero tekstovi – A",
             "tekstHeroHr": {
               "aktivirajDodatniSlide2Hr": true,
               "aktivirajDodatniSlide3Hr": false,
@@ -5189,7 +5345,7 @@
             "metricsHr": {
               "companyInNumbersHr": {
                 "prikaziDodatneOpcijeSwitcher": false,
-                "tekstBrojcanikaGlavni": "Spašenog razuma",
+                "tekstBrojcanikaGlavni": null,
                 "tekstBrojcanikaSekundarniTekst": null,
                 "znakIliNatpisUzBroj": null
               }
@@ -5262,7 +5418,7 @@
             "metricsHr": {
               "companyInNumbersHr": {
                 "prikaziDodatneOpcijeSwitcher": false,
-                "tekstBrojcanikaGlavni": "Broj kulturnih, sportskih i turističkih događanja tijekom 2024. godine.",
+                "tekstBrojcanikaGlavni": null,
                 "tekstBrojcanikaSekundarniTekst": null,
                 "znakIliNatpisUzBroj": null
               }
@@ -5335,7 +5491,7 @@
             "metricsHr": {
               "companyInNumbersHr": {
                 "prikaziDodatneOpcijeSwitcher": false,
-                "tekstBrojcanikaGlavni": "Ukupan broj posjetitelja na događanjima u 2024. godini.",
+                "tekstBrojcanikaGlavni": null,
                 "tekstBrojcanikaSekundarniTekst": null,
                 "znakIliNatpisUzBroj": null
               }
