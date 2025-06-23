@@ -40,6 +40,7 @@ import FeatureListSection from '../appComponents/landing/FeatureListSection';
 import { Metadata } from 'next';
 import { UserLanguage } from '../enums/LangEnum';
 import { getSuffixFromLang } from '../langUtils/getSuffixFromLang';
+import { cookies } from 'next/headers';
 ///
 
 const seoData = dataset.data.allSeoAdmin.edges.find((item) => item.node.title === 'Glavni SEO weba');
@@ -156,6 +157,9 @@ export async function generateMetadata({ params: { lang } }: { params: { lang: s
 }
 
 export default async function Landing({ params: { lang } }: { params: { lang: string } }) {
+  const abGroup = cookies().get('@sutra-ab-test')?.value as 'A' | 'B';
+
+  console.log(abGroup, 'GRUPA');
   //DYNAMIC DATA
 
   // ${PortfolioCaseStudyFragment()}
@@ -194,7 +198,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
   return (
     <main className='relative w-full dark:bg-primarna-tamna min-h-screen'>
       <Suspense fallback={<Loading />}>
-        <HeroSection currentLang={lang} imgs={heroImagesHomePage} />
+        <HeroSection currentLang={lang} imgs={heroImagesHomePage} abGroup={abGroup} />
         <ContentSectionFirst
           isList={false}
           content={findFirstTextContent?.node}

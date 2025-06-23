@@ -4,62 +4,78 @@ import { UserLanguage } from './app/enums/LangEnum';
 
 export function middleware(request: NextRequest) {
   const SUPPORTED_LANGUAGES = Object.values(UserLanguage);
-  const userLangFromCookie = request.cookies.get('@sutra-user-lang')?.value;
+  const userLangCookie = request.cookies.get('@sutra-user-lang')?.value;
+  const abCookieName = '@sutra-ab-test';
+  let abGroup = request.cookies.get(abCookieName)?.value;
+  let newAB: 'A' | 'B' | null = null;
   const url = request.nextUrl;
 
-  // Funkcija za preusmjeravanje s postavljanjem jezika u kolačić
-  const redirectToLanguage = (lang: string) => {
-    const response = NextResponse.redirect(new URL(`/${lang}`, url));
-    response.cookies.set('@sutra-user-lang', lang, { maxAge: 60 * 60 * 24 * 30 }); // 30 dana trajanja
-    return response;
-  };
-
-  // Izuzetak za sitemap.xml
-  if (
-    url.pathname === '/hr/sitemap.xml' ||
-    url.pathname === '/eng/sitemap.xml' ||
-    url.pathname === '/ger/sitemap.xml' ||
-    url.pathname === '/ita/sitemap.xml' ||
-    url.pathname === '/esp/sitemap.xml' ||
-    url.pathname === '/fra/sitemap.xml' ||
-    url.pathname === '/hr/robots.txt' ||
-    url.pathname === '/eng/robots.txt' ||
-    url.pathname === '/ger/robots.txt' ||
-    url.pathname === '/ita/robots.txt' ||
-    url.pathname === '/esp/robots.txt' ||
-    url.pathname === '/fra/robots.txt'
-  ) {
-    return NextResponse.next();
+  // A/B testing: assign if missing
+  if (!abGroup) {
+    newAB = Math.random() < 0.5 ? 'A' : 'B';
+    abGroup = newAB;
   }
 
-  // Ako korisnik posjećuje osnovnu stranicu "/"
-  if (url.pathname === '/') {
-    if (userLangFromCookie && SUPPORTED_LANGUAGES.includes(userLangFromCookie as UserLanguage)) {
-      return redirectToLanguage(userLangFromCookie);
+  const decorate = (res: NextResponse) => {
+    if (newAB) {
+      res.cookies.set(abCookieName, newAB, {
+        maxAge: 60 * 60 * 24 * 30,
+        path: '/',
+      });
     }
+    return res;
+  };
 
-    const acceptLanguage = request.headers.get('accept-language')?.split(',')[0].split('-')[0];
-    if (acceptLanguage) {
-      const langMatch = SUPPORTED_LANGUAGES.find((lang) => lang.startsWith(acceptLanguage));
-      if (langMatch) return redirectToLanguage(langMatch);
+  // Helper: redirect and set lang cookie
+  const redirectToLanguage = (lang: string) => {
+    const res = NextResponse.redirect(url);
+    res.cookies.set('@sutra-user-lang', lang, { maxAge: 60 * 60 * 24 * 30, path: '/' });
+    return decorate(res);
+  };
+
+  // Exclude static, sitemap, robots, api...
+  if (
+    url.pathname === '/.well-known/appspecific/com.chrome.devtools.json' ||
+    url.pathname.startsWith('/api') ||
+    url.pathname.startsWith('/_next') ||
+    url.pathname.startsWith('/static') ||
+    url.pathname === '/favicon.ico' ||
+    url.pathname.endsWith('/sitemap.xml') ||
+    url.pathname.endsWith('/robots.txt')
+  ) {
+    return decorate(NextResponse.next());
+  }
+
+  // Root: redirect based on cookie or header
+  if (url.pathname === '/') {
+    if (userLangCookie && SUPPORTED_LANGUAGES.includes(userLangCookie as UserLanguage)) {
+      return redirectToLanguage(userLangCookie);
+    }
+    const acceptLang = request.headers.get('accept-language')?.split(',')[0].split('-')[0];
+    if (acceptLang) {
+      const match = SUPPORTED_LANGUAGES.find((l) => l.startsWith(acceptLang));
+      if (match) return redirectToLanguage(match);
     }
     return redirectToLanguage('hr');
   }
 
-  // Pročitaj jezik iz putanje ("/lang/...")
-  const lang = url.pathname.split('/')[1];
-  if (!SUPPORTED_LANGUAGES.includes(lang as UserLanguage)) return redirectToLanguage('hr');
-
-  // Ako kolačić nije postavljen, postavi ga
-  if (!userLangFromCookie) {
-    const response = NextResponse.next();
-    response.cookies.set('@sutra-user-lang', lang, { maxAge: 60 * 60 * 24 * 30 });
-    return response;
+  // Path includes language segment
+  const langInPath = url.pathname.split('/')[1];
+  if (!SUPPORTED_LANGUAGES.includes(langInPath as UserLanguage)) {
+    return redirectToLanguage('hr');
   }
 
-  return NextResponse.next();
+  // If missing language cookie, redirect to same URL to ensure cookie is sent next request
+  if (!userLangCookie) {
+    const res = NextResponse.redirect(url);
+    res.cookies.set('@sutra-user-lang', langInPath, { maxAge: 60 * 60 * 24 * 30, path: '/' });
+    return decorate(res);
+  }
+
+  // Default: proceed and attach A/B cookie if new
+  return decorate(NextResponse.next());
 }
 
 export const config = {
-  matcher: '/((?!api|_next|static|favicon.ico|sitemap.xml).*)',
+  matcher: '/((?!favicon.ico|_next|static|api|sitemap.xml).*)',
 };
