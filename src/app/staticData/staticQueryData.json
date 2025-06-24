@@ -922,7 +922,12 @@
             },
             "uvodLista": {
               "prikaziDodatneOpcije": false,
-              "slika1Lista": null,
+              "slika1Lista": {
+                "node": {
+                  "id": "cG9zdDoxMTIzMA==",
+                  "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/1000110302.jpg"
+                }
+              },
               "slika2Lista": null,
               "slika3Lista": null
             }
@@ -989,10 +994,25 @@
               "listaSadrzajSlo": null
             },
             "uvodLista": {
-              "prikaziDodatneOpcije": false,
-              "slika1Lista": null,
-              "slika2Lista": null,
-              "slika3Lista": null
+              "prikaziDodatneOpcije": true,
+              "slika1Lista": {
+                "node": {
+                  "id": "cG9zdDoxMTIyMQ==",
+                  "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/1000107361.jpg"
+                }
+              },
+              "slika2Lista": {
+                "node": {
+                  "id": "cG9zdDoxMTIxMw==",
+                  "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01697.jpg"
+                }
+              },
+              "slika3Lista": {
+                "node": {
+                  "id": "cG9zdDoxMTIyNA==",
+                  "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/1000091082.jpg"
+                }
+              }
             }
           }
         },
@@ -1058,7 +1078,12 @@
             },
             "uvodLista": {
               "prikaziDodatneOpcije": false,
-              "slika1Lista": null,
+              "slika1Lista": {
+                "node": {
+                  "id": "cG9zdDoxMTA1MQ==",
+                  "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/IMG-20220911-WA0004.jpg"
+                }
+              },
               "slika2Lista": null,
               "slika3Lista": null
             }
@@ -5345,7 +5370,7 @@
             "metricsHr": {
               "companyInNumbersHr": {
                 "prikaziDodatneOpcijeSwitcher": false,
-                "tekstBrojcanikaGlavni": null,
+                "tekstBrojcanikaGlavni": "Spašenog razuma",
                 "tekstBrojcanikaSekundarniTekst": null,
                 "znakIliNatpisUzBroj": null
               }
@@ -5418,7 +5443,7 @@
             "metricsHr": {
               "companyInNumbersHr": {
                 "prikaziDodatneOpcijeSwitcher": false,
-                "tekstBrojcanikaGlavni": null,
+                "tekstBrojcanikaGlavni": "Broj kulturnih, sportskih i turističkih događanja tijekom 2024. godine.",
                 "tekstBrojcanikaSekundarniTekst": null,
                 "znakIliNatpisUzBroj": null
               }
@@ -5491,7 +5516,7 @@
             "metricsHr": {
               "companyInNumbersHr": {
                 "prikaziDodatneOpcijeSwitcher": false,
-                "tekstBrojcanikaGlavni": null,
+                "tekstBrojcanikaGlavni": "Ukupan broj posjetitelja na događanjima u 2024. godini.",
                 "tekstBrojcanikaSekundarniTekst": null,
                 "znakIliNatpisUzBroj": null
               }

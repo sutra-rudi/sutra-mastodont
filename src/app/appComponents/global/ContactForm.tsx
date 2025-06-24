@@ -59,7 +59,8 @@ export default function ContactForm({ formId, lng }: Contact) {
   const onError = async (errors: any) => {
     Object.entries(errors).forEach(([field, error]) => {
       //@ts-ignore
-      return toast.error(`Greška u polju ${field}: ${error.message}`);
+      // return toast.error(`Greška u polju ${field}: ${error.message}`);
+      console.log('ERROR', error);
     });
   };
 

@@ -64,7 +64,7 @@ export default function CookieNotice({ lng }: CookieNotice) {
   if (!visible) return null;
 
   return (
-    <div className='fixed bottom-4 left-1/2 transform -translate-x-1/2 w-full z-50'>
+    <div className='fixed bottom-4 left-1/2 transform -translate-x-1/2 w-full z-50 motion-preset-slide-down motion-ease-spring-smooth motion-delay-1000'>
       <div className='flex items-center relative gap-2 justify-center container mx-auto bg-white text-text-light-mode py-4 rounded-lg shadow-lg  px-4 '>
         <CI />
         <p className='md:text-text-base-l-desktop text-text-base-l-mobiletablet'>
