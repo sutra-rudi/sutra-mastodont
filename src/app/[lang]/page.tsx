@@ -199,21 +199,10 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
     <main className='relative w-full dark:bg-primarna-tamna min-h-screen'>
       <Suspense fallback={<Loading />}>
         <HeroSection currentLang={lang} imgs={heroImagesHomePage} abGroup={abGroup} />
-        <ContentSectionFirst
-          isList={false}
-          content={findFirstTextContent?.node}
-          currentLang={lang}
-          placeholderGallery={carusel1Images}
-        />
+        <ContentSectionFirst isList={false} content={findFirstTextContent?.node} currentLang={lang} />
         <BaseCaruselSection dataset={filterImagesBase} />
 
-        <ContentSectionFirst
-          reverse
-          isList={true}
-          content={findFirstListContent?.node}
-          currentLang={lang}
-          placeholderGallery={carusel1Images}
-        />
+        <ContentSectionFirst reverse isList={true} content={findFirstListContent?.node} currentLang={lang} />
 
         {eventsData && <EventSection dataset={eventsData} currentLang={lang} />}
 

@@ -45,8 +45,8 @@ export default function AboutUsSection({ currentLang }: AboutUsSection) {
 
   return (
     <section id={t} ref={ref} className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl w-full h-full'>
-      <div className='mx-auto container w-full px-4 flex items-start justify-center lg:gap-desktop-slika-sadrzaj md:gap-tablet-slika-sadrzaj gap-mobile-slika-sadrzaj lg:flex-nowrap flex-wrap'>
-        <div className='w-full'>
+      <div className='mx-auto container w-full px-4 flex justify-center lg:gap-desktop-slika-sadrzaj md:gap-tablet-slika-sadrzaj gap-mobile-slika-sadrzaj lg:flex-nowrap flex-wrap'>
+        <div className='w-full lg:w-1/2'>
           <h2 className='text-left lg:text-h2-desktop md:text-h2-tablet text-h2-mobile lg:-mb--desktop-h1-2---naslov-tekst md:-mb--tablet-h1-2---naslov-tekst -mb--mobile-h1-2---naslov-tekst text-heading-color-light-mode dark:text-heading-color-dark-mode'>
             {t}
           </h2>
@@ -55,6 +55,7 @@ export default function AboutUsSection({ currentLang }: AboutUsSection) {
             {/* @ts-ignore */}
             {findAboutData[`oNamaSadrzaj${l}`]?.[`tekstoviPodstraniceONama${l}`].oNamaHeroSekcijaTekstIspodNaslova}
           </p>
+
           {abd && (
             <div className='lg:mt-desktop-tekst-naslov md:mt-tablet-tekst-naslov mt-mobile-tekst-naslov lg:prose-lg prose w-full prose-headings:text-heading-color-light-mode dark:prose-headings:text-heading-color-dark-mode prose-p:text-text-light-mode dark:prose-p:text-text-dark-mode'>
               {parse(abd)}
@@ -62,12 +63,12 @@ export default function AboutUsSection({ currentLang }: AboutUsSection) {
           )}
         </div>
 
-        <div className='max-w-prose relative'>
-          <picture>
+        <div className='relative lg:w-1/2 self-stretch'>
+          <picture className='block w-full h-full'>
             <img
               src={imgThumb.node.sourceUrl}
               alt={`About us image - ${imgThumb.node.sourceUrl}`}
-              className='object-cover object-center block aspect-auto w-full h-full'
+              className='object-cover object-center block w-full h-full'
               decoding='async'
               loading='lazy'
             />

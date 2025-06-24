@@ -74,7 +74,7 @@ function AccordionItem({
           </svg>
         </div>
         <div className='w-full'>
-          <h4 className='mt-1 lg:text-h4-desktop md:text-h4-tablet text-h4-mobile text-heading-color-light-mode dark:text-heading-color-dark-mode'>
+          <h4 className='mt-1 md:text-text-base-l-desktop text-text-base-l-mobiletablet text-heading-color-light-mode dark:text-heading-color-dark-mode'>
             {header}
           </h4>
         </div>

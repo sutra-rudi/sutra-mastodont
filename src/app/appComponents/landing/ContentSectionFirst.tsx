@@ -13,16 +13,9 @@ interface ContentSectionSecond {
   content: any;
   isList: boolean;
   currentLang: string;
-  placeholderGallery: any[];
 }
 
-export default function ContentSectionFirst({
-  reverse,
-  content,
-  isList,
-  currentLang,
-  placeholderGallery,
-}: ContentSectionSecond) {
+export default function ContentSectionFirst({ reverse, content, isList, currentLang }: ContentSectionSecond) {
   const [ref, entry] = useIntersectionObserver({
     threshold: 0,
     root: null,
@@ -44,9 +37,9 @@ export default function ContentSectionFirst({
     ? content[`lista${l}`]?.[`listaSadrzaj${l}`].split('\r\n')
     : content[`modulBazeTekstova${l}`]?.[`tekstBazaTekstova${l}`];
 
-  function handleImages() {
-    return Object.values(placeholderGallery).filter((g) => g);
-  }
+  // function handleImages() {
+  //   return Object.values(gallery).filter((g) => g);
+  // }
 
   const parseTitle = slugify(naslov, { ...slugifyOptions });
 
@@ -60,53 +53,29 @@ export default function ContentSectionFirst({
     }
   }, [entry, currentPath, parseTitle]);
 
+  console.log('CONTENT', content);
+
+  const img1 = !isList
+    ? content.modulBazeTekstovaUvod.slika1.node.sourceUrl
+    : content.uvodLista.slika1Lista
+    ? content.uvodLista.slika1Lista.node.sourceUrl
+    : 'https://mastodont-2.sutra-cms.com/Sutra-ftp/other/CMS_Image_Placeholder.jpg';
+
   return (
     <section id={parseTitle} className='lg:-mt--desktop---section-l md:-mt--tablet---section-l -mt--mobile---section-l'>
       <div className='container mx-auto' ref={ref}>
-        <div className='flex lg:flex-nowrap flex-wrap items-center justify-between lg:gap-8 md:gap-6 gap-8 w-full h-full'>
-          <div className={`${reverse ? 'order-2' : 'order-1'} w-full h-full px-4 lg:w-6/12`}>
-            <div className='flex items-center'>
-              <div className='w-full xl:w-1/2'>
-                <div className='py-2 sm:py-3'>
-                  <picture>
-                    <img
-                      src={handleImages()[0]}
-                      onError={() =>
-                        "this.src = 'https://mastodont-2.sutra-cms.com/Sutra-ftp/other/CMS_Image_Placeholder.jpg'"
-                      }
-                      alt={`Article img - ${handleImages()[0]}`}
-                      className='w-full rounded-2xl object-cover object-center block aspect-auto'
-                    />
-                  </picture>
-                </div>
-                <div className='py-2 sm:py-3'>
-                  <picture>
-                    <img
-                      src={handleImages()[1]}
-                      onError={() =>
-                        "this.src = 'https://mastodont-2.sutra-cms.com/Sutra-ftp/other/CMS_Image_Placeholder.jpg'"
-                      }
-                      alt={`Article img - ${handleImages()[1]}`}
-                      className='w-full rounded-2xl  object-cover object-center block aspect-auto'
-                    />
-                  </picture>
-                </div>
-              </div>
-              <div className='w-full px-3 sm:px-4 xl:w-1/2'>
-                <div className='relative z-10 my-4'>
-                  <picture>
-                    <img
-                      src={handleImages()[2]}
-                      onError={() =>
-                        "this.src = 'https://mastodont-2.sutra-cms.com/Sutra-ftp/other/CMS_Image_Placeholder.jpg'"
-                      }
-                      alt={`Article img - ${handleImages()[2]}`}
-                      className='w-full rounded-2xl  object-cover object-center block aspect-auto'
-                    />
-                  </picture>
-                </div>
-              </div>
-            </div>
+        <div className='flex lg:flex-nowrap flex-wrap justify-center lg:gap-8 md:gap-6 gap-8 w-full h-full'>
+          <div className={`${reverse ? 'order-2' : 'order-1'} w-full px-4 lg:w-6/12 self-stretch `}>
+            <picture className='block w-full h-full'>
+              <img
+                src={img1}
+                onError={() =>
+                  "this.src = 'https://mastodont-2.sutra-cms.com/Sutra-ftp/other/CMS_Image_Placeholder.jpg'"
+                }
+                alt={`Article img - ${img1}`}
+                className='rounded-2xl object-cover object-center block aspect-auto w-full h-full '
+              />
+            </picture>
           </div>
 
           <div
