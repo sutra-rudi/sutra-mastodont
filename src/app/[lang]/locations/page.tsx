@@ -105,7 +105,7 @@ export default function ContactLocationsPage({
                           src={pg?.node.sourceUrl}
                           alt={`Contact location image - ${ld.node.title}`}
                           aria-details={`Contact location image - ${ld.node.title}`}
-                          className='block aspect-auto object-center object-cover z-0 pointer-events-none select-none w-full max-w-[600px] lg:max-h-[390px] max-h-[323px] h-full'
+                          className='block aspect-auto object-center object-cover z-0 pointer-events-none select-none w-full max-w-[600px] lg:h-[390px] md:h-[323px] h-full'
                           decoding='async'
                           width={300}
                           height={290}

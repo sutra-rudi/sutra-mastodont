@@ -159,7 +159,6 @@ export async function generateMetadata({ params: { lang } }: { params: { lang: s
 export default async function Landing({ params: { lang } }: { params: { lang: string } }) {
   const abGroup = cookies().get('@sutra-ab-test')?.value as 'A' | 'B';
 
-  console.log(abGroup, 'GRUPA');
   //DYNAMIC DATA
 
   // ${PortfolioCaseStudyFragment()}
@@ -190,7 +189,8 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
   const MP = await fetchMediaPaths();
 
   const {
-    carusel1Images,
+    siteIcons: { arrows },
+    bgTextures,
     heroImagesHomePage,
     videoResources: { homePageMiddleSection },
   } = MP;
@@ -199,12 +199,18 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
     <main className='relative w-full dark:bg-primarna-tamna min-h-screen'>
       <Suspense fallback={<Loading />}>
         <HeroSection currentLang={lang} imgs={heroImagesHomePage} abGroup={abGroup} />
-        <ContentSectionFirst isList={false} content={findFirstTextContent?.node} currentLang={lang} />
+        <ContentSectionFirst isList={false} content={findFirstTextContent?.node} currentLang={lang} bg={bgTextures} />
         <BaseCaruselSection dataset={filterImagesBase} />
 
-        <ContentSectionFirst reverse isList={true} content={findFirstListContent?.node} currentLang={lang} />
+        <ContentSectionFirst
+          reverse
+          isList={true}
+          content={findFirstListContent?.node}
+          currentLang={lang}
+          bg={bgTextures}
+        />
 
-        {eventsData && <EventSection dataset={eventsData} currentLang={lang} />}
+        {eventsData && <EventSection dataset={eventsData} currentLang={lang} arrows={arrows} />}
 
         <ButtonDisplay />
 
