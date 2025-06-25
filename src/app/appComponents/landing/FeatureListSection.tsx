@@ -50,41 +50,44 @@ export default function FeatureListSection({ currentLang }: FeatureListSection) 
 
               <section className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl flex items-start justify-center lg:gap-5 md:gap-4 gap-3 flex-wrap mx-auto '>
                 {stavke.map((s) => {
+                  console.log('SS', s);
                   return (
-                    <div
-                      key={s.naslov}
-                      className='max-w-[423px] w-full bg-light-mode-bg dark:bg-dark-mode-bg lg:p-6 md:p-5 px-4 py-6 lg:rounded-lg md:rounded-md rounded shadow-sm'
-                    >
-                      <section>
-                        <h3 className='lg:text-h3-desktop md:text-h3-tablet text-h3-mobile text-heading-color-light-mode dark:text-heading-color-dark-mode'>
-                          {s.naslov}
-                        </h3>
-                        <div className='md:text-text-base-base-desktop text-text-base-base-mobiletablet lg:-mt--desktop-h3-4---naslov-tekst md:-mt--tablet-h3-4---naslov-tekst -mt--mobile-h3-4---naslov-tekst text-text-light-mode dark:text-text-dark-mode !max-w-full text-balance whitespace-pre-wrap relative block prose prose-p:text-balance prose-p:max-w-full prose-p:whitespace-pre-wrap overflow-hidden'>
-                          {parse(s.sadrzaj)}
-                        </div>
-                      </section>
-
-                      <section className='lg:-mt--desktop---xl md:-mt--tablet---xl -mt--mobile---xl flex items-start justify-start lg:gap-6 md:gap-4 gap-2'>
-                        <picture>
-                          <img
-                            src={s.dodatneOpcije.slikaIliIkona.node.sourceUrl}
-                            alt='Additional info about offer'
-                            className='object-cover object-center block aspect-auto lg:h-[225px] md:h-[175px] h-[150px] w-full'
-                          />
-                        </picture>
-                        <div className=''>
-                          <p className='lg:text-nadnaslov-desktop md:text-nadnaslov-tablet text-nadnaslov-mobile'>
-                            {s.dodatneOpcije.nadnaslovIliEmoji}
-                          </p>
-                          <div className='lg:-mt--desktop-h3-4---naslov-tekst md:-mt--tablet-h3-4---naslov-tekst -mt--mobile-h3-4---naslov-tekst flex items-start justify-start gap-1'>
-                            <span>Link:</span>
-                            <a href={s.dodatneOpcije.link} target='_blank' rel='noopener noreferrer'>
-                              {s.dodatneOpcije.link}
-                            </a>
+                    s.sadrzaj && (
+                      <div
+                        key={s.naslov}
+                        className='max-w-[423px] w-full bg-light-mode-bg dark:bg-dark-mode-bg lg:p-6 md:p-5 px-4 py-6 lg:rounded-lg md:rounded-md rounded shadow-sm'
+                      >
+                        <section>
+                          <h3 className='lg:text-h3-desktop md:text-h3-tablet text-h3-mobile text-heading-color-light-mode dark:text-heading-color-dark-mode'>
+                            {s.naslov}
+                          </h3>
+                          <div className='md:text-text-base-base-desktop text-text-base-base-mobiletablet lg:-mt--desktop-h3-4---naslov-tekst md:-mt--tablet-h3-4---naslov-tekst -mt--mobile-h3-4---naslov-tekst text-text-light-mode dark:text-text-dark-mode !max-w-full text-balance whitespace-pre-wrap relative block prose prose-p:text-balance prose-p:max-w-full prose-p:whitespace-pre-wrap overflow-hidden'>
+                            {parse(s.sadrzaj)}
                           </div>
-                        </div>
-                      </section>
-                    </div>
+                        </section>
+
+                        <section className='lg:-mt--desktop---xl md:-mt--tablet---xl -mt--mobile---xl flex items-start justify-start lg:gap-6 md:gap-4 gap-2'>
+                          <picture>
+                            <img
+                              src={s.dodatneOpcije.slikaIliIkona ? s.dodatneOpcije.slikaIliIkona.node.sourceUrl : ''}
+                              alt='Additional info about offer'
+                              className='object-cover object-center block aspect-auto lg:h-[225px] md:h-[175px] h-[150px] w-full'
+                            />
+                          </picture>
+                          <div className=''>
+                            <p className='lg:text-nadnaslov-desktop md:text-nadnaslov-tablet text-nadnaslov-mobile'>
+                              {s.dodatneOpcije.nadnaslovIliEmoji}
+                            </p>
+                            <div className='lg:-mt--desktop-h3-4---naslov-tekst md:-mt--tablet-h3-4---naslov-tekst -mt--mobile-h3-4---naslov-tekst flex items-start justify-start gap-1'>
+                              <span>Link:</span>
+                              <a href={s.dodatneOpcije.link} target='_blank' rel='noopener noreferrer'>
+                                {s.dodatneOpcije.link}
+                              </a>
+                            </div>
+                          </div>
+                        </section>
+                      </div>
+                    )
                   );
                 })}
               </section>

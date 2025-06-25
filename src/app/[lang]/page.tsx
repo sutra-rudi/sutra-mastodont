@@ -13,7 +13,6 @@ import PartnersSection from '../appComponents/landing/PartnersSection';
 // import PortfolioCaseStudy from '../appComponents/landing/PortfolioCaseStudy';
 import AboutUsSection from '../appComponents/landing/AboutUsSection';
 import JobOpeningSection from '../appComponents/landing/JobOpeningSection';
-import ButtonDisplay from '../appComponents/landing/ButtonDisplay';
 import EmailBannerSection from '../appComponents/landing/NewsletterSection';
 //QUERIES
 import { fetchMediaPaths } from '../utils/callMediaPaths';
@@ -55,7 +54,6 @@ const BlogSection = dynamic(() => import('../appComponents/landing/BlogSection')
 });
 const NewsSection = dynamic(() => import('../appComponents/landing/NewsSection'));
 const MapSection = dynamic(() => import('../appComponents/landing/MapSection'));
-const WorkingHoursSection = dynamic(() => import('../appComponents/landing/WorkingHoursSection'));
 const FaqSection = dynamic(() => import('../appComponents/landing/FaqSection'), { ssr: false });
 const ContactSection = dynamic(() => import('../appComponents/landing/ContactSection'), { ssr: false });
 const HeroSection = dynamic(() => import('../appComponents/landing/AppHero'), {
@@ -159,7 +157,6 @@ export async function generateMetadata({ params: { lang } }: { params: { lang: s
 export default async function Landing({ params: { lang } }: { params: { lang: string } }) {
   const abGroup = cookies().get('@sutra-ab-test')?.value as 'A' | 'B';
 
-  console.log(abGroup, 'GRUPA');
   //DYNAMIC DATA
 
   // ${PortfolioCaseStudyFragment()}
@@ -190,7 +187,8 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
   const MP = await fetchMediaPaths();
 
   const {
-    carusel1Images,
+    siteIcons: { arrows },
+    bgTextures,
     heroImagesHomePage,
     videoResources: { homePageMiddleSection },
   } = MP;
@@ -199,14 +197,18 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
     <main className='relative w-full dark:bg-primarna-tamna min-h-screen'>
       <Suspense fallback={<Loading />}>
         <HeroSection currentLang={lang} imgs={heroImagesHomePage} abGroup={abGroup} />
-        <ContentSectionFirst isList={false} content={findFirstTextContent?.node} currentLang={lang} />
+        <ContentSectionFirst isList={false} content={findFirstTextContent?.node} currentLang={lang} bg={bgTextures} />
         <BaseCaruselSection dataset={filterImagesBase} />
 
-        <ContentSectionFirst reverse isList={true} content={findFirstListContent?.node} currentLang={lang} />
+        <ContentSectionFirst
+          reverse
+          isList={true}
+          content={findFirstListContent?.node}
+          currentLang={lang}
+          bg={bgTextures}
+        />
 
-        {eventsData && <EventSection dataset={eventsData} currentLang={lang} />}
-
-        <ButtonDisplay />
+        {eventsData && <EventSection dataset={eventsData} currentLang={lang} arrows={arrows} />}
 
         <ContactLocations currentLang={lang} />
 
@@ -214,13 +216,9 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
         <FeatureListSection currentLang={lang} />
 
-        {seasonWHdata && baseWHdata && (
-          <WorkingHoursSection sezonsko={seasonWHdata} bazno={baseWHdata} currentLang={lang} />
-        )}
-
         <EmailBannerSection currentLang={lang} />
 
-        {blogsData && <BlogSection currentLang={lang} blogList={blogsData} />}
+        {blogsData && <BlogSection currentLang={lang} blogList={blogsData} arrows={arrows} />}
 
         <BaseCaruselSection dataset={filterImagesMiddle} />
 

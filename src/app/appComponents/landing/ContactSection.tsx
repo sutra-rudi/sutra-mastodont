@@ -133,33 +133,31 @@ export default function ContactSection({ currentLang, sezonsko, bazno }: Contact
                 </div>
               </div>
 
-              <section className='lg:-mt--desktop---2xl md:-mt--tablet---2xl -mt--mobile---2xl'>
-                {bazno && bazno[0].node[`radnoVrijeme${l}`]?.[`textBox${l}`] ? (
-                  <div className='prose lg:-mt--desktop-h1-2---naslov-tekst md:-mt--tablet-h1-2---naslov-tekst -mt--mobile-h1-2---naslov-tekst'>
-                    {parse(bazno[0].node[`radnoVrijeme${l}`]?.[`textBox${l}`])}
-                  </div>
-                ) : (
-                  <div className='prose lg:-mt--desktop-h1-2---naslov-tekst md:-mt--tablet-h1-2---naslov-tekst -mt--mobile-h1-2---naslov-tekst'>
-                    NEMA UPISA U BAZI: UPIŠI VRIME
-                  </div>
-                )}
-              </section>
-
-              {sezonsko && (
-                <section className='lg:-mt--desktop---xl md:-mt--tablet---xl -mt--mobile---xl'>
-                  <h4 className='lg:text-h4-desktop md:text-h4-tablet text-h4-mobile text-heading-color-light-mode dark:text-heading-color-dark-mode'>
-                    Sezonsko radno vrijeme
-                  </h4>
-                  <p className='lg:text-nadnaslov-desktop md:text-nadnaslov-tablet text-nadnaslov-mobile text-nadnaslov-color-light-mode dark:text-nadnaslov-color-light-mode italic lg:mt-desktop-naslov-nadnaslov md:mt-tablet-naslov-nadnaslov mt-mobile-naslov-nadnaslov'>{`Vrijedi od ${dayjs(
-                    sezonsko[0].node.sezonskoRadnoVrijemeAktivatorDatuma.vrijediOdSezonskoRadnoVrijeme
-                  ).format('DD.MM.YYYY')} do ${dayjs(
-                    sezonsko[0].node.sezonskoRadnoVrijemeAktivatorDatuma.vrijediDoSezonskoRadnoVrijeme
-                  ).format('DD.MM.YYYY')}`}</p>
-                  <div className='prose lg:-mt--desktop-h1-2---naslov-tekst md:-mt--tablet-h1-2---naslov-tekst -mt--mobile-h1-2---naslov-tekst'>
-                    {sezonsko[0].node[`radnoVrijeme${l}`]?.[`textBox${l}`] ?? 'NEMA UPISA U BAZI: UPIŠI VRIME'}
-                  </div>
+              <div className='bg-almost-black/5 py-6 px-2 lg:-mt--desktop---2xl md:-mt--tablet---2xl -mt--mobile---2xl '>
+                <section className=''>
+                  {bazno && bazno[0].node[`radnoVrijeme${l}`]?.[`textBox${l}`] ? (
+                    <div className='prose'>{parse(bazno[0].node[`radnoVrijeme${l}`]?.[`textBox${l}`])}</div>
+                  ) : (
+                    <div className='prose'>NEMA UPISA U BAZI: UPIŠI VRIME</div>
+                  )}
                 </section>
-              )}
+
+                {sezonsko && (
+                  <section className='lg:-mt--desktop---xl md:-mt--tablet---xl -mt--mobile---xl'>
+                    <h4 className='lg:text-h4-desktop md:text-h4-tablet text-h4-mobile text-heading-color-light-mode dark:text-heading-color-dark-mode'>
+                      Sezonsko radno vrijeme
+                    </h4>
+                    <p className='lg:text-nadnaslov-desktop md:text-nadnaslov-tablet text-nadnaslov-mobile text-nadnaslov-color-light-mode dark:text-nadnaslov-color-light-mode italic lg:mt-desktop-naslov-nadnaslov md:mt-tablet-naslov-nadnaslov mt-mobile-naslov-nadnaslov'>{`Vrijedi od ${dayjs(
+                      sezonsko[0].node.sezonskoRadnoVrijemeAktivatorDatuma.vrijediOdSezonskoRadnoVrijeme
+                    ).format('DD.MM.YYYY')} do ${dayjs(
+                      sezonsko[0].node.sezonskoRadnoVrijemeAktivatorDatuma.vrijediDoSezonskoRadnoVrijeme
+                    ).format('DD.MM.YYYY')}`}</p>
+                    <div className='prose lg:-mt--desktop-h1-2---naslov-tekst md:-mt--tablet-h1-2---naslov-tekst -mt--mobile-h1-2---naslov-tekst'>
+                      {sezonsko[0].node[`radnoVrijeme${l}`]?.[`textBox${l}`] ?? 'NEMA UPISA U BAZI: UPIŠI VRIME'}
+                    </div>
+                  </section>
+                )}
+              </div>
             </div>
           </div>
           <div className='w-full px-4 lg:w-1/2 xl:w-5/12'>

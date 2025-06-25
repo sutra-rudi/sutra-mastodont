@@ -25,7 +25,7 @@ export default function AppHero({ currentLang, imgs, abGroup }: AppHero) {
   return (
     <section className='relative w-full -mt--desktop---4xl overflow-hidden'>
       <ParallaxBanner
-        className='aspect-auto w-full lg:h-[70vh] h-[80vh]'
+        className='aspect-auto w-full lg:h-[80vh] h-[70vh]'
         layers={[
           {
             image: imgs.desktop,

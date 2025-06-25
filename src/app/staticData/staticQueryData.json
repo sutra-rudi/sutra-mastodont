@@ -5816,25 +5816,44 @@
       "edges": [
         {
           "node": {
-            "id": "cG9zdDoxMTIzNQ==",
-            "title": "Amazing",
+            "id": "cG9zdDoxNDExNw==",
+            "title": "Đapić",
             "iskustvaklijenataUvod": {
-              "datumTestimoniala": null,
-              "imeKlijentaTestimonials": "John",
-              "imeTvrtkeTestimonials": null,
-              "izvorRecenzije": "www.sutra.hr",
-              "ocijenaIliBrojZvjezdicaTestimonials": null,
-              "prikaziDodatneOpcijeVideoLogoLinkYoutube": false,
-              "vanjskaPoveznicaTestimonials": null,
+              "datumTestimoniala": "2025-06-30T00:00:00+00:00",
+              "imeKlijentaTestimonials": "Anto Đapić",
+              "imeTvrtkeTestimonials": "HSP",
+              "izvorRecenzije": "Tripadvisor",
+              "ocijenaIliBrojZvjezdicaTestimonials": 5,
+              "prikaziDodatneOpcijeVideoLogoLinkYoutube": true,
+              "vanjskaPoveznicaTestimonials": "https://www.telegram.hr",
               "vanjskiLinkNaVideoYoutube": null,
-              "kategorijaNaKojuSeOdnosiTestimonial": null,
-              "logotipIliSlikaOsobe": null,
-              "prilozenaSlikaTestimonials": null,
+              "kategorijaNaKojuSeOdnosiTestimonial": {
+                "edges": [
+                  {
+                    "node": {
+                      "id": "dGVybToyMw==",
+                      "name": "Centralna Dalmacija"
+                    }
+                  }
+                ]
+              },
+              "logotipIliSlikaOsobe": {
+                "node": {
+                  "id": "cG9zdDoxNDExOA==",
+                  "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/06/Screenshot-2025-06-25-at-00.45.31.jpg"
+                }
+              },
+              "prilozenaSlikaTestimonials": {
+                "node": {
+                  "id": "cG9zdDoxNDExOA==",
+                  "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/06/Screenshot-2025-06-25-at-00.45.31.jpg"
+                }
+              },
               "uploadVideo": null
             },
             "testimonialsEng": {
-              "pozicijaUkolikoPostojiEng": null,
-              "tekstTestimonialaEng": null
+              "pozicijaUkolikoPostojiEng": "President HSP",
+              "tekstTestimonialaEng": "<p>Fusce ultrices, urna non laoreet feugiat, ipsum est sodales nunc, vitae rutrum erat magna eu libero. Etiam dictum euismod justo sit amet eleifend.</p>\n"
             },
             "testimonialsEsp": {
               "pozicijaUkolikoPostojiEsp": null,
@@ -5849,8 +5868,186 @@
               "tekstTestimonialaGer": null
             },
             "testimonialsHr": {
-              "pozicijaUkolikoPostojiHr": "sdsasdads",
-              "tekstTestimonialaHr": null
+              "pozicijaUkolikoPostojiHr": "Precjednik HSP",
+              "tekstTestimonialaHr": "<p>Fusce ultrices, urna non laoreet feugiat, ipsum est sodales nunc, vitae rutrum erat magna eu libero. Etiam dictum euismod justo sit amet eleifend.</p>\n"
+            },
+            "testimonialsIta": {
+              "pozicijaUkolikoPostojiIta": null,
+              "tekstTestimonialaIta": null
+            },
+            "testimonialsSlo": {
+              "pozicijaUkolikoPostojiSlo": null,
+              "tekstTestimonialaSlo": null
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDoxNDExNQ==",
+            "title": "Dorica Nikolić",
+            "iskustvaklijenataUvod": {
+              "datumTestimoniala": "2025-06-30T00:00:00+00:00",
+              "imeKlijentaTestimonials": "Dorica Nikolić",
+              "imeTvrtkeTestimonials": "HSLS",
+              "izvorRecenzije": "Tripadvisor",
+              "ocijenaIliBrojZvjezdicaTestimonials": null,
+              "prikaziDodatneOpcijeVideoLogoLinkYoutube": true,
+              "vanjskaPoveznicaTestimonials": "https://www.telegram.hr",
+              "vanjskiLinkNaVideoYoutube": null,
+              "kategorijaNaKojuSeOdnosiTestimonial": {
+                "edges": [
+                  {
+                    "node": {
+                      "id": "dGVybToyMw==",
+                      "name": "Centralna Dalmacija"
+                    }
+                  }
+                ]
+              },
+              "logotipIliSlikaOsobe": {
+                "node": {
+                  "id": "cG9zdDoxNDExNg==",
+                  "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/06/DORICA-NIKOLIC.jpg"
+                }
+              },
+              "prilozenaSlikaTestimonials": {
+                "node": {
+                  "id": "cG9zdDoxNDExNg==",
+                  "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/06/DORICA-NIKOLIC.jpg"
+                }
+              },
+              "uploadVideo": null
+            },
+            "testimonialsEng": {
+              "pozicijaUkolikoPostojiEng": "President",
+              "tekstTestimonialaEng": "<p>Fusce ultrices, urna non laoreet feugiat, ipsum est sodales nunc, vitae rutrum erat magna eu libero. Etiam dictum euismod justo sit amet eleifend.</p>\n"
+            },
+            "testimonialsEsp": {
+              "pozicijaUkolikoPostojiEsp": null,
+              "tekstTestimonialaEsp": null
+            },
+            "testimonialsFra": {
+              "pozicijaUkolikoPostojiFra": null,
+              "tekstTestimonialaFra": null
+            },
+            "testimonialsGer": {
+              "pozicijaUkolikoPostojiGer": null,
+              "tekstTestimonialaGer": null
+            },
+            "testimonialsHr": {
+              "pozicijaUkolikoPostojiHr": "Precjednik",
+              "tekstTestimonialaHr": "<p>Fusce ultrices, urna non laoreet feugiat, ipsum est sodales nunc, vitae rutrum erat magna eu libero. Etiam dictum euismod justo sit amet eleifend.</p>\n"
+            },
+            "testimonialsIta": {
+              "pozicijaUkolikoPostojiIta": null,
+              "tekstTestimonialaIta": null
+            },
+            "testimonialsSlo": {
+              "pozicijaUkolikoPostojiSlo": null,
+              "tekstTestimonialaSlo": null
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDoxNDExNA==",
+            "title": "Paraga",
+            "iskustvaklijenataUvod": {
+              "datumTestimoniala": "2025-06-30T00:00:00+00:00",
+              "imeKlijentaTestimonials": "Dobroslav Paraga",
+              "imeTvrtkeTestimonials": "HČSP",
+              "izvorRecenzije": "Google Reviews",
+              "ocijenaIliBrojZvjezdicaTestimonials": null,
+              "prikaziDodatneOpcijeVideoLogoLinkYoutube": true,
+              "vanjskaPoveznicaTestimonials": "https://www.telegram.hr",
+              "vanjskiLinkNaVideoYoutube": null,
+              "kategorijaNaKojuSeOdnosiTestimonial": null,
+              "logotipIliSlikaOsobe": {
+                "node": {
+                  "id": "cG9zdDoxNDExMQ==",
+                  "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/06/hqdefault.jpg"
+                }
+              },
+              "prilozenaSlikaTestimonials": {
+                "node": {
+                  "id": "cG9zdDoxMTE3OQ==",
+                  "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/120.jpg"
+                }
+              },
+              "uploadVideo": null
+            },
+            "testimonialsEng": {
+              "pozicijaUkolikoPostojiEng": "President",
+              "tekstTestimonialaEng": "<p>Fusce ultrices, urna non laoreet feugiat, ipsum est sodales nunc, vitae rutrum erat magna eu libero. Etiam dictum euismod justo sit amet eleifend.</p>\n"
+            },
+            "testimonialsEsp": {
+              "pozicijaUkolikoPostojiEsp": null,
+              "tekstTestimonialaEsp": null
+            },
+            "testimonialsFra": {
+              "pozicijaUkolikoPostojiFra": null,
+              "tekstTestimonialaFra": null
+            },
+            "testimonialsGer": {
+              "pozicijaUkolikoPostojiGer": null,
+              "tekstTestimonialaGer": null
+            },
+            "testimonialsHr": {
+              "pozicijaUkolikoPostojiHr": "Precjednik",
+              "tekstTestimonialaHr": "<p>Fusce ultrices, urna non laoreet feugiat, ipsum est sodales nunc, vitae rutrum erat magna eu libero. Etiam dictum euismod justo sit amet eleifend.</p>\n"
+            },
+            "testimonialsIta": {
+              "pozicijaUkolikoPostojiIta": null,
+              "tekstTestimonialaIta": null
+            },
+            "testimonialsSlo": {
+              "pozicijaUkolikoPostojiSlo": null,
+              "tekstTestimonialaSlo": null
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDoxMTIzNQ==",
+            "title": "Amazing HDZ",
+            "iskustvaklijenataUvod": {
+              "datumTestimoniala": "2025-06-30T00:00:00+00:00",
+              "imeKlijentaTestimonials": "John Krnčević",
+              "imeTvrtkeTestimonials": "HDZ",
+              "izvorRecenzije": "Tripadvisor",
+              "ocijenaIliBrojZvjezdicaTestimonials": null,
+              "prikaziDodatneOpcijeVideoLogoLinkYoutube": true,
+              "vanjskaPoveznicaTestimonials": "https://www.telegram.hr",
+              "vanjskiLinkNaVideoYoutube": null,
+              "kategorijaNaKojuSeOdnosiTestimonial": null,
+              "logotipIliSlikaOsobe": null,
+              "prilozenaSlikaTestimonials": {
+                "node": {
+                  "id": "cG9zdDoxMTE3OQ==",
+                  "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/120.jpg"
+                }
+              },
+              "uploadVideo": null
+            },
+            "testimonialsEng": {
+              "pozicijaUkolikoPostojiEng": "Position",
+              "tekstTestimonialaEng": "<p>Sed sit amet vestibulum lorem. Etiam a vestibulum lectus, congue condimentum justo. Mauris dapibus enim ut sem imperdiet dictum. Phasellus id molestie urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.</p>\n"
+            },
+            "testimonialsEsp": {
+              "pozicijaUkolikoPostojiEsp": null,
+              "tekstTestimonialaEsp": null
+            },
+            "testimonialsFra": {
+              "pozicijaUkolikoPostojiFra": null,
+              "tekstTestimonialaFra": null
+            },
+            "testimonialsGer": {
+              "pozicijaUkolikoPostojiGer": null,
+              "tekstTestimonialaGer": null
+            },
+            "testimonialsHr": {
+              "pozicijaUkolikoPostojiHr": "CEO",
+              "tekstTestimonialaHr": "<p>Sed sit amet vestibulum lorem. Etiam a vestibulum lectus, congue condimentum justo. Mauris dapibus enim ut sem imperdiet dictum. Phasellus id molestie urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.</p>\n"
             },
             "testimonialsIta": {
               "pozicijaUkolikoPostojiIta": null,
@@ -5869,8 +6066,8 @@
             "iskustvaklijenataUvod": {
               "datumTestimoniala": null,
               "imeKlijentaTestimonials": "Maja",
-              "imeTvrtkeTestimonials": null,
-              "izvorRecenzije": "The staff were incredibly friendly and welcoming, making us feel right at home from the moment we stepped on board. The trip itself was stunning, with breathtaking views and crystal-clear water at our stop in Lojena. It was absolutely beautiful there, like a slice of paradise. The lunch provided was good. To top it all off, we were offered as much juice and wine as we wanted, which added to the overall wonderful experience. Everything about this trip was exceptional – from the fantastic crew to the idyllic scenery. It was an unforgettable day, and I would highly recommend this boat trip to anyone looking to explore the stunning coastline of Zadar.",
+              "imeTvrtkeTestimonials": "Croatia",
+              "izvorRecenzije": "Google Reviews",
               "ocijenaIliBrojZvjezdicaTestimonials": null,
               "prikaziDodatneOpcijeVideoLogoLinkYoutube": false,
               "vanjskaPoveznicaTestimonials": null,
@@ -5882,7 +6079,7 @@
             },
             "testimonialsEng": {
               "pozicijaUkolikoPostojiEng": null,
-              "tekstTestimonialaEng": null
+              "tekstTestimonialaEng": "<p>Sed sit amet vestibulum lorem. Etiam a vestibulum lectus, congue condimentum justo. Mauris dapibus enim ut sem imperdiet dictum. Phasellus id molestie urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce eleifend lectus eros, faucibus lobortis nunc gravida a. Duis metus velit, rutrum vestibulum scelerisque sed, finibus id magna. Integer elementum justo cursus, consequat magna eget, accumsan tortor. Vestibulum euismod eget metus nec molestie. Phasellus porttitor bibendum dolor.</p>\n"
             },
             "testimonialsEsp": {
               "pozicijaUkolikoPostojiEsp": null,
@@ -5898,7 +6095,7 @@
             },
             "testimonialsHr": {
               "pozicijaUkolikoPostojiHr": null,
-              "tekstTestimonialaHr": null
+              "tekstTestimonialaHr": "<p>Sed sit amet vestibulum lorem. Etiam a vestibulum lectus, congue condimentum justo. Mauris dapibus enim ut sem imperdiet dictum. Phasellus id molestie urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce eleifend lectus eros, faucibus lobortis nunc gravida a. Duis metus velit, rutrum vestibulum scelerisque sed, finibus id magna. Integer elementum justo cursus, consequat magna eget, accumsan tortor. Vestibulum euismod eget metus nec molestie. Phasellus porttitor bibendum dolor.</p>\n"
             },
             "testimonialsIta": {
               "pozicijaUkolikoPostojiIta": null,
@@ -5913,12 +6110,12 @@
         {
           "node": {
             "id": "cG9zdDoxMTIzMw==",
-            "title": "We werden van in het begin tot het…",
+            "title": "Khalid Ramzi",
             "iskustvaklijenataUvod": {
               "datumTestimoniala": null,
               "imeKlijentaTestimonials": "Khalid Ramzi",
-              "imeTvrtkeTestimonials": null,
-              "izvorRecenzije": "We werden van in het begin tot het...  by Khalid Ramzi  Review date: 07/29/2024 16:45  We werden van in het begin tot het einde van de tocht in de watten gelegd in een zeer warme en familiale sfeer met eten en drinken. De lunch op het eiland was heel verzorgd en lekker . Het snorkelen en springen van rotsen in plava laguna was een super ervaring . Dan praat ik nog niet over het adembenemend uitzicht vanop de top van het eiland met uitzicht over alle andere eilanden. Dan nog de set die er gebouwd voor de opnames van de serie the game of thrones. Super ervaring en echt een aanrader voor groot en klein. TOP . Thanks to the crew !!!!!.",
+              "imeTvrtkeTestimonials": "India",
+              "izvorRecenzije": "Google Reviews",
               "ocijenaIliBrojZvjezdicaTestimonials": null,
               "prikaziDodatneOpcijeVideoLogoLinkYoutube": false,
               "vanjskaPoveznicaTestimonials": null,
@@ -5930,7 +6127,7 @@
             },
             "testimonialsEng": {
               "pozicijaUkolikoPostojiEng": null,
-              "tekstTestimonialaEng": null
+              "tekstTestimonialaEng": "<p>Fusce ultrices, urna non laoreet feugiat, ipsum est sodales nunc, vitae rutrum erat magna eu libero.</p>\n"
             },
             "testimonialsEsp": {
               "pozicijaUkolikoPostojiEsp": null,
@@ -5946,7 +6143,7 @@
             },
             "testimonialsHr": {
               "pozicijaUkolikoPostojiHr": null,
-              "tekstTestimonialaHr": null
+              "tekstTestimonialaHr": "<p>Fusce ultrices, urna non laoreet feugiat, ipsum est sodales nunc, vitae rutrum erat magna eu libero.</p>\n"
             },
             "testimonialsIta": {
               "pozicijaUkolikoPostojiIta": null,
@@ -6551,6 +6748,110 @@
     },
     "allPressMediaSekcija": {
       "edges": [
+        {
+          "node": {
+            "id": "cG9zdDoxNDExOQ==",
+            "title": "dvica",
+            "statusAtivacijePoJezicima": {
+              "aktivatorEng": true,
+              "aktivatorGer": true,
+              "aktivatorHr": true,
+              "aktivatorIta": true,
+              "dodatniJezici": {
+                "aktivatorFra": false,
+                "aktivatorSlo": false,
+                "aktivatorSpa": false
+              }
+            },
+            "modulBazeTekstovaHr": {
+              "nadnaslovPodnaslovBazaTekstovaHr": "podnaslov hr",
+              "naslovBazaTekstovaHr": "test naslov iz baze Lorem Ipsum 2",
+              "tekstBazaTekstovaHr": "<p>Donec et auctor nibh, eu tincidunt augue. Pellentesque vel pretium arcu, vitae feugiat libero. Nulla posuere id nulla at tincidunt. Praesent orci elit, tincidunt vitae est et, molestie fermentum tortor. Mauris laoreet luctus turpis, at volutpat sapien posuere sit amet. Nulla vestibulum nibh ac rutrum lobortis. Donec a nisi sed risus bibendum tincidunt in vel diam.</p>\n<p>Cras id ultricies ex. Suspendisse molestie libero mi, eget dictum erat vehicula eu. Aliquam vel rutrum lectus, vitae maximus urna. Nam id erat blandit, malesuada justo ac, volutpat dui. Aenean bibendum dolor mi, quis sagittis arcu euismod nec. Maecenas eget tempus est. Etiam mauris nunc, dapibus in feugiat sit amet, blandit et nibh. Suspendisse potenti.</p>\n"
+            },
+            "modulBazeTekstovaEng": {
+              "nadnaslovPodnaslovBazaTekstovaEng": "test podnaslov eng",
+              "naslovBazaTekstovaEng": " intervju u jutarnjem listu",
+              "tekstBazaTekstovaEng": "<p>Donec et auctor nibh, eu tincidunt augue. Pellentesque vel pretium arcu, vitae feugiat libero. Nulla posuere id nulla at tincidunt. Praesent orci elit, tincidunt vitae est et, molestie fermentum tortor. Mauris laoreet luctus turpis, at volutpat sapien posuere sit amet. Nulla vestibulum nibh ac rutrum lobortis. Donec a nisi sed risus bibendum tincidunt in vel diam.</p>\n<p>Cras id ultricies ex. Suspendisse molestie libero mi, eget dictum erat vehicula eu. Aliquam vel rutrum lectus, vitae maximus urna. Nam id erat blandit, malesuada justo ac, volutpat dui. Aenean bibendum dolor mi, quis sagittis arcu euismod nec. Maecenas eget tempus est. Etiam mauris nunc, dapibus in feugiat sit amet, blandit et nibh. Suspendisse potenti.</p>\n"
+            },
+            "modulBazeTekstovaEsp": {
+              "nadnaslovPodnaslovBazaTekstovaEsp": null,
+              "naslovBazaTekstovaEsp": null,
+              "tekstBazaTekstovaEsp": null
+            },
+            "modulBazeTekstovaFra": {
+              "nadnaslovPodnaslovBazaTekstovaFra": null,
+              "naslovBazaTekstovaFra": null,
+              "tekstBazaTekstovaFra": null
+            },
+            "modulBazeTekstovaGer": {
+              "nadnaslovPodnaslovBazaTekstovaGer": null,
+              "naslovBazaTekstovaGer": "Naslov objave na njem jeziku - intervju u jutarnjem listu",
+              "tekstBazaTekstovaGer": "<p>Kina bi susjedni Tajvan mogla obgrliti i bez ispaljenog metka, upozorava prestižni američki trust mozgova Center for Strategic and International Studies (CSIS), a prenosi <strong><a href=\"https://edition.cnn.com/2024/06/21/china/china-taiwan-quarantine-intl-hnk-ml/index.html\">CNN</a></strong>. Naime, korištenjem tzv. taktika &#8220;sive zone&#8221;, obalna straža Narodne Republike mogla bi Taipei dovesti u totalnu ili barem djelomičnu izolaciju, čime bi se tajvanske ključne strateške luke odsjekle od trgovinskog lanca. Također, napadom na energetsku infrastrukturu otoka, Kina bi mogla uzurpirati postrojenja o kojima ovisi 23 milijuna Tajvanaca.</p>\n"
+            },
+            "modulBazeTekstovaIta": {
+              "nadnaslovPodnaslovBazaTekstovaIta": null,
+              "naslovBazaTekstovaIta": "Naslov objave na tal jeziku - intervju u jutarnjem listu",
+              "tekstBazaTekstovaIta": "<p>Kina bi susjedni Tajvan mogla obgrliti i bez ispaljenog metka, upozorava prestižni američki trust mozgova Center for Strategic and International Studies (CSIS), a prenosi <strong><a href=\"https://edition.cnn.com/2024/06/21/china/china-taiwan-quarantine-intl-hnk-ml/index.html\">CNN</a></strong>. Naime, korištenjem tzv. taktika &#8220;sive zone&#8221;, obalna straža Narodne Republike mogla bi Taipei dovesti u totalnu ili barem djelomičnu izolaciju, čime bi se tajvanske ključne strateške luke odsjekle od trgovinskog lanca. Također, napadom na energetsku infrastrukturu otoka, Kina bi mogla uzurpirati postrojenja o kojima ovisi 23 milijuna Tajvanaca.</p>\n"
+            },
+            "modulBazeTekstovaSlo": {
+              "nadnaslovPodnaslovBazaTekstovaSlo": null,
+              "naslovBazaTekstovaSlo": null,
+              "tekstBazaTekstovaSlo": null
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "cG9zdDoxNDEyMA==",
+            "title": "Ispunjena do kraja spremna za unošenje 3",
+            "statusAtivacijePoJezicima": {
+              "aktivatorEng": true,
+              "aktivatorGer": true,
+              "aktivatorHr": true,
+              "aktivatorIta": true,
+              "dodatniJezici": {
+                "aktivatorFra": false,
+                "aktivatorSlo": false,
+                "aktivatorSpa": false
+              }
+            },
+            "modulBazeTekstovaHr": {
+              "nadnaslovPodnaslovBazaTekstovaHr": "podnaslov hr 2",
+              "naslovBazaTekstovaHr": "test naslov iz baze Lorem Ipsum 2",
+              "tekstBazaTekstovaHr": "<p>Kina bi susjedni Tajvan mogla obgrliti i bez ispaljenog metka, upozorava prestižni američki trust mozgova Center for Strategic and International Studies (CSIS), a prenosi <strong><a href=\"https://edition.cnn.com/2024/06/21/china/china-taiwan-quarantine-intl-hnk-ml/index.html\">CNN</a></strong>. Naime, korištenjem tzv. taktika &#8220;sive zone&#8221;, obalna straža Narodne Republike mogla bi Taipei dovesti u totalnu ili barem djelomičnu izolaciju, čime bi se tajvanske ključne strateške luke odsjekle od trgovinskog lanca. Također, napadom na energetsku infrastrukturu otoka, Kina bi mogla uzurpirati postrojenja o kojima ovisi 23 milijuna Tajvanaca.</p>\n"
+            },
+            "modulBazeTekstovaEng": {
+              "nadnaslovPodnaslovBazaTekstovaEng": "test podnaslov eng",
+              "naslovBazaTekstovaEng": "Naslov objave na eng jeziku - intervju u jutarnjem listu",
+              "tekstBazaTekstovaEng": null
+            },
+            "modulBazeTekstovaEsp": {
+              "nadnaslovPodnaslovBazaTekstovaEsp": null,
+              "naslovBazaTekstovaEsp": null,
+              "tekstBazaTekstovaEsp": null
+            },
+            "modulBazeTekstovaFra": {
+              "nadnaslovPodnaslovBazaTekstovaFra": null,
+              "naslovBazaTekstovaFra": null,
+              "tekstBazaTekstovaFra": null
+            },
+            "modulBazeTekstovaGer": {
+              "nadnaslovPodnaslovBazaTekstovaGer": null,
+              "naslovBazaTekstovaGer": "Naslov objave na njem jeziku - intervju u jutarnjem listu",
+              "tekstBazaTekstovaGer": "<p>Kina bi susjedni Tajvan mogla obgrliti i bez ispaljenog metka, upozorava prestižni američki trust mozgova Center for Strategic and International Studies (CSIS), a prenosi <strong><a href=\"https://edition.cnn.com/2024/06/21/china/china-taiwan-quarantine-intl-hnk-ml/index.html\">CNN</a></strong>. Naime, korištenjem tzv. taktika &#8220;sive zone&#8221;, obalna straža Narodne Republike mogla bi Taipei dovesti u totalnu ili barem djelomičnu izolaciju, čime bi se tajvanske ključne strateške luke odsjekle od trgovinskog lanca. Također, napadom na energetsku infrastrukturu otoka, Kina bi mogla uzurpirati postrojenja o kojima ovisi 23 milijuna Tajvanaca.</p>\n"
+            },
+            "modulBazeTekstovaIta": {
+              "nadnaslovPodnaslovBazaTekstovaIta": null,
+              "naslovBazaTekstovaIta": "Naslov objave na tal jeziku - intervju u jutarnjem listu",
+              "tekstBazaTekstovaIta": "<p>Kina bi susjedni Tajvan mogla obgrliti i bez ispaljenog metka, upozorava prestižni američki trust mozgova Center for Strategic and International Studies (CSIS), a prenosi <strong><a href=\"https://edition.cnn.com/2024/06/21/china/china-taiwan-quarantine-intl-hnk-ml/index.html\">CNN</a></strong>. Naime, korištenjem tzv. taktika &#8220;sive zone&#8221;, obalna straža Narodne Republike mogla bi Taipei dovesti u totalnu ili barem djelomičnu izolaciju, čime bi se tajvanske ključne strateške luke odsjekle od trgovinskog lanca. Također, napadom na energetsku infrastrukturu otoka, Kina bi mogla uzurpirati postrojenja o kojima ovisi 23 milijuna Tajvanaca.</p>\n"
+            },
+            "modulBazeTekstovaSlo": {
+              "nadnaslovPodnaslovBazaTekstovaSlo": null,
+              "naslovBazaTekstovaSlo": null,
+              "tekstBazaTekstovaSlo": null
+            }
+          }
+        },
         {
           "node": {
             "id": "cG9zdDoyMzE1",
@@ -10667,18 +10968,660 @@
       "edges": [
         {
           "node": {
+            "id": "cG9zdDoxNDEyMQ==",
+            "featuresListaHr": {
+              "sadrzajHr": {
+                "uvod": {
+                  "nadnaslov": null,
+                  "naslov": "Lorem ipsum headline naslov ",
+                  "sadrzaj": "<p>Sed sit amet vestibulum lorem. Etiam a vestibulum lectus, congue condimentum justo. Mauris dapibus enim ut sem imperdiet dictum. Phasellus id molestie urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce eleifend lectus eros, faucibus lobortis nunc gravida a. Duis metus velit, rutrum vestibulum scelerisque sed, finibus id magna. Integer elementum justo cursus, consequat magna eget, accumsan tortor. Vestibulum euismod eget metus nec molestie. Phasellus porttitor bibendum dolor.</p>\n",
+                  "brojStavki": ["3"]
+                },
+                "stavka1": {
+                  "naslov": "Lorem ipsum headline",
+                  "sadrzaj": "<p>Fusce ultrices, urna non laoreet feugiat, ipsum est sodales nunc, vitae rutrum erat magna eu libero. Etiam dictum euismod justo sit amet eleifend.</p>\n",
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka2": {
+                  "naslov": "Lorem ipsum headline 2",
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka3": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka4": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka5": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka6": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka7": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka8": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka9": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                }
+              }
+            },
+            "featuresListaEng": {
+              "sadrzajEng": {
+                "uvod": {
+                  "nadnaslov": null,
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "brojStavki": ["1"]
+                },
+                "stavka1": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka2": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka3": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka4": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka5": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka6": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka7": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka8": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka9": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                }
+              }
+            },
+            "featuresListaFra": {
+              "sadrzajFra": {
+                "uvod": {
+                  "nadnaslov": null,
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "brojStavki": ["1"]
+                },
+                "stavka1": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka2": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka3": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka4": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka5": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka6": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka7": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka8": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka9": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                }
+              }
+            },
+            "featuresListaEsp": {
+              "sadrzajEsp": {
+                "uvod": {
+                  "nadnaslov": null,
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "brojStavki": ["1"]
+                },
+                "stavka1": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka2": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka3": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka4": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka5": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka6": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka7": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka8": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka9": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                }
+              }
+            },
+            "featuresListaIta": {
+              "sadrzajIta": {
+                "uvod": {
+                  "nadnaslov": null,
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "brojStavki": ["1"]
+                },
+                "stavka1": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka2": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka3": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka4": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka5": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka6": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka7": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka8": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka9": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                }
+              }
+            },
+            "featuresListaSlo": {
+              "sadrzajSlo": {
+                "uvod": {
+                  "nadnaslov": null,
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "brojStavki": ["1"]
+                },
+                "stavka1": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka2": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka3": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka4": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka5": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka6": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka7": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka8": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka9": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                }
+              }
+            },
+            "featuresListaGer": {
+              "sadrzajGer": {
+                "uvod": {
+                  "nadnaslov": null,
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "brojStavki": ["1"]
+                },
+                "stavka1": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka2": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka3": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka4": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka5": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka6": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka7": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka8": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka9": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "node": {
             "id": "cG9zdDoxNDEwMQ==",
             "featuresListaHr": {
               "sadrzajHr": {
                 "uvod": {
                   "nadnaslov": "Nadnaslov hr",
-                  "naslov": "Naslov hr",
-                  "sadrzaj": "<p>Sadrzaj HR</p>\n<p>Sadrzaj HR</p>\n<p>Sadrzaj HR</p>\n<p>Sadrzaj HR</p>\n<p>Sadrzaj HR</p>\n",
+                  "naslov": "Lorem ipsum headline",
+                  "sadrzaj": "<p>Donec et auctor nibh, eu tincidunt augue. Pellentesque vel pretium arcu, vitae feugiat libero. Nulla posuere id nulla at tincidunt. Praesent orci elit, tincidunt vitae est et, molestie fermentum tortor. Mauris laoreet luctus turpis, at volutpat sapien posuere sit amet. Nulla vestibulum nibh ac rutrum lobortis. Donec a nisi sed risus bibendum tincidunt in vel diam.</p>\n<p>Cras id ultricies ex. Suspendisse molestie libero mi, eget dictum erat vehicula eu. <strong>Aliquam vel rutrum lectus, vitae maximus urna. Nam id erat blandit, malesuada justo ac, volutpat dui.</strong> Aenean bibendum dolor mi, quis sagittis arcu euismod nec. Maecenas eget tempus est. Etiam mauris nunc, dapibus in feugiat sit amet, blandit et nibh. Suspendisse potenti.</p>\n",
                   "brojStavki": ["9"]
                 },
                 "stavka1": {
                   "naslov": "Naslov hr 1",
-                  "sadrzaj": "<p>Naslov hr 1Naslov hr 1Naslov hr 1Naslov hr 1Naslov hr 1Naslov hr 1Naslov hr 1Naslov hr 1</p>\n",
+                  "sadrzaj": "<p>Sed nec dictum libero, nec mollis velit. Nullam cursus vulputate felis id viverra. Mauris molestie nxulla et urna molestie laoreet. Pellentesque ornare nulla quis dolor dictum fermentum.</p>\n",
                   "dodatneOpcije": {
                     "link": "www.dodatno.hr",
                     "nadnaslovIliEmoji": "dodatni 1",
@@ -10691,7 +11634,7 @@
                 },
                 "stavka2": {
                   "naslov": "Naslov hr 2",
-                  "sadrzaj": "<p>Naslov hr 2</p>\n<p>Naslov hr 2</p>\n<p>Naslov hr 2</p>\n<p>Naslov hr 2</p>\n",
+                  "sadrzaj": "<p>Fusce ultrices, urna non laoreet feugiat, ipsum est sodales nunc, vitae rutrum erat magna eu libero. Etiam dictum euismod justo sit amet eleifend.</p>\n",
                   "dodatneOpcije": {
                     "link": "www.dodatno2.hr",
                     "nadnaslovIliEmoji": "dodatni 2",
@@ -10704,7 +11647,7 @@
                 },
                 "stavka3": {
                   "naslov": "Naslov hr 3",
-                  "sadrzaj": "<p>Naslov hr 3</p>\n<p>Naslov hr 3</p>\n<p>Naslov hr 3</p>\n<p>Naslov hr 3</p>\n<p>Naslov hr 3</p>\n",
+                  "sadrzaj": "<p>Fusce ultrices, urna non laoreet feugiat, ipsum est sodales nunc, vitae rutrum erat magna eu libero.</p>\n",
                   "dodatneOpcije": {
                     "link": "www.dodatno3.hr",
                     "nadnaslovIliEmoji": "dodatno 3",
@@ -10717,7 +11660,7 @@
                 },
                 "stavka4": {
                   "naslov": "Naslov hr 4",
-                  "sadrzaj": "<p>Naslov hr 4Naslov hr 4Naslov hr 4Naslov hr 4Naslov hr 4Naslov hr 4Naslov hr 4Naslov hr 4</p>\n",
+                  "sadrzaj": "<p>Integer elementum justo cursus, consequat magna eget, accumsan tortor. Vestibulum euismod eget metus nec molestie. Phasellus porttitor bibendum dolor.</p>\n",
                   "dodatneOpcije": {
                     "link": "www.dodatno4.hr",
                     "nadnaslovIliEmoji": "dodatno 4",
@@ -10730,7 +11673,7 @@
                 },
                 "stavka5": {
                   "naslov": "Naslov hr 5",
-                  "sadrzaj": "<p>Naslov hr 5Naslov hr 5Naslov hr 5Naslov hr 5Naslov hr 5Naslov hr 5</p>\n",
+                  "sadrzaj": "<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce eleifend lectus eros, faucibus lobortis nunc gravida a.</p>\n",
                   "dodatneOpcije": {
                     "link": "www.dodatno5.hr",
                     "nadnaslovIliEmoji": "dodatno 5",
@@ -10743,7 +11686,7 @@
                 },
                 "stavka6": {
                   "naslov": "Naslov hr 6",
-                  "sadrzaj": "<p>Naslov hr 6Naslov hr 6Naslov hr 6Naslov hr 6Naslov hr 6Naslov hr 6Naslov hr 6</p>\n",
+                  "sadrzaj": "<p>Aenean bibendum dolor mi, quis sagittis arcu euismod nec. Maecenas eget tempus est. Etiam mauris nunc, dapibus in feugiat sit amet, blandit et nibh. <strong>Suspendisse potenti.</strong></p>\n",
                   "dodatneOpcije": {
                     "link": "dodatno6.com",
                     "nadnaslovIliEmoji": "dodatno6",
@@ -10756,7 +11699,7 @@
                 },
                 "stavka7": {
                   "naslov": "Naslov hr 7",
-                  "sadrzaj": "<p>Naslov hr 7Naslov hr 7Naslov hr 7Naslov hr 7Naslov hr 7Naslov hr 7Naslov hr 7Naslov hr 7Naslov hr 7</p>\n",
+                  "sadrzaj": "<p>Maecenas efficitur malesuada neque eu hendrerit. Praesent id magna vitae risus fermentum sagittis. Quisque et elit imperdiet, commodo est non, vestibulum sapien. Praesent ut pulvinar libero, a luctus nisl.</p>\n",
                   "dodatneOpcije": {
                     "link": "dodatno7.org",
                     "nadnaslovIliEmoji": "dodatno7",
@@ -10769,7 +11712,7 @@
                 },
                 "stavka8": {
                   "naslov": "Naslov hr 8",
-                  "sadrzaj": "<p>Naslov hr 8Naslov hr 8Naslov hr 8Naslov hr 8Naslov hr 8Naslov hr 8Naslov hr 8Naslov hr 8</p>\n",
+                  "sadrzaj": "<p>Etiam dictum euismod justo sit amet eleifend. Fusce ultrices, urna non laoreet feugiat, ipsum est sodales nunc, vitae rutrum erat magna eu libero. Etiam dictum euismod justo sit amet eleifend.</p>\n",
                   "dodatneOpcije": {
                     "link": "dodatno8.aj",
                     "nadnaslovIliEmoji": "dodatno8",
@@ -10782,7 +11725,7 @@
                 },
                 "stavka9": {
                   "naslov": "naslov hr 9",
-                  "sadrzaj": "<p>poludit cu9</p>\n<p>poludit cu9</p>\n<p>poludit cu9</p>\n<p>poludit cu9</p>\n<p>poludit cu9</p>\n",
+                  "sadrzaj": "<p>Fusce ultrices, urna non laoreet feugiat, ipsum est sodales nunc, vitae rutrum erat magna eu libero. Etiam dictum euismod justo sit amet eleifend.</p>\n",
                   "dodatneOpcije": {
                     "link": "www.popijnesto.hr",
                     "nadnaslovIliEmoji": "dodatno9",

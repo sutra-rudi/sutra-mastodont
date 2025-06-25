@@ -26,7 +26,7 @@ export default function EmailBannerSection({ currentLang }: BannerEmail) {
           }
         </h2>
 
-        <p className='md:text-text-base-base-desktop text-text-base-base-mobiletablet text-text-light-mode dark:text-text-dark-mode lg:-mb--desktop-h1-2---sadrzaj-cta md:-mb--tablet-h1-2---sadrzaj-cta -mb--mobile-h1-2---sadrzaj-cta'>
+        <p className='md:text-text-base-base-desktop text-text-base-base-mobiletablet text-text-light-mode dark:text-text-dark-mode lg:-mb--desktop-h1-2---sadrzaj-cta md:-mb--tablet-h1-2---sadrzaj-cta -mb--mobile-h1-2---sadrzaj-cta text-center'>
           {
             //@ts-ignore
             findAdminData[`adminCookiesFooterNewsletter${l}`]?.[`osnovniTekstoviWeba${l}`].newsletterBazaTekstova
