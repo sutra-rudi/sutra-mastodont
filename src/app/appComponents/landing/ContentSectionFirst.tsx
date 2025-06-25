@@ -64,8 +64,9 @@ export default function ContentSectionFirst({ reverse, content, isList, currentL
     : 'https://mastodont-2.sutra-cms.com/Sutra-ftp/other/CMS_Image_Placeholder.jpg';
 
   return (
-    <section id={parseTitle} className='relative '>
+    <section id={parseTitle} className='relative min-h-screen h-auto'>
       <ParallaxBanner
+        className='absolute inset-0 h-full w-full min-h-screen '
         layers={[
           {
             translateY: [0, 50],
@@ -81,7 +82,7 @@ export default function ContentSectionFirst({ reverse, content, isList, currentL
           },
           {
             children: (
-              <div className='container mx-auto relative z-10 w-full h-full lg:-pb--desktop---section-l md:-pb--tablet---section-l -pb--mobile---section-l'>
+              <div className='container mx-auto relative z-10 w-full h-full'>
                 <div className='flex lg:flex-nowrap flex-wrap justify-center lg:gap-8 md:gap-6 gap-8 w-full h-full  lg:-pt--desktop---section-l md:-pt--tablet---section-l -pt--mobile---section-l'>
                   <div className={`${reverse ? 'order-2' : 'order-1'} w-full px-4 lg:w-6/12 self-stretch `}>
                     <picture ref={ref} className='block w-full h-full'>
@@ -234,7 +235,6 @@ export default function ContentSectionFirst({ reverse, content, isList, currentL
             ),
           },
         ]}
-        className='absolute inset-0 h-full w-full min-h-screen'
       />
     </section>
   );

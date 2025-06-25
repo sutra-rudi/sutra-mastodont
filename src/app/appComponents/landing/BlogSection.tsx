@@ -15,13 +15,16 @@ import { useIntersectionObserver } from '@uidotdev/usehooks';
 interface BlogSection {
   currentLang: string;
   blogList: any[];
+  arrows: any;
 }
 
-export default function BlogSection({ currentLang, blogList }: BlogSection) {
+export default function BlogSection({ currentLang, blogList, arrows }: BlogSection) {
   const l = getSuffixFromLang(currentLang);
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false });
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [selectedIndex, setSelectedIndex] = React.useState(0);
   const [scrollSnaps, setScrollSnaps] = React.useState<number[]>([]);
+  const scrollPrev = React.useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
+  const scrollNext = React.useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
 
   const onSelect = React.useCallback(() => {
     if (!emblaApi) return;
@@ -69,182 +72,107 @@ export default function BlogSection({ currentLang, blogList }: BlogSection) {
           {findGeneralTranslation('Blog', currentLang, generalTranslations)}
         </h2>
 
-        <div className='lg:flex hidden flex-wrap items-start justify-center gap-4 lg:-mt--desktop---2xl md:-mt--tablet---2xl -mt--mobile---2xl'>
-          {blogList.map((blog) => {
-            const isEngMistake = currentLang === UserLanguage.eng;
-            return (
-              blog.node.introBlog.istaknutoNaNaslovnici &&
-              blog.node.introBlog.statusBloga && (
-                <a
-                  key={blog.node.databaseId}
-                  data-gtm={slugify(`kartica click blog`, {
-                    ...slugifyOptions,
-                  })}
-                  href={`/${currentLang}/blog/${slugify(
-                    blog.node.sadrzajHrFields.naslovSadrzajHr + `-${blog.node.databaseId}`,
-                    {
-                      ...slugifyOptions,
-                    }
-                  )}`}
-                  className='block max-w-[433px] bg-almost-white group rounded-lg shadow-md'
-                >
-                  <article className='pb-6'>
-                    <div className='overflow-hidden rounded-t-lg'>
-                      <picture>
-                        <img
-                          className='object-cover object-center block aspect-auto w-full lg:h-[305px] md:h-[270px] h-[225px] transition-all ease-out duration-[7000ms] group-hover:scale-125'
-                          src={
-                            blog.node.introBlog.naslovnaSlika
-                              ? blog.node.introBlog.naslovnaSlika.node.sourceUrl
-                              : 'https://images.unsplash.com/photo-1618172193622-ae2d025f4032?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80'
-                          }
-                          alt='blog'
-                        />
-                      </picture>
-                    </div>
+        <div className=' lg:-mt--desktop---2xl md:-mt--tablet---2xl -mt--mobile---2xl relative'>
+          <div className='w-full relative md:flex hidden gap-4 items-center justify-end lg:-mb--desktop---l md:-mb--tablet---l -mb--mobile---l'>
+            <button onClick={scrollPrev} className='' aria-label='Previous'>
+              <picture>
+                <img src={arrows.kruznaLeftLight} alt='' />
+              </picture>
+            </button>
+            <button onClick={scrollNext} className='' aria-label='Next'>
+              <picture>
+                <img src={arrows.kruznaRightLight} alt='' />
+              </picture>
+            </button>
+          </div>
 
-                    <div className='px-4 flex-col flex'>
-                      <h2 className='lg:text-nadnaslov-desktop md:text-nadnaslov-tablet text-nadnaslov-mobile text-nadnaslov-color-light-mode dark:text-nadnaslov-color-light-mode mt-3 block relative motion-ease-spring-bouncy group-hover:motion-preset-slide-up'>
-                        {blog.node.introBlog.kategorija.edges[0].node.informacijeKategorije.prijevodi[
-                          `imeKategorije${l}`
-                        ] ?? blog.node.introBlog.kategorija.edges[0].node.name}
-                      </h2>
-                      <h1 className='lg:text-h4-desktop md:text-h4-tablet text-h4-mobile text-heading-color-light-mode dark:text-heading-color-dark-mode lg:-mt--desktop-h3-4---naslov-nadnaslov md:-mt--tablet-h3-4---naslov-nadnaslov -mt--mobile-h3-4---naslov-nadnaslov block relative w-full motion-ease-spring-bouncy group-hover:motion-preset-slide-up motion-delay-200'>
-                        {
-                          blog.node[`sadrzaj${l}Fields`]?.[
-                            isEngMistake ? `naslovSadrzajSadrzaj${l}` : `naslovSadrzaj${l}`
-                          ]
-                        }
-                      </h1>
-
-                      {blog.node[`sadrzaj${l}Fields`]?.[`kratkiUvodniTekstSadrzaj${l}`] ? (
-                        <div className='md:text-text-base-base-desktop text-text-base-base-mobiletablet text-text-light-mode dark:text-text-dark-mode lg:mt-desktop-tekst-naslov md:mt-tablet-tekst-naslov mt-mobile-tekst-naslov line-clamp-2 text-balance text-ellipsis w-full motion-ease-spring-bouncy group-hover:motion-preset-slide-up-sm motion-delay-500'>
-                          {parse(blog.node[`sadrzaj${l}Fields`]?.[`kratkiUvodniTekstSadrzaj${l}`])}
-                        </div>
-                      ) : (
-                        <div className='md:text-text-base-base-desktop text-text-base-base-mobiletablet text-text-light-mode dark:text-text-dark-mode lg:mt-desktop-tekst-naslov md:mt-tablet-tekst-naslov mt-mobile-tekst-naslov line-clamp-2 text-balance text-ellipsis w-full motion-ease-spring-bouncy group-hover:motion-preset-slide-up-sm motion-delay-500'>
-                          Nema introa
-                        </div>
-                      )}
-
-                      <div className='w-full flex items-center justify-end'>
-                        <button className='w-max max-w-[180px] lg:-mt--desktop-h3-4---sadrzaj-cta md:-mt--tablet-h3-4---sadrzaj-cta -mt--mobile-h3-4---sadrzaj-cta flex items-center justify-end bg-transparent text-primarna-tamna  lg:text-button-desktop md:text-button-tablet text-button-mobile md:gap-[13.3px] gap-[11.6px] transition-all ease-in-out duration-300 group hover:text-accent-boja group-hover:text-accent-boja active:text-almost-black'>
-                          <span className='motion-ease-spring-bouncy group-hover:motion-preset-slide-up'>
-                            Button text
-                          </span>
-
-                          <svg
-                            xmlns='http://www.w3.org/2000/svg'
-                            width='10'
-                            height='12'
-                            viewBox='0 0 10 12'
-                            fill='none'
-                            className='transition-all ease-in-out group-hover:translate-x-1'
-                          >
-                            <path
-                              d='M0.333336 0.747747L0.333335 11.248C0.333685 11.3544 0.364457 11.4586 0.422337 11.5494C0.480216 11.6403 0.563013 11.7145 0.661814 11.7638C0.760617 11.8132 0.871683 11.836 0.983057 11.8297C1.09443 11.8234 1.20189 11.7883 1.29388 11.7281L9.25252 6.47799C9.58249 6.26041 9.58249 5.73656 9.25252 5.51838L1.29388 0.268233C1.20209 0.207463 1.09457 0.171825 0.983008 0.165193C0.871449 0.158561 0.760117 0.181188 0.661105 0.230615C0.562094 0.280042 0.479191 0.35438 0.421405 0.445551C0.36362 0.536721 0.33316 0.641239 0.333336 0.747747Z'
-                              fill='currentColor'
-                            />
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-                  </article>
-                </a>
-              )
-            );
-          })}
-        </div>
-
-        <div
-          ref={emblaRef}
-          className='embla lg:hidden w-full mx-auto lg:-mt--desktop---2xl md:-mt--tablet---2xl -mt--mobile---2xl'
-        >
-          <div className='embla__container w-full flex items-start gap-4'>
-            {blogList.map((blog) => {
-              const isEngMistake = currentLang === UserLanguage.eng;
-              return (
-                blog.node.introBlog.istaknutoNaNaslovnici &&
-                blog.node.introBlog.statusBloga && (
-                  <a
-                    className='embla__slide_blog_gallery block max-w-[433px] bg-almost-white group rounded-lg shadow-md'
-                    key={blog.node.databaseId}
-                    data-gtm={slugify(`kartica click blog`, {
-                      ...slugifyOptions,
-                    })}
-                    href={`/${currentLang}/blog/${slugify(
-                      blog.node.sadrzajHrFields.naslovSadrzajHr + `-${blog.node.databaseId}`,
-                      {
+          <div ref={emblaRef} className='embla'>
+            <div className='flex items-start justify-start embla__container'>
+              {blogList.map((blog) => {
+                const isEngMistake = currentLang === UserLanguage.eng;
+                return (
+                  blog.node.introBlog.istaknutoNaNaslovnici &&
+                  blog.node.introBlog.statusBloga && (
+                    <a
+                      key={blog.node.databaseId}
+                      data-gtm={slugify(`kartica click blog`, {
                         ...slugifyOptions,
-                      }
-                    )}`}
-                  >
-                    <article className='pb-6'>
-                      <div className='overflow-hidden rounded-t-lg'>
-                        <picture>
-                          <img
-                            className='object-cover object-center block aspect-auto w-full lg:h-[305px] md:h-[270px] h-[225px] transition-all ease-out duration-[7000ms] group-hover:scale-125'
-                            src={
-                              blog.node.introBlog.naslovnaSlika
-                                ? blog.node.introBlog.naslovnaSlika.node.sourceUrl
-                                : 'https://images.unsplash.com/photo-1618172193622-ae2d025f4032?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80'
-                            }
-                            alt='blog'
-                          />
-                        </picture>
-                      </div>
-                      <div className='px-4 flex-col flex text-left'>
-                        <h2 className='lg:text-nadnaslov-desktop md:text-nadnaslov-tablet text-nadnaslov-mobile text-nadnaslov-color-light-mode dark:text-nadnaslov-color-light-mode mt-3 block relative motion-ease-spring-bouncy group-hover:motion-preset-slide-up'>
-                          {
-                            blog.node.introBlog.kategorija.edges[0].node.informacijeKategorije.prijevodi[
-                              `imeKategorije${l}`
-                            ]
-                          }
-                        </h2>
-                        <h1 className='lg:text-h4-desktop md:text-h4-tablet text-h4-mobile text-heading-color-light-mode dark:text-heading-color-dark-mode lg:-mt--desktop-h3-4---naslov-nadnaslov md:-mt--tablet-h3-4---naslov-nadnaslov -mt--mobile-h3-4---naslov-nadnaslov block relative w-full motion-ease-spring-bouncy group-hover:motion-preset-slide-up motion-delay-200'>
-                          {
-                            blog.node[`sadrzaj${l}Fields`]?.[
-                              isEngMistake ? `naslovSadrzajSadrzaj${l}` : `naslovSadrzaj${l}`
-                            ]
-                          }
-                        </h1>
-
-                        {blog.node[`sadrzaj${l}Fields`]?.[`kratkiUvodniTekstSadrzaj${l}`] ? (
-                          <div className='md:text-text-base-base-desktop text-text-base-base-mobiletablet text-text-light-mode dark:text-text-dark-mode lg:mt-desktop-tekst-naslov md:mt-tablet-tekst-naslov mt-mobile-tekst-naslov line-clamp-2 text-balance text-ellipsis w-full motion-ease-spring-bouncy group-hover:motion-preset-slide-up-sm motion-delay-500'>
-                            {parse(blog.node[`sadrzaj${l}Fields`]?.[`kratkiUvodniTekstSadrzaj${l}`])}
-                          </div>
-                        ) : (
-                          <div className='md:text-text-base-base-desktop text-text-base-base-mobiletablet text-text-light-mode dark:text-text-dark-mode lg:mt-desktop-tekst-naslov md:mt-tablet-tekst-naslov mt-mobile-tekst-naslov line-clamp-2 text-balance text-ellipsis w-full motion-ease-spring-bouncy group-hover:motion-preset-slide-up-sm motion-delay-500'>
-                            Nema introa
-                          </div>
-                        )}
-                        <div className='w-full flex items-center justify-end'>
-                          <button className='w-max max-w-[180px] lg:-mt--desktop-h3-4---sadrzaj-cta md:-mt--tablet-h3-4---sadrzaj-cta -mt--mobile-h3-4---sadrzaj-cta flex items-center justify-end bg-transparent text-primarna-tamna  lg:text-button-desktop md:text-button-tablet text-button-mobile md:gap-[13.3px] gap-[11.6px] transition-all ease-in-out duration-300 group hover:text-accent-boja group-hover:text-accent-boja active:text-almost-black'>
-                            <span className='motion-ease-spring-bouncy group-hover:motion-preset-slide-up'>
-                              Button text
-                            </span>
-
-                            <svg
-                              xmlns='http://www.w3.org/2000/svg'
-                              width='10'
-                              height='12'
-                              viewBox='0 0 10 12'
-                              fill='none'
-                              className='transition-all ease-in-out group-hover:translate-x-1'
-                            >
-                              <path
-                                d='M0.333336 0.747747L0.333335 11.248C0.333685 11.3544 0.364457 11.4586 0.422337 11.5494C0.480216 11.6403 0.563013 11.7145 0.661814 11.7638C0.760617 11.8132 0.871683 11.836 0.983057 11.8297C1.09443 11.8234 1.20189 11.7883 1.29388 11.7281L9.25252 6.47799C9.58249 6.26041 9.58249 5.73656 9.25252 5.51838L1.29388 0.268233C1.20209 0.207463 1.09457 0.171825 0.983008 0.165193C0.871449 0.158561 0.760117 0.181188 0.661105 0.230615C0.562094 0.280042 0.479191 0.35438 0.421405 0.445551C0.36362 0.536721 0.33316 0.641239 0.333336 0.747747Z'
-                                fill='currentColor'
-                              />
-                            </svg>
-                          </button>
+                      })}
+                      href={`/${currentLang}/blog/${slugify(
+                        blog.node.sadrzajHrFields.naslovSadrzajHr + `-${blog.node.databaseId}`,
+                        {
+                          ...slugifyOptions,
+                        }
+                      )}`}
+                      className='block max-w-[433px] bg-almost-white group rounded-lg shadow-md min-w-0 w-full shrink-0 lg:mx-6 md:mx-5 mx-4'
+                    >
+                      <article className='pb-6'>
+                        <div className='overflow-hidden rounded-t-lg'>
+                          <picture>
+                            <img
+                              className='object-cover object-center block aspect-auto w-full lg:h-[305px] md:h-[270px] h-[225px] transition-all ease-out duration-[7000ms] group-hover:scale-125'
+                              src={
+                                blog.node.introBlog.naslovnaSlika
+                                  ? blog.node.introBlog.naslovnaSlika.node.sourceUrl
+                                  : 'https://images.unsplash.com/photo-1618172193622-ae2d025f4032?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80'
+                              }
+                              alt='blog'
+                            />
+                          </picture>
                         </div>
-                      </div>
-                    </article>
-                  </a>
-                )
-              );
-            })}
+
+                        <div className='px-4 flex-col flex'>
+                          <h2 className='lg:text-nadnaslov-desktop md:text-nadnaslov-tablet text-nadnaslov-mobile text-nadnaslov-color-light-mode dark:text-nadnaslov-color-light-mode mt-3 block relative motion-ease-spring-bouncy group-hover:motion-preset-slide-up'>
+                            {blog.node.introBlog.kategorija.edges[0].node.informacijeKategorije.prijevodi[
+                              `imeKategorije${l}`
+                            ] ?? blog.node.introBlog.kategorija.edges[0].node.name}
+                          </h2>
+                          <h1 className='lg:text-h4-desktop md:text-h4-tablet text-h4-mobile text-heading-color-light-mode dark:text-heading-color-dark-mode lg:-mt--desktop-h3-4---naslov-nadnaslov md:-mt--tablet-h3-4---naslov-nadnaslov -mt--mobile-h3-4---naslov-nadnaslov block relative w-full motion-ease-spring-bouncy group-hover:motion-preset-slide-up motion-delay-200'>
+                            {
+                              blog.node[`sadrzaj${l}Fields`]?.[
+                                isEngMistake ? `naslovSadrzajSadrzaj${l}` : `naslovSadrzaj${l}`
+                              ]
+                            }
+                          </h1>
+
+                          {blog.node[`sadrzaj${l}Fields`]?.[`kratkiUvodniTekstSadrzaj${l}`] ? (
+                            <div className='md:text-text-base-base-desktop text-text-base-base-mobiletablet text-text-light-mode dark:text-text-dark-mode lg:mt-desktop-tekst-naslov md:mt-tablet-tekst-naslov mt-mobile-tekst-naslov line-clamp-2 text-balance text-ellipsis w-full motion-ease-spring-bouncy group-hover:motion-preset-slide-up-sm motion-delay-500'>
+                              {parse(blog.node[`sadrzaj${l}Fields`]?.[`kratkiUvodniTekstSadrzaj${l}`])}
+                            </div>
+                          ) : (
+                            <div className='md:text-text-base-base-desktop text-text-base-base-mobiletablet text-text-light-mode dark:text-text-dark-mode lg:mt-desktop-tekst-naslov md:mt-tablet-tekst-naslov mt-mobile-tekst-naslov line-clamp-2 text-balance text-ellipsis w-full motion-ease-spring-bouncy group-hover:motion-preset-slide-up-sm motion-delay-500'>
+                              Nema introa
+                            </div>
+                          )}
+
+                          <div className='w-full flex items-center justify-end'>
+                            <button className='w-max max-w-[180px] lg:-mt--desktop-h3-4---sadrzaj-cta md:-mt--tablet-h3-4---sadrzaj-cta -mt--mobile-h3-4---sadrzaj-cta flex items-center justify-end bg-transparent text-primarna-tamna  lg:text-button-desktop md:text-button-tablet text-button-mobile md:gap-[13.3px] gap-[11.6px] transition-all ease-in-out duration-300 group hover:text-accent-boja group-hover:text-accent-boja active:text-almost-black'>
+                              <span className='motion-ease-spring-bouncy group-hover:motion-preset-slide-up'>
+                                Button text
+                              </span>
+
+                              <svg
+                                xmlns='http://www.w3.org/2000/svg'
+                                width='10'
+                                height='12'
+                                viewBox='0 0 10 12'
+                                fill='none'
+                                className='transition-all ease-in-out group-hover:translate-x-1'
+                              >
+                                <path
+                                  d='M0.333336 0.747747L0.333335 11.248C0.333685 11.3544 0.364457 11.4586 0.422337 11.5494C0.480216 11.6403 0.563013 11.7145 0.661814 11.7638C0.760617 11.8132 0.871683 11.836 0.983057 11.8297C1.09443 11.8234 1.20189 11.7883 1.29388 11.7281L9.25252 6.47799C9.58249 6.26041 9.58249 5.73656 9.25252 5.51838L1.29388 0.268233C1.20209 0.207463 1.09457 0.171825 0.983008 0.165193C0.871449 0.158561 0.760117 0.181188 0.661105 0.230615C0.562094 0.280042 0.479191 0.35438 0.421405 0.445551C0.36362 0.536721 0.33316 0.641239 0.333336 0.747747Z'
+                                  fill='currentColor'
+                                />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                      </article>
+                    </a>
+                  )
+                );
+              })}
+            </div>
           </div>
 
           {/* Dots (pagination) sa sliding window pristupom */}
@@ -270,7 +198,7 @@ export default function BlogSection({ currentLang, blogList }: BlogSection) {
             }
 
             return (
-              <div className='embla__dots lg:-mt--desktop---xl md:-mt--tablet---xl -mt--mobile---xl mx-auto w-max'>
+              <div className='embla__dots md:hidden block lg:-mt--desktop---xl md:-mt--tablet---xl -mt--mobile---xl mx-auto w-max'>
                 {dotIndices.map((dotIndex) => (
                   <button
                     key={dotIndex}

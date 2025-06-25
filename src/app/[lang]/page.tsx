@@ -13,7 +13,6 @@ import PartnersSection from '../appComponents/landing/PartnersSection';
 // import PortfolioCaseStudy from '../appComponents/landing/PortfolioCaseStudy';
 import AboutUsSection from '../appComponents/landing/AboutUsSection';
 import JobOpeningSection from '../appComponents/landing/JobOpeningSection';
-import ButtonDisplay from '../appComponents/landing/ButtonDisplay';
 import EmailBannerSection from '../appComponents/landing/NewsletterSection';
 //QUERIES
 import { fetchMediaPaths } from '../utils/callMediaPaths';
@@ -55,7 +54,6 @@ const BlogSection = dynamic(() => import('../appComponents/landing/BlogSection')
 });
 const NewsSection = dynamic(() => import('../appComponents/landing/NewsSection'));
 const MapSection = dynamic(() => import('../appComponents/landing/MapSection'));
-const WorkingHoursSection = dynamic(() => import('../appComponents/landing/WorkingHoursSection'));
 const FaqSection = dynamic(() => import('../appComponents/landing/FaqSection'), { ssr: false });
 const ContactSection = dynamic(() => import('../appComponents/landing/ContactSection'), { ssr: false });
 const HeroSection = dynamic(() => import('../appComponents/landing/AppHero'), {
@@ -212,21 +210,15 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
         {eventsData && <EventSection dataset={eventsData} currentLang={lang} arrows={arrows} />}
 
-        <ButtonDisplay />
-
         <ContactLocations currentLang={lang} />
 
         <WhyUsSection currentLang={lang} />
 
         <FeatureListSection currentLang={lang} />
 
-        {seasonWHdata && baseWHdata && (
-          <WorkingHoursSection sezonsko={seasonWHdata} bazno={baseWHdata} currentLang={lang} />
-        )}
-
         <EmailBannerSection currentLang={lang} />
 
-        {blogsData && <BlogSection currentLang={lang} blogList={blogsData} />}
+        {blogsData && <BlogSection currentLang={lang} blogList={blogsData} arrows={arrows} />}
 
         <BaseCaruselSection dataset={filterImagesMiddle} />
 

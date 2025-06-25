@@ -6,7 +6,7 @@ import parse from 'html-react-parser';
 import faqDataset from '../../staticData/staticQueryData.json';
 import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 const findIntro = faqDataset.data.allBazaTekstaPodstranice1Modul.edges.find(
-  (item) => item.node.title === 'NASLOVNICA – Često postavljana pitanja (FAQ)'
+  (item) => item.node.title === 'NASLOVNICA – Često postavljana pitanja (FAQ)  (uvod-intro)'
 );
 
 interface ClientProps {
@@ -23,6 +23,8 @@ export default function Client({ lang, imgSrc }: ClientProps) {
   const title = findIntro?.node[`modulBazeTekstova${l}`]?.[`naslovBazaTekstova${l}`];
   //@ts-ignore
   const text = findIntro?.node[`modulBazeTekstova${l}`]?.[`tekstBazaTekstova${l}`];
+
+  console.log('TEXT', text);
   return (
     <div className='relative w-full'>
       <ParallaxBanner
