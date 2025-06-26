@@ -45,7 +45,7 @@ export default function AboutUsSection({ currentLang }: AboutUsSection) {
 
   return (
     <section id={t} ref={ref} className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl w-full h-full'>
-      <div className='mx-auto container w-full px-4 flex justify-center lg:gap-desktop-slika-sadrzaj md:gap-tablet-slika-sadrzaj gap-mobile-slika-sadrzaj lg:flex-nowrap flex-wrap'>
+      <div className='mx-auto container w-full px-4 flex justify-center lg:gap-12 md:gap-10 gap-8 lg:flex-nowrap flex-wrap'>
         <div className='w-full lg:w-1/2'>
           <h2 className='text-left lg:text-h2-desktop md:text-h2-tablet text-h2-mobile lg:-mb--desktop-h1-2---naslov-tekst md:-mb--tablet-h1-2---naslov-tekst -mb--mobile-h1-2---naslov-tekst text-heading-color-light-mode dark:text-heading-color-dark-mode'>
             {t}

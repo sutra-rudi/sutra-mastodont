@@ -50,10 +50,10 @@ export default function WhyUsSection({ currentLang }: WhyUs) {
       ref={ref}
       className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl bg-almost-white lg:pb-24 md:pb-20 pb-16 dark:bg-sekundarna-tamna'
     >
-      <h2 className='relative lg:-pt--desktop---3xl md:-pt--tablet---3xl -pt--mobile---3xl lg:text-h2-desktop md:text-h2-tablet text-h2-mobile text-heading-color-light-mode dark:text-heading-color-dark-mode block text-center text-balance lg:-mb--desktop-h1-2---naslov-tekst md:-mb--tablet-h1-2---naslov-tekst -mb--mobile-h1-2---naslov-tekst px-4'>
+      <h2 className='relative lg:-pt--desktop---3xl md:-pt--tablet---3xl -pt--mobile---3xl lg:text-h2-desktop md:text-h2-tablet text-h2-mobile text-heading-color-light-mode dark:text-heading-color-dark-mode block text-center text-balance px-4'>
         {title}
       </h2>
-      <div className='container mx-auto px-4 flex items-start justify-center lg:gap-5 md:gap-4 gap-3 flex-wrap '>
+      <div className='container mx-auto px-4 flex items-start justify-center lg:gap-5 md:gap-4 gap-3 flex-wrap lg:-mt--desktop---2xl md:-mt--tablet---2xl -mt--mobile---2xl relative'>
         {data.map((wu) => {
           return (
             <div

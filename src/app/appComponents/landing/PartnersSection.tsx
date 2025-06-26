@@ -11,10 +11,15 @@ interface PartnersSection {
 export default function PartnersSection({ currentLang }: PartnersSection) {
   return (
     <section className='max-w-[1140px] mx-auto overflow-hidden w-full h-full lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl'>
-      <h2 className='text-3xl font-bold text-dark dark:text-white sm:text-[40px]/[48px] w-full text-center lg:mb-20 mb-[60px]'>
+      <h2 className='lg:text-h2-desktop md:text-h2-tablet text-h2-mobile text-heading-color-light-mode dark:text-heading-color-dark-mode text-center'>
         {findGeneralTranslation('Naši partneri', currentLang, generalTranslations)}
       </h2>
-      <Marquee pauseOnHover pauseOnClick gradient>
+      <Marquee
+        pauseOnHover
+        pauseOnClick
+        gradient
+        className='lg:-mt--desktop---2xl md:-mt--tablet---2xl -mt--mobile---2xl'
+      >
         {fP.concat(fP).map((p, i) => {
           return (
             <a
@@ -31,11 +36,10 @@ export default function PartnersSection({ currentLang }: PartnersSection) {
                 <img
                   src={p.node.logotipiPartnera.logoPNG.node.sourceUrl}
                   alt={`Company logo - ${p.node.logotipiPartnera.naziv}`}
-                  className='block aspect-auto object-center object-cover z-0 pointer-events-none select-none w-full max-w-[300px] lg:h-[290px] h-[223px]'
+                  className='block aspect-auto object-center object-cover z-0 pointer-events-none select-none w-full max-w-[300px] lg:h-[145px] h-[110px]'
                   decoding='async'
                   width={300}
-                  height={290}
-                  loading='lazy'
+                  height={145}
                 />
               </picture>
             </a>

@@ -25,7 +25,7 @@ import { IskustvaFragment } from '../queries/dynamicQueries/getAllIskustva';
 import { fetchData } from '../utils/callApi';
 //STATIC DATA
 import dataset from '../staticData/staticQueryData.json';
-import PhotoGalleryComponent from '../appComponents/global/PhotoGallery';
+
 import { JobOpeningsFragment } from '../queries/dynamicQueries/getAllJobOpenings';
 import Timeline from '../components/Timeline';
 import getWorkingHoursQueryFragment from '../queries/dynamicQueries/getWorkingHours';
@@ -210,7 +210,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
         {eventsData && <EventSection dataset={eventsData} currentLang={lang} arrows={arrows} />}
 
-        <ContactLocations currentLang={lang} />
+        <ContactLocations currentLang={lang} arrows={arrows} />
 
         <WhyUsSection currentLang={lang} />
 
@@ -222,7 +222,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
         <BaseCaruselSection dataset={filterImagesMiddle} />
 
-        <ServicesSection currentLang={lang} />
+        <ServicesSection currentLang={lang} arrows={arrows} />
 
         <MiddleSectionBanner img={heroImagesHomePage} />
 
@@ -240,12 +240,12 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
         {jOData && <JobOpeningSection currentLang={lang} dataset={jOData} />}
 
-        <ClientTestimonials currentLang={lang} dataset={cTData ? cTData : findCtStatic} />
+        <ClientTestimonials currentLang={lang} dataset={cTData ? cTData : findCtStatic} arrows={arrows} />
         {newsData && <NewsSection currentLang={lang} newsList={newsData} />}
 
-        <div className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl max-w-[1140px] mx-auto px-4'>
+        {/* <div className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl max-w-[1140px] mx-auto px-4'>
           <PhotoGalleryComponent gallery={filterImagesBase} currentLang={lang} />
-        </div>
+        </div> */}
 
         <ContactSection currentLang={lang} sezonsko={seasonWHdata} bazno={baseWHdata} />
 

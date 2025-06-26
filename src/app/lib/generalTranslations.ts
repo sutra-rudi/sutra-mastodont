@@ -283,4 +283,13 @@ export const generalTranslations = [
     esp: 'Servicios',
     fra: 'Services',
   },
+  {
+    key: 'Galerija',
+    hr: 'Galerija',
+    eng: 'Gallery',
+    ger: 'Galerie',
+    ita: 'Galleria',
+    esp: 'Galería',
+    fra: 'Galerie',
+  },
 ];

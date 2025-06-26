@@ -3,71 +3,146 @@
 interface ClientTestimonials {
   currentLang: string;
   dataset: any;
+  arrows: any;
 }
 import parse from 'html-react-parser';
 import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 import useEmblaCarousel from 'embla-carousel-react';
+import React from 'react';
 
-export default function ClientTestimonials({ dataset, currentLang }: ClientTestimonials) {
+export default function ClientTestimonials({ dataset, currentLang, arrows }: ClientTestimonials) {
   //   console.log('DATASET', dataset);
   const l = getSuffixFromLang(currentLang);
-  const [emblaRef] = useEmblaCarousel({ loop: false });
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const [selectedIndex, setSelectedIndex] = React.useState(0);
+  const [scrollSnaps, setScrollSnaps] = React.useState<number[]>([]);
+  const scrollPrev = React.useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
+  const scrollNext = React.useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
+
+  const onSelect = React.useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+
+  React.useEffect(() => {
+    if (!emblaApi) return;
+    // @ts-ignore
+    setScrollSnaps(emblaApi.scrollSnapList());
+    emblaApi.on('select', onSelect);
+  }, [emblaApi, onSelect]);
+
+  const scrollTo = React.useCallback(
+    (index: number) => {
+      if (!emblaApi) return;
+      emblaApi.scrollTo(index);
+    },
+    [emblaApi]
+  );
 
   return (
     <section className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl px-4'>
-      <div ref={emblaRef} className='embla w-full'>
-        <div className='embla__container flex items-start gap-6 w-full mx-auto max-w-[1440px]'>
-          {dataset.map((item: any) => {
-            return (
-              <div
-                key={item.node.id}
-                className='w-full md:w-1/2 lg:w-1/3 hover:shadow-indigo-300 hover:shadow-lg rounded-lg border embla__slide_blog_gallery select-none'
-              >
-                <div className='flex justify-center items-start flex-col p-5 '>
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    width='30'
-                    height='30'
-                    fill='none'
-                    stroke='currentColor'
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth='2'
-                    className='icon icon-tabler icon-tabler-quote rotate-180 text-sky-500'
-                    viewBox='0 0 24 24'
-                  >
-                    <path stroke='none' d='M0 0h24v24H0z'></path>
-                    <path d='M10 11H6a1 1 0 01-1-1V7a1 1 0 011-1h3a1 1 0 011 1v6c0 2.667-1.333 4.333-4 5M19 11h-4a1 1 0 01-1-1V7a1 1 0 011-1h3a1 1 0 011 1v6c0 2.667-1.333 4.333-4 5'></path>
-                  </svg>
+      <div className='container mx-auto'>
+        <div className='w-full relative md:flex hidden gap-4 items-center justify-end lg:-mb--desktop---l md:-mb--tablet---l -mb--mobile---l'>
+          <button onClick={scrollPrev} className='' aria-label='Previous'>
+            <picture>
+              <img src={arrows.kruznaLeftLight} alt='' />
+            </picture>
+          </button>
+          <button onClick={scrollNext} className='' aria-label='Next'>
+            <picture>
+              <img src={arrows.kruznaRightLight} alt='' />
+            </picture>
+          </button>
+        </div>
+        <div ref={emblaRef} className='embla w-full'>
+          <div className='embla__container flex items-start w-full mx-auto max-w-[1440px]'>
+            {dataset.map((item: any) => {
+              return (
+                <div
+                  key={item.node.id}
+                  className='md:w-1/2 lg:w-1/3 hover:shadow-primarna-svijetla hover:shadow-lg rounded-lg border select-none min-w-0 w-full shrink-0 lg:mx-6 md:mx-5 mx-4'
+                >
+                  <div className='flex justify-center items-start flex-col p-5 '>
+                    <svg
+                      xmlns='http://www.w3.org/2000/svg'
+                      width='30'
+                      height='30'
+                      fill='none'
+                      stroke='currentColor'
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      strokeWidth='2'
+                      className='icon icon-tabler icon-tabler-quote rotate-180 text-primarna-svijetla'
+                      viewBox='0 0 24 24'
+                    >
+                      <path stroke='none' d='M0 0h24v24H0z'></path>
+                      <path d='M10 11H6a1 1 0 01-1-1V7a1 1 0 011-1h3a1 1 0 011 1v6c0 2.667-1.333 4.333-4 5M19 11h-4a1 1 0 01-1-1V7a1 1 0 011-1h3a1 1 0 011 1v6c0 2.667-1.333 4.333-4 5'></path>
+                    </svg>
 
-                  <div className='flex justify-center items-start flex-col text-left gap-5'>
-                    {item.node[`testimonials${l}`]?.[`tekstTestimoniala${l}`] ? (
-                      <div className='italic text-sm md:text-base line-clamp-3 text-ellipsis'>
-                        {/* {parse()} */}
-                        {item.node[`testimonials${l}`]?.[`tekstTestimoniala${l}`].includes('<')
-                          ? parse(item.node[`testimonials${l}`]?.[`tekstTestimoniala${l}`])
-                          : ''}
-                      </div>
-                    ) : (
-                      <p>Nema recenzije!</p>
-                    )}
-                    <div>
-                      <h3 className='text-xl md:text-2xl font-semibold'>
-                        {item.node.iskustvaklijenataUvod.imeKlijentaTestimonials}
-                      </h3>
-                      {item.node[`testimonials${l}`]?.[`pozicijaUkolikoPostoji${l}`] && (
-                        <p className='md:text-text-base-small-desktop text-text-base-small-mobiletablet text-left text-almost-black'>
-                          {item.node[`testimonials${l}`]?.[`pozicijaUkolikoPostoji${l}`]}
-                        </p>
+                    <div className='flex justify-center items-start flex-col text-left gap-5 text-text-light-mode'>
+                      {item.node[`testimonials${l}`]?.[`tekstTestimoniala${l}`] ? (
+                        <div className='italic text-sm md:text-base line-clamp-3 text-ellipsis'>
+                          {/* {parse()} */}
+                          {item.node[`testimonials${l}`]?.[`tekstTestimoniala${l}`].includes('<')
+                            ? parse(item.node[`testimonials${l}`]?.[`tekstTestimoniala${l}`])
+                            : ''}
+                        </div>
+                      ) : (
+                        <p>Nema recenzije!</p>
                       )}
+                      <div>
+                        <h3 className='text-xl md:text-2xl font-semibold text-heading-color-light-mode'>
+                          {item.node.iskustvaklijenataUvod.imeKlijentaTestimonials}
+                        </h3>
+                        {item.node[`testimonials${l}`]?.[`pozicijaUkolikoPostoji${l}`] && (
+                          <p className='md:text-text-base-small-desktop text-text-base-small-mobiletablet text-left text-light-mode'>
+                            {item.node[`testimonials${l}`]?.[`pozicijaUkolikoPostoji${l}`]}
+                          </p>
+                        )}
+                      </div>
                     </div>
                   </div>
+                  <div className='bg-primarna-svijetla p-0.5 rounded-b-lg'></div>
                 </div>
-                <div className='bg-sky-500 p-0.5 rounded-b-lg'></div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
+
+        {/* Dots (pagination) sa sliding window pristupom */}
+        {(() => {
+          const maxDots = 5; // željeni maksimalni broj dots na ekranu
+          const total = scrollSnaps.length;
+          let dotIndices: number[] = [];
+          if (total <= maxDots) {
+            dotIndices = scrollSnaps.map((_, index) => index);
+          } else {
+            const half = Math.floor(maxDots / 2);
+            // Pokušaj centrirati trenutno odabranu točku
+            let start = selectedIndex - half;
+            if (start < 0) start = 0;
+            let end = start + maxDots - 1;
+            if (end >= total) {
+              end = total - 1;
+              start = end - maxDots + 1;
+            }
+            for (let i = start; i <= end; i++) {
+              dotIndices.push(i);
+            }
+          }
+
+          return (
+            <div className='embla__dots md:hidden block lg:-mt--desktop---xl md:-mt--tablet---xl -mt--mobile---xl mx-auto w-max'>
+              {dotIndices.map((dotIndex) => (
+                <button
+                  key={dotIndex}
+                  className={`embla__dot ${selectedIndex === dotIndex ? 'is-selected' : ''}`}
+                  onClick={() => scrollTo(dotIndex)}
+                />
+              ))}
+            </div>
+          );
+        })()}
       </div>
     </section>
   );

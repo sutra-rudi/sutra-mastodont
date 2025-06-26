@@ -50,7 +50,6 @@ export default function FeatureListSection({ currentLang }: FeatureListSection) 
 
               <section className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl flex items-start justify-center lg:gap-5 md:gap-4 gap-3 flex-wrap mx-auto '>
                 {stavke.map((s) => {
-                  console.log('SS', s);
                   return (
                     s.sadrzaj && (
                       <div
