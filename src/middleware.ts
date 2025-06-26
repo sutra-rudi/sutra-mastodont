@@ -12,33 +12,27 @@ export function middleware(request: NextRequest) {
 
   // 1) UVIJEK redirect sa root "/" na "/:lang"
   if (pathname === '/') {
-    const abGroup = request.cookies.get(AB_COOKIE_NAME)?.value;
-    const userLangCookie = request.cookies.get(LANG_COOKIE_NAME)?.value as UserLanguage | undefined;
+    // prvo očitaj (ili defaultaj na prazan string)
+    let abGroup = request.cookies.get(AB_COOKIE_NAME)?.value ?? '';
+    let userLangCookie = request.cookies.get(LANG_COOKIE_NAME)?.value ?? '';
 
     // odredi željeni jezik
     const acceptLang = request.headers.get('accept-language')?.split(',')[0].split('-')[0] || 'hr';
-    const langToUse =
-      userLangCookie && SUPPORTED_LANGUAGES.includes(userLangCookie)
-        ? userLangCookie
+    const langToUse: UserLanguage =
+      userLangCookie && SUPPORTED_LANGUAGES.includes(userLangCookie as UserLanguage)
+        ? (userLangCookie as UserLanguage)
         : ((SUPPORTED_LANGUAGES.find((l) => l.startsWith(acceptLang)) || 'hr') as UserLanguage);
 
     // redirect na "/:lang"
     url.pathname = `/${langToUse}`;
     const res = NextResponse.redirect(url);
 
-    // postavi AB-test cookie ako ga nema
+    // cookie postavljamo samo kad ga nema ili se razlikuje
     if (!abGroup) {
-      res.cookies.set(AB_COOKIE_NAME, Math.random() < 0.5 ? 'A' : 'B', {
-        maxAge: 60 * 60 * 24 * 30,
-        path: '/',
-      });
+      res.cookies.set(AB_COOKIE_NAME, Math.random() < 0.5 ? 'A' : 'B', { maxAge: 60 * 60 * 24 * 30, path: '/' });
     }
-    // postavi jezični cookie ako se razlikuje
     if (userLangCookie !== langToUse) {
-      res.cookies.set(LANG_COOKIE_NAME, langToUse, {
-        maxAge: 60 * 60 * 24 * 30,
-        path: '/',
-      });
+      res.cookies.set(LANG_COOKIE_NAME, langToUse, { maxAge: 60 * 60 * 24 * 30, path: '/' });
     }
 
     return res;
@@ -57,40 +51,32 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // 3) Čitanje cookie-ja
-  const abGroup = request.cookies.get(AB_COOKIE_NAME)?.value;
-  const userLangCookie = request.cookies.get(LANG_COOKIE_NAME)?.value as UserLanguage | undefined;
-
-  // 4) Odredi željeni jezik za non-root
-  let langToUse: UserLanguage;
+  // 3) Čitanje cookie-ja, ali bez undefined:
+  //    - za AB: prazan string ako nema
+  //    - za LANG: ili cookie, ili segment iz patha, ili prazan string
+  const rawLangCookie = request.cookies.get(LANG_COOKIE_NAME)?.value;
   const segment = pathname.split('/')[1] as UserLanguage;
-  if (SUPPORTED_LANGUAGES.includes(segment)) {
-    langToUse = segment;
-  } else {
-    langToUse = 'hr' as any;
-  }
+  const derivedFromPath = SUPPORTED_LANGUAGES.includes(segment) ? segment : '';
+  const userLangCookie = rawLangCookie ?? derivedFromPath;
+  const abGroup = request.cookies.get(AB_COOKIE_NAME)?.value ?? '';
+
+  // 4) Odredi željeni jezik za non-root (iz patha ili fallback na 'hr')
+  const langToUse: UserLanguage = SUPPORTED_LANGUAGES.includes(segment) ? segment : ('hr' as any);
 
   // 5) Provjera infinite-loop: imamo li već ispravan prefix?
   const hasLangPrefix = SUPPORTED_LANGUAGES.some((l) => pathname === `/${l}` || pathname.startsWith(`/${l}/`));
 
   // 6) Ako fali AB ili cookie mismatch, i URL još nema prefix, redirect
   if ((!abGroup || userLangCookie !== langToUse) && !hasLangPrefix) {
-    // sredi novi path
     const segments = pathname.split('/').slice(2); // sve iza "/:lang"
     url.pathname = `/${langToUse}${segments.length ? '/' + segments.join('/') : ''}`;
     const res = NextResponse.redirect(url);
 
     if (!abGroup) {
-      res.cookies.set(AB_COOKIE_NAME, Math.random() < 0.5 ? 'A' : 'B', {
-        maxAge: 60 * 60 * 24 * 30,
-        path: '/',
-      });
+      res.cookies.set(AB_COOKIE_NAME, Math.random() < 0.5 ? 'A' : 'B', { maxAge: 60 * 60 * 24 * 30, path: '/' });
     }
     if (userLangCookie !== langToUse) {
-      res.cookies.set(LANG_COOKIE_NAME, langToUse, {
-        maxAge: 60 * 60 * 24 * 30,
-        path: '/',
-      });
+      res.cookies.set(LANG_COOKIE_NAME, langToUse, { maxAge: 60 * 60 * 24 * 30, path: '/' });
     }
 
     return res;
