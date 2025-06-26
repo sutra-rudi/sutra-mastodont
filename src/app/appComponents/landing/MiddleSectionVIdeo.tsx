@@ -6,7 +6,7 @@ import React from 'react';
 interface MiddleSectionVideoProps {
   sourceUrl: {
     video?: string;
-    poster?: string;
+    placeholder?: string;
   };
 }
 
@@ -39,7 +39,7 @@ export default function MiddleSectionVideo({ sourceUrl }: MiddleSectionVideoProp
             loop
             preload='auto'
             controls={false}
-            poster={sourceUrl.poster}
+            poster={sourceUrl.placeholder}
             className='absolute top-0 left-0 w-full h-full object-cover select-none pointer-events-none'
             onError={() => setVideoError(true)}
           />
@@ -56,7 +56,7 @@ export default function MiddleSectionVideo({ sourceUrl }: MiddleSectionVideoProp
   return (
     <div
       ref={sectionRef}
-      className='relative w-full md:h-[calc(100vh-5rem)] h-[500px] lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl'
+      className='relative w-full md:h-[calc(100vh-5rem)] h-[500px] lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl pointer-events-none select-none'
     >
       <VideoRender />
     </div>

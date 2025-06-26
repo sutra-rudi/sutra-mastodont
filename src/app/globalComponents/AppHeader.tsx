@@ -97,6 +97,15 @@ const AppHeader = ({ logos }: Header) => {
       fra: 'Contact',
       url: `/${currentLang}/contact`,
     },
+    {
+      hr: 'Galerija',
+      eng: 'Gallery',
+      ger: 'Galerie',
+      ita: 'Galleria',
+      esp: 'Galería',
+      fra: 'Galerie',
+      url: `/${currentLang}/gallery`,
+    },
   ];
 
   const linksLegalSet = [

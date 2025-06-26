@@ -24,7 +24,6 @@ export default function Client({ lang, imgSrc }: ClientProps) {
   //@ts-ignore
   const text = findIntro?.node[`modulBazeTekstova${l}`]?.[`tekstBazaTekstova${l}`];
 
-  console.log('TEXT', text);
   return (
     <div className='relative w-full'>
       <ParallaxBanner

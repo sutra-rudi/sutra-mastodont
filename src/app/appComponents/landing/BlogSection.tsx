@@ -72,7 +72,7 @@ export default function BlogSection({ currentLang, blogList, arrows }: BlogSecti
           {findGeneralTranslation('Blog', currentLang, generalTranslations)}
         </h2>
 
-        <div className=' lg:-mt--desktop---2xl md:-mt--tablet---2xl -mt--mobile---2xl relative'>
+        <div className='lg:-mt--desktop---2xl md:-mt--tablet---2xl -mt--mobile---2xl relative'>
           <div className='w-full relative md:flex hidden gap-4 items-center justify-end lg:-mb--desktop---l md:-mb--tablet---l -mb--mobile---l'>
             <button onClick={scrollPrev} className='' aria-label='Previous'>
               <picture>
@@ -122,12 +122,12 @@ export default function BlogSection({ currentLang, blogList, arrows }: BlogSecti
                         </div>
 
                         <div className='px-4 flex-col flex'>
-                          <h2 className='lg:text-nadnaslov-desktop md:text-nadnaslov-tablet text-nadnaslov-mobile text-nadnaslov-color-light-mode dark:text-nadnaslov-color-light-mode mt-3 block relative motion-ease-spring-bouncy group-hover:motion-preset-slide-up'>
+                          <h2 className='lg:text-nadnaslov-desktop md:text-nadnaslov-tablet text-nadnaslov-mobile text-nadnaslov-color-light-mode dark:text-nadnaslov-color-light-mode mt-3 block relative motion-ease-spring-bouncy md:group-hover:motion-preset-slide-up'>
                             {blog.node.introBlog.kategorija.edges[0].node.informacijeKategorije.prijevodi[
                               `imeKategorije${l}`
                             ] ?? blog.node.introBlog.kategorija.edges[0].node.name}
                           </h2>
-                          <h1 className='lg:text-h4-desktop md:text-h4-tablet text-h4-mobile text-heading-color-light-mode dark:text-heading-color-dark-mode lg:-mt--desktop-h3-4---naslov-nadnaslov md:-mt--tablet-h3-4---naslov-nadnaslov -mt--mobile-h3-4---naslov-nadnaslov block relative w-full motion-ease-spring-bouncy group-hover:motion-preset-slide-up motion-delay-200'>
+                          <h1 className='lg:text-h4-desktop md:text-h4-tablet text-h4-mobile text-heading-color-light-mode dark:text-heading-color-dark-mode lg:-mt--desktop-h3-4---naslov-nadnaslov md:-mt--tablet-h3-4---naslov-nadnaslov -mt--mobile-h3-4---naslov-nadnaslov block relative w-full motion-ease-spring-bouncy md:group-hover:motion-preset-slide-up motion-delay-200'>
                             {
                               blog.node[`sadrzaj${l}Fields`]?.[
                                 isEngMistake ? `naslovSadrzajSadrzaj${l}` : `naslovSadrzaj${l}`
@@ -136,18 +136,18 @@ export default function BlogSection({ currentLang, blogList, arrows }: BlogSecti
                           </h1>
 
                           {blog.node[`sadrzaj${l}Fields`]?.[`kratkiUvodniTekstSadrzaj${l}`] ? (
-                            <div className='md:text-text-base-base-desktop text-text-base-base-mobiletablet text-text-light-mode dark:text-text-dark-mode lg:mt-desktop-tekst-naslov md:mt-tablet-tekst-naslov mt-mobile-tekst-naslov line-clamp-2 text-balance text-ellipsis w-full motion-ease-spring-bouncy group-hover:motion-preset-slide-up-sm motion-delay-500'>
+                            <div className='md:text-text-base-base-desktop text-text-base-base-mobiletablet text-text-light-mode dark:text-text-dark-mode lg:mt-desktop-tekst-naslov md:mt-tablet-tekst-naslov mt-mobile-tekst-naslov line-clamp-2 text-balance text-ellipsis w-full motion-ease-spring-bouncy md:group-hover:motion-preset-slide-up-sm motion-delay-500'>
                               {parse(blog.node[`sadrzaj${l}Fields`]?.[`kratkiUvodniTekstSadrzaj${l}`])}
                             </div>
                           ) : (
-                            <div className='md:text-text-base-base-desktop text-text-base-base-mobiletablet text-text-light-mode dark:text-text-dark-mode lg:mt-desktop-tekst-naslov md:mt-tablet-tekst-naslov mt-mobile-tekst-naslov line-clamp-2 text-balance text-ellipsis w-full motion-ease-spring-bouncy group-hover:motion-preset-slide-up-sm motion-delay-500'>
+                            <div className='md:text-text-base-base-desktop text-text-base-base-mobiletablet text-text-light-mode dark:text-text-dark-mode lg:mt-desktop-tekst-naslov md:mt-tablet-tekst-naslov mt-mobile-tekst-naslov line-clamp-2 text-balance text-ellipsis w-full motion-ease-spring-bouncy md:group-hover:motion-preset-slide-up-sm motion-delay-500'>
                               Nema introa
                             </div>
                           )}
 
                           <div className='w-full flex items-center justify-end'>
-                            <button className='w-max max-w-[180px] lg:-mt--desktop-h3-4---sadrzaj-cta md:-mt--tablet-h3-4---sadrzaj-cta -mt--mobile-h3-4---sadrzaj-cta flex items-center justify-end bg-transparent text-primarna-tamna  lg:text-button-desktop md:text-button-tablet text-button-mobile md:gap-[13.3px] gap-[11.6px] transition-all ease-in-out duration-300 group hover:text-accent-boja group-hover:text-accent-boja active:text-almost-black'>
-                              <span className='motion-ease-spring-bouncy group-hover:motion-preset-slide-up'>
+                            <button className='w-max max-w-[180px] lg:-mt--desktop-h3-4---sadrzaj-cta md:-mt--tablet-h3-4---sadrzaj-cta -mt--mobile-h3-4---sadrzaj-cta flex items-center justify-end bg-transparent text-primarna-tamna  lg:text-button-desktop md:text-button-tablet text-button-mobile md:gap-[13.3px] gap-[11.6px] transition-all ease-in-out duration-300 group hover:text-accent-boja md:group-hover:text-accent-boja active:text-almost-black'>
+                              <span className='motion-ease-spring-bouncy md:group-hover:motion-preset-slide-up'>
                                 Button text
                               </span>
 
@@ -157,7 +157,7 @@ export default function BlogSection({ currentLang, blogList, arrows }: BlogSecti
                                 height='12'
                                 viewBox='0 0 10 12'
                                 fill='none'
-                                className='transition-all ease-in-out group-hover:translate-x-1'
+                                className='transition-all ease-in-out md:group-hover:translate-x-1'
                               >
                                 <path
                                   d='M0.333336 0.747747L0.333335 11.248C0.333685 11.3544 0.364457 11.4586 0.422337 11.5494C0.480216 11.6403 0.563013 11.7145 0.661814 11.7638C0.760617 11.8132 0.871683 11.836 0.983057 11.8297C1.09443 11.8234 1.20189 11.7883 1.29388 11.7281L9.25252 6.47799C9.58249 6.26041 9.58249 5.73656 9.25252 5.51838L1.29388 0.268233C1.20209 0.207463 1.09457 0.171825 0.983008 0.165193C0.871449 0.158561 0.760117 0.181188 0.661105 0.230615C0.562094 0.280042 0.479191 0.35438 0.421405 0.445551C0.36362 0.536721 0.33316 0.641239 0.333336 0.747747Z'

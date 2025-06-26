@@ -55,8 +55,6 @@ export default function ContentSectionFirst({ reverse, content, isList, currentL
     }
   }, [entry, currentPath, parseTitle]);
 
-  console.log('CONTENT', content);
-
   const img1 = !isList
     ? content.modulBazeTekstovaUvod.slika1.node.sourceUrl
     : content.uvodLista.slika1Lista
