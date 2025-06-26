@@ -7,10 +7,44 @@ const AB_COOKIE_NAME = '@sutra-ab-test';
 const LANG_COOKIE_NAME = '@sutra-user-lang';
 
 export function middleware(request: NextRequest) {
-  const url = request.nextUrl;
+  const url = request.nextUrl.clone();
   const pathname = url.pathname;
 
-  // skip static and API
+  // 1) UVIJEK redirect sa root "/" na "/:lang"
+  if (pathname === '/') {
+    const abGroup = request.cookies.get(AB_COOKIE_NAME)?.value;
+    const userLangCookie = request.cookies.get(LANG_COOKIE_NAME)?.value as UserLanguage | undefined;
+
+    // odredi željeni jezik
+    const acceptLang = request.headers.get('accept-language')?.split(',')[0].split('-')[0] || 'hr';
+    const langToUse =
+      userLangCookie && SUPPORTED_LANGUAGES.includes(userLangCookie)
+        ? userLangCookie
+        : ((SUPPORTED_LANGUAGES.find((l) => l.startsWith(acceptLang)) || 'hr') as UserLanguage);
+
+    // redirect na "/:lang"
+    url.pathname = `/${langToUse}`;
+    const res = NextResponse.redirect(url);
+
+    // postavi AB-test cookie ako ga nema
+    if (!abGroup) {
+      res.cookies.set(AB_COOKIE_NAME, Math.random() < 0.5 ? 'A' : 'B', {
+        maxAge: 60 * 60 * 24 * 30,
+        path: '/',
+      });
+    }
+    // postavi jezični cookie ako se razlikuje
+    if (userLangCookie !== langToUse) {
+      res.cookies.set(LANG_COOKIE_NAME, langToUse, {
+        maxAge: 60 * 60 * 24 * 30,
+        path: '/',
+      });
+    }
+
+    return res;
+  }
+
+  // 2) Skip static i API rute
   if (
     pathname === '/.well-known/appspecific/com.chrome.devtools.json' ||
     pathname.startsWith('/_next') ||
@@ -23,46 +57,46 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // read cookies
+  // 3) Čitanje cookie-ja
   const abGroup = request.cookies.get(AB_COOKIE_NAME)?.value;
-  const userLangCookie = request.cookies.get(LANG_COOKIE_NAME)?.value;
+  const userLangCookie = request.cookies.get(LANG_COOKIE_NAME)?.value as UserLanguage | undefined;
 
-  // determine desired language
+  // 4) Odredi željeni jezik za non-root
   let langToUse: UserLanguage;
-  // if we're on root, derive from cookie or accept-language
-  if (pathname === '/') {
-    if (userLangCookie && SUPPORTED_LANGUAGES.includes(userLangCookie as UserLanguage)) {
-      langToUse = userLangCookie as UserLanguage;
-    } else {
-      const acceptLang = request.headers.get('accept-language')?.split(',')[0].split('-')[0] || 'hr';
-      langToUse = (SUPPORTED_LANGUAGES.find((l) => l.startsWith(acceptLang)) || 'hr') as UserLanguage;
-    }
+  const segment = pathname.split('/')[1] as UserLanguage;
+  if (SUPPORTED_LANGUAGES.includes(segment)) {
+    langToUse = segment;
   } else {
-    // for non-root, extract from path
-    const segment = pathname.split('/')[1] as UserLanguage;
-    langToUse = SUPPORTED_LANGUAGES.includes(segment) ? segment : ('hr' as UserLanguage);
+    langToUse = 'hr' as any;
   }
 
-  // if either AB or lang cookie missing -> single redirect to correct path with both cookies
-  if (!abGroup || userLangCookie !== langToUse) {
-    // build new URL keeping path after lang
-    const segments = pathname === '/' ? [] : pathname.split('/').slice(2);
-    const newPath = ['', '' + langToUse, ...segments].join('/');
-    const redirectUrl = new URL(newPath, url.origin);
+  // 5) Provjera infinite-loop: imamo li već ispravan prefix?
+  const hasLangPrefix = SUPPORTED_LANGUAGES.some((l) => pathname === `/${l}` || pathname.startsWith(`/${l}/`));
 
-    const res = NextResponse.redirect(redirectUrl);
-    // set both cookies
+  // 6) Ako fali AB ili cookie mismatch, i URL još nema prefix, redirect
+  if ((!abGroup || userLangCookie !== langToUse) && !hasLangPrefix) {
+    // sredi novi path
+    const segments = pathname.split('/').slice(2); // sve iza "/:lang"
+    url.pathname = `/${langToUse}${segments.length ? '/' + segments.join('/') : ''}`;
+    const res = NextResponse.redirect(url);
+
     if (!abGroup) {
-      const newGroup = Math.random() < 0.5 ? 'A' : 'B';
-      res.cookies.set(AB_COOKIE_NAME, newGroup, { maxAge: 60 * 60 * 24 * 30, path: '/' });
+      res.cookies.set(AB_COOKIE_NAME, Math.random() < 0.5 ? 'A' : 'B', {
+        maxAge: 60 * 60 * 24 * 30,
+        path: '/',
+      });
     }
     if (userLangCookie !== langToUse) {
-      res.cookies.set(LANG_COOKIE_NAME, langToUse, { maxAge: 60 * 60 * 24 * 30, path: '/' });
+      res.cookies.set(LANG_COOKIE_NAME, langToUse, {
+        maxAge: 60 * 60 * 24 * 30,
+        path: '/',
+      });
     }
+
     return res;
   }
 
-  // all cookies present and path is valid, continue
+  // 7) Sve ok → nastavi dalje
   return NextResponse.next();
 }
 
