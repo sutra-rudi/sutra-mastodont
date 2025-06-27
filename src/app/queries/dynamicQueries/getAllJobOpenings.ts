@@ -1,38 +1,21 @@
 export default function getJobOpenings() {
   return `query jobOpenings {
-  allOglasiZaPosao {
+ allOglasiZaPosao {
     edges {
       node {
         id
         databaseId
-        title
-        oglasiZaPosaoSadrzajHr {
-          kategorija
-          kratkiUvod
-          naslov
-          opisPosla
-          uvjeti
-        }
-        oglasiZaPosaoSadrzajGer {
-          kategorija
-          kratkiUvod
-          naslov
-          opisPosla
-          uvjeti
-        }
-        oglasiZaPosaoSadrzajEng {
-          kategorija
-          kratkiUvod
-          naslov
-          opisPosla
-          uvjeti
-        }
-        oglasiZaPosaoSadrzajIta {
-          kategorija
-          kratkiUvod
-          naslov
-          opisPosla
-          uvjeti
+        oglasiUvod {
+          eksterniLink
+          mjestoRada
+          objavaNatjecaja
+          oglasAktivnostSwitcher
+          trajanjeNatjecaja
+          glavnaSlikaOglas {
+            node {
+              sourceUrl
+            }
+          }
         }
         statusAtivacijePoJezicima {
           aktivatorEng
@@ -45,42 +28,54 @@ export default function getJobOpenings() {
             aktivatorSpa
           }
         }
-        title
-        oglasiUvod {
-          eksterniLink
-          mjestoRada
-          objavaNatjecaja
-          oglasAktivnostSwitcher
-          trajanjeNatjecaja
-          glavnaSlikaOglas {
-            node {
-              id
-              sourceUrl
-              srcSet
-              sizes
-            }
-          }
+        oglasZaPosaoHr {
+          kategorijaHr
+          kratkiUvodHr
+          naslovHr
+          opisPoslaHr
+          uvjetiHr
         }
-        oglasiZaPosaoSadrzajFra {
-          kategorija
-          kratkiUvod
-          naslov
-          opisPosla
-          uvjeti
+        oglasZaPosaoEng {
+          kategorijaEng
+          kratkiUvodEng
+          naslovEng
+          opisPoslaEng
+          uvjetiEng
         }
-        oglasiZaPosaoSadrzajEsp {
-          kategorija
-          kratkiUvod
-          naslov
-          opisPosla
-          uvjeti
+        oglasZaPosaoGer {
+          kategorijaGer
+          kratkiUvodGer
+          naslovGer
+          opisPoslaGer
+          uvjetiGer
         }
-        oglasiZaPosaoSadrzajSlo {
-          kategorija
-          kratkiUvod
-          naslov
-          opisPosla
-          uvjeti
+        oglasZaPosaoFra {
+          kategorijaFra
+          kratkiUvodFra
+          naslovFra
+          opisPoslaFra
+          uvjetiFra
+        }
+        oglasZaPosaoEsp {
+          kategorijaEsp
+          kratkiUvodEsp
+          naslovEsp
+          opisPoslaEsp
+          uvjetiEsp
+        }
+        oglasZaPosaoIta {
+          kategorijaIta
+          kratkiUvodIta
+          naslovIta
+          opisPoslaIta
+          uvjetiIta
+        }
+        oglasZaPosaoSlo {
+          kategorijaSlo
+          kratkiUvodSlo
+          naslovSlo
+          opisPoslaSlo
+          uvjetiSlo
         }
       }
     }
@@ -94,34 +89,17 @@ export function JobOpeningsFragment() {
       node {
         id
         databaseId
-        title
-        oglasiZaPosaoSadrzajHr {
-          kategorija
-          kratkiUvod
-          naslov
-          opisPosla
-          uvjeti
-        }
-        oglasiZaPosaoSadrzajGer {
-          kategorija
-          kratkiUvod
-          naslov
-          opisPosla
-          uvjeti
-        }
-        oglasiZaPosaoSadrzajEng {
-          kategorija
-          kratkiUvod
-          naslov
-          opisPosla
-          uvjeti
-        }
-        oglasiZaPosaoSadrzajIta {
-          kategorija
-          kratkiUvod
-          naslov
-          opisPosla
-          uvjeti
+        oglasiUvod {
+          eksterniLink
+          mjestoRada
+          objavaNatjecaja
+          oglasAktivnostSwitcher
+          trajanjeNatjecaja
+          glavnaSlikaOglas {
+            node {
+              sourceUrl
+            }
+          }
         }
         statusAtivacijePoJezicima {
           aktivatorEng
@@ -134,42 +112,54 @@ export function JobOpeningsFragment() {
             aktivatorSpa
           }
         }
-        title
-        oglasiUvod {
-          eksterniLink
-          mjestoRada
-          objavaNatjecaja
-          oglasAktivnostSwitcher
-          trajanjeNatjecaja
-          glavnaSlikaOglas {
-            node {
-              id
-              sourceUrl
-              srcSet
-              sizes
-            }
-          }
+        oglasZaPosaoHr {
+          kategorijaHr
+          kratkiUvodHr
+          naslovHr
+          opisPoslaHr
+          uvjetiHr
         }
-        oglasiZaPosaoSadrzajFra {
-          kategorija
-          kratkiUvod
-          naslov
-          opisPosla
-          uvjeti
+        oglasZaPosaoEng {
+          kategorijaEng
+          kratkiUvodEng
+          naslovEng
+          opisPoslaEng
+          uvjetiEng
         }
-        oglasiZaPosaoSadrzajEsp {
-          kategorija
-          kratkiUvod
-          naslov
-          opisPosla
-          uvjeti
+        oglasZaPosaoGer {
+          kategorijaGer
+          kratkiUvodGer
+          naslovGer
+          opisPoslaGer
+          uvjetiGer
         }
-        oglasiZaPosaoSadrzajSlo {
-          kategorija
-          kratkiUvod
-          naslov
-          opisPosla
-          uvjeti
+        oglasZaPosaoFra {
+          kategorijaFra
+          kratkiUvodFra
+          naslovFra
+          opisPoslaFra
+          uvjetiFra
+        }
+        oglasZaPosaoEsp {
+          kategorijaEsp
+          kratkiUvodEsp
+          naslovEsp
+          opisPoslaEsp
+          uvjetiEsp
+        }
+        oglasZaPosaoIta {
+          kategorijaIta
+          kratkiUvodIta
+          naslovIta
+          opisPoslaIta
+          uvjetiIta
+        }
+        oglasZaPosaoSlo {
+          kategorijaSlo
+          kratkiUvodSlo
+          naslovSlo
+          opisPoslaSlo
+          uvjetiSlo
         }
       }
     }

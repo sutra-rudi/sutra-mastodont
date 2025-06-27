@@ -21,11 +21,11 @@ export async function generateMetadata({ params: { lang, slug } }: { params: { l
 
   const jData = await fetchData(getSingleJobOpening(slugId));
 
-  const naslovOglasa = jData.data.oglasiZaPosao[`oglasiZaPosaoSadrzaj${l}`].naslov;
-  const sadrzajOglasa = jData.data.oglasiZaPosao[`oglasiZaPosaoSadrzaj${l}`].opisPosla;
+  const naslovOglasa = jData.data.oglasiZaPosao[`oglasiZaPosao${l}`]?.[`naslov${l}`];
+  const sadrzajOglasa = jData.data.oglasiZaPosao[`oglasiZaPosao${l}`]?.[`opisPosla${l}`];
   // const uvjetiPosla = jData.data.oglasiZaPosao[`oglasiZaPosaoSadrzaj${l}`].uvjeti;
   // const kategorijaPosla = jData.data.oglasiZaPosao[`oglasiZaPosaoSadrzaj${l}`].kategorija;
-  const kratkiUvod = jData.data.oglasiZaPosao[`oglasiZaPosaoSadrzaj${l}`]?.kratkiUvod;
+  const kratkiUvod = jData.data.oglasiZaPosao[`oglasiZaPosao${l}`]?.[`kratkiUvod${l}`];
   // const mjestoPosla = jData.data.oglasiZaPosao.oglasiUvod.mjestoRada;
   const datumOd = jData.data.oglasiZaPosao.oglasiUvod.objavaNatjecaja;
   // const datumDo = jData.data.oglasiZaPosao.oglasiUvod.trajanjeNatjecaja;
@@ -91,10 +91,10 @@ export default async function JobOpeningSingle({ params: { lang, slug } }: { par
 
   const jData = await fetchData(getSingleJobOpening(slugId));
 
-  const naslovOglasa = jData.data.oglasiZaPosao[`oglasiZaPosaoSadrzaj${l}`].naslov;
-  const sadrzajOglasa = jData.data.oglasiZaPosao[`oglasiZaPosaoSadrzaj${l}`].opisPosla;
-  const uvjetiPosla = jData.data.oglasiZaPosao[`oglasiZaPosaoSadrzaj${l}`].uvjeti;
-  const kategorijaPosla = jData.data.oglasiZaPosao[`oglasiZaPosaoSadrzaj${l}`].kategorija;
+  const naslovOglasa = jData.data.oglasiZaPosao[`oglasZaPosao${l}`]?.[`naslov${l}`];
+  const sadrzajOglasa = jData.data.oglasiZaPosao[`oglasZaPosao${l}`]?.[`opisPosla${l}`];
+  const uvjetiPosla = jData.data.oglasiZaPosao[`oglasZaPosao${l}`]?.[`uvjeti${l}`];
+  const kategorijaPosla = jData.data.oglasiZaPosao[`oglasZaPosao${l}`]?.[`kategorija${l}`];
   const mjestoPosla = jData.data.oglasiZaPosao.oglasiUvod.mjestoRada;
   const datumOd = jData.data.oglasiZaPosao.oglasiUvod.objavaNatjecaja;
   const datumDo = jData.data.oglasiZaPosao.oglasiUvod.trajanjeNatjecaja;

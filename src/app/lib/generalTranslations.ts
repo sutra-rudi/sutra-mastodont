@@ -292,4 +292,13 @@ export const generalTranslations = [
     esp: 'Galería',
     fra: 'Galerie',
   },
+  {
+    key: 'Izvor',
+    hr: 'Izvor',
+    eng: 'Source',
+    ger: 'Quelle',
+    ita: 'Fonte',
+    esp: 'Fuente',
+    fra: 'Source',
+  },
 ];
