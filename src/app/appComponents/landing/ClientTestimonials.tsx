@@ -9,6 +9,8 @@ import parse from 'html-react-parser';
 import { getSuffixFromLang } from '@/app/langUtils/getSuffixFromLang';
 import useEmblaCarousel from 'embla-carousel-react';
 import React from 'react';
+import { findGeneralTranslation } from '@/app/langUtils/findGeneralTranslation';
+import { generalTranslations } from '@/app/lib/generalTranslations';
 
 export default function ClientTestimonials({ dataset, currentLang, arrows }: ClientTestimonials) {
   //   console.log('DATASET', dataset);
@@ -39,6 +41,7 @@ export default function ClientTestimonials({ dataset, currentLang, arrows }: Cli
     [emblaApi]
   );
 
+  console.log('DATASET', dataset);
   return (
     <section className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl px-4'>
       <div className='container mx-auto'>
@@ -60,9 +63,9 @@ export default function ClientTestimonials({ dataset, currentLang, arrows }: Cli
               return (
                 <div
                   key={item.node.id}
-                  className='md:w-1/2 lg:w-1/3 hover:shadow-primarna-svijetla hover:shadow-lg rounded-lg border select-none min-w-0 w-full shrink-0 lg:mx-6 md:mx-5 mx-4'
+                  className='md:w-1/2 lg:w-1/3  rounded-lg border select-none min-w-0 w-full shrink-0 lg:mx-6 md:mx-5 mx-4'
                 >
-                  <div className='flex justify-center items-start flex-col p-5 '>
+                  <div className='flex justify-center items-start flex-col p-4'>
                     <svg
                       xmlns='http://www.w3.org/2000/svg'
                       width='30'
@@ -79,7 +82,7 @@ export default function ClientTestimonials({ dataset, currentLang, arrows }: Cli
                       <path d='M10 11H6a1 1 0 01-1-1V7a1 1 0 011-1h3a1 1 0 011 1v6c0 2.667-1.333 4.333-4 5M19 11h-4a1 1 0 01-1-1V7a1 1 0 011-1h3a1 1 0 011 1v6c0 2.667-1.333 4.333-4 5'></path>
                     </svg>
 
-                    <div className='flex justify-center items-start flex-col text-left gap-5 text-text-light-mode'>
+                    <div className='flex justify-center items-start flex-col text-left text-text-light-mode'>
                       {item.node[`testimonials${l}`]?.[`tekstTestimoniala${l}`] ? (
                         <div className='italic text-sm md:text-base line-clamp-3 text-ellipsis'>
                           {/* {parse()} */}
@@ -91,15 +94,28 @@ export default function ClientTestimonials({ dataset, currentLang, arrows }: Cli
                         <p>Nema recenzije!</p>
                       )}
                       <div>
-                        <h3 className='text-xl md:text-2xl font-semibold text-heading-color-light-mode'>
+                        <h4 className='lg:text-h4-desktop md:text-h4-tablet text-h4-mobile lg:-mt--desktop-h3-4---naslov-tekst md:-mt--tablet-h3-4---naslov-tekst -mt--mobile-h3-4---naslov-tekst text-heading-color-light-mode'>
                           {item.node.iskustvaklijenataUvod.imeKlijentaTestimonials}
-                        </h3>
+                        </h4>
                         {item.node[`testimonials${l}`]?.[`pozicijaUkolikoPostoji${l}`] && (
-                          <p className='md:text-text-base-small-desktop text-text-base-small-mobiletablet text-left text-light-mode'>
+                          <p className='md:text-text-base-small-desktop text-text-base-small-mobiletablet text-left text-text-light-mode mt-1'>
                             {item.node[`testimonials${l}`]?.[`pozicijaUkolikoPostoji${l}`]}
                           </p>
                         )}
                       </div>
+
+                      {item.node.iskustvaklijenataUvod.vanjskaPoveznicaTestimonials && (
+                        <div className='mt-2'>
+                          <a
+                            href={item.node.iskustvaklijenataUvod.vanjskaPoveznicaTestimonials}
+                            target='_blank'
+                            rel='noopener noreferrer'
+                            className='text-text-light-mode transition-all ease-in-out hover:text-accent-boja text-text-base-small-desktop'
+                          >{`${findGeneralTranslation('Izvor', currentLang, generalTranslations)}: ${
+                            item.node.iskustvaklijenataUvod.vanjskaPoveznicaTestimonials
+                          }`}</a>
+                        </div>
+                      )}
                     </div>
                   </div>
                   <div className='bg-primarna-svijetla p-0.5 rounded-b-lg'></div>
