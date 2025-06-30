@@ -62,7 +62,7 @@ export default function ClientTestimonials({ dataset, currentLang, arrows }: Cli
       ? document.documentElement.classList.add('overflow-hidden')
       : document.documentElement.classList.remove('overflow-hidden');
   }, [isModalOpen]);
-  console.log('DATA', modalItem);
+
   return (
     <>
       <section className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl px-4'>
