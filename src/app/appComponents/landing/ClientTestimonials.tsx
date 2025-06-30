@@ -13,7 +13,6 @@ import { findGeneralTranslation } from '@/app/langUtils/findGeneralTranslation';
 import { generalTranslations } from '@/app/lib/generalTranslations';
 
 export default function ClientTestimonials({ dataset, currentLang, arrows }: ClientTestimonials) {
-  //   console.log('DATASET', dataset);
   const l = getSuffixFromLang(currentLang);
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [selectedIndex, setSelectedIndex] = React.useState(0);
@@ -41,7 +40,6 @@ export default function ClientTestimonials({ dataset, currentLang, arrows }: Cli
     [emblaApi]
   );
 
-  console.log('DATASET', dataset);
   return (
     <section className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl px-4'>
       <div className='container mx-auto'>
