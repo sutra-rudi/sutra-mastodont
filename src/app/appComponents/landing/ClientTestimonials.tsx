@@ -189,11 +189,11 @@ export default function ClientTestimonials({ dataset, currentLang, arrows }: Cli
       {/* Modal overlay */}
       {isModalOpen && modalItem && (
         <div
-          className='fixed inset-0 z-50 flex items-center justify-center motion-preset-fade motion-ease-spring-smooth'
+          className='fixed inset-0 z-50 flex items-center justify-center motion-preset-fade motion-ease-spring-smooth backdrop-blur-sm'
           onClick={closeModal}
         >
           {/* Tamna, bluranna pozadina */}
-          <div className='absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm' />
+          <div className='absolute inset-0 bg-black bg-opacity-50' />
 
           {/* Modal sadržaj */}
           <div
