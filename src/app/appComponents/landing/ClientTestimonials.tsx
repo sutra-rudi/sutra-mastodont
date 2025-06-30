@@ -62,7 +62,7 @@ export default function ClientTestimonials({ dataset, currentLang, arrows }: Cli
       ? document.documentElement.classList.add('overflow-hidden')
       : document.documentElement.classList.remove('overflow-hidden');
   }, [isModalOpen]);
-
+  console.log('DATA', modalItem);
   return (
     <>
       <section className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl px-4'>
@@ -246,10 +246,24 @@ export default function ClientTestimonials({ dataset, currentLang, arrows }: Cli
                   rel='noopener noreferrer'
                   className='text-blue-600 hover:underline'
                 >
-                  {`${findGeneralTranslation('Izvor', currentLang, generalTranslations)}: ${
+                  {`${findGeneralTranslation('Poveznica', currentLang, generalTranslations)}: ${
                     modalItem.iskustvaklijenataUvod.vanjskaPoveznicaTestimonials
                   }`}
                 </a>
+              )}
+
+              {modalItem.iskustvaklijenataUvod.kategorijaNaKojuSeOdnosiTestimonial && (
+                <div>
+                  {`Kategorija/e: ${modalItem.iskustvaklijenataUvod.kategorijaNaKojuSeOdnosiTestimonial.edges.map(
+                    (e: any) => e.node.name
+                  )}`}
+                </div>
+              )}
+
+              {modalItem.iskustvaklijenataUvod.izvorRecenzije && (
+                <p>{`${findGeneralTranslation('Izvor', currentLang, generalTranslations)}: ${
+                  modalItem.iskustvaklijenataUvod.izvorRecenzije
+                }`}</p>
               )}
             </div>
           </div>

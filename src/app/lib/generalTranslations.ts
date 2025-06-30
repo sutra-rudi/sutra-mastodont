@@ -310,4 +310,22 @@ export const generalTranslations = [
     esp: 'Prensa',
     fra: 'Presse',
   },
+  {
+    key: 'Poveznica',
+    hr: 'Poveznica',
+    eng: 'Link',
+    ger: 'Link',
+    ita: 'Collegamento',
+    esp: 'Enlace',
+    fra: 'Lien',
+  },
+  {
+    key: 'Izvor',
+    hr: 'Izvor',
+    eng: 'Source',
+    ger: 'Quelle',
+    ita: 'Fonte',
+    esp: 'Fuente',
+    fra: 'Source',
+  },
 ];
