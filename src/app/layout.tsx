@@ -89,7 +89,7 @@ export default async function RootLayout({
 
   return (
     <html lang={localeMapping[lang]} className='scrollbar scrollbar-thumb-accent-boja scrollbar-track-primarna-tamna'>
-      <body className={`antialiased relative w-full h-full `}>
+      <body className={`antialiased relative w-full h-full z-20 bg-white `}>
         <noscript>
           <iframe
             src='https://www.googletagmanager.com/ns.html?id=GTM-5WVGHCWV'

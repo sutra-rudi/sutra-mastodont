@@ -73,7 +73,8 @@ body {
     white-space: nowrap;
     pointer-events: none;
     font-size: theme('fontSize.lg');
-    font-family: '__Inter_aaf875', '__Inter_Fallback_aaf875' !important;
+    font-family: inherit !important;
+    // font-family: '__Inter_aaf875', '__Inter_Fallback_aaf875' !important;
   }
 
   .react-datepicker {
@@ -82,12 +83,15 @@ body {
 }
 
 .mapboxgl-map {
-  font-family: '__Inter_aaf875', '__Inter_Fallback_aaf875' !important;
+  // font-family: '__Inter_aaf875', '__Inter_Fallback_aaf875' !important;
+  font-family: inherit !important;
 }
 
 .mapboxgl-popup-close-button {
   font-size: theme('fontSize.lg') !important;
-  font-family: '__Inter_aaf875', '__Inter_Fallback_aaf875' !important;
+  // font-family: '__Inter_aaf875', '__Inter_Fallback_aaf875' !important;
+  font-family: inherit !important;
+
   margin: 0 0.5rem 0 0;
 }
 

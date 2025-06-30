@@ -4,11 +4,12 @@ import Marquee from 'react-fast-marquee';
 
 interface CaruselInterface {
   dataset: any[];
+  isTop: boolean;
 }
 
-export default function BaseCaruselSection({ dataset }: CaruselInterface) {
+export default function BaseCaruselSection({ dataset, isTop }: CaruselInterface) {
   return (
-    <section className='lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl'>
+    <section className={`${isTop ? '' : 'lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl'}`}>
       <Marquee>
         {dataset.map((im) => (
           <picture key={im?.node.id}>

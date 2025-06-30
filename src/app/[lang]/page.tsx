@@ -194,11 +194,11 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
   } = MP;
 
   return (
-    <main className='relative w-full dark:bg-primarna-tamna min-h-screen'>
+    <main className='relative w-full dark:bg-primarna-tamna min-h-screen bg-white z-40'>
       <Suspense fallback={<Loading />}>
         <HeroSection currentLang={lang} imgs={heroImagesHomePage} abGroup={abGroup} />
         <ContentSectionFirst isList={false} content={findFirstTextContent?.node} currentLang={lang} bg={bgTextures} />
-        <BaseCaruselSection dataset={filterImagesBase} />
+        <BaseCaruselSection dataset={filterImagesBase} isTop={true} />
 
         <ContentSectionFirst
           reverse
@@ -220,7 +220,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
         {blogsData && <BlogSection currentLang={lang} blogList={blogsData} arrows={arrows} />}
 
-        <BaseCaruselSection dataset={filterImagesMiddle} />
+        <BaseCaruselSection dataset={filterImagesMiddle} isTop={false} />
 
         <ServicesSection currentLang={lang} arrows={arrows} />
 

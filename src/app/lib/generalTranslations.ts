@@ -301,4 +301,13 @@ export const generalTranslations = [
     esp: 'Fuente',
     fra: 'Source',
   },
+  {
+    key: 'Press',
+    hr: 'Press',
+    eng: 'Press',
+    ger: 'Presse',
+    ita: 'Stampa',
+    esp: 'Prensa',
+    fra: 'Presse',
+  },
 ];

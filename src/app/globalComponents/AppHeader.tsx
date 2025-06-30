@@ -106,6 +106,15 @@ const AppHeader = ({ logos }: Header) => {
       fra: 'Galerie',
       url: `/${currentLang}/gallery`,
     },
+    {
+      hr: 'Press',
+      eng: 'Press',
+      ger: 'Presse',
+      ita: 'Stampa',
+      esp: 'Prensa',
+      fra: 'Presse',
+      url: `/${currentLang}/press`,
+    },
   ];
 
   const linksLegalSet = [
@@ -227,7 +236,7 @@ const AppHeader = ({ logos }: Header) => {
                   : 'motion-translate-x-out-100 motion-opacity-out-0 motion-duration-[700ms] motion-ease-spring-smooth pointer-events-none'
               }`}
             >
-              <ul className='lg:text-h2-desktop md:text-h2-tablet text-h2-mobile flex flex-col lg:-gap--desktop-liste-udaljenost-u-listama-big md:-gap--tablet-liste-udaljenost-u-listama-big -gap--mobile-liste-udaljenost-u-listama-big select-none'>
+              <ul className='lg:text-h2-desktop md:text-h2-tablet text-h2-mobile grid md:grid-cols-2 grid-cols-1 !gap-x-20 lg:-gap--desktop-liste-udaljenost-u-listama-big md:-gap--tablet-liste-udaljenost-u-listama-big -gap--mobile-liste-udaljenost-u-listama-big select-none'>
                 {baseNav.map((item, i) => (
                   <li
                     //@ts-ignore

@@ -24,14 +24,14 @@ export default async function ContactPage({ params: { lang } }: { params: { lang
 
         <div className='w-full z-40 relative lg:max-w-[900px] max-w-[95%] bg-white mx-auto shadow-md px-4 py-12 lg:-mt--desktop---4xl md:-mt--tablet---4xl -mt--mobile---4xl lg:translate-y-[-40%] translate-y-[-20%] rounded-lg'>
           <div className='max-w-screen-sm mx-auto'>
-            <span className='lg:mb-desktop-naslov-nadnaslov md:mb-tablet-naslov-nadnaslov mb-mobile-naslov-nadnaslov block text-base font-semibold text-accent-boja'>
+            <span className='lg:mb-desktop-naslov-nadnaslov md:mb-tablet-naslov-nadnaslov mb-mobile-naslov-nadnaslov block lg:text-nadnaslov-desktop md:text-nadnaslov-tablet text-nadnaslov-mobile text-nadnaslov-color-light-mode dark:text-nadnaslov-color-dark-mode'>
               {
                 //@ts-ignore
                 getData[`adminKontaktFormaTekstovi${l}`]?.[`kontaktiBazaTekstova${l}`]
                   .uvodniTekstoviZaKontakteGrupaPolja.nadnaslovpodnaslovUKontaktima
               }
             </span>
-            <h2 className='lg:mb-desktop-tekst-naslov md:mb-tablet-tekst-naslov mb-mobile-tekst-naslov lg:text-4xl md:text-3xl text-2xl font-bold uppercase text-heading-color-light-mode'>
+            <h2 className='lg:mb-desktop-tekst-naslov md:mb-tablet-tekst-naslov mb-mobile-tekst-naslov lg:text-h2-desktop md:text-h2-tablet text-h2-mobile uppercase text-heading-color-light-mode'>
               {
                 //@ts-ignore
                 getData[`adminKontaktFormaTekstovi${l}`]?.[`kontaktiBazaTekstova${l}`]
