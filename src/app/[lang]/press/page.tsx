@@ -19,7 +19,7 @@ export default async function PressMediaPage({ params: { lang } }: { params: { l
   const { heroImagesPressMedia } = hero;
 
   return (
-    <main className='w-full h-full relative -mt--desktop---4xl'>
+    <main className='relative w-full dark:bg-primarna-tamna min-h-screen bg-white z-40 -mt--desktop---4xl'>
       <Client imgSrc={heroImagesPressMedia} lang={lang} />
 
       <div className='container px-4 mx-auto flex items-center justify-start -mt--desktop---3xl'>

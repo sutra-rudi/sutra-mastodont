@@ -12,7 +12,7 @@ export default async function PrivacyPolicy({ params: { lang } }: { params: { la
   const { heroImagesPrivacy } = mp;
 
   return (
-    <main>
+    <main className='relative w-full dark:bg-primarna-tamna min-h-screen bg-white z-40'>
       <picture>
         <img
           src={heroImagesPrivacy.desktop}

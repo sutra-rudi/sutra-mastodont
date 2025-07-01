@@ -32,7 +32,7 @@ export default async function AboutUsPage({ params: { lang } }: { params: { lang
   //   const hasP3 = contentField[`pasus3Tekst${l}`];
 
   return (
-    <main className='w-full h-full min-h-screen relative'>
+    <main className='relative w-full dark:bg-primarna-tamna min-h-screen bg-white z-40'>
       <Suspense>
         <div className='relative -mt--desktop---4xl max-w-[1920px]'>
           <Client

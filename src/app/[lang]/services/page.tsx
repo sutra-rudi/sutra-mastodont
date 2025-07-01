@@ -26,7 +26,7 @@ export default async function ServicesPage({
   const l = getSuffixFromLang(lang);
 
   return (
-    <main className='w-full relative block min-h-screen -mt--desktop---4xl'>
+    <main className='relative w-full dark:bg-primarna-tamna min-h-screen bg-white z-40 -mt--desktop---4xl'>
       <Suspense>
         <Client hero={heroImagesArchiveProductsOrServices} currentLang={lang} />
 

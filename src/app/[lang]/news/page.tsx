@@ -16,7 +16,7 @@ export default async function NewsPage({
   const getNews = await fetchData(getAllNews());
   const allnews = !getNews.error ? getNews.data.allNovosti?.edges : null;
   return (
-    <main className='w-full h-full relative block min-h-screen'>
+    <main className='relative w-full dark:bg-primarna-tamna min-h-screen bg-white z-40'>
       <Suspense>
         <div className='max-w-screen-xl px-4 mx-auto flex items-center justify-start -mt--desktop---5xl'>
           <Breadcrumbs />

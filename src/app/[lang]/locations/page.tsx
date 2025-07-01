@@ -21,7 +21,7 @@ export default function ContactLocationsPage({
 
   const l = getSuffixFromLang(lang);
   return (
-    <main className='lg:-mt--desktop---4xl md:-mt--tablet---4xl -mt--mobile---4xl'>
+    <main className='lg:-mt--desktop---4xl md:-mt--tablet---4xl -mt--mobile---4xl relative w-full dark:bg-primarna-tamna min-h-screen bg-white z-40'>
       <div className='w-full lg:-mt--desktop---2xl md:-mt--tablet---2xl -mt--mobile---2xl scroll-mt-56 grid grid-cols-1 lg:gap-24 md:gap-20 gap-16'>
         {locationsData.map((ld) => {
           return (

@@ -101,7 +101,7 @@ export default async function JobOpeningSingle({ params: { lang, slug } }: { par
   const naslovnaSLika = jData.data.oglasiZaPosao.oglasiUvod.glavnaSlikaOglas.node;
 
   return (
-    <main className='w-full h-full relative min-h-screen -mt--desktop---4xl'>
+    <main className='relative w-full dark:bg-primarna-tamna min-h-screen bg-white z-40 -mt--desktop---4xl'>
       <Suspense>
         <picture>
           <img

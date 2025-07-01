@@ -36,7 +36,7 @@ export default async function SingleServicePage({
   );
 
   return (
-    <main className='relative w-full min-h-screen -mt--desktop---4xl'>
+    <main className='relative w-full dark:bg-primarna-tamna min-h-screen bg-white z-40 -mt--desktop---4xl'>
       <Suspense>
         <picture>
           <img

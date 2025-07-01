@@ -11,7 +11,7 @@ export default function page({ params: { lang } }: { params: { lang: string } })
   const filterImagesBase = Object.values(findKaruselDataBase?.node.photoGallery30pcs!).filter((val) => val);
 
   return (
-    <main className='relative w-full min-h-screen -mt--desktop---5xl'>
+    <main className='relative w-full dark:bg-primarna-tamna min-h-screen bg-white z-40 -mt--desktop---5xl'>
       <div className='container mx-auto'>
         <h2 className='lg:text-h2-desktop md:text-h2-tablet text-h2-mobile text-heading-color-light-mode dark:text-heading-color-dark-mode text-center lg:-mb--desktop---3xl md:-mb--tablet---3xl -mb--mobile---3xl'>
           {findGeneralTranslation('Galerija', lang, generalTranslations)}

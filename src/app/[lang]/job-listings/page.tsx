@@ -20,7 +20,7 @@ export default async function JobListings({ params: { lang } }: { params: { lang
   const { heroImagesCareer } = MP;
 
   return (
-    <main className='w-full h-full min-h-screen relative -mt--desktop---4xl'>
+    <main className='relative w-full dark:bg-primarna-tamna min-h-screen bg-white z-40 -mt--desktop---4xl'>
       <Suspense>
         <Client imgSrc={heroImagesCareer} lang={lang} />
         <section className='container mx-auto px-4 lg:-mt--desktop---2xl md:-mt--tablet---2xl -mt--mobile---2xl'>
