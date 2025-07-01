@@ -167,6 +167,10 @@ const AppHeader = ({ logos }: Header) => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
+      if (currentScrollY < 150) {
+        setIsShrink(false);
+      }
+
       if (!ticking.current) {
         window.requestAnimationFrame(() => {
           if (currentScrollY > prevScrollY.current && currentScrollY > 100) {
@@ -176,7 +180,6 @@ const AppHeader = ({ logos }: Header) => {
           } else {
             // Scroll gore -> pokaži
             setVisible(true);
-            setIsShrink(false);
           }
           prevScrollY.current = currentScrollY;
           ticking.current = false;
@@ -204,11 +207,7 @@ const AppHeader = ({ logos }: Header) => {
           visible ? 'translate-y-0' : '-translate-y-full'
         } bg-white shadow-sm `}
     >
-      <div
-        className={`container mx-auto xl:px-0 md:px-4 px-2  py-4 transition-all duration-1000   ease-in-out ${
-          isShrink ? 'h-20' : 'h-24 delay-[600ms]'
-        }`}
-      >
+      <div className={`container mx-auto xl:px-0 md:px-4 px-2  py-4`}>
         <div className='flex items-center justify-between'>
           <div className='flex items-center'>
             <div className='shrink-0'>
@@ -220,7 +219,7 @@ const AppHeader = ({ logos }: Header) => {
                     width={190}
                     height={50}
                     className={`aspect-auto object-cover object-center block ${
-                      isShrink ? 'scale-50 ' : 'scale-100 delay-[600ms]'
+                      isShrink ? 'scale-[0.8] ' : 'scale-100'
                     } transition-all duration-1000   ease-in-out`}
                   />
                 </picture>
@@ -295,11 +294,7 @@ const AppHeader = ({ logos }: Header) => {
               </a>
             </div>
           </div>
-          <div
-            className={`flex items-center space-x-4 z-[101] ${
-              isShrink ? 'scale-50 ' : 'scale-100 delay-[600ms]'
-            } transition-all duration-1000   ease-in-out`}
-          >
+          <div className={`flex items-center space-x-4 z-[101]`}>
             <div className='md:block hidden'>
               <LanguageDropdown langs={langs as any} />
             </div>
