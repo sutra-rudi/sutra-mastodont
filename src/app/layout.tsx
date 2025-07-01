@@ -113,7 +113,7 @@ export default async function RootLayout({
         <Suspense fallback={<Loading />}>
           <AppHeader logos={siteLogo} />
           <Providers>{children}</Providers>
-          <AppFooter logos={siteLogo} currentLang={lang} />
+          <AppFooter logos={siteLogo} />
           <CookieNotice lng={lang} />
           {newsTrackData && <NewsTrack pageContent={newsTrackData} lang={lang} />}
         </Suspense>
