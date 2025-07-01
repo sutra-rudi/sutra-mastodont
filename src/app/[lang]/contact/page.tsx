@@ -18,7 +18,7 @@ export default async function ContactPage({ params: { lang } }: { params: { lang
 
   const { heroImagesContactUs } = MP;
   return (
-    <main className='w-full min-h-screen relative'>
+    <main className='relative w-full dark:bg-primarna-tamna min-h-screen bg-white z-40'>
       <Suspense>
         <Hero heroImagesContactUs={heroImagesContactUs} />
 

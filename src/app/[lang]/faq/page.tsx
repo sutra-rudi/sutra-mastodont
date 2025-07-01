@@ -34,7 +34,7 @@ export default async function FAQpage({ params: { lang } }: { params: { lang: st
 
   const { heroImagesFAQ } = MP;
   return (
-    <main className='relative w-full min-h-screen -mt--desktop---4xl'>
+    <main className='relative w-full dark:bg-primarna-tamna min-h-screen bg-white z-40 -mt--desktop---4xl'>
       <Suspense>
         <Client lang={lang} imgSrc={heroImagesFAQ} />
 

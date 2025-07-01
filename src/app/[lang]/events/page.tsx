@@ -3,7 +3,7 @@ import React from 'react';
 
 export default function EventsPage({ params: { lang } }: { params: { lang: string } }) {
   return (
-    <main className='w-full relative block min-h-screen -mt--desktop---5xl'>
+    <main className='relative w-full dark:bg-primarna-tamna min-h-screen bg-white z-40 -mt--desktop---5xl'>
       <div className='container mx-auto px-4 lg:mt-desktop-slika-sadrzaj md:mt-tablet-slika-sadrzaj mt-mobile-slika-sadrzaj'>
         <Breadcrumbs />
       </div>

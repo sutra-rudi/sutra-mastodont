@@ -181,7 +181,7 @@ export default async function SingleNewsPage({ params: { lang, slug } }: { param
   });
 
   return (
-    <main className='w-full xl:-pb--xl---5xl lg:-pb--desktop---5xl md:-pb--tablet---5xl -pb--mobile---5xl min-h-screen'>
+    <main className='relative w-full dark:bg-primarna-tamna min-h-screen bg-white z-40 xl:-pb--xl---5xl lg:-pb--desktop---5xl md:-pb--tablet---5xl -pb--mobile---5xl'>
       <Suspense>
         <div className='max-w-screen-xl px-4 mx-auto flex items-center justify-start -mt--desktop---5xl'>
           <Breadcrumbs />

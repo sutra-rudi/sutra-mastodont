@@ -14,7 +14,7 @@ export default async function BlogPage({
   const getBlogs = await fetchData(getAllBlogs());
   const allBlogs = !getBlogs.error ? getBlogs.data.allBlog?.edges : null;
   return (
-    <main className='w-full h-full relative block min-h-screen'>
+    <main className='relative w-full dark:bg-primarna-tamna min-h-screen bg-white z-40'>
       <Suspense>
         <div className='max-w-screen-xl px-4 mx-auto flex items-center justify-start -mt--desktop---5xl'>
           <Breadcrumbs />

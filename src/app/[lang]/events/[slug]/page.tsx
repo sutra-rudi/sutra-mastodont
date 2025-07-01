@@ -17,7 +17,7 @@ export default async function SingleEventPage({ params: { lang, slug } }: { para
   const dataset = !eData.error ? eData.data.event : null;
 
   return (
-    <main className='w-full xl:-pb--xl---5xl lg:-pb--desktop---5xl md:-pb--tablet---5xl -pb--mobile---5xl min-h-screen'>
+    <main className='xl:-pb--xl---5xl lg:-pb--desktop---5xl md:-pb--tablet---5xl -pb--mobile---5xl relative w-full dark:bg-primarna-tamna min-h-screen bg-white z-40'>
       <div className='container px-4 mx-auto flex items-center justify-start -mt--desktop---5xl'>
         <Breadcrumbs />
       </div>

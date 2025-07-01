@@ -25,7 +25,7 @@ export default async function VirtualTours({ params: { lang } }: { params: { lan
   const sites = await fetchSites();
 
   return (
-    <main className='min-h-screen w-full'>
+    <main className='relative w-full dark:bg-primarna-tamna min-h-screen bg-white z-40'>
       <div className='w-full max-w-[1440px] mx-auto my-0 px-4 min-h-screen'>
         <div className='w-full mx-auto flex items-center justify-center'>
           <h2 className='text-4xl font-medium'>Šetnje</h2>

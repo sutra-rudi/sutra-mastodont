@@ -21,7 +21,7 @@ export default async function PressMediaArticlePage({
     : 'https://mastodont-2.sutra-cms.com/Sutra-ftp/other/CMS_Image_Placeholder.jpg';
 
   return (
-    <main className='w-full h-full relative block min-h-screen -mt--desktop---4xl'>
+    <main className='relative w-full dark:bg-primarna-tamna min-h-screen bg-white z-40 -mt--desktop---4xl'>
       <picture>
         <img
           src={img}
