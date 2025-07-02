@@ -4183,11 +4183,11 @@ export default function GIGA_QUERY() {
       }
     }
   }
-  allPressMediaSekcija {
+ allPressMediaSekcija {
     edges {
       node {
         id
-        title
+        databaseId
         statusAtivacijePoJezicima {
           aktivatorEng
           aktivatorGer
@@ -4200,24 +4200,24 @@ export default function GIGA_QUERY() {
           }
         }
         modulBazeTekstovaHr {
-          nadnaslovPodnaslovBazaTekstovaHr
           naslovBazaTekstovaHr
           tekstBazaTekstovaHr
+          nadnaslovPodnaslovBazaTekstovaHr
         }
         modulBazeTekstovaEng {
           nadnaslovPodnaslovBazaTekstovaEng
           naslovBazaTekstovaEng
           tekstBazaTekstovaEng
         }
-        modulBazeTekstovaEsp {
-          nadnaslovPodnaslovBazaTekstovaEsp
-          naslovBazaTekstovaEsp
-          tekstBazaTekstovaEsp
-        }
         modulBazeTekstovaFra {
           nadnaslovPodnaslovBazaTekstovaFra
           naslovBazaTekstovaFra
           tekstBazaTekstovaFra
+        }
+        modulBazeTekstovaEsp {
+          nadnaslovPodnaslovBazaTekstovaEsp
+          naslovBazaTekstovaEsp
+          tekstBazaTekstovaEsp
         }
         modulBazeTekstovaGer {
           nadnaslovPodnaslovBazaTekstovaGer
@@ -4233,6 +4233,25 @@ export default function GIGA_QUERY() {
           nadnaslovPodnaslovBazaTekstovaSlo
           naslovBazaTekstovaSlo
           tekstBazaTekstovaSlo
+        }
+        pressMediaSekcijaUvod {
+          datumPress
+          istakniStaviNaPocetakPress
+          nazivMedijaPress
+          prikaziDodatneOpcijePress
+          vanjskiLinkPress
+          odabirIkonePress
+          fileDownloadPress {
+            node {
+              sourceUrl
+              mediaItemUrl
+            }
+          }
+          slikaPressObjave {
+            node {
+              sourceUrl
+            }
+          }
         }
       }
     }
