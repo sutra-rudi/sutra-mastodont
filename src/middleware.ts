@@ -6,11 +6,18 @@ const SUPPORTED_LANGUAGES = Object.values(UserLanguage);
 const AB_COOKIE_NAME = '@sutra-ab-test';
 const LANG_COOKIE_NAME = '@sutra-user-lang';
 
+/**
+ * Middleware to handle language prefixing and A/B testing cookie setup.
+ * - Redirects root "/" to preferred language based on cookie > Accept-Language > default 'hr'.
+ * - Ensures all non-static paths are prefixed with a valid language code.
+ * - Sets or syncs A/B test and language cookies.
+ */
 export function middleware(request: NextRequest) {
-  const url = request.nextUrl.clone();
+  const { nextUrl, cookies, headers } = request;
+  const url = nextUrl.clone();
   const pathname = url.pathname;
 
-  // Skip static and API
+  // Skip static assets and API routes
   if (
     pathname.startsWith('/_next') ||
     pathname.startsWith('/static') ||
@@ -23,60 +30,65 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // Determine AB group and language cookie
-  const abCookie = request.cookies.get(AB_COOKIE_NAME)?.value;
-  const langCookie = request.cookies.get(LANG_COOKIE_NAME)?.value;
+  // Prepare cookies
+  const abValue = cookies.get(AB_COOKIE_NAME)?.value;
+  const langCookie = cookies.get(LANG_COOKIE_NAME)?.value as UserLanguage | undefined;
 
-  // 1) Always handle root
+  // Determine preferred language: cookie > Accept-Language > 'hr'
+  const acceptLang = headers.get('accept-language')?.split(',')[0].split('-')[0];
+  const preferredLang = (
+    langCookie && SUPPORTED_LANGUAGES.includes(langCookie)
+      ? langCookie
+      : SUPPORTED_LANGUAGES.find((l) => l.startsWith(acceptLang || '')) || 'hr'
+  ) as UserLanguage;
+
+  // 1) Root path: redirect once to /<lang>
   if (pathname === '/') {
-    // Choose language
-    const acceptLang = request.headers.get('accept-language')?.split(',')[0].split('-')[0] || 'hr';
-    const langToUse: UserLanguage = (
-      langCookie && SUPPORTED_LANGUAGES.includes(langCookie as UserLanguage)
-        ? langCookie
-        : SUPPORTED_LANGUAGES.find((l) => l.startsWith(acceptLang)) || 'hr'
-    ) as UserLanguage;
-
-    // Redirect to /lang
-    url.pathname = `/${langToUse}`;
-    const res = NextResponse.redirect(url);
-
-    // Set cookies if missing
-    if (!abCookie)
-      res.cookies.set(AB_COOKIE_NAME, Math.random() < 0.5 ? 'A' : 'B', { maxAge: 60 * 60 * 24 * 30, path: '/' });
-    if (langCookie !== langToUse)
-      res.cookies.set(LANG_COOKIE_NAME, langToUse, { maxAge: 60 * 60 * 24 * 30, path: '/' });
-
-    return res;
-  }
-
-  // 2) For non-root, extract first segment
-  const segment = pathname.split('/')[1] as UserLanguage;
-  const validLang = SUPPORTED_LANGUAGES.includes(segment);
-  const langToUse: UserLanguage = validLang ? segment : ('hr' as any);
-  const hasLangPrefix = validLang;
-
-  // 3) If missing prefix or cookies, redirect once
-  if (!hasLangPrefix || !abCookie || langCookie !== langToUse) {
-    // Build new path: /lang/...rest
-    const rest = hasLangPrefix ? pathname.split('/').slice(2).join('/') : pathname.slice(1);
-    url.pathname = `/${langToUse}${rest ? '/' + rest : ''}`;
-    const res = NextResponse.redirect(url);
-
+    url.pathname = `/${preferredLang}`;
+    const response = NextResponse.redirect(url);
     // Set AB cookie if missing
-    if (!abCookie)
-      res.cookies.set(AB_COOKIE_NAME, Math.random() < 0.5 ? 'A' : 'B', { maxAge: 60 * 60 * 24 * 30, path: '/' });
-    // Set lang cookie if mismatch
-    if (langCookie !== langToUse)
-      res.cookies.set(LANG_COOKIE_NAME, langToUse, { maxAge: 60 * 60 * 24 * 30, path: '/' });
-
-    return res;
+    if (!abValue) {
+      response.cookies.set(AB_COOKIE_NAME, Math.random() < 0.5 ? 'A' : 'B', {
+        path: '/',
+        maxAge: 60 * 60 * 24 * 30,
+      });
+    }
+    // Set language cookie
+    response.cookies.set(LANG_COOKIE_NAME, preferredLang, { path: '/', maxAge: 60 * 60 * 24 * 30 });
+    return response;
   }
 
-  // 4) All good
-  return NextResponse.next();
+  // 2) Check for existing prefix
+  const segments = pathname.split('/');
+  const prefix = segments[1] as UserLanguage;
+  const hasValidPrefix = SUPPORTED_LANGUAGES.includes(prefix);
+
+  // If URL has a valid prefix
+  if (hasValidPrefix) {
+    // Sync cookies if needed
+    let response = NextResponse.next();
+    // Ensure AB cookie
+    if (!abValue) {
+      response.cookies.set(AB_COOKIE_NAME, Math.random() < 0.5 ? 'A' : 'B', { path: '/', maxAge: 60 * 60 * 24 * 30 });
+    }
+    // If prefix !== cookie, overwrite cookie to match prefix
+    if (prefix !== langCookie) {
+      response.cookies.set(LANG_COOKIE_NAME, prefix, { path: '/', maxAge: 60 * 60 * 24 * 30 });
+    }
+    return response;
+  }
+
+  // 3) Missing prefix: redirect once to /<preferredLang><originalPath>
+  url.pathname = `/${preferredLang}${pathname}`;
+  const response = NextResponse.redirect(url);
+  // Set cookies
+  if (!abValue) {
+    response.cookies.set(AB_COOKIE_NAME, Math.random() < 0.5 ? 'A' : 'B', { path: '/', maxAge: 60 * 60 * 24 * 30 });
+  }
+  response.cookies.set(LANG_COOKIE_NAME, preferredLang, { path: '/', maxAge: 60 * 60 * 24 * 30 });
+  return response;
 }
 
 export const config = {
-  matcher: '/((?!_next|static|api|favicon.ico|robots.txt|sitemap.xml|.well-known).*)',
+  matcher: ['/((?!_next|static|api|favicon.ico|robots.txt|sitemap.xml|.well-known).*)'],
 };
