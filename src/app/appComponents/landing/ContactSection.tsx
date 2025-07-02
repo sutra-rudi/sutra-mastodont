@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import ContactForm from '../global/ContactForm';
 import cData from '../../staticData/staticQueryData.json';

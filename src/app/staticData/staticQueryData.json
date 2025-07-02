@@ -6751,7 +6751,7 @@
         {
           "node": {
             "id": "cG9zdDoxNDExOQ==",
-            "title": "dvica",
+            "databaseId": 14119,
             "statusAtivacijePoJezicima": {
               "aktivatorEng": true,
               "aktivatorGer": true,
@@ -6764,46 +6764,56 @@
               }
             },
             "modulBazeTekstovaHr": {
-              "nadnaslovPodnaslovBazaTekstovaHr": "podnaslov hr",
               "naslovBazaTekstovaHr": "test naslov iz baze Lorem Ipsum 2",
-              "tekstBazaTekstovaHr": "<p>Donec et auctor nibh, eu tincidunt augue. Pellentesque vel pretium arcu, vitae feugiat libero. Nulla posuere id nulla at tincidunt. Praesent orci elit, tincidunt vitae est et, molestie fermentum tortor. Mauris laoreet luctus turpis, at volutpat sapien posuere sit amet. Nulla vestibulum nibh ac rutrum lobortis. Donec a nisi sed risus bibendum tincidunt in vel diam.</p>\n<p>Cras id ultricies ex. Suspendisse molestie libero mi, eget dictum erat vehicula eu. Aliquam vel rutrum lectus, vitae maximus urna. Nam id erat blandit, malesuada justo ac, volutpat dui. Aenean bibendum dolor mi, quis sagittis arcu euismod nec. Maecenas eget tempus est. Etiam mauris nunc, dapibus in feugiat sit amet, blandit et nibh. Suspendisse potenti.</p>\n"
+              "tekstBazaTekstovaHr": "<p>Donec et auctor nibh, eu tincidunt augue. Pellentesque vel pretium arcu, vitae feugiat libero. Nulla posuere id nulla at tincidunt. Praesent orci elit, tincidunt vitae est et, molestie fermentum tortor. Mauris laoreet luctus turpis, at volutpat sapien posuere sit amet. Nulla vestibulum nibh ac rutrum lobortis. Donec a nisi sed risus bibendum tincidunt in vel diam.</p>\n<p>Cras id ultricies ex. Suspendisse molestie libero mi, eget dictum erat vehicula eu. Aliquam vel rutrum lectus, vitae maximus urna. Nam id erat blandit, malesuada justo ac, volutpat dui. Aenean bibendum dolor mi, quis sagittis arcu euismod nec. Maecenas eget tempus est. Etiam mauris nunc, dapibus in feugiat sit amet, blandit et nibh. Suspendisse potenti.</p>\n",
+              "nadnaslovPodnaslovBazaTekstovaHr": "podnaslov hr"
             },
             "modulBazeTekstovaEng": {
               "nadnaslovPodnaslovBazaTekstovaEng": "test podnaslov eng",
               "naslovBazaTekstovaEng": " intervju u jutarnjem listu",
               "tekstBazaTekstovaEng": "<p>Donec et auctor nibh, eu tincidunt augue. Pellentesque vel pretium arcu, vitae feugiat libero. Nulla posuere id nulla at tincidunt. Praesent orci elit, tincidunt vitae est et, molestie fermentum tortor. Mauris laoreet luctus turpis, at volutpat sapien posuere sit amet. Nulla vestibulum nibh ac rutrum lobortis. Donec a nisi sed risus bibendum tincidunt in vel diam.</p>\n<p>Cras id ultricies ex. Suspendisse molestie libero mi, eget dictum erat vehicula eu. Aliquam vel rutrum lectus, vitae maximus urna. Nam id erat blandit, malesuada justo ac, volutpat dui. Aenean bibendum dolor mi, quis sagittis arcu euismod nec. Maecenas eget tempus est. Etiam mauris nunc, dapibus in feugiat sit amet, blandit et nibh. Suspendisse potenti.</p>\n"
             },
-            "modulBazeTekstovaEsp": {
-              "nadnaslovPodnaslovBazaTekstovaEsp": null,
-              "naslovBazaTekstovaEsp": null,
-              "tekstBazaTekstovaEsp": null
-            },
             "modulBazeTekstovaFra": {
-              "nadnaslovPodnaslovBazaTekstovaFra": null,
-              "naslovBazaTekstovaFra": null,
-              "tekstBazaTekstovaFra": null
+              "nadnaslovPodnaslovBazaTekstovaFra": "test podnaslov fra",
+              "naslovBazaTekstovaFra": "Naslov objave na franc jeziku - intervju u jutarnjem listu",
+              "tekstBazaTekstovaFra": "<p>Kina bi susjedni Tajvan mogla obgrliti i bez ispaljenog metka, upozorava prestižni američki trust mozgova Center for Strategic and International Studies (CSIS), a prenosi <strong><a href=\"https://edition.cnn.com/2024/06/21/china/china-taiwan-quarantine-intl-hnk-ml/index.html\">CNN</a></strong>. Naime, korištenjem tzv. taktika &#8220;sive zone&#8221;, obalna straža Narodne Republike mogla bi Taipei dovesti u totalnu ili barem djelomičnu izolaciju, čime bi se tajvanske ključne strateške luke odsjekle od trgovinskog lanca. Također, napadom na energetsku infrastrukturu otoka, Kina bi mogla uzurpirati postrojenja o kojima ovisi 23 milijuna Tajvanaca.</p>\n"
+            },
+            "modulBazeTekstovaEsp": {
+              "nadnaslovPodnaslovBazaTekstovaEsp": "test podnaslov esp",
+              "naslovBazaTekstovaEsp": "Naslov objave na špa jeziku - intervju u jutarnjem listu",
+              "tekstBazaTekstovaEsp": "<p>Kina bi susjedni Tajvan mogla obgrliti i bez ispaljenog metka, upozorava prestižni američki trust mozgova Center for Strategic and International Studies (CSIS), a prenosi <strong><a href=\"https://edition.cnn.com/2024/06/21/china/china-taiwan-quarantine-intl-hnk-ml/index.html\">CNN</a></strong>. Naime, korištenjem tzv. taktika &#8220;sive zone&#8221;, obalna straža Narodne Republike mogla bi Taipei dovesti u totalnu ili barem djelomičnu izolaciju, čime bi se tajvanske ključne strateške luke odsjekle od trgovinskog lanca. Također, napadom na energetsku infrastrukturu otoka, Kina bi mogla uzurpirati postrojenja o kojima ovisi 23 milijuna Tajvanaca.</p>\n"
             },
             "modulBazeTekstovaGer": {
-              "nadnaslovPodnaslovBazaTekstovaGer": null,
+              "nadnaslovPodnaslovBazaTekstovaGer": "test podnaslov ger",
               "naslovBazaTekstovaGer": "Naslov objave na njem jeziku - intervju u jutarnjem listu",
               "tekstBazaTekstovaGer": "<p>Kina bi susjedni Tajvan mogla obgrliti i bez ispaljenog metka, upozorava prestižni američki trust mozgova Center for Strategic and International Studies (CSIS), a prenosi <strong><a href=\"https://edition.cnn.com/2024/06/21/china/china-taiwan-quarantine-intl-hnk-ml/index.html\">CNN</a></strong>. Naime, korištenjem tzv. taktika &#8220;sive zone&#8221;, obalna straža Narodne Republike mogla bi Taipei dovesti u totalnu ili barem djelomičnu izolaciju, čime bi se tajvanske ključne strateške luke odsjekle od trgovinskog lanca. Također, napadom na energetsku infrastrukturu otoka, Kina bi mogla uzurpirati postrojenja o kojima ovisi 23 milijuna Tajvanaca.</p>\n"
             },
             "modulBazeTekstovaIta": {
-              "nadnaslovPodnaslovBazaTekstovaIta": null,
+              "nadnaslovPodnaslovBazaTekstovaIta": "test podnaslov ita",
               "naslovBazaTekstovaIta": "Naslov objave na tal jeziku - intervju u jutarnjem listu",
               "tekstBazaTekstovaIta": "<p>Kina bi susjedni Tajvan mogla obgrliti i bez ispaljenog metka, upozorava prestižni američki trust mozgova Center for Strategic and International Studies (CSIS), a prenosi <strong><a href=\"https://edition.cnn.com/2024/06/21/china/china-taiwan-quarantine-intl-hnk-ml/index.html\">CNN</a></strong>. Naime, korištenjem tzv. taktika &#8220;sive zone&#8221;, obalna straža Narodne Republike mogla bi Taipei dovesti u totalnu ili barem djelomičnu izolaciju, čime bi se tajvanske ključne strateške luke odsjekle od trgovinskog lanca. Također, napadom na energetsku infrastrukturu otoka, Kina bi mogla uzurpirati postrojenja o kojima ovisi 23 milijuna Tajvanaca.</p>\n"
             },
             "modulBazeTekstovaSlo": {
-              "nadnaslovPodnaslovBazaTekstovaSlo": null,
-              "naslovBazaTekstovaSlo": null,
-              "tekstBazaTekstovaSlo": null
+              "nadnaslovPodnaslovBazaTekstovaSlo": "test podnaslov slo",
+              "naslovBazaTekstovaSlo": "Naslov objave na slo jeziku - intervju u jutarnjem listu",
+              "tekstBazaTekstovaSlo": "<p>Kina bi susjedni Tajvan mogla obgrliti i bez ispaljenog metka, upozorava prestižni američki trust mozgova Center for Strategic and International Studies (CSIS), a prenosi <strong><a href=\"https://edition.cnn.com/2024/06/21/china/china-taiwan-quarantine-intl-hnk-ml/index.html\">CNN</a></strong>. Naime, korištenjem tzv. taktika &#8220;sive zone&#8221;, obalna straža Narodne Republike mogla bi Taipei dovesti u totalnu ili barem djelomičnu izolaciju, čime bi se tajvanske ključne strateške luke odsjekle od trgovinskog lanca. Također, napadom na energetsku infrastrukturu otoka, Kina bi mogla uzurpirati postrojenja o kojima ovisi 23 milijuna Tajvanaca.</p>\n"
+            },
+            "pressMediaSekcijaUvod": {
+              "datumPress": "2024-06-30T00:00:00+00:00",
+              "istakniStaviNaPocetakPress": true,
+              "nazivMedijaPress": "Večernji",
+              "prikaziDodatneOpcijePress": true,
+              "vanjskiLinkPress": "http://www.jutarnji.hr",
+              "odabirIkonePress": ["TV"],
+              "fileDownloadPress": null,
+              "slikaPressObjave": null
             }
           }
         },
         {
           "node": {
             "id": "cG9zdDoxNDEyMA==",
-            "title": "Ispunjena do kraja spremna za unošenje 3",
+            "databaseId": 14120,
             "statusAtivacijePoJezicima": {
               "aktivatorEng": true,
               "aktivatorGer": true,
@@ -6816,46 +6826,61 @@
               }
             },
             "modulBazeTekstovaHr": {
-              "nadnaslovPodnaslovBazaTekstovaHr": "podnaslov hr 2",
               "naslovBazaTekstovaHr": "test naslov iz baze Lorem Ipsum 2",
-              "tekstBazaTekstovaHr": "<p>Kina bi susjedni Tajvan mogla obgrliti i bez ispaljenog metka, upozorava prestižni američki trust mozgova Center for Strategic and International Studies (CSIS), a prenosi <strong><a href=\"https://edition.cnn.com/2024/06/21/china/china-taiwan-quarantine-intl-hnk-ml/index.html\">CNN</a></strong>. Naime, korištenjem tzv. taktika &#8220;sive zone&#8221;, obalna straža Narodne Republike mogla bi Taipei dovesti u totalnu ili barem djelomičnu izolaciju, čime bi se tajvanske ključne strateške luke odsjekle od trgovinskog lanca. Također, napadom na energetsku infrastrukturu otoka, Kina bi mogla uzurpirati postrojenja o kojima ovisi 23 milijuna Tajvanaca.</p>\n"
+              "tekstBazaTekstovaHr": "<p>Kina bi susjedni Tajvan mogla obgrliti i bez ispaljenog metka, upozorava prestižni američki trust mozgova Center for Strategic and International Studies (CSIS), a prenosi <strong><a href=\"https://edition.cnn.com/2024/06/21/china/china-taiwan-quarantine-intl-hnk-ml/index.html\">CNN</a></strong>. Naime, korištenjem tzv. taktika &#8220;sive zone&#8221;, obalna straža Narodne Republike mogla bi Taipei dovesti u totalnu ili barem djelomičnu izolaciju, čime bi se tajvanske ključne strateške luke odsjekle od trgovinskog lanca. Također, napadom na energetsku infrastrukturu otoka, Kina bi mogla uzurpirati postrojenja o kojima ovisi 23 milijuna Tajvanaca.</p>\n",
+              "nadnaslovPodnaslovBazaTekstovaHr": "podnaslov hr 2"
             },
             "modulBazeTekstovaEng": {
               "nadnaslovPodnaslovBazaTekstovaEng": "test podnaslov eng",
               "naslovBazaTekstovaEng": "Naslov objave na eng jeziku - intervju u jutarnjem listu",
-              "tekstBazaTekstovaEng": null
-            },
-            "modulBazeTekstovaEsp": {
-              "nadnaslovPodnaslovBazaTekstovaEsp": null,
-              "naslovBazaTekstovaEsp": null,
-              "tekstBazaTekstovaEsp": null
+              "tekstBazaTekstovaEng": "<p>Kina bi susjedni Tajvan mogla obgrliti i bez ispaljenog metka, upozorava prestižni američki trust mozgova Center for Strategic and International Studies (CSIS), a prenosi <strong><a href=\"https://edition.cnn.com/2024/06/21/china/china-taiwan-quarantine-intl-hnk-ml/index.html\">CNN</a></strong>. Naime, korištenjem tzv. taktika &#8220;sive zone&#8221;, obalna straža Narodne Republike mogla bi Taipei dovesti u totalnu ili barem djelomičnu izolaciju, čime bi se tajvanske ključne strateške luke odsjekle od trgovinskog lanca. Također, napadom na energetsku infrastrukturu otoka, Kina bi mogla uzurpirati postrojenja o kojima ovisi 23 milijuna Tajvanaca.</p>\n"
             },
             "modulBazeTekstovaFra": {
-              "nadnaslovPodnaslovBazaTekstovaFra": null,
-              "naslovBazaTekstovaFra": null,
-              "tekstBazaTekstovaFra": null
+              "nadnaslovPodnaslovBazaTekstovaFra": "podnaslov fra 2",
+              "naslovBazaTekstovaFra": "Naslov objave na fra jeziku - intervju u jutarnjem listu",
+              "tekstBazaTekstovaFra": "<p>Kina bi susjedni Tajvan mogla obgrliti i bez ispaljenog metka, upozorava prestižni američki trust mozgova Center for Strategic and International Studies (CSIS), a prenosi <strong><a href=\"https://edition.cnn.com/2024/06/21/china/china-taiwan-quarantine-intl-hnk-ml/index.html\">CNN</a></strong>. Naime, korištenjem tzv. taktika &#8220;sive zone&#8221;, obalna straža Narodne Republike mogla bi Taipei dovesti u totalnu ili barem djelomičnu izolaciju, čime bi se tajvanske ključne strateške luke odsjekle od trgovinskog lanca. Također, napadom na energetsku infrastrukturu otoka, Kina bi mogla uzurpirati postrojenja o kojima ovisi 23 milijuna Tajvanaca.</p>\n"
+            },
+            "modulBazeTekstovaEsp": {
+              "nadnaslovPodnaslovBazaTekstovaEsp": "podnaslov esp 2",
+              "naslovBazaTekstovaEsp": "Naslov objave na esp jeziku - intervju u jutarnjem listu",
+              "tekstBazaTekstovaEsp": "<p>Kina bi susjedni Tajvan mogla obgrliti i bez ispaljenog metka, upozorava prestižni američki trust mozgova Center for Strategic and International Studies (CSIS), a prenosi <strong><a href=\"https://edition.cnn.com/2024/06/21/china/china-taiwan-quarantine-intl-hnk-ml/index.html\">CNN</a></strong>. Naime, korištenjem tzv. taktika &#8220;sive zone&#8221;, obalna straža Narodne Republike mogla bi Taipei dovesti u totalnu ili barem djelomičnu izolaciju, čime bi se tajvanske ključne strateške luke odsjekle od trgovinskog lanca. Također, napadom na energetsku infrastrukturu otoka, Kina bi mogla uzurpirati postrojenja o kojima ovisi 23 milijuna Tajvanaca.</p>\n"
             },
             "modulBazeTekstovaGer": {
-              "nadnaslovPodnaslovBazaTekstovaGer": null,
+              "nadnaslovPodnaslovBazaTekstovaGer": "podnaslov ger 2",
               "naslovBazaTekstovaGer": "Naslov objave na njem jeziku - intervju u jutarnjem listu",
               "tekstBazaTekstovaGer": "<p>Kina bi susjedni Tajvan mogla obgrliti i bez ispaljenog metka, upozorava prestižni američki trust mozgova Center for Strategic and International Studies (CSIS), a prenosi <strong><a href=\"https://edition.cnn.com/2024/06/21/china/china-taiwan-quarantine-intl-hnk-ml/index.html\">CNN</a></strong>. Naime, korištenjem tzv. taktika &#8220;sive zone&#8221;, obalna straža Narodne Republike mogla bi Taipei dovesti u totalnu ili barem djelomičnu izolaciju, čime bi se tajvanske ključne strateške luke odsjekle od trgovinskog lanca. Također, napadom na energetsku infrastrukturu otoka, Kina bi mogla uzurpirati postrojenja o kojima ovisi 23 milijuna Tajvanaca.</p>\n"
             },
             "modulBazeTekstovaIta": {
-              "nadnaslovPodnaslovBazaTekstovaIta": null,
+              "nadnaslovPodnaslovBazaTekstovaIta": "podnaslov ita 2",
               "naslovBazaTekstovaIta": "Naslov objave na tal jeziku - intervju u jutarnjem listu",
               "tekstBazaTekstovaIta": "<p>Kina bi susjedni Tajvan mogla obgrliti i bez ispaljenog metka, upozorava prestižni američki trust mozgova Center for Strategic and International Studies (CSIS), a prenosi <strong><a href=\"https://edition.cnn.com/2024/06/21/china/china-taiwan-quarantine-intl-hnk-ml/index.html\">CNN</a></strong>. Naime, korištenjem tzv. taktika &#8220;sive zone&#8221;, obalna straža Narodne Republike mogla bi Taipei dovesti u totalnu ili barem djelomičnu izolaciju, čime bi se tajvanske ključne strateške luke odsjekle od trgovinskog lanca. Također, napadom na energetsku infrastrukturu otoka, Kina bi mogla uzurpirati postrojenja o kojima ovisi 23 milijuna Tajvanaca.</p>\n"
             },
             "modulBazeTekstovaSlo": {
-              "nadnaslovPodnaslovBazaTekstovaSlo": null,
-              "naslovBazaTekstovaSlo": null,
-              "tekstBazaTekstovaSlo": null
+              "nadnaslovPodnaslovBazaTekstovaSlo": "test podnaslov slo2",
+              "naslovBazaTekstovaSlo": "Naslov objave na slo jeziku - intervju u jutarnjem listu",
+              "tekstBazaTekstovaSlo": "<p>Kina bi susjedni Tajvan mogla obgrliti i bez ispaljenog metka, upozorava prestižni američki trust mozgova Center for Strategic and International Studies (CSIS), a prenosi <strong><a href=\"https://edition.cnn.com/2024/06/21/china/china-taiwan-quarantine-intl-hnk-ml/index.html\">CNN</a></strong>. Naime, korištenjem tzv. taktika &#8220;sive zone&#8221;, obalna straža Narodne Republike mogla bi Taipei dovesti u totalnu ili barem djelomičnu izolaciju, čime bi se tajvanske ključne strateške luke odsjekle od trgovinskog lanca. Također, napadom na energetsku infrastrukturu otoka, Kina bi mogla uzurpirati postrojenja o kojima ovisi 23 milijuna Tajvanaca.</p>\n"
+            },
+            "pressMediaSekcijaUvod": {
+              "datumPress": "2024-06-28T00:00:00+00:00",
+              "istakniStaviNaPocetakPress": true,
+              "nazivMedijaPress": "Jutarnji list",
+              "prikaziDodatneOpcijePress": true,
+              "vanjskiLinkPress": "http://www.jutarnji.hr",
+              "odabirIkonePress": ["Novine"],
+              "fileDownloadPress": {
+                "node": {
+                  "sourceUrl": null,
+                  "mediaItemUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2024/06/A002_C009_092221_001-1.mp4"
+                }
+              },
+              "slikaPressObjave": null
             }
           }
         },
         {
           "node": {
             "id": "cG9zdDoyMzE1",
-            "title": "Ispunjena do kraja spremna za unošenje",
+            "databaseId": 2315,
             "statusAtivacijePoJezicima": {
               "aktivatorEng": true,
               "aktivatorGer": true,
@@ -6868,39 +6893,54 @@
               }
             },
             "modulBazeTekstovaHr": {
-              "nadnaslovPodnaslovBazaTekstovaHr": "podnaslov hr",
               "naslovBazaTekstovaHr": "test naslov iz baze Lorem Ipsum",
-              "tekstBazaTekstovaHr": "<p>Kina bi susjedni Tajvan mogla obgrliti i bez ispaljenog metka, upozorava prestižni američki trust mozgova Center for Strategic and International Studies (CSIS), a prenosi <strong><a href=\"https://edition.cnn.com/2024/06/21/china/china-taiwan-quarantine-intl-hnk-ml/index.html\">CNN</a></strong>. Naime, korištenjem tzv. taktika &#8220;sive zone&#8221;, obalna straža Narodne Republike mogla bi Taipei dovesti u totalnu ili barem djelomičnu izolaciju, čime bi se tajvanske ključne strateške luke odsjekle od trgovinskog lanca. Također, napadom na energetsku infrastrukturu otoka, Kina bi mogla uzurpirati postrojenja o kojima ovisi 23 milijuna Tajvanaca.</p>\n"
+              "tekstBazaTekstovaHr": "<p>Kina bi susjedni Tajvan mogla obgrliti i bez ispaljenog metka, upozorava prestižni američki trust mozgova Center for Strategic and International Studies (CSIS), a prenosi <strong><a href=\"https://edition.cnn.com/2024/06/21/china/china-taiwan-quarantine-intl-hnk-ml/index.html\">CNN</a></strong>. Naime, korištenjem tzv. taktika &#8220;sive zone&#8221;, obalna straža Narodne Republike mogla bi Taipei dovesti u totalnu ili barem djelomičnu izolaciju, čime bi se tajvanske ključne strateške luke odsjekle od trgovinskog lanca. Također, napadom na energetsku infrastrukturu otoka, Kina bi mogla uzurpirati postrojenja o kojima ovisi 23 milijuna Tajvanaca.</p>\n",
+              "nadnaslovPodnaslovBazaTekstovaHr": "podnaslov hr"
             },
             "modulBazeTekstovaEng": {
               "nadnaslovPodnaslovBazaTekstovaEng": "test podnaslov eng",
               "naslovBazaTekstovaEng": "Naslov objave na eng jeziku - intervju u jutarnjem listu",
-              "tekstBazaTekstovaEng": null
-            },
-            "modulBazeTekstovaEsp": {
-              "nadnaslovPodnaslovBazaTekstovaEsp": null,
-              "naslovBazaTekstovaEsp": null,
-              "tekstBazaTekstovaEsp": null
+              "tekstBazaTekstovaEng": "<p>Kina bi susjedni Tajvan mogla obgrliti i bez ispaljenog metka, upozorava prestižni američki trust mozgova Center for Strategic and International Studies (CSIS), a prenosi <strong><a href=\"https://edition.cnn.com/2024/06/21/china/china-taiwan-quarantine-intl-hnk-ml/index.html\">CNN</a></strong>. Naime, korištenjem tzv. taktika &#8220;sive zone&#8221;, obalna straža Narodne Republike mogla bi Taipei dovesti u totalnu ili barem djelomičnu izolaciju, čime bi se tajvanske ključne strateške luke odsjekle od trgovinskog lanca. Također, napadom na energetsku infrastrukturu otoka, Kina bi mogla uzurpirati postrojenja o kojima ovisi 23 milijuna Tajvanaca.</p>\n"
             },
             "modulBazeTekstovaFra": {
-              "nadnaslovPodnaslovBazaTekstovaFra": null,
-              "naslovBazaTekstovaFra": null,
-              "tekstBazaTekstovaFra": null
+              "nadnaslovPodnaslovBazaTekstovaFra": "test podnaslov fra",
+              "naslovBazaTekstovaFra": "Naslov objave na fra jeziku - intervju u jutarnjem listu",
+              "tekstBazaTekstovaFra": "<p>Kina bi susjedni Tajvan mogla obgrliti i bez ispaljenog metka, upozorava prestižni američki trust mozgova Center for Strategic and International Studies (CSIS), a prenosi <strong><a href=\"https://edition.cnn.com/2024/06/21/china/china-taiwan-quarantine-intl-hnk-ml/index.html\">CNN</a></strong>. Naime, korištenjem tzv. taktika &#8220;sive zone&#8221;, obalna straža Narodne Republike mogla bi Taipei dovesti u totalnu ili barem djelomičnu izolaciju, čime bi se tajvanske ključne strateške luke odsjekle od trgovinskog lanca. Također, napadom na energetsku infrastrukturu otoka, Kina bi mogla uzurpirati postrojenja o kojima ovisi 23 milijuna Tajvanaca.</p>\n"
+            },
+            "modulBazeTekstovaEsp": {
+              "nadnaslovPodnaslovBazaTekstovaEsp": "test podnaslov esp",
+              "naslovBazaTekstovaEsp": "Naslov objave na špa jeziku - intervju u jutarnjem listu",
+              "tekstBazaTekstovaEsp": "<p>Kina bi susjedni Tajvan mogla obgrliti i bez ispaljenog metka, upozorava prestižni američki trust mozgova Center for Strategic and International Studies (CSIS), a prenosi <strong><a href=\"https://edition.cnn.com/2024/06/21/china/china-taiwan-quarantine-intl-hnk-ml/index.html\">CNN</a></strong>. Naime, korištenjem tzv. taktika &#8220;sive zone&#8221;, obalna straža Narodne Republike mogla bi Taipei dovesti u totalnu ili barem djelomičnu izolaciju, čime bi se tajvanske ključne strateške luke odsjekle od trgovinskog lanca. Također, napadom na energetsku infrastrukturu otoka, Kina bi mogla uzurpirati postrojenja o kojima ovisi 23 milijuna Tajvanaca.</p>\n"
             },
             "modulBazeTekstovaGer": {
-              "nadnaslovPodnaslovBazaTekstovaGer": null,
+              "nadnaslovPodnaslovBazaTekstovaGer": "test podnaslov ger",
               "naslovBazaTekstovaGer": "Naslov objave na njem jeziku - intervju u jutarnjem listu",
               "tekstBazaTekstovaGer": "<p>Kina bi susjedni Tajvan mogla obgrliti i bez ispaljenog metka, upozorava prestižni američki trust mozgova Center for Strategic and International Studies (CSIS), a prenosi <strong><a href=\"https://edition.cnn.com/2024/06/21/china/china-taiwan-quarantine-intl-hnk-ml/index.html\">CNN</a></strong>. Naime, korištenjem tzv. taktika &#8220;sive zone&#8221;, obalna straža Narodne Republike mogla bi Taipei dovesti u totalnu ili barem djelomičnu izolaciju, čime bi se tajvanske ključne strateške luke odsjekle od trgovinskog lanca. Također, napadom na energetsku infrastrukturu otoka, Kina bi mogla uzurpirati postrojenja o kojima ovisi 23 milijuna Tajvanaca.</p>\n"
             },
             "modulBazeTekstovaIta": {
-              "nadnaslovPodnaslovBazaTekstovaIta": null,
+              "nadnaslovPodnaslovBazaTekstovaIta": "test podnaslov ita",
               "naslovBazaTekstovaIta": "Naslov objave na tal jeziku - intervju u jutarnjem listu",
               "tekstBazaTekstovaIta": "<p>Kina bi susjedni Tajvan mogla obgrliti i bez ispaljenog metka, upozorava prestižni američki trust mozgova Center for Strategic and International Studies (CSIS), a prenosi <strong><a href=\"https://edition.cnn.com/2024/06/21/china/china-taiwan-quarantine-intl-hnk-ml/index.html\">CNN</a></strong>. Naime, korištenjem tzv. taktika &#8220;sive zone&#8221;, obalna straža Narodne Republike mogla bi Taipei dovesti u totalnu ili barem djelomičnu izolaciju, čime bi se tajvanske ključne strateške luke odsjekle od trgovinskog lanca. Također, napadom na energetsku infrastrukturu otoka, Kina bi mogla uzurpirati postrojenja o kojima ovisi 23 milijuna Tajvanaca.</p>\n"
             },
             "modulBazeTekstovaSlo": {
-              "nadnaslovPodnaslovBazaTekstovaSlo": null,
-              "naslovBazaTekstovaSlo": null,
-              "tekstBazaTekstovaSlo": null
+              "nadnaslovPodnaslovBazaTekstovaSlo": "test podnaslov slo",
+              "naslovBazaTekstovaSlo": "Naslov objave na slo jeziku - intervju u jutarnjem listu",
+              "tekstBazaTekstovaSlo": "<p>Kina bi susjedni Tajvan mogla obgrliti i bez ispaljenog metka, upozorava prestižni američki trust mozgova Center for Strategic and International Studies (CSIS), a prenosi <strong><a href=\"https://edition.cnn.com/2024/06/21/china/china-taiwan-quarantine-intl-hnk-ml/index.html\">CNN</a></strong>. Naime, korištenjem tzv. taktika &#8220;sive zone&#8221;, obalna straža Narodne Republike mogla bi Taipei dovesti u totalnu ili barem djelomičnu izolaciju, čime bi se tajvanske ključne strateške luke odsjekle od trgovinskog lanca. Također, napadom na energetsku infrastrukturu otoka, Kina bi mogla uzurpirati postrojenja o kojima ovisi 23 milijuna Tajvanaca.</p>\n"
+            },
+            "pressMediaSekcijaUvod": {
+              "datumPress": "2024-06-28T00:00:00+00:00",
+              "istakniStaviNaPocetakPress": true,
+              "nazivMedijaPress": "Jutarnji list",
+              "prikaziDodatneOpcijePress": true,
+              "vanjskiLinkPress": "http://www.jutarnji.hr",
+              "odabirIkonePress": ["Novine"],
+              "fileDownloadPress": {
+                "node": {
+                  "sourceUrl": null,
+                  "mediaItemUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2024/06/A002_C009_092221_001-1.mp4"
+                }
+              },
+              "slikaPressObjave": null
             }
           }
         }
@@ -10972,7 +11012,7 @@
             "featuresListaHr": {
               "sadrzajHr": {
                 "uvod": {
-                  "nadnaslov": null,
+                  "nadnaslov": "❤️ Evo emoji",
                   "naslov": "Lorem ipsum headline naslov ",
                   "sadrzaj": "<p>Sed sit amet vestibulum lorem. Etiam a vestibulum lectus, congue condimentum justo. Mauris dapibus enim ut sem imperdiet dictum. Phasellus id molestie urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce eleifend lectus eros, faucibus lobortis nunc gravida a. Duis metus velit, rutrum vestibulum scelerisque sed, finibus id magna. Integer elementum justo cursus, consequat magna eget, accumsan tortor. Vestibulum euismod eget metus nec molestie. Phasellus porttitor bibendum dolor.</p>\n",
                   "brojStavki": ["3"]

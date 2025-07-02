@@ -13,6 +13,9 @@ import { fetchData } from './utils/callApi';
 import GetAlertsQuery from './queries/dynamicQueries/getAllAlerts';
 import NewsTrack from './globalComponents/NewsTrack';
 import { GoogleTagManager } from '@next/third-parties/google';
+import getAllSchemaWhQuery from './queries/dynamicQueries/getSchemaGoogleWh';
+import { generateSchemaOrgOpeningHours } from './utils/generateWhSchema';
+import Script from 'next/script';
 
 const AppHeader = dynamic(() => import('./globalComponents/AppHeader'));
 const AppFooter = dynamic(() => import('./globalComponents/AppFooter'));
@@ -42,7 +45,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const { appleTouchIcons, favicons } = MP;
 
   return {
-    authors: [{ name: 'Boat-Tour-Zadar' }, { name: 'Studio Sutra' }],
+    authors: [{ name: 'Studio Sutra' }],
 
     robots: {
       index: true,
@@ -83,9 +86,15 @@ export default async function RootLayout({
 
   const getNews = await fetchData(GetAlertsQuery());
 
+  const getSchemaWh = await fetchData(getAllSchemaWhQuery());
+
   const newsTrackData = !getNews.error ? getNews.data.allObavijestiNaStranici.edges || null : null;
 
+  console.log('FET', getSchemaWh.data.allSeoRadnaVremenaTrazilice.edges[0].node);
+
   const { siteLogo } = MP;
+
+  const openingHoursSchema = generateSchemaOrgOpeningHours(getSchemaWh.data.allSeoRadnaVremenaTrazilice.edges[0].node);
 
   return (
     <html lang={localeMapping[lang]} className='scrollbar scrollbar-thumb-accent-boja scrollbar-track-primarna-tamna'>
@@ -117,6 +126,15 @@ export default async function RootLayout({
           <CookieNotice lng={lang} />
           {newsTrackData && <NewsTrack pageContent={newsTrackData} lang={lang} />}
         </Suspense>
+
+        <Script
+          id='opening-hours-jsonld'
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(openingHoursSchema, null, 2),
+          }}
+          strategy='afterInteractive'
+        />
 
         {/* {schemaBasicData && (
           <Script id='schema-org' type='application/ld+json' dangerouslySetInnerHTML={{ __html: schemaBasicData }} />

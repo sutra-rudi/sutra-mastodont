@@ -77,7 +77,7 @@ export default function getAllPressMediaQuery() {
 }
 
 export function getPressMediaFragment() {
-  return `  allPressMediaSekcija {
+  return `allPressMediaSekcija {
     edges {
       node {
         id
