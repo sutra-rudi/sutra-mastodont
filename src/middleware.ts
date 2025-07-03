@@ -8,18 +8,20 @@ export function middleware(request: NextRequest) {
   const LANG_COOKIE_NAME = '@sutra-user-lang';
 
   const url = request.nextUrl.clone();
-  const cookies = request.cookies;
+  const { cookies } = request;
 
-  // Read existing cookies
+  // Read existing cookies (ako su već poslani)
   const abCookie = cookies.get(AB_COOKIE_NAME)?.value;
   const userLangFromCookie = cookies.get(LANG_COOKIE_NAME)?.value;
 
-  // Helper to set both cookies and rewrite to new URL
-  const rewriteWithCookies = (targetUrl: URL, lang: string) => {
-    const response = NextResponse.rewrite(targetUrl);
-    // Set language cookie
-    response.cookies.set(LANG_COOKIE_NAME, lang, { maxAge: 60 * 60 * 24 * 30, path: '/' });
-    // Set A/B test cookie if not present
+  // Helper: redirect + postavi cookie
+  const redirectWithCookies = (targetUrl: URL, lang: string) => {
+    // 307 = temporary redirect; možeš staviti 301 ako želiš trajni
+    const response = NextResponse.redirect(targetUrl, 307);
+    response.cookies.set(LANG_COOKIE_NAME, lang, {
+      maxAge: 60 * 60 * 24 * 30,
+      path: '/',
+    });
     response.cookies.set(AB_COOKIE_NAME, abCookie ?? (Math.random() < 0.5 ? 'A' : 'B'), {
       maxAge: 60 * 60 * 24 * 30,
       path: '/',
@@ -27,7 +29,7 @@ export function middleware(request: NextRequest) {
     return response;
   };
 
-  // Skip static, API, and misc
+  // Preskoči assete, API, sitemap itd.
   if (
     url.pathname.startsWith('/_next') ||
     url.pathname.startsWith('/static') ||
@@ -41,7 +43,7 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // 1) Root path: rewrite to /<lang> with cookies
+  // 1) Root path: redirect na /<lang>
   if (url.pathname === '/') {
     let langToUse = 'hr';
     if (userLangFromCookie && SUPPORTED_LANGUAGES.includes(userLangFromCookie as UserLanguage)) {
@@ -52,28 +54,27 @@ export function middleware(request: NextRequest) {
       if (match) langToUse = match;
     }
     url.pathname = `/${langToUse}`;
-    return rewriteWithCookies(url, langToUse);
+    return redirectWithCookies(url, langToUse);
   }
 
-  // 2) Validate prefix
+  // 2) Provjeri prefix
   const segments = url.pathname.split('/');
   const prefix = segments[1] as UserLanguage;
   const hasValidPrefix = SUPPORTED_LANGUAGES.includes(prefix);
 
   if (!hasValidPrefix) {
-    // No valid prefix: rewrite to /hr/<rest> with cookies
+    // npr. /foo → /hr/foo
     const rest = url.pathname;
     url.pathname = `/hr${rest}`;
-    return rewriteWithCookies(url, 'hr');
+    return redirectWithCookies(url, 'hr');
   }
 
-  // 3) Prefix present: ensure cookies match
+  // 3) Ako cookie ne slaže s prefixom, samo refresh cookie i redirect na isti URL
   if (!userLangFromCookie || userLangFromCookie !== prefix) {
-    // Same URL but set cookies
-    return rewriteWithCookies(url, prefix);
+    return redirectWithCookies(url, prefix);
   }
 
-  // 4) Everything good
+  // 4) sve ok
   return NextResponse.next();
 }
 
