@@ -10,8 +10,8 @@ const LANG_COOKIE_NAME = '@sutra-user-lang';
  * Middleware to handle language prefixing and A/B testing cookie setup.
  * - Redirects root "/" to /<lang>, setting cookies before SSR.
  * - Ensures all non-static paths are prefixed with a valid language code.
- * - Sets A/B test cookie via redirect if missing to guarantee availability during SSR.
- * - Syncs language cookie via redirect if mismatched.
+ * - Sets A/B test and language cookies via redirects when missing to guarantee availability during SSR.
+ * - Avoids redirect loops by only redirecting for root, missing prefix, or missing/mismatched cookies.
  */
 export function middleware(request: NextRequest) {
   const { nextUrl, cookies, headers } = request;
@@ -60,15 +60,12 @@ export function middleware(request: NextRequest) {
   const prefix = segments[1] as UserLanguage;
   const hasValidPrefix = SUPPORTED_LANGUAGES.includes(prefix);
 
+  // 2) Valid prefix: if cookies missing or mismatched, redirect to same URL to set cookies
   if (hasValidPrefix) {
-    // If A/B cookie missing or lang cookie mismatched, redirect to same URL to set
     if (!abValue || prefix !== langCookie) {
       const response = NextResponse.redirect(url);
       if (!abValue) {
-        response.cookies.set(AB_COOKIE_NAME, Math.random() < 0.5 ? 'A' : 'B', {
-          path: '/',
-          maxAge: 60 * 60 * 24 * 30,
-        });
+        response.cookies.set(AB_COOKIE_NAME, Math.random() < 0.5 ? 'A' : 'B', { path: '/', maxAge: 60 * 60 * 24 * 30 });
       }
       if (prefix !== langCookie) {
         response.cookies.set(LANG_COOKIE_NAME, prefix, { path: '/', maxAge: 60 * 60 * 24 * 30 });
@@ -79,7 +76,7 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // Missing prefix: redirect to /<preferredLang><originalPath> and set cookies
+  // 3) Missing prefix: redirect to /<preferredLang><originalPath> and set cookies
   url.pathname = `/${preferredLang}${pathname}`;
   const response = NextResponse.redirect(url);
   response.cookies.set(AB_COOKIE_NAME, abValue ?? (Math.random() < 0.5 ? 'A' : 'B'), {
