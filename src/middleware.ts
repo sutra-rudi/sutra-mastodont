@@ -13,15 +13,6 @@ export function middleware(request: NextRequest) {
   const abCookie = cookies.get(AB_COOKIE_NAME)?.value;
   const userLangFromCookie = cookies.get(LANG_COOKIE_NAME)?.value;
 
-  // === BOT HANDLING (PageSpeed, Lighthouse, PSI...) ===
-  if (/lighthouse|psi|Chrome-Lighthouse|Google-PageSpeed/i.test(ua)) {
-    const accept = request.headers.get('accept-language')?.split(',')[0].split('-')[0];
-    const langToUse = accept && SUPPORTED_LANGUAGES.includes(accept as UserLanguage) ? accept : 'hr';
-
-    url.pathname = `/${langToUse}`;
-    return NextResponse.rewrite(url);
-  }
-
   // === Preskoči assete, API i sl. ===
   if (
     url.pathname.startsWith('/_next') ||
