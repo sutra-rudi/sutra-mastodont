@@ -1,5 +1,5 @@
 import './globals.scss';
-import { cookies } from 'next/headers';
+import { cookies, headers } from 'next/headers';
 import { UserLanguage } from './enums/LangEnum';
 import { Toaster } from 'react-hot-toast';
 import { Suspense } from 'react';
@@ -79,8 +79,26 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // 1) probaj iz Request.cookie store‑a
   const cookieStore = cookies();
-  const lang = (cookieStore.get('@sutra-user-lang')?.value as UserLanguage) || 'hr';
+  let ab = cookieStore.get('@sutra-ab-test')?.value;
+  let lang = cookieStore.get('@sutra-user-lang')?.value as UserLanguage;
+
+  // 2) ako je prvi render i cookie još nije “ušao” u Request, pogleda se Set‑Cookie header
+  if (!ab || !lang) {
+    const setCookieHeader = headers().get('set-cookie') || '';
+    // parseSetCookie je funkcija za izvlačenje pojedinačnog 'name=value' para iz stringa.
+    const parseSetCookie = (header: string, name: string) => {
+      const re = new RegExp(`${name}=([^;]+)`);
+      const m = header.match(re);
+      return m ? m[1] : undefined;
+    };
+
+    ab = ab ?? parseSetCookie(setCookieHeader, '@sutra-ab-test');
+    lang = lang ?? parseSetCookie(setCookieHeader, '@sutra-user-lang');
+  }
+
+  console.log('AB TEST LAYOUT', ab, 'LANG LAYOUT', lang);
 
   const MP = await fetchMediaPaths();
 

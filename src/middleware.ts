@@ -4,22 +4,36 @@ import { UserLanguage } from './app/enums/LangEnum';
 
 export function middleware(request: NextRequest) {
   const SUPPORTED_LANGUAGES = Object.values(UserLanguage);
-  const userLangFromCookie = request.cookies.get('@sutra-user-lang')?.value;
-  const url = request.nextUrl;
+  const AB_COOKIE_NAME = '@sutra-ab-test';
+  const LANG_COOKIE_NAME = '@sutra-user-lang';
 
-  // Funkcija za preusmjeravanje s postavljanjem jezika u kolačić
-  const redirectToLanguage = (lang: string) => {
-    const response = NextResponse.redirect(new URL(`/${lang}`, url));
-    response.cookies.set('@sutra-user-lang', lang, { maxAge: 60 * 60 * 24 * 30 }); // 30 dana trajanja
+  const url = request.nextUrl.clone();
+  const cookies = request.cookies;
+
+  // Read existing cookies
+  const abCookie = cookies.get(AB_COOKIE_NAME)?.value;
+  const userLangFromCookie = cookies.get(LANG_COOKIE_NAME)?.value;
+
+  // Helper to set both cookies and rewrite to new URL
+  const rewriteWithCookies = (targetUrl: URL, lang: string) => {
+    const response = NextResponse.rewrite(targetUrl);
+    // Set language cookie
+    response.cookies.set(LANG_COOKIE_NAME, lang, { maxAge: 60 * 60 * 24 * 30, path: '/' });
+    // Set A/B test cookie if not present
+    response.cookies.set(AB_COOKIE_NAME, abCookie ?? (Math.random() < 0.5 ? 'A' : 'B'), {
+      maxAge: 60 * 60 * 24 * 30,
+      path: '/',
+    });
     return response;
   };
 
-  // Izuzetak za sitemap.xml
+  // Skip static, API, and misc
   if (
     url.pathname.startsWith('/_next') ||
     url.pathname.startsWith('/static') ||
     url.pathname.startsWith('/api') ||
     url.pathname === '/favicon.ico' ||
+    url.pathname === '/_not-found' ||
     url.pathname.endsWith('/sitemap.xml') ||
     url.pathname.endsWith('/robots.txt') ||
     url.pathname.startsWith('/.well-known')
@@ -27,34 +41,42 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // Ako korisnik posjećuje osnovnu stranicu "/"
+  // 1) Root path: rewrite to /<lang> with cookies
   if (url.pathname === '/') {
+    let langToUse = 'hr';
     if (userLangFromCookie && SUPPORTED_LANGUAGES.includes(userLangFromCookie as UserLanguage)) {
-      return redirectToLanguage(userLangFromCookie);
+      langToUse = userLangFromCookie;
+    } else {
+      const accept = request.headers.get('accept-language')?.split(',')[0].split('-')[0];
+      const match = accept && SUPPORTED_LANGUAGES.find((l) => l.startsWith(accept));
+      if (match) langToUse = match;
     }
-
-    const acceptLanguage = request.headers.get('accept-language')?.split(',')[0].split('-')[0];
-    if (acceptLanguage) {
-      const langMatch = SUPPORTED_LANGUAGES.find((lang) => lang.startsWith(acceptLanguage));
-      if (langMatch) return redirectToLanguage(langMatch);
-    }
-    return redirectToLanguage('hr');
+    url.pathname = `/${langToUse}`;
+    return rewriteWithCookies(url, langToUse);
   }
 
-  // Pročitaj jezik iz putanje ("/lang/...")
-  const lang = url.pathname.split('/')[1];
-  if (!SUPPORTED_LANGUAGES.includes(lang as UserLanguage)) return redirectToLanguage('hr');
+  // 2) Validate prefix
+  const segments = url.pathname.split('/');
+  const prefix = segments[1] as UserLanguage;
+  const hasValidPrefix = SUPPORTED_LANGUAGES.includes(prefix);
 
-  // Ako kolačić nije postavljen, postavi ga
-  if (!userLangFromCookie) {
-    const response = NextResponse.next();
-    response.cookies.set('@sutra-user-lang', lang, { maxAge: 60 * 60 * 24 * 30 });
-    return response;
+  if (!hasValidPrefix) {
+    // No valid prefix: rewrite to /hr/<rest> with cookies
+    const rest = url.pathname;
+    url.pathname = `/hr${rest}`;
+    return rewriteWithCookies(url, 'hr');
   }
 
+  // 3) Prefix present: ensure cookies match
+  if (!userLangFromCookie || userLangFromCookie !== prefix) {
+    // Same URL but set cookies
+    return rewriteWithCookies(url, prefix);
+  }
+
+  // 4) Everything good
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: '/((?!api|_next|static|favicon.ico|sitemap.xml).*)',
+  matcher: '/((?!_next|static|api|favicon.ico|robots.txt|sitemap.xml|.well-known).*)',
 };
