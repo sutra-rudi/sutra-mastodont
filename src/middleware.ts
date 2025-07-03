@@ -8,17 +8,28 @@ const LANG_COOKIE_NAME = '@sutra-user-lang';
 
 /**
  * Middleware to handle language prefixing and A/B testing cookie setup.
- * - Redirects root "/" to /<lang>, setting cookies before SSR.
- * - Ensures all non-static paths are prefixed with a valid language code.
- * - Sets A/B test and language cookies via redirects when missing to guarantee availability during SSR.
- * - Avoids redirect loops by only redirecting for root, missing prefix, or missing/mismatched cookies.
+ * - Detects bots (Lighthouse, PSI) and serves /hr rewrite without redirects.
+ * - Redirects root "/" to /<lang>, setting cookies via redirect.
+ * - Ensures all non-static paths are prefixed with valid language code.
+ * - Sets or syncs cookies via redirect when missing or mismatched.
+ * - Avoids redirect loops by only redirecting when necessary.
  */
 export function middleware(request: NextRequest) {
   const { nextUrl, cookies, headers } = request;
   const url = nextUrl.clone();
   const pathname = url.pathname;
 
-  // Skip static assets and API routes
+  // 1) Bot detection: serve /hr for bots without redirect loops
+  const ua = headers.get('user-agent') || '';
+  if (/Googlebot|Lighthouse|Speed Insights/i.test(ua)) {
+    if (!pathname.startsWith('/hr')) {
+      url.pathname = `/hr${pathname}`;
+      return NextResponse.rewrite(url);
+    }
+    return NextResponse.next();
+  }
+
+  // 2) Skip static and API routes
   if (
     pathname.startsWith('/_next') ||
     pathname.startsWith('/static') ||
@@ -43,7 +54,7 @@ export function middleware(request: NextRequest) {
       : SUPPORTED_LANGUAGES.find((l) => l.startsWith(acceptLang || '')) || 'hr'
   ) as UserLanguage;
 
-  // 1) Root path: redirect to /<lang> and set cookies via redirect
+  // 3) Root path: redirect to /<lang> and set cookies
   if (pathname === '/') {
     url.pathname = `/${preferredLang}`;
     const response = NextResponse.redirect(url);
@@ -55,13 +66,14 @@ export function middleware(request: NextRequest) {
     return response;
   }
 
-  // Parse prefix
+  // Parse first segment for prefix
   const segments = pathname.split('/');
   const prefix = segments[1] as UserLanguage;
   const hasValidPrefix = SUPPORTED_LANGUAGES.includes(prefix);
 
-  // 2) Valid prefix: if cookies missing or mismatched, redirect to same URL to set cookies
+  // 4a) Valid prefix: sync cookies if needed, no redirect loop
   if (hasValidPrefix) {
+    // If missing or mismatched, redirect to same URL to set
     if (!abValue || prefix !== langCookie) {
       const response = NextResponse.redirect(url);
       if (!abValue) {
@@ -72,11 +84,10 @@ export function middleware(request: NextRequest) {
       }
       return response;
     }
-    // All set: continue to SSR
     return NextResponse.next();
   }
 
-  // 3) Missing prefix: redirect to /<preferredLang><originalPath> and set cookies
+  // 4b) Missing prefix: redirect to /<preferredLang><originalPath> and set cookies
   url.pathname = `/${preferredLang}${pathname}`;
   const response = NextResponse.redirect(url);
   response.cookies.set(AB_COOKIE_NAME, abValue ?? (Math.random() < 0.5 ? 'A' : 'B'), {
