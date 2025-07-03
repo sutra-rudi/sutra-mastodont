@@ -90,8 +90,6 @@ export default async function RootLayout({
 
   const newsTrackData = !getNews.error ? getNews.data.allObavijestiNaStranici.edges || null : null;
 
-  console.log('FET', getSchemaWh.data.allSeoRadnaVremenaTrazilice.edges[0].node);
-
   const { siteLogo } = MP;
 
   const openingHoursSchema = generateSchemaOrgOpeningHours(getSchemaWh.data.allSeoRadnaVremenaTrazilice.edges[0].node);
