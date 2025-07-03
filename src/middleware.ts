@@ -2,102 +2,81 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { UserLanguage } from './app/enums/LangEnum';
 
-const SUPPORTED_LANGUAGES = Object.values(UserLanguage);
-const AB_COOKIE_NAME = '@sutra-ab-test';
-const LANG_COOKIE_NAME = '@sutra-user-lang';
-
-/**
- * Middleware to handle language prefixing and A/B testing cookie setup.
- * - Detects bots (Lighthouse, PSI) and serves /hr rewrite without redirects.
- * - Redirects root "/" to /<lang>, setting cookies via redirect.
- * - Ensures all non-static paths are prefixed with valid language code.
- * - Sets or syncs cookies via redirect when missing or mismatched.
- * - Avoids redirect loops by only redirecting when necessary.
- */
 export function middleware(request: NextRequest) {
-  const { nextUrl, cookies, headers } = request;
-  const url = nextUrl.clone();
-  const pathname = url.pathname;
+  const SUPPORTED_LANGUAGES = Object.values(UserLanguage);
+  const AB_COOKIE_NAME = '@sutra-ab-test';
+  const LANG_COOKIE_NAME = '@sutra-user-lang';
 
-  // 1) Bot detection: serve /hr for bots without redirect loops
-  const ua = headers.get('user-agent') || '';
-  if (/Googlebot|Lighthouse|Speed Insights/i.test(ua)) {
-    if (!pathname.startsWith('/hr')) {
-      url.pathname = `/hr${pathname}`;
-      return NextResponse.rewrite(url);
-    }
-    return NextResponse.next();
-  }
+  const url = request.nextUrl.clone();
+  const cookies = request.cookies;
 
-  // 2) Skip static and API routes
+  // Read existing cookies
+  const abCookie = cookies.get(AB_COOKIE_NAME)?.value;
+  const userLangFromCookie = cookies.get(LANG_COOKIE_NAME)?.value;
+
+  // Helper to set both cookies and rewrite to new URL
+  const rewriteWithCookies = (targetUrl: URL, lang: string) => {
+    const response = NextResponse.rewrite(targetUrl);
+    // Set language cookie
+    response.cookies.set(LANG_COOKIE_NAME, lang, { maxAge: 60 * 60 * 24 * 30, path: '/' });
+    // Set A/B test cookie if not present
+    response.cookies.set(AB_COOKIE_NAME, abCookie ?? (Math.random() < 0.5 ? 'A' : 'B'), {
+      maxAge: 60 * 60 * 24 * 30,
+      path: '/',
+    });
+    return response;
+  };
+
+  // Skip static, API, and misc
   if (
-    pathname.startsWith('/_next') ||
-    pathname.startsWith('/static') ||
-    pathname.startsWith('/api') ||
-    pathname === '/favicon.ico' ||
-    pathname.endsWith('/sitemap.xml') ||
-    pathname.endsWith('/robots.txt') ||
-    pathname.startsWith('/.well-known')
+    url.pathname.startsWith('/_next') ||
+    url.pathname.startsWith('/static') ||
+    url.pathname.startsWith('/api') ||
+    url.pathname === '/favicon.ico' ||
+    url.pathname === '/_not-found' ||
+    url.pathname.endsWith('/sitemap.xml') ||
+    url.pathname.endsWith('/robots.txt') ||
+    url.pathname.startsWith('/.well-known')
   ) {
     return NextResponse.next();
   }
 
-  // Read cookies
-  const abValue = cookies.get(AB_COOKIE_NAME)?.value;
-  const langCookie = cookies.get(LANG_COOKIE_NAME)?.value as UserLanguage | undefined;
-
-  // Determine preferred language: cookie > Accept-Language > 'hr'
-  const acceptLang = headers.get('accept-language')?.split(',')[0].split('-')[0];
-  const preferredLang = (
-    langCookie && SUPPORTED_LANGUAGES.includes(langCookie)
-      ? langCookie
-      : SUPPORTED_LANGUAGES.find((l) => l.startsWith(acceptLang || '')) || 'hr'
-  ) as UserLanguage;
-
-  // 3) Root path: redirect to /<lang> and set cookies
-  if (pathname === '/') {
-    url.pathname = `/${preferredLang}`;
-    const response = NextResponse.redirect(url);
-    response.cookies.set(AB_COOKIE_NAME, abValue ?? (Math.random() < 0.5 ? 'A' : 'B'), {
-      path: '/',
-      maxAge: 60 * 60 * 24 * 30,
-    });
-    response.cookies.set(LANG_COOKIE_NAME, preferredLang, { path: '/', maxAge: 60 * 60 * 24 * 30 });
-    return response;
+  // 1) Root path: rewrite to /<lang> with cookies
+  if (url.pathname === '/') {
+    let langToUse = 'hr';
+    if (userLangFromCookie && SUPPORTED_LANGUAGES.includes(userLangFromCookie as UserLanguage)) {
+      langToUse = userLangFromCookie;
+    } else {
+      const accept = request.headers.get('accept-language')?.split(',')[0].split('-')[0];
+      const match = accept && SUPPORTED_LANGUAGES.find((l) => l.startsWith(accept));
+      if (match) langToUse = match;
+    }
+    url.pathname = `/${langToUse}`;
+    return rewriteWithCookies(url, langToUse);
   }
 
-  // Parse first segment for prefix
-  const segments = pathname.split('/');
+  // 2) Validate prefix
+  const segments = url.pathname.split('/');
   const prefix = segments[1] as UserLanguage;
   const hasValidPrefix = SUPPORTED_LANGUAGES.includes(prefix);
 
-  // 4a) Valid prefix: sync cookies if needed, no redirect loop
-  if (hasValidPrefix) {
-    // If missing or mismatched, redirect to same URL to set
-    if (!abValue || prefix !== langCookie) {
-      const response = NextResponse.redirect(url);
-      if (!abValue) {
-        response.cookies.set(AB_COOKIE_NAME, Math.random() < 0.5 ? 'A' : 'B', { path: '/', maxAge: 60 * 60 * 24 * 30 });
-      }
-      if (prefix !== langCookie) {
-        response.cookies.set(LANG_COOKIE_NAME, prefix, { path: '/', maxAge: 60 * 60 * 24 * 30 });
-      }
-      return response;
-    }
-    return NextResponse.next();
+  if (!hasValidPrefix) {
+    // No valid prefix: rewrite to /hr/<rest> with cookies
+    const rest = url.pathname;
+    url.pathname = `/hr${rest}`;
+    return rewriteWithCookies(url, 'hr');
   }
 
-  // 4b) Missing prefix: redirect to /<preferredLang><originalPath> and set cookies
-  url.pathname = `/${preferredLang}${pathname}`;
-  const response = NextResponse.redirect(url);
-  response.cookies.set(AB_COOKIE_NAME, abValue ?? (Math.random() < 0.5 ? 'A' : 'B'), {
-    path: '/',
-    maxAge: 60 * 60 * 24 * 30,
-  });
-  response.cookies.set(LANG_COOKIE_NAME, preferredLang, { path: '/', maxAge: 60 * 60 * 24 * 30 });
-  return response;
+  // 3) Prefix present: ensure cookies match
+  if (!userLangFromCookie || userLangFromCookie !== prefix) {
+    // Same URL but set cookies
+    return rewriteWithCookies(url, prefix);
+  }
+
+  // 4) Everything good
+  return NextResponse.next();
 }
 
 export const config = {
-  matcher: ['/((?!_next|static|api|favicon.ico|robots.txt|sitemap.xml|.well-known).*)'],
+  matcher: '/((?!_next|static|api|favicon.ico|robots.txt|sitemap.xml|.well-known).*)',
 };

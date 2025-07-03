@@ -39,7 +39,7 @@ import FeatureListSection from '../appComponents/landing/FeatureListSection';
 import { Metadata } from 'next';
 import { UserLanguage } from '../enums/LangEnum';
 import { getSuffixFromLang } from '../langUtils/getSuffixFromLang';
-import { cookies } from 'next/headers';
+import { cookies, headers } from 'next/headers';
 ///
 
 const seoData = dataset.data.allSeoAdmin.edges.find((item) => item.node.title === 'Glavni SEO weba');
@@ -155,7 +155,22 @@ export async function generateMetadata({ params: { lang } }: { params: { lang: s
 }
 
 export default async function Landing({ params: { lang } }: { params: { lang: string } }) {
-  const abGroup = cookies().get('@sutra-ab-test')?.value as 'A' | 'B';
+  const cookieStore = cookies();
+  let ab = cookieStore.get('@sutra-ab-test')?.value as 'A' | 'B';
+
+  // 2) ako je prvi render i cookie još nije “ušao” u Request, pogleda se Set‑Cookie header
+  if (!ab || !lang) {
+    const setCookieHeader = headers().get('set-cookie') || '';
+    // parseSetCookie je funkcija za izvlačenje pojedinačnog 'name=value' para iz stringa.
+    const parseSetCookie = (header: string, name: string) => {
+      const re = new RegExp(`${name}=([^;]+)`);
+      const m = header.match(re);
+      return m ? m[1] : undefined;
+    };
+
+    ab = ab ?? parseSetCookie(setCookieHeader, '@sutra-ab-test');
+    lang = lang ?? parseSetCookie(setCookieHeader, '@sutra-user-lang');
+  }
 
   //DYNAMIC DATA
 
@@ -196,7 +211,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
   return (
     <main className='relative w-full dark:bg-primarna-tamna min-h-screen bg-white z-40'>
       <Suspense fallback={<Loading />}>
-        <HeroSection currentLang={lang} imgs={heroImagesHomePage} abGroup={abGroup} />
+        <HeroSection currentLang={lang} imgs={heroImagesHomePage} abGroup={ab} />
         <ContentSectionFirst isList={false} content={findFirstTextContent?.node} currentLang={lang} bg={bgTextures} />
         <BaseCaruselSection dataset={filterImagesBase} isTop={true} />
 
