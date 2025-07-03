@@ -5,8 +5,8 @@ import { UserLanguage } from './app/enums/LangEnum';
 export function middleware(request: NextRequest) {
   const ua = request.headers.get('user-agent') || '';
 
-  // Preskoči PageSpeed Insights / Lighthouse crawler
-  if (/lighthouse|psi|Chrome-Lighthouse/i.test(ua)) {
+  // 1) Preskoči stvarne PSI/Lighthouse botove
+  if (/lighthouse|psi|Chrome-Lighthouse|PageSpeed/i.test(ua)) {
     return NextResponse.next();
   }
 
@@ -20,9 +20,9 @@ export function middleware(request: NextRequest) {
   const abCookie = cookies.get(AB_COOKIE_NAME)?.value;
   const userLangFromCookie = cookies.get(LANG_COOKIE_NAME)?.value;
 
-  // helper za redirect + cookie
+  // 2) helper za **permanent** redirect (308) + postavi cookie
   const redirectWithCookies = (targetUrl: URL, lang: string) => {
-    const response = NextResponse.redirect(targetUrl, 307);
+    const response = NextResponse.redirect(targetUrl, 308);
     response.cookies.set(LANG_COOKIE_NAME, lang, {
       maxAge: 60 * 60 * 24 * 30,
       path: '/',
@@ -34,7 +34,7 @@ export function middleware(request: NextRequest) {
     return response;
   };
 
-  // preskoči assete, API, itd.
+  // 3) Preskoči assete, API, sitemap itd.
   if (
     url.pathname.startsWith('/_next') ||
     url.pathname.startsWith('/static') ||
@@ -48,9 +48,10 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // 1) root → redirect
+  // 4) Root path → redirect na /<lang>
   if (url.pathname === '/') {
     let langToUse = 'hr';
+
     if (userLangFromCookie && SUPPORTED_LANGUAGES.includes(userLangFromCookie as UserLanguage)) {
       langToUse = userLangFromCookie;
     } else {
@@ -58,26 +59,29 @@ export function middleware(request: NextRequest) {
       const match = accept && SUPPORTED_LANGUAGES.find((l) => l.startsWith(accept));
       if (match) langToUse = match;
     }
+
     url.pathname = `/${langToUse}`;
     return redirectWithCookies(url, langToUse);
   }
 
-  // 2) validacija prefixa
+  // 5) Validacija jez. prefixa
   const segments = url.pathname.split('/');
   const prefix = segments[1] as UserLanguage;
   const hasValid = SUPPORTED_LANGUAGES.includes(prefix);
 
   if (!hasValid) {
+    // npr. /foo → /hr/foo
     url.pathname = `/hr${url.pathname}`;
     return redirectWithCookies(url, 'hr');
   }
 
-  // 3) prefix + cookie usklađeni?
+  // 6) Podudaranje cookieja i prefixa?
   if (!userLangFromCookie || userLangFromCookie !== prefix) {
+    // isti URL, samo osvježi cookieje
     return redirectWithCookies(url, prefix);
   }
 
-  // 4) sve ok
+  // 7) Sve ok → nastavi
   return NextResponse.next();
 }
 
