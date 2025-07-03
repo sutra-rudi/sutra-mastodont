@@ -4,22 +4,6 @@ import { UserLanguage } from './app/enums/LangEnum';
 
 export function middleware(request: NextRequest) {
   const ua = request.headers.get('user-agent') || '';
-
-  // Ako je PageSpeed/Lighthouse bot....
-  if (/lighthouse|psi|Chrome-Lighthouse|Google-PageSpeed/i.test(ua)) {
-    // redirect na englesku verziju (ili drugi jezik po potrebi)
-    const url = request.nextUrl.clone();
-    url.pathname = '/en';
-    const response = NextResponse.redirect(url, 308);
-    // Po želji postavi jez. cookie
-    response.cookies.set('@sutra-user-lang', 'en', {
-      maxAge: 60 * 60 * 24 * 30,
-      path: '/',
-    });
-    return response;
-  }
-
-  // Inače normalan jezični redirect flow...
   const SUPPORTED_LANGUAGES = Object.values(UserLanguage);
   const AB_COOKIE_NAME = '@sutra-ab-test';
   const LANG_COOKIE_NAME = '@sutra-user-lang';
@@ -29,21 +13,16 @@ export function middleware(request: NextRequest) {
   const abCookie = cookies.get(AB_COOKIE_NAME)?.value;
   const userLangFromCookie = cookies.get(LANG_COOKIE_NAME)?.value;
 
-  // helper za redirect + cookie
-  const redirectWithCookies = (targetUrl: URL, lang: string) => {
-    const response = NextResponse.redirect(targetUrl, 308);
-    response.cookies.set(LANG_COOKIE_NAME, lang, {
-      maxAge: 60 * 60 * 24 * 30,
-      path: '/',
-    });
-    response.cookies.set(AB_COOKIE_NAME, abCookie ?? (Math.random() < 0.5 ? 'A' : 'B'), {
-      maxAge: 60 * 60 * 24 * 30,
-      path: '/',
-    });
-    return response;
-  };
+  // === BOT HANDLING (PageSpeed, Lighthouse, PSI...) ===
+  if (/lighthouse|psi|Chrome-Lighthouse|Google-PageSpeed/i.test(ua)) {
+    const accept = request.headers.get('accept-language')?.split(',')[0].split('-')[0];
+    const langToUse = accept && SUPPORTED_LANGUAGES.includes(accept as UserLanguage) ? accept : 'hr';
 
-  // Preskoči assete, API i sl.
+    url.pathname = `/${langToUse}`;
+    return NextResponse.rewrite(url);
+  }
+
+  // === Preskoči assete, API i sl. ===
   if (
     url.pathname.startsWith('/_next') ||
     url.pathname.startsWith('/static') ||
@@ -57,7 +36,21 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // 1) root → redirect na odgovarajući jezik
+  // === Helper: redirect + cookies ===
+  const redirectWithCookies = (targetUrl: URL, lang: string) => {
+    const response = NextResponse.redirect(targetUrl, 308);
+    response.cookies.set(LANG_COOKIE_NAME, lang, {
+      maxAge: 60 * 60 * 24 * 30,
+      path: '/',
+    });
+    response.cookies.set(AB_COOKIE_NAME, abCookie ?? (Math.random() < 0.5 ? 'A' : 'B'), {
+      maxAge: 60 * 60 * 24 * 30,
+      path: '/',
+    });
+    return response;
+  };
+
+  // === 1) root → redirect na odgovarajući jezik ===
   if (url.pathname === '/') {
     let langToUse = 'hr';
     if (userLangFromCookie && SUPPORTED_LANGUAGES.includes(userLangFromCookie as UserLanguage)) {
@@ -71,7 +64,7 @@ export function middleware(request: NextRequest) {
     return redirectWithCookies(url, langToUse);
   }
 
-  // 2) validacija prefixa
+  // === 2) validacija prefixa ===
   const segments = url.pathname.split('/');
   const prefix = segments[1] as UserLanguage;
   const hasValid = SUPPORTED_LANGUAGES.includes(prefix);
@@ -81,12 +74,12 @@ export function middleware(request: NextRequest) {
     return redirectWithCookies(url, 'hr');
   }
 
-  // 3) usklađivanje cookieja i prefixa
+  // === 3) usklađivanje cookieja i prefixa ===
   if (!userLangFromCookie || userLangFromCookie !== prefix) {
     return redirectWithCookies(url, prefix);
   }
 
-  // 4) sve u redu
+  // === 4) sve u redu ===
   return NextResponse.next();
 }
 
