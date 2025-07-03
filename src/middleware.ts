@@ -26,7 +26,6 @@ export function middleware(request: NextRequest) {
   };
 
   const redirectWithCookies = (targetUrl: URL, lang: string) => setCookies(NextResponse.redirect(targetUrl, 308), lang);
-
   const rewriteWithCookies = (targetUrl: URL, lang: string) => setCookies(NextResponse.rewrite(targetUrl), lang);
 
   // Skip static, API, misc.
@@ -67,8 +66,13 @@ export function middleware(request: NextRequest) {
     return isBot ? rewriteWithCookies(url, 'hr') : redirectWithCookies(url, 'hr');
   }
 
-  // 3) Usklađivanje cookieja i prefixa
+  // 3) Usklađivanje cookieja i prefixa (spriječi redirect-loop!)
   if (!userLangFromCookie || userLangFromCookie !== prefix) {
+    const alreadyAtCorrectUrl = url.pathname.startsWith(`/${prefix}`);
+    if (alreadyAtCorrectUrl) {
+      // Setaj cookie bez redirecta (izbjegni redirect-loop)
+      return rewriteWithCookies(url, prefix);
+    }
     return isBot ? rewriteWithCookies(url, prefix) : redirectWithCookies(url, prefix);
   }
 
