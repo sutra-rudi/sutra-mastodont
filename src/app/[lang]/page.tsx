@@ -185,7 +185,6 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
     ${JobOpeningsFragment()}
     ${getWorkingHoursQueryFragment()}
     ${getAllEventsFragment()}
-    ${portfolioCaseStudyAgencyFragment()}
     }`);
 
   const blogsData = !groupQ.error && typeof groupQ.data !== 'undefined' ? groupQ.data.allBlog?.edges : null;

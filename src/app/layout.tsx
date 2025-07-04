@@ -98,8 +98,6 @@ export default async function RootLayout({
     lang = lang ?? parseSetCookie(setCookieHeader, '@sutra-user-lang');
   }
 
-  console.log('AB TEST LAYOUT', ab, 'LANG LAYOUT', lang);
-
   const MP = await fetchMediaPaths();
 
   const getNews = await fetchData(GetAlertsQuery());
