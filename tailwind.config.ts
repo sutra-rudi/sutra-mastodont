@@ -1,5 +1,5 @@
 import type { Config } from 'tailwindcss';
-
+const { animationsPlugin } = require('./src/plugins/animation');
 const config: Config = {
   darkMode: 'class',
   mode: 'jit',
@@ -11,6 +11,8 @@ const config: Config = {
         md: '640px',
         lg: '1000px',
         xl: '1550px',
+        mobile: '0px',
+        tablet: '640px',
       },
 
       container: {
@@ -592,6 +594,7 @@ const config: Config = {
     //   strategy: 'base',
     // }),
     require('tailwindcss-motion'),
+    animationsPlugin,
   ],
 };
 

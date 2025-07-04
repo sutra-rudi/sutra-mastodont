@@ -25,9 +25,9 @@ const MapComponent = ({ mapDataset, accessToken }: MapsPageContent) => {
 
     adminMap.current = new mapboxgl.Map({
       container: adminMapContainer.current,
-      style:
-        contShorthand.adminMapsField.mapboxStylesheetAdminMaps ??
-        'mapbox://styles/lovreperaic/clu5id29e00ud01qs2gbfabi4',
+      style: contShorthand.adminMapsField.mapboxStylesheetAdminMaps
+        ? `${contShorthand.adminMapsField.mapboxStylesheetAdminMaps}?optimize=true`
+        : 'mapbox://styles/lovreperaic/clu5id29e00ud01qs2gbfabi4?optimize=true',
       // style: 'mapbox://styles/mapbox/streets-v11',
       accessToken: accessToken,
       center: [adminLng, adminLat],
