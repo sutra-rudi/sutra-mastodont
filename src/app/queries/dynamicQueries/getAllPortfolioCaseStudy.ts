@@ -1,43 +1,194 @@
 export default function getAllPortfolioCaseStudy() {
-  return `query portfolioCaseStudy {
-  allPortfolioCaseStudy {
+  return `query getAllPortfolioCaseStudyAgency {
+  allPortfolioCaseStudyAgency {
     edges {
       node {
         id
-        caseStudySadrzajHr {
-          nadnaslovPodnaslovNaslovCaseStudyHr
-          naslovCaseStudyHr
-          sadrzajNaslovCaseStudyHr
+        agencijaSadrzajHr {
+          sadrzajHr {
+            oKlijentu {
+              oKlijentuNaslov
+              oKlijentuSadrzaj
+            }
+            opisProjekta {
+              opisProjektaIIzazoviNaslov
+              opisProjektaIIzazoviSadrzaj
+            }
+            realiziraneUsluge {
+              popisRealiziranihUsluga
+            }
+            rjesenje {
+              rjesenjeNaslov
+              rjesenjeSadrzaj
+            }
+            cmsSwitcher {
+              cmsSwitcherOKlijentu
+              cmsSwitcherOpisProjekta
+              cmsSwitcherRealiziraneUsluge
+              cmsSwitcherRjesenje
+            }
+          }
         }
-        caseStudySadrzajGer {
-          nadnaslovPodnaslovCaseStudyGer
-          naslovCaseStudyGer
-          sadrzajCaseStudyGer
+        agencijaSadrzajEng {
+          sadrzajEng {
+            oKlijentu {
+              oKlijentuNaslov
+              oKlijentuSadrzaj
+            }
+            opisProjekta {
+              opisProjektaIIzazoviNaslov
+              opisProjektaIIzazoviSadrzaj
+            }
+            realiziraneUsluge {
+              popisRealiziranihUsluga
+            }
+            rjesenje {
+              rjesenjeNaslov
+              rjesenjeSadrzaj
+            }
+            cmsSwitcher {
+              cmsSwitcherOKlijentu
+              cmsSwitcherOpisProjekta
+              cmsSwitcherRealiziraneUsluge
+              cmsSwitcherRjesenje
+            }
+          }
         }
-        caseStudySadrzajFra {
-          nadnaslovPodnaslovCaseStudyFra
-          naslovCaseStudyFra
-          sadrzajCaseStudyFra
+        agencijaSadrzajIta {
+          sadrzajIta {
+            oKlijentu {
+              oKlijentuNaslov
+              oKlijentuSadrzaj
+            }
+            opisProjekta {
+              opisProjektaIIzazoviNaslov
+              opisProjektaIIzazoviSadrzaj
+            }
+            realiziraneUsluge {
+              popisRealiziranihUsluga
+            }
+            rjesenje {
+              rjesenjeNaslov
+              rjesenjeSadrzaj
+            }
+            cmsSwitcher {
+              cmsSwitcherOKlijentu
+              cmsSwitcherOpisProjekta
+              cmsSwitcherRealiziraneUsluge
+              cmsSwitcherRjesenje
+            }
+          }
         }
-        caseStudySadrzajEsp {
-          nadnaslovPodnaslovCaseStudyEsp
-          naslovCaseStudyEsp
-          sadrzajCaseStudyEsp
+        agencijaSadrzajFra {
+          sadrzajFra {
+            oKlijentu {
+              oKlijentuNaslov
+              oKlijentuSadrzaj
+            }
+            opisProjekta {
+              opisProjektaIIzazoviNaslov
+              opisProjektaIIzazoviSadrzaj
+            }
+            realiziraneUsluge {
+              popisRealiziranihUsluga
+            }
+            rjesenje {
+              rjesenjeNaslov
+              rjesenjeSadrzaj
+            }
+            cmsSwitcher {
+              cmsSwitcherOKlijentu
+              cmsSwitcherOpisProjekta
+              cmsSwitcherRealiziraneUsluge
+              cmsSwitcherRjesenje
+            }
+          }
         }
-        caseStudySadrzajEng {
-          nadnaslovpodnaslovStudy
-          naslovCaseStudy
-          sadrzaj
+        agencijaSadrzajSlo {
+          sadrzajSlo {
+            cmsSwitcher {
+              cmsSwitcherOKlijentu
+              cmsSwitcherOpisProjekta
+              cmsSwitcherRealiziraneUsluge
+              cmsSwitcherRjesenje
+            }
+            oKlijentu {
+              oKlijentuNaslov
+              oKlijentuSadrzaj
+            }
+            opisProjekta {
+              opisProjektaIIzazoviNaslov
+              opisProjektaIIzazoviSadrzaj
+            }
+            realiziraneUsluge {
+              popisRealiziranihUsluga
+            }
+            rjesenje {
+              rjesenjeNaslov
+              rjesenjeSadrzaj
+            }
+          }
         }
-        caseStudySadrzajIta {
-          nadnaslovPodnaslovCaseStudyIta
-          naslovCaseStudyIta
-          sadrzaj
+        agencijaSadrzajGer {
+          sadrzajGer {
+            cmsSwitcher {
+              cmsSwitcherOKlijentu
+              cmsSwitcherOpisProjekta
+              cmsSwitcherRealiziraneUsluge
+              cmsSwitcherRjesenje
+            }
+            oKlijentu {
+              oKlijentuNaslov
+              oKlijentuSadrzaj
+            }
+            opisProjekta {
+              opisProjektaIIzazoviNaslov
+              opisProjektaIIzazoviSadrzaj
+            }
+            realiziraneUsluge {
+              popisRealiziranihUsluga
+            }
+            rjesenje {
+              rjesenjeNaslov
+              rjesenjeSadrzaj
+            }
+          }
         }
-        caseStudySadrzajSlo {
-          nadnaslovPodnaslovCaseStudySlo
-          naslovCaseStudySlo
-          sadrzajCaseStudySlo
+        agencijaSadrzajEsp {
+          sadrzajEsp {
+            oKlijentu {
+              oKlijentuNaslov
+              oKlijentuSadrzaj
+            }
+            opisProjekta {
+              opisProjektaIIzazoviNaslov
+              opisProjektaIIzazoviSadrzaj
+            }
+            realiziraneUsluge {
+              popisRealiziranihUsluga
+            }
+            rjesenje {
+              rjesenjeNaslov
+              rjesenjeSadrzaj
+            }
+            cmsSwitcher {
+              cmsSwitcherOKlijentu
+              cmsSwitcherOpisProjekta
+              cmsSwitcherRealiziraneUsluge
+              cmsSwitcherRjesenje
+            }
+          }
+        }
+        statusAtivacijePoJezicima {
+          aktivatorEng
+          aktivatorGer
+          aktivatorHr
+          aktivatorIta
+          dodatniJezici {
+            aktivatorFra
+            aktivatorSlo
+            aktivatorSpa
+          }
         }
         caseStudyUvod {
           bonusPoljeZaUpisCaseStudy
@@ -45,11 +196,28 @@ export default function getAllPortfolioCaseStudy() {
           favoriteCaseStudy
           godinaCaseStudy
           imeKlijentaCaseStudy
-          statusCaseStudy
-          glavnaSlikaCaseStudy {
+          slikaThumbnailCaseStudy {
             node {
               id
-              sourceUrl
+            }
+          }
+          izbornikOznakaCheckbox {
+            edges {
+              node {
+                id
+                ... on Tag {
+                  name
+                  tags {
+                    prijevodiTagova {
+                      engleskiPrijevod
+                      francuskiPrijevod
+                      hrvatskiPrijevod
+                      njemackiPrijevod
+                      talijanskiPrijevod
+                    }
+                  }
+                }
+              }
             }
           }
           izbornikKategorijeCheckbox {
@@ -58,79 +226,39 @@ export default function getAllPortfolioCaseStudy() {
                 id
                 ... on Category {
                   id
-                  name
+                  informacijeKategorije {
+                    prijevodi {
+                      imeKategorijeEng
+                      imeKategorijeEsp
+                      imeKategorijeFra
+                      imeKategorijeGer
+                      imeKategorijeHr
+                      imeKategorijeIta
+                      opisKategorijeEng
+                      opisKategorijeEsp
+                      opisKategorijeFra
+                      opisKategorijeGer
+                      opisKategorijeHr
+                      opisKategorijeIta
+                    }
+                    uvod {
+                      slikaKategorije {
+                        node {
+                          id
+                          sourceUrl
+                        }
+                      }
+                      bojaKategorije
+                    }
+                  }
                 }
               }
             }
           }
-          slikaThumbnailCaseStudy {
+          glavnaSlikaCaseStudy {
             node {
               id
               sourceUrl
-            }
-          }
-        }
-        photoGallery {
-          fotogalerija {
-            galSlika01 {
-              node {
-                id
-                sourceUrl
-              }
-            }
-            galSlika02 {
-              node {
-                id
-                sourceUrl
-              }
-            }
-            galSlika03 {
-              node {
-                id
-                sourceUrl
-              }
-            }
-            galSlika04 {
-              node {
-                id
-                sourceUrl
-              }
-            }
-            galSlika05 {
-              node {
-                id
-                sourceUrl
-              }
-            }
-            galSlika06 {
-              node {
-                id
-                sourceUrl
-              }
-            }
-            galSlika07 {
-              node {
-                id
-                sourceUrl
-              }
-            }
-            galSlika08 {
-              node {
-                id
-                sourceUrl
-              }
-            }
-            galSlika09 {
-              node {
-                id
-                sourceUrl
-              }
-            }
-            galSlika10 {
-              node {
-                id
-                sourceUrl
-              }
             }
           }
         }
@@ -140,45 +268,196 @@ export default function getAllPortfolioCaseStudy() {
 }`;
 }
 
-export function PortfolioCaseStudyFragment() {
-  return `allPortfolioCaseStudy {
+export const portfolioCaseStudyAgencyFragment = () => {
+  return `allPortfolioCaseStudyAgency {
     edges {
       node {
         id
-        caseStudySadrzajHr {
-          nadnaslovPodnaslovNaslovCaseStudyHr
-          naslovCaseStudyHr
-          sadrzajNaslovCaseStudyHr
+        agencijaSadrzajHr {
+          sadrzajHr {
+            oKlijentu {
+              oKlijentuNaslov
+              oKlijentuSadrzaj
+            }
+            opisProjekta {
+              opisProjektaIIzazoviNaslov
+              opisProjektaIIzazoviSadrzaj
+            }
+            realiziraneUsluge {
+              popisRealiziranihUsluga
+            }
+            rjesenje {
+              rjesenjeNaslov
+              rjesenjeSadrzaj
+            }
+            cmsSwitcher {
+              cmsSwitcherOKlijentu
+              cmsSwitcherOpisProjekta
+              cmsSwitcherRealiziraneUsluge
+              cmsSwitcherRjesenje
+            }
+          }
         }
-        caseStudySadrzajGer {
-          nadnaslovPodnaslovCaseStudyGer
-          naslovCaseStudyGer
-          sadrzajCaseStudyGer
+        agencijaSadrzajEng {
+          sadrzajEng {
+            oKlijentu {
+              oKlijentuNaslov
+              oKlijentuSadrzaj
+            }
+            opisProjekta {
+              opisProjektaIIzazoviNaslov
+              opisProjektaIIzazoviSadrzaj
+            }
+            realiziraneUsluge {
+              popisRealiziranihUsluga
+            }
+            rjesenje {
+              rjesenjeNaslov
+              rjesenjeSadrzaj
+            }
+            cmsSwitcher {
+              cmsSwitcherOKlijentu
+              cmsSwitcherOpisProjekta
+              cmsSwitcherRealiziraneUsluge
+              cmsSwitcherRjesenje
+            }
+          }
         }
-        caseStudySadrzajFra {
-          nadnaslovPodnaslovCaseStudyFra
-          naslovCaseStudyFra
-          sadrzajCaseStudyFra
+        agencijaSadrzajIta {
+          sadrzajIta {
+            oKlijentu {
+              oKlijentuNaslov
+              oKlijentuSadrzaj
+            }
+            opisProjekta {
+              opisProjektaIIzazoviNaslov
+              opisProjektaIIzazoviSadrzaj
+            }
+            realiziraneUsluge {
+              popisRealiziranihUsluga
+            }
+            rjesenje {
+              rjesenjeNaslov
+              rjesenjeSadrzaj
+            }
+            cmsSwitcher {
+              cmsSwitcherOKlijentu
+              cmsSwitcherOpisProjekta
+              cmsSwitcherRealiziraneUsluge
+              cmsSwitcherRjesenje
+            }
+          }
         }
-        caseStudySadrzajEsp {
-          nadnaslovPodnaslovCaseStudyEsp
-          naslovCaseStudyEsp
-          sadrzajCaseStudyEsp
+        agencijaSadrzajFra {
+          sadrzajFra {
+            oKlijentu {
+              oKlijentuNaslov
+              oKlijentuSadrzaj
+            }
+            opisProjekta {
+              opisProjektaIIzazoviNaslov
+              opisProjektaIIzazoviSadrzaj
+            }
+            realiziraneUsluge {
+              popisRealiziranihUsluga
+            }
+            rjesenje {
+              rjesenjeNaslov
+              rjesenjeSadrzaj
+            }
+            cmsSwitcher {
+              cmsSwitcherOKlijentu
+              cmsSwitcherOpisProjekta
+              cmsSwitcherRealiziraneUsluge
+              cmsSwitcherRjesenje
+            }
+          }
         }
-        caseStudySadrzajEng {
-          nadnaslovpodnaslovStudy
-          naslovCaseStudy
-          sadrzaj
+        agencijaSadrzajSlo {
+          sadrzajSlo {
+            cmsSwitcher {
+              cmsSwitcherOKlijentu
+              cmsSwitcherOpisProjekta
+              cmsSwitcherRealiziraneUsluge
+              cmsSwitcherRjesenje
+            }
+            oKlijentu {
+              oKlijentuNaslov
+              oKlijentuSadrzaj
+            }
+            opisProjekta {
+              opisProjektaIIzazoviNaslov
+              opisProjektaIIzazoviSadrzaj
+            }
+            realiziraneUsluge {
+              popisRealiziranihUsluga
+            }
+            rjesenje {
+              rjesenjeNaslov
+              rjesenjeSadrzaj
+            }
+          }
         }
-        caseStudySadrzajIta {
-          nadnaslovPodnaslovCaseStudyIta
-          naslovCaseStudyIta
-          sadrzaj
+        agencijaSadrzajGer {
+          sadrzajGer {
+            cmsSwitcher {
+              cmsSwitcherOKlijentu
+              cmsSwitcherOpisProjekta
+              cmsSwitcherRealiziraneUsluge
+              cmsSwitcherRjesenje
+            }
+            oKlijentu {
+              oKlijentuNaslov
+              oKlijentuSadrzaj
+            }
+            opisProjekta {
+              opisProjektaIIzazoviNaslov
+              opisProjektaIIzazoviSadrzaj
+            }
+            realiziraneUsluge {
+              popisRealiziranihUsluga
+            }
+            rjesenje {
+              rjesenjeNaslov
+              rjesenjeSadrzaj
+            }
+          }
         }
-        caseStudySadrzajSlo {
-          nadnaslovPodnaslovCaseStudySlo
-          naslovCaseStudySlo
-          sadrzajCaseStudySlo
+        agencijaSadrzajEsp {
+          sadrzajEsp {
+            oKlijentu {
+              oKlijentuNaslov
+              oKlijentuSadrzaj
+            }
+            opisProjekta {
+              opisProjektaIIzazoviNaslov
+              opisProjektaIIzazoviSadrzaj
+            }
+            realiziraneUsluge {
+              popisRealiziranihUsluga
+            }
+            rjesenje {
+              rjesenjeNaslov
+              rjesenjeSadrzaj
+            }
+            cmsSwitcher {
+              cmsSwitcherOKlijentu
+              cmsSwitcherOpisProjekta
+              cmsSwitcherRealiziraneUsluge
+              cmsSwitcherRjesenje
+            }
+          }
+        }
+        statusAtivacijePoJezicima {
+          aktivatorEng
+          aktivatorGer
+          aktivatorHr
+          aktivatorIta
+          dodatniJezici {
+            aktivatorFra
+            aktivatorSlo
+            aktivatorSpa
+          }
         }
         caseStudyUvod {
           bonusPoljeZaUpisCaseStudy
@@ -186,11 +465,28 @@ export function PortfolioCaseStudyFragment() {
           favoriteCaseStudy
           godinaCaseStudy
           imeKlijentaCaseStudy
-          statusCaseStudy
-          glavnaSlikaCaseStudy {
+          slikaThumbnailCaseStudy {
             node {
               id
-              sourceUrl
+            }
+          }
+          izbornikOznakaCheckbox {
+            edges {
+              node {
+                id
+                ... on Tag {
+                  name
+                  tags {
+                    prijevodiTagova {
+                      engleskiPrijevod
+                      francuskiPrijevod
+                      hrvatskiPrijevod
+                      njemackiPrijevod
+                      talijanskiPrijevod
+                    }
+                  }
+                }
+              }
             }
           }
           izbornikKategorijeCheckbox {
@@ -199,83 +495,43 @@ export function PortfolioCaseStudyFragment() {
                 id
                 ... on Category {
                   id
-                  name
+                  informacijeKategorije {
+                    prijevodi {
+                      imeKategorijeEng
+                      imeKategorijeEsp
+                      imeKategorijeFra
+                      imeKategorijeGer
+                      imeKategorijeHr
+                      imeKategorijeIta
+                      opisKategorijeEng
+                      opisKategorijeEsp
+                      opisKategorijeFra
+                      opisKategorijeGer
+                      opisKategorijeHr
+                      opisKategorijeIta
+                    }
+                    uvod {
+                      slikaKategorije {
+                        node {
+                          id
+                          sourceUrl
+                        }
+                      }
+                      bojaKategorije
+                    }
+                  }
                 }
               }
             }
           }
-          slikaThumbnailCaseStudy {
+          glavnaSlikaCaseStudy {
             node {
               id
               sourceUrl
             }
           }
         }
-        photoGallery {
-          fotogalerija {
-            galSlika01 {
-              node {
-                id
-                sourceUrl
-              }
-            }
-            galSlika02 {
-              node {
-                id
-                sourceUrl
-              }
-            }
-            galSlika03 {
-              node {
-                id
-                sourceUrl
-              }
-            }
-            galSlika04 {
-              node {
-                id
-                sourceUrl
-              }
-            }
-            galSlika05 {
-              node {
-                id
-                sourceUrl
-              }
-            }
-            galSlika06 {
-              node {
-                id
-                sourceUrl
-              }
-            }
-            galSlika07 {
-              node {
-                id
-                sourceUrl
-              }
-            }
-            galSlika08 {
-              node {
-                id
-                sourceUrl
-              }
-            }
-            galSlika09 {
-              node {
-                id
-                sourceUrl
-              }
-            }
-            galSlika10 {
-              node {
-                id
-                sourceUrl
-              }
-            }
-          }
-        }
       }
     }
   }`;
-}
+};
