@@ -21,7 +21,7 @@ export default function PortfolioAgency({ currentLang }: PCS) {
       <h2 className='relative lg:-pt--desktop---3xl md:-pt--tablet---3xl -pt--mobile---3xl lg:text-h2-desktop md:text-h2-tablet text-h2-mobile text-heading-color-light-mode dark:text-heading-color-dark-mode block text-center text-balance px-4'>
         Portfolio case study agency
       </h2>
-      <div className='container mx-auto px-4'>
+      <div className='container mx-auto px-4 lg:-mt--desktop---5xl md:-mt--tablet---5xl -mt--mobile---5xl'>
         {allData.map((pcsItem) => {
           return (
             <article key={pcsItem.node.databaseId} className='mt-12 rounded-lg shadow-md min-w-0 shrink-0 px-4 py-2'>
