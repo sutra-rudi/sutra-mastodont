@@ -1148,14 +1148,14 @@
               "mapboxStylesheetAdminMaps": "mapbox://styles/lovreperaic/cm586q27b00jo01r16cqtax90",
               "mapboxTokenAdminMaps": "pk.eyJ1IjoibG92cmVwZXJhaWMiLCJhIjoiY2t5NDR3eXlsMDNqZjJwczE5bnBnbTVveSJ9.iNSjOEyPMGOmAWGeWOdPRA",
               "mapboxZoomAdminMaps": "11",
-              "nazivMape": "Mapa na naslovnici"
+              "nazivMape": "Mapa na naslovnici (Naziv mape)"
             },
             "mapsCentarMapeKoordinate": {
               "bearing": null,
               "mapsLatitudeMapCenter": "43.93536554379909",
               "mapsLongitudeMapCenter": "15.229991570834173",
-              "maxZoomIn": 14,
-              "maxZoomOut": 6,
+              "maxZoomIn": 11,
+              "maxZoomOut": 10,
               "pitchNagib": null,
               "rotationSpeed": 940
             }
@@ -11191,13 +11191,104 @@
                 }
               }
             },
-            "featuresListaFra": {
-              "sadrzajFra": {
+            "featuresListaGer": {
+              "sadrzajGer": {
                 "uvod": {
                   "nadnaslov": null,
                   "naslov": null,
                   "sadrzaj": null,
                   "brojStavki": ["1"]
+                },
+                "stavka1": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka2": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka3": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka4": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka5": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka6": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka7": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka8": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                },
+                "stavka9": {
+                  "naslov": null,
+                  "sadrzaj": null,
+                  "dodatneOpcije": {
+                    "link": null,
+                    "nadnaslovIliEmoji": null,
+                    "slikaIliIkona": null
+                  }
+                }
+              }
+            },
+            "featuresListaFra": {
+              "sadrzajFra": {
+                "uvod": {
+                  "brojStavki": ["1"],
+                  "nadnaslov": null,
+                  "naslov": null,
+                  "sadrzaj": null
                 },
                 "stavka1": {
                   "naslov": null,
@@ -11285,10 +11376,10 @@
             "featuresListaEsp": {
               "sadrzajEsp": {
                 "uvod": {
+                  "brojStavki": ["1"],
                   "nadnaslov": null,
                   "naslov": null,
-                  "sadrzaj": null,
-                  "brojStavki": ["1"]
+                  "sadrzaj": null
                 },
                 "stavka1": {
                   "naslov": null,
@@ -11376,10 +11467,10 @@
             "featuresListaIta": {
               "sadrzajIta": {
                 "uvod": {
+                  "brojStavki": ["1"],
                   "nadnaslov": null,
                   "naslov": null,
-                  "sadrzaj": null,
-                  "brojStavki": ["1"]
+                  "sadrzaj": null
                 },
                 "stavka1": {
                   "naslov": null,
@@ -11467,101 +11558,10 @@
             "featuresListaSlo": {
               "sadrzajSlo": {
                 "uvod": {
-                  "nadnaslov": null,
+                  "brojStavki": ["1"],
                   "naslov": null,
                   "sadrzaj": null,
-                  "brojStavki": ["1"]
-                },
-                "stavka1": {
-                  "naslov": null,
-                  "sadrzaj": null,
-                  "dodatneOpcije": {
-                    "link": null,
-                    "nadnaslovIliEmoji": null,
-                    "slikaIliIkona": null
-                  }
-                },
-                "stavka2": {
-                  "naslov": null,
-                  "sadrzaj": null,
-                  "dodatneOpcije": {
-                    "link": null,
-                    "nadnaslovIliEmoji": null,
-                    "slikaIliIkona": null
-                  }
-                },
-                "stavka3": {
-                  "naslov": null,
-                  "sadrzaj": null,
-                  "dodatneOpcije": {
-                    "link": null,
-                    "nadnaslovIliEmoji": null,
-                    "slikaIliIkona": null
-                  }
-                },
-                "stavka4": {
-                  "naslov": null,
-                  "sadrzaj": null,
-                  "dodatneOpcije": {
-                    "link": null,
-                    "nadnaslovIliEmoji": null,
-                    "slikaIliIkona": null
-                  }
-                },
-                "stavka5": {
-                  "naslov": null,
-                  "sadrzaj": null,
-                  "dodatneOpcije": {
-                    "link": null,
-                    "nadnaslovIliEmoji": null,
-                    "slikaIliIkona": null
-                  }
-                },
-                "stavka6": {
-                  "naslov": null,
-                  "sadrzaj": null,
-                  "dodatneOpcije": {
-                    "link": null,
-                    "nadnaslovIliEmoji": null,
-                    "slikaIliIkona": null
-                  }
-                },
-                "stavka7": {
-                  "naslov": null,
-                  "sadrzaj": null,
-                  "dodatneOpcije": {
-                    "link": null,
-                    "nadnaslovIliEmoji": null,
-                    "slikaIliIkona": null
-                  }
-                },
-                "stavka8": {
-                  "naslov": null,
-                  "sadrzaj": null,
-                  "dodatneOpcije": {
-                    "link": null,
-                    "nadnaslovIliEmoji": null,
-                    "slikaIliIkona": null
-                  }
-                },
-                "stavka9": {
-                  "naslov": null,
-                  "sadrzaj": null,
-                  "dodatneOpcije": {
-                    "link": null,
-                    "nadnaslovIliEmoji": null,
-                    "slikaIliIkona": null
-                  }
-                }
-              }
-            },
-            "featuresListaGer": {
-              "sadrzajGer": {
-                "uvod": {
-                  "nadnaslov": null,
-                  "naslov": null,
-                  "sadrzaj": null,
-                  "brojStavki": ["1"]
+                  "nadnaslov": null
                 },
                 "stavka1": {
                   "naslov": null,
@@ -11905,514 +11905,6 @@
                 }
               }
             },
-            "featuresListaFra": {
-              "sadrzajFra": {
-                "uvod": {
-                  "nadnaslov": "nadnaslov fra",
-                  "naslov": "naslov fra",
-                  "sadrzaj": "<p>naslov franaslov franaslov franaslov franaslov franaslov franaslov franaslov franaslov franaslov franaslov fra</p>\n",
-                  "brojStavki": ["9"]
-                },
-                "stavka1": {
-                  "naslov": "naslov1fra",
-                  "sadrzaj": "<p>naslov1franaslov1franaslov1franaslov1franaslov1franaslov1franaslov1franaslov1franaslov1franaslov1franaslov1franaslov1franaslov1fra</p>\n",
-                  "dodatneOpcije": {
-                    "link": "dodatno1fra.rf",
-                    "nadnaslovIliEmoji": "dodatno1fra",
-                    "slikaIliIkona": {
-                      "node": {
-                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/05/cropped-Crveni-studio.jpg"
-                      }
-                    }
-                  }
-                },
-                "stavka2": {
-                  "naslov": "naslov2fra",
-                  "sadrzaj": "<p>naslov2franaslov2franaslov2franaslov2franaslov2franaslov2franaslov2franaslov2franaslov2franaslov2franaslov2fra</p>\n",
-                  "dodatneOpcije": {
-                    "link": "dodatno2fra.gfgf",
-                    "nadnaslovIliEmoji": "dodatno2fra",
-                    "slikaIliIkona": {
-                      "node": {
-                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01749.jpg"
-                      }
-                    }
-                  }
-                },
-                "stavka3": {
-                  "naslov": "naslov3fra",
-                  "sadrzaj": "<p>naslov3franaslov3franaslov3franaslov3franaslov3franaslov3franaslov3franaslov3franaslov3franaslov3franaslov3franaslov3franaslov3franaslov3franaslov3franaslov3franaslov3franaslov3franaslov3franaslov3franaslov3franaslov3franaslov3franaslov3fra</p>\n",
-                  "dodatneOpcije": {
-                    "link": "dodatno3fra.hghg",
-                    "nadnaslovIliEmoji": "dodatno3fra",
-                    "slikaIliIkona": {
-                      "node": {
-                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01469.jpg"
-                      }
-                    }
-                  }
-                },
-                "stavka4": {
-                  "naslov": "naslov4fra",
-                  "sadrzaj": "<p>naslov4franaslov4franaslov4franaslov4franaslov4franaslov4franaslov4franaslov4franaslov4franaslov4franaslov4fra</p>\n",
-                  "dodatneOpcije": {
-                    "link": "dodatno4fra.cms",
-                    "nadnaslovIliEmoji": "dodatno4fra",
-                    "slikaIliIkona": {
-                      "node": {
-                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01469.jpg"
-                      }
-                    }
-                  }
-                },
-                "stavka5": {
-                  "naslov": "naslov5fra",
-                  "sadrzaj": "<p>naslov5franaslov5franaslov5franaslov5franaslov5franaslov5franaslov5franaslov5franaslov5franaslov5franaslov5fra</p>\n",
-                  "dodatneOpcije": {
-                    "link": "dodatno5fra.gf",
-                    "nadnaslovIliEmoji": "dodatno5fra",
-                    "slikaIliIkona": {
-                      "node": {
-                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01464.jpg"
-                      }
-                    }
-                  }
-                },
-                "stavka6": {
-                  "naslov": "naslov6fra",
-                  "sadrzaj": "<p>naslov6franaslov6franaslov6franaslov6franaslov6franaslov6franaslov6franaslov6fra</p>\n",
-                  "dodatneOpcije": {
-                    "link": "dodatno6fra.hg",
-                    "nadnaslovIliEmoji": "dodatno6fra",
-                    "slikaIliIkona": {
-                      "node": {
-                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/080.jpg"
-                      }
-                    }
-                  }
-                },
-                "stavka7": {
-                  "naslov": "naslov7fra",
-                  "sadrzaj": "<p>naslov7franaslov7franaslov7franaslov7franaslov7franaslov7franaslov7franaslov7franaslov7franaslov7franaslov7franaslov7fra</p>\n",
-                  "dodatneOpcije": {
-                    "link": "dodatno7fra.hg",
-                    "nadnaslovIliEmoji": "dodatno7fra",
-                    "slikaIliIkona": {
-                      "node": {
-                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01464.jpg"
-                      }
-                    }
-                  }
-                },
-                "stavka8": {
-                  "naslov": "naslov8fra",
-                  "sadrzaj": "<p>naslov8franaslov8franaslov8franaslov8franaslov8franaslov8franaslov8franaslov8franaslov8franaslov8franaslov8fra</p>\n",
-                  "dodatneOpcije": {
-                    "link": "dodatno8fra.hghg",
-                    "nadnaslovIliEmoji": "dodatno8fra",
-                    "slikaIliIkona": {
-                      "node": {
-                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01469.jpg"
-                      }
-                    }
-                  }
-                },
-                "stavka9": {
-                  "naslov": "naslov9fra",
-                  "sadrzaj": "<p>naslov9franaslov9franaslov9franaslov9franaslov9franaslov9franaslov9franaslov9franaslov9franaslov9franaslov9franaslov9fra</p>\n",
-                  "dodatneOpcije": {
-                    "link": "dodatno9fra.cmg",
-                    "nadnaslovIliEmoji": "dodatno9fra",
-                    "slikaIliIkona": {
-                      "node": {
-                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01730.jpg"
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "featuresListaEsp": {
-              "sadrzajEsp": {
-                "uvod": {
-                  "nadnaslov": "nadnaslov esp",
-                  "naslov": "naslov esp",
-                  "sadrzaj": "<p>naslov espnaslov espnaslov espnaslov espnaslov espnaslov espnaslov esp</p>\n",
-                  "brojStavki": ["9"]
-                },
-                "stavka1": {
-                  "naslov": "naslov1esp",
-                  "sadrzaj": "<p>naslov1espnaslov1espnaslov1espnaslov1espnaslov1espnaslov1espnaslov1espnaslov1espnaslov1espnaslov1espnaslov1espnaslov1espnaslov1esp</p>\n",
-                  "dodatneOpcije": {
-                    "link": "dodatno1esp.wodad",
-                    "nadnaslovIliEmoji": "dodatno1esp",
-                    "slikaIliIkona": {
-                      "node": {
-                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/dji-lojena-2.jpg"
-                      }
-                    }
-                  }
-                },
-                "stavka2": {
-                  "naslov": "naslov2esp",
-                  "sadrzaj": "<p>naslov2espnaslov2espnaslov2espnaslov2espnaslov2espnaslov2espnaslov2espnaslov2espnaslov2esp</p>\n",
-                  "dodatneOpcije": {
-                    "link": "dodatno2esp.cm",
-                    "nadnaslovIliEmoji": "dodatno2esp",
-                    "slikaIliIkona": {
-                      "node": {
-                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01693.jpg"
-                      }
-                    }
-                  }
-                },
-                "stavka3": {
-                  "naslov": "naslov3esp",
-                  "sadrzaj": "<p>naslov3espnaslov3espnaslov3espnaslov3espnaslov3espnaslov3espnaslov3espnaslov3espnaslov3espnaslov3esp</p>\n",
-                  "dodatneOpcije": {
-                    "link": "dodatno3esp.fk",
-                    "nadnaslovIliEmoji": "dodatno3esp",
-                    "slikaIliIkona": {
-                      "node": {
-                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DJI_0991.jpg"
-                      }
-                    }
-                  }
-                },
-                "stavka4": {
-                  "naslov": "naslov4esp",
-                  "sadrzaj": "<p>naslov4espnaslov4espnaslov4espnaslov4espnaslov4espnaslov4esp</p>\n",
-                  "dodatneOpcije": {
-                    "link": "dodatno4esp.ck",
-                    "nadnaslovIliEmoji": "dodatno4esp",
-                    "slikaIliIkona": {
-                      "node": {
-                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DJI_0991.jpg"
-                      }
-                    }
-                  }
-                },
-                "stavka5": {
-                  "naslov": "naslov5esp",
-                  "sadrzaj": "<p>naslov5espnaslov5espnaslov5espnaslov5espnaslov5espnaslov5espnaslov5espnaslov5esp</p>\n",
-                  "dodatneOpcije": {
-                    "link": "dodatno5esp.com",
-                    "nadnaslovIliEmoji": "dodatno5esp",
-                    "slikaIliIkona": {
-                      "node": {
-                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/054.jpg"
-                      }
-                    }
-                  }
-                },
-                "stavka6": {
-                  "naslov": "naslov6esp",
-                  "sadrzaj": "<p>naslov6espnaslov6espnaslov6espnaslov6espnaslov6espnaslov6espnaslov6esp</p>\n",
-                  "dodatneOpcije": {
-                    "link": "dodatno6esp.com",
-                    "nadnaslovIliEmoji": "dodatno6esp",
-                    "slikaIliIkona": {
-                      "node": {
-                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01730.jpg"
-                      }
-                    }
-                  }
-                },
-                "stavka7": {
-                  "naslov": "naslov7esp",
-                  "sadrzaj": "<p>naslov7espnaslov7espnaslov7espnaslov7espnaslov7esp</p>\n",
-                  "dodatneOpcije": {
-                    "link": "dodatno7esp.hr",
-                    "nadnaslovIliEmoji": "dodatno7esp",
-                    "slikaIliIkona": {
-                      "node": {
-                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01693.jpg"
-                      }
-                    }
-                  }
-                },
-                "stavka8": {
-                  "naslov": "naslov8esp",
-                  "sadrzaj": "<p>naslov8espnaslov8espnaslov8espnaslov8espnaslov8espnaslov8espnaslov8espnaslov8esp</p>\n",
-                  "dodatneOpcije": {
-                    "link": "dodano8esp.com",
-                    "nadnaslovIliEmoji": "dodano8esp",
-                    "slikaIliIkona": {
-                      "node": {
-                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DJI_0991.jpg"
-                      }
-                    }
-                  }
-                },
-                "stavka9": {
-                  "naslov": "naslov9esp",
-                  "sadrzaj": "<p>naslov9espnaslov9espnaslov9espnaslov9espnaslov9espnaslov9espnaslov9espnaslov9espnaslov9esp</p>\n",
-                  "dodatneOpcije": {
-                    "link": "dodatno9esp.kgk",
-                    "nadnaslovIliEmoji": "dodatno9esp",
-                    "slikaIliIkona": {
-                      "node": {
-                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01693.jpg"
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "featuresListaIta": {
-              "sadrzajIta": {
-                "uvod": {
-                  "nadnaslov": "nadnaslov ita",
-                  "naslov": "naslov ita",
-                  "sadrzaj": "<p>naslov itanaslov itanaslov itanaslov itanaslov itanaslov itanaslov itanaslov itanaslov itanaslov itanaslov itanaslov itanaslov itanaslov itanaslov ita</p>\n",
-                  "brojStavki": ["9"]
-                },
-                "stavka1": {
-                  "naslov": "naslov1ita",
-                  "sadrzaj": "<p>naslov1itanaslov1itanaslov1itanaslov1itanaslov1itanaslov1itanaslov1itanaslov1itanaslov1itanaslov1itanaslov1itanaslov1ita</p>\n",
-                  "dodatneOpcije": {
-                    "link": "dodatno1ita.ir",
-                    "nadnaslovIliEmoji": "dodatno1ita",
-                    "slikaIliIkona": {
-                      "node": {
-                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01520.jpg"
-                      }
-                    }
-                  }
-                },
-                "stavka2": {
-                  "naslov": "naslov2ita",
-                  "sadrzaj": "<p>naslov2itanaslov2itanaslov2itanaslov2itanaslov2itanaslov2itanaslov2ita</p>\n",
-                  "dodatneOpcije": {
-                    "link": "dodatno2ita.it",
-                    "nadnaslovIliEmoji": "dodatno2ita",
-                    "slikaIliIkona": {
-                      "node": {
-                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01693.jpg"
-                      }
-                    }
-                  }
-                },
-                "stavka3": {
-                  "naslov": "naslov3ita",
-                  "sadrzaj": "<p>naslov3itanaslov3itanaslov3itanaslov3itanaslov3ita</p>\n",
-                  "dodatneOpcije": {
-                    "link": "dodatno3ita.ita",
-                    "nadnaslovIliEmoji": "dodatno3ita",
-                    "slikaIliIkona": {
-                      "node": {
-                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01693.jpg"
-                      }
-                    }
-                  }
-                },
-                "stavka4": {
-                  "naslov": "naslov4ita",
-                  "sadrzaj": "<p>naslov4itanaslov4itanaslov4itanaslov4itanaslov4itanaslov4itanaslov4itanaslov4ita</p>\n",
-                  "dodatneOpcije": {
-                    "link": "dodatno4ita.iii",
-                    "nadnaslovIliEmoji": "dodatno4ita",
-                    "slikaIliIkona": {
-                      "node": {
-                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01697.jpg"
-                      }
-                    }
-                  }
-                },
-                "stavka5": {
-                  "naslov": "naslov5ita",
-                  "sadrzaj": "<p>naslov5itanaslov5itanaslov5itanaslov5itanaslov5itanaslov5itanaslov5itanaslov5ita</p>\n",
-                  "dodatneOpcije": {
-                    "link": "dodatno5ita.why",
-                    "nadnaslovIliEmoji": "dodatno5ita",
-                    "slikaIliIkona": {
-                      "node": {
-                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01693.jpg"
-                      }
-                    }
-                  }
-                },
-                "stavka6": {
-                  "naslov": "naslov6ita",
-                  "sadrzaj": "<p>naslov6itanaslov6itanaslov6itanaslov6itanaslov6itanaslov6itanaslov6itanaslov6ita</p>\n",
-                  "dodatneOpcije": {
-                    "link": "dodatno6ita.tzt",
-                    "nadnaslovIliEmoji": "dodatno6ita",
-                    "slikaIliIkona": {
-                      "node": {
-                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01749.jpg"
-                      }
-                    }
-                  }
-                },
-                "stavka7": {
-                  "naslov": "naslov7ita",
-                  "sadrzaj": "<p>naslov7itanaslov7itanaslov7itanaslov7itanaslov7itanaslov7itanaslov7ita</p>\n",
-                  "dodatneOpcije": {
-                    "link": "dodatno7ita.uz",
-                    "nadnaslovIliEmoji": "dodatno7ita",
-                    "slikaIliIkona": {
-                      "node": {
-                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/085.jpg"
-                      }
-                    }
-                  }
-                },
-                "stavka8": {
-                  "naslov": "naslov8ita",
-                  "sadrzaj": "<p>naslov8itanaslov8itanaslov8itanaslov8itanaslov8itanaslov8ita</p>\n",
-                  "dodatneOpcije": {
-                    "link": "dodatno8ita.zuz",
-                    "nadnaslovIliEmoji": "dodatno8ita",
-                    "slikaIliIkona": {
-                      "node": {
-                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/047.jpg"
-                      }
-                    }
-                  }
-                },
-                "stavka9": {
-                  "naslov": "naslov9ita",
-                  "sadrzaj": "<p>naslov9itanaslov9itanaslov9itanaslov9itanaslov9itanaslov9itanaslov9itanaslov9itanaslov9itanaslov9ita</p>\n",
-                  "dodatneOpcije": {
-                    "link": "dodatno9ita.cms",
-                    "nadnaslovIliEmoji": "dodatno9ita",
-                    "slikaIliIkona": {
-                      "node": {
-                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01817.jpg"
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "featuresListaSlo": {
-              "sadrzajSlo": {
-                "uvod": {
-                  "nadnaslov": "nadnaslov slo",
-                  "naslov": "naslov slo",
-                  "sadrzaj": "<p>sazdraj slo</p>\n<p>sazdraj slo</p>\n<p>sazdraj slo</p>\n<p>sazdraj slo</p>\n<p>sazdraj slo</p>\n<p>sazdraj slo</p>\n<p>sazdraj slo</p>\n",
-                  "brojStavki": ["9"]
-                },
-                "stavka1": {
-                  "naslov": "naslov1slo",
-                  "sadrzaj": "<p>naslov1slonaslov1slonaslov1slonaslov1slonaslov1slo</p>\n",
-                  "dodatneOpcije": {
-                    "link": "dodano1slo",
-                    "nadnaslovIliEmoji": "dodano1slo",
-                    "slikaIliIkona": {
-                      "node": {
-                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/1000091074.jpg"
-                      }
-                    }
-                  }
-                },
-                "stavka2": {
-                  "naslov": "naslov2slo",
-                  "sadrzaj": "<p>naslov2slonaslov2slonaslov2slonaslov2slonaslov2slonaslov2slo</p>\n",
-                  "dodatneOpcije": {
-                    "link": "dodatno2slo.slo",
-                    "nadnaslovIliEmoji": "dodatno2slo",
-                    "slikaIliIkona": {
-                      "node": {
-                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/1000091074-1.jpg"
-                      }
-                    }
-                  }
-                },
-                "stavka3": {
-                  "naslov": "naslov3slo",
-                  "sadrzaj": "<p>naslov3slonaslov3slonaslov3slonaslov3slonaslov3slonaslov3slonaslov3slo</p>\n",
-                  "dodatneOpcije": {
-                    "link": "dodatno3slo.sadas",
-                    "nadnaslovIliEmoji": "dodatno3slo",
-                    "slikaIliIkona": {
-                      "node": {
-                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01464.jpg"
-                      }
-                    }
-                  }
-                },
-                "stavka4": {
-                  "naslov": "naslov4slo",
-                  "sadrzaj": "<p>naslov4slonaslov4slonaslov4slonaslov4slonaslov4slonaslov4slonaslov4slonaslov4slonaslov4slonaslov4slonaslov4slo</p>\n",
-                  "dodatneOpcije": {
-                    "link": "dodatno4slo.slo",
-                    "nadnaslovIliEmoji": "dodatno4slo",
-                    "slikaIliIkona": {
-                      "node": {
-                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01469.jpg"
-                      }
-                    }
-                  }
-                },
-                "stavka5": {
-                  "naslov": "naslov5slo",
-                  "sadrzaj": "<p>naslov5slonaslov5slonaslov5slonaslov5slonaslov5slonaslov5slonaslov5slonaslov5slonaslov5slonaslov5slonaslov5slonaslov5slonaslov5slo</p>\n",
-                  "dodatneOpcije": {
-                    "link": "dodatno5slo.hs",
-                    "nadnaslovIliEmoji": "dodatno5slo",
-                    "slikaIliIkona": {
-                      "node": {
-                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01464.jpg"
-                      }
-                    }
-                  }
-                },
-                "stavka6": {
-                  "naslov": "naslov6slo",
-                  "sadrzaj": "<p>naslov6slo<strong>naslov6slonaslov6slonaslov6slonaslov6slonaslov6slonaslov6slo</strong></p>\n",
-                  "dodatneOpcije": {
-                    "link": "dodatno6slo.slo",
-                    "nadnaslovIliEmoji": "dodatno6slo",
-                    "slikaIliIkona": {
-                      "node": {
-                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01382.jpg"
-                      }
-                    }
-                  }
-                },
-                "stavka7": {
-                  "naslov": "naslov7slo",
-                  "sadrzaj": "<p>naslov7slonaslov7slonaslov7slonaslov7slonaslov7slonaslov7slonaslov7slonaslov7slonaslov7slonaslov7slonaslov7slonaslov7slonaslov7slonaslov7slonaslov7slo</p>\n",
-                  "dodatneOpcije": {
-                    "link": "dodatno7slo.asdas",
-                    "nadnaslovIliEmoji": "dodatno7slo",
-                    "slikaIliIkona": {
-                      "node": {
-                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/1000107361.jpg"
-                      }
-                    }
-                  }
-                },
-                "stavka8": {
-                  "naslov": "naslov8slo",
-                  "sadrzaj": "<p>naslov8slonaslov8slonaslov8slonaslov8slonaslov8slonaslov8slonaslov8slo</p>\n",
-                  "dodatneOpcije": {
-                    "link": "dodatno8slo.sos",
-                    "nadnaslovIliEmoji": "dodatno8slo",
-                    "slikaIliIkona": {
-                      "node": {
-                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DJI_0971.jpg"
-                      }
-                    }
-                  }
-                },
-                "stavka9": {
-                  "naslov": "naslov9slo",
-                  "sadrzaj": "<p>naslov9slonaslov9slonaslov9slonaslov9slonaslov9slonaslov9slonaslov9slonaslov9slo</p>\n",
-                  "dodatneOpcije": {
-                    "link": "dodatno9slo.la",
-                    "nadnaslovIliEmoji": "dodatno9slo",
-                    "slikaIliIkona": {
-                      "node": {
-                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/1000091074.jpg"
-                      }
-                    }
-                  }
-                }
-              }
-            },
             "featuresListaGer": {
               "sadrzajGer": {
                 "uvod": {
@@ -12537,6 +12029,808 @@
                       }
                     }
                   }
+                }
+              }
+            },
+            "featuresListaFra": {
+              "sadrzajFra": {
+                "uvod": {
+                  "brojStavki": ["9"],
+                  "nadnaslov": "nadnaslov fra",
+                  "naslov": "naslov fra",
+                  "sadrzaj": "<p>naslov franaslov franaslov franaslov franaslov franaslov franaslov franaslov franaslov franaslov franaslov fra</p>\n"
+                },
+                "stavka1": {
+                  "naslov": "naslov1fra",
+                  "sadrzaj": "<p>naslov1franaslov1franaslov1franaslov1franaslov1franaslov1franaslov1franaslov1franaslov1franaslov1franaslov1franaslov1franaslov1fra</p>\n",
+                  "dodatneOpcije": {
+                    "link": "dodatno1fra.rf",
+                    "nadnaslovIliEmoji": "dodatno1fra",
+                    "slikaIliIkona": {
+                      "node": {
+                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/05/cropped-Crveni-studio.jpg"
+                      }
+                    }
+                  }
+                },
+                "stavka2": {
+                  "naslov": "naslov2fra",
+                  "sadrzaj": "<p>naslov2franaslov2franaslov2franaslov2franaslov2franaslov2franaslov2franaslov2franaslov2franaslov2franaslov2fra</p>\n",
+                  "dodatneOpcije": {
+                    "link": "dodatno2fra.gfgf",
+                    "nadnaslovIliEmoji": "dodatno2fra",
+                    "slikaIliIkona": {
+                      "node": {
+                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01749.jpg"
+                      }
+                    }
+                  }
+                },
+                "stavka3": {
+                  "naslov": "naslov3fra",
+                  "sadrzaj": "<p>naslov3franaslov3franaslov3franaslov3franaslov3franaslov3franaslov3franaslov3franaslov3franaslov3franaslov3franaslov3franaslov3franaslov3franaslov3franaslov3franaslov3franaslov3franaslov3franaslov3franaslov3franaslov3franaslov3franaslov3fra</p>\n",
+                  "dodatneOpcije": {
+                    "link": "dodatno3fra.hghg",
+                    "nadnaslovIliEmoji": "dodatno3fra",
+                    "slikaIliIkona": {
+                      "node": {
+                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01469.jpg"
+                      }
+                    }
+                  }
+                },
+                "stavka4": {
+                  "naslov": "naslov4fra",
+                  "sadrzaj": "<p>naslov4franaslov4franaslov4franaslov4franaslov4franaslov4franaslov4franaslov4franaslov4franaslov4franaslov4fra</p>\n",
+                  "dodatneOpcije": {
+                    "link": "dodatno4fra.cms",
+                    "nadnaslovIliEmoji": "dodatno4fra",
+                    "slikaIliIkona": {
+                      "node": {
+                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01469.jpg"
+                      }
+                    }
+                  }
+                },
+                "stavka5": {
+                  "naslov": "naslov5fra",
+                  "sadrzaj": "<p>naslov5franaslov5franaslov5franaslov5franaslov5franaslov5franaslov5franaslov5franaslov5franaslov5franaslov5fra</p>\n",
+                  "dodatneOpcije": {
+                    "link": "dodatno5fra.gf",
+                    "nadnaslovIliEmoji": "dodatno5fra",
+                    "slikaIliIkona": {
+                      "node": {
+                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01464.jpg"
+                      }
+                    }
+                  }
+                },
+                "stavka6": {
+                  "naslov": "naslov6fra",
+                  "sadrzaj": "<p>naslov6franaslov6franaslov6franaslov6franaslov6franaslov6franaslov6franaslov6fra</p>\n",
+                  "dodatneOpcije": {
+                    "link": "dodatno6fra.hg",
+                    "nadnaslovIliEmoji": "dodatno6fra",
+                    "slikaIliIkona": {
+                      "node": {
+                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/080.jpg"
+                      }
+                    }
+                  }
+                },
+                "stavka7": {
+                  "naslov": "naslov7fra",
+                  "sadrzaj": "<p>naslov7franaslov7franaslov7franaslov7franaslov7franaslov7franaslov7franaslov7franaslov7franaslov7franaslov7franaslov7fra</p>\n",
+                  "dodatneOpcije": {
+                    "link": "dodatno7fra.hg",
+                    "nadnaslovIliEmoji": "dodatno7fra",
+                    "slikaIliIkona": {
+                      "node": {
+                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01464.jpg"
+                      }
+                    }
+                  }
+                },
+                "stavka8": {
+                  "naslov": "naslov8fra",
+                  "sadrzaj": "<p>naslov8franaslov8franaslov8franaslov8franaslov8franaslov8franaslov8franaslov8franaslov8franaslov8franaslov8fra</p>\n",
+                  "dodatneOpcije": {
+                    "link": "dodatno8fra.hghg",
+                    "nadnaslovIliEmoji": "dodatno8fra",
+                    "slikaIliIkona": {
+                      "node": {
+                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01469.jpg"
+                      }
+                    }
+                  }
+                },
+                "stavka9": {
+                  "naslov": "naslov9fra",
+                  "sadrzaj": "<p>naslov9franaslov9franaslov9franaslov9franaslov9franaslov9franaslov9franaslov9franaslov9franaslov9franaslov9franaslov9fra</p>\n",
+                  "dodatneOpcije": {
+                    "link": "dodatno9fra.cmg",
+                    "nadnaslovIliEmoji": "dodatno9fra",
+                    "slikaIliIkona": {
+                      "node": {
+                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01730.jpg"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "featuresListaEsp": {
+              "sadrzajEsp": {
+                "uvod": {
+                  "brojStavki": ["9"],
+                  "nadnaslov": "nadnaslov esp",
+                  "naslov": "naslov esp",
+                  "sadrzaj": "<p>naslov espnaslov espnaslov espnaslov espnaslov espnaslov espnaslov esp</p>\n"
+                },
+                "stavka1": {
+                  "naslov": "naslov1esp",
+                  "sadrzaj": "<p>naslov1espnaslov1espnaslov1espnaslov1espnaslov1espnaslov1espnaslov1espnaslov1espnaslov1espnaslov1espnaslov1espnaslov1espnaslov1esp</p>\n",
+                  "dodatneOpcije": {
+                    "link": "dodatno1esp.wodad",
+                    "nadnaslovIliEmoji": "dodatno1esp",
+                    "slikaIliIkona": {
+                      "node": {
+                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/dji-lojena-2.jpg"
+                      }
+                    }
+                  }
+                },
+                "stavka2": {
+                  "naslov": "naslov2esp",
+                  "sadrzaj": "<p>naslov2espnaslov2espnaslov2espnaslov2espnaslov2espnaslov2espnaslov2espnaslov2espnaslov2esp</p>\n",
+                  "dodatneOpcije": {
+                    "link": "dodatno2esp.cm",
+                    "nadnaslovIliEmoji": "dodatno2esp",
+                    "slikaIliIkona": {
+                      "node": {
+                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01693.jpg"
+                      }
+                    }
+                  }
+                },
+                "stavka3": {
+                  "naslov": "naslov3esp",
+                  "sadrzaj": "<p>naslov3espnaslov3espnaslov3espnaslov3espnaslov3espnaslov3espnaslov3espnaslov3espnaslov3espnaslov3esp</p>\n",
+                  "dodatneOpcije": {
+                    "link": "dodatno3esp.fk",
+                    "nadnaslovIliEmoji": "dodatno3esp",
+                    "slikaIliIkona": {
+                      "node": {
+                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DJI_0991.jpg"
+                      }
+                    }
+                  }
+                },
+                "stavka4": {
+                  "naslov": "naslov4esp",
+                  "sadrzaj": "<p>naslov4espnaslov4espnaslov4espnaslov4espnaslov4espnaslov4esp</p>\n",
+                  "dodatneOpcije": {
+                    "link": "dodatno4esp.ck",
+                    "nadnaslovIliEmoji": "dodatno4esp",
+                    "slikaIliIkona": {
+                      "node": {
+                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DJI_0991.jpg"
+                      }
+                    }
+                  }
+                },
+                "stavka5": {
+                  "naslov": "naslov5esp",
+                  "sadrzaj": "<p>naslov5espnaslov5espnaslov5espnaslov5espnaslov5espnaslov5espnaslov5espnaslov5esp</p>\n",
+                  "dodatneOpcije": {
+                    "link": "dodatno5esp.com",
+                    "nadnaslovIliEmoji": "dodatno5esp",
+                    "slikaIliIkona": {
+                      "node": {
+                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/054.jpg"
+                      }
+                    }
+                  }
+                },
+                "stavka6": {
+                  "naslov": "naslov6esp",
+                  "sadrzaj": "<p>naslov6espnaslov6espnaslov6espnaslov6espnaslov6espnaslov6espnaslov6esp</p>\n",
+                  "dodatneOpcije": {
+                    "link": "dodatno6esp.com",
+                    "nadnaslovIliEmoji": "dodatno6esp",
+                    "slikaIliIkona": {
+                      "node": {
+                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01730.jpg"
+                      }
+                    }
+                  }
+                },
+                "stavka7": {
+                  "naslov": "naslov7esp",
+                  "sadrzaj": "<p>naslov7espnaslov7espnaslov7espnaslov7espnaslov7esp</p>\n",
+                  "dodatneOpcije": {
+                    "link": "dodatno7esp.hr",
+                    "nadnaslovIliEmoji": "dodatno7esp",
+                    "slikaIliIkona": {
+                      "node": {
+                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01693.jpg"
+                      }
+                    }
+                  }
+                },
+                "stavka8": {
+                  "naslov": "naslov8esp",
+                  "sadrzaj": "<p>naslov8espnaslov8espnaslov8espnaslov8espnaslov8espnaslov8espnaslov8espnaslov8esp</p>\n",
+                  "dodatneOpcije": {
+                    "link": "dodano8esp.com",
+                    "nadnaslovIliEmoji": "dodano8esp",
+                    "slikaIliIkona": {
+                      "node": {
+                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DJI_0991.jpg"
+                      }
+                    }
+                  }
+                },
+                "stavka9": {
+                  "naslov": "naslov9esp",
+                  "sadrzaj": "<p>naslov9espnaslov9espnaslov9espnaslov9espnaslov9espnaslov9espnaslov9espnaslov9espnaslov9esp</p>\n",
+                  "dodatneOpcije": {
+                    "link": "dodatno9esp.kgk",
+                    "nadnaslovIliEmoji": "dodatno9esp",
+                    "slikaIliIkona": {
+                      "node": {
+                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01693.jpg"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "featuresListaIta": {
+              "sadrzajIta": {
+                "uvod": {
+                  "brojStavki": ["9"],
+                  "nadnaslov": "nadnaslov ita",
+                  "naslov": "naslov ita",
+                  "sadrzaj": "<p>naslov itanaslov itanaslov itanaslov itanaslov itanaslov itanaslov itanaslov itanaslov itanaslov itanaslov itanaslov itanaslov itanaslov itanaslov ita</p>\n"
+                },
+                "stavka1": {
+                  "naslov": "naslov1ita",
+                  "sadrzaj": "<p>naslov1itanaslov1itanaslov1itanaslov1itanaslov1itanaslov1itanaslov1itanaslov1itanaslov1itanaslov1itanaslov1itanaslov1ita</p>\n",
+                  "dodatneOpcije": {
+                    "link": "dodatno1ita.ir",
+                    "nadnaslovIliEmoji": "dodatno1ita",
+                    "slikaIliIkona": {
+                      "node": {
+                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01520.jpg"
+                      }
+                    }
+                  }
+                },
+                "stavka2": {
+                  "naslov": "naslov2ita",
+                  "sadrzaj": "<p>naslov2itanaslov2itanaslov2itanaslov2itanaslov2itanaslov2itanaslov2ita</p>\n",
+                  "dodatneOpcije": {
+                    "link": "dodatno2ita.it",
+                    "nadnaslovIliEmoji": "dodatno2ita",
+                    "slikaIliIkona": {
+                      "node": {
+                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01693.jpg"
+                      }
+                    }
+                  }
+                },
+                "stavka3": {
+                  "naslov": "naslov3ita",
+                  "sadrzaj": "<p>naslov3itanaslov3itanaslov3itanaslov3itanaslov3ita</p>\n",
+                  "dodatneOpcije": {
+                    "link": "dodatno3ita.ita",
+                    "nadnaslovIliEmoji": "dodatno3ita",
+                    "slikaIliIkona": {
+                      "node": {
+                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01693.jpg"
+                      }
+                    }
+                  }
+                },
+                "stavka4": {
+                  "naslov": "naslov4ita",
+                  "sadrzaj": "<p>naslov4itanaslov4itanaslov4itanaslov4itanaslov4itanaslov4itanaslov4itanaslov4ita</p>\n",
+                  "dodatneOpcije": {
+                    "link": "dodatno4ita.iii",
+                    "nadnaslovIliEmoji": "dodatno4ita",
+                    "slikaIliIkona": {
+                      "node": {
+                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01697.jpg"
+                      }
+                    }
+                  }
+                },
+                "stavka5": {
+                  "naslov": "naslov5ita",
+                  "sadrzaj": "<p>naslov5itanaslov5itanaslov5itanaslov5itanaslov5itanaslov5itanaslov5itanaslov5ita</p>\n",
+                  "dodatneOpcije": {
+                    "link": "dodatno5ita.why",
+                    "nadnaslovIliEmoji": "dodatno5ita",
+                    "slikaIliIkona": {
+                      "node": {
+                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01693.jpg"
+                      }
+                    }
+                  }
+                },
+                "stavka6": {
+                  "naslov": "naslov6ita",
+                  "sadrzaj": "<p>naslov6itanaslov6itanaslov6itanaslov6itanaslov6itanaslov6itanaslov6itanaslov6ita</p>\n",
+                  "dodatneOpcije": {
+                    "link": "dodatno6ita.tzt",
+                    "nadnaslovIliEmoji": "dodatno6ita",
+                    "slikaIliIkona": {
+                      "node": {
+                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01749.jpg"
+                      }
+                    }
+                  }
+                },
+                "stavka7": {
+                  "naslov": "naslov7ita",
+                  "sadrzaj": "<p>naslov7itanaslov7itanaslov7itanaslov7itanaslov7itanaslov7itanaslov7ita</p>\n",
+                  "dodatneOpcije": {
+                    "link": "dodatno7ita.uz",
+                    "nadnaslovIliEmoji": "dodatno7ita",
+                    "slikaIliIkona": {
+                      "node": {
+                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/085.jpg"
+                      }
+                    }
+                  }
+                },
+                "stavka8": {
+                  "naslov": "naslov8ita",
+                  "sadrzaj": "<p>naslov8itanaslov8itanaslov8itanaslov8itanaslov8itanaslov8ita</p>\n",
+                  "dodatneOpcije": {
+                    "link": "dodatno8ita.zuz",
+                    "nadnaslovIliEmoji": "dodatno8ita",
+                    "slikaIliIkona": {
+                      "node": {
+                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/047.jpg"
+                      }
+                    }
+                  }
+                },
+                "stavka9": {
+                  "naslov": "naslov9ita",
+                  "sadrzaj": "<p>naslov9itanaslov9itanaslov9itanaslov9itanaslov9itanaslov9itanaslov9itanaslov9itanaslov9itanaslov9ita</p>\n",
+                  "dodatneOpcije": {
+                    "link": "dodatno9ita.cms",
+                    "nadnaslovIliEmoji": "dodatno9ita",
+                    "slikaIliIkona": {
+                      "node": {
+                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01817.jpg"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "featuresListaSlo": {
+              "sadrzajSlo": {
+                "uvod": {
+                  "brojStavki": ["9"],
+                  "naslov": "naslov slo",
+                  "sadrzaj": "<p>sazdraj slo</p>\n<p>sazdraj slo</p>\n<p>sazdraj slo</p>\n<p>sazdraj slo</p>\n<p>sazdraj slo</p>\n<p>sazdraj slo</p>\n<p>sazdraj slo</p>\n",
+                  "nadnaslov": "nadnaslov slo"
+                },
+                "stavka1": {
+                  "naslov": "naslov1slo",
+                  "sadrzaj": "<p>naslov1slonaslov1slonaslov1slonaslov1slonaslov1slo</p>\n",
+                  "dodatneOpcije": {
+                    "link": "dodano1slo",
+                    "nadnaslovIliEmoji": "dodano1slo",
+                    "slikaIliIkona": {
+                      "node": {
+                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/1000091074.jpg"
+                      }
+                    }
+                  }
+                },
+                "stavka2": {
+                  "naslov": "naslov2slo",
+                  "sadrzaj": "<p>naslov2slonaslov2slonaslov2slonaslov2slonaslov2slonaslov2slo</p>\n",
+                  "dodatneOpcije": {
+                    "link": "dodatno2slo.slo",
+                    "nadnaslovIliEmoji": "dodatno2slo",
+                    "slikaIliIkona": {
+                      "node": {
+                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/1000091074-1.jpg"
+                      }
+                    }
+                  }
+                },
+                "stavka3": {
+                  "naslov": "naslov3slo",
+                  "sadrzaj": "<p>naslov3slonaslov3slonaslov3slonaslov3slonaslov3slonaslov3slonaslov3slo</p>\n",
+                  "dodatneOpcije": {
+                    "link": "dodatno3slo.sadas",
+                    "nadnaslovIliEmoji": "dodatno3slo",
+                    "slikaIliIkona": {
+                      "node": {
+                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01464.jpg"
+                      }
+                    }
+                  }
+                },
+                "stavka4": {
+                  "naslov": "naslov4slo",
+                  "sadrzaj": "<p>naslov4slonaslov4slonaslov4slonaslov4slonaslov4slonaslov4slonaslov4slonaslov4slonaslov4slonaslov4slonaslov4slo</p>\n",
+                  "dodatneOpcije": {
+                    "link": "dodatno4slo.slo",
+                    "nadnaslovIliEmoji": "dodatno4slo",
+                    "slikaIliIkona": {
+                      "node": {
+                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01469.jpg"
+                      }
+                    }
+                  }
+                },
+                "stavka5": {
+                  "naslov": "naslov5slo",
+                  "sadrzaj": "<p>naslov5slonaslov5slonaslov5slonaslov5slonaslov5slonaslov5slonaslov5slonaslov5slonaslov5slonaslov5slonaslov5slonaslov5slonaslov5slo</p>\n",
+                  "dodatneOpcije": {
+                    "link": "dodatno5slo.hs",
+                    "nadnaslovIliEmoji": "dodatno5slo",
+                    "slikaIliIkona": {
+                      "node": {
+                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01464.jpg"
+                      }
+                    }
+                  }
+                },
+                "stavka6": {
+                  "naslov": "naslov6slo",
+                  "sadrzaj": "<p>naslov6slo<strong>naslov6slonaslov6slonaslov6slonaslov6slonaslov6slonaslov6slo</strong></p>\n",
+                  "dodatneOpcije": {
+                    "link": "dodatno6slo.slo",
+                    "nadnaslovIliEmoji": "dodatno6slo",
+                    "slikaIliIkona": {
+                      "node": {
+                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DSC01382.jpg"
+                      }
+                    }
+                  }
+                },
+                "stavka7": {
+                  "naslov": "naslov7slo",
+                  "sadrzaj": "<p>naslov7slonaslov7slonaslov7slonaslov7slonaslov7slonaslov7slonaslov7slonaslov7slonaslov7slonaslov7slonaslov7slonaslov7slonaslov7slonaslov7slonaslov7slo</p>\n",
+                  "dodatneOpcije": {
+                    "link": "dodatno7slo.asdas",
+                    "nadnaslovIliEmoji": "dodatno7slo",
+                    "slikaIliIkona": {
+                      "node": {
+                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/1000107361.jpg"
+                      }
+                    }
+                  }
+                },
+                "stavka8": {
+                  "naslov": "naslov8slo",
+                  "sadrzaj": "<p>naslov8slonaslov8slonaslov8slonaslov8slonaslov8slonaslov8slonaslov8slo</p>\n",
+                  "dodatneOpcije": {
+                    "link": "dodatno8slo.sos",
+                    "nadnaslovIliEmoji": "dodatno8slo",
+                    "slikaIliIkona": {
+                      "node": {
+                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/DJI_0971.jpg"
+                      }
+                    }
+                  }
+                },
+                "stavka9": {
+                  "naslov": "naslov9slo",
+                  "sadrzaj": "<p>naslov9slonaslov9slonaslov9slonaslov9slonaslov9slonaslov9slonaslov9slonaslov9slo</p>\n",
+                  "dodatneOpcije": {
+                    "link": "dodatno9slo.la",
+                    "nadnaslovIliEmoji": "dodatno9slo",
+                    "slikaIliIkona": {
+                      "node": {
+                        "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2025/04/1000091074.jpg"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "allPortfolioCaseStudyAgency": {
+      "edges": [
+        {
+          "node": {
+            "id": "cG9zdDoxNzQ3",
+            "databaseId": 1747,
+            "title": "test svih polja",
+            "agencijaSadrzajHr": {
+              "sadrzajHr": {
+                "oKlijentu": {
+                  "oKlijentuNaslov": "O klijentu",
+                  "oKlijentuSadrzaj": "<p>Donec et auctor nibh, eu tincidunt augue. Pellentesque vel pretium arcu, vitae feugiat libero. Nulla posuere id nulla at tincidunt. Praesent orci elit, tincidunt vitae est et, molestie fermentum tortor. Mauris laoreet luctus turpis, at volutpat sapien posuere sit amet. Nulla vestibulum nibh ac rutrum lobortis. Donec a nisi sed risus bibendum tincidunt in vel diam.</p>\n<p>Cras id ultricies ex. Suspendisse molestie libero mi, eget dictum erat vehicula eu. Aliquam vel rutrum lectus, vitae maximus urna. Nam id erat blandit, malesuada justo ac, volutpat dui. Aenean bibendum dolor mi, quis sagittis arcu euismod nec. Maecenas eget tempus est. Etiam mauris nunc, dapibus in feugiat sit amet, blandit et nibh. Suspendisse potenti.</p>\n"
+                },
+                "opisProjekta": {
+                  "opisProjektaIIzazoviNaslov": "Opis projekta:",
+                  "opisProjektaIIzazoviSadrzaj": "<p>Donec et auctor nibh, eu tincidunt augue. Pellentesque vel pretium arcu, vitae feugiat libero. Nulla posuere id nulla at tincidunt. Praesent orci elit, tincidunt vitae est et, molestie fermentum tortor. Mauris laoreet luctus turpis, at volutpat sapien posuere sit amet. Nulla vestibulum nibh ac rutrum lobortis. Donec a nisi sed risus bibendum tincidunt in vel diam.</p>\n"
+                },
+                "realiziraneUsluge": {
+                  "popisRealiziranihUsluga": "<p>Pisana analiza zahtjeva projekta<br />\nDizajn korisničkog sučelja<br />\nImplementacija front-end rješenja<br />\nKonfiguracija WordPress backenda<br />\nTestiranje i optimizacija performansi</p>\n"
+                },
+                "rjesenje": {
+                  "rjesenjeNaslov": "Rješenje:",
+                  "rjesenjeSadrzaj": "<p>Sed sit amet vestibulum lorem. Etiam a vestibulum lectus, congue condimentum justo. Mauris dapibus enim ut sem imperdiet dictum. Phasellus id molestie urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce eleifend lectus eros, faucibus lobortis nunc gravida a. Duis metus velit, rutrum vestibulum scelerisque sed, finibus id magna. Integer elementum justo cursus, consequat magna eget, accumsan tortor. Vestibulum euismod eget metus nec molestie. Phasellus porttitor bibendum dolor.</p>\n"
+                },
+                "cmsSwitcher": {
+                  "cmsSwitcherOKlijentu": true,
+                  "cmsSwitcherOpisProjekta": true,
+                  "cmsSwitcherRealiziraneUsluge": true,
+                  "cmsSwitcherRjesenje": true
+                }
+              }
+            },
+            "agencijaSadrzajEng": {
+              "sadrzajEng": {
+                "oKlijentu": {
+                  "oKlijentuNaslov": "Client Overview",
+                  "oKlijentuSadrzaj": "<p>Fusce ultrices, urna non laoreet feugiat, ipsum est sodales nunc, vitae rutrum erat magna eu libero. Etiam dictum euismod justo sit amet eleifend.</p>\n"
+                },
+                "opisProjekta": {
+                  "opisProjektaIIzazoviNaslov": "Project description",
+                  "opisProjektaIIzazoviSadrzaj": "<p>Donec et auctor nibh, eu tincidunt augue. Pellentesque vel pretium arcu, vitae feugiat libero. Nulla posuere id nulla at tincidunt. Praesent orci elit, tincidunt vitae est et, molestie fermentum tortor. Mauris laoreet luctus turpis, at volutpat sapien posuere sit amet. Nulla vestibulum nibh ac rutrum lobortis. Donec a nisi sed risus bibendum tincidunt in vel diam.</p>\n"
+                },
+                "realiziraneUsluge": {
+                  "popisRealiziranihUsluga": null
+                },
+                "rjesenje": {
+                  "rjesenjeNaslov": "Rješenje:",
+                  "rjesenjeSadrzaj": "<p>Sed sit amet vestibulum lorem. Etiam a vestibulum lectus, congue condimentum justo. Mauris dapibus enim ut sem imperdiet dictum. Phasellus id molestie urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce eleifend lectus eros, faucibus lobortis nunc gravida a. Duis metus velit, rutrum vestibulum scelerisque sed, finibus id magna. Integer elementum justo cursus, consequat magna eget, accumsan tortor. Vestibulum euismod eget metus nec molestie. Phasellus porttitor bibendum dolor.</p>\n"
+                },
+                "cmsSwitcher": {
+                  "cmsSwitcherOKlijentu": true,
+                  "cmsSwitcherOpisProjekta": true,
+                  "cmsSwitcherRealiziraneUsluge": false,
+                  "cmsSwitcherRjesenje": false
+                }
+              }
+            },
+            "agencijaSadrzajIta": {
+              "sadrzajIta": {
+                "oKlijentu": {
+                  "oKlijentuNaslov": "Client Overview",
+                  "oKlijentuSadrzaj": "<p>Fusce ultrices, urna non laoreet feugiat, ipsum est sodales nunc, vitae rutrum erat magna eu libero. Etiam dictum euismod justo sit amet eleifend.</p>\n"
+                },
+                "opisProjekta": {
+                  "opisProjektaIIzazoviNaslov": "Project description",
+                  "opisProjektaIIzazoviSadrzaj": "<p>Donec et auctor nibh, eu tincidunt augue. Pellentesque vel pretium arcu, vitae feugiat libero. Nulla posuere id nulla at tincidunt. Praesent orci elit, tincidunt vitae est et, molestie fermentum tortor. Mauris laoreet luctus turpis, at volutpat sapien posuere sit amet. Nulla vestibulum nibh ac rutrum lobortis. Donec a nisi sed risus bibendum tincidunt in vel diam.</p>\n"
+                },
+                "realiziraneUsluge": {
+                  "popisRealiziranihUsluga": null
+                },
+                "rjesenje": {
+                  "rjesenjeNaslov": "Rješenje:",
+                  "rjesenjeSadrzaj": "<p>Sed sit amet vestibulum lorem. Etiam a vestibulum lectus, congue condimentum justo. Mauris dapibus enim ut sem imperdiet dictum. Phasellus id molestie urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce eleifend lectus eros, faucibus lobortis nunc gravida a. Duis metus velit, rutrum vestibulum scelerisque sed, finibus id magna. Integer elementum justo cursus, consequat magna eget, accumsan tortor. Vestibulum euismod eget metus nec molestie. Phasellus porttitor bibendum dolor.</p>\n"
+                },
+                "cmsSwitcher": {
+                  "cmsSwitcherOKlijentu": true,
+                  "cmsSwitcherOpisProjekta": true,
+                  "cmsSwitcherRealiziraneUsluge": false,
+                  "cmsSwitcherRjesenje": false
+                }
+              }
+            },
+            "agencijaSadrzajFra": {
+              "sadrzajFra": {
+                "oKlijentu": {
+                  "oKlijentuNaslov": "Client Overview",
+                  "oKlijentuSadrzaj": "<p>Fusce ultrices, urna non laoreet feugiat, ipsum est sodales nunc, vitae rutrum erat magna eu libero. Etiam dictum euismod justo sit amet eleifend.</p>\n"
+                },
+                "opisProjekta": {
+                  "opisProjektaIIzazoviNaslov": "Project description",
+                  "opisProjektaIIzazoviSadrzaj": "<p>Donec et auctor nibh, eu tincidunt augue. Pellentesque vel pretium arcu, vitae feugiat libero. Nulla posuere id nulla at tincidunt. Praesent orci elit, tincidunt vitae est et, molestie fermentum tortor. Mauris laoreet luctus turpis, at volutpat sapien posuere sit amet. Nulla vestibulum nibh ac rutrum lobortis. Donec a nisi sed risus bibendum tincidunt in vel diam.</p>\n"
+                },
+                "realiziraneUsluge": {
+                  "popisRealiziranihUsluga": null
+                },
+                "rjesenje": {
+                  "rjesenjeNaslov": "Rješenje:",
+                  "rjesenjeSadrzaj": "<p>Sed sit amet vestibulum lorem. Etiam a vestibulum lectus, congue condimentum justo. Mauris dapibus enim ut sem imperdiet dictum. Phasellus id molestie urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce eleifend lectus eros, faucibus lobortis nunc gravida a. Duis metus velit, rutrum vestibulum scelerisque sed, finibus id magna. Integer elementum justo cursus, consequat magna eget, accumsan tortor. Vestibulum euismod eget metus nec molestie. Phasellus porttitor bibendum dolor.</p>\n"
+                },
+                "cmsSwitcher": {
+                  "cmsSwitcherOKlijentu": true,
+                  "cmsSwitcherOpisProjekta": true,
+                  "cmsSwitcherRealiziraneUsluge": false,
+                  "cmsSwitcherRjesenje": false
+                }
+              }
+            },
+            "agencijaSadrzajSlo": {
+              "sadrzajSlo": {
+                "cmsSwitcher": {
+                  "cmsSwitcherOKlijentu": true,
+                  "cmsSwitcherOpisProjekta": true,
+                  "cmsSwitcherRealiziraneUsluge": false,
+                  "cmsSwitcherRjesenje": false
+                },
+                "oKlijentu": {
+                  "oKlijentuNaslov": "Client Overview",
+                  "oKlijentuSadrzaj": "<p>Fusce ultrices, urna non laoreet feugiat, ipsum est sodales nunc, vitae rutrum erat magna eu libero. Etiam dictum euismod justo sit amet eleifend.</p>\n"
+                },
+                "opisProjekta": {
+                  "opisProjektaIIzazoviNaslov": "Project description",
+                  "opisProjektaIIzazoviSadrzaj": "<p>Donec et auctor nibh, eu tincidunt augue. Pellentesque vel pretium arcu, vitae feugiat libero. Nulla posuere id nulla at tincidunt. Praesent orci elit, tincidunt vitae est et, molestie fermentum tortor. Mauris laoreet luctus turpis, at volutpat sapien posuere sit amet. Nulla vestibulum nibh ac rutrum lobortis. Donec a nisi sed risus bibendum tincidunt in vel diam.</p>\n"
+                },
+                "realiziraneUsluge": {
+                  "popisRealiziranihUsluga": null
+                },
+                "rjesenje": {
+                  "rjesenjeNaslov": "Rješenje:",
+                  "rjesenjeSadrzaj": "<p>Sed sit amet vestibulum lorem. Etiam a vestibulum lectus, congue condimentum justo. Mauris dapibus enim ut sem imperdiet dictum. Phasellus id molestie urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce eleifend lectus eros, faucibus lobortis nunc gravida a. Duis metus velit, rutrum vestibulum scelerisque sed, finibus id magna. Integer elementum justo cursus, consequat magna eget, accumsan tortor. Vestibulum euismod eget metus nec molestie. Phasellus porttitor bibendum dolor.</p>\n"
+                }
+              }
+            },
+            "agencijaSadrzajGer": {
+              "sadrzajGer": {
+                "cmsSwitcher": {
+                  "cmsSwitcherOKlijentu": true,
+                  "cmsSwitcherOpisProjekta": true,
+                  "cmsSwitcherRealiziraneUsluge": false,
+                  "cmsSwitcherRjesenje": false
+                },
+                "oKlijentu": {
+                  "oKlijentuNaslov": "Client Overview",
+                  "oKlijentuSadrzaj": "<p>Fusce ultrices, urna non laoreet feugiat, ipsum est sodales nunc, vitae rutrum erat magna eu libero. Etiam dictum euismod justo sit amet eleifend.</p>\n"
+                },
+                "opisProjekta": {
+                  "opisProjektaIIzazoviNaslov": "Project description",
+                  "opisProjektaIIzazoviSadrzaj": "<p>Donec et auctor nibh, eu tincidunt augue. Pellentesque vel pretium arcu, vitae feugiat libero. Nulla posuere id nulla at tincidunt. Praesent orci elit, tincidunt vitae est et, molestie fermentum tortor. Mauris laoreet luctus turpis, at volutpat sapien posuere sit amet. Nulla vestibulum nibh ac rutrum lobortis. Donec a nisi sed risus bibendum tincidunt in vel diam.</p>\n"
+                },
+                "realiziraneUsluge": {
+                  "popisRealiziranihUsluga": null
+                },
+                "rjesenje": {
+                  "rjesenjeNaslov": "Rješenje:",
+                  "rjesenjeSadrzaj": "<p>Sed sit amet vestibulum lorem. Etiam a vestibulum lectus, congue condimentum justo. Mauris dapibus enim ut sem imperdiet dictum. Phasellus id molestie urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce eleifend lectus eros, faucibus lobortis nunc gravida a. Duis metus velit, rutrum vestibulum scelerisque sed, finibus id magna. Integer elementum justo cursus, consequat magna eget, accumsan tortor. Vestibulum euismod eget metus nec molestie. Phasellus porttitor bibendum dolor.</p>\n"
+                }
+              }
+            },
+            "agencijaSadrzajEsp": {
+              "sadrzajEsp": {
+                "oKlijentu": {
+                  "oKlijentuNaslov": "Client Overview",
+                  "oKlijentuSadrzaj": "<p>Fusce ultrices, urna non laoreet feugiat, ipsum est sodales nunc, vitae rutrum erat magna eu libero. Etiam dictum euismod justo sit amet eleifend.</p>\n"
+                },
+                "opisProjekta": {
+                  "opisProjektaIIzazoviNaslov": "Project description",
+                  "opisProjektaIIzazoviSadrzaj": "<p>Donec et auctor nibh, eu tincidunt augue. Pellentesque vel pretium arcu, vitae feugiat libero. Nulla posuere id nulla at tincidunt. Praesent orci elit, tincidunt vitae est et, molestie fermentum tortor. Mauris laoreet luctus turpis, at volutpat sapien posuere sit amet. Nulla vestibulum nibh ac rutrum lobortis. Donec a nisi sed risus bibendum tincidunt in vel diam.</p>\n"
+                },
+                "realiziraneUsluge": {
+                  "popisRealiziranihUsluga": null
+                },
+                "rjesenje": {
+                  "rjesenjeNaslov": "Rješenje:",
+                  "rjesenjeSadrzaj": "<p>Sed sit amet vestibulum lorem. Etiam a vestibulum lectus, congue condimentum justo. Mauris dapibus enim ut sem imperdiet dictum. Phasellus id molestie urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce eleifend lectus eros, faucibus lobortis nunc gravida a. Duis metus velit, rutrum vestibulum scelerisque sed, finibus id magna. Integer elementum justo cursus, consequat magna eget, accumsan tortor. Vestibulum euismod eget metus nec molestie. Phasellus porttitor bibendum dolor.</p>\n"
+                },
+                "cmsSwitcher": {
+                  "cmsSwitcherOKlijentu": true,
+                  "cmsSwitcherOpisProjekta": true,
+                  "cmsSwitcherRealiziraneUsluge": false,
+                  "cmsSwitcherRjesenje": false
+                }
+              }
+            },
+            "statusAtivacijePoJezicima": {
+              "aktivatorEng": true,
+              "aktivatorGer": true,
+              "aktivatorHr": true,
+              "aktivatorIta": true,
+              "dodatniJezici": {
+                "aktivatorFra": false,
+                "aktivatorSlo": false,
+                "aktivatorSpa": false
+              }
+            },
+            "caseStudyUvod": {
+              "bonusPoljeZaUpisCaseStudy": "Bonus polje",
+              "colorCaseStudy": "#dd9933",
+              "favoriteCaseStudy": true,
+              "godinaCaseStudy": 2020,
+              "imeKlijentaCaseStudy": "Rimac Automobili",
+              "slikaThumbnailCaseStudy": {
+                "node": {
+                  "id": "cG9zdDoxNDIyOQ==",
+                  "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2024/06/PL2_8298-25-05-10-Marko-Baljak-muskovci-napuhanci-napuhanci-foto-orlando-zrmanja-6000-x-4000-37-mm-ISO-100-1-1250-sec-at-f-28.jpg"
+                }
+              },
+              "izbornikOznakaCheckbox": {
+                "edges": [
+                  {
+                    "node": {
+                      "id": "dGVybTo0OQ==",
+                      "name": "#delivery",
+                      "tags": {
+                        "prijevodiTagova": {
+                          "engleskiPrijevod": "delivery eng",
+                          "francuskiPrijevod": "delivery fra",
+                          "hrvatskiPrijevod": "delivery hr",
+                          "njemackiPrijevod": "delivery ger",
+                          "talijanskiPrijevod": "delivery ita"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "node": {
+                      "id": "dGVybTo0Ng==",
+                      "name": "#molim",
+                      "tags": {
+                        "prijevodiTagova": {
+                          "engleskiPrijevod": "molim ENG",
+                          "francuskiPrijevod": "molim FRA",
+                          "hrvatskiPrijevod": "molim HR",
+                          "njemackiPrijevod": "molim GER",
+                          "talijanskiPrijevod": "molim ITA"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "node": {
+                      "id": "dGVybTo0Nw==",
+                      "name": "#zastoo",
+                      "tags": {
+                        "prijevodiTagova": {
+                          "engleskiPrijevod": "zastoENG",
+                          "francuskiPrijevod": "zastoFRA",
+                          "hrvatskiPrijevod": "zastoHR",
+                          "njemackiPrijevod": "zastoGER",
+                          "talijanskiPrijevod": "zastoITA"
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "izbornikKategorijeCheckbox": {
+                "edges": [
+                  {
+                    "node": {
+                      "id": "dGVybTo0MQ==",
+                      "informacijeKategorije": {
+                        "prijevodi": {
+                          "imeKategorijeEng": "slavonija eng",
+                          "imeKategorijeEsp": "slavonija esp",
+                          "imeKategorijeFra": "slavonija fra",
+                          "imeKategorijeGer": "slavonija ger",
+                          "imeKategorijeHr": "slavonija hr",
+                          "imeKategorijeIta": "slavonija ita",
+                          "opisKategorijeEng": "slavonija eng",
+                          "opisKategorijeEsp": "slavonija eps",
+                          "opisKategorijeFra": "slavonija fra",
+                          "opisKategorijeGer": "slavonija ger",
+                          "opisKategorijeHr": "slavonija hr",
+                          "opisKategorijeIta": "slavonija ita"
+                        },
+                        "uvod": {
+                          "slikaKategorije": null,
+                          "bojaKategorije": null
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "glavnaSlikaCaseStudy": {
+                "node": {
+                  "id": "cG9zdDoxNDIyOQ==",
+                  "sourceUrl": "https://mastodont-2.sutra-cms.com/wp-content/uploads/2024/06/PL2_8298-25-05-10-Marko-Baljak-muskovci-napuhanci-napuhanci-foto-orlando-zrmanja-6000-x-4000-37-mm-ISO-100-1-1250-sec-at-f-28.jpg"
                 }
               }
             }

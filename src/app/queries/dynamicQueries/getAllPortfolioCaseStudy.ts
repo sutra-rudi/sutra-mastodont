@@ -4,6 +4,8 @@ export default function getAllPortfolioCaseStudy() {
     edges {
       node {
         id
+        title
+        databaseId
         agencijaSadrzajHr {
           sadrzajHr {
             oKlijentu {
@@ -199,6 +201,7 @@ export default function getAllPortfolioCaseStudy() {
           slikaThumbnailCaseStudy {
             node {
               id
+              sourceUrl
             }
           }
           izbornikOznakaCheckbox {
@@ -273,6 +276,8 @@ export const portfolioCaseStudyAgencyFragment = () => {
     edges {
       node {
         id
+        title
+        databaseId
         agencijaSadrzajHr {
           sadrzajHr {
             oKlijentu {
@@ -468,6 +473,7 @@ export const portfolioCaseStudyAgencyFragment = () => {
           slikaThumbnailCaseStudy {
             node {
               id
+              sourceUrl
             }
           }
           izbornikOznakaCheckbox {

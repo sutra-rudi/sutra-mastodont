@@ -5234,74 +5234,6 @@ export default function GIGA_QUERY() {
     }
   }
 
-  allListeFeatures {
-    edges {
-      node {
-        id
-        featuresListaHr {
-          sadrzajHr {
-            uvod {
-              nadnaslov
-              naslov
-              sadrzaj
-              brojStavki
-            }
-          }
-        }
-        featuresListaEng {
-          sadrzajEng {
-            uvod {
-              nadnaslov
-              naslov
-              sadrzaj
-              brojStavki
-            }
-          }
-        }
-        featuresListaFra {
-          sadrzajFra {
-            uvod {
-              nadnaslov
-              naslov
-              sadrzaj
-              brojStavki
-            }
-          }
-        }
-        featuresListaEsp {
-          sadrzajEsp {
-            uvod {
-              nadnaslov
-              naslov
-              sadrzaj
-              brojStavki
-            }
-          }
-        }
-        featuresListaIta {
-          sadrzajIta {
-            uvod {
-              nadnaslov
-              naslov
-              sadrzaj
-              brojStavki
-            }
-          }
-        }
-        featuresListaSlo {
-          sadrzajSlo {
-            uvod {
-              nadnaslov
-              naslov
-              sadrzaj
-              brojStavki
-            }
-          }
-        }
-      }
-    }
-  }
-
    allListeFeatures {
     edges {
       node {
@@ -6068,133 +6000,7 @@ export default function GIGA_QUERY() {
             }
           }
         }
-        featuresListaFra {
-          sadrzajFra {
-            uvod {
-              brojStavki
-              nadnaslov
-              naslov
-              sadrzaj
-            }
-            stavka1 {
-              naslov
-              sadrzaj
-              dodatneOpcije {
-                link
-                nadnaslovIliEmoji
-                slikaIliIkona {
-                  node {
-                    sourceUrl
-                  }
-                }
-              }
-            }
-            stavka2 {
-              naslov
-              sadrzaj
-              dodatneOpcije {
-                link
-                nadnaslovIliEmoji
-                slikaIliIkona {
-                  node {
-                    sourceUrl
-                  }
-                }
-              }
-            }
-            stavka3 {
-              naslov
-              sadrzaj
-              dodatneOpcije {
-                link
-                nadnaslovIliEmoji
-                slikaIliIkona {
-                  node {
-                    sourceUrl
-                  }
-                }
-              }
-            }
-            stavka4 {
-              naslov
-              sadrzaj
-              dodatneOpcije {
-                link
-                nadnaslovIliEmoji
-                slikaIliIkona {
-                  node {
-                    sourceUrl
-                  }
-                }
-              }
-            }
-            stavka5 {
-              naslov
-              sadrzaj
-              dodatneOpcije {
-                link
-                nadnaslovIliEmoji
-                slikaIliIkona {
-                  node {
-                    sourceUrl
-                  }
-                }
-              }
-            }
-            stavka6 {
-              naslov
-              sadrzaj
-              dodatneOpcije {
-                link
-                nadnaslovIliEmoji
-                slikaIliIkona {
-                  node {
-                    sourceUrl
-                  }
-                }
-              }
-            }
-            stavka7 {
-              naslov
-              sadrzaj
-              dodatneOpcije {
-                link
-                nadnaslovIliEmoji
-                slikaIliIkona {
-                  node {
-                    sourceUrl
-                  }
-                }
-              }
-            }
-            stavka8 {
-              naslov
-              sadrzaj
-              dodatneOpcije {
-                link
-                nadnaslovIliEmoji
-                slikaIliIkona {
-                  node {
-                    sourceUrl
-                  }
-                }
-              }
-            }
-            stavka9 {
-              naslov
-              sadrzaj
-              dodatneOpcije {
-                link
-                nadnaslovIliEmoji
-                slikaIliIkona {
-                  node {
-                    sourceUrl
-                  }
-                }
-              }
-            }
-          }
-        }
+       
         featuresListaSlo {
           sadrzajSlo {
             uvod {
@@ -6325,5 +6131,274 @@ export default function GIGA_QUERY() {
       }
     }
   }
-} `;
+  
+ allPortfolioCaseStudyAgency {
+    edges {
+      node {
+        id
+        databaseId
+        title
+        agencijaSadrzajHr {
+          sadrzajHr {
+            oKlijentu {
+              oKlijentuNaslov
+              oKlijentuSadrzaj
+            }
+            opisProjekta {
+              opisProjektaIIzazoviNaslov
+              opisProjektaIIzazoviSadrzaj
+            }
+            realiziraneUsluge {
+              popisRealiziranihUsluga
+            }
+            rjesenje {
+              rjesenjeNaslov
+              rjesenjeSadrzaj
+            }
+            cmsSwitcher {
+              cmsSwitcherOKlijentu
+              cmsSwitcherOpisProjekta
+              cmsSwitcherRealiziraneUsluge
+              cmsSwitcherRjesenje
+            }
+          }
+        }
+        agencijaSadrzajEng {
+          sadrzajEng {
+            oKlijentu {
+              oKlijentuNaslov
+              oKlijentuSadrzaj
+            }
+            opisProjekta {
+              opisProjektaIIzazoviNaslov
+              opisProjektaIIzazoviSadrzaj
+            }
+            realiziraneUsluge {
+              popisRealiziranihUsluga
+            }
+            rjesenje {
+              rjesenjeNaslov
+              rjesenjeSadrzaj
+            }
+            cmsSwitcher {
+              cmsSwitcherOKlijentu
+              cmsSwitcherOpisProjekta
+              cmsSwitcherRealiziraneUsluge
+              cmsSwitcherRjesenje
+            }
+          }
+        }
+        agencijaSadrzajIta {
+          sadrzajIta {
+            oKlijentu {
+              oKlijentuNaslov
+              oKlijentuSadrzaj
+            }
+            opisProjekta {
+              opisProjektaIIzazoviNaslov
+              opisProjektaIIzazoviSadrzaj
+            }
+            realiziraneUsluge {
+              popisRealiziranihUsluga
+            }
+            rjesenje {
+              rjesenjeNaslov
+              rjesenjeSadrzaj
+            }
+            cmsSwitcher {
+              cmsSwitcherOKlijentu
+              cmsSwitcherOpisProjekta
+              cmsSwitcherRealiziraneUsluge
+              cmsSwitcherRjesenje
+            }
+          }
+        }
+        agencijaSadrzajFra {
+          sadrzajFra {
+            oKlijentu {
+              oKlijentuNaslov
+              oKlijentuSadrzaj
+            }
+            opisProjekta {
+              opisProjektaIIzazoviNaslov
+              opisProjektaIIzazoviSadrzaj
+            }
+            realiziraneUsluge {
+              popisRealiziranihUsluga
+            }
+            rjesenje {
+              rjesenjeNaslov
+              rjesenjeSadrzaj
+            }
+            cmsSwitcher {
+              cmsSwitcherOKlijentu
+              cmsSwitcherOpisProjekta
+              cmsSwitcherRealiziraneUsluge
+              cmsSwitcherRjesenje
+            }
+          }
+        }
+        agencijaSadrzajSlo {
+          sadrzajSlo {
+            cmsSwitcher {
+              cmsSwitcherOKlijentu
+              cmsSwitcherOpisProjekta
+              cmsSwitcherRealiziraneUsluge
+              cmsSwitcherRjesenje
+            }
+            oKlijentu {
+              oKlijentuNaslov
+              oKlijentuSadrzaj
+            }
+            opisProjekta {
+              opisProjektaIIzazoviNaslov
+              opisProjektaIIzazoviSadrzaj
+            }
+            realiziraneUsluge {
+              popisRealiziranihUsluga
+            }
+            rjesenje {
+              rjesenjeNaslov
+              rjesenjeSadrzaj
+            }
+          }
+        }
+        agencijaSadrzajGer {
+          sadrzajGer {
+            cmsSwitcher {
+              cmsSwitcherOKlijentu
+              cmsSwitcherOpisProjekta
+              cmsSwitcherRealiziraneUsluge
+              cmsSwitcherRjesenje
+            }
+            oKlijentu {
+              oKlijentuNaslov
+              oKlijentuSadrzaj
+            }
+            opisProjekta {
+              opisProjektaIIzazoviNaslov
+              opisProjektaIIzazoviSadrzaj
+            }
+            realiziraneUsluge {
+              popisRealiziranihUsluga
+            }
+            rjesenje {
+              rjesenjeNaslov
+              rjesenjeSadrzaj
+            }
+          }
+        }
+        agencijaSadrzajEsp {
+          sadrzajEsp {
+            oKlijentu {
+              oKlijentuNaslov
+              oKlijentuSadrzaj
+            }
+            opisProjekta {
+              opisProjektaIIzazoviNaslov
+              opisProjektaIIzazoviSadrzaj
+            }
+            realiziraneUsluge {
+              popisRealiziranihUsluga
+            }
+            rjesenje {
+              rjesenjeNaslov
+              rjesenjeSadrzaj
+            }
+            cmsSwitcher {
+              cmsSwitcherOKlijentu
+              cmsSwitcherOpisProjekta
+              cmsSwitcherRealiziraneUsluge
+              cmsSwitcherRjesenje
+            }
+          }
+        }
+        statusAtivacijePoJezicima {
+          aktivatorEng
+          aktivatorGer
+          aktivatorHr
+          aktivatorIta
+          dodatniJezici {
+            aktivatorFra
+            aktivatorSlo
+            aktivatorSpa
+          }
+        }
+        caseStudyUvod {
+          bonusPoljeZaUpisCaseStudy
+          colorCaseStudy
+          favoriteCaseStudy
+          godinaCaseStudy
+          imeKlijentaCaseStudy
+          slikaThumbnailCaseStudy {
+            node {
+              id
+              sourceUrl
+            }
+          }
+          izbornikOznakaCheckbox {
+            edges {
+              node {
+                id
+                ... on Tag {
+                  name
+                  tags {
+                    prijevodiTagova {
+                      engleskiPrijevod
+                      francuskiPrijevod
+                      hrvatskiPrijevod
+                      njemackiPrijevod
+                      talijanskiPrijevod
+                    }
+                  }
+                }
+              }
+            }
+          }
+          izbornikKategorijeCheckbox {
+            edges {
+              node {
+                id
+                ... on Category {
+                  id
+                  informacijeKategorije {
+                    prijevodi {
+                      imeKategorijeEng
+                      imeKategorijeEsp
+                      imeKategorijeFra
+                      imeKategorijeGer
+                      imeKategorijeHr
+                      imeKategorijeIta
+                      opisKategorijeEng
+                      opisKategorijeEsp
+                      opisKategorijeFra
+                      opisKategorijeGer
+                      opisKategorijeHr
+                      opisKategorijeIta
+                    }
+                    uvod {
+                      slikaKategorije {
+                        node {
+                          id
+                          sourceUrl
+                        }
+                      }
+                      bojaKategorije
+                    }
+                  }
+                }
+              }
+            }
+          }
+          glavnaSlikaCaseStudy {
+            node {
+              id
+              sourceUrl
+            }
+          }
+        }
+      }
+    }
+  } 
+}`;
 }
