@@ -15,6 +15,8 @@ interface AppHero {
 export default function AppHero({ currentLang, imgs, abGroup }: AppHero) {
   const l = getSuffixFromLang(currentLang);
 
+  const [isImgRdy, setIsImgRdy] = React.useState<boolean>(false);
+
   const gtmEvent = `hero-cta-click-${abGroup.toLowerCase()}`;
 
   const findDataset =
@@ -28,22 +30,45 @@ export default function AppHero({ currentLang, imgs, abGroup }: AppHero) {
         className='aspect-auto w-full lg:h-[80vh] h-[70vh]'
         layers={[
           {
-            image: imgs.desktop,
+            children: (
+              <picture>
+                <img
+                  src={imgs.desktop}
+                  alt='Hero desktop'
+                  onLoad={() => {
+                    setTimeout(() => {
+                      setIsImgRdy(true);
+                    }, 1200);
+                  }}
+                  className='w-full h-full object-cover object-center md:block hidden brightness-75 motion-preset-shrink motion-ease-spring-smooth motion-duration-2000'
+                />
+              </picture>
+            ),
             translateY: [0, 50],
             opacity: [1, 0.8],
             scale: [1.05, 1, 'easeOutCubic'],
             shouldAlwaysCompleteAnimation: true,
-            className:
-              'md:block hidden brightness-75 motion-preset-shrink motion-ease-spring-smooth motion-duration-2000',
           },
           {
-            image: imgs.mobile,
+            children: (
+              <picture>
+                <img
+                  src={imgs.mobile}
+                  alt='Hero mobile'
+                  onLoad={() => {
+                    setTimeout(() => {
+                      setIsImgRdy(true);
+                    }, 1200);
+                  }}
+                  className='w-full h-full object-cover object-center md:hidden block brightness-75 motion-preset-shrink motion-ease-spring-smooth motion-duration-2000'
+                />
+              </picture>
+            ),
+
             translateY: [0, 50],
             opacity: [1, 0.8],
             scale: [1.05, 1, 'easeOutCubic'],
             shouldAlwaysCompleteAnimation: true,
-            className:
-              'md:hidden block brightness-75 motion-preset-shrink motion-ease-spring-smooth motion-duration-2000',
           },
           {
             translateY: [0, 30],
@@ -51,7 +76,11 @@ export default function AppHero({ currentLang, imgs, abGroup }: AppHero) {
             shouldAlwaysCompleteAnimation: true,
             expanded: false,
             children: (
-              <div className='text-center origin-center z-20 px-4   absolute inset-0 flex items-center justify-center flex-col'>
+              <div
+                className={`absolute ${
+                  isImgRdy ? 'flex' : 'hidden'
+                } text-center origin-center z-20 px-4 inset-0 ‘ items-center justify-center flex-col`}
+              >
                 <p className='lg:text-nadnaslov-desktop md:text-nadnaslov-tablet text-nadnaslov-mobile text-nadnaslov-color-dark-mode dark:text-nadnaslov-color-light-mode uppercase lg:mb-desktop-naslov-nadnaslov md:mb-tablet-naslov-nadnaslov mb-mobile-naslov-nadnaslov flex items-center justify-center gap-1 text-balance'>
                   {currentLang === UserLanguage.hr
                     ? //@ts-ignore
@@ -117,7 +146,7 @@ export default function AppHero({ currentLang, imgs, abGroup }: AppHero) {
                       ab_group: abGroup,
                     });
                   }}
-                  className='w-max max-w-[180px] lg:-mt--desktop-h1-2---sadrzaj-cta md:-mt--tablet-h1-2---sadrzaj-cta -mt--mobile-h1-2---sadrzaj-cta  flex items-center justify-start bg-primarna-tamna text-almost-white lg:text-button-desktop md:text-button-tablet text-button-mobile md:px-7 md:py-3 px-6 py-[15px] md:rounded-[7px] rounded-[5px] md:gap-[13.3px] gap-[11.6px] transition-all ease-in-out duration-300 group hover:bg-sekundarna-tamna active:bg-almost-black'
+                  className='w-max max-w-[180px] lg:-mt--desktop-h1-2---sadrzaj-cta md:-mt--tablet-h1-2---sadrzaj-cta -mt--mobile-h1-2---sadrzaj-cta  flex items-center justify-start bg-primarna-tamna text-almost-white lg:text-button-desktop md:text-button-tablet text-button-mobile md:px-7 md:py-3 px-6 py-[15px] md:rounded-[7px] rounded-[5px] md:gap-[13.3px] gap-[11.6px] transition-all ease-in-out duration-300 group hover:bg-sekundarna-tamna active:bg-almost-black motion-preset-slide-up motion-delay-2000 motion-ease-spring-smooth'
                 >
                   <span className='motion-ease-spring-bouncy group-hover:motion-preset-slide-up'>
                     {abGroup === 'A' ? 'Grupa A CTA' : 'Grupa B CTA'}
