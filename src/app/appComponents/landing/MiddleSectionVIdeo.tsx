@@ -14,7 +14,7 @@ export default function MiddleSectionVideo({ sourceUrl }: MiddleSectionVideoProp
   const [videoError, setVideoError] = React.useState<boolean>(false);
   const [seen, setSeen] = React.useState<boolean>(false);
   const [sectionRef, entry] = useIntersectionObserver({
-    threshold: 0,
+    threshold: 0.1,
     root: null,
     rootMargin: '0px',
   });
