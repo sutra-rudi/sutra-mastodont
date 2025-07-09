@@ -43,6 +43,7 @@ import { cookies, headers } from 'next/headers';
 import TestAnimationsSection from '../appComponents/landing/AnimaTest';
 // import { portfolioCaseStudyAgencyFragment } from '../queries/dynamicQueries/getAllPortfolioCaseStudy';
 import PortfolioAgency from '../appComponents/landing/PortfolioAgency';
+import TableSection from '../appComponents/landing/TableSection';
 ///
 
 const seoData = dataset.data.allSeoAdmin.edges.find((item) => item.node.title === 'Glavni SEO weba');
@@ -215,6 +216,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
     <main className='relative w-full dark:bg-primarna-tamna min-h-screen bg-white z-40'>
       <Suspense fallback={<Loading />}>
         <HeroSection currentLang={lang} imgs={heroImagesHomePage} abGroup={ab} />
+        <TableSection currentLang={lang} />
         <PortfolioAgency currentLang={lang} />
         <TestAnimationsSection />
         <ContentSectionFirst isList={false} content={findFirstTextContent?.node} currentLang={lang} bg={bgTextures} />
