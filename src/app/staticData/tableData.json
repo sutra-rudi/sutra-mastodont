@@ -1,0 +1,123 @@
+{
+  "data": {
+    "allTablica": {
+      "edges": [
+        {
+          "node": {
+            "id": "cG9zdDoxNDk1MA==",
+            "tablicaHr": {
+              "tablicaHr": {
+                "brojKolumni": 2,
+                "brojRedova": 5,
+                "kolumna0": "Karakteristika",
+                "kolumna1naziv": "Flaširana Voda",
+                "kolumna2naziv": "Bluvia Sustav",
+                "kolumna3naziv": null,
+                "r10c1": null,
+                "r10c2": null,
+                "r10c3": null,
+                "r1c1": "€1.20 – €1.80",
+                "r1c2": "€0.10 – €0.45",
+                "r1c3": null,
+                "r2c1": "€3.50 – €5.50",
+                "r2c2": "€3.50 – €5.50",
+                "r2c3": null,
+                "r3c1": "€1.70 – €4.30",
+                "r3c2": "€3.10 – €5.40",
+                "r3c3": null,
+                "r4c1": "Visoke",
+                "r4c2": "Minimalno",
+                "r4c3": null,
+                "r5c1": "Značajno",
+                "r5c2": "Minimalno",
+                "r5c3": null,
+                "r6c1": null,
+                "r6c2": null,
+                "r6c3": null,
+                "r7c1": null,
+                "r7c2": null,
+                "r7c3": null,
+                "r8c1": null,
+                "r8c2": null,
+                "r8c3": null,
+                "r9c1": null,
+                "r9c2": null,
+                "r9c3": null,
+                "red10naziv": null,
+                "red1naziv": "Usporedba Troškova i Prednosti",
+                "red7naziv": null,
+                "red8naziv": null,
+                "red9naziv": null,
+                "red2naziv": "Prodajna cijena",
+                "red3naziv": "Bruto dobit",
+                "red4naziv": "Logistika i skladistenje",
+                "red5naziv": "Utrošak vremena osoblja",
+                "red6naziv": null,
+                "uvod": {
+                  "nadnaslov": "Financijska slika na prvi pogled",
+                  "naslov": "Flaširana voda vs. Bluvia sustav: troškovi i dobit",
+                  "sadrzajUvodnik": null
+                }
+              }
+            },
+            "tablicaEng": {
+              "tablicaEng": {
+                "brojKolumni": 2,
+                "brojRedova": 5,
+                "kolumna0": "Characteristic",
+                "kolumna1naziv": "Bottled Water",
+                "kolumna2naziv": "Bluvia System",
+                "kolumna3naziv": null,
+                "r10c1": null,
+                "r10c2": null,
+                "r10c3": null,
+                "r1c1": "1,20 - 1,80 €",
+                "r1c2": "0,10 - 0,45 €",
+                "r1c3": null,
+                "r2c1": "3,50 - 5,50 €",
+                "r2c2": "3,50 - 5,50 €",
+                "r2c3": null,
+                "r3c1": "1,70 - 4,30 €",
+                "r3c2": "3,10 - 5,40 €",
+                "r3c3": null,
+                "r4c1": "High",
+                "r4c2": "Minimal",
+                "r4c3": null,
+                "r5c1": "Significant",
+                "r5c2": "Minimal",
+                "r5c3": null,
+                "r6c1": null,
+                "r6c2": null,
+                "r6c3": null,
+                "r7c1": null,
+                "r7c2": null,
+                "r7c3": null,
+                "r8c1": null,
+                "r8c2": null,
+                "r8c3": null,
+                "r9c1": null,
+                "r9c2": null,
+                "r9c3": null,
+                "red10naziv": null,
+                "red1naziv": "Cost & Benefit Comparison",
+                "red7naziv": null,
+                "red8naziv": null,
+                "red9naziv": null,
+                "red2naziv": "Selling Price",
+                "red3naziv": "Gross Profit",
+                "red4naziv": "Logistics & Warehousing",
+                "red5naziv": "Staff Time Consumption",
+                "red6naziv": null,
+                "uvod": {
+                  "nadnaslov": "Financial Snapshot at a Glance",
+                  "naslov": "Bottled Water vs. Bluvia System: Cost & Profit Breakdown",
+                  "sadrzajUvodnik": null
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
